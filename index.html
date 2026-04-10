@@ -20,63 +20,67 @@
     a:hover { color: #a5b4fc; }
     .card { border-radius: 8px; padding: 14px 16px; margin-bottom: 8px; transition: opacity .15s; }
     .hidden { display: none !important; }
-    .stat { background: #1e293b; border-radius: 8px; padding: 16px 20px; text-align: center; }
-    .kontakt-btn { background: #1e3a5f; color: #93c5fd; border: 1px solid #1d4ed8; border-radius: 5px; padding: 3px 10px; font-size: 12px; text-decoration: none; }
+    .stat { background: #1e293b; border-radius: 8px; padding: 12px 16px; text-align: center; }
+    .kontakt-btn { background: #1e3a5f; color: #93c5fd; border: 1px solid #1d4ed8; border-radius: 5px; padding: 5px 12px; font-size: 13px; text-decoration: none; display: inline-block; }
     .kontakt-btn:hover { background: #1d4ed8; color: white; }
+    input, select { width: 100%; }
+    @media (min-width: 640px) { input, select { width: auto; } }
   </style>
 </head>
-<body class="min-h-screen p-6">
+<body class="min-h-screen p-4 sm:p-6">
   <div class="max-w-5xl mx-auto">
 
     <!-- Header -->
-    <div class="mb-8">
-      <h1 class="text-2xl font-bold text-white mb-1">Lead List — HK + Pardubice</h1>
+    <div class="mb-6">
+      <h1 class="text-xl sm:text-2xl font-bold text-white mb-1">Lead List — HK + Pardubice</h1>
       <p class="text-slate-400 text-sm">Podniky s potenciálem pro nový web · aktualizováno automaticky</p>
     </div>
 
-    <!-- Stats -->
-    <div class="grid grid-cols-4 gap-3 mb-6">
+    <!-- Stats — 2 cols on mobile, 4 on desktop -->
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 mb-6">
       <div class="stat">
-        <div class="text-2xl font-bold text-red-400">4</div>
+        <div class="text-xl sm:text-2xl font-bold text-red-400">4</div>
         <div class="text-xs text-slate-400 mt-1">HIGH priority</div>
       </div>
       <div class="stat">
-        <div class="text-2xl font-bold text-amber-400">136</div>
+        <div class="text-xl sm:text-2xl font-bold text-amber-400">136</div>
         <div class="text-xs text-slate-400 mt-1">MED priority</div>
       </div>
       <div class="stat">
-        <div class="text-2xl font-bold text-indigo-400">41</div>
+        <div class="text-xl sm:text-2xl font-bold text-indigo-400">41</div>
         <div class="text-xs text-slate-400 mt-1">Mají web</div>
       </div>
       <div class="stat">
-        <div class="text-2xl font-bold text-green-400">46</div>
+        <div class="text-xl sm:text-2xl font-bold text-green-400">46</div>
         <div class="text-xs text-slate-400 mt-1">Mají email</div>
       </div>
     </div>
 
-    <!-- Filters -->
-    <div class="flex gap-3 mb-5 flex-wrap">
-      <input id="search" type="text" placeholder="Hledej podnik, kategorii..." class="flex-1 min-w-48" oninput="render()">
-      <select id="filtr-priorita" onchange="render()">
-        <option value="">Vše</option>
-        <option value="HIGH">HIGH</option>
-        <option value="MED">MED</option>
-      </select>
-      <select id="filtr-lokace" onchange="render()">
-        <option value="">Obě lokace</option>
-        <option value="Hradec Králové">Hradec Králové</option>
-        <option value="Pardubice">Pardubice</option>
-      </select>
-      <select id="filtr-kontakt" onchange="render()">
-        <option value="">Vše</option>
-        <option value="email">Má email</option>
-        <option value="web">Má web</option>
-        <option value="noweb">Bez webu</option>
-      </select>
+    <!-- Filters — stack on mobile, row on desktop -->
+    <div class="flex flex-col sm:flex-row gap-2 sm:gap-3 mb-4">
+      <input id="search" type="text" placeholder="Hledej podnik, kategorii..." class="sm:flex-1" oninput="render()">
+      <div class="grid grid-cols-3 sm:flex gap-2 sm:gap-3">
+        <select id="filtr-priorita" onchange="render()">
+          <option value="">Priorita</option>
+          <option value="HIGH">HIGH</option>
+          <option value="MED">MED</option>
+        </select>
+        <select id="filtr-lokace" onchange="render()">
+          <option value="">Lokace</option>
+          <option value="Hradec Králové">HK</option>
+          <option value="Pardubice">Pardubice</option>
+        </select>
+        <select id="filtr-kontakt" onchange="render()">
+          <option value="">Kontakt</option>
+          <option value="email">Email</option>
+          <option value="web">Web</option>
+          <option value="noweb">Bez webu</option>
+        </select>
+      </div>
     </div>
 
     <!-- Count -->
-    <div class="text-slate-400 text-sm mb-4" id="pocet"></div>
+    <div class="text-slate-400 text-sm mb-3" id="pocet"></div>
 
     <!-- Cards -->
     <div id="list"></div>
@@ -127,23 +131,24 @@ function render() {
 
     const ps = r.pagespeed ? `<span class="tag">PS: ${r.pagespeed}</span>` : '';
 
+    const kontakty = (tel || email)
+      ? `<div class="flex flex-wrap gap-2 mt-3">${tel}${email}</div>`
+      : '';
+
     return `<div class="card ${cls}">
-      <div class="flex items-start justify-between gap-4">
+      <div class="flex items-start gap-3">
         <div class="flex-1 min-w-0">
-          <div class="flex items-center gap-2 mb-1">
+          <div class="flex items-center gap-2 mb-1 flex-wrap">
             ${badge}
-            <span class="${scoreCls} text-lg">${r.score}</span>
-            <span class="font-semibold text-white truncate">${r.nazev}</span>
+            <span class="${scoreCls} text-lg leading-none">${r.score}</span>
+            <span class="font-semibold text-white">${r.nazev}</span>
           </div>
-          <div class="text-sm text-slate-400 mb-2">
-            ${r.lokace} &nbsp;·&nbsp; ${r.kategorie}${r.adresa ? ' &nbsp;·&nbsp; ' + r.adresa : ''}
+          <div class="text-xs sm:text-sm text-slate-400 mb-2">
+            ${r.lokace} · ${r.kategorie}${r.adresa ? ' · ' + r.adresa : ''}
           </div>
-          <div class="text-sm mb-2">${webLink}</div>
-          <div class="mb-1">${duvody}${ps}</div>
-        </div>
-        <div class="flex flex-col gap-1 items-end shrink-0">
-          ${tel}
-          ${email}
+          <div class="text-sm mb-2 break-all">${webLink}</div>
+          <div class="flex flex-wrap gap-1 mb-1">${duvody}${ps}</div>
+          ${kontakty}
         </div>
       </div>
     </div>`;
