@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kavárna Vozáb — Hradec Králové</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --brown:     #3b2412;
+      --brown-mid: #6b3f1f;
+      --caramel:   #c47a2b;
+      --cream:     #f7f0e6;
+      --cream-dark:#ede3d4;
+      --white:     #ffffff;
+      --text:      #2a1a0e;
+      --muted:     #7a6555;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.2rem 2.5rem;
+      background: rgba(59,36,18,0.92);
+      backdrop-filter: blur(10px);
+      transition: padding .3s;
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      color: var(--cream);
+      letter-spacing: .05em;
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--caramel); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      color: var(--cream-dark); font-size: .875rem; letter-spacing: .08em;
+      text-decoration: none; text-transform: uppercase;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--caramel); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center;
+      padding: 6rem 2rem 4rem;
+      background:
+        linear-gradient(to bottom, rgba(30,14,5,.7) 0%, rgba(30,14,5,.45) 60%, rgba(247,240,230,1) 100%),
+        url('https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=1600&q=80') center/cover no-repeat;
+    }
+    .hero-tag {
+      display: inline-block;
+      font-size: .7rem; letter-spacing: .2em; text-transform: uppercase;
+      color: var(--caramel); border: 1px solid var(--caramel);
+      padding: .35rem .9rem; border-radius: 2rem; margin-bottom: 1.5rem;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: .5rem;
+    }
+    .hero h1 em { color: var(--caramel); font-style: italic; }
+    .hero p {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: rgba(247,240,230,.8);
+      max-width: 480px;
+      margin: 1.2rem auto 2.5rem;
+      font-weight: 300;
+    }
+    .btn {
+      display: inline-block;
+      padding: .85rem 2.2rem;
+      border-radius: 3rem;
+      font-size: .875rem; letter-spacing: .08em; text-transform: uppercase;
+      text-decoration: none; transition: all .25s;
+    }
+    .btn-primary {
+      background: var(--caramel); color: var(--white);
+    }
+    .btn-primary:hover { background: var(--brown-mid); transform: translateY(-2px); }
+    .btn-outline {
+      border: 1px solid rgba(247,240,230,.5); color: var(--cream);
+      margin-left: 1rem;
+    }
+    .btn-outline:hover { border-color: var(--cream); }
+
+    .hero-scroll {
+      margin-top: 4rem;
+      color: rgba(247,240,230,.4);
+      font-size: .75rem; letter-spacing: .15em; text-transform: uppercase;
+      animation: bounce 2s infinite;
+    }
+    @keyframes bounce {
+      0%,100% { transform: translateY(0); }
+      50%      { transform: translateY(6px); }
+    }
+
+    /* ── SECTION COMMON ── */
+    section { padding: 6rem 2rem; }
+    .section-label {
+      font-size: .7rem; letter-spacing: .2em; text-transform: uppercase;
+      color: var(--caramel); margin-bottom: .8rem;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      line-height: 1.2;
+      color: var(--brown);
+      margin-bottom: 1.2rem;
+    }
+    .section-sub {
+      color: var(--muted); font-size: 1rem; font-weight: 300;
+      max-width: 540px; margin-bottom: 2.5rem;
+    }
+    .container { max-width: 1100px; margin: 0 auto; }
+
+    /* ── ABOUT ── */
+    .about { background: var(--cream); }
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 5rem;
+      align-items: center;
+    }
+    .about-img {
+      border-radius: 2px;
+      overflow: hidden;
+      aspect-ratio: 4/5;
+      background: url('https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=800&q=80') center/cover;
+      position: relative;
+    }
+    .about-img::after {
+      content: '';
+      position: absolute; inset: 0;
+      border: 2px solid var(--caramel);
+      transform: translate(14px, 14px);
+      border-radius: 2px;
+      pointer-events: none;
+    }
+    .about-features {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    .about-feature {
+      padding: 1.2rem;
+      background: var(--cream-dark);
+      border-radius: 4px;
+      border-left: 3px solid var(--caramel);
+    }
+    .about-feature h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: .95rem; color: var(--brown);
+      margin-bottom: .3rem;
+    }
+    .about-feature p { font-size: .82rem; color: var(--muted); }
+
+    /* ── MENU ── */
+    .menu { background: var(--brown); }
+    .menu .section-label { color: var(--caramel); }
+    .menu .section-title { color: var(--cream); }
+    .menu .section-sub { color: rgba(247,240,230,.6); }
+
+    .menu-tabs {
+      display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 3rem;
+    }
+    .menu-tab {
+      padding: .5rem 1.4rem;
+      border-radius: 2rem;
+      font-size: .8rem; letter-spacing: .1em; text-transform: uppercase;
+      cursor: pointer; border: 1px solid rgba(196,122,43,.4);
+      color: rgba(247,240,230,.6); background: transparent;
+      transition: all .2s;
+    }
+    .menu-tab.active, .menu-tab:hover {
+      background: var(--caramel); color: var(--white);
+      border-color: var(--caramel);
+    }
+
+    .menu-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1px; background: rgba(255,255,255,.06);
+    }
+    .menu-item {
+      padding: 1.8rem 2rem;
+      background: rgba(255,255,255,.03);
+      transition: background .2s;
+    }
+    .menu-item:hover { background: rgba(255,255,255,.07); }
+    .menu-item-top {
+      display: flex; justify-content: space-between;
+      align-items: baseline; margin-bottom: .4rem;
+    }
+    .menu-item h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem; color: var(--cream);
+    }
+    .menu-item-price {
+      font-size: .9rem; color: var(--caramel); font-weight: 500;
+      white-space: nowrap; margin-left: 1rem;
+    }
+    .menu-item p { font-size: .82rem; color: rgba(247,240,230,.5); }
+
+    .menu-category { display: none; }
+    .menu-category.active { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1px; background: rgba(255,255,255,.06); }
+
+    /* ── GALLERY ── */
+    .gallery { background: var(--cream-dark); }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      grid-template-rows: 260px 260px;
+      gap: .8rem;
+      margin-top: 3rem;
+    }
+    .gallery-item {
+      overflow: hidden; border-radius: 2px;
+      background: var(--cream);
+    }
+    .gallery-item:first-child { grid-row: 1 / 3; }
+    .gallery-item img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform .5s ease;
+    }
+    .gallery-item:hover img { transform: scale(1.04); }
+
+    /* ── HOURS & CONTACT ── */
+    .contact { background: var(--cream); }
+    .contact-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;
+      align-items: start;
+    }
+    .hours-table { width: 100%; border-collapse: collapse; margin-top: 1.5rem; }
+    .hours-table tr { border-bottom: 1px solid var(--cream-dark); }
+    .hours-table td {
+      padding: .9rem 0; font-size: .9rem;
+    }
+    .hours-table td:last-child { text-align: right; color: var(--muted); }
+    .hours-table tr.today td { color: var(--caramel); font-weight: 500; }
+    .hours-table tr.closed td:last-child { color: #c0392b; }
+
+    .contact-item {
+      display: flex; align-items: flex-start; gap: 1rem;
+      margin-bottom: 1.8rem;
+    }
+    .contact-icon {
+      width: 40px; height: 40px; min-width: 40px;
+      background: var(--cream-dark);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+    }
+    .contact-item h4 {
+      font-size: .7rem; text-transform: uppercase; letter-spacing: .12em;
+      color: var(--muted); margin-bottom: .25rem;
+    }
+    .contact-item p, .contact-item a {
+      font-size: .95rem; color: var(--text); text-decoration: none;
+    }
+    .contact-item a:hover { color: var(--caramel); }
+
+    .map-placeholder {
+      margin-top: 2rem;
+      height: 200px;
+      background: var(--cream-dark);
+      border-radius: 4px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--muted); font-size: .85rem;
+      text-align: center;
+      overflow: hidden;
+    }
+    .map-placeholder iframe { width: 100%; height: 100%; border: 0; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--brown);
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem; color: var(--cream);
+      margin-bottom: .5rem;
+    }
+    .footer-logo span { color: var(--caramel); }
+    footer p { font-size: .8rem; color: rgba(247,240,230,.4); margin-top: .5rem; }
+    .footer-links {
+      display: flex; justify-content: center; gap: 2rem;
+      list-style: none; margin: 1.5rem 0;
+    }
+    .footer-links a {
+      font-size: .78rem; text-transform: uppercase; letter-spacing: .1em;
+      color: rgba(247,240,230,.5); text-decoration: none;
+    }
+    .footer-links a:hover { color: var(--caramel); }
+
+    /* ── DIVIDER ── */
+    .divider {
+      width: 40px; height: 2px; background: var(--caramel);
+      margin: 1.2rem 0;
+    }
+
+    /* ── HAMBURGER ── */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column; justify-content: center; gap: 5px;
+      width: 36px; height: 36px; cursor: pointer;
+      background: none; border: none; padding: 4px;
+    }
+    .nav-hamburger span {
+      display: block; height: 2px; background: var(--cream);
+      border-radius: 2px; transition: all .3s;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .nav-mobile {
+      display: none;
+      position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 99;
+      background: rgba(30,14,5,.97);
+      flex-direction: column; align-items: center; justify-content: center;
+      gap: 2.5rem;
+    }
+    .nav-mobile.open { display: flex; }
+    .nav-mobile a {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem; color: var(--cream);
+      text-decoration: none; letter-spacing: .04em;
+    }
+    .nav-mobile a:hover { color: var(--caramel); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      section { padding: 4rem 1.25rem; }
+
+      /* Nav */
+      nav { padding: 1rem 1.25rem; }
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+
+      /* Hero */
+      .hero { padding: 7rem 1.25rem 3rem; min-height: 90vh; }
+      .hero h1 { font-size: 2.6rem; }
+      .hero p { font-size: .95rem; margin-bottom: 2rem; }
+      .hero > div:nth-of-type(1) {
+        display: flex; flex-direction: column; gap: .75rem; align-items: center;
+      }
+      .btn-outline { margin-left: 0; }
+
+      /* About */
+      .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .about-img { aspect-ratio: 3/2; }
+      .about-img::after { display: none; }
+      .about-features { grid-template-columns: 1fr 1fr; gap: 1rem; }
+      .about-feature { padding: 1rem; }
+
+      /* Menu */
+      .menu-tabs { gap: .5rem; }
+      .menu-tab { font-size: .72rem; padding: .45rem 1rem; }
+      .menu-category.active { grid-template-columns: 1fr; }
+      .menu-item { padding: 1.2rem 1rem; }
+
+      /* Gallery */
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 160px 160px 160px;
+        gap: .5rem;
+      }
+      .gallery-item:first-child { grid-column: 1 / 3; grid-row: auto; }
+
+      /* Contact */
+      .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+
+      /* Footer */
+      .footer-links { gap: 1.2rem; flex-wrap: wrap; }
+    }
+
+    @media (max-width: 420px) {
+      .hero h1 { font-size: 2.1rem; }
+      .about-features { grid-template-columns: 1fr; }
+      .gallery-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+      }
+      .gallery-item:first-child { grid-column: auto; }
+      .gallery-item { aspect-ratio: 16/9; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Kavárna <span>Vozáb</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">O nás</a></li>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#gallery">Galerie</a></li>
+    <li><a href="#contact">Kontakt</a></li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE NAV OVERLAY -->
+<div class="nav-mobile" id="mobileNav">
+  <a href="#about" class="mobile-link">O nás</a>
+  <a href="#menu" class="mobile-link">Menu</a>
+  <a href="#gallery" class="mobile-link">Galerie</a>
+  <a href="#contact" class="mobile-link">Kontakt</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-tag">Kavárna · Hradec Králové</div>
+  <h1>Místo, kde káva<br /><em>chutná jinak</em></h1>
+  <p>Klidný koutek v Hradci Králové. Výběrová káva, domácí zákusky a atmosféra, ve které si rádi sednete.</p>
+  <div>
+    <a href="#menu" class="btn btn-primary">Naše menu</a>
+    <a href="#contact" class="btn btn-outline">Kde nás najdete</a>
+  </div>
+  <div class="hero-scroll">↓ &nbsp; Scroll</div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img"></div>
+      <div>
+        <p class="section-label">O kavárně</p>
+        <h2 class="section-title">Poctivá káva.<br />Domácí přístup.</h2>
+        <div class="divider"></div>
+        <p class="section-sub">
+          Kavárna Vozáb vznikla z lásky ke kvalitní kávě a touze mít v Hradci Králové místo, kde se dá v klidu zastavit.
+          Pracujeme s pečlivě vybíranými zrny a každý šálek připravujeme s péčí.
+        </p>
+        <p style="color:var(--muted); font-size:.9rem; font-weight:300; line-height:1.8;">
+          Jsme součástí sítě Lázeňská káva — přístupu ke kávě, který staví na čerstvosti, čistotě chuti a osobním přístupu baristy.
+          Ať přijdete sami, s přítelem nebo na pracovní schůzku — u nás je vždy místo.
+        </p>
+        <div class="about-features">
+          <div class="about-feature">
+            <h4>Výběrová káva</h4>
+            <p>Čerstvě pražená zrna, připravená s citem</p>
+          </div>
+          <div class="about-feature">
+            <h4>Domácí zákusky</h4>
+            <p>Každý den čerstvé, bez kompromisů</p>
+          </div>
+          <div class="about-feature">
+            <h4>Klidná atmosféra</h4>
+            <p>Žádný hluk, jen vy a váš šálek</p>
+          </div>
+          <div class="about-feature">
+            <h4>Srdce Hradce</h4>
+            <p>Švehlova 308, snadno dostupné</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section class="menu" id="menu">
+  <div class="container">
+    <p class="section-label">Co nabízíme</p>
+    <h2 class="section-title" style="color:var(--cream)">Naše menu</h2>
+    <p class="section-sub">Výběrová káva, čaje a domácí sladkosti. Vše připraveno s péčí.</p>
+
+    <div class="menu-tabs">
+      <button class="menu-tab active" data-cat="kava">Káva</button>
+      <button class="menu-tab" data-cat="napoje">Nápoje</button>
+      <button class="menu-tab" data-cat="jidlo">Zákusky & jídlo</button>
+    </div>
+
+    <div class="menu-category active" id="cat-kava">
+      <div class="menu-item">
+        <div class="menu-item-top"><h3>Espresso</h3><span class="menu-item-price">55 Kč</span></div>
+        <p>Čistá, intenzivní chuť · single origin</p>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-top"><h3>Espresso Doppio</h3><span class="menu-item-price">75 Kč</span></div>
+        <p>Dvojitá dávka pro ty, kteří vědí, co chtějí</p>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-top"><h3>Cappuccino</h3><span class="menu-item-price">79 Kč</span></div>
+        <p>Krémová pěna, dokonalá rovnováha</p>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-top"><h3>Flat White</h3><span class="menu-item-price">85 Kč</span></div>
+        <p>Silnější, méně mléka — pro znalce</p>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-top"><h3>Latte</h3><span class="menu-item-price">89 Kč</span></div>
+        <p>Jemné, hebké, pohodlné</p>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-top"><h3>Filtrovaná káva</h3><span class="menu-item-price">75 Kč</span></div>
+        <p>Pour-over · každý den jiný origin</p>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-top"><h3>Cold Brew</h3><span class="menu-item-price">89 Kč</span></div>
+        <p>18 hodin louhování · hladký, osvěžující</p>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-top"><h3>Vídeňská káva</h3><span class="menu-item-price">95 Kč</span></div>
+        <p>Espresso, šlehačka, trocha nostalgie</p>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-top"><h3>Rostlinné mléko</h3><span class="menu-item-price">+15 Kč</span></div>
+        <p>Oves, sója, mandle, kokos</p>
+      </div>
+    </div>
+
+    <div class="menu-category" id="cat-napoje">
+      <div class="menu-item">
+        <div class="menu-item-top"><h3>Čaj sypaný</h3><span class="menu-item-price">65 Kč</span></div>
+        <p>Výběr z více než 10 druhů · Chinese, Ceylon, Herbal</p>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-top"><h3>Horká čokoláda</h3><span class="menu-item-price">89 Kč</span></div>
+        <p>Pravá belgická čokoláda, hustá a hřejivá</p>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-top"><h3>Matcha Latte</h3><span class="menu-item-price">95 Kč</span></div>
+        <p>Ceremonial grade matcha · jemná chuť</p>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-top"><h3>Limonáda domácí</h3><span class="menu-item-price">79 Kč</span></div>
+        <p>Citron & mäta nebo lesní plody · sezonní</p>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-top"><h3>Džus čerstvý</h3><span class="menu-item-price">85 Kč</span></div>
+        <p>Pomerančový nebo mrkvový s zázvorem</p>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-top"><h3>Voda Mattoni</h3><span class="menu-item-price">35 Kč</span></div>
+        <p>Jemně perlivá nebo neperlivá</p>
+      </div>
+    </div>
+
+    <div class="menu-category" id="cat-jidlo">
+      <div class="menu-item">
+        <div class="menu-item-top"><h3>Croissant máslový</h3><span class="menu-item-price">55 Kč</span></div>
+        <p>Čerstvý každé ráno · prostý nebo s máslem</p>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-top"><h3>Cheesecake</h3><span class="menu-item-price">89 Kč</span></div>
+        <p>New York style · krémový, bez kompromisů</p>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-top"><h3>Čokoládový fondant</h3><span class="menu-item-price">95 Kč</span></div>
+        <p>Teplý, tekoucí střed · se zmrzlinou</p>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-top"><h3>Tiramisu</h3><span class="menu-item-price">85 Kč</span></div>
+        <p>Klasika, která nikdy nezklame</p>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-top"><h3>Toast se šunkou</h3><span class="menu-item-price">99 Kč</span></div>
+        <p>Kváskový chléb, šunka, sýr, čerstvé bylinky</p>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-top"><h3>Ovesná kaše</h3><span class="menu-item-price">109 Kč</span></div>
+        <p>Sezonní ovoce, med, granola · výživný start dne</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery" id="gallery">
+  <div class="container">
+    <p class="section-label">Atmosféra</p>
+    <h2 class="section-title">Kavárna zblízka</h2>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=900&q=80" alt="Interiér kavárny" />
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1611854779393-1b2da9d400fe?w=600&q=80" alt="Espresso" />
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?w=600&q=80" alt="Zákusek" />
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600&q=80" alt="Latte art" />
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1521017432531-fbd92d768814?w=600&q=80" alt="Posezení" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="container">
+    <p class="section-label">Přijďte k nám</p>
+    <h2 class="section-title">Kde nás najdete</h2>
+    <div class="contact-grid">
+      <div>
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div>
+            <h4>Adresa</h4>
+            <p>Švehlova 308<br />500 02 Hradec Králové</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📞</div>
+          <div>
+            <h4>Telefon</h4>
+            <a href="tel:+420775379910">+420 775 379 910</a>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">🌐</div>
+          <div>
+            <h4>Web</h4>
+            <a href="http://www.kavarnavozab.cz" target="_blank">www.kavarnavozab.cz</a>
+          </div>
+        </div>
+        <div class="map-placeholder">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2555.123!2d15.8322!3d50.2092!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470c36d3b5a2b4d1%3A0x6b19e7b1b1e1a1e1!2s%C5%A0vehlova%20308%2C%20500%2002%20Hradec%20Kr%C3%A1lov%C3%A9!5e0!3m2!1scs!2scz!4v1699000000000!5m2!1scs!2scz"
+            allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+      <div>
+        <h3 style="font-family:'Playfair Display',serif; color:var(--brown); margin-bottom:.5rem; font-size:1.3rem;">
+          Otevírací doba
+        </h3>
+        <div class="divider"></div>
+        <table class="hours-table">
+          <tbody id="hours-table">
+            <tr data-day="1"><td>Pondělí</td><td>9:00 – 19:00</td></tr>
+            <tr data-day="2"><td>Úterý</td><td>9:00 – 19:00</td></tr>
+            <tr data-day="3"><td>Středa</td><td>9:00 – 19:00</td></tr>
+            <tr data-day="4"><td>Čtvrtek</td><td>9:00 – 19:00</td></tr>
+            <tr data-day="5"><td>Pátek</td><td>9:00 – 19:00</td></tr>
+            <tr data-day="6" class="closed"><td>Sobota</td><td>Zavřeno</td></tr>
+            <tr data-day="0"><td>Neděle</td><td>13:00 – 19:00</td></tr>
+          </tbody>
+        </table>
+        <div style="margin-top:2rem; padding:1.5rem; background:var(--cream-dark); border-radius:4px;">
+          <p style="font-size:.85rem; color:var(--muted); line-height:1.7;">
+            Máte zájem o <strong style="color:var(--brown);">soukromou akci</strong> nebo firemní posezení?
+            Rádi se domluvíme. Zavolejte nebo napište.
+          </p>
+          <a href="tel:+420775379910" class="btn btn-primary" style="margin-top:1rem; font-size:.8rem; padding:.7rem 1.6rem;">
+            Zavolat
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Kavárna <span>Vozáb</span></div>
+  <ul class="footer-links">
+    <li><a href="#about">O nás</a></li>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#gallery">Galerie</a></li>
+    <li><a href="#contact">Kontakt</a></li>
+  </ul>
+  <p>© 2024 Kavárna Vozáb · Švehlova 308, Hradec Králové</p>
+  <p style="margin-top:.4rem; font-size:.7rem;">Demo website — nezávazný návrh</p>
+</footer>
+
+<script>
+  // Hamburger menu
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobileNav');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileNav.classList.toggle('open');
+    document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
+  });
+  document.querySelectorAll('.mobile-link').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      mobileNav.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+
+  // Highlight today
+  const today = new Date().getDay();
+  const rows = document.querySelectorAll('#hours-table tr');
+  rows.forEach(r => {
+    if (parseInt(r.dataset.day) === today) r.classList.add('today');
+  });
+
+  // Menu tabs
+  const tabs = document.querySelectorAll('.menu-tab');
+  const cats = document.querySelectorAll('.menu-category');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      cats.forEach(c => c.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById('cat-' + tab.dataset.cat).classList.add('active');
+    });
+  });
+
+  // Nav shrink on scroll
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('nav');
+    nav.style.padding = window.scrollY > 60 ? '.8rem 2.5rem' : '1.2rem 2.5rem';
+  });
+</script>
+</body>
+</html>
