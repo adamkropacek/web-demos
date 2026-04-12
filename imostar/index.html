@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IMO-STAR 98 — Interiérový design & developerské projekty</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold: #B8955A;
+      --gold-light: #D4AE78;
+      --dark: #1A1714;
+      --cream: #FAF8F4;
+      --warm-gray: #F0EDE8;
+      --text-muted: #8C8278;
+    }
+
+    * { -webkit-font-smoothing: antialiased; }
+    body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--dark); }
+    h1, h2, h3, .serif { font-family: 'Cormorant Garamond', serif; }
+    html { scroll-behavior: smooth; }
+
+    /* Nav */
+    .navbar {
+      background: rgba(250,248,244,0.95);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(184,149,90,0.15);
+    }
+
+    /* Hero */
+    .hero {
+      background: var(--dark);
+      position: relative;
+      overflow: hidden;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+    }
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(184,149,90,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(184,149,90,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    .hero-glow {
+      position: absolute;
+      top: -20%;
+      right: -10%;
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, rgba(184,149,90,0.08) 0%, transparent 65%);
+    }
+    .hero-glow-2 {
+      position: absolute;
+      bottom: -30%;
+      left: 5%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(184,149,90,0.05) 0%, transparent 65%);
+    }
+
+    /* Gold accent */
+    .text-gold { color: var(--gold); }
+    .bg-gold { background: var(--gold); }
+    .border-gold { border-color: var(--gold); }
+
+    /* Divider */
+    .gold-line { width: 48px; height: 1px; background: var(--gold); }
+
+    /* Service card */
+    .service-card {
+      border: 1px solid rgba(184,149,90,0.2);
+      transition: all 0.3s ease;
+      background: white;
+    }
+    .service-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 60px rgba(26,23,20,0.08);
+    }
+    .service-card:hover .service-icon { background: var(--gold); color: white; }
+
+    /* Project card */
+    .project-card { overflow: hidden; position: relative; }
+    .project-card .overlay {
+      background: linear-gradient(to top, rgba(26,23,20,0.85) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .project-card:hover .overlay { opacity: 1; }
+    .project-card:hover img { transform: scale(1.05); }
+    .project-card img { transition: transform 0.5s ease; }
+
+    /* Stats */
+    .stat-item { border-left: 1px solid rgba(184,149,90,0.3); }
+
+    /* Why us */
+    .pillar { border-top: 2px solid transparent; transition: border-color 0.3s; }
+    .pillar:hover { border-color: var(--gold); }
+
+    /* Form */
+    .form-field {
+      border: 1px solid #E5E0D8;
+      border-radius: 4px;
+      padding: 14px 16px;
+      width: 100%;
+      background: white;
+      font-size: 14px;
+      font-family: 'Inter', sans-serif;
+      transition: border-color 0.2s;
+      outline: none;
+      color: var(--dark);
+    }
+    .form-field:focus { border-color: var(--gold); }
+    .form-field::placeholder { color: #B8AFA6; }
+
+    /* Fade animations */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .fade-up { animation: fadeUp 0.7s ease forwards; }
+    .d1 { animation-delay: 0.1s; opacity: 0; }
+    .d2 { animation-delay: 0.25s; opacity: 0; }
+    .d3 { animation-delay: 0.4s; opacity: 0; }
+    .d4 { animation-delay: 0.55s; opacity: 0; }
+
+    /* Photo placeholder */
+    .photo-placeholder {
+      background: linear-gradient(135deg, #2A2520 0%, #1A1714 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #4A4540;
+      font-size: 13px;
+      font-family: 'Inter', sans-serif;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* Section label */
+    .section-label {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 500;
+    }
+
+    /* Tag */
+    .project-tag {
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      background: rgba(184,149,90,0.15);
+      color: var(--gold);
+      border: 1px solid rgba(184,149,90,0.3);
+      padding: 3px 10px;
+      border-radius: 2px;
+    }
+
+    /* CTA button */
+    .btn-gold {
+      background: var(--gold);
+      color: white;
+      transition: background 0.2s;
+    }
+    .btn-gold:hover { background: #A07840; }
+    .btn-outline {
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      transition: all 0.2s;
+    }
+    .btn-outline:hover { background: var(--gold); color: white; }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar fixed top-0 left-0 right-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 md:px-6 py-3 md:py-4 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-3">
+        <div class="flex flex-col leading-none">
+          <span class="serif text-xl font-semibold tracking-wide text-dark" style="color:var(--dark)">IMO-STAR <span class="text-gold">98</span></span>
+          <span class="text-xs tracking-widest uppercase" style="color:var(--text-muted); font-size:9px; letter-spacing:0.2em">INTERIÉRY & DEVELOPMENT</span>
+        </div>
+      </a>
+      <div class="hidden md:flex items-center gap-8 text-sm" style="color:var(--text-muted)">
+        <a href="#sluzby" class="hover:text-gold transition-colors" style="transition:color 0.2s">Služby</a>
+        <a href="#projekty" class="hover:text-gold transition-colors">Projekty</a>
+        <a href="#o-nas" class="hover:text-gold transition-colors">O nás</a>
+        <a href="#kontakt" class="hover:text-gold transition-colors">Kontakt</a>
+      </div>
+      <a href="#kontakt" class="btn-gold px-5 py-2.5 text-sm font-medium rounded-sm tracking-wide">
+        Nezávazná konzultace
+      </a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero px-6">
+    <div class="hero-grid"></div>
+    <div class="hero-glow"></div>
+    <div class="hero-glow-2"></div>
+    <div class="max-w-6xl mx-auto w-full relative z-10 pt-20">
+      <div class="max-w-3xl">
+        <div class="section-label mb-6 fade-up">Od roku 1998 — Hradec Králové & Praha</div>
+        <h1 class="serif text-4xl md:text-6xl lg:text-7xl font-light text-white leading-tight mb-6 fade-up d1">
+          Váš domov,<br>
+          <em class="text-gold not-italic">tak jak jste</em><br>
+          vždy chtěli.
+        </h1>
+        <p class="text-base leading-relaxed mb-10 fade-up d2" style="color:#9A9088; max-width:480px">
+          Navrhujeme, rekonstruujeme a realizujeme interiéry bytů, rodinných domů i sídel firem. Kompletně. Na klíč. Více než 26 let zkušeností ve vašich rukou.
+        </p>
+        <div class="flex flex-wrap gap-4 fade-up d3">
+          <a href="#kontakt" class="btn-gold px-8 py-3.5 font-medium rounded-sm tracking-wide">
+            Konzultace zdarma →
+          </a>
+          <a href="#projekty" class="btn-outline px-8 py-3.5 font-medium rounded-sm tracking-wide">
+            Naše projekty
+          </a>
+        </div>
+      </div>
+
+      <!-- Stats bar -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-0 mt-20 mb-4 fade-up d4">
+        <div class="stat-item pl-6 pb-6">
+          <div class="serif text-3xl md:text-5xl font-light text-white">26+</div>
+          <div class="text-xs mt-1 tracking-widest uppercase" style="color:#6A6058">let zkušeností</div>
+        </div>
+        <div class="stat-item pl-6 pb-6">
+          <div class="serif text-3xl md:text-5xl font-light text-white">stovky</div>
+          <div class="text-xs mt-1 tracking-widest uppercase" style="color:#6A6058">realizovaných projektů</div>
+        </div>
+        <div class="stat-item pl-6 pb-6">
+          <div class="serif text-3xl md:text-5xl font-light text-white">2</div>
+          <div class="text-xs mt-1 tracking-widest uppercase" style="color:#6A6058">města — HK & Praha</div>
+        </div>
+        <div class="stat-item pl-6 pb-6">
+          <div class="serif text-3xl md:text-5xl font-light text-white">360°</div>
+          <div class="text-xs mt-1 tracking-widest uppercase" style="color:#6A6058">servis na klíč</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="sluzby" class="py-14 md:py-24 px-4 md:px-6" style="background:var(--cream)">
+    <div class="max-w-6xl mx-auto">
+      <div class="flex items-start justify-between mb-16 flex-wrap gap-6">
+        <div>
+          <div class="section-label mb-4">Co děláme</div>
+          <h2 class="serif text-3xl md:text-5xl font-light leading-tight">
+            Komplexní péče<br>o váš prostor
+          </h2>
+        </div>
+        <p class="text-sm leading-relaxed max-w-xs" style="color:var(--text-muted); padding-top:3rem">
+          Od první myšlenky až po poslední detail. Postaráme se o návrh, dodávku i realizaci — vy si jen užíváte výsledek.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+
+        <!-- Interiérový design -->
+        <div class="service-card rounded-sm p-8">
+          <div class="service-icon w-12 h-12 border border-gold rounded-sm flex items-center justify-center mb-6 transition-all duration-300" style="border-color:rgba(184,149,90,0.4)">
+            <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" style="color:var(--gold)">
+              <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/>
+            </svg>
+          </div>
+          <div class="gold-line mb-4"></div>
+          <h3 class="serif text-2xl font-medium mb-3">Interiérový design</h3>
+          <p class="text-sm leading-relaxed mb-6" style="color:var(--text-muted)">
+            Grafické zpracování, vizualizace a poradenství. Navrhujeme obývací pokoje, ložnice, pracovny i celé domy — přesně podle vašeho vkusu.
+          </p>
+          <div class="space-y-2">
+            <div class="flex items-center gap-2 text-sm" style="color:var(--text-muted)">
+              <span class="w-1 h-1 rounded-full bg-gold inline-block"></span> Kuchyňské linky na míru
+            </div>
+            <div class="flex items-center gap-2 text-sm" style="color:var(--text-muted)">
+              <span class="w-1 h-1 rounded-full bg-gold inline-block"></span> Koupelny
+            </div>
+            <div class="flex items-center gap-2 text-sm" style="color:var(--text-muted)">
+              <span class="w-1 h-1 rounded-full bg-gold inline-block"></span> Krby a kamnová tělesa
+            </div>
+          </div>
+        </div>
+
+        <!-- Rekonstrukce -->
+        <div class="service-card rounded-sm p-8">
+          <div class="service-icon w-12 h-12 border border-gold rounded-sm flex items-center justify-center mb-6 transition-all duration-300" style="border-color:rgba(184,149,90,0.4)">
+            <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" style="color:var(--gold)">
+              <path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/>
+            </svg>
+          </div>
+          <div class="gold-line mb-4"></div>
+          <h3 class="serif text-2xl font-medium mb-3">Rekonstrukce na klíč</h3>
+          <p class="text-sm leading-relaxed mb-6" style="color:var(--text-muted)">
+            Kompletní rekonstrukce bytů, rodinných domů i komerčních prostor. Vlastní technický dozor na každé zakázce — kvalita bez kompromisů.
+          </p>
+          <div class="space-y-2">
+            <div class="flex items-center gap-2 text-sm" style="color:var(--text-muted)">
+              <span class="w-1 h-1 rounded-full bg-gold inline-block"></span> Byty & rodinné domy
+            </div>
+            <div class="flex items-center gap-2 text-sm" style="color:var(--text-muted)">
+              <span class="w-1 h-1 rounded-full bg-gold inline-block"></span> Sídla firem & kanceláře
+            </div>
+            <div class="flex items-center gap-2 text-sm" style="color:var(--text-muted)">
+              <span class="w-1 h-1 rounded-full bg-gold inline-block"></span> Technický dozor v ceně
+            </div>
+          </div>
+        </div>
+
+        <!-- Development -->
+        <div class="service-card rounded-sm p-8" style="background: var(--dark); border-color: rgba(184,149,90,0.3)">
+          <div class="w-12 h-12 border rounded-sm flex items-center justify-center mb-6" style="border-color:rgba(184,149,90,0.4)">
+            <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" style="color:var(--gold)">
+              <rect x="2" y="2" width="20" height="20" rx="2"/><path d="M7 2v20M2 12h20"/>
+            </svg>
+          </div>
+          <div class="gold-line mb-4"></div>
+          <h3 class="serif text-2xl font-medium mb-3 text-white">Developerské projekty</h3>
+          <p class="text-sm leading-relaxed mb-6" style="color:#6A6058">
+            Výstavba a prodej bytových domů a rodinných domů v Hradci Králové a Praze. Od územního řízení po předání klíčů.
+          </p>
+          <div class="space-y-2">
+            <div class="flex items-center gap-2 text-sm" style="color:#6A6058">
+              <span class="w-1 h-1 rounded-full bg-gold inline-block"></span> Bytové domy
+            </div>
+            <div class="flex items-center gap-2 text-sm" style="color:#6A6058">
+              <span class="w-1 h-1 rounded-full bg-gold inline-block"></span> Řadové & samostatné RD
+            </div>
+            <div class="flex items-center gap-2 text-sm" style="color:#6A6058">
+              <span class="w-1 h-1 rounded-full bg-gold inline-block"></span> Infrastruktura v ceně
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projekty" style="background:white; padding: 4rem 1rem">
+    <div class="max-w-6xl mx-auto">
+      <div class="flex items-end justify-between mb-14 flex-wrap gap-4">
+        <div>
+          <div class="section-label mb-4">Reference</div>
+          <h2 class="serif text-3xl md:text-5xl font-light">Naše realizace</h2>
+        </div>
+        <a href="#kontakt" class="btn-outline px-6 py-2.5 text-sm rounded-sm hidden md:block">Zobrazit všechny →</a>
+      </div>
+
+      <!-- Featured project -->
+      <div class="grid md:grid-cols-2 gap-6 mb-6">
+        <div class="project-card rounded-sm" style="min-height:280px; cursor:pointer">
+          <div class="photo-placeholder w-full h-full relative rounded-sm overflow-hidden">
+            <div class="absolute inset-0 overlay"></div>
+            <div class="absolute bottom-6 left-6 right-6">
+              <div class="project-tag mb-2">Developerský projekt · HK</div>
+              <h3 class="serif text-2xl font-medium text-white">RD Nová Pálenecká</h3>
+              <p class="text-sm mt-1" style="color:rgba(255,255,255,0.6)">36 rodinných domů · Svobodné Dvory · 2018–2020</p>
+            </div>
+            <span style="color:#2A2520; font-size:11px; letter-spacing:0.15em">FOTO PROJEKTU</span>
+          </div>
+        </div>
+        <div class="grid grid-rows-2 gap-6">
+          <div class="project-card rounded-sm" style="cursor:pointer">
+            <div class="photo-placeholder w-full h-full relative rounded-sm overflow-hidden" style="height:187px">
+              <div class="absolute inset-0 overlay"></div>
+              <div class="absolute bottom-4 left-4 right-4">
+                <div class="project-tag mb-1">Bytový dům · HK</div>
+                <h3 class="serif text-lg font-medium text-white">Rezidence Sukovy Sady</h3>
+                <p class="text-xs mt-0.5" style="color:rgba(255,255,255,0.6)">Centrum Hradce Králové · 2016–2017</p>
+              </div>
+              <span style="color:#2A2520; font-size:11px; letter-spacing:0.15em">FOTO PROJEKTU</span>
+            </div>
+          </div>
+          <div class="project-card rounded-sm" style="cursor:pointer">
+            <div class="photo-placeholder w-full h-full relative rounded-sm overflow-hidden" style="height:187px">
+              <div class="absolute inset-0 overlay"></div>
+              <div class="absolute bottom-4 left-4 right-4">
+                <div class="project-tag mb-1">Bytový dům · HK</div>
+                <h3 class="serif text-lg font-medium text-white">BD Slunečná</h3>
+                <p class="text-xs mt-0.5" style="color:rgba(255,255,255,0.6)">21 bytů 1+kk–4+kk · 2014–2015</p>
+              </div>
+              <span style="color:#2A2520; font-size:11px; letter-spacing:0.15em">FOTO PROJEKTU</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project list -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="project-card rounded-sm" style="cursor:pointer">
+          <div class="photo-placeholder rounded-sm overflow-hidden" style="height:160px">
+            <div class="absolute inset-0 overlay"></div>
+            <div class="absolute bottom-3 left-3">
+              <div class="project-tag mb-1">RD · Věkoše</div>
+              <p class="text-white text-xs font-medium">Řadové RD Věkoše II</p>
+            </div>
+            <span style="color:#2A2520; font-size:10px; letter-spacing:0.1em">FOTO</span>
+          </div>
+        </div>
+        <div class="project-card rounded-sm" style="cursor:pointer">
+          <div class="photo-placeholder rounded-sm overflow-hidden" style="height:160px">
+            <div class="absolute inset-0 overlay"></div>
+            <div class="absolute bottom-3 left-3">
+              <div class="project-tag mb-1">BD · Plotiště</div>
+              <p class="text-white text-xs font-medium">BD Plotiště n. Labem</p>
+            </div>
+            <span style="color:#2A2520; font-size:10px; letter-spacing:0.1em">FOTO</span>
+          </div>
+        </div>
+        <div class="project-card rounded-sm" style="cursor:pointer">
+          <div class="photo-placeholder rounded-sm overflow-hidden" style="height:160px">
+            <div class="absolute inset-0 overlay"></div>
+            <div class="absolute bottom-3 left-3">
+              <div class="project-tag mb-1">Apartmány</div>
+              <p class="text-white text-xs font-medium">Svoboda n. Úpou</p>
+            </div>
+            <span style="color:#2A2520; font-size:10px; letter-spacing:0.1em">FOTO</span>
+          </div>
+        </div>
+        <div class="project-card rounded-sm" style="cursor:pointer">
+          <div class="photo-placeholder rounded-sm overflow-hidden" style="height:160px">
+            <div class="absolute inset-0 overlay"></div>
+            <div class="absolute bottom-3 left-3">
+              <div class="project-tag mb-1">BD · Střezina</div>
+              <p class="text-white text-xs font-medium">BD Střezina II</p>
+            </div>
+            <span style="color:#2A2520; font-size:10px; letter-spacing:0.1em">FOTO</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section id="o-nas" class="py-14 md:py-24 px-4 md:px-6" style="background:var(--warm-gray)">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid md:grid-cols-2 gap-8 md:gap-16 items-center mb-10 md:mb-16">
+        <div>
+          <div class="section-label mb-4">Proč my</div>
+          <h2 class="serif text-3xl md:text-5xl font-light leading-tight">
+            Již 26 let<br>měníme sny<br>ve skutečnost.
+          </h2>
+        </div>
+        <p class="text-base leading-relaxed" style="color:var(--text-muted)">
+          Od roku 1998 jsme pro naše klienty realizovali stovky bytů a rodinných domů v Hradci Králové, Praze a dalších městech. Individuální přístup, ověření dodavatelé a vlastní technický dozor — to je základ každé naší zakázky.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-4 gap-8">
+        <div class="pillar pt-6">
+          <div class="serif text-3xl font-medium mb-3 text-gold">01</div>
+          <h3 class="font-semibold text-base mb-2" style="color:var(--dark)">Individuální přístup</h3>
+          <p class="text-sm leading-relaxed" style="color:var(--text-muted)">Každá nemovitost je jiná. Přizpůsobujeme se vašim přáním — od standardu po nadstandard.</p>
+        </div>
+        <div class="pillar pt-6">
+          <div class="serif text-3xl font-medium mb-3 text-gold">02</div>
+          <h3 class="font-semibold text-base mb-2" style="color:var(--dark)">Ověření dodavatelé</h3>
+          <p class="text-sm leading-relaxed" style="color:var(--text-muted)">26 let praxe nám dalo síť spolehlivých partnerů. Nabízíme nadstandardní záruky.</p>
+        </div>
+        <div class="pillar pt-6">
+          <div class="serif text-3xl font-medium mb-3 text-gold">03</div>
+          <h3 class="font-semibold text-base mb-2" style="color:var(--dark)">Vlastní technický dozor</h3>
+          <p class="text-sm leading-relaxed" style="color:var(--text-muted)">Za každou zakázkou stojí náš technický dozor. Kvalita není jen příslib — je kontrolovaná.</p>
+        </div>
+        <div class="pillar pt-6">
+          <div class="serif text-3xl font-medium mb-3 text-gold">04</div>
+          <h3 class="font-semibold text-base mb-2" style="color:var(--dark)">Výhodné ceny</h3>
+          <p class="text-sm leading-relaxed" style="color:var(--text-muted)">Optimalizujeme procesy, abychom vám za vaše peníze dodali odpovídající produkt bez skrytých poplatků.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIAL / QUOTE -->
+  <section style="background:var(--dark); padding: 4rem 1rem">
+    <div class="max-w-3xl mx-auto text-center">
+      <div class="gold-line mx-auto mb-8"></div>
+      <blockquote class="serif text-2xl md:text-4xl font-light text-white leading-relaxed mb-8">
+        "Nabídnout klientovi prostor, ve kterém se cítí <em class="text-gold">přesně tak, jak si přál</em> — to je náš cíl od prvního dne."
+      </blockquote>
+      <div class="text-sm tracking-widest uppercase" style="color:var(--text-muted)">IMO-STAR 98 s.r.o. — od roku 1998</div>
+      <div class="gold-line mx-auto mt-8"></div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="kontakt" class="py-14 md:py-24 px-4 md:px-6" style="background:var(--cream)">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-14">
+        <div class="section-label mb-4">Začněme</div>
+        <h2 class="serif text-3xl md:text-5xl font-light">Nezávazná konzultace</h2>
+        <p class="text-sm mt-4 max-w-md mx-auto" style="color:var(--text-muted)">Ozveme se vám do dalšího pracovního dne s konkrétním návrhem dalšího postupu.</p>
+      </div>
+
+      <div class="grid md:grid-cols-5 gap-8 md:gap-12">
+        <!-- Form -->
+        <div class="md:col-span-3">
+          <div class="grid md:grid-cols-2 gap-4 mb-4">
+            <div>
+              <label class="block text-xs tracking-widest uppercase mb-2" style="color:var(--text-muted)">Jméno *</label>
+              <input type="text" class="form-field" placeholder="Jan Novák">
+            </div>
+            <div>
+              <label class="block text-xs tracking-widest uppercase mb-2" style="color:var(--text-muted)">Telefon *</label>
+              <input type="tel" class="form-field" placeholder="+420 600 000 000">
+            </div>
+          </div>
+          <div class="mb-4">
+            <label class="block text-xs tracking-widest uppercase mb-2" style="color:var(--text-muted)">E-mail</label>
+            <input type="email" class="form-field" placeholder="jan@email.cz">
+          </div>
+          <div class="mb-4">
+            <label class="block text-xs tracking-widest uppercase mb-2" style="color:var(--text-muted)">Typ projektu</label>
+            <select class="form-field" style="color:#B8AFA6">
+              <option value="" disabled selected>Vyberte...</option>
+              <option>Interiérový design — byt</option>
+              <option>Interiérový design — dům</option>
+              <option>Rekonstrukce na klíč</option>
+              <option>Kuchyň / koupelna / krb</option>
+              <option>Firemní prostory</option>
+              <option>Jiné</option>
+            </select>
+          </div>
+          <div class="mb-6">
+            <label class="block text-xs tracking-widest uppercase mb-2" style="color:var(--text-muted)">Zpráva</label>
+            <textarea class="form-field" rows="4" placeholder="Stručně popište váš záměr — plocha, lokalita, co hledáte..."></textarea>
+          </div>
+          <button class="btn-gold w-full py-4 font-medium tracking-wide rounded-sm text-sm">
+            Odeslat poptávku →
+          </button>
+          <p class="text-xs mt-3 text-center" style="color:#C0B8B0">Odpovídáme do 1 pracovního dne. Bez závazků.</p>
+        </div>
+
+        <!-- Contact info -->
+        <div class="md:col-span-2 space-y-8 pt-2">
+          <div>
+            <div class="gold-line mb-4"></div>
+            <div class="serif text-2xl font-light mb-6" style="color:var(--dark)">Kontaktní údaje</div>
+            <div class="space-y-5">
+              <div>
+                <div class="text-xs tracking-widest uppercase mb-1" style="color:var(--text-muted)">Telefon</div>
+                <a href="tel:+420777350935" class="font-medium text-dark hover:text-gold transition-colors block" style="color:var(--dark)">+420 777 350 935</a>
+                <a href="tel:+420776074253" class="font-medium text-dark hover:text-gold transition-colors block" style="color:var(--dark)">+420 776 074 253</a>
+              </div>
+              <div>
+                <div class="text-xs tracking-widest uppercase mb-1" style="color:var(--text-muted)">E-mail</div>
+                <a href="mailto:imo-star98@imo-star98.com" class="font-medium hover:text-gold transition-colors" style="color:var(--dark)">imo-star98@imo-star98.com</a>
+              </div>
+              <div>
+                <div class="text-xs tracking-widest uppercase mb-1" style="color:var(--text-muted)">Adresa</div>
+                <div class="font-medium" style="color:var(--dark)">Na Hrázce 273<br>Hradec Králové 500 09</div>
+              </div>
+              <div>
+                <div class="text-xs tracking-widest uppercase mb-1" style="color:var(--text-muted)">IČO</div>
+                <div style="color:var(--text-muted)">25296051</div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="gold-line mb-4"></div>
+            <div class="text-xs tracking-widest uppercase mb-3" style="color:var(--text-muted)">Sledujte nás</div>
+            <div class="flex gap-4">
+              <a href="#" class="btn-outline px-4 py-2 text-xs rounded-sm tracking-widest uppercase">Facebook</a>
+              <a href="#" class="btn-outline px-4 py-2 text-xs rounded-sm tracking-widest uppercase">Instagram</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="background:var(--dark); padding: 3rem 1.5rem">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+      <div class="flex items-center gap-3">
+        <span class="serif text-lg font-light text-white">IMO-STAR <span class="text-gold">98</span></span>
+        <span class="text-xs" style="color:#3A3530">·</span>
+        <span class="text-xs" style="color:#4A4540">s.r.o.</span>
+      </div>
+      <div class="text-xs" style="color:#4A4540">© 2026 IMO-STAR 98 s.r.o. Všechna práva vyhrazena.</div>
+      <div class="flex gap-6 text-xs" style="color:#4A4540">
+        <a href="#" class="hover:text-gold transition-colors" style="transition:color 0.2s">Ochrana osobních údajů</a>
+        <a href="#sluzby" class="hover:text-gold transition-colors">Služby</a>
+        <a href="#kontakt" class="hover:text-gold transition-colors">Kontakt</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Smooth hover on project cards
+    document.querySelectorAll('.project-card').forEach(card => {
+      const overlay = card.querySelector('.overlay');
+      if (overlay) {
+        card.addEventListener('mouseenter', () => overlay.style.opacity = '1');
+        card.addEventListener('mouseleave', () => overlay.style.opacity = '0');
+      }
+    });
+
+    // Active nav highlight on scroll
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('nav a[href^="#"]');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(s => { if (window.scrollY >= s.offsetTop - 100) current = s.id; });
+      navLinks.forEach(a => {
+        a.style.color = a.getAttribute('href') === '#' + current ? '#B8955A' : '';
+      });
+    });
+  </script>
+
+</body>
+</html>
