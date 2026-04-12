@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HAZE — Technologické prvky v zemědělství</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    * { font-family: 'Inter', sans-serif; }
+
+    :root {
+      --orange: #F07B20;
+      --orange-dark: #D96A10;
+      --black: #0F0F0F;
+      --gray: #F5F5F3;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    /* Navbar */
+    .navbar { background: rgba(255,255,255,0.97); backdrop-filter: blur(12px); border-bottom: 1px solid #E8E8E4; }
+
+    /* Hero */
+    .hero-bg {
+      background: #0F0F0F;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-bg::before {
+      content: '';
+      position: absolute;
+      top: -40%;
+      right: -10%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(240,123,32,0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      bottom: -20%;
+      left: 20%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(240,123,32,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* Orange accent */
+    .accent { color: #F07B20; }
+    .bg-orange { background-color: #F07B20; }
+    .bg-orange:hover { background-color: #D96A10; }
+    .border-orange { border-color: #F07B20; }
+
+    /* Stat cards */
+    .stat-card { border-left: 3px solid #F07B20; }
+
+    /* Product cards */
+    .product-card {
+      transition: all 0.25s ease;
+      cursor: pointer;
+    }
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+    }
+    .product-card:hover .card-icon {
+      background-color: #F07B20;
+      color: white;
+    }
+
+    /* Feature section */
+    .feature-highlight { background: linear-gradient(135deg, #0F0F0F 0%, #1a1a1a 100%); }
+
+    /* Configurator */
+    .configurator-bg { background: #F07B20; }
+
+    /* Steps */
+    .step-number {
+      width: 48px;
+      height: 48px;
+      background: #F07B20;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 800;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    /* Fade in animation */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .fade-up { animation: fadeUp 0.6s ease forwards; }
+    .delay-1 { animation-delay: 0.1s; opacity: 0; }
+    .delay-2 { animation-delay: 0.2s; opacity: 0; }
+    .delay-3 { animation-delay: 0.3s; opacity: 0; }
+    .delay-4 { animation-delay: 0.4s; opacity: 0; }
+
+    /* Reference tag */
+    .ref-tag { background: rgba(240,123,32,0.12); color: #F07B20; border: 1px solid rgba(240,123,32,0.3); }
+
+    /* Form */
+    .form-input {
+      border: 1.5px solid #E0E0DC;
+      border-radius: 8px;
+      padding: 12px 16px;
+      width: 100%;
+      font-size: 15px;
+      transition: border-color 0.2s;
+      outline: none;
+      background: white;
+    }
+    .form-input:focus { border-color: #F07B20; }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #f1f1f1; }
+    ::-webkit-scrollbar-thumb { background: #F07B20; border-radius: 3px; }
+  </style>
+</head>
+<body class="bg-white text-gray-900">
+
+  <!-- NAVBAR -->
+  <nav class="navbar fixed top-0 left-0 right-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 md:px-6 py-3 md:py-4 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <svg width="36" height="28" viewBox="0 0 36 28" fill="none">
+          <path d="M18 0L36 14H28V28H8V14H0L18 0Z" fill="#F07B20"/>
+        </svg>
+        <span class="text-2xl font-black tracking-tight text-gray-900">HAZE</span>
+      </div>
+      <div class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600">
+        <a href="#produkty" class="hover:text-orange-500 transition-colors">Produkty</a>
+        <a href="#jak-to-funguje" class="hover:text-orange-500 transition-colors">Jak to funguje</a>
+        <a href="#meteostanice" class="hover:text-orange-500 transition-colors">Meteostanice</a>
+        <a href="#reference" class="hover:text-orange-500 transition-colors">Reference</a>
+        <a href="#kontakt" class="hover:text-orange-500 transition-colors">Kontakt</a>
+      </div>
+      <a href="#poptavka" class="bg-orange text-white px-5 py-2.5 rounded-lg text-sm font-semibold hover:bg-orange transition-colors">
+        Nezávazná poptávka
+      </a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero-bg pt-28 pb-16 px-4 md:px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="max-w-3xl">
+        <div class="inline-flex items-center gap-2 bg-white/10 text-orange-400 text-sm font-medium px-4 py-1.5 rounded-full mb-6 fade-up">
+          <span class="w-2 h-2 bg-orange-400 rounded-full"></span>
+          Od roku 2007 — stovky realizovaných stájí
+        </div>
+        <h1 class="text-4xl md:text-6xl font-black text-white leading-tight mb-6 fade-up delay-1">
+          Zdravá stáj.<br>
+          <span class="accent">Zdravá zvířata.</span><br>
+          Vyšší zisk.
+        </h1>
+        <p class="text-lg text-gray-400 max-w-xl leading-relaxed mb-10 fade-up delay-2">
+          Projektujeme, vyrábíme a montujeme větrací systémy, rolovací vrata a zastřešení jímek přesně na míru vaší stáji. Kompletní servis od poradenství po montáž.
+        </p>
+        <div class="flex flex-wrap gap-4 fade-up delay-3">
+          <a href="#poptavka" class="bg-orange text-white px-7 py-3.5 rounded-lg font-semibold text-base hover:bg-orange-600 transition-colors">
+            Mám zájem o nabídku →
+          </a>
+          <a href="#produkty" class="border border-white/20 text-white px-7 py-3.5 rounded-lg font-semibold text-base hover:bg-white/10 transition-colors">
+            Prohlédnout produkty
+          </a>
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 fade-up delay-4">
+        <div class="stat-card pl-4">
+          <div class="text-2xl md:text-3xl font-black text-white">18+</div>
+          <div class="text-sm text-gray-500 mt-1">let na trhu</div>
+        </div>
+        <div class="stat-card pl-4">
+          <div class="text-2xl md:text-3xl font-black text-white">stovky</div>
+          <div class="text-sm text-gray-500 mt-1">realizovaných stájí</div>
+        </div>
+        <div class="stat-card pl-4">
+          <div class="text-2xl md:text-3xl font-black text-white">2 500 m²</div>
+          <div class="text-sm text-gray-500 mt-1">vlastní výrobní hala</div>
+        </div>
+        <div class="stat-card pl-4">
+          <div class="text-2xl md:text-3xl font-black text-white">CZ · SK · HU</div>
+          <div class="text-sm text-gray-500 mt-1">trhy, kde působíme</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ANIMAL WELFARE PROBLEM SECTION -->
+  <section class="bg-white py-14 md:py-20 px-4 md:px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
+        <div>
+          <span class="text-sm font-semibold text-orange-500 uppercase tracking-widest">Proč na tom záleží</span>
+          <h2 class="text-4xl font-black mt-3 mb-6 leading-tight">
+            Špatná ventilace<br>vás stojí peníze.<br>
+            <span class="text-gray-400">Každý den.</span>
+          </h2>
+          <p class="text-gray-600 leading-relaxed mb-6">
+            Tepelný stres u krav nastává již při <strong>21 °C</strong>. Výsledek? Nižší dojivost, horší zabřezávání, nemoci. Krávy v nevhodném mikroklimaatu produkují méně a stojí více.
+          </p>
+          <p class="text-gray-600 leading-relaxed mb-8">
+            Správně navržená ventilace udrží teplotu ve stáji v termoneutrální zóně <strong>(-6 °C až +19 °C)</strong> po celý rok — zcela automaticky, bez závislosti na lidském faktoru.
+          </p>
+          <div class="space-y-3">
+            <div class="flex items-center gap-3">
+              <div class="w-5 h-5 bg-orange-100 rounded-full flex items-center justify-center flex-shrink-0">
+                <svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="#F07B20" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+              <span class="text-gray-700">Vyšší dojivost nezávislá na ročním období</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="w-5 h-5 bg-orange-100 rounded-full flex items-center justify-center flex-shrink-0">
+                <svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="#F07B20" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+              <span class="text-gray-700">Vyrovnaná chuť žrát a pít — min. výkyvy v přírůstcích</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="w-5 h-5 bg-orange-100 rounded-full flex items-center justify-center flex-shrink-0">
+                <svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="#F07B20" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+              <span class="text-gray-700">Lepší reprodukce a zdravotní stav stáda</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="w-5 h-5 bg-orange-100 rounded-full flex items-center justify-center flex-shrink-0">
+                <svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="#F07B20" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+              <span class="text-gray-700">Soulad s požadavky Animal Welfare (EU normy)</span>
+            </div>
+          </div>
+        </div>
+        <div class="bg-gray-50 rounded-2xl p-8 border border-gray-100">
+          <div class="text-center mb-6">
+            <div class="text-4xl md:text-5xl font-black text-gray-900">21 °C</div>
+            <div class="text-sm text-gray-500 mt-1">— hranice tepelného stresu u krav</div>
+          </div>
+          <div class="space-y-4">
+            <div class="bg-white rounded-xl p-4 border border-gray-100">
+              <div class="flex justify-between items-center mb-2">
+                <span class="text-sm font-medium text-gray-700">Termoneutrální zóna krav</span>
+                <span class="text-sm font-bold text-orange-500">-6 °C až +19 °C</span>
+              </div>
+              <div class="w-full bg-gray-100 rounded-full h-2">
+                <div class="bg-orange-400 h-2 rounded-full" style="width: 55%"></div>
+              </div>
+            </div>
+            <div class="bg-white rounded-xl p-4 border border-gray-100">
+              <div class="flex justify-between items-center mb-2">
+                <span class="text-sm font-medium text-gray-700">Termoneutrální zóna telat</span>
+                <span class="text-sm font-bold text-orange-500">+10 °C až +25 °C</span>
+              </div>
+              <div class="w-full bg-gray-100 rounded-full h-2">
+                <div class="bg-orange-300 h-2 rounded-full" style="width: 40%"></div>
+              </div>
+            </div>
+            <div class="bg-orange-50 rounded-xl p-4 border border-orange-100">
+              <p class="text-sm text-orange-800 font-medium">
+                Plně digitálně řízené mikroklima = současný inovační trend v živočišné výrobě
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section id="produkty" class="bg-gray-50 py-20 px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12">
+        <span class="text-sm font-semibold text-orange-500 uppercase tracking-widest">Co nabízíme</span>
+        <h2 class="text-4xl font-black mt-3">Kompletní řešení pro vaši stáj</h2>
+        <p class="text-gray-500 mt-4 max-w-xl mx-auto">Všechny systémy vyrábíme v naší vlastní hale v Křičeni a montujeme přímo u vás. Dodávka na míru od A do Z.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+
+        <!-- Card 1 -->
+        <div class="product-card bg-white rounded-2xl p-6 border border-gray-100">
+          <div class="card-icon w-12 h-12 bg-orange-50 rounded-xl flex items-center justify-center mb-4 transition-all duration-250">
+            <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="#F07B20" stroke-width="1.8">
+              <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><polyline points="9,22 9,12 15,12 15,22"/>
+            </svg>
+          </div>
+          <h3 class="font-bold text-lg mb-2">Hřebenové větrací štěrbiny</h3>
+          <p class="text-gray-500 text-sm leading-relaxed mb-4">4 varianty — dvoukřídlá, bez klapky, otevřená H, sedlové zakrytí. Komínový efekt odvádí teplo a plyny po celou délku stáje.</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="ref-tag text-xs px-2.5 py-1 rounded-full font-medium">Elektrická i manuální</span>
+            <span class="ref-tag text-xs px-2.5 py-1 rounded-full font-medium">Napojení na meteostanici</span>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="product-card bg-white rounded-2xl p-6 border border-gray-100">
+          <div class="card-icon w-12 h-12 bg-orange-50 rounded-xl flex items-center justify-center mb-4 transition-all duration-250">
+            <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="#F07B20" stroke-width="1.8">
+              <rect x="2" y="3" width="20" height="18" rx="2"/><line x1="2" y1="9" x2="22" y2="9"/><line x1="12" y1="9" x2="12" y2="21"/>
+            </svg>
+          </div>
+          <h3 class="font-bold text-lg mb-2">Boční ventilační systémy</h3>
+          <p class="text-gray-500 text-sm leading-relaxed mb-4">6 typů (A–F) pro různé výšky a podmínky. Max. šířka 100 m, výška až 5,5 m. PVC plachty i polykarbonát.</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="ref-tag text-xs px-2.5 py-1 rounded-full font-medium">Typy A, B, C/C+, D/D+, E, F</span>
+            <span class="ref-tag text-xs px-2.5 py-1 rounded-full font-medium">Automatická regulace</span>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="product-card bg-white rounded-2xl p-6 border border-gray-100">
+          <div class="card-icon w-12 h-12 bg-orange-50 rounded-xl flex items-center justify-center mb-4 transition-all duration-250">
+            <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="#F07B20" stroke-width="1.8">
+              <path d="M3 12l9-9 9 9M5 10v9a1 1 0 001 1h4v-5h4v5h4a1 1 0 001-1v-9"/>
+            </svg>
+          </div>
+          <h3 class="font-bold text-lg mb-2">Rolovací a skládací vrata</h3>
+          <p class="text-gray-500 text-sm leading-relaxed mb-4">Elektrická, řetízková, zateplená, skládací i BVS E typ. Max. šířka 12 m, výška 6,5 m. Žárově zinkovaná konstrukce.</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="ref-tag text-xs px-2.5 py-1 rounded-full font-medium">Dálkové ovládání</span>
+            <span class="ref-tag text-xs px-2.5 py-1 rounded-full font-medium">Záložní klika</span>
+          </div>
+        </div>
+
+        <!-- Card 4 — Meteostanice highlighted -->
+        <div class="product-card bg-gray-900 rounded-2xl p-6 border border-gray-800">
+          <div class="card-icon w-12 h-12 bg-orange-500/20 rounded-xl flex items-center justify-center mb-4">
+            <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="#F07B20" stroke-width="1.8">
+              <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+            </svg>
+          </div>
+          <div class="inline-flex items-center gap-1.5 bg-orange-500/20 text-orange-400 text-xs font-semibold px-2.5 py-1 rounded-full mb-3">
+            ★ Unikátní produkt
+          </div>
+          <h3 class="font-bold text-lg mb-2 text-white">Meteostanice HAZE</h3>
+          <p class="text-gray-400 text-sm leading-relaxed mb-4">Automaticky řídí celé mikroklima stáje podle počasí. Čidla větru, deště i teploty — bez zásahu člověka.</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="bg-orange-500/15 text-orange-400 border border-orange-500/30 text-xs px-2.5 py-1 rounded-full font-medium">Propojení s PC/mobilem</span>
+            <span class="bg-orange-500/15 text-orange-400 border border-orange-500/30 text-xs px-2.5 py-1 rounded-full font-medium">Letní/zimní režim</span>
+          </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="product-card bg-white rounded-2xl p-6 border border-gray-100">
+          <div class="card-icon w-12 h-12 bg-orange-50 rounded-xl flex items-center justify-center mb-4 transition-all duration-250">
+            <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="#F07B20" stroke-width="1.8">
+              <circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><line x1="12" y1="3" x2="12" y2="8"/><line x1="12" y1="16" x2="12" y2="21"/>
+            </svg>
+          </div>
+          <h3 class="font-bold text-lg mb-2">Zastřešení kejdových jímek</h3>
+          <p class="text-gray-500 text-sm leading-relaxed mb-4">Průměr 15–35 m. Pevnostní plachta 900 g/m², nerezová ocel. Snížení úniku čpavku + zamezení zatékání dešťové vody.</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="ref-tag text-xs px-2.5 py-1 rounded-full font-medium">Statický výpočet v ceně</span>
+            <span class="ref-tag text-xs px-2.5 py-1 rounded-full font-medium">Kompletní montáž</span>
+          </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="product-card bg-white rounded-2xl p-6 border border-gray-100">
+          <div class="card-icon w-12 h-12 bg-orange-50 rounded-xl flex items-center justify-center mb-4 transition-all duration-250">
+            <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="#F07B20" stroke-width="1.8">
+              <rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/>
+            </svg>
+          </div>
+          <h3 class="font-bold text-lg mb-2">Vrata, průchody a sítě</h3>
+          <p class="text-gray-500 text-sm leading-relaxed mb-4">Posuvná, křídlová, lamelové průchody, rolety dojíren. Pletiva a kari sítě pro ochranu BVS systémů.</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="ref-tag text-xs px-2.5 py-1 rounded-full font-medium">Výběr RAL barev</span>
+            <span class="ref-tag text-xs px-2.5 py-1 rounded-full font-medium">Žárové zinkování</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="jak-to-funguje" class="bg-white py-14 md:py-20 px-4 md:px-6">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-14">
+        <span class="text-sm font-semibold text-orange-500 uppercase tracking-widest">Jak to funguje</span>
+        <h2 class="text-4xl font-black mt-3">Od prvního kontaktu<br>po hotovou stáj</h2>
+      </div>
+      <div class="space-y-8">
+        <div class="flex gap-6 items-start">
+          <div class="step-number">1</div>
+          <div class="pt-2">
+            <h3 class="font-bold text-xl mb-2">Poptávka a bezplatné poradenství</h3>
+            <p class="text-gray-500 leading-relaxed">Zašlete nám rozměry stáje, typ chovu a vaše požadavky. Náš obchodník Dominik Hanousek vás kontaktuje do 24 hodin a doporučí nejvhodnější řešení.</p>
+          </div>
+        </div>
+        <div class="w-px h-8 bg-orange-200 ml-6"></div>
+        <div class="flex gap-6 items-start">
+          <div class="step-number">2</div>
+          <div class="pt-2">
+            <h3 class="font-bold text-xl mb-2">Konfigurace a nabídka na míru</h3>
+            <p class="text-gray-500 leading-relaxed">Využijte náš nový <strong>online konfigurátor</strong> nebo nechte vše na nás. Připravíme přesnou specifikaci s vizualizací a kalkulací.</p>
+          </div>
+        </div>
+        <div class="w-px h-8 bg-orange-200 ml-6"></div>
+        <div class="flex gap-6 items-start">
+          <div class="step-number">3</div>
+          <div class="pt-2">
+            <h3 class="font-bold text-xl mb-2">Výroba v naší hale v Křičeni</h3>
+            <p class="text-gray-500 leading-relaxed">Vyrábíme vlastní kapacitou v moderní 2 500 m² hale. Digitalizované výrobní procesy zkracují dodací lhůty.</p>
+          </div>
+        </div>
+        <div class="w-px h-8 bg-orange-200 ml-6"></div>
+        <div class="flex gap-6 items-start">
+          <div class="step-number">4</div>
+          <div class="pt-2">
+            <h3 class="font-bold text-xl mb-2">Odborná montáž přímo u vás</h3>
+            <p class="text-gray-500 leading-relaxed">Naši technici provedou kompletní instalaci včetně zapojení meteostanice a zaškolení obsluhy. Servis zajišťujeme i po montáži.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- METEOSTANICE FEATURE -->
+  <section id="meteostanice" class="feature-highlight py-14 md:py-20 px-4 md:px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
+        <div>
+          <span class="text-sm font-semibold text-orange-400 uppercase tracking-widest">Diferenciátor</span>
+          <h2 class="text-4xl font-black text-white mt-3 mb-6 leading-tight">
+            Stáj, která se<br>řídí sama.
+          </h2>
+          <p class="text-gray-400 leading-relaxed mb-8">
+            Meteostanice HAZE sleduje vítr, déšť i teplotu a automaticky nastavuje všechny větrací systémy. Žádné vstávání v noci kvůli bouřce. Žádný tepelný stres v létě.
+          </p>
+          <div class="space-y-4">
+            <div class="flex gap-4 items-start">
+              <div class="w-8 h-8 bg-orange-500/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="#F07B20" stroke-width="2"><polyline points="22,12 18,12 15,21 9,3 6,12 2,12"/></svg>
+              </div>
+              <div>
+                <div class="text-white font-semibold mb-1">Automatická regulace mikroklimatu</div>
+                <div class="text-gray-500 text-sm">Čidla na obou stranách stáje — navigace i závětrná strana nastavena individuálně</div>
+              </div>
+            </div>
+            <div class="flex gap-4 items-start">
+              <div class="w-8 h-8 bg-orange-500/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="#F07B20" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+              </div>
+              <div>
+                <div class="text-white font-semibold mb-1">Šetří hnací jednotky</div>
+                <div class="text-gray-500 text-sm">Setrvačnost reakce chrání motory před přetěžováním — nižší opotřebení, nižší náklady</div>
+              </div>
+            </div>
+            <div class="flex gap-4 items-start">
+              <div class="w-8 h-8 bg-orange-500/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="#F07B20" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18"/></svg>
+              </div>
+              <div>
+                <div class="text-white font-semibold mb-1">Propojení s PC a mobilem</div>
+                <div class="text-gray-500 text-sm">Přehledný dotykový displej, vzdálený monitoring, letní/zimní režim</div>
+              </div>
+            </div>
+            <div class="flex gap-4 items-start">
+              <div class="w-8 h-8 bg-orange-500/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="#F07B20" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <div>
+                <div class="text-white font-semibold mb-1">Rozšiřitelný systém</div>
+                <div class="text-gray-500 text-sm">Napojení větráků, evaporačního ochlazování, osvětlení — vše pod jedním systémem</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Meteostanice visual card -->
+        <div class="bg-gray-900/50 border border-gray-700 rounded-2xl p-6">
+          <div class="bg-gray-800 rounded-xl p-4 mb-4 font-mono text-sm">
+            <div class="flex justify-between items-center mb-4">
+              <span class="text-orange-400 font-bold text-base">HAZE Meteostanice</span>
+              <span class="text-green-400 text-xs">● ONLINE</span>
+            </div>
+            <div class="grid grid-cols-2 gap-3">
+              <div class="bg-gray-900 rounded-lg p-3">
+                <div class="text-gray-500 text-xs mb-1">Teplota</div>
+                <div class="text-white font-bold text-xl">9.0 °C</div>
+              </div>
+              <div class="bg-gray-900 rounded-lg p-3">
+                <div class="text-gray-500 text-xs mb-1">Vítr (L)</div>
+                <div class="text-white font-bold text-xl">0.3 m/s</div>
+              </div>
+              <div class="bg-gray-900 rounded-lg p-3">
+                <div class="text-gray-500 text-xs mb-1">Plachta 1</div>
+                <div class="text-orange-400 font-bold text-base">60% otevřeno</div>
+              </div>
+              <div class="bg-gray-900 rounded-lg p-3">
+                <div class="text-gray-500 text-xs mb-1">Plachta 2</div>
+                <div class="text-orange-400 font-bold text-base">40% otevřeno</div>
+              </div>
+            </div>
+            <div class="mt-3 bg-green-900/30 border border-green-700/30 rounded-lg p-2.5 text-green-400 text-xs">
+              ✓ Mikroklima v optimálním rozsahu — letní režim aktivní
+            </div>
+          </div>
+          <p class="text-gray-500 text-xs text-center">Ilustrace rozhraní meteostanice HAZE</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ONLINE KONFIGURÁTOR CTA -->
+  <section class="configurator-bg py-12 md:py-16 px-4 md:px-6">
+    <div class="max-w-4xl mx-auto text-center">
+      <div class="inline-flex items-center gap-2 bg-white/20 text-white text-sm font-medium px-4 py-1.5 rounded-full mb-5">
+        🆕 Novinka 2025
+      </div>
+      <h2 class="text-3xl md:text-4xl font-black text-white mb-4">Nakonfigurujte si produkt<br>sami — online, za pár minut</h2>
+      <p class="text-white/80 text-lg mb-8 max-w-2xl mx-auto">
+        Nový online konfigurátor HAZE. Zvolte rozměry, materiály, barvy a doplňky. Dostanete přesnou vizualizaci a podrobný rozpočet — přímo v prohlížeči.
+      </p>
+      <div class="flex flex-wrap gap-4 justify-center">
+        <a href="#poptavka" class="bg-white text-orange-500 px-7 py-3.5 rounded-lg font-bold hover:bg-gray-50 transition-colors">
+          Vyzkoušet konfigurátor →
+        </a>
+        <a href="#poptavka" class="border-2 border-white/50 text-white px-7 py-3.5 rounded-lg font-semibold hover:bg-white/10 transition-colors">
+          Raději poptám přímo
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- REFERENCE -->
+  <section id="reference" class="bg-gray-50 py-20 px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12">
+        <span class="text-sm font-semibold text-orange-500 uppercase tracking-widest">Realizace</span>
+        <h2 class="text-4xl font-black mt-3">Stáje, které fungují</h2>
+        <p class="text-gray-500 mt-3">Vybrané realizace z naší práce — zemědělské stáje i průmyslové objekty.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-5 mb-8">
+        <div class="bg-white rounded-2xl overflow-hidden border border-gray-100 product-card">
+          <div class="bg-gray-200 h-44 flex items-center justify-center">
+            <span class="text-gray-400 text-sm">📷 Foto realizace</span>
+          </div>
+          <div class="p-5">
+            <div class="flex items-center justify-between mb-2">
+              <span class="font-bold text-gray-900">Podmyče</span>
+              <span class="ref-tag text-xs px-2 py-0.5 rounded-full font-medium">Hřebenová štěrbina</span>
+            </div>
+            <p class="text-gray-500 text-sm">Hřebenová větrací štěrbina dvoukřídlá, šířka stavebního otvoru 1,5–1,8 m.</p>
+          </div>
+        </div>
+        <div class="bg-white rounded-2xl overflow-hidden border border-gray-100 product-card">
+          <div class="bg-gray-200 h-44 flex items-center justify-center">
+            <span class="text-gray-400 text-sm">📷 Foto realizace</span>
+          </div>
+          <div class="p-5">
+            <div class="flex items-center justify-between mb-2">
+              <span class="font-bold text-gray-900">Sloupnice</span>
+              <span class="ref-tag text-xs px-2 py-0.5 rounded-full font-medium">BVS typ D+</span>
+            </div>
+            <p class="text-gray-500 text-sm">Boční ventilační systém D+, šířka 100 m, výška 5,5 m.</p>
+          </div>
+        </div>
+        <div class="bg-white rounded-2xl overflow-hidden border border-gray-100 product-card">
+          <div class="bg-gray-200 h-44 flex items-center justify-center">
+            <span class="text-gray-400 text-sm">📷 Foto realizace</span>
+          </div>
+          <div class="p-5">
+            <div class="flex items-center justify-between mb-2">
+              <span class="font-bold text-gray-900">Krpálek Academy, Praha</span>
+              <span class="ref-tag text-xs px-2 py-0.5 rounded-full font-medium">Průmysl / Sport</span>
+            </div>
+            <p class="text-gray-500 text-sm">Dvouvrstvá dělicí stěna 240 m², motorizovaný navíjecí systém. Sportovní hala olympijského vítěze Lukáše Krpálka.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-5 gap-3">
+        <div class="bg-white rounded-xl p-3 text-center text-sm text-gray-600 border border-gray-100 font-medium">Podmyče</div>
+        <div class="bg-white rounded-xl p-3 text-center text-sm text-gray-600 border border-gray-100 font-medium">Okrouhlá Radouň</div>
+        <div class="bg-white rounded-xl p-3 text-center text-sm text-gray-600 border border-gray-100 font-medium">Osičky</div>
+        <div class="bg-white rounded-xl p-3 text-center text-sm text-gray-600 border border-gray-100 font-medium">Telecí</div>
+        <div class="bg-white rounded-xl p-3 text-center text-sm text-gray-600 border border-gray-100 font-medium">Sloupnice</div>
+        <div class="bg-white rounded-xl p-3 text-center text-sm text-gray-600 border border-gray-100 font-medium">Výprachtice</div>
+        <div class="bg-white rounded-xl p-3 text-center text-sm text-gray-600 border border-gray-100 font-medium">Ovčáry</div>
+        <div class="bg-white rounded-xl p-3 text-center text-sm text-gray-600 border border-gray-100 font-medium">Bohdalov</div>
+        <div class="bg-white rounded-xl p-3 text-center text-sm text-gray-600 border border-gray-100 font-medium">Humpolec</div>
+        <div class="bg-white rounded-xl p-3 text-center text-sm text-gray-600 border border-gray-100 font-medium">+ stovky dalších</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- POPTAVKA FORM -->
+  <section id="poptavka" class="bg-white py-14 md:py-20 px-4 md:px-6">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-center mb-12">
+        <span class="text-sm font-semibold text-orange-500 uppercase tracking-widest">Kontakt</span>
+        <h2 class="text-4xl font-black mt-3">Nezávazná poptávka</h2>
+        <p class="text-gray-500 mt-4">Vyplňte formulář a Dominik Hanousek vás kontaktuje do 24 hodin s konkrétní nabídkou.</p>
+      </div>
+
+      <div class="bg-gray-50 rounded-2xl p-8 border border-gray-100">
+        <div class="grid md:grid-cols-2 gap-5 mb-5">
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-2">Jméno a příjmení *</label>
+            <input type="text" class="form-input" placeholder="Jan Novák">
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-2">Telefon *</label>
+            <input type="tel" class="form-input" placeholder="+420 600 000 000">
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-2">E-mail *</label>
+            <input type="email" class="form-input" placeholder="jan@farma.cz">
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-2">Typ objektu</label>
+            <select class="form-input text-gray-500">
+              <option>Vyberte...</option>
+              <option>Stáj pro skot</option>
+              <option>Dojírna / čekárna</option>
+              <option>Jízdárna / sportovní hala</option>
+              <option>Průmyslová hala / sklad</option>
+              <option>Jiné</option>
+            </select>
+          </div>
+        </div>
+        <div class="mb-5">
+          <label class="block text-sm font-semibold text-gray-700 mb-2">O co máte zájem</label>
+          <div class="flex flex-wrap gap-2">
+            <label class="flex items-center gap-2 bg-white border border-gray-200 rounded-lg px-3 py-2 cursor-pointer hover:border-orange-400 transition-colors text-sm">
+              <input type="checkbox" class="accent-orange-500"> Větrací štěrbiny
+            </label>
+            <label class="flex items-center gap-2 bg-white border border-gray-200 rounded-lg px-3 py-2 cursor-pointer hover:border-orange-400 transition-colors text-sm">
+              <input type="checkbox" class="accent-orange-500"> Boční ventilace
+            </label>
+            <label class="flex items-center gap-2 bg-white border border-gray-200 rounded-lg px-3 py-2 cursor-pointer hover:border-orange-400 transition-colors text-sm">
+              <input type="checkbox" class="accent-orange-500"> Rolovací vrata
+            </label>
+            <label class="flex items-center gap-2 bg-white border border-gray-200 rounded-lg px-3 py-2 cursor-pointer hover:border-orange-400 transition-colors text-sm">
+              <input type="checkbox" class="accent-orange-500"> Meteostanice
+            </label>
+            <label class="flex items-center gap-2 bg-white border border-gray-200 rounded-lg px-3 py-2 cursor-pointer hover:border-orange-400 transition-colors text-sm">
+              <input type="checkbox" class="accent-orange-500"> Zastřešení jímek
+            </label>
+          </div>
+        </div>
+        <div class="mb-6">
+          <label class="block text-sm font-semibold text-gray-700 mb-2">Zpráva / popis projektu</label>
+          <textarea class="form-input" rows="4" placeholder="Stručně popište vaši stáj, rozměry, typ chovu a co potřebujete..."></textarea>
+        </div>
+        <button class="w-full bg-orange text-white py-4 rounded-xl font-bold text-base hover:bg-orange-600 transition-colors">
+          Odeslat poptávku →
+        </button>
+        <p class="text-center text-xs text-gray-400 mt-4">Odpovídáme do 24 hodin. Vaše data nepředáváme třetím stranám.</p>
+      </div>
+
+      <!-- Direct contact -->
+      <div class="mt-8 grid md:grid-cols-2 gap-5">
+        <div class="flex gap-4 items-center bg-gray-50 rounded-xl p-5 border border-gray-100">
+          <div class="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center flex-shrink-0">
+            <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="#F07B20" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.02 2.22 2 2 0 012 .04h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+          </div>
+          <div>
+            <div class="text-xs text-gray-500 mb-0.5">Obchodní oddělení</div>
+            <div class="font-bold text-gray-900">+420 602 488 989</div>
+            <div class="text-sm text-gray-500">Dominik Hanousek</div>
+          </div>
+        </div>
+        <div class="flex gap-4 items-center bg-gray-50 rounded-xl p-5 border border-gray-100">
+          <div class="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center flex-shrink-0">
+            <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="#F07B20" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div>
+            <div class="text-xs text-gray-500 mb-0.5">E-mail</div>
+            <div class="font-bold text-gray-900">dominik.hanousek@haze.cz</div>
+            <div class="text-sm text-gray-500">info@haze.cz</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-gray-900 py-12 px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid md:grid-cols-4 gap-8 mb-10">
+        <div class="md:col-span-2">
+          <div class="flex items-center gap-2 mb-4">
+            <svg width="32" height="25" viewBox="0 0 36 28" fill="none"><path d="M18 0L36 14H28V28H8V14H0L18 0Z" fill="#F07B20"/></svg>
+            <span class="text-xl font-black text-white tracking-tight">HAZE</span>
+          </div>
+          <p class="text-gray-500 text-sm leading-relaxed max-w-xs">
+            Technologické prvky v zemědělství. Od roku 2007 pomáháme stovkám chovatelů vybudovat zdravé a efektivní stáje.
+          </p>
+          <div class="mt-4 text-sm text-gray-600">
+            IČO: 275 09 800 · DIČ: CZ275 09 800
+          </div>
+        </div>
+        <div>
+          <div class="text-white font-semibold mb-4">Produkty</div>
+          <div class="space-y-2 text-sm text-gray-500">
+            <div>Hřebenové větrací štěrbiny</div>
+            <div>Boční ventilační systémy</div>
+            <div>Rolovací a skládací vrata</div>
+            <div>Meteostanice HAZE</div>
+            <div>Zastřešení jímek</div>
+            <div>Vrata a průchody</div>
+          </div>
+        </div>
+        <div>
+          <div class="text-white font-semibold mb-4">Kontakt</div>
+          <div class="space-y-2 text-sm text-gray-500">
+            <div>Výroba: Křičeň 108, 533 41</div>
+            <div>Obchod: Praskačka 145</div>
+            <div class="pt-2">
+              <div class="text-orange-400">+420 602 488 989</div>
+              <div>dominik.hanousek@haze.cz</div>
+            </div>
+            <div class="pt-2">
+              <div>+420 495 580 264</div>
+              <div>info@haze.cz</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 pt-6 flex flex-col md:flex-row justify-between items-center gap-3">
+        <div class="text-gray-600 text-sm">© 2026 Haze s.r.o. Všechna práva vyhrazena.</div>
+        <div class="flex gap-5 text-sm text-gray-600">
+          <a href="#" class="hover:text-orange-400 transition-colors">Ochrana osobních údajů</a>
+          <a href="#" class="hover:text-orange-400 transition-colors">CZ</a>
+          <a href="#" class="hover:text-orange-400 transition-colors">SK</a>
+          <a href="#" class="hover:text-orange-400 transition-colors">EN</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
