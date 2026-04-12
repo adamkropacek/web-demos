@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Solná jeskyně Relax — Hradec Králové</title>
+  <meta name="description" content="Jediná solná jeskyně v Hradci Králové postavená výhradně z mrtvomořské soli. Přírodní terapie pro dýchací cesty, alergie i kůži." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --sand:    #e8dcc8;
+      --salt:    #f5f0e8;
+      --amber:   #c8a96e;
+      --deep:    #2a1f14;
+      --warm:    #5c3d2e;
+      --muted:   #8a7560;
+      --bg:      #faf7f2;
+      --white:   #ffffff;
+      --radius:  12px;
+      --shadow:  0 4px 32px rgba(42,31,20,0.10);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--deep);
+      line-height: 1.6;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 2.5rem;
+      background: rgba(250,247,242,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(200,169,110,0.2);
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--warm);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 0.875rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--amber); }
+    .nav-cta {
+      background: var(--amber);
+      color: var(--white) !important;
+      padding: 0.5rem 1.25rem;
+      border-radius: 50px;
+      transition: background 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--warm) !important; color: var(--white) !important; }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center;
+      padding: 6rem 2rem 4rem;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(200,169,110,0.18) 0%, transparent 70%),
+        linear-gradient(180deg, #faf7f2 0%, #f0e8d8 100%);
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        radial-gradient(circle at 20% 80%, rgba(200,169,110,0.12) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(232,220,200,0.2) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(200,169,110,0.15);
+      border: 1px solid rgba(200,169,110,0.4);
+      color: var(--amber);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.4rem 1rem;
+      border-radius: 50px;
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 6vw, 4.5rem);
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--deep);
+      margin-bottom: 1.25rem;
+      max-width: 800px;
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--amber);
+    }
+    .hero-sub {
+      font-size: 1.1rem;
+      color: var(--muted);
+      max-width: 520px;
+      margin: 0 auto 2.5rem;
+      font-weight: 300;
+    }
+    .hero-actions {
+      display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: var(--amber);
+      color: var(--white);
+      padding: 0.85rem 2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: background 0.2s, transform 0.15s;
+      box-shadow: 0 4px 20px rgba(200,169,110,0.35);
+    }
+    .btn-primary:hover { background: var(--warm); transform: translateY(-1px); }
+    .btn-secondary {
+      background: transparent;
+      color: var(--warm);
+      padding: 0.85rem 2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border: 1.5px solid var(--amber);
+      transition: all 0.2s;
+    }
+    .btn-secondary:hover { background: var(--amber); color: var(--white); }
+
+    .hero-visual {
+      margin-top: 4rem;
+      display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+    }
+    .hero-stat {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.75rem;
+      box-shadow: var(--shadow);
+      text-align: center;
+      min-width: 130px;
+    }
+    .hero-stat strong {
+      display: block;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: var(--amber);
+    }
+    .hero-stat span {
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    /* ─── SECTIONS ─── */
+    section { padding: 5rem 2rem; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 0.75rem;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.75rem, 3.5vw, 2.6rem);
+      font-weight: 700;
+      color: var(--deep);
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    .section-desc {
+      color: var(--muted);
+      font-size: 1rem;
+      max-width: 560px;
+      line-height: 1.75;
+    }
+
+    /* ─── ABOUT ─── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .about-image {
+      border-radius: 20px;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      background: linear-gradient(135deg, #e8dcc8 0%, #d4c0a0 40%, #c8a96e 100%);
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+    }
+    .about-image-inner {
+      text-align: center;
+      color: var(--white);
+    }
+    .crystal-icon {
+      font-size: 5rem;
+      display: block;
+      margin-bottom: 0.5rem;
+      filter: drop-shadow(0 4px 12px rgba(255,255,255,0.4));
+    }
+    .about-image-caption {
+      font-size: 0.85rem;
+      opacity: 0.85;
+      letter-spacing: 0.05em;
+    }
+    .about-features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .about-feature {
+      display: flex; align-items: flex-start; gap: 0.75rem;
+    }
+    .feature-icon {
+      width: 36px; height: 36px;
+      background: rgba(200,169,110,0.15);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+    .feature-text strong {
+      display: block;
+      font-size: 0.875rem;
+      color: var(--deep);
+      margin-bottom: 0.2rem;
+    }
+    .feature-text span {
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    /* ─── BENEFITS ─── */
+    .benefits-bg {
+      background: linear-gradient(135deg, var(--deep) 0%, #3d2a1a 100%);
+      color: var(--white);
+    }
+    .benefits-bg .section-title { color: var(--sand); }
+    .benefits-bg .section-desc { color: rgba(232,220,200,0.7); }
+    .benefits-bg .section-label { color: var(--amber); }
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .benefit-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(200,169,110,0.2);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .benefit-card:hover {
+      background: rgba(200,169,110,0.1);
+      transform: translateY(-3px);
+    }
+    .benefit-icon { font-size: 2rem; margin-bottom: 1rem; }
+    .benefit-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: var(--sand);
+      margin-bottom: 0.5rem;
+    }
+    .benefit-card p {
+      font-size: 0.85rem;
+      color: rgba(232,220,200,0.65);
+      line-height: 1.6;
+    }
+
+    /* ─── PRICING ─── */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.25rem;
+      margin-top: 3rem;
+    }
+    .price-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 2rem 1.5rem;
+      box-shadow: var(--shadow);
+      text-align: center;
+      border: 1.5px solid transparent;
+      transition: border-color 0.2s, transform 0.2s;
+      position: relative;
+    }
+    .price-card:hover { border-color: var(--amber); transform: translateY(-3px); }
+    .price-card.featured {
+      background: var(--amber);
+      color: var(--white);
+      border-color: var(--amber);
+    }
+    .price-card.featured .price-amount { color: var(--white); }
+    .price-card.featured .price-label { color: rgba(255,255,255,0.85); }
+    .price-card.featured .price-note { color: rgba(255,255,255,0.7); }
+    .price-badge {
+      position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+      background: var(--deep);
+      color: var(--sand);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.75rem;
+      border-radius: 50px;
+    }
+    .price-amount {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: var(--amber);
+      line-height: 1;
+    }
+    .price-currency {
+      font-size: 1rem;
+      font-weight: 400;
+      vertical-align: super;
+    }
+    .price-label {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--deep);
+      margin: 0.5rem 0 0.25rem;
+    }
+    .price-note {
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .pricing-note {
+      margin-top: 2rem;
+      background: rgba(200,169,110,0.1);
+      border: 1px solid rgba(200,169,110,0.25);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.5rem;
+      font-size: 0.875rem;
+      color: var(--muted);
+    }
+    .pricing-note strong { color: var(--warm); }
+
+    /* ─── REVIEWS ─── */
+    .reviews-bg { background: var(--salt); }
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .review-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      box-shadow: 0 2px 16px rgba(42,31,20,0.07);
+    }
+    .stars { color: var(--amber); font-size: 1rem; margin-bottom: 0.75rem; }
+    .review-text {
+      font-size: 0.9rem;
+      color: var(--deep);
+      line-height: 1.7;
+      font-style: italic;
+      margin-bottom: 1rem;
+    }
+    .reviewer {
+      display: flex; align-items: center; gap: 0.75rem;
+    }
+    .reviewer-avatar {
+      width: 38px; height: 38px;
+      background: linear-gradient(135deg, var(--amber), var(--warm));
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--white);
+      font-weight: 700;
+      font-size: 0.85rem;
+    }
+    .reviewer-name { font-weight: 600; font-size: 0.875rem; color: var(--deep); }
+    .reviewer-date { font-size: 0.75rem; color: var(--muted); }
+
+    /* ─── OPENING / CONTACT ─── */
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    .info-block h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      color: var(--deep);
+      margin-bottom: 1.25rem;
+    }
+    .hours-table { width: 100%; border-collapse: collapse; }
+    .hours-table tr { border-bottom: 1px solid rgba(200,169,110,0.15); }
+    .hours-table td {
+      padding: 0.6rem 0;
+      font-size: 0.9rem;
+    }
+    .hours-table td:first-child { color: var(--muted); }
+    .hours-table td:last-child { text-align: right; font-weight: 500; color: var(--deep); }
+    .hours-open { color: #4a9c6a !important; }
+    .contact-items { display: flex; flex-direction: column; gap: 1rem; }
+    .contact-item {
+      display: flex; align-items: center; gap: 1rem;
+      padding: 1rem 1.25rem;
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: 0 2px 12px rgba(42,31,20,0.06);
+      text-decoration: none;
+      color: var(--deep);
+      transition: box-shadow 0.2s;
+    }
+    .contact-item:hover { box-shadow: 0 4px 20px rgba(200,169,110,0.25); }
+    .contact-icon {
+      width: 42px; height: 42px;
+      background: rgba(200,169,110,0.12);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+    .contact-label { font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
+    .contact-value { font-size: 0.92rem; font-weight: 500; }
+
+    /* ─── MAP PLACEHOLDER ─── */
+    .map-placeholder {
+      margin-top: 2rem;
+      background: linear-gradient(135deg, #e8dcc8, #d4c0a0);
+      border-radius: var(--radius);
+      height: 200px;
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column;
+      gap: 0.5rem;
+      color: var(--warm);
+      font-size: 0.875rem;
+    }
+    .map-placeholder span { font-size: 2rem; }
+
+    /* ─── CTA SECTION ─── */
+    .cta-section {
+      background: linear-gradient(135deg, var(--amber) 0%, #b8924a 100%);
+      text-align: center;
+      padding: 5rem 2rem;
+    }
+    .cta-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.75rem, 4vw, 2.8rem);
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+    .cta-section p {
+      color: rgba(255,255,255,0.85);
+      max-width: 480px;
+      margin: 0 auto 2rem;
+      font-size: 1rem;
+    }
+    .btn-white {
+      background: var(--white);
+      color: var(--amber);
+      padding: 0.9rem 2.25rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+      transition: transform 0.15s;
+      display: inline-block;
+    }
+    .btn-white:hover { transform: translateY(-2px); }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--deep);
+      color: rgba(232,220,200,0.6);
+      padding: 3rem 2rem 2rem;
+      text-align: center;
+    }
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      color: var(--sand);
+      margin-bottom: 0.5rem;
+    }
+    .footer-tagline { font-size: 0.82rem; margin-bottom: 2rem; }
+    .footer-links {
+      display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;
+      list-style: none; margin-bottom: 2rem;
+    }
+    .footer-links a { color: rgba(232,220,200,0.5); text-decoration: none; font-size: 0.82rem; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--amber); }
+    .footer-copy { font-size: 0.75rem; opacity: 0.4; }
+    .demo-notice {
+      background: rgba(200,169,110,0.15);
+      border: 1px solid rgba(200,169,110,0.3);
+      border-radius: 6px;
+      padding: 0.5rem 1rem;
+      font-size: 0.75rem;
+      color: var(--amber);
+      display: inline-block;
+      margin-bottom: 1.5rem;
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 768px) {
+      nav { padding: 0.875rem 1.25rem; }
+      .nav-links { display: none; }
+
+      /* hero */
+      .hero { padding: 5rem 1.25rem 3rem; }
+      .hero h1 { font-size: 2rem; }
+      .hero-sub { font-size: 0.95rem; }
+      .hero-actions { flex-direction: column; align-items: center; }
+      .hero-actions a { width: 100%; max-width: 320px; text-align: center; }
+      .hero-visual { gap: 0.75rem; }
+      .hero-stat { min-width: 120px; padding: 1rem 1.25rem; }
+      .hero-stat strong { font-size: 1.5rem; }
+
+      /* sections */
+      section { padding: 3.5rem 1.25rem; }
+      .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .about-features { grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+      .about-image { aspect-ratio: 3/2; }
+
+      .benefits-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
+      .benefit-card { padding: 1.25rem 1rem; }
+      .benefit-icon { font-size: 1.5rem; }
+
+      .pricing-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
+      .price-card { padding: 1.5rem 1rem; }
+      .price-amount { font-size: 1.9rem; }
+
+      .reviews-grid { grid-template-columns: 1fr; }
+
+      .info-grid { grid-template-columns: 1fr; gap: 2rem; }
+
+      .contact-item { padding: 0.875rem 1rem; }
+      .contact-value { font-size: 0.82rem; word-break: break-all; }
+
+      /* cta */
+      .cta-section h2 { font-size: 1.6rem; }
+      .btn-white { width: 100%; max-width: 280px; text-align: center; }
+
+      /* footer */
+      .footer-links { gap: 1rem; }
+    }
+
+    @media (max-width: 420px) {
+      .about-features { grid-template-columns: 1fr; }
+      .benefits-grid { grid-template-columns: 1fr; }
+      .pricing-grid { grid-template-columns: 1fr; }
+      .hero-visual { justify-content: center; }
+      .hero-stat { min-width: 100px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">Solná jeskyně Relax</a>
+    <ul class="nav-links">
+      <li><a href="#o-nas">O nás</a></li>
+      <li><a href="#benefity">Benefity</a></li>
+      <li><a href="#cenik">Ceník</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+      <li><a href="tel:+420721416416" class="nav-cta">Rezervace</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div>
+      <div class="hero-badge">Hradec Králové · Třebeš</div>
+      <h1>Dýchejte lépe.<br />Cíťte se <em>lépe.</em></h1>
+      <p class="hero-sub">
+        Jediná solná jeskyně v Hradci Králové postavená výhradně<br />
+        z mrtvomořské soli. Přirozená terapie pro celou rodinu.
+      </p>
+      <div class="hero-actions">
+        <a href="tel:+420721416416" class="btn-primary">Rezervovat termín</a>
+        <a href="#o-nas" class="btn-secondary">Zjistit více</a>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-stat">
+          <strong>100%</strong>
+          <span>Mrtvomořská sůl</span>
+        </div>
+        <div class="hero-stat">
+          <strong>45 min</strong>
+          <span>Délka sezení</span>
+        </div>
+        <div class="hero-stat">
+          <strong>⭐ 5.0</strong>
+          <span>21 recenzí</span>
+        </div>
+        <div class="hero-stat">
+          <strong>od 120 Kč</strong>
+          <span>Vstupné</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="o-nas">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-image">
+          <div class="about-image-inner">
+            <span class="crystal-icon">🔷</span>
+            <p class="about-image-caption">Mrtvomořská sůl · Dead Sea Salt</p>
+          </div>
+        </div>
+        <div>
+          <p class="section-label">O jeskyni</p>
+          <h2 class="section-title">Jedinečné místo v Hradci Králové</h2>
+          <p class="section-desc">
+            Naše jeskyně je postavena výhradně z pravé mrtvomořské soli — jedinečné svým složením minerálů a stopových prvků, z nichž některé nenajdete nikde jinde na světě. Mikroklimatické prostředí v kombinaci s relaxační hudbou a příjemnou atmosférou vytváří dokonalé útočiště pro vaše zdraví.
+          </p>
+          <div class="about-features">
+            <div class="about-feature">
+              <div class="feature-icon">♿</div>
+              <div class="feature-text">
+                <strong>Bezbariérový přístup</strong>
+                <span>Vhodné i pro vozíčkáře</span>
+              </div>
+            </div>
+            <div class="about-feature">
+              <div class="feature-icon">🧒</div>
+              <div class="feature-text">
+                <strong>Dětský koutek</strong>
+                <span>Hračky, tobogán, pohádky</span>
+              </div>
+            </div>
+            <div class="about-feature">
+              <div class="feature-icon">🎵</div>
+              <div class="feature-text">
+                <strong>Relaxační hudba</strong>
+                <span>Atmosférické osvětlení</span>
+              </div>
+            </div>
+            <div class="about-feature">
+              <div class="feature-icon">📶</div>
+              <div class="feature-text">
+                <strong>Wi-Fi zdarma</strong>
+                <span>Pohodlná lehátka</span>
+              </div>
+            </div>
+            <div class="about-feature">
+              <div class="feature-icon">🏥</div>
+              <div class="feature-text">
+                <strong>Příspěvky pojišťoven</strong>
+                <span>Většina ZP přispívá</span>
+              </div>
+            </div>
+            <div class="about-feature">
+              <div class="feature-icon">🎫</div>
+              <div class="feature-text">
+                <strong>Stravenky &amp; poukazy</strong>
+                <span>Sodexho, Relax, Flexi…</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFITS -->
+  <section id="benefity" class="benefits-bg">
+    <div class="container">
+      <p class="section-label">Zdravotní přínosy</p>
+      <h2 class="section-title">Co vám solná jeskyně přinese</h2>
+      <p class="section-desc">
+        Haloterapie — přírodní terapie solným mikroklima — má prokazatelný efekt na řadu zdravotních obtíží.
+      </p>
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-icon">🌬️</div>
+          <h3>Dýchací cesty</h3>
+          <p>Úleva od astmatu, chronické bronchitidy, sinusitidy a opakujících se respiračních infekcí.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">🌿</div>
+          <h3>Alergie</h3>
+          <p>Solné mikroklimatické prostředí přirozeně snižuje alergické reakce a čistí dýchací trakt.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">✨</div>
+          <h3>Kůže</h3>
+          <p>Minerály z mrtvomořské soli podporují regeneraci pokožky u ekzémů, lupénky a akné.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">🧘</div>
+          <h3>Stres &amp; únava</h3>
+          <p>Hluboká relaxace v tiché, klidné atmosféře resetuje nervový systém a nabíjí energii.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">🛡️</div>
+          <h3>Imunita</h3>
+          <p>Pravidelné návštěvy posilují obranyschopnost organismu a pomáhají předcházet nemocem.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">👶</div>
+          <h3>Pro děti</h3>
+          <p>Bezpečná terapie pro děti od kojeneckého věku. Pomáhá s dětskými alergiemi a opakovanými angínami.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="cenik">
+    <div class="container">
+      <p class="section-label">Ceník</p>
+      <h2 class="section-title">Jasné a přehledné ceny</h2>
+      <p class="section-desc">Bez skrytých poplatků. Příspěvky zdravotních pojišťoven a stravenky vítány.</p>
+      <div class="pricing-grid">
+        <div class="price-card">
+          <div class="price-amount"><span class="price-currency">Kč </span>180</div>
+          <div class="price-label">Dospělý</div>
+          <div class="price-note">Jedno sezení (~45 min)</div>
+        </div>
+        <div class="price-card">
+          <div class="price-amount"><span class="price-currency">Kč </span>120</div>
+          <div class="price-label">Dítě / Student / Senior</div>
+          <div class="price-note">Do 15 let, průkaz studenta, 60+</div>
+        </div>
+        <div class="price-card featured">
+          <div class="price-badge">Nejoblíbenější</div>
+          <div class="price-amount">800</div>
+          <div class="price-label">Permanentka 5×</div>
+          <div class="price-note">160 Kč / sezení — ušetříte 100 Kč</div>
+        </div>
+        <div class="price-card">
+          <div class="price-amount"><span class="price-currency">Kč </span>1 500</div>
+          <div class="price-label">Permanentka 10×</div>
+          <div class="price-note">150 Kč / sezení — ušetříte 300 Kč</div>
+        </div>
+        <div class="price-card">
+          <div class="price-amount"><span class="price-currency">Kč </span>950</div>
+          <div class="price-label">Skupinový vstup</div>
+          <div class="price-note">Celá skupina najednou</div>
+        </div>
+      </div>
+      <div class="pricing-note">
+        <strong>Příspěvky pojišťoven:</strong> Většina zdravotních pojišťoven přispívá na solnou terapii v rámci preventivních programů — ověřte si podmínky u vaší pojišťovny. <br /><br />
+        <strong>Přijímáme:</strong> Sodexho Pass, Relax Pass, Flexi Pass, Dárkový Pass, Fokus Pass, Accor Services.
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="reviews-bg">
+    <div class="container">
+      <p class="section-label">Recenze</p>
+      <h2 class="section-title">Co říkají naši hosté</h2>
+      <p class="section-desc">100% spokojenost. Hodnocení 5/5 na základě 21 recenzí.</p>
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p class="review-text">„Úžasné místo na regeneraci. Velice pozorný přístup personálu, čisté a profesionální prostředí. Doporučuji každému, kdo trpí astmatem."</p>
+          <div class="reviewer">
+            <div class="reviewer-avatar">MH</div>
+            <div>
+              <div class="reviewer-name">Martin H.</div>
+              <div class="reviewer-date">Zákazník</div>
+            </div>
+          </div>
+        </div>
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p class="review-text">„Chodíme sem pravidelně s celou rodinou. Děti milují jeskyni — mají tam hračky a tobogán. Syn přestal mít tak časté angíny."</p>
+          <div class="reviewer">
+            <div class="reviewer-avatar">LP</div>
+            <div>
+              <div class="reviewer-name">Lucie P.</div>
+              <div class="reviewer-date">Zákaznice</div>
+            </div>
+          </div>
+        </div>
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p class="review-text">„Nádherně relaxuji a cítím výrazné zlepšení dýchání. Personál je milý, prostředí čisté a útulné. Zásadní objev pro mou alergii."</p>
+          <div class="reviewer">
+            <div class="reviewer-avatar">JN</div>
+            <div>
+              <div class="reviewer-name">Jana N.</div>
+              <div class="reviewer-date">Zákaznice</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT + HOURS -->
+  <section id="kontakt">
+    <div class="container">
+      <div class="info-grid">
+        <div class="info-block">
+          <p class="section-label">Otevírací doba</p>
+          <h3>Kdy nás najdete</h3>
+          <table class="hours-table">
+            <tr><td>Pondělí</td><td class="hours-open">9:00 – 18:00</td></tr>
+            <tr><td>Úterý</td><td class="hours-open">9:00 – 18:00</td></tr>
+            <tr><td>Středa</td><td class="hours-open">9:00 – 18:00</td></tr>
+            <tr><td>Čtvrtek</td><td class="hours-open">9:00 – 18:00</td></tr>
+            <tr><td>Pátek</td><td class="hours-open">9:00 – 18:00</td></tr>
+            <tr><td>Sobota</td><td style="color:var(--amber);font-weight:500">Po telefonické domluvě</td></tr>
+            <tr><td>Neděle</td><td style="color:var(--amber);font-weight:500">Po telefonické domluvě</td></tr>
+          </table>
+          <div class="map-placeholder">
+            <span>📍</span>
+            <strong>Labská louka 650, Hradec Králové — Třebeš</strong>
+            <span style="font-size:0.8rem;opacity:0.7">GPS: 50°11'3.6"N, 15°49'37.7"E</span>
+          </div>
+        </div>
+        <div class="info-block">
+          <p class="section-label">Kontakt</p>
+          <h3>Spojte se s námi</h3>
+          <div class="contact-items">
+            <a href="tel:+420721416416" class="contact-item">
+              <div class="contact-icon">📞</div>
+              <div>
+                <div class="contact-label">Telefon</div>
+                <div class="contact-value">+420 721 416 416</div>
+              </div>
+            </a>
+            <a href="mailto:rezervace@solnajeskynehradec.cz" class="contact-item">
+              <div class="contact-icon">✉️</div>
+              <div>
+                <div class="contact-label">Rezervace e-mailem</div>
+                <div class="contact-value">rezervace@solnajeskynehradec.cz</div>
+              </div>
+            </a>
+            <a href="mailto:info@solnajeskynehradec.cz" class="contact-item">
+              <div class="contact-icon">💬</div>
+              <div>
+                <div class="contact-label">Obecné dotazy</div>
+                <div class="contact-value">info@solnajeskynehradec.cz</div>
+              </div>
+            </a>
+            <div class="contact-item" style="cursor:default">
+              <div class="contact-icon">🏠</div>
+              <div>
+                <div class="contact-label">Adresa</div>
+                <div class="contact-value">Labská louka 650, 500 11 HK – Třebeš</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Rezervujte si termín ještě dnes</h2>
+      <p>Zavolejte nám nebo napište — rádi vám poradíme a najdeme vhodný čas pro vaši návštěvu.</p>
+      <a href="tel:+420721416416" class="btn-white">📞 +420 721 416 416</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="demo-notice">⚡ Demo web — vytvořeno jako ukázka moderního designu</div>
+    <div class="footer-logo">Solná jeskyně Relax</div>
+    <p class="footer-tagline">Labská louka 650 · Hradec Králové · Třebeš</p>
+    <ul class="footer-links">
+      <li><a href="#o-nas">O nás</a></li>
+      <li><a href="#benefity">Benefity</a></li>
+      <li><a href="#cenik">Ceník</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+    </ul>
+    <p class="footer-copy">© 2026 Solná jeskyně Relax Hradec Králové · IČO 05620988</p>
+  </footer>
+
+</body>
+</html>
