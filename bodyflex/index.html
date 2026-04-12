@@ -8,156 +8,300 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --bg:#080B0E;
-  --bg2:#0D1117;
-  --bg3:#121820;
-  --gold:#F5A623;
-  --gold2:#E8950F;
-  --text:#E8ECF5;
-  --muted:#8A95A8;
-  --border:rgba(245,166,35,.15);
+  --bg:#111316;
+  --bg2:#1A1D21;
+  --bg3:#0D0F11;
+  --red:#A60E17;
+  --red2:#8b0d09;
+  --dark:#2A2D31;
+  --text:#F0F2F5;
+  --muted:#7A8292;
+  --border:rgba(166,14,23,.2);
 }
 html{scroll-behavior:smooth}
 body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden}
 
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.2rem 3rem;display:flex;align-items:center;justify-content:space-between;background:rgba(8,11,14,.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(245,166,35,.08)}
-.nav-logo{display:flex;align-items:center;gap:.75rem}
-.nav-logo img{height:36px;filter:brightness(1.1)}
+/* ─── LOADER ─── */
+#loader{
+  position:fixed;inset:0;z-index:9999;
+  background:#0D0F11;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:2.5rem;
+}
+#loader img{height:52px;filter:brightness(0) invert(1);opacity:0;animation:logoIn .6s .3s ease forwards}
+@keyframes logoIn{to{opacity:1;filter:brightness(0) invert(1)}}
+.loader-bar-wrap{width:240px;height:2px;background:rgba(255,255,255,.07);overflow:hidden}
+.loader-bar{height:100%;background:var(--red);width:0;animation:barFill 1.4s .5s cubic-bezier(.4,0,.2,1) forwards}
+@keyframes barFill{to{width:100%}}
+.loader-pct{font-family:'Barlow Condensed',sans-serif;font-size:.68rem;letter-spacing:.35em;text-transform:uppercase;color:var(--muted);animation:pctCount 1.4s .5s steps(100,end) forwards}
+@keyframes pctCount{
+  0%{color:var(--muted)} 100%{color:var(--red)}
+}
+#loader.done{animation:loaderOut .5s ease forwards}
+@keyframes loaderOut{to{opacity:0;pointer-events:none}}
+
+/* ─── NAV ─── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:1.1rem 3rem;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(13,15,17,0);
+  border-bottom:1px solid rgba(255,255,255,0);
+  transition:background .4s,border-color .4s;
+}
+nav.scrolled{background:rgba(13,15,17,.96);border-color:rgba(255,255,255,.05);backdrop-filter:blur(12px)}
+.nav-logo img{height:32px;filter:brightness(0) invert(1)}
 .nav-links{display:flex;gap:2.5rem}
-.nav-links a{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s}
-.nav-links a:hover{color:var(--gold)}
-.nav-cta{font-family:'Barlow Condensed',sans-serif;font-size:.8rem;letter-spacing:.15em;text-transform:uppercase;background:var(--gold);color:#080B0E;padding:.55rem 1.6rem;font-weight:700;text-decoration:none;transition:background .2s}
-.nav-cta:hover{background:var(--gold2)}
+.nav-links a{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(240,242,245,.5);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--text)}
+.nav-cta{
+  font-family:'Barlow Condensed',sans-serif;font-size:.78rem;letter-spacing:.15em;text-transform:uppercase;
+  background:var(--red);color:#fff;padding:.5rem 1.6rem;font-weight:700;text-decoration:none;
+  clip-path:polygon(8px 0,100% 0,calc(100% - 8px) 100%,0 100%);
+  transition:background .2s;
+}
+.nav-cta:hover{background:var(--red2)}
 
-/* HERO */
-.hero{min-height:100vh;position:relative;display:flex;align-items:center;overflow:hidden}
-.hero-bg{position:absolute;inset:0;background:url('https://bodyflexfitness.cz/hradeckralove/wp-content/uploads/sites/4/2018/01/DSC_3091-1920x1280.jpg') center/cover no-repeat;filter:brightness(.35)}
-.hero-overlay{position:absolute;inset:0;background:linear-gradient(105deg, rgba(8,11,14,.92) 45%, rgba(8,11,14,.4) 100%)}
-.hero-content{position:relative;z-index:2;padding:0 3rem;max-width:700px;padding-top:6rem}
-.hero-eyebrow{font-family:'Barlow Condensed',sans-serif;font-size:.68rem;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem}
-.hero-title{font-family:'Barlow Condensed',sans-serif;font-size:clamp(3.5rem,7vw,6.5rem);font-weight:900;text-transform:uppercase;line-height:.92;margin-bottom:1.8rem}
-.hero-title em{color:var(--gold);font-style:normal;display:block}
-.hero-sub{font-size:1.05rem;color:#B0BAC8;line-height:1.7;max-width:520px;margin-bottom:2.5rem;font-weight:300}
-.hero-actions{display:flex;gap:1rem;align-items:center;flex-wrap:wrap}
-.btn-primary{font-family:'Barlow Condensed',sans-serif;font-size:.9rem;letter-spacing:.15em;text-transform:uppercase;background:var(--gold);color:#080B0E;padding:.8rem 2.2rem;font-weight:700;text-decoration:none;transition:all .2s;display:inline-block}
-.btn-primary:hover{background:var(--gold2)}
-.btn-outline{font-family:'Barlow Condensed',sans-serif;font-size:.9rem;letter-spacing:.15em;text-transform:uppercase;border:1px solid rgba(245,166,35,.4);color:var(--gold);padding:.8rem 2.2rem;font-weight:700;text-decoration:none;transition:all .2s;display:inline-block}
-.btn-outline:hover{background:rgba(245,166,35,.1)}
-.hero-stats{position:absolute;bottom:3rem;right:3rem;z-index:2;display:flex;gap:3rem}
-.stat{text-align:center}
-.stat-num{font-family:'Barlow Condensed',sans-serif;font-size:2.5rem;font-weight:900;color:var(--gold);line-height:1}
-.stat-label{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:.3rem}
+/* ─── HERO ─── */
+.hero{min-height:100vh;position:relative;display:flex;align-items:flex-end;overflow:hidden}
+.hero-bg{
+  position:absolute;inset:0;
+  background:url('https://bodyflexfitness.cz/hradeckralove/wp-content/uploads/sites/4/2022/04/DSC02079.jpg') center/cover no-repeat;
+  filter:brightness(.28) saturate(.7);
+  transform:scale(1.04);
+  transition:transform 8s ease;
+}
+.hero-bg.loaded{transform:scale(1)}
+.hero-noise{position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.03'/%3E%3C/svg%3E");opacity:.4}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(13,15,17,.96) 0%,rgba(13,15,17,.6) 55%,rgba(13,15,17,.1) 100%)}
+.hero-overlay2{position:absolute;inset:0;background:linear-gradient(to top,rgba(13,15,17,.9) 0%,transparent 40%)}
+.hero-content{
+  position:relative;z-index:2;
+  padding:0 3rem 5rem;
+  max-width:740px;
+  width:100%;
+}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:.75rem;
+  font-family:'Barlow Condensed',sans-serif;font-size:.65rem;letter-spacing:.4em;text-transform:uppercase;color:var(--red);
+  margin-bottom:1.8rem;opacity:0;animation:fadeUp .6s 2s ease forwards;
+}
+.hero-eyebrow::before{content:'';display:block;width:32px;height:1px;background:var(--red)}
+.hero-logo{display:block;margin-bottom:2rem;opacity:0;animation:fadeUp .7s 2.1s ease forwards}
+.hero-logo img{height:60px;filter:brightness(0) invert(1)}
+.hero-tagline{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:clamp(3rem,6.5vw,6rem);
+  font-weight:900;text-transform:uppercase;line-height:.92;
+  letter-spacing:-.01em;
+  margin-bottom:1.8rem;
+  opacity:0;animation:fadeUp .7s 2.2s ease forwards;
+}
+.hero-tagline .accent{
+  color:var(--red);
+  display:block;
+  -webkit-text-stroke:1px var(--red);
+  color:transparent;
+  font-size:clamp(3.5rem,8vw,7.5rem);
+}
+.hero-sub{font-size:.95rem;color:rgba(240,242,245,.6);line-height:1.75;max-width:460px;margin-bottom:2.5rem;font-weight:300;opacity:0;animation:fadeUp .7s 2.3s ease forwards}
+.hero-actions{display:flex;gap:1rem;align-items:center;flex-wrap:wrap;opacity:0;animation:fadeUp .7s 2.4s ease forwards}
+.btn-red{
+  font-family:'Barlow Condensed',sans-serif;font-size:.85rem;letter-spacing:.15em;text-transform:uppercase;
+  background:var(--red);color:#fff;padding:.8rem 2rem;font-weight:700;text-decoration:none;
+  clip-path:polygon(10px 0,100% 0,calc(100% - 10px) 100%,0 100%);
+  display:inline-block;transition:background .2s;
+}
+.btn-red:hover{background:var(--red2)}
+.btn-ghost{
+  font-family:'Barlow Condensed',sans-serif;font-size:.85rem;letter-spacing:.15em;text-transform:uppercase;
+  border:1px solid rgba(166,14,23,.4);color:rgba(240,242,245,.7);
+  padding:.8rem 2rem;font-weight:600;text-decoration:none;display:inline-block;transition:all .2s;
+}
+.btn-ghost:hover{border-color:var(--red);color:var(--text)}
 
-/* PILLARS */
-.pillars{background:var(--bg2);padding:6rem 3rem}
-.section-label{font-family:'Barlow Condensed',sans-serif;font-size:.65rem;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
-.section-title{font-family:'Barlow Condensed',sans-serif;font-size:clamp(2rem,4vw,3rem);font-weight:900;text-transform:uppercase;line-height:1.05;margin-bottom:3.5rem}
-.pillars-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5px;background:rgba(245,166,35,.08)}
-.pillar{background:var(--bg2);padding:2.5rem 2rem;border-top:3px solid transparent;transition:border-color .25s,background .25s}
-.pillar:hover{border-color:var(--gold);background:#111820}
-.pillar-icon{font-size:1.6rem;margin-bottom:1.2rem}
-.pillar-title{font-family:'Barlow Condensed',sans-serif;font-size:1.1rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.8rem;color:var(--text)}
-.pillar-desc{font-size:.8rem;color:var(--muted);line-height:1.7}
+/* stripe bar */
+.hero-stripe{
+  position:absolute;right:0;top:0;bottom:0;width:38%;z-index:1;
+  background:repeating-linear-gradient(
+    -60deg,
+    rgba(166,14,23,.04) 0px,
+    rgba(166,14,23,.04) 1px,
+    transparent 1px,
+    transparent 28px
+  );
+  pointer-events:none;
+}
 
-/* TRAINERS */
-.trainers{padding:6rem 3rem;background:var(--bg)}
-.trainers-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.04);margin-top:3.5rem}
-.trainer-card{background:var(--bg);overflow:hidden;position:relative;aspect-ratio:3/4;cursor:default}
-.trainer-card img{width:100%;height:100%;object-fit:cover;transition:transform .5s;filter:grayscale(30%)}
-.trainer-card:hover img{transform:scale(1.04);filter:grayscale(0%)}
-.trainer-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,11,14,.95) 0%,rgba(8,11,14,.3) 50%,transparent 100%)}
-.trainer-info{position:absolute;bottom:0;left:0;right:0;padding:1.5rem 1.4rem}
-.trainer-name{font-family:'Barlow Condensed',sans-serif;font-size:1.1rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em}
-.trainer-role{font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-top:.25rem}
+/* scroll indicator */
+.scroll-hint{
+  position:absolute;bottom:2rem;right:3rem;z-index:2;
+  display:flex;flex-direction:column;align-items:center;gap:.5rem;
+  opacity:0;animation:fadeUp .5s 2.8s ease forwards;
+}
+.scroll-hint span{font-family:'Barlow Condensed',sans-serif;font-size:.58rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);writing-mode:vertical-rl}
+.scroll-line{width:1px;height:48px;background:linear-gradient(to bottom,var(--red),transparent);animation:scrollAnim 1.6s 3s ease-in-out infinite}
+@keyframes scrollAnim{0%,100%{transform:scaleY(1);opacity:1}50%{transform:scaleY(.4);opacity:.4}}
 
-/* CENIK */
-.cenik{background:var(--bg2);padding:6rem 3rem}
-.cenik-wrap{max-width:960px;margin:0 auto}
-.price-table-wrap{overflow-x:auto;margin-top:3.5rem}
-.price-table{width:100%;border-collapse:collapse;min-width:600px}
-.price-table thead tr{border-bottom:2px solid rgba(245,166,35,.3)}
-.price-table thead th{font-family:'Barlow Condensed',sans-serif;font-size:.68rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);padding:1rem 1.2rem;text-align:left;font-weight:600}
-.price-table thead th:not(:first-child){text-align:right}
-.price-table tbody tr{border-bottom:1px solid rgba(255,255,255,.05);transition:background .15s}
-.price-table tbody tr:hover{background:rgba(245,166,35,.04)}
-.price-table td{padding:.95rem 1.2rem;font-size:.88rem;color:var(--text)}
-.price-table td:not(:first-child){text-align:right;font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:600}
-.price-table td.price-highlight{color:var(--gold)}
-.price-table td.price-note{font-size:.72rem;color:var(--muted)}
-.price-table .row-head td{font-family:'Barlow Condensed',sans-serif;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);background:rgba(255,255,255,.02);padding:.6rem 1.2rem}
-.vip-card{margin-top:2.5rem;background:rgba(245,166,35,.06);border:1px solid rgba(245,166,35,.25);padding:2rem 2.5rem;display:flex;align-items:flex-start;gap:2rem}
-.vip-badge{font-family:'Barlow Condensed',sans-serif;font-size:3rem;font-weight:900;color:var(--gold);line-height:1;white-space:nowrap}
-.vip-badge span{font-size:1rem;display:block}
-.vip-title{font-family:'Barlow Condensed',sans-serif;font-size:1.3rem;font-weight:700;text-transform:uppercase;margin-bottom:.5rem}
-.vip-desc{font-size:.82rem;color:var(--muted);line-height:1.8}
-.vip-desc strong{color:var(--text)}
-.pay-methods{margin-top:2.5rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
-.pay-label{font-family:'Barlow Condensed',sans-serif;font-size:.65rem;letter-spacing:.25em;text-transform:uppercase;color:var(--muted);margin-right:.5rem}
-.pay-badge{font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;border:1px solid rgba(255,255,255,.12);color:var(--muted);padding:.3rem .7rem}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
 
-/* HOURS + CONTACT */
-.info{background:var(--bg3);padding:6rem 3rem}
-.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;max-width:860px}
-.info-block{}
-.info-block-title{font-family:'Barlow Condensed',sans-serif;font-size:1.4rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-bottom:1.5rem;border-bottom:2px solid rgba(245,166,35,.25);padding-bottom:.8rem}
-.hours-row{display:flex;justify-content:space-between;align-items:center;padding:.65rem 0;border-bottom:1px solid rgba(255,255,255,.04);font-size:.85rem}
-.hours-day{color:var(--muted);letter-spacing:.05em}
-.hours-time{font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:600;color:var(--text)}
-.contact-item{display:flex;gap:1rem;align-items:flex-start;margin-bottom:1.4rem}
-.contact-icon{width:36px;height:36px;background:rgba(245,166,35,.1);border:1px solid rgba(245,166,35,.2);display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0;margin-top:.1rem}
-.contact-label{font-family:'Barlow Condensed',sans-serif;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem}
-.contact-val{font-size:.88rem;color:var(--text);line-height:1.6}
+/* ─── STATS BAR ─── */
+.stats-bar{
+  background:var(--dark);
+  border-top:2px solid var(--red);
+  display:grid;grid-template-columns:repeat(4,1fr);
+}
+.stat-item{
+  padding:1.8rem 2rem;
+  border-right:1px solid rgba(255,255,255,.05);
+  text-align:center;
+}
+.stat-item:last-child{border-right:none}
+.stat-num{font-family:'Barlow Condensed',sans-serif;font-size:2.4rem;font-weight:900;color:var(--red);line-height:1}
+.stat-lbl{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:.4rem}
+
+/* ─── SECTION BASE ─── */
+.section-eyebrow{font-family:'Barlow Condensed',sans-serif;font-size:.65rem;letter-spacing:.4em;text-transform:uppercase;color:var(--red);margin-bottom:.9rem;display:flex;align-items:center;gap:.6rem}
+.section-eyebrow::before{content:'';width:24px;height:1px;background:var(--red)}
+.section-title{font-family:'Barlow Condensed',sans-serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:900;text-transform:uppercase;line-height:1.02}
+
+/* ─── PILLARS ─── */
+.pillars{padding:6rem 3rem;background:var(--bg)}
+.pillars-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.04);margin-top:3rem}
+.pillar{background:var(--bg);padding:2.5rem 1.8rem;position:relative;overflow:hidden;transition:background .25s}
+.pillar::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--red);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.pillar:hover{background:rgba(166,14,23,.04)}
+.pillar:hover::after{transform:scaleX(1)}
+.pillar-num{font-family:'Barlow Condensed',sans-serif;font-size:3.5rem;font-weight:900;color:rgba(166,14,23,.1);line-height:1;margin-bottom:1rem}
+.pillar-title{font-family:'Barlow Condensed',sans-serif;font-size:1.05rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em;margin-bottom:.7rem}
+.pillar-desc{font-size:.78rem;color:var(--muted);line-height:1.75}
+
+/* ─── GALLERY STRIP ─── */
+.gallery-strip{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:280px 280px;gap:3px;background:rgba(255,255,255,.03)}
+.gallery-strip .g{overflow:hidden;position:relative}
+.gallery-strip .g:first-child{grid-row:1/3}
+.gallery-strip .g img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease,filter .4s}
+.gallery-strip .g:hover img{transform:scale(1.05);filter:brightness(.8)}
+.gallery-strip .g::after{content:'';position:absolute;inset:0;background:rgba(13,15,17,.2);transition:background .3s}
+.gallery-strip .g:hover::after{background:rgba(166,14,23,.12)}
+
+/* ─── TRAINERS ─── */
+.trainers{padding:6rem 3rem;background:var(--bg2)}
+.trainers-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.03);margin-top:3rem}
+.trainer-card{background:var(--bg2);overflow:hidden;position:relative;aspect-ratio:3/4}
+.trainer-card img{width:100%;height:100%;object-fit:cover;transition:transform .5s,filter .4s;filter:grayscale(20%)}
+.trainer-card:hover img{transform:scale(1.05);filter:grayscale(0%)}
+.trainer-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(13,15,17,.98) 0%,rgba(13,15,17,.4) 45%,transparent 100%)}
+.trainer-info{position:absolute;bottom:0;left:0;right:0;padding:1.4rem 1.2rem}
+.trainer-bar{width:24px;height:2px;background:var(--red);margin-bottom:.7rem;transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.trainer-card:hover .trainer-bar{transform:scaleX(1)}
+.trainer-name{font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em}
+.trainer-role{font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--red);margin-top:.2rem}
+
+/* ─── CENIK ─── */
+.cenik{padding:6rem 3rem;background:var(--bg3)}
+.cenik-inner{max-width:980px}
+.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.04);margin-top:3rem}
+.price-block{background:var(--bg3);padding:2rem 1.8rem;position:relative}
+.price-block.featured{background:rgba(166,14,23,.06);border-top:2px solid var(--red)}
+.price-block.featured .price-tag{color:var(--red)}
+.pb-label{font-family:'Barlow Condensed',sans-serif;font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem}
+.pb-title{font-family:'Barlow Condensed',sans-serif;font-size:1.2rem;font-weight:700;text-transform:uppercase;margin-bottom:1.5rem}
+.price-row{display:flex;justify-content:space-between;align-items:baseline;padding:.5rem 0;border-bottom:1px solid rgba(255,255,255,.05)}
+.price-row:last-child{border-bottom:none}
+.pr-name{font-size:.82rem;color:rgba(240,242,245,.7)}
+.pr-price{font-family:'Barlow Condensed',sans-serif;font-size:1.1rem;font-weight:700;color:var(--text)}
+.pr-note{font-size:.65rem;color:var(--muted);margin-top:.15rem}
+
+.price-table-full{width:100%;border-collapse:collapse;margin-top:3rem}
+.price-table-full thead tr{border-bottom:2px solid rgba(166,14,23,.3)}
+.price-table-full thead th{font-family:'Barlow Condensed',sans-serif;font-size:.65rem;letter-spacing:.25em;text-transform:uppercase;color:var(--red);padding:.9rem 1.2rem;text-align:left;font-weight:600}
+.price-table-full thead th:not(:first-child){text-align:right}
+.price-table-full tbody tr{border-bottom:1px solid rgba(255,255,255,.04);transition:background .15s}
+.price-table-full tbody tr:hover{background:rgba(166,14,23,.04)}
+.price-table-full td{padding:.85rem 1.2rem;font-size:.85rem;color:var(--text)}
+.price-table-full td:not(:first-child){text-align:right;font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:600}
+.price-table-full .rowhead td{font-family:'Barlow Condensed',sans-serif;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);background:rgba(255,255,255,.02);padding:.55rem 1.2rem}
+.price-table-full td.red{color:var(--red)}
+.price-table-full td.dim{color:var(--muted);font-size:.75rem!important;font-family:'Inter',sans-serif!important;font-weight:400!important}
+
+.vip-strip{margin-top:2.5rem;border:1px solid rgba(166,14,23,.3);background:rgba(166,14,23,.05);padding:2rem 2.5rem;display:grid;grid-template-columns:auto 1fr;gap:2.5rem;align-items:center}
+.vip-num{font-family:'Barlow Condensed',sans-serif;font-size:4rem;font-weight:900;color:var(--red);line-height:1}
+.vip-num small{font-size:1.2rem;display:block;color:var(--muted)}
+.vip-title{font-family:'Barlow Condensed',sans-serif;font-size:1.2rem;font-weight:700;text-transform:uppercase;margin-bottom:.5rem}
+.vip-body{font-size:.8rem;color:var(--muted);line-height:1.8}
+.vip-body strong{color:var(--text)}
+
+.pay-row{display:flex;align-items:center;gap:.8rem;flex-wrap:wrap;margin-top:2rem}
+.pay-lbl{font-family:'Barlow Condensed',sans-serif;font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--muted)}
+.pay-chip{font-size:.68rem;letter-spacing:.07em;text-transform:uppercase;border:1px solid rgba(255,255,255,.1);color:rgba(240,242,245,.5);padding:.28rem .7rem;transition:all .2s}
+.pay-chip:hover{border-color:rgba(166,14,23,.4);color:var(--text)}
+
+/* ─── HOURS / CONTACT ─── */
+.info-sec{padding:6rem 3rem;background:var(--bg2)}
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;max-width:900px}
+.info-head{font-family:'Barlow Condensed',sans-serif;font-size:1.3rem;font-weight:700;text-transform:uppercase;padding-bottom:.8rem;border-bottom:2px solid rgba(166,14,23,.3);margin-bottom:1.5rem}
+.hrow{display:flex;justify-content:space-between;padding:.65rem 0;border-bottom:1px solid rgba(255,255,255,.04);font-size:.84rem}
+.hday{color:var(--muted)}
+.htime{font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700}
+.contact-line{display:flex;gap:1rem;align-items:flex-start;margin-bottom:1.2rem}
+.contact-ico{width:34px;height:34px;border:1px solid rgba(166,14,23,.25);display:flex;align-items:center;justify-content:center;font-size:.85rem;flex-shrink:0;margin-top:.15rem;background:rgba(166,14,23,.05)}
+.contact-lbl{font-family:'Barlow Condensed',sans-serif;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:.25rem}
+.contact-val{font-size:.84rem;line-height:1.6}
 .contact-val a{color:var(--text);text-decoration:none;transition:color .2s}
-.contact-val a:hover{color:var(--gold)}
+.contact-val a:hover{color:var(--red)}
 
-/* NEWS */
-.news{padding:6rem 3rem;background:var(--bg)}
-.news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.04);margin-top:3.5rem}
-.news-card{background:var(--bg);padding:2rem}
-.news-date{font-family:'Barlow Condensed',sans-serif;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem}
-.news-title{font-family:'Barlow Condensed',sans-serif;font-size:1.05rem;font-weight:700;text-transform:uppercase;letter-spacing:.03em;line-height:1.3;margin-bottom:.6rem}
-.news-excerpt{font-size:.78rem;color:var(--muted);line-height:1.7}
+/* ─── FOOTER ─── */
+footer{background:#080A0C;padding:2.5rem 3rem;display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(255,255,255,.04)}
+.footer-logo img{height:26px;filter:brightness(0) invert(.4)}
+.footer-copy{font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:#3A3D42}
 
-/* FOOTER */
-footer{background:#050708;padding:3rem;display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(255,255,255,.04)}
-.footer-logo img{height:28px;filter:brightness(.7)}
-.footer-text{font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:#3E4455}
-
-/* SCROLL REVEAL */
-.sr{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+/* ─── SCROLL REVEAL ─── */
+.sr{opacity:0;transform:translateY(22px);transition:opacity .65s ease,transform .65s ease}
 .sr.in{opacity:1;transform:none}
 
-/* RESPONSIVE */
-@media(max-width:900px){
+/* ─── RESPONSIVE ─── */
+@media(max-width:960px){
   nav{padding:1rem 1.5rem}
   .nav-links{display:none}
-  .hero-content{padding:0 1.5rem;padding-top:5rem}
-  .hero-stats{right:1.5rem;gap:2rem}
+  .hero-content{padding:0 1.5rem 4rem}
+  .scroll-hint{display:none}
+  .stats-bar{grid-template-columns:repeat(2,1fr)}
   .pillars{padding:4rem 1.5rem}
   .pillars-grid{grid-template-columns:1fr 1fr}
+  .gallery-strip{grid-template-columns:1fr 1fr;grid-template-rows:200px 200px 200px}
+  .gallery-strip .g:first-child{grid-row:auto}
   .trainers{padding:4rem 1.5rem}
   .trainers-grid{grid-template-columns:repeat(2,1fr)}
   .cenik{padding:4rem 1.5rem}
-  .info{padding:4rem 1.5rem}
+  .price-grid{grid-template-columns:1fr}
+  .info-sec{padding:4rem 1.5rem}
   .info-grid{grid-template-columns:1fr;gap:3rem}
-  .news{padding:4rem 1.5rem}
-  .news-grid{grid-template-columns:1fr}
   footer{padding:2rem 1.5rem;flex-direction:column;gap:1rem;text-align:center}
-  .vip-card{flex-direction:column;gap:1rem}
+  .vip-strip{grid-template-columns:1fr}
 }
 @media(max-width:600px){
-  .hero-stats{display:none}
   .pillars-grid{grid-template-columns:1fr}
+  .trainers-grid{grid-template-columns:1fr 1fr}
+  .stats-bar{grid-template-columns:1fr 1fr}
 }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
+<!-- ─── LOADER ─── -->
+<div id="loader">
+  <img src="https://bodyflexfitness.cz/hradeckralove/wp-content/uploads/sites/4/2018/01/bodylogonew-e1516718052781.png" alt="BODYFLEX">
+  <div>
+    <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+  </div>
+  <div class="loader-pct" id="pct">000%</div>
+</div>
+
+<!-- ─── NAV ─── -->
+<nav id="nav">
   <div class="nav-logo">
-    <img src="https://bodyflexfitness.cz/hradeckralove/wp-content/uploads/sites/4/2018/01/bodylogonew-e1516718052781.png" alt="BODYFLEX Fitness">
+    <img src="https://bodyflexfitness.cz/hradeckralove/wp-content/uploads/sites/4/2018/01/bodylogonew-e1516718052781.png" alt="BODYFLEX">
   </div>
   <div class="nav-links">
     <a href="#vybaveni">Vybavení</a>
@@ -165,133 +309,179 @@ footer{background:#050708;padding:3rem;display:flex;align-items:center;justify-c
     <a href="#cenik">Ceník</a>
     <a href="#kontakt">Kontakt</a>
   </div>
-  <a class="nav-cta" href="#cenik">Členství</a>
+  <a class="nav-cta" href="#cenik">Zahájit trénink</a>
 </nav>
 
-<!-- HERO -->
+<!-- ─── HERO ─── -->
 <section class="hero">
-  <div class="hero-bg"></div>
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-noise"></div>
   <div class="hero-overlay"></div>
+  <div class="hero-overlay2"></div>
+  <div class="hero-stripe"></div>
+
   <div class="hero-content">
-    <div class="hero-eyebrow sr">Hradec Králové · třída Karla IV.</div>
-    <h1 class="hero-title sr">
-      Train like<br><em>Champion</em>
+    <div class="hero-eyebrow">Hradec Králové · třída Karla IV.</div>
+    <div class="hero-logo">
+      <img src="https://bodyflexfitness.cz/hradeckralove/wp-content/uploads/sites/4/2018/01/bodylogonew-e1516718052781.png" alt="BODYFLEX Fitness">
+    </div>
+    <h1 class="hero-tagline">
+      Train like<br>
+      <span class="accent">Champion</span>
     </h1>
-    <p class="hero-sub sr">Největší a nejmodernější fitness centrum v Hradci Králové. Špičkové stroje Life Fitness & Hammer Strength z USA, profesionální trenéři, prostory pro každého.</p>
-    <div class="hero-actions sr">
-      <a class="btn-primary" href="#cenik">Zjistit ceny</a>
-      <a class="btn-outline" href="#treneri">Naši trenéři</a>
+    <p class="hero-sub">Největší a nejmodernější fitness centrum v Hradci Králové. Špičkové stroje Life Fitness & Hammer Strength z USA, profesionální trenéři, prostory pro každého.</p>
+    <div class="hero-actions">
+      <a class="btn-red" href="#cenik">Zjistit ceny</a>
+      <a class="btn-ghost" href="#treneri">Naši trenéři</a>
     </div>
   </div>
-  <div class="hero-stats">
-    <div class="stat sr">
-      <div class="stat-num">8+</div>
-      <div class="stat-label">Trenérů</div>
-    </div>
-    <div class="stat sr">
-      <div class="stat-num">05:30</div>
-      <div class="stat-label">Otevíráme</div>
-    </div>
-    <div class="stat sr">
-      <div class="stat-num">HK</div>
-      <div class="stat-label">Hradec Králové</div>
-    </div>
+
+  <div class="scroll-hint">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
   </div>
 </section>
 
-<!-- PILLARS -->
+<!-- ─── STATS BAR ─── -->
+<div class="stats-bar">
+  <div class="stat-item sr">
+    <div class="stat-num">8+</div>
+    <div class="stat-lbl">Certifikovaných trenérů</div>
+  </div>
+  <div class="stat-item sr">
+    <div class="stat-num">05:30</div>
+    <div class="stat-lbl">Otevíráme každý den</div>
+  </div>
+  <div class="stat-item sr">
+    <div class="stat-num">USA</div>
+    <div class="stat-lbl">Vybavení Life Fitness</div>
+  </div>
+  <div class="stat-item sr">
+    <div class="stat-num">HK</div>
+    <div class="stat-lbl">Hradec Králové</div>
+  </div>
+</div>
+
+<!-- ─── PILLARS ─── -->
 <section class="pillars" id="vybaveni">
-  <div class="section-label sr">Proč BODYFLEX</div>
+  <div class="section-eyebrow sr">Proč BODYFLEX</div>
   <h2 class="section-title sr">Čtyři důvody<br>proč nás zvolit</h2>
   <div class="pillars-grid">
     <div class="pillar sr">
-      <div class="pillar-icon">🏋️</div>
+      <div class="pillar-num">01</div>
       <div class="pillar-title">Exkluzivní vybavení</div>
       <div class="pillar-desc">Stroje Life Fitness & Hammer Strength přímo z USA, Precor, Nautilus, Impulse — to nejlepší pro váš trénink.</div>
     </div>
     <div class="pillar sr">
-      <div class="pillar-icon">💪</div>
+      <div class="pillar-num">02</div>
       <div class="pillar-title">Vše pro ženy</div>
       <div class="pillar-desc">Dedikovaná zóna a programy navržené speciálně pro ženy — bezpečné a efektivní prostředí.</div>
     </div>
     <div class="pillar sr">
-      <div class="pillar-icon">🎯</div>
-      <div class="pillar-title">Pro každého</div>
+      <div class="pillar-num">03</div>
+      <div class="pillar-title">Každý level</div>
       <div class="pillar-desc">Ať jste profesionál nebo začátečník — naši trenéři vás provedou tréninkem na míru.</div>
     </div>
     <div class="pillar sr">
-      <div class="pillar-icon">🥗</div>
+      <div class="pillar-num">04</div>
       <div class="pillar-title">Sportovní výživa</div>
       <div class="pillar-desc">BODYFLEX Nutrition — eshop i přímý prodej v centru. Kvalitní suplementace pro vaše výsledky.</div>
     </div>
   </div>
 </section>
 
-<!-- TRAINERS -->
+<!-- ─── GALLERY ─── -->
+<div class="gallery-strip">
+  <div class="g sr">
+    <img src="https://bodyflexfitness.cz/hradeckralove/wp-content/uploads/sites/4/2022/04/DSC01982_AuroraHDR2019-edit.jpg" alt="Bodyflex interior" loading="lazy">
+  </div>
+  <div class="g sr">
+    <img src="https://bodyflexfitness.cz/hradeckralove/wp-content/uploads/sites/4/2022/04/DSC02079.jpg" alt="Bodyflex gym" loading="lazy">
+  </div>
+  <div class="g sr">
+    <img src="https://bodyflexfitness.cz/hradeckralove/wp-content/uploads/sites/4/2018/10/IMG_0098.jpg" alt="Bodyflex equipment" loading="lazy">
+  </div>
+  <div class="g sr">
+    <img src="https://bodyflexfitness.cz/hradeckralove/wp-content/uploads/sites/4/2022/04/IMG_4695.jpg" alt="Bodyflex workout" loading="lazy">
+  </div>
+  <div class="g sr">
+    <img src="https://bodyflexfitness.cz/hradeckralove/wp-content/uploads/sites/4/2018/01/Bodyflex_Nutrition-main_page.jpg" alt="Bodyflex nutrition" loading="lazy">
+  </div>
+</div>
+
+<!-- ─── TRAINERS ─── -->
 <section class="trainers" id="treneri">
-  <div class="section-label sr">Náš tým</div>
+  <div class="section-eyebrow sr">Náš tým</div>
   <h2 class="section-title sr">Profesionální<br>trenéři</h2>
   <div class="trainers-grid">
     <div class="trainer-card sr">
-      <img src="https://bodyflexfitness.cz/hradeckralove/wp-content/uploads/sites/4/2019/05/trener_kolaroa.jpg" alt="Kristýna Kolářová" loading="lazy">
+      <img src="https://bodyflexfitness.cz/hradeckralove/wp-content/uploads/sites/4/2023/11/trener_kolaroa.jpg" alt="Kristýna Kolářová" loading="lazy">
       <div class="trainer-overlay"></div>
       <div class="trainer-info">
+        <div class="trainer-bar"></div>
         <div class="trainer-name">Kristýna Kolářová</div>
         <div class="trainer-role">Osobní trenérka</div>
       </div>
     </div>
     <div class="trainer-card sr">
-      <img src="https://bodyflexfitness.cz/hradeckralove/wp-content/uploads/sites/4/2019/05/trener_ondrackova.jpg" alt="Kateřina Ondráčková" loading="lazy">
+      <img src="https://bodyflexfitness.cz/hradeckralove/wp-content/uploads/sites/4/2023/12/trener_ondrackova.jpg" alt="Kateřina Ondráčková" loading="lazy">
       <div class="trainer-overlay"></div>
       <div class="trainer-info">
+        <div class="trainer-bar"></div>
         <div class="trainer-name">Kateřina Ondráčková</div>
         <div class="trainer-role">Osobní trenérka</div>
       </div>
     </div>
     <div class="trainer-card sr">
-      <img src="https://bodyflexfitness.cz/hradeckralove/wp-content/uploads/sites/4/2019/05/trener_konecny.jpg" alt="Roman Konečný" loading="lazy">
+      <img src="https://bodyflexfitness.cz/hradeckralove/wp-content/uploads/sites/4/2024/12/trener_konecny.jpg" alt="Roman Konečný" loading="lazy">
       <div class="trainer-overlay"></div>
       <div class="trainer-info">
+        <div class="trainer-bar"></div>
         <div class="trainer-name">Roman Konečný</div>
         <div class="trainer-role">Osobní trenér</div>
       </div>
     </div>
     <div class="trainer-card sr">
-      <img src="https://bodyflexfitness.cz/hradeckralove/wp-content/uploads/sites/4/2019/05/trener_denk.jpg" alt="Daniel Denk" loading="lazy">
+      <img src="https://bodyflexfitness.cz/hradeckralove/wp-content/uploads/sites/4/2025/06/trener_denk.jpg" alt="Daniel Denk" loading="lazy">
       <div class="trainer-overlay"></div>
       <div class="trainer-info">
+        <div class="trainer-bar"></div>
         <div class="trainer-name">Daniel Denk</div>
         <div class="trainer-role">Osobní trenér</div>
       </div>
     </div>
     <div class="trainer-card sr">
-      <img src="https://bodyflexfitness.cz/hradeckralove/wp-content/uploads/sites/4/2019/05/trener_viktorin.jpg" alt="Martin Viktorin" loading="lazy">
+      <img src="https://bodyflexfitness.cz/hradeckralove/wp-content/uploads/sites/4/2022/02/trener_viktorin.jpg" alt="Martin Viktorin" loading="lazy">
       <div class="trainer-overlay"></div>
       <div class="trainer-info">
+        <div class="trainer-bar"></div>
         <div class="trainer-name">Martin Viktorin</div>
         <div class="trainer-role">Osobní trenér</div>
       </div>
     </div>
     <div class="trainer-card sr">
-      <img src="https://bodyflexfitness.cz/hradeckralove/wp-content/uploads/sites/4/2019/05/trener_tobiskova.jpg" alt="Diana Tobišková" loading="lazy">
+      <img src="https://bodyflexfitness.cz/hradeckralove/wp-content/uploads/sites/4/2025/07/trener_tobiskova.jpg" alt="Diana Tobišková" loading="lazy">
       <div class="trainer-overlay"></div>
       <div class="trainer-info">
+        <div class="trainer-bar"></div>
         <div class="trainer-name">Diana Tobišková</div>
         <div class="trainer-role">Osobní trenérka</div>
       </div>
     </div>
     <div class="trainer-card sr">
-      <img src="https://bodyflexfitness.cz/hradeckralove/wp-content/uploads/sites/4/2019/12/trener_kittner-1.jpg" alt="Jan Kittner" loading="lazy">
+      <img src="https://bodyflexfitness.cz/hradeckralove/wp-content/uploads/sites/4/2019/01/trener_kittner-1.jpg" alt="Jan Kittner" loading="lazy">
       <div class="trainer-overlay"></div>
       <div class="trainer-info">
+        <div class="trainer-bar"></div>
         <div class="trainer-name">Jan Kittner</div>
         <div class="trainer-role">Osobní trenér</div>
       </div>
     </div>
     <div class="trainer-card sr">
-      <img src="https://bodyflexfitness.cz/hradeckralove/wp-content/uploads/sites/4/2019/05/trener_jirka.jpg" alt="Jiří Borkovec" loading="lazy">
+      <img src="https://bodyflexfitness.cz/hradeckralove/wp-content/uploads/sites/4/2021/10/trener_jirka.jpg" alt="Jiří Borkovec" loading="lazy">
       <div class="trainer-overlay"></div>
       <div class="trainer-info">
+        <div class="trainer-bar"></div>
         <div class="trainer-name">Jiří Borkovec</div>
         <div class="trainer-role">Osobní trenér</div>
       </div>
@@ -299,168 +489,143 @@ footer{background:#050708;padding:3rem;display:flex;align-items:center;justify-c
   </div>
 </section>
 
-<!-- CENIK -->
+<!-- ─── CENÍK ─── -->
 <section class="cenik" id="cenik">
-  <div class="cenik-wrap">
-    <div class="section-label sr">Vstupy & členství</div>
+  <div class="cenik-inner">
+    <div class="section-eyebrow sr">Vstupy & členství</div>
     <h2 class="section-title sr">Ceník</h2>
 
-    <div class="price-table-wrap sr">
-      <table class="price-table">
+    <div style="overflow-x:auto" class="sr">
+      <table class="price-table-full">
         <thead>
           <tr>
-            <th>Typ vstupu</th>
+            <th>Typ vstupu / členství</th>
             <th>Cena</th>
-            <th>Cena / vstup</th>
+            <th>Úspora / vstup</th>
             <th>Poznámka</th>
           </tr>
         </thead>
         <tbody>
-          <tr class="row-head"><td colspan="4">Jednorázové vstupy</td></tr>
+          <tr class="rowhead"><td colspan="4">Jednorázové vstupy</td></tr>
           <tr>
             <td>Jednorázový vstup</td>
-            <td class="price-highlight">200 Kč</td>
+            <td class="red">200 Kč</td>
             <td>—</td>
-            <td class="price-note">—</td>
+            <td class="dim">—</td>
           </tr>
 
-          <tr class="row-head"><td colspan="4">Permanentky</td></tr>
+          <tr class="rowhead"><td colspan="4">Permanentky</td></tr>
           <tr>
             <td>10 vstupů</td>
-            <td class="price-highlight">1 690 Kč</td>
+            <td class="red">1 690 Kč</td>
             <td>169 Kč / vstup</td>
-            <td class="price-note">Platnost 6 měsíců</td>
+            <td class="dim">Platnost 6 měsíců</td>
           </tr>
           <tr>
             <td>20 vstupů</td>
-            <td class="price-highlight">2 890 Kč</td>
+            <td class="red">2 890 Kč</td>
             <td>145 Kč / vstup</td>
-            <td class="price-note">Platnost 6 měsíců</td>
+            <td class="dim">Platnost 6 měsíců</td>
           </tr>
 
-          <tr class="row-head"><td colspan="4">Časové členství</td></tr>
+          <tr class="rowhead"><td colspan="4">Časové členství — neomezené vstupy</td></tr>
           <tr>
             <td>1 měsíc</td>
-            <td class="price-highlight">1 490 Kč</td>
+            <td class="red">1 490 Kč</td>
             <td>—</td>
-            <td class="price-note">Neomezené vstupy</td>
+            <td class="dim">Neomezeno</td>
           </tr>
           <tr>
             <td>3 měsíce</td>
-            <td class="price-highlight">4 190 Kč</td>
+            <td class="red">4 190 Kč</td>
             <td>1 397 Kč / měs</td>
-            <td class="price-note">Neomezené vstupy</td>
+            <td class="dim">Neomezeno</td>
           </tr>
           <tr>
             <td>6 měsíců</td>
-            <td class="price-highlight">7 790 Kč</td>
+            <td class="red">7 790 Kč</td>
             <td>1 298 Kč / měs</td>
-            <td class="price-note">Neomezené vstupy</td>
+            <td class="dim">Neomezeno</td>
           </tr>
           <tr>
             <td>12 měsíců</td>
-            <td class="price-highlight">13 990 Kč</td>
+            <td class="red">13 990 Kč</td>
             <td>1 166 Kč / měs</td>
-            <td class="price-note">Neomezené vstupy</td>
+            <td class="dim">Neomezeno · nejlepší hodnota</td>
           </tr>
 
-          <tr class="row-head"><td colspan="4">Studenti (10% sleva na permanentky)</td></tr>
+          <tr class="rowhead"><td colspan="4">Studenti</td></tr>
           <tr>
             <td>Studentská sleva</td>
-            <td colspan="2" style="color:var(--muted);font-size:.85rem">10 % sleva na všechny permanentky</td>
-            <td class="price-note">Nutný platný ISIC/průkaz</td>
+            <td class="red">−10 %</td>
+            <td colspan="2" class="dim">Na všechny permanentky · platný ISIC / průkaz studenta</td>
           </tr>
         </tbody>
       </table>
     </div>
 
-    <div class="vip-card sr">
-      <div class="vip-badge">VIP<span>Karta</span></div>
+    <div class="vip-strip sr">
       <div>
-        <div class="vip-title">VIP Karta — 3 590 Kč / rok</div>
-        <div class="vip-desc">
-          <strong>Ručník zdarma</strong> při každém tréninku &nbsp;·&nbsp; <strong>15% sleva</strong> na vstupné a zboží za barem &nbsp;·&nbsp; Platnost 12 měsíců.<br>
-          Ideální pro pravidelné návštěvníky — karta se zaplatí za pár návštěv.
+        <div class="vip-num">3 590<small>Kč / rok</small></div>
+      </div>
+      <div>
+        <div class="vip-title">VIP Karta</div>
+        <div class="vip-body">
+          <strong>Ručník zdarma</strong> při každém tréninku &nbsp;·&nbsp;
+          <strong>15% sleva</strong> na vstupné a zboží za barem &nbsp;·&nbsp;
+          Platnost 12 měsíců.<br>
+          Karta se zaplatí za pár návštěv — ideální pro pravidelné cvičence.
         </div>
       </div>
     </div>
 
-    <div class="pay-methods sr">
-      <span class="pay-label">Přijímáme</span>
-      <span class="pay-badge">Platební karta</span>
-      <span class="pay-badge">Hotovost</span>
-      <span class="pay-badge">Multisport</span>
-      <span class="pay-badge">Edenred</span>
-      <span class="pay-badge">Pluxee</span>
-      <span class="pay-badge">UniŠek</span>
-      <span class="pay-badge">FKSP</span>
+    <div class="pay-row sr">
+      <span class="pay-lbl">Přijímáme</span>
+      <span class="pay-chip">Platební karta</span>
+      <span class="pay-chip">Hotovost</span>
+      <span class="pay-chip">Multisport</span>
+      <span class="pay-chip">Edenred</span>
+      <span class="pay-chip">Pluxee</span>
+      <span class="pay-chip">UniŠek</span>
+      <span class="pay-chip">FKSP</span>
     </div>
   </div>
 </section>
 
-<!-- NEWS -->
-<section class="news">
-  <div class="section-label sr">Novinky</div>
-  <h2 class="section-title sr">Co se děje<br>v BODYFLEX</h2>
-  <div class="news-grid">
-    <div class="news-card sr">
-      <div class="news-date">2. dubna 2026</div>
-      <div class="news-title">Velikonoční otvíračka</div>
-      <div class="news-excerpt">Speciální otevírací doba přes velikonoční svátky. Podívejte se na naše stránky pro přesný rozvrh.</div>
-    </div>
-    <div class="news-card sr">
-      <div class="news-date">11. března 2026</div>
-      <div class="news-title">Velká měsíční soutěž: Označuj a vyhraj</div>
-      <div class="news-excerpt">Označuj nás na svých fotkách z tréninku a zapoj se do soutěže o hodnotné ceny.</div>
-    </div>
-    <div class="news-card sr">
-      <div class="news-date">29. ledna 2026</div>
-      <div class="news-title">Otevřeli jsme BODYFLEX Fitness Pardubice</div>
-      <div class="news-excerpt">Síť BODYFLEX roste — nová pobočka v Pardubicích je otevřená a čeká na vás.</div>
-    </div>
-  </div>
-</section>
-
-<!-- INFO -->
-<section class="info" id="kontakt">
+<!-- ─── HOURS & CONTACT ─── -->
+<section class="info-sec" id="kontakt">
   <div class="info-grid">
-    <div class="info-block sr">
-      <div class="info-block-title">Otevírací doba</div>
-      <div class="hours-row">
-        <span class="hours-day">Pondělí – Pátek</span>
-        <span class="hours-time">05:30 – 22:00</span>
-      </div>
-      <div class="hours-row">
-        <span class="hours-day">Sobota – Neděle</span>
-        <span class="hours-time">07:00 – 22:00</span>
-      </div>
-      <div class="hours-row" style="border-bottom:none;padding-top:1.5rem">
-        <span style="font-size:.72rem;color:var(--muted)">Sváteční otvírací doba se může lišit.<br>Sledujte naše sociální sítě.</span>
+    <div class="sr">
+      <div class="info-head">Otevírací doba</div>
+      <div class="hrow"><span class="hday">Pondělí – Pátek</span><span class="htime">05:30 – 22:00</span></div>
+      <div class="hrow"><span class="hday">Sobota – Neděle</span><span class="htime">07:00 – 22:00</span></div>
+      <div class="hrow" style="border-bottom:none;padding-top:1.2rem">
+        <span style="font-size:.72rem;color:var(--muted);line-height:1.7">Sváteční otvírací doba se může lišit.<br>Sledujte naše FB stránku.</span>
       </div>
     </div>
-    <div class="info-block sr">
-      <div class="info-block-title">Kontakt</div>
-      <div class="contact-item">
-        <div class="contact-icon">📍</div>
+    <div class="sr">
+      <div class="info-head">Kontakt</div>
+      <div class="contact-line">
+        <div class="contact-ico">📍</div>
         <div>
-          <div class="contact-label">Adresa</div>
+          <div class="contact-lbl">Adresa</div>
           <div class="contact-val">třída Karla IV. 1283/28<br>500 02 Hradec Králové</div>
         </div>
       </div>
-      <div class="contact-item">
-        <div class="contact-icon">📞</div>
+      <div class="contact-line">
+        <div class="contact-ico">📞</div>
         <div>
-          <div class="contact-label">Telefon</div>
+          <div class="contact-lbl">Telefon</div>
           <div class="contact-val">
             <a href="tel:+420605412763">+420 605 412 763</a><br>
             <a href="tel:+420728845053">+420 728 845 053</a>
           </div>
         </div>
       </div>
-      <div class="contact-item">
-        <div class="contact-icon">✉️</div>
+      <div class="contact-line">
+        <div class="contact-ico">✉️</div>
         <div>
-          <div class="contact-label">Email</div>
+          <div class="contact-lbl">Email</div>
           <div class="contact-val"><a href="mailto:hradec@bodyflexfitness.cz">hradec@bodyflexfitness.cz</a></div>
         </div>
       </div>
@@ -468,19 +633,43 @@ footer{background:#050708;padding:3rem;display:flex;align-items:center;justify-c
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- ─── FOOTER ─── -->
 <footer>
   <div class="footer-logo">
     <img src="https://bodyflexfitness.cz/hradeckralove/wp-content/uploads/sites/4/2018/01/bodylogonew-e1516718052781.png" alt="BODYFLEX">
   </div>
-  <div class="footer-text">© 2026 BODYFLEX Fitness Hradec Králové &nbsp;·&nbsp; Demo by Adam Kropáček</div>
+  <div class="footer-copy">© 2026 BODYFLEX Fitness Hradec Králové &nbsp;·&nbsp; Demo by Adam Kropáček</div>
 </footer>
 
 <script>
-const io = new IntersectionObserver(entries => {
-  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('in') });
-}, {threshold:.12});
-document.querySelectorAll('.sr').forEach(el => io.observe(el));
+// ─── LOADER ───────────────────────────────────────
+(function(){
+  const loader = document.getElementById('loader');
+  const pct = document.getElementById('pct');
+  let n = 0;
+  const iv = setInterval(()=>{
+    n = Math.min(n + Math.random()*4 + 1, 99);
+    pct.textContent = String(Math.floor(n)).padStart(3,'0') + '%';
+  }, 40);
+  setTimeout(()=>{
+    clearInterval(iv);
+    pct.textContent = '100%';
+    setTimeout(()=>{
+      loader.classList.add('done');
+      setTimeout(()=>{ loader.style.display='none'; document.getElementById('heroBg').classList.add('loaded'); },500);
+    }, 200);
+  }, 1900);
+})();
+
+// ─── NAV SCROLL ───────────────────────────────────
+const nav = document.getElementById('nav');
+window.addEventListener('scroll',()=>{ nav.classList.toggle('scrolled',scrollY>60) },{passive:true});
+
+// ─── SCROLL REVEAL ────────────────────────────────
+const io = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('in') });
+},{threshold:.1});
+document.querySelectorAll('.sr').forEach(el=>io.observe(el));
 </script>
 </body>
 </html>
