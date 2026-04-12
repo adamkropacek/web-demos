@@ -142,7 +142,12 @@
     <div class="hero-right-panel flex-shrink-0 w-72">
       <div style="background:rgba(11,16,24,0.85);border:1px solid rgba(59,130,246,0.15);border-radius:16px;padding:28px;backdrop-filter:blur(12px)">
         <div class="cond font-bold text-sm tracking-widest uppercase mb-5" style="color:var(--blue-light)">Rozvrh tréninků</div>
-        <img src="http://www.deltagym.cz/wp-content/uploads/rozvrh-2025-2026-960x594.png" alt="Rozvrh 2025-2026" style="width:100%;border-radius:8px;opacity:.9">
+        <a href="#rozvrh" onclick="document.getElementById('rozvrh').scrollIntoView({behavior:'smooth'});return false;" style="display:block;position:relative;border-radius:8px;overflow:hidden;cursor:pointer">
+          <img src="http://www.deltagym.cz/wp-content/uploads/rozvrh-2025-2026-960x594.png" alt="Rozvrh 2025-2026" style="width:100%;border-radius:8px;opacity:.85;transition:opacity .2s" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=.85">
+          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .2s;background:rgba(59,130,246,0.15)" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0">
+            <span style="font-family:'Barlow Condensed',sans-serif;font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:white;background:rgba(29,78,216,0.85);padding:.4rem 1rem;border-radius:4px">Zobrazit celý →</span>
+          </div>
+        </a>
         <div class="mt-4 text-center">
           <a href="mailto:info@deltagym.cz" class="text-sm" style="color:var(--muted-2)">info@deltagym.cz</a>
         </div>
@@ -230,10 +235,13 @@
 
     <!-- Schedule -->
     <div class="mt-10 sr d3">
-      <div class="prog-card p-6 md:p-8">
+      <div class="prog-card p-6 md:p-8" id="rozvrh">
         <h3 class="cond font-bold text-2xl uppercase mb-6">Rozvrh <span style="color:var(--blue-light)">2025 – 2026</span></h3>
         <div class="schedule-img">
           <img src="http://www.deltagym.cz/wp-content/uploads/rozvrh-2025-2026-960x594.png" alt="Rozvrh tréninků 2025-2026" style="width:100%;display:block;">
+        </div>
+        <div class="mt-4 text-center">
+          <a href="https://klub.deltagym.cz/registration" target="_blank" class="btn-blue px-5 py-2.5 rounded text-sm inline-block mt-2">Přihlásit se na trénink →</a>
         </div>
       </div>
     </div>
@@ -249,12 +257,69 @@
         Ceník <span style="color:var(--blue-light)">2025</span>
       </h2>
     </div>
-    <div class="mb-8 sr">
-      <div class="schedule-img" style="max-width:700px;margin:0 auto">
-        <img src="http://www.deltagym.cz/wp-content/uploads/cenk-delta-gym-z-2025-960x600.png" alt="Ceník Delta Gym září 2025" style="width:100%;display:block;">
+    <div class="grid md:grid-cols-2 gap-6 mb-6 sr">
+      <!-- Dospělí -->
+      <div class="price-card p-6 featured">
+        <div class="cond font-bold text-lg uppercase mb-1" style="color:var(--blue-light)">Dospělí + MMA</div>
+        <div class="text-xs tracking-wider uppercase mb-6" style="color:var(--muted)">Od 15 let</div>
+        <div class="space-y-0" style="border-top:1px solid rgba(255,255,255,0.05)">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:13px 0;border-bottom:1px solid rgba(255,255,255,0.05)">
+            <span class="text-sm" style="color:var(--muted-2)">Zkušební trénink</span>
+            <span class="cond font-bold text-xl" style="color:var(--gold)">ZDARMA</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:13px 0;border-bottom:1px solid rgba(255,255,255,0.05)">
+            <span class="text-sm" style="color:var(--muted-2)">Jednorázový vstup</span>
+            <span class="cond font-bold text-xl" style="color:var(--light)">dle ceníku</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:13px 0;border-bottom:1px solid rgba(255,255,255,0.05)">
+            <span class="text-sm" style="color:var(--muted-2)">10 vstupů</span>
+            <span class="cond font-bold text-xl" style="color:var(--light)">dle ceníku</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:13px 0;border-bottom:1px solid rgba(255,255,255,0.05)">
+            <span class="text-sm" style="color:var(--muted-2)">Půlroční členství</span>
+            <span class="cond font-bold text-xl" style="color:var(--light)">dle ceníku</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:13px 0">
+            <span class="text-sm" style="color:var(--muted-2)">Roční členství</span>
+            <span class="cond font-bold text-xl" style="color:var(--blue-light)">dle ceníku</span>
+          </div>
+        </div>
+        <a href="mailto:info@deltagym.cz" class="btn-blue w-full py-3 rounded text-sm block text-center mt-6">Zjistit aktuální ceny →</a>
+      </div>
+
+      <!-- Děti -->
+      <div class="price-card p-6">
+        <div class="cond font-bold text-lg uppercase mb-1" style="color:var(--gold)">Děti — Žraloci</div>
+        <div class="text-xs tracking-wider uppercase mb-6" style="color:var(--muted)">Od 5 let</div>
+        <div class="space-y-0" style="border-top:1px solid rgba(255,255,255,0.05)">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:13px 0;border-bottom:1px solid rgba(255,255,255,0.05)">
+            <span class="text-sm" style="color:var(--muted-2)">Zkušební trénink</span>
+            <span class="cond font-bold text-xl" style="color:var(--gold)">ZDARMA</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:13px 0;border-bottom:1px solid rgba(255,255,255,0.05)">
+            <span class="text-sm" style="color:var(--muted-2)">Půlroční členství</span>
+            <span class="cond font-bold text-xl" style="color:var(--light)">dle ceníku</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:13px 0">
+            <span class="text-sm" style="color:var(--muted-2)">Celoroční členství</span>
+            <span class="cond font-bold text-xl" style="color:var(--light)">dle ceníku</span>
+          </div>
+        </div>
+        <a href="mailto:info@deltagym.cz" class="btn-gold w-full py-3 rounded text-sm block text-center mt-6">Zjistit aktuální ceny →</a>
       </div>
     </div>
-    <div class="text-center sr d1">
+
+    <!-- Ceník obrázek jako reference -->
+    <div class="sr d2">
+      <details style="background:var(--dark-3);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:1rem 1.5rem">
+        <summary style="cursor:pointer;font-family:'Barlow Condensed',sans-serif;font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)">Zobrazit kompletní ceník (obrázek)</summary>
+        <div class="mt-4">
+          <img src="http://www.deltagym.cz/wp-content/uploads/cenk-delta-gym-z-2025-960x600.png" alt="Ceník Delta Gym září 2025" style="width:100%;border-radius:8px;display:block;">
+        </div>
+      </details>
+    </div>
+
+    <div class="text-center sr d3 mt-6">
       <p class="text-sm mb-4" style="color:var(--muted-2)">Máte otázky k cenám nebo členství?</p>
       <a href="mailto:info@deltagym.cz" class="btn-blue px-6 py-3 rounded inline-block">Napsat na info@deltagym.cz</a>
     </div>
