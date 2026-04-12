@@ -257,69 +257,132 @@
         Ceník <span style="color:var(--blue-light)">2025</span>
       </h2>
     </div>
-    <div class="grid md:grid-cols-2 gap-6 mb-6 sr">
-      <!-- Dospělí -->
-      <div class="price-card p-6 featured">
-        <div class="cond font-bold text-lg uppercase mb-1" style="color:var(--blue-light)">Dospělí + MMA</div>
-        <div class="text-xs tracking-wider uppercase mb-6" style="color:var(--muted)">Od 15 let</div>
-        <div class="space-y-0" style="border-top:1px solid rgba(255,255,255,0.05)">
-          <div style="display:flex;justify-content:space-between;align-items:center;padding:13px 0;border-bottom:1px solid rgba(255,255,255,0.05)">
-            <span class="text-sm" style="color:var(--muted-2)">Zkušební trénink</span>
-            <span class="cond font-bold text-xl" style="color:var(--gold)">ZDARMA</span>
-          </div>
-          <div style="display:flex;justify-content:space-between;align-items:center;padding:13px 0;border-bottom:1px solid rgba(255,255,255,0.05)">
-            <span class="text-sm" style="color:var(--muted-2)">Jednorázový vstup</span>
-            <span class="cond font-bold text-xl" style="color:var(--light)">dle ceníku</span>
-          </div>
-          <div style="display:flex;justify-content:space-between;align-items:center;padding:13px 0;border-bottom:1px solid rgba(255,255,255,0.05)">
-            <span class="text-sm" style="color:var(--muted-2)">10 vstupů</span>
-            <span class="cond font-bold text-xl" style="color:var(--light)">dle ceníku</span>
-          </div>
-          <div style="display:flex;justify-content:space-between;align-items:center;padding:13px 0;border-bottom:1px solid rgba(255,255,255,0.05)">
-            <span class="text-sm" style="color:var(--muted-2)">Půlroční členství</span>
-            <span class="cond font-bold text-xl" style="color:var(--light)">dle ceníku</span>
-          </div>
-          <div style="display:flex;justify-content:space-between;align-items:center;padding:13px 0">
-            <span class="text-sm" style="color:var(--muted-2)">Roční členství</span>
-            <span class="cond font-bold text-xl" style="color:var(--blue-light)">dle ceníku</span>
-          </div>
+    <!-- Tabulka dospělí + studenti -->
+    <div class="sr mb-4">
+      <div class="price-card" style="overflow-x:auto">
+        <div style="padding:1.5rem 1.5rem .5rem">
+          <div class="cond font-bold text-xl uppercase" style="color:var(--light)">Dospělí + Studenti <span style="color:var(--muted);font-weight:400;font-size:1rem">· platné od 1.1.2025</span></div>
+          <div class="text-xs tracking-wider uppercase mt-1 mb-4" style="color:var(--muted)">Zkušební trénink zdarma</div>
         </div>
-        <a href="mailto:info@deltagym.cz" class="btn-blue w-full py-3 rounded text-sm block text-center mt-6">Zjistit aktuální ceny →</a>
-      </div>
-
-      <!-- Děti -->
-      <div class="price-card p-6">
-        <div class="cond font-bold text-lg uppercase mb-1" style="color:var(--gold)">Děti — Žraloci</div>
-        <div class="text-xs tracking-wider uppercase mb-6" style="color:var(--muted)">Od 5 let</div>
-        <div class="space-y-0" style="border-top:1px solid rgba(255,255,255,0.05)">
-          <div style="display:flex;justify-content:space-between;align-items:center;padding:13px 0;border-bottom:1px solid rgba(255,255,255,0.05)">
-            <span class="text-sm" style="color:var(--muted-2)">Zkušební trénink</span>
-            <span class="cond font-bold text-xl" style="color:var(--gold)">ZDARMA</span>
-          </div>
-          <div style="display:flex;justify-content:space-between;align-items:center;padding:13px 0;border-bottom:1px solid rgba(255,255,255,0.05)">
-            <span class="text-sm" style="color:var(--muted-2)">Půlroční členství</span>
-            <span class="cond font-bold text-xl" style="color:var(--light)">dle ceníku</span>
-          </div>
-          <div style="display:flex;justify-content:space-between;align-items:center;padding:13px 0">
-            <span class="text-sm" style="color:var(--muted-2)">Celoroční členství</span>
-            <span class="cond font-bold text-xl" style="color:var(--light)">dle ceníku</span>
-          </div>
-        </div>
-        <a href="mailto:info@deltagym.cz" class="btn-gold w-full py-3 rounded text-sm block text-center mt-6">Zjistit aktuální ceny →</a>
+        <table style="width:100%;border-collapse:collapse;min-width:640px">
+          <thead>
+            <tr style="border-bottom:1px solid rgba(255,255,255,0.07)">
+              <th style="padding:.75rem 1.5rem;text-align:left;font-family:'Barlow Condensed',sans-serif;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-weight:400"></th>
+              <th colspan="3" style="padding:.75rem 1rem;text-align:center;font-family:'Barlow Condensed',sans-serif;font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:var(--blue-light);font-weight:700;border-left:1px solid rgba(255,255,255,0.05)">Dospělí</th>
+              <th colspan="3" style="padding:.75rem 1rem;text-align:center;font-family:'Barlow Condensed',sans-serif;font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);font-weight:700;border-left:1px solid rgba(255,255,255,0.05)">Studenti</th>
+            </tr>
+            <tr style="border-bottom:1px solid rgba(255,255,255,0.07)">
+              <th style="padding:.6rem 1.5rem;text-align:left;font-family:'Barlow Condensed',sans-serif;font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);font-weight:400"></th>
+              <th style="padding:.6rem .8rem;text-align:center;font-family:'Barlow Condensed',sans-serif;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted-2);font-weight:400;border-left:1px solid rgba(255,255,255,0.05)">1× týdně</th>
+              <th style="padding:.6rem .8rem;text-align:center;font-family:'Barlow Condensed',sans-serif;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted-2);font-weight:400">2× týdně</th>
+              <th style="padding:.6rem .8rem;text-align:center;font-family:'Barlow Condensed',sans-serif;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted-2);font-weight:400">Neomezeně</th>
+              <th style="padding:.6rem .8rem;text-align:center;font-family:'Barlow Condensed',sans-serif;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted-2);font-weight:400;border-left:1px solid rgba(255,255,255,0.05)">1× týdně</th>
+              <th style="padding:.6rem .8rem;text-align:center;font-family:'Barlow Condensed',sans-serif;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted-2);font-weight:400">2× týdně</th>
+              <th style="padding:.6rem .8rem;text-align:center;font-family:'Barlow Condensed',sans-serif;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted-2);font-weight:400">Neomezeně</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid rgba(255,255,255,0.04)">
+              <td style="padding:.85rem 1.5rem;font-size:.82rem;color:var(--muted-2)">Roční <span style="color:var(--muted);font-size:.72rem">(12 měs.)</span></td>
+              <td style="padding:.85rem .8rem;text-align:center;font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;color:var(--light);border-left:1px solid rgba(255,255,255,0.04)">5 990 Kč</td>
+              <td style="padding:.85rem .8rem;text-align:center;font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;color:var(--light)">9 990 Kč</td>
+              <td style="padding:.85rem .8rem;text-align:center;font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;color:var(--blue-light)">11 990 Kč</td>
+              <td style="padding:.85rem .8rem;text-align:center;font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;color:var(--light);border-left:1px solid rgba(255,255,255,0.04)">4 990 Kč</td>
+              <td style="padding:.85rem .8rem;text-align:center;font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;color:var(--light)">7 990 Kč</td>
+              <td style="padding:.85rem .8rem;text-align:center;font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;color:var(--gold)">9 990 Kč</td>
+            </tr>
+            <tr style="border-bottom:1px solid rgba(255,255,255,0.04);background:rgba(255,255,255,0.01)">
+              <td style="padding:.85rem 1.5rem;font-size:.82rem;color:var(--muted-2)">Roční student 10 měs. <span style="color:var(--muted);font-size:.72rem">(bez prázdnin)</span></td>
+              <td style="padding:.85rem .8rem;text-align:center;color:var(--muted);font-size:.85rem;border-left:1px solid rgba(255,255,255,0.04)">—</td>
+              <td style="padding:.85rem .8rem;text-align:center;color:var(--muted);font-size:.85rem">—</td>
+              <td style="padding:.85rem .8rem;text-align:center;color:var(--muted);font-size:.85rem">—</td>
+              <td style="padding:.85rem .8rem;text-align:center;font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;color:var(--light);border-left:1px solid rgba(255,255,255,0.04)">3 990 Kč</td>
+              <td style="padding:.85rem .8rem;text-align:center;font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;color:var(--light)">6 490 Kč</td>
+              <td style="padding:.85rem .8rem;text-align:center;font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;color:var(--light)">7 990 Kč</td>
+            </tr>
+            <tr style="border-bottom:1px solid rgba(255,255,255,0.04)">
+              <td style="padding:.85rem 1.5rem;font-size:.82rem;color:var(--muted-2)">Půlroční <span style="color:var(--muted);font-size:.72rem">(6 měs.)</span></td>
+              <td style="padding:.85rem .8rem;text-align:center;font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;color:var(--light);border-left:1px solid rgba(255,255,255,0.04)">3 490 Kč</td>
+              <td style="padding:.85rem .8rem;text-align:center;font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;color:var(--light)">5 990 Kč</td>
+              <td style="padding:.85rem .8rem;text-align:center;font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;color:var(--blue-light)">7 490 Kč</td>
+              <td style="padding:.85rem .8rem;text-align:center;font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;color:var(--light);border-left:1px solid rgba(255,255,255,0.04)">2 990 Kč</td>
+              <td style="padding:.85rem .8rem;text-align:center;font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;color:var(--light)">4 990 Kč</td>
+              <td style="padding:.85rem .8rem;text-align:center;font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;color:var(--gold)">5 990 Kč</td>
+            </tr>
+            <tr style="border-bottom:1px solid rgba(255,255,255,0.04);background:rgba(255,255,255,0.01)">
+              <td style="padding:.85rem 1.5rem;font-size:.82rem;color:var(--muted-2)">Měsíční</td>
+              <td style="padding:.85rem .8rem;text-align:center;font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;color:var(--light);border-left:1px solid rgba(255,255,255,0.04)">700 Kč</td>
+              <td style="padding:.85rem .8rem;text-align:center;font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;color:var(--light)">1 200 Kč</td>
+              <td style="padding:.85rem .8rem;text-align:center;font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;color:var(--light)">1 500 Kč</td>
+              <td style="padding:.85rem .8rem;text-align:center;font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;color:var(--light);border-left:1px solid rgba(255,255,255,0.04)">600 Kč</td>
+              <td style="padding:.85rem .8rem;text-align:center;font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;color:var(--light)">1 000 Kč</td>
+              <td style="padding:.85rem .8rem;text-align:center;font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;color:var(--light)">1 200 Kč</td>
+            </tr>
+            <tr style="border-bottom:1px solid rgba(255,255,255,0.04)">
+              <td style="padding:.85rem 1.5rem;font-size:.82rem;color:var(--muted-2)">Permanentka 10 lekcí</td>
+              <td style="padding:.85rem .8rem;text-align:center;color:var(--muted);font-size:.85rem;border-left:1px solid rgba(255,255,255,0.04)">—</td>
+              <td style="padding:.85rem .8rem;text-align:center;font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;color:var(--light)">1 600 Kč</td>
+              <td style="padding:.85rem .8rem;text-align:center;color:var(--muted);font-size:.85rem">—</td>
+              <td style="padding:.85rem .8rem;text-align:center;color:var(--muted);font-size:.85rem;border-left:1px solid rgba(255,255,255,0.04)">—</td>
+              <td style="padding:.85rem .8rem;text-align:center;font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;color:var(--light)">1 300 Kč</td>
+              <td style="padding:.85rem .8rem;text-align:center;color:var(--muted);font-size:.85rem">—</td>
+            </tr>
+            <tr style="border-bottom:1px solid rgba(255,255,255,0.04);background:rgba(255,255,255,0.01)">
+              <td style="padding:.85rem 1.5rem;font-size:.82rem;color:var(--muted-2)">Jednorázové vstupné</td>
+              <td style="padding:.85rem .8rem;text-align:center;color:var(--muted);font-size:.85rem;border-left:1px solid rgba(255,255,255,0.04)">—</td>
+              <td style="padding:.85rem .8rem;text-align:center;font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;color:var(--light)">200 Kč</td>
+              <td style="padding:.85rem .8rem;text-align:center;color:var(--muted);font-size:.85rem">—</td>
+              <td style="padding:.85rem .8rem;text-align:center;color:var(--muted);font-size:.85rem;border-left:1px solid rgba(255,255,255,0.04)">—</td>
+              <td style="padding:.85rem .8rem;text-align:center;font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;color:var(--light)">170 Kč</td>
+              <td style="padding:.85rem .8rem;text-align:center;color:var(--muted);font-size:.85rem">—</td>
+            </tr>
+            <tr style="border-bottom:1px solid rgba(255,255,255,0.04)">
+              <td style="padding:.85rem 1.5rem;font-size:.82rem;color:var(--muted-2)">Soukromá lekce 60 min</td>
+              <td colspan="3" style="padding:.85rem .8rem;text-align:center;font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;color:var(--light);border-left:1px solid rgba(255,255,255,0.04)">600 Kč</td>
+              <td colspan="3" style="padding:.85rem .8rem;text-align:center;font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;color:var(--light);border-left:1px solid rgba(255,255,255,0.04)">500 Kč</td>
+            </tr>
+            <tr>
+              <td style="padding:.85rem 1.5rem;font-size:.82rem;color:var(--muted-2)">Soukromá lekce 90 min</td>
+              <td colspan="3" style="padding:.85rem .8rem;text-align:center;font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;color:var(--light);border-left:1px solid rgba(255,255,255,0.04)">800 Kč</td>
+              <td colspan="3" style="padding:.85rem .8rem;text-align:center;font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;color:var(--light);border-left:1px solid rgba(255,255,255,0.04)">700 Kč</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
 
-    <!-- Ceník obrázek jako reference -->
-    <div class="sr d2">
-      <details style="background:var(--dark-3);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:1rem 1.5rem">
-        <summary style="cursor:pointer;font-family:'Barlow Condensed',sans-serif;font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)">Zobrazit kompletní ceník (obrázek)</summary>
-        <div class="mt-4">
-          <img src="http://www.deltagym.cz/wp-content/uploads/cenk-delta-gym-z-2025-960x600.png" alt="Ceník Delta Gym září 2025" style="width:100%;border-radius:8px;display:block;">
+    <!-- Děti -->
+    <div class="sr d1 mt-6 mb-8">
+      <div class="price-card" style="max-width:480px">
+        <div style="padding:1.5rem 1.5rem .5rem">
+          <div class="cond font-bold text-xl uppercase" style="color:var(--gold)">Děti + Junioři 🦈</div>
+          <div class="text-xs tracking-wider uppercase mt-1 mb-4" style="color:var(--muted)">Zkušební trénink zdarma</div>
         </div>
-      </details>
+        <table style="width:100%;border-collapse:collapse">
+          <thead>
+            <tr style="border-bottom:1px solid rgba(255,255,255,0.07)">
+              <th style="padding:.6rem 1.5rem;text-align:left;font-family:'Barlow Condensed',sans-serif;font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);font-weight:400"></th>
+              <th style="padding:.6rem 1rem;text-align:center;font-family:'Barlow Condensed',sans-serif;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted-2);font-weight:400;border-left:1px solid rgba(255,255,255,0.05)">1 dítě</th>
+              <th style="padding:.6rem 1rem;text-align:center;font-family:'Barlow Condensed',sans-serif;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted-2);font-weight:400">2+ sourozenců</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid rgba(255,255,255,0.04)">
+              <td style="padding:.85rem 1.5rem;font-size:.82rem;color:var(--muted-2)">Roční <span style="color:var(--muted);font-size:.72rem">(září – červen)</span></td>
+              <td style="padding:.85rem 1rem;text-align:center;font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;color:var(--light);border-left:1px solid rgba(255,255,255,0.04)">4 990 Kč</td>
+              <td style="padding:.85rem 1rem;text-align:center;font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;color:var(--gold)">3 990 Kč</td>
+            </tr>
+            <tr>
+              <td style="padding:.85rem 1.5rem;font-size:.82rem;color:var(--muted-2)">Půlroční <span style="color:var(--muted);font-size:.72rem">(školní pololetí)</span></td>
+              <td style="padding:.85rem 1rem;text-align:center;font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;color:var(--light);border-left:1px solid rgba(255,255,255,0.04)">3 490 Kč</td>
+              <td style="padding:.85rem 1rem;text-align:center;font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;color:var(--gold)">2 990 Kč</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
 
-    <div class="text-center sr d3 mt-6">
+    <div class="text-center sr d2 mt-2">
       <p class="text-sm mb-4" style="color:var(--muted-2)">Máte otázky k cenám nebo členství?</p>
       <a href="mailto:info@deltagym.cz" class="btn-blue px-6 py-3 rounded inline-block">Napsat na info@deltagym.cz</a>
     </div>
