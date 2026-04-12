@@ -63,7 +63,7 @@ nav.scrolled{background:rgba(13,15,17,.96);border-color:rgba(255,255,255,.05);ba
 .nav-cta:hover{background:var(--red2)}
 
 /* ─── HERO ─── */
-.hero{min-height:100vh;position:relative;display:flex;align-items:flex-end;overflow:hidden}
+.hero{min-height:100vh;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
 .hero-bg{
   position:absolute;inset:0;
   background:url('https://bodyflexfitness.cz/hradeckralove/wp-content/uploads/sites/4/2022/04/DSC02079.jpg') center/cover no-repeat;
@@ -73,50 +73,37 @@ nav.scrolled{background:rgba(13,15,17,.96);border-color:rgba(255,255,255,.05);ba
 }
 .hero-bg.loaded{transform:scale(1)}
 .hero-noise{position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.03'/%3E%3C/svg%3E");opacity:.4}
-.hero-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(13,15,17,.96) 0%,rgba(13,15,17,.6) 55%,rgba(13,15,17,.1) 100%)}
-.hero-overlay2{position:absolute;inset:0;background:linear-gradient(to top,rgba(13,15,17,.9) 0%,transparent 40%)}
+.hero-overlay{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(13,15,17,.55) 0%,rgba(13,15,17,.88) 100%)}
+.hero-overlay2{position:absolute;inset:0;background:linear-gradient(to top,rgba(13,15,17,.95) 0%,transparent 35%)}
 .hero-content{
   position:relative;z-index:2;
-  padding:0 3rem 5rem;
-  max-width:740px;
-  width:100%;
+  padding:6rem 3rem 5rem;
+  width:100%;max-width:860px;
+  text-align:center;
+  display:flex;flex-direction:column;align-items:center;
 }
 .hero-eyebrow{
   display:inline-flex;align-items:center;gap:.75rem;
   font-family:'Barlow Condensed',sans-serif;font-size:.65rem;letter-spacing:.4em;text-transform:uppercase;color:var(--red);
-  margin-bottom:1.8rem;opacity:0;animation:fadeUp .6s 2s ease forwards;
+  margin-bottom:2.2rem;opacity:0;animation:fadeUp .6s 2s ease forwards;
 }
-.hero-eyebrow::before{content:'';display:block;width:32px;height:1px;background:var(--red)}
-.hero-logo{display:block;margin-bottom:2rem;opacity:0;animation:fadeUp .7s 2.1s ease forwards}
-.hero-logo img{height:60px;filter:brightness(0) invert(1)}
-.hero-tagline{
-  font-family:'Barlow Condensed',sans-serif;
-  font-size:clamp(3rem,6.5vw,6rem);
-  font-weight:900;text-transform:uppercase;line-height:.92;
-  letter-spacing:-.01em;
-  margin-bottom:1.8rem;
-  opacity:0;animation:fadeUp .7s 2.2s ease forwards;
-}
-.hero-tagline .accent{
-  color:var(--red);
-  display:block;
-  -webkit-text-stroke:1px var(--red);
-  color:transparent;
-  font-size:clamp(3.5rem,8vw,7.5rem);
-}
-.hero-sub{font-size:.95rem;color:rgba(240,242,245,.6);line-height:1.75;max-width:460px;margin-bottom:2.5rem;font-weight:300;opacity:0;animation:fadeUp .7s 2.3s ease forwards}
-.hero-actions{display:flex;gap:1rem;align-items:center;flex-wrap:wrap;opacity:0;animation:fadeUp .7s 2.4s ease forwards}
+.hero-eyebrow::before,.hero-eyebrow::after{content:'';display:block;width:28px;height:1px;background:var(--red)}
+.hero-logo{display:block;margin-bottom:2.8rem;opacity:0;animation:fadeUp .7s 2.1s ease forwards}
+.hero-logo img{height:88px;filter:brightness(0) invert(1);drop-shadow:0 0 40px rgba(166,14,23,.3)}
+.hero-divider{width:60px;height:2px;background:var(--red);margin:0 auto 2rem;opacity:0;animation:fadeUp .5s 2.25s ease forwards}
+.hero-sub{font-size:1rem;color:rgba(240,242,245,.6);line-height:1.8;max-width:520px;margin-bottom:3rem;font-weight:300;opacity:0;animation:fadeUp .7s 2.3s ease forwards}
+.hero-actions{display:flex;gap:1.2rem;align-items:center;flex-wrap:wrap;justify-content:center;opacity:0;animation:fadeUp .7s 2.4s ease forwards}
 .btn-red{
-  font-family:'Barlow Condensed',sans-serif;font-size:.85rem;letter-spacing:.15em;text-transform:uppercase;
-  background:var(--red);color:#fff;padding:.8rem 2rem;font-weight:700;text-decoration:none;
-  clip-path:polygon(10px 0,100% 0,calc(100% - 10px) 100%,0 100%);
+  font-family:'Barlow Condensed',sans-serif;font-size:1rem;letter-spacing:.18em;text-transform:uppercase;
+  background:var(--red);color:#fff;padding:1.1rem 2.8rem;font-weight:700;text-decoration:none;
+  clip-path:polygon(12px 0,100% 0,calc(100% - 12px) 100%,0 100%);
   display:inline-block;transition:background .2s;
 }
 .btn-red:hover{background:var(--red2)}
 .btn-ghost{
-  font-family:'Barlow Condensed',sans-serif;font-size:.85rem;letter-spacing:.15em;text-transform:uppercase;
-  border:1px solid rgba(166,14,23,.4);color:rgba(240,242,245,.7);
-  padding:.8rem 2rem;font-weight:600;text-decoration:none;display:inline-block;transition:all .2s;
+  font-family:'Barlow Condensed',sans-serif;font-size:1rem;letter-spacing:.18em;text-transform:uppercase;
+  border:1px solid rgba(166,14,23,.45);color:rgba(240,242,245,.75);
+  padding:1.1rem 2.8rem;font-weight:600;text-decoration:none;display:inline-block;transition:all .2s;
 }
 .btn-ghost:hover{border-color:var(--red);color:var(--text)}
 
@@ -199,8 +186,8 @@ nav.scrolled{background:rgba(13,15,17,.96);border-color:rgba(255,255,255,.05);ba
 .trainer-role{font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--red);margin-top:.2rem}
 
 /* ─── CENIK ─── */
-.cenik{padding:6rem 3rem;background:var(--bg3)}
-.cenik-inner{max-width:980px}
+.cenik{padding:6rem 3rem;background:var(--bg3);display:flex;flex-direction:column;align-items:center}
+.cenik-inner{max-width:980px;width:100%}
 .price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.04);margin-top:3rem}
 .price-block{background:var(--bg3);padding:2rem 1.8rem;position:relative}
 .price-block.featured{background:rgba(166,14,23,.06);border-top:2px solid var(--red)}
@@ -325,10 +312,7 @@ footer{background:#080A0C;padding:2.5rem 3rem;display:flex;align-items:center;ju
     <div class="hero-logo">
       <img src="https://bodyflexfitness.cz/hradeckralove/wp-content/uploads/sites/4/2018/01/bodylogonew-e1516718052781.png" alt="BODYFLEX Fitness">
     </div>
-    <h1 class="hero-tagline">
-      Train like<br>
-      <span class="accent">Champion</span>
-    </h1>
+    <div class="hero-divider"></div>
     <p class="hero-sub">Největší a nejmodernější fitness centrum v Hradci Králové. Špičkové stroje Life Fitness & Hammer Strength z USA, profesionální trenéři, prostory pro každého.</p>
     <div class="hero-actions">
       <a class="btn-red" href="#cenik">Zjistit ceny</a>
