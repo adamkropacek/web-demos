@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Restaurace Šatlava — Hradec Králové</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+:root {
+  --black:  #090705;
+  --gold:   #C4913A;
+  --gold2:  #D9AA5A;
+  --cream:  #F0E8D5;
+  --cream2: #DDD0B6;
+  --muted:  #7A6E5E;
+  --muted2: #4E4438;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  background: var(--black);
+  color: var(--cream);
+  overflow-x: hidden;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+}
+
+/* ── LOADER ── */
+#loader {
+  position: fixed; inset: 0; background: var(--black);
+  z-index: 9999; display: flex; align-items: center; justify-content: center;
+  transition: opacity 1s ease 0.5s;
+}
+#loader.hide { opacity: 0; pointer-events: none; }
+.lword {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem; letter-spacing: 0.55em; text-transform: uppercase;
+  color: var(--gold); animation: lp 1.3s ease infinite alternate;
+}
+@keyframes lp { from{opacity:.2} to{opacity:1} }
+
+/* ── PROGRESS BAR ── */
+#progress {
+  position: fixed; top: 0; left: 0; height: 2px;
+  background: var(--gold); z-index: 9999; width: 0;
+  transition: width .08s linear;
+  pointer-events: none;
+}
+
+/* ── PARALLAX CONTAINERS ── */
+.px {
+  will-change: transform;
+  transform: translate3d(0,0,0) scale(1.2);
+}
+.scene-bg { transition: none; }
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 2rem 3rem;
+  display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
+  transition: padding .5s, background .5s;
+}
+nav.compact {
+  padding: 1.1rem 3rem;
+  background: rgba(9,7,5,.93);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(196,145,58,.1);
+}
+.nl, .nr { display: flex; gap: 2.5rem; list-style: none; }
+.nr { justify-content: flex-end; }
+.nl a, .nr a {
+  font-size: .67rem; letter-spacing: .22em; text-transform: uppercase;
+  color: var(--muted); text-decoration: none; transition: color .3s;
+}
+.nl a:hover, .nr a:hover { color: var(--cream); }
+.nlogo {
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem; letter-spacing: .2em; text-transform: uppercase; color: var(--cream);
+}
+.nlogo sup { font-size: .42em; color: var(--gold); vertical-align: super; }
+.nbtn {
+  font-size: .64rem; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--gold); border: 1px solid rgba(196,145,58,.4);
+  padding: .45rem 1.2rem; background: none; cursor: pointer;
+  font-family: 'Lato',sans-serif; transition: all .3s;
+}
+.nbtn:hover { background: var(--gold); color: var(--black); border-color: var(--gold); }
+
+/* ── SCENE BASE ── */
+.scene {
+  position: relative;
+  min-height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+}
+.scene-bg {
+  position: absolute; inset: 0;
+  background-size: cover; background-position: center;
+  transition: transform 8s ease;
+}
+.scene-bg.zoom { transform: scale(1.04); }
+.scene-ov {
+  position: absolute; inset: 0;
+  background: linear-gradient(to bottom,
+    rgba(9,7,5,.3) 0%, rgba(9,7,5,.1) 30%,
+    rgba(9,7,5,.55) 70%, rgba(9,7,5,.97) 100%);
+}
+.scene-ov-side {
+  position: absolute; inset: 0;
+  background: linear-gradient(105deg, rgba(9,7,5,.75) 0%, rgba(9,7,5,.3) 55%, transparent 100%);
+}
+.scene-vignette {
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at center, transparent 20%, rgba(9,7,5,.5) 85%);
+}
+.scene-content {
+  position: relative; z-index: 2;
+  text-align: center; padding: 0 2rem;
+}
+.scene-content.left {
+  text-align: left;
+  padding: 0 8vw;
+  max-width: 680px;
+  margin: 0;
+  align-self: center;
+}
+
+/* ── TYPOGRAPHY ── */
+.eyebrow {
+  font-size: .62rem; letter-spacing: .38em; text-transform: uppercase;
+  color: var(--gold); display: block; margin-bottom: 2rem;
+}
+.big-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(4rem, 11vw, 9.5rem);
+  font-weight: 400; line-height: .93;
+  color: var(--cream); letter-spacing: -.01em;
+}
+.big-title em { font-style: italic; color: var(--cream2); }
+.mid-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.4rem, 6vw, 5.5rem);
+  font-weight: 400; line-height: 1.05;
+  color: var(--cream);
+}
+.mid-title em { font-style: italic; color: var(--cream2); }
+.small-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 3.5vw, 3rem);
+  font-weight: 400; line-height: 1.1; color: var(--cream);
+}
+.small-title em { font-style: italic; color: var(--cream2); }
+.italic-body {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.15rem, 2.2vw, 1.5rem);
+  font-style: italic; font-weight: 300;
+  color: var(--cream2); line-height: 1.75;
+}
+.body-text {
+  font-size: .92rem; color: var(--muted);
+  line-height: 2; font-weight: 300; max-width: 460px;
+}
+.rule-down { width: 1px; height: 60px; background: linear-gradient(to bottom, var(--gold), transparent); margin: 2rem auto 0; }
+.orn {
+  display: flex; align-items: center; gap: 1.5rem; justify-content: center;
+  margin-bottom: 3.5rem;
+}
+.orn-line { width: 60px; height: 1px; background: var(--gold); opacity: .35; }
+.orn-dot { width: 5px; height: 5px; background: var(--gold); border-radius: 50%; }
+
+/* ── DARK SCENE (no photo) ── */
+.dark-scene {
+  background: var(--black);
+  min-height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+  padding: 6rem 2rem;
+}
+.dark-scene.alt { background: #0E0C09; }
+
+/* ── HERO vertical rule ── */
+.hero-vr { width: 1px; height: 64px; background: linear-gradient(to bottom, var(--gold), transparent); margin: 2.2rem auto 0; }
+
+/* ── MANIFESTO ── */
+.manifesto-inner { max-width: 800px; text-align: center; }
+
+/* ── MICHELIN ── */
+.michelin-wrap {
+  position: relative; text-align: center;
+  max-width: 800px; z-index: 2;
+}
+.mich-ghost {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(6rem, 18vw, 16rem); font-weight: 700;
+  color: rgba(255,255,255,.018); letter-spacing: .1em;
+  white-space: nowrap; pointer-events: none; user-select: none;
+  z-index: 1;
+}
+.mich-year {
+  position: absolute; bottom: -4rem; right: -6rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(4rem, 12vw, 10rem); font-weight: 300;
+  color: rgba(196,145,58,.08); pointer-events: none; user-select: none; line-height: 1;
+}
+.mich-label {
+  font-size: .6rem; letter-spacing: .38em; text-transform: uppercase;
+  color: #C0392B; display: block; margin-bottom: 2rem;
+}
+.mich-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-style: italic; font-weight: 300;
+  color: var(--muted); line-height: 1.8; max-width: 500px;
+  margin: 1.5rem auto 3rem;
+}
+.mich-badge {
+  display: inline-flex; align-items: center; gap: 1rem;
+  border: 1px solid rgba(196,145,58,.2); padding: .9rem 2.2rem;
+}
+.mich-badge span { font-size: .62rem; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); }
+.mich-badge-dot { width: 4px; height: 4px; background: var(--gold); border-radius: 50%; }
+
+/* ── STORY SCENE ── */
+.story-scene {
+  position: relative; min-height: 100vh; overflow: hidden;
+  display: flex; align-items: center;
+}
+.story-photo {
+  position: absolute; inset: 0;
+  background-image: url('https://www.restauracesatlava.cz/wp-content/uploads/20201202_170556-01.jpeg');
+  background-size: cover; background-position: center right;
+}
+.story-photo-ov {
+  position: absolute; inset: 0;
+  background: linear-gradient(90deg, rgba(9,7,5,.95) 0%, rgba(9,7,5,.75) 50%, rgba(9,7,5,.15) 100%);
+}
+.story-text {
+  position: relative; z-index: 2;
+  padding: 8rem 8vw; max-width: 620px;
+}
+.story-quote {
+  border-left: 1px solid rgba(196,145,58,.5);
+  padding-left: 2rem; margin: 2.5rem 0;
+}
+.story-quote q {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  font-style: italic; font-weight: 300;
+  color: var(--cream2); line-height: 1.7;
+}
+.story-quote cite {
+  display: block; margin-top: .6rem;
+  font-size: .62rem; letter-spacing: .18em; text-transform: uppercase;
+  color: var(--gold); font-style: normal;
+}
+
+/* ── FOOD SCENE ── */
+.food-scene {
+  position: relative; min-height: 100vh; overflow: hidden;
+  display: flex; align-items: flex-end;
+}
+.food-bg {
+  position: absolute; inset: 0;
+  background-image: url('https://www.restauracesatlava.cz/wp-content/uploads/20200923_214013-01-01.jpeg');
+  background-size: cover; background-position: center;
+}
+.food-ov {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(9,7,5,.92) 0%, rgba(9,7,5,.3) 40%, rgba(9,7,5,.05) 70%);
+}
+.food-text {
+  position: relative; z-index: 2;
+  padding: 4rem 8vw 8rem; width: 100%;
+  display: flex; align-items: flex-end; justify-content: space-between;
+  flex-wrap: wrap; gap: 2rem;
+}
+.food-caption {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-style: italic; font-weight: 300;
+  color: var(--cream); line-height: 1.2; max-width: 600px;
+}
+.food-aside {
+  font-size: .72rem; letter-spacing: .15em; text-transform: uppercase;
+  color: var(--muted); text-align: right;
+}
+
+/* ── MENU SCENE ── */
+.menu-scene {
+  background: #0A0806;
+  min-height: 100vh;
+  padding: 8rem 2rem;
+}
+.menu-top { text-align: center; margin-bottom: 5rem; }
+.mtabs {
+  display: flex; justify-content: center; gap: 3rem;
+  margin-bottom: 5rem; position: relative;
+}
+.mtabs::after {
+  content:''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+  width: 260px; height: 1px; background: rgba(196,145,58,.15);
+}
+.mtab {
+  font-size: .65rem; letter-spacing: .25em; text-transform: uppercase;
+  color: var(--muted2); cursor: pointer; background: none; border: none;
+  font-family: 'Lato',sans-serif; padding-bottom: 1.2rem; position: relative;
+  transition: color .3s;
+}
+.mtab::after {
+  content:''; position: absolute; bottom: -1px; left: 50%; right: 50%;
+  height: 1px; background: var(--gold); transition: left .3s, right .3s;
+}
+.mtab.active { color: var(--cream); }
+.mtab.active::after { left: 0; right: 0; }
+.mtab:hover { color: var(--cream2); }
+.mpanel { display: none; }
+.mpanel.active { display: block; }
+.mlist { max-width: 740px; margin: 0 auto; }
+.mentry {
+  display: flex; gap: 1.5rem; align-items: baseline;
+  padding: 2.2rem 0; border-bottom: 1px solid rgba(255,255,255,.04);
+}
+.mentry-l { flex: 1; }
+.mnum {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: .72rem; color: var(--muted2); display: block; margin-bottom: .5rem;
+}
+.mname {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.12rem; font-weight: 400; color: var(--cream); margin-bottom: .45rem;
+}
+.mdesc { font-size: .78rem; color: var(--muted); font-style: italic; line-height: 1.7; font-weight: 300; }
+.mdots { flex: 1; border-bottom: 1px dotted rgba(196,145,58,.15); position: relative; top: -.35rem; min-width: 30px; }
+.mprice {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.12rem; color: var(--gold2); white-space: nowrap; font-weight: 300;
+}
+
+/* ── GALLERY SCENES ── */
+.gscene {
+  display: grid; grid-template-columns: 1fr 1fr; height: 70vh; min-height: 420px;
+}
+.gscene.three { grid-template-columns: 1fr 1fr 1fr; }
+.gphoto { overflow: hidden; }
+.gphoto img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  transition: transform .8s ease; filter: brightness(.88);
+}
+.gphoto:hover img { transform: scale(1.04); filter: brightness(1); }
+.gtext {
+  background: #0E0C09;
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 5rem 6vw;
+}
+
+/* ── CONTACT SCENE ── */
+.contact-scene {
+  position: relative; min-height: 100vh; overflow: hidden;
+  display: flex; align-items: center;
+}
+.contact-bg {
+  position: absolute; inset: 0;
+  background-image: url('https://www.restauracesatlava.cz/wp-content/uploads/20201202_170102-01.jpeg');
+  background-size: cover; background-position: center;
+}
+.contact-bg-ov {
+  position: absolute; inset: 0;
+  background: rgba(9,7,5,.88);
+}
+.contact-inner {
+  position: relative; z-index: 2;
+  width: 100%; max-width: 1100px; margin: 0 auto;
+  padding: 8rem 4rem;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 8rem; align-items: start;
+}
+.cinfo-title { margin-bottom: 1.5rem; }
+.cinfo-sub { font-size: .88rem; color: var(--muted); line-height: 2; font-weight: 300; margin-bottom: 3.5rem; max-width: 380px; }
+.clist { list-style: none; }
+.clist li {
+  padding: 1.4rem 0; border-bottom: 1px solid rgba(196,145,58,.1);
+  display: flex; gap: 2rem; align-items: flex-start;
+}
+.clist li:first-child { border-top: 1px solid rgba(196,145,58,.1); }
+.clbl { font-size: .58rem; letter-spacing: .2em; text-transform: uppercase; color: var(--muted2); min-width: 65px; padding-top: .15rem; }
+.cval { font-size: .88rem; color: var(--cream2); line-height: 1.8; font-weight: 300; }
+/* form */
+.feyebrow { font-size: .6rem; letter-spacing: .3em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 2.5rem; }
+.frow { margin-bottom: 2rem; }
+.frow label { display: block; font-size: .58rem; letter-spacing: .2em; text-transform: uppercase; color: var(--muted2); margin-bottom: .65rem; }
+.frow input, .frow select, .frow textarea {
+  width: 100%; background: transparent; border: none; border-bottom: 1px solid rgba(196,145,58,.18);
+  color: var(--cream); padding: .6rem 0; font-size: .9rem;
+  font-family: 'Lato',sans-serif; font-weight: 300; outline: none;
+  transition: border-color .3s; appearance: none; -webkit-appearance: none; border-radius: 0;
+}
+.frow input:focus, .frow select:focus, .frow textarea:focus { border-bottom-color: var(--gold); }
+.frow textarea { resize: none; height: 68px; }
+.frow select option { background: #0a0806; }
+.fg2 { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+.fsbtn {
+  background: none; border: none; color: var(--cream);
+  font-family: 'Lato',sans-serif; font-size: .67rem; letter-spacing: .25em; text-transform: uppercase;
+  cursor: pointer; display: inline-flex; align-items: center; gap: 1rem; margin-top: .8rem;
+  padding: 0; transition: color .3s;
+}
+.fsbtn::after { content:''; display: block; width: 40px; height: 1px; background: currentColor; transition: width .3s; }
+.fsbtn:hover { color: var(--gold); }
+.fsbtn:hover::after { width: 68px; }
+.fok { display: none; padding: 2.5rem 0; }
+.fok-mark { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--gold); display: block; margin-bottom: 1rem; }
+.fok h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--cream); margin-bottom: .5rem; }
+.fok p { font-size: .85rem; color: var(--muted); line-height: 1.8; }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--black); border-top: 1px solid rgba(196,145,58,.08);
+  padding: 3.5rem 3rem;
+}
+.footer-in {
+  max-width: 1100px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem;
+}
+.fbrand { font-family: 'Playfair Display', serif; font-size: 1.2rem; letter-spacing: .1em; color: var(--cream); }
+.fbrand-sub { font-size: .6rem; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); margin-top: .25rem; }
+.fcenter { font-size: .75rem; color: var(--muted); text-align: center; line-height: 1.9; }
+.fcenter a { color: var(--muted); text-decoration: none; }
+.fsocials { display: flex; gap: 2rem; }
+.fsocials a { font-size: .62rem; letter-spacing: .2em; text-transform: uppercase; color: var(--muted2); text-decoration: none; transition: color .3s; }
+.fsocials a:hover { color: var(--gold); }
+
+/* ── REVEAL ── */
+.sr { opacity: 0; transform: translateY(26px); transition: opacity .95s ease, transform .95s ease; }
+.sr.d1 { transition-delay: .1s; }
+.sr.d2 { transition-delay: .25s; }
+.sr.d3 { transition-delay: .4s; }
+.sr.in { opacity: 1; transform: translateY(0); }
+
+/* ── CTA LINK ── */
+.cta-link {
+  display: inline-flex; align-items: center; gap: 1rem; margin-top: 2.5rem;
+  font-size: .67rem; letter-spacing: .22em; text-transform: uppercase;
+  color: var(--cream2); text-decoration: none; background: none; border: none;
+  font-family: 'Lato',sans-serif; cursor: pointer; transition: color .3s;
+}
+.cta-link::after { content:''; display: block; width: 36px; height: 1px; background: currentColor; transition: width .3s; }
+.cta-link:hover { color: var(--gold); }
+.cta-link:hover::after { width: 60px; }
+
+/* ── MOBILE ── */
+@media (max-width:900px) {
+  nav { grid-template-columns: 1fr auto; }
+  .nl, .nr { display: none; }
+  nav { padding: 1.5rem; }
+  .gscene, .gscene.three { grid-template-columns: 1fr; height: auto; }
+  .gphoto { height: 55vw; min-height: 240px; }
+  .gtext { padding: 3rem 2rem; }
+  .story-text { padding: 6rem 2rem; }
+  .food-text { padding: 3rem 2rem 5rem; }
+  .contact-inner { grid-template-columns: 1fr; gap: 4rem; padding: 5rem 2rem; }
+  .fg2 { grid-template-columns: 1fr; gap: 0; }
+  .mtabs { gap: 1.5rem; }
+  .footer-in { flex-direction: column; align-items: flex-start; }
+  .mich-ghost { display: none; }
+}
+@media (max-width:600px) {
+  .big-title { font-size: 3.8rem; }
+  .food-caption { font-size: 1.8rem; }
+  .mich-year { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- LOADER -->
+<div id="progress"></div>
+<div id="loader"><span class="lword">Šatlava</span></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <ul class="nl">
+    <li><a href="#pribeh">O nás</a></li>
+    <li><a href="#menu">Menu</a></li>
+  </ul>
+  <div class="nlogo">Šatlava <sup>®</sup></div>
+  <ul class="nr">
+    <li><a href="#galerie">Galerie</a></li>
+    <li><button class="nbtn" onclick="s('kontakt')">Rezervovat</button></li>
+  </ul>
+</nav>
+
+<!-- ════ 1. HERO ════ -->
+<section class="scene" id="uvod">
+  <div class="scene-bg px" id="heroBg" style="background-image:url('https://www.restauracesatlava.cz/wp-content/uploads/20201204_165027-01.jpeg')"></div>
+  <div class="scene-vignette"></div>
+  <div class="scene-ov"></div>
+  <div class="scene-content" id="heroC" style="opacity:0;transform:translateY(22px);transition:opacity 1.3s ease .7s,transform 1.3s ease .7s">
+    <span class="eyebrow">Hradec Králové · Michelin Bib Gourmand</span>
+    <h1 class="big-title">Restaurace<br><em>Šatlava</em></h1>
+    <div class="hero-vr"></div>
+  </div>
+</section>
+
+<!-- ════ 2. MANIFESTO ════ -->
+<div class="dark-scene" id="uvod2">
+  <div class="manifesto-inner sr">
+    <div class="orn">
+      <div class="orn-line"></div><div class="orn-dot"></div><div class="orn-line"></div>
+    </div>
+    <p class="italic-body" style="font-size:clamp(1.5rem,3.2vw,2.5rem);line-height:1.6;max-width:780px">
+      Věříme, že <strong style="font-weight:500;font-style:normal;color:var(--cream)">jídlo je zážitek.</strong><br>
+      Jako divadlo, jako hudba — něco, co si pamatujete.<br>
+      Od roku 2007 připravujeme okamžiky, na které se nezapomíná.
+    </p>
+    <span style="display:block;margin-top:2.5rem;font-size:.63rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold)">— Jan Nechanický, majitel &amp; šéfkuchař</span>
+  </div>
+</div>
+
+<!-- ════ 3. MICHELIN ════ -->
+<div class="dark-scene alt" id="michelin">
+  <div class="mich-ghost">MICHELIN</div>
+  <div class="michelin-wrap sr">
+    <div class="mich-year">2024</div>
+    <span class="mich-label">Průvodce Michelin · Ocenění roku 2024</span>
+    <h2 class="mid-title">Bib <em>Gourmand</em></h2>
+    <p class="mich-sub">
+      Prestižní ocenění pro restaurace nabízející výjimečnou kuchyni za přijatelnou cenu. Patříme k nim od roku 2024.
+    </p>
+    <div class="mich-badge">
+      <span>Michelin Guide</span>
+      <div class="mich-badge-dot"></div>
+      <span>Bib Gourmand</span>
+      <div class="mich-badge-dot"></div>
+      <span>Hradec Králové</span>
+      <div class="mich-badge-dot"></div>
+      <span>2024</span>
+    </div>
+  </div>
+</div>
+
+<!-- ════ 4. STORY SCENE ════ -->
+<section class="story-scene" id="pribeh">
+  <div class="story-photo px"></div>
+  <div class="story-photo-ov"></div>
+  <div class="story-text">
+    <span class="eyebrow sr">Náš příběh</span>
+    <h2 class="small-title sr d1" style="font-size:clamp(2rem,4vw,3.5rem);margin-bottom:2rem">
+      Malá restaurace<br><em>s velkým srdcem</em>
+    </h2>
+    <p class="body-text sr d2">
+      Šatlava je rodinný podnik na Dlouhé ulici v Hradci Králové. Od roku 2007 stojíme na věrnosti, poctivých surovinách a péči o každého hosta.
+    </p>
+    <div class="story-quote sr d2">
+      <q>Hosté se nevracejí kvůli trendům. Vracejí se, protože se u nás cítili dobře.</q>
+      <cite>— Jan Nechanický</cite>
+    </div>
+    <p class="body-text sr d3">
+      Více než čtvrt století v gastronomii. Ocenění Michelin Bib Gourmand jako potvrzení toho, co jsme vždy věděli.
+    </p>
+    <button class="cta-link sr d3" onclick="s('kontakt')">Rezervovat stůl</button>
+  </div>
+</section>
+
+<!-- ════ 5. FOOD SCENE ════ -->
+<section class="food-scene">
+  <div class="food-bg px"></div>
+  <div class="food-ov"></div>
+  <div class="food-text">
+    <p class="food-caption">Kuchyně, která<br>mluví sama za sebe.</p>
+    <div class="food-aside">
+      Každý pokrm<br>připravován na den<br><span style="color:var(--gold)">s láskou a precizností</span>
+    </div>
+  </div>
+</section>
+
+<!-- ════ 6. MENU ════ -->
+<section class="menu-scene" id="menu">
+  <div class="menu-top sr">
+    <span class="eyebrow">Jídelní lístek</span>
+    <h2 class="mid-title" style="font-size:clamp(2rem,4vw,3.2rem)">Vyberte si<br><em>z naší nabídky</em></h2>
+  </div>
+
+  <div class="mtabs">
+    <button class="mtab active" onclick="tab('pre',this)">Předkrmy</button>
+    <button class="mtab" onclick="tab('hl',this)">Hlavní chody</button>
+    <button class="mtab" onclick="tab('dez',this)">Dezerty</button>
+  </div>
+
+  <div class="mpanel active" id="mp-pre">
+    <div class="mlist">
+      <div class="mentry"><div class="mentry-l"><span class="mnum">01</span><div class="mname">Smetanový kuřecí velouté</div><div class="mdesc">s koňakem · trhané kuře · žampiony · karamelizovaná cibule · pohanka</div></div><div class="mdots"></div><div class="mprice">130 Kč</div></div>
+      <div class="mentry"><div class="mentry-l"><span class="mnum">02</span><div class="mname">Kozí sýr krém</div><div class="mdesc">čerstvý kozí sýr · bílá čokoláda · miso karamel · olivový prach · arónie</div></div><div class="mdots"></div><div class="mprice">250 Kč</div></div>
+      <div class="mentry"><div class="mentry-l"><span class="mnum">03</span><div class="mname">Hovězí tatarák</div><div class="mdesc">na máslovém bagetu · olivový olej zmrzlina · lanýžová majonéza · karamelizovaná cibule</div></div><div class="mdots"></div><div class="mprice">270 Kč</div></div>
+    </div>
+  </div>
+
+  <div class="mpanel" id="mp-hl">
+    <div class="mlist">
+      <div class="mentry"><div class="mentry-l"><span class="mnum">01</span><div class="mname">Krémové rizoto s rybou</div><div class="mdesc">medvědí česnek · grilovaný pstruh · chřest · fenykl</div></div><div class="mdots"></div><div class="mprice">400 Kč</div></div>
+      <div class="mentry"><div class="mentry-l"><span class="mnum">02</span><div class="mname">Kachní prso</div><div class="mdesc">omáčka z červeného vína s bylinkami a medem · dušené zelí · nakládané červené zelí</div></div><div class="mdots"></div><div class="mprice">450 Kč</div></div>
+      <div class="mentry"><div class="mentry-l"><span class="mnum">03</span><div class="mname">Surf &amp; Turf</div><div class="mdesc">hovězí rump steak · grilované krevety · pepřová omáčka · grilovaná zelenina · tortilla</div></div><div class="mdots"></div><div class="mprice">500 Kč</div></div>
+      <div class="mentry"><div class="mentry-l"><span class="mnum">04</span><div class="mname">Norský losos</div><div class="mdesc">grilovaný · Café de Paris máslo · omáčka z mučenky · bramborový kroket</div></div><div class="mdots"></div><div class="mprice">450 Kč</div></div>
+      <div class="mentry"><div class="mentry-l"><span class="mnum">05</span><div class="mname">Trhané jehněčí</div><div class="mdesc">na červeném víně · bramborové pyré · mascarpone se špenátem</div></div><div class="mdots"></div><div class="mprice">430 Kč</div></div>
+      <div class="mentry"><div class="mentry-l"><span class="mnum">06</span><div class="mname">Svíčková na smetaně</div><div class="mdesc">rolovaná svíčková · smetanová omáčka · knedlíky · kompot z lesního ovoce</div></div><div class="mdots"></div><div class="mprice">380 Kč</div></div>
+      <div class="mentry"><div class="mentry-l"><span class="mnum">07</span><div class="mname">Smažený řízeček</div><div class="mdesc">holandský styl · bylinkový salát · omáčka z křenu a mandlí</div></div><div class="mdots"></div><div class="mprice">380 Kč</div></div>
+      <div class="mentry"><div class="mentry-l"><span class="mnum">08</span><div class="mname">Kuřecí prso Supreme</div><div class="mdesc">pomalu pečené · lanýžová omáčka · chřest · steakové hranolky</div></div><div class="mdots"></div><div class="mprice">380 Kč</div></div>
+      <div class="mentry"><div class="mentry-l"><span class="mnum">09</span><div class="mname">Vepřové kotlety</div><div class="mdesc">smažená vepřová panenka · bylinkový salát · bramborový salát</div></div><div class="mdots"></div><div class="mprice">300 Kč</div></div>
+      <div class="mentry"><div class="mentry-l"><span class="mnum">10</span><div class="mname">Caesar salát</div><div class="mdesc">originální recept · parmazán · slanina · krutony · grilovaný kozí sýr</div></div><div class="mdots"></div><div class="mprice">380 Kč</div></div>
+    </div>
+  </div>
+
+  <div class="mpanel" id="mp-dez">
+    <div class="mlist">
+      <div class="mentry"><div class="mentry-l"><span class="mnum">01</span><div class="mname">Crème Brûlée z bílé čokolády</div><div class="mdesc">malinový gel · bílá čokoláda · čerstvé ovoce</div></div><div class="mdots"></div><div class="mprice">180 Kč</div></div>
+      <div class="mentry"><div class="mentry-l"><span class="mnum">02</span><div class="mname">Bramborová zmrzlina</div><div class="mdesc">makový krém · slivkový gel · ořechový crumble</div></div><div class="mdots"></div><div class="mprice">150 Kč</div></div>
+      <div class="mentry"><div class="mentry-l"><span class="mnum">03</span><div class="mname">Mille Feuille</div><div class="mdesc">vanilkový mascarpone · omáčka z lesního ovoce · mučenka</div></div><div class="mdots"></div><div class="mprice">150 Kč</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ 7. GALLERY ════ -->
+<div id="galerie">
+
+  <!-- gallery row 1: photo + dark text -->
+  <div class="gscene">
+    <div class="gphoto">
+      <img src="https://www.restauracesatlava.cz/wp-content/uploads/20200527_181234-01.jpeg" alt="Pokrm" loading="lazy">
+    </div>
+    <div class="gtext">
+      <span class="eyebrow sr" style="text-align:left">Naše kuchyně</span>
+      <h2 class="small-title sr d1">Každý pokrm<br><em>je příběh</em></h2>
+      <p class="body-text sr d2" style="margin-top:1.5rem">
+        Vaříme ze sezónních surovin, pečlivě vybraných dodavatelů a s respektem k chuti, která by měla mluvit sama za sebe.
+      </p>
+    </div>
+  </div>
+
+  <!-- gallery row 2: three photos -->
+  <div class="gscene three" style="height:50vh;min-height:300px">
+    <div class="gphoto"><img src="https://www.restauracesatlava.cz/wp-content/uploads/20200925_203736-01.jpeg" alt="Pokrm" loading="lazy"></div>
+    <div class="gphoto"><img src="https://www.restauracesatlava.cz/wp-content/uploads/20201001_091019-01.jpeg" alt="Pokrm" loading="lazy"></div>
+    <div class="gphoto"><img src="https://www.restauracesatlava.cz/wp-content/uploads/20201008_175524-01.jpeg" alt="Pokrm" loading="lazy"></div>
+  </div>
+
+  <!-- gallery row 3: dark text + photo -->
+  <div class="gscene" style="direction:rtl">
+    <div class="gphoto" style="direction:ltr">
+      <img src="https://www.restauracesatlava.cz/wp-content/uploads/20201202_170102-01.jpeg" alt="Interiér" loading="lazy">
+    </div>
+    <div class="gtext" style="direction:ltr;background:#0a0806">
+      <span class="eyebrow sr" style="text-align:left">Prostředí</span>
+      <h2 class="small-title sr d1">Místo, kde<br><em>čas plyne jinak</em></h2>
+      <p class="body-text sr d2" style="margin-top:1.5rem">
+        Intimní prostory bez zbytečného hluku. Soukromí, klid a atmosféra, která dovoluje skutečný rozhovor.
+      </p>
+      <button class="cta-link sr d3" onclick="s('kontakt')">Rezervovat stůl</button>
+    </div>
+  </div>
+</div>
+
+<!-- ════ 8. CONTACT ════ -->
+<section class="contact-scene" id="kontakt">
+  <div class="contact-bg px"></div>
+  <div class="contact-bg-ov"></div>
+  <div class="contact-inner">
+    <div class="sr">
+      <span class="eyebrow" style="text-align:left">Rezervace &amp; Kontakt</span>
+      <h2 class="small-title cinfo-title">Těšíme se<br><em>na vaši návštěvu</em></h2>
+      <p class="cinfo-sub">Stůl si rezervujte předem — ve čtvrtek, pátek a sobotu bývá plno.</p>
+      <ul class="clist">
+        <li><span class="clbl">Adresa</span><span class="cval">Dlouhá 101<br>Hradec Králové 500 03</span></li>
+        <li><span class="clbl">Hodiny</span><span class="cval">Út–Čt &nbsp;11:00–23:00<br>Pá–So &nbsp;11:00–24:00<br><span style="color:var(--muted2)">Po + Ne — zavřeno</span></span></li>
+        <li><span class="clbl">Telefon</span><span class="cval">+420 776 817 856</span></li>
+        <li><span class="clbl">E-mail</span><span class="cval">jirka.nechanicky@gmail.com</span></li>
+      </ul>
+    </div>
+    <div class="sr d1">
+      <span class="feyebrow">Rezervační formulář</span>
+      <div id="resF">
+        <div class="fg2">
+          <div class="frow"><label>Jméno *</label><input type="text" id="rN" placeholder="Jan Novák"></div>
+          <div class="frow"><label>Telefon *</label><input type="tel" id="rP" placeholder="+420 ..."></div>
+        </div>
+        <div class="fg2">
+          <div class="frow"><label>Datum *</label><input type="date" id="rD"></div>
+          <div class="frow"><label>Čas *</label>
+            <select id="rT">
+              <option value="">— vyberte —</option>
+              <option>11:00</option><option>11:30</option><option>12:00</option><option>12:30</option>
+              <option>13:00</option><option>17:00</option><option>17:30</option><option>18:00</option>
+              <option>18:30</option><option>19:00</option><option>19:30</option><option>20:00</option>
+              <option>20:30</option><option>21:00</option>
+            </select>
+          </div>
+        </div>
+        <div class="frow"><label>Počet osob *</label>
+          <select id="rG">
+            <option value="">— vyberte —</option>
+            <option>1 osoba</option><option>2 osoby</option><option>3 osoby</option>
+            <option>4 osoby</option><option>5 osob</option><option>6 osob</option>
+            <option>7–10 osob</option><option>10+ osob</option>
+          </select>
+        </div>
+        <div class="frow"><label>Poznámka</label><textarea id="rNote" placeholder="Přání, alergie, příležitost…"></textarea></div>
+        <button class="fsbtn" onclick="submitRes()">Odeslat rezervaci</button>
+      </div>
+      <div class="fok" id="resOk">
+        <span class="fok-mark">✓</span>
+        <h3>Rezervace odeslána</h3>
+        <p>Ozveme se co nejdříve pro potvrzení.<br>Těšíme se na vaši návštěvu.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-in">
+    <div><div class="fbrand">Šatlava</div><div class="fbrand-sub">Michelin Bib Gourmand · Est. 2007</div></div>
+    <div class="fcenter">Dlouhá 101, Hradec Králové &nbsp;·&nbsp; <a href="tel:+420776817856">+420 776 817 856</a><br>© 2024 Restaurace Šatlava</div>
+    <div class="fsocials"><a href="#">Facebook</a><a href="#">Instagram</a></div>
+  </div>
+</footer>
+
+<script>
+function s(id){ document.getElementById(id).scrollIntoView({behavior:'smooth'}); }
+
+window.addEventListener('load',()=>{
+  setTimeout(()=>{
+    document.getElementById('loader').classList.add('hide');
+    document.getElementById('heroBg').classList.add('zoom');
+    const hc = document.getElementById('heroC');
+    hc.style.opacity='1'; hc.style.transform='translateY(0)';
+  },700);
+});
+
+// Parallax + progress
+const pxEls = document.querySelectorAll('.px');
+const progressBar = document.getElementById('progress');
+
+function onScroll() {
+  const sy = window.scrollY;
+  const maxScroll = document.documentElement.scrollHeight - innerHeight;
+
+  progressBar.style.width = (sy / maxScroll * 100) + '%';
+  document.getElementById('nav').classList.toggle('compact', sy > 80);
+
+  pxEls.forEach(el => {
+    const section = el.parentElement;
+    const rect = section.getBoundingClientRect();
+    const offset = (rect.top + rect.height / 2 - innerHeight / 2) * 0.28;
+    el.style.transform = `translate3d(0,${offset}px,0) scale(1.2)`;
+  });
+}
+window.addEventListener('scroll', onScroll, { passive: true });
+onScroll();
+
+function tab(id,btn){
+  document.querySelectorAll('.mtab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.mpanel').forEach(p=>p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('mp-'+id).classList.add('active');
+}
+
+function submitRes(){
+  if(!document.getElementById('rN').value.trim()||
+     !document.getElementById('rP').value.trim()||
+     !document.getElementById('rD').value||
+     !document.getElementById('rT').value||
+     !document.getElementById('rG').value){
+    alert('Prosím vyplňte všechna povinná pole.');return;
+  }
+  document.getElementById('resF').style.display='none';
+  document.getElementById('resOk').style.display='block';
+}
+
+const io=new IntersectionObserver(e=>{
+  e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}});
+},{threshold:.1});
+document.querySelectorAll('.sr').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
