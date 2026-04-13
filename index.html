@@ -9,28 +9,38 @@
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Inter',sans-serif;background:#07080D;color:#E8ECF5;min-height:100vh;padding:3rem 2rem}
 .wrap{max-width:860px;margin:0 auto}
-.brand{font-family:'Barlow Condensed',sans-serif;font-size:.7rem;letter-spacing:.35em;text-transform:uppercase;color:#3E4455;margin-bottom:2.5rem}
-h1{font-family:'Barlow Condensed',sans-serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:900;text-transform:uppercase;line-height:1;margin-bottom:2.5rem}
+h1{font-family:'Barlow Condensed',sans-serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:900;text-transform:uppercase;line-height:1;margin-bottom:.5rem}
 h1 em{color:#E11D48;font-style:normal}
-
-/* TABLE */
+.byline{font-family:'Barlow Condensed',sans-serif;font-size:1.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#E8ECF5;margin-bottom:2rem}
+.notice{background:rgba(225,29,72,.07);border:1px solid rgba(225,29,72,.2);padding:1rem 1.4rem;margin-bottom:2.5rem;max-width:680px}
+.notice-label{font-family:'Barlow Condensed',sans-serif;font-size:.65rem;letter-spacing:.25em;text-transform:uppercase;color:#E11D48;margin-bottom:.5rem}
+.notice p{font-size:.82rem;color:#9CA3AF;line-height:1.8}
+.section-label{font-family:'Barlow Condensed',sans-serif;font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;margin-bottom:1rem}
+.section-label.featured{color:#E11D48}
+.section-label.wip{color:#3E4455;margin-top:3rem}
 table{width:100%;border-collapse:collapse}
-thead tr{border-bottom:1px solid rgba(255,255,255,0.06)}
 thead th{font-family:'Barlow Condensed',sans-serif;font-size:.62rem;letter-spacing:.25em;text-transform:uppercase;color:#3E4455;padding:.6rem 1rem;text-align:left;font-weight:400}
-tbody tr{border-bottom:1px solid rgba(255,255,255,0.04);transition:background .15s}
-tbody tr:hover{background:rgba(255,255,255,0.02)}
 td{padding:.9rem 1rem;vertical-align:middle}
 .td-num{font-family:'Barlow Condensed',sans-serif;font-size:.7rem;color:#3E4455;width:36px}
 .td-name{font-family:'Barlow Condensed',sans-serif;font-size:1.05rem;font-weight:700;text-transform:uppercase;letter-spacing:.03em;color:#E8ECF5;width:180px}
 .td-desc{font-size:.78rem;color:#5A6070;line-height:1.5}
 .td-links{white-space:nowrap;text-align:right;width:180px}
+.table-featured{border:1px solid rgba(225,29,72,.2);background:rgba(225,29,72,.03)}
+.table-featured thead tr{border-bottom:1px solid rgba(225,29,72,.15)}
+.table-featured tbody tr{border-bottom:1px solid rgba(225,29,72,.08);transition:background .15s}
+.table-featured tbody tr:last-child{border-bottom:none}
+.table-featured tbody tr:hover{background:rgba(225,29,72,.05)}
+.table-featured .td-num{color:#E11D48;opacity:.5}
+.table-featured .td-name{color:#fff}
+.table-wip thead tr{border-bottom:1px solid rgba(255,255,255,.06)}
+.table-wip tbody tr{border-bottom:1px solid rgba(255,255,255,.04);transition:background .15s;opacity:.45}
+.table-wip tbody tr:hover{background:rgba(255,255,255,.02);opacity:.6}
 a.btn-demo{display:inline-block;font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:#E11D48;border:1px solid rgba(225,29,72,.35);padding:.28rem .8rem;text-decoration:none;transition:all .2s;margin-left:.5rem}
 a.btn-demo:hover{background:#E11D48;color:#07080D}
 a.btn-orig{display:inline-block;font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:#5A6070;border:1px solid rgba(255,255,255,.08);padding:.28rem .8rem;text-decoration:none;transition:all .2s;margin-left:.5rem}
 a.btn-orig:hover{color:#E8ECF5;border-color:rgba(255,255,255,.2)}
-.no-orig{font-size:.62rem;color:#3E4455;letter-spacing:.1em;margin-left:.5rem}
+.badge-wip{display:inline-block;font-family:'Barlow Condensed',sans-serif;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:#3E4455;border:1px solid rgba(255,255,255,.08);padding:.22rem .7rem;margin-left:.5rem}
 footer{margin-top:3rem;font-size:.68rem;color:#3E4455;letter-spacing:.08em}
-
 @media(max-width:600px){
   .td-desc{display:none}
   .td-num{display:none}
@@ -43,14 +53,15 @@ footer{margin-top:3rem;font-size:.68rem;color:#3E4455;letter-spacing:.08em}
 <div class="wrap">
   <div style="height:.5rem"></div>
   <h1>Web <em>Demos</em></h1>
-  <div style="font-family:'Barlow Condensed',sans-serif;font-size:1.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#E8ECF5;margin-top:.2rem;margin-bottom:2rem">by Adam Kropáček</div>
+  <div class="byline">by Adam Kropáček</div>
 
-  <div style="background:rgba(225,29,72,.07);border:1px solid rgba(225,29,72,.2);padding:1rem 1.4rem;margin-bottom:2.5rem;max-width:680px">
-    <div style="font-family:'Barlow Condensed',sans-serif;font-size:.65rem;letter-spacing:.25em;text-transform:uppercase;color:#E11D48;margin-bottom:.5rem">Upozornění</div>
-    <p style="font-size:.82rem;color:#9CA3AF;line-height:1.8;">Tato dema jsou rychlé ukázky vytvořené <strong style="color:#E8ECF5">bez komunikace s klientem</strong> — pouze na základě veřejně dostupných informací. Nejde o finální weby. Chybí zde reálný obsah, fotografie, funkcionality a veškeré úpravy, které vznikají ve spolupráci s klientem. <strong style="color:#E8ECF5">Skutečný výsledek se od těchto dem výrazně liší.</strong></p>
+  <div class="notice">
+    <div class="notice-label">Upozornění</div>
+    <p>Tato dema jsou rychlé ukázky vytvořené <strong style="color:#E8ECF5">bez komunikace s klientem</strong> — pouze na základě veřejně dostupných informací. Nejde o finální weby. Chybí zde reálný obsah, fotografie, funkcionality a veškeré úpravy, které vznikají ve spolupráci s klientem. <strong style="color:#E8ECF5">Skutečný výsledek se od těchto dem výrazně liší.</strong></p>
   </div>
 
-  <table>
+  <div class="section-label featured">Reprezentativní ukázky</div>
+  <table class="table-featured">
     <thead>
       <tr>
         <th>#</th>
@@ -63,7 +74,7 @@ footer{margin-top:3rem;font-size:.68rem;color:#3E4455;letter-spacing:.08em}
       <tr>
         <td class="td-num">01</td>
         <td class="td-name">Extrifit GYM</td>
-        <td class="td-desc">Největší fitness centrum · 1 460 m² · Pardubice</td>
+        <td class="td-desc">Největší fitness centrum &middot; 1 460 m&sup2; &middot; Pardubice</td>
         <td class="td-links">
           <a class="btn-orig" href="https://extrifit-gym.cz/pardubice" target="_blank">Originál</a>
           <a class="btn-demo" href="extrifit/" target="_blank">Demo</a>
@@ -72,7 +83,7 @@ footer{margin-top:3rem;font-size:.68rem;color:#3E4455;letter-spacing:.08em}
       <tr>
         <td class="td-num">02</td>
         <td class="td-name">A-Sport</td>
-        <td class="td-desc">Zábavní centrum · Bowling, Ricochet, Restaurace · Hradec Králové</td>
+        <td class="td-desc">Zábavní centrum &middot; Bowling, Ricochet, Restaurace &middot; Hradec Králové</td>
         <td class="td-links">
           <a class="btn-orig" href="https://www.a-sport.cz" target="_blank">Originál</a>
           <a class="btn-demo" href="asport/" target="_blank">Demo</a>
@@ -81,7 +92,7 @@ footer{margin-top:3rem;font-size:.68rem;color:#3E4455;letter-spacing:.08em}
       <tr>
         <td class="td-num">03</td>
         <td class="td-name">Šatlava</td>
-        <td class="td-desc">Historická restaurace · Michelin Award · České Budějovice</td>
+        <td class="td-desc">Historická restaurace &middot; Michelin Award &middot; České Budějovice</td>
         <td class="td-links">
           <a class="btn-orig" href="https://www.restauracesatlava.cz" target="_blank">Originál</a>
           <a class="btn-demo" href="satlava/" target="_blank">Demo</a>
@@ -90,7 +101,7 @@ footer{margin-top:3rem;font-size:.68rem;color:#3E4455;letter-spacing:.08em}
       <tr>
         <td class="td-num">04</td>
         <td class="td-name">Kav. Vozáb</td>
-        <td class="td-desc">Rodinná kavárna · Domácí pečivo · Hradec Králové</td>
+        <td class="td-desc">Rodinná kavárna &middot; Domácí pečivo &middot; Hradec Králové</td>
         <td class="td-links">
           <a class="btn-orig" href="http://www.kavarnavozab.cz" target="_blank">Originál</a>
           <a class="btn-demo" href="kavarnavozab/" target="_blank">Demo</a>
@@ -99,79 +110,72 @@ footer{margin-top:3rem;font-size:.68rem;color:#3E4455;letter-spacing:.08em}
       <tr>
         <td class="td-num">05</td>
         <td class="td-name">HAZE</td>
-        <td class="td-desc">Technologické prvky v zemědělství · Meteostanice & automatizace</td>
+        <td class="td-desc">Technologické prvky v zemědělství &middot; Meteostanice &amp; automatizace</td>
         <td class="td-links">
           <a class="btn-orig" href="https://www.haze.cz" target="_blank">Originál</a>
           <a class="btn-demo" href="haze/" target="_blank">Demo</a>
         </td>
       </tr>
+    </tbody>
+  </table>
+
+  <div class="section-label wip">Ostatní ukázky — in progress</div>
+  <table class="table-wip">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Název</th>
+        <th>Popis</th>
+        <th style="text-align:right">Stav</th>
+      </tr>
+    </thead>
+    <tbody>
       <tr>
         <td class="td-num">06</td>
         <td class="td-name">IMO-STAR 98</td>
-        <td class="td-desc">Interiérový design & developerské projekty · od 1998</td>
-        <td class="td-links">
-          <a class="btn-orig" href="https://www.imo-star98.com" target="_blank">Originál</a>
-          <a class="btn-demo" href="imostar/" target="_blank">Demo</a>
-        </td>
+        <td class="td-desc">Interiérový design &amp; developerské projekty &middot; od 1998</td>
+        <td class="td-links"><span class="badge-wip">In Progress</span></td>
       </tr>
       <tr>
         <td class="td-num">07</td>
         <td class="td-name">Coco Bar</td>
-        <td class="td-desc">Shisha bar & lounge · Pardubice</td>
-        <td class="td-links">
-          <a class="btn-orig" href="https://www.cocobar-pardubice.cz" target="_blank">Originál</a>
-          <a class="btn-demo" href="cocobar/" target="_blank">Demo</a>
-        </td>
+        <td class="td-desc">Shisha bar &amp; lounge &middot; Pardubice</td>
+        <td class="td-links"><span class="badge-wip">In Progress</span></td>
       </tr>
       <tr>
         <td class="td-num">08</td>
         <td class="td-name">Solná Jeskyně</td>
-        <td class="td-desc">Haloterapie · Relaxace a zdraví · Hradec Králové</td>
-        <td class="td-links">
-          <a class="btn-orig" href="https://www.solnajeskynehradec.cz" target="_blank">Originál</a>
-          <a class="btn-demo" href="solnajeskyne/" target="_blank">Demo</a>
-        </td>
+        <td class="td-desc">Haloterapie &middot; Relaxace a zdraví &middot; Hradec Králové</td>
+        <td class="td-links"><span class="badge-wip">In Progress</span></td>
       </tr>
       <tr>
         <td class="td-num">09</td>
         <td class="td-name">Delta Gym</td>
-        <td class="td-desc">Brazilské Jiu Jitsu & MMA · Děti i dospělí · Hradec Králové</td>
-        <td class="td-links">
-          <a class="btn-orig" href="https://www.deltagym.cz" target="_blank">Originál</a>
-          <a class="btn-demo" href="deltagym/" target="_blank">Demo</a>
-        </td>
+        <td class="td-desc">Brazilské Jiu Jitsu &amp; MMA &middot; Děti i dospělí &middot; Hradec Králové</td>
+        <td class="td-links"><span class="badge-wip">In Progress</span></td>
       </tr>
       <tr>
         <td class="td-num">10</td>
         <td class="td-name">SNSTHK</td>
-        <td class="td-desc">Stolní tenis neregistrovaných · Soutěž · Hradec Králové</td>
-        <td class="td-links">
-          <a class="btn-orig" href="http://www.nereghk.cz" target="_blank">Originál</a>
-          <a class="btn-demo" href="snsthk/" target="_blank">Demo</a>
-        </td>
+        <td class="td-desc">Stolní tenis neregistrovaných &middot; Soutěž &middot; Hradec Králové</td>
+        <td class="td-links"><span class="badge-wip">In Progress</span></td>
       </tr>
       <tr>
         <td class="td-num">11</td>
         <td class="td-name">Fjaka</td>
-        <td class="td-desc">Wine & Tapas Bar · Jugoslávská kuchyně · Hradec Králové</td>
-        <td class="td-links">
-          <a class="btn-orig" href="https://fjaka.cz/?lang=cs" target="_blank">Originál</a>
-          <a class="btn-demo" href="fjaka/" target="_blank">Demo</a>
-        </td>
+        <td class="td-desc">Wine &amp; Tapas Bar &middot; Jugosławińska kuchnia &middot; Hradec Králové</td>
+        <td class="td-links"><span class="badge-wip">In Progress</span></td>
       </tr>
       <tr>
         <td class="td-num">12</td>
         <td class="td-name">BODYFLEX</td>
-        <td class="td-desc">Největší fitness centrum · Life Fitness & Hammer Strength · Hradec Králové</td>
-        <td class="td-links">
-          <a class="btn-orig" href="https://bodyflexfitness.cz/hradeckralove/" target="_blank">Originál</a>
-          <a class="btn-demo" href="bodyflex/" target="_blank">Demo</a>
-        </td>
+        <td class="td-desc">Největší fitness centrum &middot; Life Fitness &amp; Hammer Strength &middot; Hradec Králové</td>
+        <td class="td-links"><span class="badge-wip">In Progress</span></td>
       </tr>
     </tbody>
   </table>
 
-  <footer>ScaleYourInfo · adamkropacek.github.io/web-demos</footer>
+  <footer>ScaleYourInfo &middot; adamkropacek.github.io/web-demos</footer>
 </div>
 </body>
 </html>
