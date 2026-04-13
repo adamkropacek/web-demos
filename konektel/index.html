@@ -340,28 +340,40 @@
     /* ── PARTNERS ── */
     .partners {
       background: var(--cream);
-      padding: 48px 2rem;
+      padding: 32px 2rem;
     }
     .partners-inner {
       max-width: 1200px; margin: 0 auto;
-      display: flex; align-items: center; gap: 3rem;
-      flex-wrap: wrap; justify-content: center;
+      display: flex; flex-direction: column;
+      align-items: center; gap: 1.4rem;
     }
     .partners-label {
-      font-size: 0.75rem; font-weight: 600;
-      letter-spacing: 0.18em; text-transform: uppercase;
-      color: var(--muted); white-space: nowrap;
+      font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--muted);
     }
     .partners-logos {
-      display: flex; align-items: center; gap: 2.5rem;
+      display: flex; align-items: flex-end; gap: 4rem;
       flex-wrap: wrap; justify-content: center;
     }
-    .partner-logo {
-      filter: grayscale(1) opacity(0.45);
-      transition: filter 0.2s;
-      max-height: 32px; width: auto;
+    .partner-item {
+      display: flex; flex-direction: column;
+      align-items: center; gap: 0.6rem;
+      transition: opacity 0.2s;
+      opacity: 0.45;
     }
-    .partner-logo:hover { filter: grayscale(0) opacity(1); }
+    .partner-item:hover { opacity: 1; }
+    .partner-logo {
+      height: 36px; width: auto;
+      object-fit: contain;
+      filter: grayscale(1);
+    }
+    .partner-item:hover .partner-logo { filter: grayscale(0); }
+    .partner-name {
+      font-size: 0.68rem; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--muted);
+    }
 
     /* ── CTA ── */
     .cta-section {
@@ -523,9 +535,18 @@
     <div class="partners-inner">
       <span class="partners-label">Partneři</span>
       <div class="partners-logos">
-        <img src="https://www.konektel.cz/files/loga_motorola/logo-motorola.jpg" alt="Motorola" class="partner-logo">
-        <img src="https://www.konektel.cz/files/obrazky/cam-logo-stacked-color-2-.png" alt="Cambium Networks" class="partner-logo">
-        <img src="https://www.konektel.cz/files/znacky/fleetware.png" alt="Fleetware" class="partner-logo">
+        <div class="partner-item">
+          <img src="logo-motorola.png" alt="Motorola Solutions" class="partner-logo">
+          <span class="partner-name">Motorola Solutions</span>
+        </div>
+        <div class="partner-item">
+          <img src="logo-cambium.png" alt="Cambium Networks" class="partner-logo">
+          <span class="partner-name">Cambium Networks</span>
+        </div>
+        <div class="partner-item">
+          <img src="https://www.konektel.cz/files/znacky/fleetware.png" alt="Fleetware" class="partner-logo">
+          <span class="partner-name">Fleetware</span>
+        </div>
       </div>
     </div>
   </div>
