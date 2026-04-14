@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>To je Bistro — Hradec Králové</title>
+  <meta name="description" content="Denní bistro s kavárnou v areálu ZVU, Hradec Králové. Snídaně, brunch, víno, káva — každý den 7:00–20:00." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --rust:      #c2502a;
+      --rust-dark: #9a3d1c;
+      --terra:     #e8794a;
+      --cream:     #faf5ee;
+      --cream-mid: #f0e8d8;
+      --dark:      #1e1208;
+      --brown:     #3d2010;
+      --muted:     #8a7060;
+      --white:     #ffffff;
+      --border:    rgba(62,32,16,.1);
+      --radius:    10px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--cream);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.1rem 2.5rem;
+      background: rgba(30,18,8,.93);
+      backdrop-filter: blur(12px);
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      color: var(--cream);
+      text-decoration: none;
+      letter-spacing: .02em;
+    }
+    .nav-logo em { color: var(--terra); font-style: normal; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      color: rgba(250,245,238,.6); font-size: .78rem;
+      text-transform: uppercase; letter-spacing: .1em;
+      text-decoration: none; transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--terra); }
+    .nav-cta {
+      background: var(--rust); color: var(--cream) !important;
+      padding: .4rem 1.1rem; border-radius: var(--radius);
+      font-size: .75rem !important; letter-spacing: .08em !important;
+      transition: background .2s !important;
+    }
+    .nav-cta:hover { background: var(--rust-dark) !important; color: var(--cream) !important; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center;
+      padding: 6rem 2rem 5rem;
+      position: relative;
+      background:
+        linear-gradient(160deg, rgba(30,18,8,.75) 0%, rgba(30,18,8,.5) 55%, rgba(250,245,238,1) 100%),
+        url('https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=1600&q=80') center/cover no-repeat;
+    }
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: .65rem; letter-spacing: .25em; text-transform: uppercase;
+      color: var(--terra); border: 1px solid rgba(232,121,74,.4);
+      padding: .3rem .9rem; border-radius: 2rem; margin-bottom: 1.6rem;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 8vw, 6rem);
+      color: var(--white);
+      line-height: 1.05;
+      margin-bottom: .4rem;
+    }
+    .hero h1 em { color: var(--terra); font-style: italic; }
+    .hero-sub {
+      font-size: clamp(1rem, 2.5vw, 1.35rem);
+      color: rgba(250,245,238,.75);
+      font-weight: 300;
+      letter-spacing: .06em;
+      margin-bottom: 2.8rem;
+    }
+    .hero-hours {
+      display: flex; gap: 1.5rem; flex-wrap: wrap;
+      justify-content: center; margin-bottom: 2.5rem;
+    }
+    .hero-hours span {
+      font-size: .78rem; letter-spacing: .1em;
+      text-transform: uppercase; color: rgba(250,245,238,.55);
+    }
+    .hero-hours strong { color: var(--cream); }
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+    .btn-primary {
+      background: var(--rust); color: var(--cream);
+      padding: .85rem 2rem; border-radius: var(--radius);
+      text-decoration: none; font-size: .82rem;
+      letter-spacing: .1em; text-transform: uppercase;
+      font-weight: 500; transition: background .2s;
+    }
+    .btn-primary:hover { background: var(--rust-dark); }
+    .btn-ghost {
+      border: 1px solid rgba(250,245,238,.3); color: rgba(250,245,238,.8);
+      padding: .85rem 2rem; border-radius: var(--radius);
+      text-decoration: none; font-size: .82rem;
+      letter-spacing: .1em; text-transform: uppercase;
+      transition: all .2s;
+    }
+    .btn-ghost:hover { border-color: rgba(250,245,238,.6); color: var(--white); }
+
+    /* ── STRIP ── */
+    .strip {
+      background: var(--rust);
+      display: flex; gap: 0; flex-wrap: wrap;
+    }
+    .strip-item {
+      flex: 1; min-width: 180px;
+      padding: 1.4rem 2rem;
+      border-right: 1px solid rgba(255,255,255,.15);
+      display: flex; align-items: center; gap: .9rem;
+    }
+    .strip-item:last-child { border-right: none; }
+    .strip-icon { font-size: 1.3rem; flex-shrink: 0; }
+    .strip-label {
+      font-size: .65rem; text-transform: uppercase;
+      letter-spacing: .15em; color: rgba(255,255,255,.65);
+      display: block; margin-bottom: .15rem;
+    }
+    .strip-val {
+      font-size: .88rem; color: var(--white);
+      font-weight: 500;
+    }
+
+    /* ── SECTION LAYOUT ── */
+    section { padding: 5.5rem 2rem; }
+    .container { max-width: 1080px; margin: 0 auto; }
+    .section-label {
+      font-size: .65rem; text-transform: uppercase; letter-spacing: .25em;
+      color: var(--rust); display: block; margin-bottom: .9rem;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      line-height: 1.15; margin-bottom: 1.2rem;
+    }
+    .section-body {
+      font-size: .93rem; color: var(--muted);
+      line-height: 1.85; max-width: 540px;
+    }
+
+    /* ── ABOUT ── */
+    .about { background: var(--white); }
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 5rem; align-items: center;
+    }
+    .about-img {
+      border-radius: 14px; overflow: hidden;
+      aspect-ratio: 4/3;
+    }
+    .about-img img {
+      width: 100%; height: 100%; object-fit: cover;
+      display: block; transition: transform .4s;
+    }
+    .about-img:hover img { transform: scale(1.04); }
+    .about-features {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 1rem; margin-top: 2.2rem;
+    }
+    .feat {
+      background: var(--cream); border-radius: var(--radius);
+      padding: 1.1rem 1.2rem;
+    }
+    .feat-icon { font-size: 1.2rem; margin-bottom: .4rem; }
+    .feat-title { font-size: .82rem; font-weight: 600; margin-bottom: .2rem; }
+    .feat-desc { font-size: .75rem; color: var(--muted); line-height: 1.5; }
+
+    /* ── MENU ── */
+    .menu { background: var(--cream); }
+    .menu-tabs {
+      display: flex; gap: .5rem; flex-wrap: wrap;
+      margin-bottom: 2.8rem;
+    }
+    .tab {
+      padding: .5rem 1.3rem; border-radius: 2rem;
+      font-size: .75rem; text-transform: uppercase;
+      letter-spacing: .1em; cursor: pointer;
+      border: 1px solid var(--border);
+      background: transparent; color: var(--muted);
+      transition: all .2s; font-family: inherit;
+    }
+    .tab.active, .tab:hover {
+      background: var(--rust); color: var(--white);
+      border-color: var(--rust);
+    }
+    .menu-panel { display: none; }
+    .menu-panel.active { display: block; }
+    .menu-panel-label {
+      font-size: .7rem; color: var(--muted); letter-spacing: .12em;
+      text-transform: uppercase; margin-bottom: 1.5rem;
+    }
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: .8rem;
+    }
+    .menu-item {
+      background: var(--white); border-radius: var(--radius);
+      padding: 1rem 1.2rem;
+      display: flex; justify-content: space-between; align-items: start;
+      gap: 1rem; transition: box-shadow .2s;
+    }
+    .menu-item:hover { box-shadow: 0 4px 20px rgba(62,32,16,.08); }
+    .menu-item-name { font-size: .9rem; font-weight: 500; line-height: 1.35; }
+    .menu-item-note { font-size: .73rem; color: var(--muted); margin-top: .15rem; }
+    .menu-item-price {
+      font-family: 'Playfair Display', serif;
+      font-size: .95rem; color: var(--rust);
+      white-space: nowrap; flex-shrink: 0;
+    }
+    .menu-soup {
+      background: rgba(194,80,42,.07);
+      border: 1px dashed rgba(194,80,42,.25);
+    }
+
+    /* ── BRANDS ── */
+    .brands { background: var(--brown); padding: 3rem 2rem; }
+    .brands-inner {
+      max-width: 1080px; margin: 0 auto;
+      display: flex; align-items: center;
+      gap: 2.5rem; flex-wrap: wrap; justify-content: center;
+    }
+    .brands-label {
+      font-size: .63rem; text-transform: uppercase; letter-spacing: .2em;
+      color: rgba(250,245,238,.35); flex-basis: 100%; text-align: center;
+      margin-bottom: -.5rem;
+    }
+    .brand-pill {
+      font-family: 'Playfair Display', serif;
+      font-size: .95rem; color: rgba(250,245,238,.6);
+      letter-spacing: .05em; transition: color .2s;
+    }
+    .brand-pill:hover { color: var(--terra); }
+    .brand-dot { color: rgba(250,245,238,.2); }
+
+    /* ── INFO ── */
+    .info { background: var(--cream-mid); }
+    .info-grid {
+      display: grid; grid-template-columns: 1fr 1fr 1fr;
+      gap: 2rem;
+    }
+    .info-card {
+      background: var(--white); border-radius: 14px;
+      padding: 2rem 1.8rem;
+    }
+    .info-card-icon { font-size: 1.6rem; margin-bottom: 1rem; }
+    .info-card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem; margin-bottom: 1rem;
+    }
+    .info-row {
+      display: flex; justify-content: space-between;
+      font-size: .82rem; padding: .5rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .info-row:last-child { border-bottom: none; }
+    .info-row-label { color: var(--muted); }
+    .info-row-val { font-weight: 500; }
+    .info-detail {
+      font-size: .82rem; color: var(--muted);
+      line-height: 1.75; margin-top: .3rem;
+    }
+    .info-detail strong { color: var(--dark); font-weight: 500; }
+    .info-link {
+      display: inline-block; margin-top: 1rem;
+      font-size: .78rem; color: var(--rust);
+      text-decoration: none; letter-spacing: .05em;
+    }
+    .info-link:hover { text-decoration: underline; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--dark);
+      padding: 3rem 2rem 2rem;
+    }
+    .footer-inner {
+      max-width: 1080px; margin: 0 auto;
+      display: flex; justify-content: space-between;
+      align-items: flex-end; flex-wrap: wrap; gap: 2rem;
+    }
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem; color: var(--cream);
+    }
+    .footer-logo em { color: var(--terra); font-style: normal; }
+    .footer-tagline {
+      font-size: .75rem; color: rgba(250,245,238,.35);
+      letter-spacing: .1em; text-transform: uppercase;
+      margin-top: .3rem;
+    }
+    .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+    .footer-links a {
+      font-size: .78rem; color: rgba(250,245,238,.4);
+      text-decoration: none; transition: color .2s;
+    }
+    .footer-links a:hover { color: var(--terra); }
+    .footer-copy {
+      max-width: 1080px; margin: 2rem auto 0;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,.06);
+      font-size: .72rem; color: rgba(250,245,238,.2);
+      display: flex; justify-content: space-between; flex-wrap: wrap; gap: .5rem;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media(max-width: 768px) {
+      nav { padding: 1rem 1.4rem; }
+      .nav-links { display: none; }
+      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .info-grid { grid-template-columns: 1fr; }
+      .about-features { grid-template-columns: 1fr 1fr; }
+      .strip-item { min-width: 140px; }
+      section { padding: 4rem 1.5rem; }
+    }
+    @media(max-width: 480px) {
+      .hero-btns { flex-direction: column; align-items: center; }
+      .about-features { grid-template-columns: 1fr; }
+      .menu-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#"><em>To je</em> Bistro</a>
+  <ul class="nav-links">
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#o-nas">O nás</a></li>
+    <li><a href="#kontakt">Kontakt</a></li>
+    <li><a href="tel:+420773834123" class="nav-cta">Rezervace</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <span class="hero-eyebrow">Denní bistro & kavárna · Hradec Králové</span>
+  <h1>Jídlo.<br><em>Kafe.</em><br>Víno.</h1>
+  <p class="hero-sub">Snídaně, brunch a odpolední menu<br>v areálu ZVU — každý den.</p>
+  <div class="hero-hours">
+    <span><strong>Po–Pá</strong> &nbsp;7:00–20:00</span>
+    <span style="color:rgba(250,245,238,.2)">|</span>
+    <span><strong>So–Ne</strong> &nbsp;9:00–20:00</span>
+  </div>
+  <div class="hero-btns">
+    <a href="#menu" class="btn-primary">Prohlédnout menu</a>
+    <a href="#kontakt" class="btn-ghost">Jak nás najít</a>
+  </div>
+</section>
+
+<!-- STRIP -->
+<div class="strip">
+  <div class="strip-item">
+    <span class="strip-icon">☕</span>
+    <div>
+      <span class="strip-label">Snídaně</span>
+      <span class="strip-val">Po–Pá 7:00–13:00</span>
+    </div>
+  </div>
+  <div class="strip-item">
+    <span class="strip-icon">🍳</span>
+    <div>
+      <span class="strip-label">Brunch</span>
+      <span class="strip-val">So–Ne 9:00–14:00</span>
+    </div>
+  </div>
+  <div class="strip-item">
+    <span class="strip-icon">🥗</span>
+    <div>
+      <span class="strip-label">Odpolední menu</span>
+      <span class="strip-val">Po–Pá 13:30–20:00</span>
+    </div>
+  </div>
+  <div class="strip-item">
+    <span class="strip-icon">🍞</span>
+    <div>
+      <span class="strip-label">Pekárna</span>
+      <span class="strip-val">Denně čerstvé</span>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="o-nas">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img">
+        <img
+          src="https://images.unsplash.com/photo-1600093463592-8e36ae95ef56?w=900&q=80"
+          alt="Interiér To je Bistro"
+          loading="lazy"
+        />
+      </div>
+      <div>
+        <span class="section-label">O nás</span>
+        <h2 class="section-title">Místo, kde to<br>chutná jako doma</h2>
+        <p class="section-body">
+          To je Bistro vzniklo z jednoduché myšlenky — dobré jídlo nemusí být komplikované. Od rána do večera nabízíme čerstvé snídaně, víkendový brunch a odpolední menu. K tomu pečivo z vlastní pekárny, kavárnu a víno, které se hodí k večeru.
+        </p>
+        <p class="section-body" style="margin-top:1rem">
+          Najdete nás v areálu ZVU v Kukleny, kousek od centra. S parkováním to není problém.
+        </p>
+        <div class="about-features">
+          <div class="feat">
+            <div class="feat-icon">🥖</div>
+            <div class="feat-title">Vlastní pečivo</div>
+            <div class="feat-desc">Čerstvé ze sesterské To je Pekárna denně</div>
+          </div>
+          <div class="feat">
+            <div class="feat-icon">🍷</div>
+            <div class="feat-title">Víno & kafe</div>
+            <div class="feat-desc">Kavárna i vinný výběr po celý den</div>
+          </div>
+          <div class="feat">
+            <div class="feat-icon">🅿️</div>
+            <div class="feat-title">Parkování</div>
+            <div class="feat-desc">Vyhrazené parkoviště přímo u bistru</div>
+          </div>
+          <div class="feat">
+            <div class="feat-icon">📅</div>
+            <div class="feat-title">Rezervace</div>
+            <div class="feat-desc">Přes Instagram, Facebook nebo telefon</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section class="menu" id="menu">
+  <div class="container">
+    <span class="section-label">Co jíme</span>
+    <h2 class="section-title" style="margin-bottom:2rem">Menu</h2>
+    <div class="menu-tabs">
+      <button class="tab active" onclick="switchTab('brunch', this)">Víkendový brunch</button>
+      <button class="tab" onclick="switchTab('snidane', this)">Snídaně Po–Pá</button>
+      <button class="tab" onclick="switchTab('odpoledne', this)">Odpolední menu</button>
+    </div>
+
+    <!-- BRUNCH -->
+    <div class="menu-panel active" id="panel-brunch">
+      <p class="menu-panel-label">So–Ne &nbsp;9:00–14:00</p>
+      <div class="menu-grid">
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Vejce Benedikt</div>
+            <div class="menu-item-note">Pytlíčkovaná vejce, holandská omáčka, šunka / losos</div>
+          </div>
+          <div class="menu-item-price">215–225 Kč</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Turecká vejce</div>
+            <div class="menu-item-note">Jogurt, pytlíčkovaná vejce, omáčka z paprik, máslo</div>
+          </div>
+          <div class="menu-item-price">230 Kč</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Omeleta</div>
+            <div class="menu-item-note">3 vejce, výběr z přísad</div>
+          </div>
+          <div class="menu-item-price">195 Kč</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Pytlíčkovaná vejce</div>
+            <div class="menu-item-note">3 vejce, topinky, doplňky dle výběru</div>
+          </div>
+          <div class="menu-item-price">155–175 Kč</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Croque Madame</div>
+            <div class="menu-item-note">Zapečený sendvič se šunkou, sýrem a vejcem</div>
+          </div>
+          <div class="menu-item-price">230 Kč</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Pelmeni</div>
+            <div class="menu-item-note">Ruské masové knedlíčky, zakysaná smetana</div>
+          </div>
+          <div class="menu-item-price">265 Kč</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Snídaňový sendvič</div>
+            <div class="menu-item-note">Vejce, slanina, zelenina, čerstvý chléb</div>
+          </div>
+          <div class="menu-item-price">235 Kč</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Palačinky Suzette</div>
+            <div class="menu-item-note">Palačinky s pomerančovým máslem</div>
+          </div>
+          <div class="menu-item-price">185 Kč</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Třešňové pečivo</div>
+            <div class="menu-item-note">Domácí pečivo z pekárny s třešňovou náplní</div>
+          </div>
+          <div class="menu-item-price">185 Kč</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SNIDANE -->
+    <div class="menu-panel" id="panel-snidane">
+      <p class="menu-panel-label">Po–Pá &nbsp;7:00–13:00</p>
+      <div class="menu-grid">
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Omeleta</div>
+            <div class="menu-item-note">3 vejce, výběr z přísad</div>
+          </div>
+          <div class="menu-item-price">195 Kč</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Vejce Benedikt</div>
+            <div class="menu-item-note">Pytlíčkovaná vejce, holandská omáčka</div>
+          </div>
+          <div class="menu-item-price">215–225 Kč</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Turecká vejce</div>
+            <div class="menu-item-note">Jogurt, pytlíčkovaná vejce, paprikové máslo</div>
+          </div>
+          <div class="menu-item-price">205 Kč</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Avokádový toast</div>
+            <div class="menu-item-note">Čerstvé avokádo, topinky z kváskového chleba</div>
+          </div>
+          <div class="menu-item-price">229 Kč</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Žitný chléb s tvarohem</div>
+            <div class="menu-item-note">Domácí tvaroh, ředkvičky, pažitka</div>
+          </div>
+          <div class="menu-item-price">210 Kč</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Focaccia s mortadelou</div>
+            <div class="menu-item-note">Čerstvá focaccia, italská mortadela, hořčice</div>
+          </div>
+          <div class="menu-item-price">230 Kč</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Palačinky</div>
+            <div class="menu-item-note">S javorovým sirupem nebo tvarohem</div>
+          </div>
+          <div class="menu-item-price">160 Kč</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Klobásy s přílohou</div>
+            <div class="menu-item-note">Poctivé klobásy, hořčice, chléb</div>
+          </div>
+          <div class="menu-item-price">210 Kč</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ODPOLEDNE -->
+    <div class="menu-panel" id="panel-odpoledne">
+      <p class="menu-panel-label">Po–Pá 13:30–20:00 &nbsp;·&nbsp; So–Ne 14:30–20:00</p>
+      <div class="menu-grid">
+        <div class="menu-item menu-soup">
+          <div>
+            <div class="menu-item-name">Polévka dne</div>
+            <div class="menu-item-note">Mění se každý den</div>
+          </div>
+          <div class="menu-item-price">85 Kč</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Smažený sýr</div>
+            <div class="menu-item-note">Sendvič, tatarská omáčka, salát</div>
+          </div>
+          <div class="menu-item-price">240 Kč</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Focaccia s mortadelou</div>
+            <div class="menu-item-note">Čerstvá focaccia, mortadela, hořčice, okurka</div>
+          </div>
+          <div class="menu-item-price">230 Kč</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Kuřecí řízek</div>
+            <div class="menu-item-note">S brambůrky nebo salátem</div>
+          </div>
+          <div class="menu-item-price">240 Kč</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Toastový sendvič</div>
+            <div class="menu-item-note">Šunka, sýr, salát, rajče</div>
+          </div>
+          <div class="menu-item-price">195 Kč</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Langoš</div>
+            <div class="menu-item-note">Česnek, sýr, zakysaná smetana</div>
+          </div>
+          <div class="menu-item-price">210 Kč</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Hranolky</div>
+            <div class="menu-item-note">S kečupem nebo majonézou</div>
+          </div>
+          <div class="menu-item-price">125 Kč</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Salát</div>
+            <div class="menu-item-note">Sezonní zelenina, zálivka dle výběru</div>
+          </div>
+          <div class="menu-item-price">85 Kč</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Palačinky</div>
+            <div class="menu-item-note">Slaná nebo sladká varianta</div>
+          </div>
+          <div class="menu-item-price">185 Kč</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BRANDS -->
+<div class="brands">
+  <div class="brands-inner">
+    <span class="brands-label">Rodina značek</span>
+    <span class="brand-pill">To je Bistro</span>
+    <span class="brand-dot">·</span>
+    <span class="brand-pill">To je Pekárna</span>
+    <span class="brand-dot">·</span>
+    <span class="brand-pill">To je Cukrárna</span>
+    <span class="brand-dot">·</span>
+    <span class="brand-pill">To je Jídelna</span>
+  </div>
+</div>
+
+<!-- INFO / CONTACT -->
+<section class="info" id="kontakt">
+  <div class="container">
+    <span class="section-label">Kde a kdy</span>
+    <h2 class="section-title" style="margin-bottom:2.5rem">Přijďte nás navštívit</h2>
+    <div class="info-grid">
+
+      <div class="info-card">
+        <div class="info-card-icon">🕐</div>
+        <h3 class="info-card-title">Otevírací doba</h3>
+        <div class="info-row">
+          <span class="info-row-label">Pondělí–Pátek</span>
+          <span class="info-row-val">7:00–20:00</span>
+        </div>
+        <div class="info-row">
+          <span class="info-row-label">Sobota–Neděle</span>
+          <span class="info-row-val">9:00–20:00</span>
+        </div>
+        <div class="info-row">
+          <span class="info-row-label">Snídaně Po–Pá</span>
+          <span class="info-row-val">7:00–13:00</span>
+        </div>
+        <div class="info-row">
+          <span class="info-row-label">Brunch So–Ne</span>
+          <span class="info-row-val">9:00–14:00</span>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="info-card-icon">📍</div>
+        <h3 class="info-card-title">Kde nás najdete</h3>
+        <p class="info-detail">
+          <strong>Pražská třída 322/4</strong><br>
+          areál ZVU, Hradec Králové–Kukleny<br><br>
+          8 minut pěšky od vlakového nádraží.<br>
+          Autobus č. 3 a 16, zastávka ZVU.<br>
+          Parkoviště přímo u bistru.
+        </p>
+        <a href="https://maps.google.com/?q=Pražská+třída+322/4,+Hradec+Králové" class="info-link" target="_blank">Otevřít v Google Maps →</a>
+      </div>
+
+      <div class="info-card">
+        <div class="info-card-icon">📞</div>
+        <h3 class="info-card-title">Kontakt & rezervace</h3>
+        <div class="info-row">
+          <span class="info-row-label">Telefon</span>
+          <span class="info-row-val"><a href="tel:+420773834123" style="color:inherit;text-decoration:none">773 834 123</a></span>
+        </div>
+        <div class="info-row">
+          <span class="info-row-label">Email</span>
+          <span class="info-row-val"><a href="mailto:tojebistro@gmail.com" style="color:inherit;text-decoration:none;font-size:.78rem">tojebistro@gmail.com</a></span>
+        </div>
+        <div class="info-row">
+          <span class="info-row-label">Instagram</span>
+          <span class="info-row-val">@tojebistro</span>
+        </div>
+        <div class="info-row">
+          <span class="info-row-label">Facebook</span>
+          <span class="info-row-val">tojebistro</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo"><em>To je</em> Bistro</div>
+      <div class="footer-tagline">Jídlo · Kafe · Víno</div>
+    </div>
+    <div class="footer-links">
+      <a href="#menu">Menu</a>
+      <a href="#o-nas">O nás</a>
+      <a href="#kontakt">Kontakt</a>
+      <a href="tel:+420773834123">773 834 123</a>
+    </div>
+  </div>
+  <div class="footer-copy">
+    <span>© 2025 To je Bistro · KNAZ s.r.o. · Hradec Králové</span>
+    <span>Ukázka webu — ScaleYourInfo</span>
+  </div>
+</footer>
+
+<script>
+  function switchTab(id, btn) {
+    document.querySelectorAll('.menu-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.getElementById('panel-' + id).classList.add('active');
+    btn.classList.add('active');
+  }
+</script>
+
+</body>
+</html>
