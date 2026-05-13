@@ -393,80 +393,9 @@ img, video, picture {
 }
 /* Re-enable img clicks where they are explicitly interactive */
 a img, button img { pointer-events: auto; }
-
-/* Diagonal repeating watermark — fixed full-viewport, doesn't intercept clicks */
-.demo-watermark {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 9998;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='520' height='280' viewBox='0 0 520 280'><g transform='rotate(-22 260 140)'><text x='260' y='150' fill='%231F2229' fill-opacity='0.085' font-family='Inter, Arial, sans-serif' font-weight='600' font-size='30' letter-spacing='6' text-anchor='middle'>ADAM KROP&#193;&#268;EK &#183; DEMO</text><text x='260' y='190' fill='%238B6D3F' fill-opacity='0.10' font-family='Inter, Arial, sans-serif' font-weight='400' font-size='13' letter-spacing='4' text-anchor='middle'>NEKOMER&#268;N&#205; UK&#193;ZKA &#183; PORTFOLIO ONLY</text></g></svg>");
-  background-repeat: repeat;
-  background-size: 520px 280px;
-  mix-blend-mode: multiply;
-}
-
-/* Top demo banner */
-.demo-banner {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 9999;
-  background: linear-gradient(90deg, #1F2229 0%, #2a2d35 100%);
-  color: #F5F1EA;
-  font-family: 'Inter', system-ui, sans-serif;
-  font-size: .68rem;
-  font-weight: 500;
-  letter-spacing: .18em;
-  text-transform: uppercase;
-  padding: .55rem 1.25rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  flex-wrap: wrap;
-  box-shadow: 0 1px 0 rgba(139,109,63,.4);
-}
-.demo-banner b { color: #B89968; font-weight: 600; letter-spacing: .22em; }
-.demo-banner a {
-  color: #F5F1EA;
-  text-decoration: none;
-  border-bottom: 1px solid rgba(245,241,234,.3);
-  padding-bottom: 1px;
-  transition: border-color .2s;
-}
-.demo-banner a:hover { border-bottom-color: #B89968; }
-.demo-banner .dot { opacity: .35; }
-body { padding-top: 38px; }
-@media (max-width: 640px) {
-  .demo-banner { font-size: .58rem; letter-spacing: .12em; padding: .5rem .75rem; gap: .5rem; }
-  body { padding-top: 56px; }
-  .demo-banner .hide-sm { display: none; }
-}
-
-/* Print — keep watermark, hide demo-banner so PDF export from "Print to PDF" still shows ownership */
-@media print {
-  .demo-banner { display: none; }
-  .demo-watermark {
-    position: fixed;
-    inset: 0;
-    background-size: 380px 200px;
-    mix-blend-mode: normal;
-    opacity: 1;
-  }
-}
 </style>
 </head>
 <body>
-
-<!-- DEMO BANNER & WATERMARK · Adam Kropáček -->
-<div class="demo-banner" role="note" aria-label="Demo notice">
-  <span>📐 <b>DEMO</b> · Adam Kropáček</span>
-  <span class="dot hide-sm">·</span>
-  <span class="hide-sm">Nekomerční ukázka pro portfolio</span>
-  <span class="dot">·</span>
-  <a href="https://www.remihk.cz" target="_blank" rel="noopener">Originál: remihk.cz</a>
-</div>
-<div class="demo-watermark" aria-hidden="true"></div>
 
 <!-- LOADER -->
 <div id="loader">
