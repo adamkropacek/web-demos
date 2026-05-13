@@ -81,13 +81,13 @@ nav.open .nav-mobile span:nth-child(3){bottom:50%;transform:translateY(50%) rota
 }
 
 /* ─── HERO ─── */
-.hero{min-height:100vh;position:relative;display:flex;align-items:center;overflow:hidden}
-.hero-grid{display:grid;grid-template-columns:1fr 1fr;width:100%;min-height:100vh}
-.hero-grid{grid-template-columns:1.05fr 1fr}
-.hero-text{padding:8rem 4rem 5rem;display:flex;flex-direction:column;justify-content:center;background:var(--bg)}
+.hero{min-height:100vh;position:relative;display:flex;align-items:stretch;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.05fr 1fr;width:100%;min-height:100vh}
+.hero-text{padding:8.5rem 4rem 6rem;display:flex;flex-direction:column;justify-content:flex-start;background:var(--bg);position:relative}
 .hero-image{position:relative;background:#2a2a2a;overflow:hidden}
-.hero-image img{width:100%;height:100%;object-fit:cover;transform:scale(1.05);transition:transform 12s ease}
-.hero-image.loaded img{transform:scale(1)}
+.hero-image img{width:100%;height:100%;object-fit:cover;transform:scale(1.12);will-change:transform}
+html.js .hero-image img{animation:heroZoom 18s cubic-bezier(.22,.61,.36,1) .5s forwards}
+@keyframes heroZoom{to{transform:scale(1)}}
 .hero-image::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(245,241,234,.12) 0%,transparent 18%)}
 .hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.6rem,4.7vw,4.6rem);line-height:1.02;font-weight:400;letter-spacing:-.02em;margin:1.4rem 0 1.8rem;color:var(--ink)}
 .hero h1 em{font-style:italic;color:var(--accent);font-weight:400}
@@ -99,9 +99,22 @@ nav.open .nav-mobile span:nth-child(3){bottom:50%;transform:translateY(50%) rota
 .btn-primary:hover svg{transform:translateX(4px)}
 .btn-ghost{display:inline-flex;align-items:center;gap:.6rem;font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);padding:1.05rem 0;font-weight:500;border-bottom:1px solid var(--ink);transition:color .2s,border-color .2s}
 .btn-ghost:hover{color:var(--accent);border-color:var(--accent)}
-.hero-meta{position:absolute;bottom:3rem;left:5rem;right:0;display:flex;align-items:center;gap:2.6rem;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.hero-meta{position:absolute;bottom:3rem;left:4rem;right:0;display:flex;align-items:center;gap:2.6rem;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
 .hero-meta strong{color:var(--ink);font-weight:500;font-size:1.5rem;font-family:'Cormorant Garamond',serif;letter-spacing:0;text-transform:none}
 .hero-meta .item{display:flex;align-items:baseline;gap:.75rem}
+
+/* hero entrance animation sequence — gated on body.loaded */
+@keyframes heroIn{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+html.js .hero-text .eyebrow,
+html.js .hero-text h1,
+html.js .hero-text p.lead,
+html.js .hero-text .hero-cta-row,
+html.js .hero-meta{opacity:0;animation-fill-mode:forwards}
+body.loaded .hero-text .eyebrow{animation:heroIn .9s cubic-bezier(.22,.61,.36,1) .05s forwards}
+body.loaded .hero-text h1{animation:heroIn 1.05s cubic-bezier(.22,.61,.36,1) .22s forwards}
+body.loaded .hero-text p.lead{animation:heroIn .95s cubic-bezier(.22,.61,.36,1) .5s forwards}
+body.loaded .hero-text .hero-cta-row{animation:heroIn .9s cubic-bezier(.22,.61,.36,1) .72s forwards}
+body.loaded .hero-meta{animation:heroIn .9s cubic-bezier(.22,.61,.36,1) .95s forwards}
 @media(max-width:980px){
   .hero-grid{grid-template-columns:1fr}
   .hero-text{padding:7rem 1.5rem 3rem;order:2}
@@ -153,29 +166,18 @@ section{padding:8rem 0;position:relative}
 .step-desc{font-size:.92rem;line-height:1.65;color:var(--muted)}
 
 /* ─── PORTFOLIO ─── */
-.portfolio-grid{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:200px;gap:1rem}
-@media(max-width:980px){.portfolio-grid{grid-auto-rows:160px}}
-@media(max-width:780px){.portfolio-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:140px}}
-.pf{position:relative;overflow:hidden;cursor:pointer;background:#2a2a2a}
-.pf img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.6,.3,1)}
-.pf::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(31,34,41,.85) 0%,rgba(31,34,41,.1) 40%,transparent 100%);opacity:0;transition:opacity .35s}
-.pf:hover img{transform:scale(1.06)}
-.pf:hover::after{opacity:1}
-.pf-meta{position:absolute;left:1.5rem;bottom:1.2rem;right:1.5rem;color:var(--paper);z-index:2;opacity:0;transform:translateY(6px);transition:opacity .35s,transform .35s}
-.pf:hover .pf-meta{opacity:1;transform:translateY(0)}
-.pf-meta .t{font-family:'Cormorant Garamond',serif;font-size:1.35rem;line-height:1.15;margin-bottom:.2rem;font-weight:500}
-.pf-meta .s{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;opacity:.75}
-/* Bento layout */
-.pf-a{grid-column:span 7;grid-row:span 2}
-.pf-b{grid-column:span 5;grid-row:span 1}
-.pf-c{grid-column:span 5;grid-row:span 1}
-.pf-d{grid-column:span 4;grid-row:span 2}
-.pf-e{grid-column:span 4;grid-row:span 1}
-.pf-f{grid-column:span 4;grid-row:span 1}
-.pf-g{grid-column:span 5;grid-row:span 1}
-.pf-h{grid-column:span 7;grid-row:span 1}
-@media(max-width:980px){.pf-a,.pf-b,.pf-c,.pf-d,.pf-e,.pf-f,.pf-g,.pf-h{grid-column:span 6;grid-row:span 1}}
-@media(max-width:780px){.pf-a,.pf-b,.pf-c,.pf-d,.pf-e,.pf-f,.pf-g,.pf-h{grid-column:span 1;grid-row:span 1}}
+.portfolio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+@media(max-width:980px){.portfolio-grid{grid-template-columns:repeat(2,1fr);gap:1rem}}
+@media(max-width:560px){.portfolio-grid{grid-template-columns:1fr;gap:1rem}}
+.pf{position:relative;overflow:hidden;cursor:pointer;background:#2a2a2a;display:flex;flex-direction:column}
+.pf-img{position:relative;overflow:hidden;aspect-ratio:4/3;background:#2a2a2a}
+.pf-img img{width:100%;height:100%;object-fit:cover;transition:transform .9s cubic-bezier(.2,.6,.3,1)}
+.pf-img::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(31,34,41,.45) 0%,rgba(31,34,41,0) 50%);opacity:.45;transition:opacity .35s}
+.pf:hover .pf-img img{transform:scale(1.05)}
+.pf:hover .pf-img::after{opacity:.7}
+.pf-meta{padding:1.2rem 1.4rem 1.5rem;background:var(--paper);border:1px solid var(--line-soft);border-top:none}
+.pf-meta .t{font-family:'Cormorant Garamond',serif;font-size:1.35rem;line-height:1.2;margin-bottom:.35rem;font-weight:500;color:var(--ink)}
+.pf-meta .s{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-weight:400}
 
 /* ─── BRANDS ─── */
 .brands{background:var(--paper);padding:5rem 0}
@@ -244,6 +246,39 @@ footer{background:var(--bg-deep);color:var(--paper);padding:5rem 0 2rem}
 .foot-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:2rem;display:flex;justify-content:space-between;align-items:center;font-size:.78rem;color:rgba(255,255,255,.4);font-weight:300}
 @media(max-width:780px){.foot-bottom{flex-direction:column;gap:1rem;text-align:center}}
 
+/* ─── CONTACT FORM ─── */
+.contact{background:var(--bg-soft);padding:7rem 0}
+.contact-grid{display:grid;grid-template-columns:1.15fr 1fr;gap:5rem;align-items:start}
+@media(max-width:980px){.contact-grid{grid-template-columns:1fr;gap:3rem}}
+.contact-form{display:flex;flex-direction:column;gap:1.4rem}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
+@media(max-width:560px){.form-row{grid-template-columns:1fr;gap:1.4rem}}
+.field{display:flex;flex-direction:column;gap:.45rem}
+.field label{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-weight:500}
+.field label .req{color:var(--accent);margin-left:.2rem}
+.field input,.field textarea,.field select{background:var(--paper);border:1px solid var(--line);padding:.95rem 1.1rem;font-family:'Inter',sans-serif;font-size:.96rem;color:var(--ink);font-weight:400;transition:border-color .2s,background .2s;outline:none}
+.field input:focus,.field textarea:focus,.field select:focus{border-color:var(--accent);background:var(--bg)}
+.field textarea{resize:vertical;min-height:120px;line-height:1.55;font-family:'Inter',sans-serif}
+.field select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2375716A' stroke-width='1.5'><path d='M6 9l6 6 6-6'/></svg>");background-repeat:no-repeat;background-position:right 1rem center;background-size:18px;padding-right:2.6rem}
+.form-consent{display:flex;align-items:flex-start;gap:.7rem;font-size:.82rem;color:var(--muted);line-height:1.55}
+.form-consent input{margin-top:.18rem;accent-color:var(--accent)}
+.form-consent a{color:var(--accent);border-bottom:1px solid var(--accent)}
+.form-submit{display:inline-flex;align-items:center;gap:.7rem;background:var(--ink);color:var(--bg);padding:1.1rem 2rem;font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;font-weight:500;transition:background .25s;border:0;cursor:pointer;align-self:flex-start;font-family:'Inter',sans-serif}
+.form-submit:hover{background:var(--accent)}
+.form-submit svg{width:14px;height:14px;transition:transform .25s}
+.form-submit:hover svg{transform:translateX(4px)}
+.form-status{font-size:.85rem;color:var(--accent);min-height:1.2em;font-weight:500}
+.contact-aside h3{font-family:'Cormorant Garamond',serif;font-size:1.9rem;line-height:1.15;margin-bottom:1.2rem;font-weight:500}
+.contact-aside h3 em{font-style:italic;color:var(--accent)}
+.contact-aside p{font-size:.96rem;line-height:1.7;color:var(--muted);margin-bottom:2rem;max-width:420px}
+.contact-aside .timeline{display:flex;flex-direction:column;gap:1.3rem;border-left:1px solid var(--line);padding-left:1.5rem;margin-bottom:2.4rem}
+.tl-step{display:flex;flex-direction:column;gap:.25rem}
+.tl-step .tl-when{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);font-weight:500}
+.tl-step .tl-what{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--ink);font-weight:500}
+.contact-aside .alt{font-size:.78rem;color:var(--muted);line-height:1.7;border-top:1px solid var(--line);padding-top:1.5rem}
+.contact-aside .alt a{color:var(--ink);border-bottom:1px solid var(--line);transition:border-color .2s,color .2s}
+.contact-aside .alt a:hover{color:var(--accent);border-color:var(--accent)}
+
 /* ─── STICKY MOBILE CTA ─── */
 .sticky-mobile{display:none}
 @media(max-width:780px){
@@ -277,10 +312,10 @@ html.js .reveal.in{opacity:1;transform:translateY(0)}
     <a href="#sluzby">Služby</a>
     <a href="#proces">Proces</a>
     <a href="#reference">Reference</a>
-    <a href="#znacky">Značky</a>
     <a href="#showroom">Showroom</a>
+    <a href="#formular">Kontakt</a>
   </div>
-  <a href="#kontakt" class="nav-cta">Konzultace zdarma</a>
+  <a href="#formular" class="nav-cta">Konzultace zdarma</a>
   <div class="nav-mobile" id="navMobile"><span></span><span></span><span></span></div>
 </nav>
 
@@ -288,20 +323,20 @@ html.js .reveal.in{opacity:1;transform:translateY(0)}
   <a href="#sluzby">Služby</a>
   <a href="#proces">Proces</a>
   <a href="#reference">Reference</a>
-  <a href="#znacky">Značky</a>
   <a href="#showroom">Showroom</a>
-  <a href="#kontakt" class="nav-cta">Konzultace zdarma</a>
+  <a href="#formular">Kontakt</a>
+  <a href="#formular" class="nav-cta">Konzultace zdarma</a>
 </div>
 
 <!-- HERO -->
 <header class="hero">
   <div class="hero-grid">
     <div class="hero-text">
-      <span class="eyebrow">Koupelnové studio · Hradec Králové · od 2007</span>
+      <span class="eyebrow">Koupelnové studio · Hradec Králové</span>
       <h1>Koupelna jako<br>prostor, <em>ne jen místnost.</em></h1>
       <p class="lead">Italské obklady, španělská sanita, portugalské podlahy. 3D návrh, koordinace řemesel, realizace pod klíč — od první konzultace po předání hotového projektu.</p>
       <div class="hero-cta-row">
-        <a href="#kontakt" class="btn-primary">
+        <a href="#formular" class="btn-primary">
           Rezervovat konzultaci
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
         </a>
@@ -313,9 +348,9 @@ html.js .reveal.in{opacity:1;transform:translateY(0)}
     </div>
   </div>
   <div class="hero-meta">
-    <div class="item"><strong>18+</strong><span>let v Hradci</span></div>
-    <div class="item"><strong>340+</strong><span>realizací</span></div>
-    <div class="item"><strong>24</strong><span>značek partnerů</span></div>
+    <div class="item"><strong>3D</strong><span>návrh před realizací</span></div>
+    <div class="item"><strong>IT · ES · PT</strong><span>materiály</span></div>
+    <div class="item"><strong>Pod klíč</strong><span>od konzultace k předání</span></div>
   </div>
 </header>
 
@@ -441,14 +476,42 @@ html.js .reveal.in{opacity:1;transform:translateY(0)}
       <p>Výběr z realizací posledních dvou let. Od rekonstrukce panelákové koupelny po novostavbu s privátním wellness.</p>
     </div>
     <div class="portfolio-grid">
-      <div class="pf pf-a reveal"><img src="https://images.unsplash.com/photo-1620626011761-996317b8d101?w=1200&q=85&auto=format&fit=crop" alt="Koupelna travertin"><div class="pf-meta"><div class="t">Vilová koupelna · Pouchov</div><div class="s">Travertine · Hansgrohe · 18 m²</div></div></div>
-      <div class="pf pf-b reveal reveal-d1"><img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=900&q=85&auto=format&fit=crop" alt="Mramor koupelna"><div class="pf-meta"><div class="t">Mramorová koupelna</div><div class="s">Calacatta · Hradec střed · 9 m²</div></div></div>
-      <div class="pf pf-c reveal reveal-d2"><img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=900&q=85&auto=format&fit=crop" alt="Černobílá koupelna"><div class="pf-meta"><div class="t">Černobílá moderna</div><div class="s">Marazzi · Třebeš · 7 m²</div></div></div>
-      <div class="pf pf-d reveal"><img src="https://images.unsplash.com/photo-1604014237800-1c9102c219da?w=900&q=85&auto=format&fit=crop" alt="Wellness koupelna"><div class="pf-meta"><div class="t">Privátní wellness</div><div class="s">Porcelanosa · Slezské · 24 m²</div></div></div>
-      <div class="pf pf-e reveal reveal-d1"><img src="https://images.unsplash.com/photo-1571508601891-ca5e7a713859?w=900&q=85&auto=format&fit=crop" alt="Hostovská koupelna"><div class="pf-meta"><div class="t">Hostovská WC</div><div class="s">Ragno · Plotiště · 3 m²</div></div></div>
-      <div class="pf pf-f reveal reveal-d2"><img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=900&q=85&auto=format&fit=crop" alt="Koupelna dřevo"><div class="pf-meta"><div class="t">Dřevo &amp; kámen</div><div class="s">Italon · Nový Hradec · 11 m²</div></div></div>
-      <div class="pf pf-g reveal"><img src="https://images.unsplash.com/photo-1620626011761-996317b8d101?w=900&q=85&auto=format&fit=crop" alt="Klasická koupelna"><div class="pf-meta"><div class="t">Klasika s pelichem</div><div class="s">Sant'Agostino · Kukleny · 6 m²</div></div></div>
-      <div class="pf pf-h reveal reveal-d1"><img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=1200&q=85&auto=format&fit=crop" alt="Velký formát koupelna"><div class="pf-meta"><div class="t">Velkoformátový obklad</div><div class="s">Florim Magnum · Lhota · 16 m²</div></div></div>
+      <div class="pf reveal">
+        <div class="pf-img"><img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=900&q=85&auto=format&fit=crop" alt="Vilová koupelna travertin"></div>
+        <div class="pf-meta"><div class="t">Vilová koupelna · Pouchov</div><div class="s">Travertine · Hansgrohe · 18 m²</div></div>
+      </div>
+      <div class="pf reveal reveal-d1">
+        <div class="pf-img"><img src="https://images.unsplash.com/photo-1620626011761-996317b8d101?w=900&q=85&auto=format&fit=crop" alt="Mramorová koupelna"></div>
+        <div class="pf-meta"><div class="t">Mramorová koupelna</div><div class="s">Calacatta · Hradec střed · 9 m²</div></div>
+      </div>
+      <div class="pf reveal reveal-d2">
+        <div class="pf-img"><img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=900&q=85&auto=format&fit=crop" alt="Černobílá moderna"></div>
+        <div class="pf-meta"><div class="t">Černobílá moderna</div><div class="s">Marazzi · Třebeš · 7 m²</div></div>
+      </div>
+      <div class="pf reveal">
+        <div class="pf-img"><img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=900&q=85&auto=format&fit=crop" alt="Privátní wellness"></div>
+        <div class="pf-meta"><div class="t">Privátní wellness</div><div class="s">Porcelanosa · Slezské · 24 m²</div></div>
+      </div>
+      <div class="pf reveal reveal-d1">
+        <div class="pf-img"><img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=900&q=85&auto=format&fit=crop" alt="Hostovská WC"></div>
+        <div class="pf-meta"><div class="t">Hostovská WC</div><div class="s">Ragno · Plotiště · 3 m²</div></div>
+      </div>
+      <div class="pf reveal reveal-d2">
+        <div class="pf-img"><img src="https://images.unsplash.com/photo-1604014237800-1c9102c219da?w=900&q=85&auto=format&fit=crop" alt="Dřevo a kámen"></div>
+        <div class="pf-meta"><div class="t">Dřevo &amp; kámen</div><div class="s">Italon · Nový Hradec · 11 m²</div></div>
+      </div>
+      <div class="pf reveal">
+        <div class="pf-img"><img src="https://images.unsplash.com/photo-1620891417706-0f4f2bbdc01a?w=900&q=85&auto=format&fit=crop" alt="Klasika s pelichem"></div>
+        <div class="pf-meta"><div class="t">Klasika s pelichem</div><div class="s">Sant'Agostino · Kukleny · 6 m²</div></div>
+      </div>
+      <div class="pf reveal reveal-d1">
+        <div class="pf-img"><img src="https://images.unsplash.com/photo-1564540583246-934409427776?w=900&q=85&auto=format&fit=crop" alt="Velkoformátový obklad"></div>
+        <div class="pf-meta"><div class="t">Velkoformátový obklad</div><div class="s">Florim Magnum · Lhota · 16 m²</div></div>
+      </div>
+      <div class="pf reveal reveal-d2">
+        <div class="pf-img"><img src="https://images.unsplash.com/photo-1610100340063-fac61edb1be3?w=900&q=85&auto=format&fit=crop" alt="Walk-in sprcha"></div>
+        <div class="pf-meta"><div class="t">Walk-in sprcha</div><div class="s">Geberit · Plačice · 5 m²</div></div>
+      </div>
     </div>
   </div>
 </section>
@@ -564,10 +627,98 @@ html.js .reveal.in{opacity:1;transform:translateY(0)}
         </div>
       </div>
 
-      <a href="#kontakt" class="btn-primary">
+      <a href="#formular" class="btn-primary">
         Rezervovat hodinu ve showroomu
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
       </a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT FORM -->
+<section id="formular" class="contact">
+  <div class="container">
+    <div class="section-head reveal" style="margin-bottom:3.5rem">
+      <span class="eyebrow">Nezávazná poptávka</span>
+      <h2>Řekněte nám, <em>co potřebujete</em></h2>
+      <p>Pošlete pár vět o vaší koupelně. Ozveme se do 24 hodin v pracovní dny — telefonem nebo e-mailem, podle toho, co je vám příjemnější.</p>
+    </div>
+
+    <div class="contact-grid">
+      <form class="contact-form reveal" id="contactForm" novalidate>
+        <div class="form-row">
+          <div class="field">
+            <label for="cf-name">Jméno a příjmení <span class="req">*</span></label>
+            <input type="text" id="cf-name" name="name" required autocomplete="name" placeholder="Jan Novák">
+          </div>
+          <div class="field">
+            <label for="cf-phone">Telefon</label>
+            <input type="tel" id="cf-phone" name="phone" autocomplete="tel" placeholder="+420 ...">
+          </div>
+        </div>
+        <div class="field">
+          <label for="cf-email">E-mail <span class="req">*</span></label>
+          <input type="email" id="cf-email" name="email" required autocomplete="email" placeholder="vas@email.cz">
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label for="cf-type">Co plánujete</label>
+            <select id="cf-type" name="type">
+              <option value="rekonstrukce">Rekonstrukce koupelny</option>
+              <option value="novostavba">Koupelna v novostavbě</option>
+              <option value="materialy">Jen materiál (showroom)</option>
+              <option value="3d-navrh">3D návrh</option>
+              <option value="jine">Něco jiného</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="cf-budget">Orientační rozpočet</label>
+            <select id="cf-budget" name="budget">
+              <option value="nevim">Zatím nevím</option>
+              <option value="100-250">100 000 - 250 000 Kč</option>
+              <option value="250-500">250 000 - 500 000 Kč</option>
+              <option value="500-1m">500 000 - 1 000 000 Kč</option>
+              <option value="1m+">Nad 1 000 000 Kč</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label for="cf-msg">Vaše zpráva</label>
+          <textarea id="cf-msg" name="message" placeholder="Velikost koupelny, časový horizont, představa, co se vám líbí..."></textarea>
+        </div>
+        <label class="form-consent">
+          <input type="checkbox" id="cf-consent" name="consent" required>
+          <span>Souhlasím se zpracováním osobních údajů pro účely vyřízení poptávky. Vaše údaje neposíláme nikomu třetímu.</span>
+        </label>
+        <button type="submit" class="form-submit">
+          Odeslat poptávku
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </button>
+        <div class="form-status" id="cf-status" role="status" aria-live="polite"></div>
+      </form>
+
+      <aside class="contact-aside reveal reveal-d1">
+        <h3>Co se stane <em>potom?</em></h3>
+        <p>Žádné aggressive sales hovory. Jen krátká schůzka, podklady a poctivá nabídka — buď to dáme, nebo vám řekneme, proč ne.</p>
+        <div class="timeline">
+          <div class="tl-step">
+            <span class="tl-when">Do 24 hodin</span>
+            <span class="tl-what">Ozveme se na telefon nebo e-mail</span>
+          </div>
+          <div class="tl-step">
+            <span class="tl-when">Do týdne</span>
+            <span class="tl-what">Schůzka v showroomu nebo u vás</span>
+          </div>
+          <div class="tl-step">
+            <span class="tl-when">Do 14 dní</span>
+            <span class="tl-what">Návrh + cenová nabídka</span>
+          </div>
+        </div>
+        <div class="alt">
+          Raději rovnou zavolat?<br>
+          <a href="tel:+420602484982">+420 602 484 982</a> · <a href="mailto:rsobolikova@post.cz">rsobolikova@post.cz</a>
+        </div>
+      </aside>
     </div>
   </div>
 </section>
@@ -627,7 +778,7 @@ html.js .reveal.in{opacity:1;transform:translateY(0)}
       </div>
     </div>
     <div class="foot-bottom">
-      <div>© 2026 REMI HK s.r.o. · IČO 27474614</div>
+      <div>© 2026 REMI HK · Renata Sobolíková · Hradec Králové</div>
       <div>Design demo · pro klientskou prezentaci</div>
     </div>
   </div>
@@ -636,15 +787,29 @@ html.js .reveal.in{opacity:1;transform:translateY(0)}
 <!-- STICKY MOBILE CTA -->
 <div class="sticky-mobile">
   <a href="tel:+420602484982" class="tel">Zavolat</a>
-  <a href="#kontakt" class="consult">Konzultace</a>
+  <a href="#formular" class="consult">Konzultace</a>
 </div>
 
 <script>
 // Mark JS-on so reveal animations gate on it (no-JS / screenshot tools see content)
 document.documentElement.classList.add('js');
 
-// Loader
-window.addEventListener('load',()=>{setTimeout(()=>{document.getElementById('loader').classList.add('done');document.getElementById('heroImg').classList.add('loaded')},1500)});
+// Loader → triggers body.loaded which fires hero entrance animation sequence
+window.addEventListener('load',()=>{
+  setTimeout(()=>{
+    document.getElementById('loader').classList.add('done');
+    document.getElementById('heroImg').classList.add('loaded');
+    document.body.classList.add('loaded');
+  },650);
+});
+// Failsafe: if `load` doesn't fire (slow img), still kick off after 1.5s
+setTimeout(()=>{
+  if(!document.body.classList.contains('loaded')){
+    document.getElementById('loader')?.classList.add('done');
+    document.getElementById('heroImg')?.classList.add('loaded');
+    document.body.classList.add('loaded');
+  }
+},1500);
 
 // Nav scroll
 const nav=document.getElementById('nav');
@@ -661,6 +826,51 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
 // Failsafe: any .reveal still hidden after 4s (e.g. screenshot tools, headless scroll bugs) → show it
 setTimeout(()=>document.querySelectorAll('.reveal:not(.in)').forEach(el=>el.classList.add('in')),4000);
+
+// Hero image subtle parallax on scroll
+const heroImgEl=document.querySelector('#heroImg img');
+if(heroImgEl){
+  let raf=null;
+  window.addEventListener('scroll',()=>{
+    if(raf)return;
+    raf=requestAnimationFrame(()=>{
+      const y=Math.min(window.scrollY,window.innerHeight)*0.18;
+      heroImgEl.style.translate=`0 ${y}px`;
+      raf=null;
+    });
+  },{passive:true});
+}
+
+// Contact form — mailto fallback (in production wire to CRM/Pipedrive/Make webhook)
+const cf=document.getElementById('contactForm'),cfStatus=document.getElementById('cf-status');
+if(cf){
+  cf.addEventListener('submit',e=>{
+    e.preventDefault();
+    const fd=new FormData(cf);
+    const name=fd.get('name')?.toString().trim(),email=fd.get('email')?.toString().trim(),consent=fd.get('consent');
+    if(!name||!email||!consent){
+      cfStatus.textContent='Vyplňte prosím jméno, e-mail a souhlas se zpracováním.';
+      cfStatus.style.color='#A14545';
+      return;
+    }
+    const lines=[
+      `Jméno: ${name}`,
+      `E-mail: ${email}`,
+      `Telefon: ${fd.get('phone')||'—'}`,
+      `Typ: ${fd.get('type')||'—'}`,
+      `Rozpočet: ${fd.get('budget')||'—'}`,
+      ``,
+      `Zpráva:`,
+      fd.get('message')||'—'
+    ].join('\n');
+    const subject=`Poptávka koupelny — ${name}`;
+    const mailto=`mailto:rsobolikova@post.cz?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines)}`;
+    cfStatus.style.color='';
+    cfStatus.textContent='Otevírá se váš e-mailový klient s předvyplněnou zprávou…';
+    window.location.href=mailto;
+    setTimeout(()=>{cfStatus.textContent='Pokud se klient neotevřel, napište přímo na rsobolikova@post.cz.';},3000);
+  });
+}
 </script>
 
 </body>
