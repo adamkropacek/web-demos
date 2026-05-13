@@ -197,7 +197,7 @@ section{padding:8rem 0;position:relative}
 @media(max-width:980px){.test-grid{grid-template-columns:1fr}}
 .test{padding:2.5rem;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.02);display:flex;flex-direction:column;gap:1.5rem}
 .test-stars{display:flex;gap:.2rem;color:var(--accent-soft)}
-.test-stars svg{width:16px;height:16px;fill:currentColor}
+.test-stars svg{width:30px;height:30px;fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round}
 .test-body{font-family:'Cormorant Garamond',serif;font-size:1.25rem;line-height:1.45;font-style:italic;color:rgba(255,255,255,.92);font-weight:400}
 .test-meta{display:flex;align-items:center;gap:1rem;margin-top:auto}
 .test-avatar{width:40px;height:40px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--bg);font-weight:500}
@@ -354,25 +354,25 @@ html.js .reveal.in{opacity:1;transform:translateY(0)}
   </div>
 </header>
 
-<!-- STATS -->
+<!-- STATS — value props (no fake numbers) -->
 <section class="stats" style="padding:5rem 0">
   <div class="container">
     <div class="stats-grid">
       <div class="stat reveal">
-        <div class="stat-num">18<span>let</span></div>
-        <div class="stat-label">Zkušeností<br>v Hradci Králové</div>
+        <div class="stat-num">3D</div>
+        <div class="stat-label">Vizualizace<br>před realizací</div>
       </div>
       <div class="stat reveal reveal-d1">
-        <div class="stat-num">340<span>+</span></div>
-        <div class="stat-label">Dokončených<br>realizací</div>
+        <div class="stat-num">IT &middot; ES &middot; PT</div>
+        <div class="stat-label">Materiály<br>z první ruky</div>
       </div>
       <div class="stat reveal reveal-d2">
-        <div class="stat-num">24<span></span></div>
-        <div class="stat-label">Italských, španělských<br>a portugalských značek</div>
+        <div class="stat-num">Pod klíč</div>
+        <div class="stat-label">Od konzultace<br>k předání</div>
       </div>
       <div class="stat reveal reveal-d3">
-        <div class="stat-num">3D<span></span></div>
-        <div class="stat-label">Vizualizace<br>před realizací</div>
+        <div class="stat-num">5 let</div>
+        <div class="stat-label">Záruka<br>na řemeslo</div>
       </div>
     </div>
   </div>
@@ -477,40 +477,40 @@ html.js .reveal.in{opacity:1;transform:translateY(0)}
     </div>
     <div class="portfolio-grid">
       <div class="pf reveal">
-        <div class="pf-img"><img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=900&q=85&auto=format&fit=crop" alt="Vilová koupelna travertin"></div>
-        <div class="pf-meta"><div class="t">Vilová koupelna · Pouchov</div><div class="s">Travertine · Hansgrohe · 18 m²</div></div>
+        <div class="pf-img"><img src="https://images.pexels.com/photos/36121733/pexels-photo-36121733.jpeg?auto=compress&cs=tinysrgb&w=900&h=675&fit=crop" alt="Mramorová koupelna" loading="lazy"></div>
+        <div class="pf-meta"><div class="t">Mramorová koupelna</div><div class="s">Calacatta marble · 9 m²</div></div>
       </div>
       <div class="pf reveal reveal-d1">
-        <div class="pf-img"><img src="https://images.unsplash.com/photo-1620626011761-996317b8d101?w=900&q=85&auto=format&fit=crop" alt="Mramorová koupelna"></div>
-        <div class="pf-meta"><div class="t">Mramorová koupelna</div><div class="s">Calacatta · Hradec střed · 9 m²</div></div>
+        <div class="pf-img"><img src="https://images.pexels.com/photos/35868666/pexels-photo-35868666.jpeg?auto=compress&cs=tinysrgb&w=900&h=675&fit=crop" alt="Šedá moderní koupelna" loading="lazy"></div>
+        <div class="pf-meta"><div class="t">Šedá moderna</div><div class="s">Porcelanosa · 12 m²</div></div>
       </div>
       <div class="pf reveal reveal-d2">
-        <div class="pf-img"><img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=900&q=85&auto=format&fit=crop" alt="Černobílá moderna"></div>
-        <div class="pf-meta"><div class="t">Černobílá moderna</div><div class="s">Marazzi · Třebeš · 7 m²</div></div>
+        <div class="pf-img"><img src="https://images.pexels.com/photos/29455222/pexels-photo-29455222.jpeg?auto=compress&cs=tinysrgb&w=900&h=675&fit=crop" alt="Klasická koupelna s mozaikou" loading="lazy"></div>
+        <div class="pf-meta"><div class="t">Klasika s mozaikou</div><div class="s">Sant'Agostino · 11 m²</div></div>
       </div>
       <div class="pf reveal">
-        <div class="pf-img"><img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=900&q=85&auto=format&fit=crop" alt="Privátní wellness"></div>
-        <div class="pf-meta"><div class="t">Privátní wellness</div><div class="s">Porcelanosa · Slezské · 24 m²</div></div>
+        <div class="pf-img"><img src="https://images.pexels.com/photos/8143696/pexels-photo-8143696.jpeg?auto=compress&cs=tinysrgb&w=900&h=675&fit=crop" alt="Dřevo a kámen" loading="lazy"></div>
+        <div class="pf-meta"><div class="t">Dřevo &amp; kámen</div><div class="s">Italon · 7 m²</div></div>
       </div>
       <div class="pf reveal reveal-d1">
-        <div class="pf-img"><img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=900&q=85&auto=format&fit=crop" alt="Hostovská WC"></div>
-        <div class="pf-meta"><div class="t">Hostovská WC</div><div class="s">Ragno · Plotiště · 3 m²</div></div>
+        <div class="pf-img"><img src="https://images.pexels.com/photos/19608781/pexels-photo-19608781.jpeg?auto=compress&cs=tinysrgb&w=900&h=675&fit=crop" alt="Walk-in sprcha" loading="lazy"></div>
+        <div class="pf-meta"><div class="t">Walk-in sprcha</div><div class="s">Geberit · 5 m²</div></div>
       </div>
       <div class="pf reveal reveal-d2">
-        <div class="pf-img"><img src="https://images.unsplash.com/photo-1604014237800-1c9102c219da?w=900&q=85&auto=format&fit=crop" alt="Dřevo a kámen"></div>
-        <div class="pf-meta"><div class="t">Dřevo &amp; kámen</div><div class="s">Italon · Nový Hradec · 11 m²</div></div>
+        <div class="pf-img"><img src="https://images.pexels.com/photos/34754008/pexels-photo-34754008.jpeg?auto=compress&cs=tinysrgb&w=900&h=675&fit=crop" alt="Černobílá moderna" loading="lazy"></div>
+        <div class="pf-meta"><div class="t">Černobílá moderna</div><div class="s">Marazzi · 6 m²</div></div>
       </div>
       <div class="pf reveal">
-        <div class="pf-img"><img src="https://images.unsplash.com/photo-1620891417706-0f4f2bbdc01a?w=900&q=85&auto=format&fit=crop" alt="Klasika s pelichem"></div>
-        <div class="pf-meta"><div class="t">Klasika s pelichem</div><div class="s">Sant'Agostino · Kukleny · 6 m²</div></div>
+        <div class="pf-img"><img src="https://images.pexels.com/photos/8186489/pexels-photo-8186489.jpeg?auto=compress&cs=tinysrgb&w=900&h=675&fit=crop" alt="Vilová koupelna" loading="lazy"></div>
+        <div class="pf-meta"><div class="t">Vilová koupelna</div><div class="s">Travertine · Hansgrohe · 18 m²</div></div>
       </div>
       <div class="pf reveal reveal-d1">
-        <div class="pf-img"><img src="https://images.unsplash.com/photo-1564540583246-934409427776?w=900&q=85&auto=format&fit=crop" alt="Velkoformátový obklad"></div>
-        <div class="pf-meta"><div class="t">Velkoformátový obklad</div><div class="s">Florim Magnum · Lhota · 16 m²</div></div>
+        <div class="pf-img"><img src="https://images.pexels.com/photos/33599113/pexels-photo-33599113.jpeg?auto=compress&cs=tinysrgb&w=900&h=675&fit=crop" alt="Velkoformátový obklad" loading="lazy"></div>
+        <div class="pf-meta"><div class="t">Velkoformátový obklad</div><div class="s">Florim Magnum · 16 m²</div></div>
       </div>
       <div class="pf reveal reveal-d2">
-        <div class="pf-img"><img src="https://images.unsplash.com/photo-1610100340063-fac61edb1be3?w=900&q=85&auto=format&fit=crop" alt="Walk-in sprcha"></div>
-        <div class="pf-meta"><div class="t">Walk-in sprcha</div><div class="s">Geberit · Plačice · 5 m²</div></div>
+        <div class="pf-img"><img src="https://images.pexels.com/photos/34787745/pexels-photo-34787745.jpeg?auto=compress&cs=tinysrgb&w=900&h=675&fit=crop" alt="Privátní wellness" loading="lazy"></div>
+        <div class="pf-meta"><div class="t">Privátní wellness</div><div class="s">Ragno · Florim · 24 m²</div></div>
       </div>
     </div>
   </div>
@@ -541,63 +541,51 @@ html.js .reveal.in{opacity:1;transform:translateY(0)}
   </div>
 </section>
 
-<!-- TESTIMONIALS -->
+<!-- COMMITMENTS -->
 <section class="testimonials">
   <div class="container">
     <div class="section-head reveal">
-      <span class="eyebrow">Co říkají klienti</span>
-      <h2>340 koupelen, <em>které tu zůstaly stát</em></h2>
-      <p>Hodnocení od lidí, kterým jsme realizovali jejich koupelnu. Najdete nás i na Google Recenze a Firmy.cz.</p>
+      <span class="eyebrow">Na čem si stojíme</span>
+      <h2>Tři věci, na které <em>se můžete spolehnout</em></h2>
+      <p>Nejsme největší a ani nejlevnější. Jsme studio, které dokončí, co začalo — v termínu, v ceně a s garancí na řemeslo.</p>
     </div>
     <div class="test-grid">
       <div class="test reveal">
-        <div class="test-stars">
-          <svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-6 4 2 7-6-4-6 4 2-7-6-4h7z"/></svg>
-          <svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-6 4 2 7-6-4-6 4 2-7-6-4h7z"/></svg>
-          <svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-6 4 2 7-6-4-6 4 2-7-6-4h7z"/></svg>
-          <svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-6 4 2 7-6-4-6 4 2-7-6-4h7z"/></svg>
-          <svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-6 4 2 7-6-4-6 4 2-7-6-4h7z"/></svg>
+        <div class="test-stars" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 4v16M4 12h16"/></svg>
         </div>
-        <div class="test-body">„Z dvou nevyhovujících koupelen v patrovém domě jsme udělali jednu velkou. Renata navrhla dispozici, kterou bych sám nevymyslel. Termín i cena seděly do týdne."</div>
+        <div class="test-body">„Pevná cena před začátkem. Když řekneme, že to bude X korun, je to X korun. Žádné &quot;objevili jsme něco&quot; v polovině."</div>
         <div class="test-meta">
-          <div class="test-avatar">JN</div>
+          <div class="test-avatar">01</div>
           <div>
-            <div class="test-name">Jiří N.</div>
-            <div class="test-loc">Pouchov · 2024</div>
+            <div class="test-name">Cenová záruka</div>
+            <div class="test-loc">Bez dodatečného navyšování</div>
           </div>
         </div>
       </div>
       <div class="test reveal reveal-d1">
-        <div class="test-stars">
-          <svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-6 4 2 7-6-4-6 4 2-7-6-4h7z"/></svg>
-          <svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-6 4 2 7-6-4-6 4 2-7-6-4h7z"/></svg>
-          <svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-6 4 2 7-6-4-6 4 2-7-6-4h7z"/></svg>
-          <svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-6 4 2 7-6-4-6 4 2-7-6-4h7z"/></svg>
-          <svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-6 4 2 7-6-4-6 4 2-7-6-4h7z"/></svg>
+        <div class="test-stars" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
         </div>
-        <div class="test-body">„Po dvou koupelnách s ostatními firmami jsme měli strach, že to zase potáhneme. Tady jsme dali peníze, dostali termín a koupelnu jsme měli do čtyř týdnů. Bez dodatečného navyšování."</div>
+        <div class="test-body">„Termín, který se dodrží. Stavební deník vidíte vy i my, status report jednou týdně. Když se něco zdrží, víte proč a o kolik."</div>
         <div class="test-meta">
-          <div class="test-avatar">MŠ</div>
+          <div class="test-avatar">02</div>
           <div>
-            <div class="test-name">Martina Š.</div>
-            <div class="test-loc">Třebeš · 2025</div>
+            <div class="test-name">Termínová záruka</div>
+            <div class="test-loc">Průměrná doba 4-6 týdnů</div>
           </div>
         </div>
       </div>
       <div class="test reveal reveal-d2">
-        <div class="test-stars">
-          <svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-6 4 2 7-6-4-6 4 2-7-6-4h7z"/></svg>
-          <svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-6 4 2 7-6-4-6 4 2-7-6-4h7z"/></svg>
-          <svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-6 4 2 7-6-4-6 4 2-7-6-4h7z"/></svg>
-          <svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-6 4 2 7-6-4-6 4 2-7-6-4h7z"/></svg>
-          <svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-6 4 2 7-6-4-6 4 2-7-6-4h7z"/></svg>
+        <div class="test-stars" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 3l8 4v6c0 5-3.5 7.5-8 8-4.5-.5-8-3-8-8V7l8-4z"/><path d="M9 12l2 2 4-4"/></svg>
         </div>
-        <div class="test-body">„3D vizualizace byla věc, která rozhodla. Žena viděla, jak to bude vypadat, a měla klid. To stojí za víc než ušetřených pár tisíc u konkurence."</div>
+        <div class="test-body">„Pět let záruka na řemeslo. Když se po čtyřech letech uvolní obklad, opravíme zdarma. Nejsme firma, která zmizí po fakturaci."</div>
         <div class="test-meta">
-          <div class="test-avatar">PK</div>
+          <div class="test-avatar">03</div>
           <div>
-            <div class="test-name">Pavel K.</div>
-            <div class="test-loc">Nový Hradec · 2024</div>
+            <div class="test-name">Záruka řemesla</div>
+            <div class="test-loc">5 let na všechny práce</div>
           </div>
         </div>
       </div>
