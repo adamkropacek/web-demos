@@ -128,7 +128,7 @@ header.scrolled{background:rgba(21,23,28,.95)}
 }
 .hero-img img{
   width:100%;height:100%;object-fit:cover;
-  transform:scale(1.08);transition:transform 18s cubic-bezier(.22,.61,.36,1);
+  transform:scale(1.08);transition:transform 6s cubic-bezier(.22,.61,.36,1);
   will-change:transform;
 }
 .loaded .hero-img img{transform:scale(1)}
@@ -154,9 +154,8 @@ h1 .line{display:block;overflow:hidden;padding-bottom:.08em}
 h1 .line span{display:inline-block;transform:translateY(120%);
   transition:transform .9s cubic-bezier(.22,.61,.36,1);will-change:transform}
 .loaded h1 .line span{transform:translateY(0)}
-.loaded h1 .line:nth-child(1) span{transition-delay:.18s}
-.loaded h1 .line:nth-child(2) span{transition-delay:.32s}
-.loaded h1 .line:nth-child(3) span{transition-delay:.46s}
+.loaded h1 .line:nth-child(1) span{transition-delay:.05s}
+.loaded h1 .line:nth-child(2) span{transition-delay:.18s}
 h1 em{font-style:italic;color:var(--haze-soft);font-weight:700}
 .hero-lead{
   font-size:clamp(1rem,1.4vw,1.2rem);max-width:540px;color:rgba(255,255,255,.85);
@@ -400,8 +399,8 @@ footer a:hover{color:var(--haze-soft)}
   padding:10px 14px;gap:8px;box-shadow:0 -8px 24px rgba(0,0,0,.4)}
 .sticky-bar a{flex:1;padding:14px;text-align:center;border-radius:3px;
   font-family:'Manrope',sans-serif;font-weight:700;font-size:13px;letter-spacing:.04em;text-transform:uppercase}
-.sticky-bar a:nth-child(1){background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.3)}
-.sticky-bar a:nth-child(2){background:var(--haze);color:#fff}
+.sticky-bar a:nth-child(1){background:var(--haze);color:#fff}
+.sticky-bar a:nth-child(2){background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.3)}
 
 /* ========== COOKIE BANNER ========== */
 .cookies{position:fixed;bottom:18px;left:18px;right:18px;max-width:480px;
@@ -423,6 +422,29 @@ footer a:hover{color:var(--haze-soft)}
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s cubic-bezier(.22,.61,.36,1)}
 .reveal.in{opacity:1;transform:translateY(0)}
 
+/* ========== HEADER PHONE ========== */
+.header-phone{color:#fff;font-family:'Manrope',sans-serif;font-weight:700;font-size:14px;letter-spacing:.02em;opacity:.9;transition:color .2s}
+.header-phone:hover{color:var(--haze-soft)}
+
+/* ========== HERO TRUST CHIPS ========== */
+.hero-trust{display:flex;flex-wrap:wrap;gap:10px 14px;align-items:center;margin:0 0 30px;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.78);font-weight:600;max-width:680px}
+.hero-trust .chip{display:inline-flex;align-items:center;gap:10px}
+.hero-trust .chip + .chip::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--haze);opacity:.85;margin-right:10px;display:inline-block}
+
+/* ========== REFERENCE META ========== */
+.ref-meta{font-size:13px;color:var(--ink-soft);margin-top:4px;font-weight:500}
+
+/* ========== FORM NOTE + SUCCESS ========== */
+.form-note{font-size:13px;color:var(--ink-soft);line-height:1.55;margin:0 0 14px}
+.form-success{padding:42px 32px;background:var(--paper);border:1px solid var(--line);border-top:4px solid var(--haze);border-radius:4px;text-align:left}
+.form-success h3{font-family:'Manrope',sans-serif;font-weight:700;font-size:22px;color:var(--ink);margin-bottom:10px;line-height:1.2}
+.form-success p{font-size:15px;color:var(--ink-soft);line-height:1.6}
+
+/* ========== A11Y: FOCUS + SKIP LINK ========== */
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--haze);outline-offset:2px;border-radius:2px}
+.skip-link{position:absolute;left:-9999px;background:var(--haze);color:#fff;padding:12px 18px;z-index:300;font-weight:700;font-family:'Manrope',sans-serif;letter-spacing:.04em;text-transform:uppercase;font-size:13px;border-radius:3px}
+.skip-link:focus{left:18px;top:18px}
+
 /* ========== RESPONSIVE ========== */
 @media (max-width:1100px){
   .stats-grid{grid-template-columns:repeat(2,1fr)}
@@ -437,6 +459,7 @@ footer a:hover{color:var(--haze-soft)}
   .story-facts,.contact-aside{position:static}
   .footer-grid{grid-template-columns:1fr 1fr;gap:36px}
   .nav-links{display:none}
+  .header-phone{display:none}
 }
 @media (max-width:680px){
   .wrap{padding:0 18px}
@@ -461,17 +484,25 @@ footer a:hover{color:var(--haze-soft)}
   .commit-card{padding:32px 24px}
   .story-facts{padding:32px 24px}
   .contact-form{padding:28px 22px}
+  .contact{padding-bottom:88px}
+}
+
+/* ========== REDUCED MOTION ========== */
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.01s !important;transition-duration:.01s !important}
+  .reveal{opacity:1;transform:none}
+  .hero-img img{transform:scale(1)}
+  .loader-mark .dot{animation:none}
+  h1 .line span{transform:translateY(0)}
+  .eyebrow,.hero-lead,.hero-actions,.hero-meta{opacity:1;transform:none;animation:none}
 }
 </style>
 </head>
 <body>
 
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5KJSMWSP" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<a href="#hero" class="skip-link">Přeskočit na obsah</a>
 
-<!-- LOADER -->
-<div class="loader" id="loader">
-  <div class="loader-mark">HAZE<div class="dot"></div></div>
-</div>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5KJSMWSP" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- HEADER -->
 <header id="hdr">
@@ -488,6 +519,7 @@ footer a:hover{color:var(--haze-soft)}
         <li><a href="#refs">Reference</a></li>
         <li><a href="#story">O nás</a></li>
       </ul>
+      <a href="tel:+420602488989" class="header-phone">+420 602 488 989</a>
       <a href="#contact" class="nav-cta">Poptávka</a>
     </nav>
   </div>
@@ -502,26 +534,26 @@ footer a:hover{color:var(--haze-soft)}
     <div class="hero-grid">
       <div class="eyebrow">B2B · Zemědělství · Od roku 2007</div>
       <h1>
-        <span class="line"><span>Vrata, ventilace</span></span>
-        <span class="line"><span>a doplňky pro</span></span>
-        <span class="line"><span><em>moderní stáj.</em></span></span>
+        <span class="line"><span>Stáj, která drží teplotu</span></span>
+        <span class="line"><span><em>a šetří krmivo.</em></span></span>
       </h1>
-      <p class="hero-lead">Projektujeme, vyrábíme a montujeme. Od první konzultace po hotovou stáj - vše od jednoho dodavatele. Vlastní hala v Křičeni, realizace v CZ, SK a HU.</p>
+      <p class="hero-lead">Projektujeme, vyrábíme a montujeme. Vlastní hala v Křičeni, 200+ stájí v CZ, SK a HU. Konzultace zdarma, nabídka do 48 hodin.</p>
+      <div class="hero-trust">
+        <span class="chip">Od roku 2007</span>
+        <span class="chip">200+ stájí</span>
+        <span class="chip">Vlastní hala 2 500 m²</span>
+        <span class="chip">CZ · SK · HU</span>
+        <span class="chip">Záruka 5 let</span>
+      </div>
       <div class="hero-actions">
-        <a href="#contact" class="btn-primary">
+        <a href="tel:+420602488989" class="btn-primary">
+          Zavolat: +420 602 488 989
+          <span class="btn-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <a href="#contact" class="btn-secondary">
           Nezávazná poptávka
           <span class="btn-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
         </a>
-        <a href="#products" class="btn-secondary">
-          Prohlédnout produkty
-          <span class="btn-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-        </a>
-      </div>
-      <div class="hero-meta">
-        <div class="hero-meta-item">Vlastní výroba<strong>Hala v Křičeni</strong></div>
-        <div class="hero-meta-item">Trhy<strong>CZ · SK · HU</strong></div>
-        <div class="hero-meta-item">Záruka<strong>5 let</strong></div>
-        <div class="hero-meta-item">Realizace<strong>4-6 týdnů</strong></div>
       </div>
     </div>
   </div>
@@ -531,10 +563,10 @@ footer a:hover{color:var(--haze-soft)}
 <div class="stats">
   <div class="wrap">
     <div class="stats-grid">
-      <div class="stat"><div class="stat-eyebrow">Na trhu</div><div class="stat-value">Od roku 2007</div></div>
-      <div class="stat"><div class="stat-eyebrow">Hala</div><div class="stat-value">2 500 m² v Křičeni</div></div>
-      <div class="stat"><div class="stat-eyebrow">Realizace</div><div class="stat-value">200+ stájí</div></div>
-      <div class="stat"><div class="stat-eyebrow">Servis</div><div class="stat-value">Pod klíč</div></div>
+      <div class="stat"><div class="stat-eyebrow">Na trhu</div><div class="stat-value">19 let</div></div>
+      <div class="stat"><div class="stat-eyebrow">Výroba</div><div class="stat-value">2 500 m²</div></div>
+      <div class="stat"><div class="stat-eyebrow">Realizace</div><div class="stat-value">200+</div></div>
+      <div class="stat"><div class="stat-eyebrow">Záruka</div><div class="stat-value">5 let</div></div>
     </div>
   </div>
 </div>
@@ -560,23 +592,23 @@ footer a:hover{color:var(--haze-soft)}
           <div class="problem-stat-num">4×</div>
           <div class="problem-stat-body">
             <h3>Rychlejší výměna vzduchu</h3>
-            <p>BVS systémy s polykarbonátem vyměňují vzduch v hale rychleji než trvale otevřená štítová vrata - bez průvanu na zvířatech a bez tepelných ztrát v zimě.</p>
+            <p>BVS systémy s polykarbonátem jsou navržené pro rychlejší výměnu vzduchu než trvale otevřená štítová vrata - bez průvanu na zvířatech a bez tepelných ztrát v zimě.</p>
           </div>
         </div>
       </div>
       <div class="reveal">
         <div class="problem-stat">
-          <div class="problem-stat-num">0</div>
+          <div class="problem-stat-num">48 h</div>
           <div class="problem-stat-body">
-            <h3>Tolerance vůči průvanu</h3>
-            <p>Telata a prasata jsou na proudění vzduchu citlivá. Stájová vrata s tichým chodem a doraz na rám eliminují průvan v pásmu zvířat - bez kompromisu s manipulací.</p>
+            <h3>Nabídka do 48 hodin</h3>
+            <p>Po záměření dostanete konkrétní cenu, materiály a termín do dvou pracovních dnů. Bez schovaných položek - co podepíšete, to platí.</p>
           </div>
         </div>
         <div class="problem-stat">
-          <div class="problem-stat-num">1</div>
+          <div class="problem-stat-num">5 let</div>
           <div class="problem-stat-body">
-            <h3>Dodavatel od projektu po montáž</h3>
-            <p>Konzultaci, výrobu i montáž zajišťujeme my. Žádný subdodavatel mezi vámi a finální stájí - za výsledek ručí jeden tým.</p>
+            <h3>Záruka na konstrukci i montáž</h3>
+            <p>Servisní zásahy v ceně. Stojíme si za tím, co vyrobíme - od svaru po poslední kus plechu.</p>
           </div>
         </div>
       </div>
@@ -594,36 +626,36 @@ footer a:hover{color:var(--haze-soft)}
     </div>
     <div class="prod-grid">
       <div class="prod reveal">
-        <img class="prod-img" src="assets/prod-stajova.jpg" alt="Stájová vrata HAZE - realizace na zemědělské hale">
+        <img class="prod-img" src="assets/prod-stajova.jpg" alt="Stájová vrata HAZE - realizace na zemědělské hale" loading="lazy" decoding="async">
         <div class="prod-body">
-          <div class="prod-num">- 01</div>
+          <div class="prod-num">01.</div>
           <h3>Stájová vrata</h3>
           <p>Pro stáj, kravín a porodnu. Tichý chod, doraz proti průvanu, welfare pro chov skotu i prasat.</p>
           <a href="#contact" class="prod-link">Konzultace →</a>
         </div>
       </div>
       <div class="prod reveal">
-        <img class="prod-img" src="assets/prod-plachtova.jpg" alt="Plachtová vrata HAZE - realizace ve stáji">
+        <img class="prod-img" src="assets/prod-plachtova.jpg" alt="Plachtová vrata HAZE - realizace ve stáji" loading="lazy" decoding="async">
         <div class="prod-body">
-          <div class="prod-num">- 02</div>
+          <div class="prod-num">02.</div>
           <h3>Plachtová vrata</h3>
           <p>Stáje, sklady, přístřešky. Plachta odolná UV i mrazu, lehká obsluha, krátký výrobní cyklus.</p>
           <a href="#contact" class="prod-link">Konzultace →</a>
         </div>
       </div>
       <div class="prod reveal">
-        <img class="prod-img" src="assets/prod-rolety.jpg" alt="Rolety BVS do stáje HAZE - boční ventilace">
+        <img class="prod-img" src="assets/prod-rolety.jpg" alt="Rolety BVS do stáje HAZE - boční ventilace" loading="lazy" decoding="async">
         <div class="prod-body">
-          <div class="prod-num">- 03</div>
+          <div class="prod-num">03.</div>
           <h3>BVS ventilace + rolety</h3>
           <p>Boční ventilační systém A-F + rolovací vrata. Izolace v zimě, výměna vzduchu v létě.</p>
           <a href="#contact" class="prod-link">Konzultace →</a>
         </div>
       </div>
       <div class="prod reveal">
-        <img class="prod-img" src="assets/prod-svinovaci.jpg" alt="Svinovací vrata HAZE - realizace v zemědělském provozu">
+        <img class="prod-img" src="assets/prod-svinovaci.jpg" alt="Svinovací vrata HAZE - realizace v zemědělském provozu" loading="lazy" decoding="async">
         <div class="prod-body">
-          <div class="prod-num">- 04</div>
+          <div class="prod-num">04.</div>
           <h3>Svinovací vrata</h3>
           <p>Pro stáje, přístřešky i sklady. Úspora místa, robustní konstrukce, dlouhá životnost.</p>
           <a href="#contact" class="prod-link">Konzultace →</a>
@@ -643,22 +675,22 @@ footer a:hover{color:var(--haze-soft)}
     </div>
     <div class="steps-grid">
       <div class="step reveal">
-        <div class="step-num">- 01 / Konzultace</div>
+        <div class="step-num">01. Konzultace</div>
         <h3>Zaměření a poptávka</h3>
         <p>Zavoláme nebo přijedeme na místo. Zaměříme reálné otvory, podíváme se na stávající stáj a navrhneme řešení.</p>
       </div>
       <div class="step reveal">
-        <div class="step-num">- 02 / Nabídka</div>
+        <div class="step-num">02. Nabídka</div>
         <h3>Návrh do 48 hodin</h3>
         <p>Konkrétní cena, materiály a termín. Bez schovaných položek a bez "kdyby" doložek. Co podepíšete, to platí.</p>
       </div>
       <div class="step reveal">
-        <div class="step-num">- 03 / Výroba</div>
+        <div class="step-num">03. Výroba</div>
         <h3>Vlastní hala v Křičeni</h3>
         <p>Vyrábíme u nás na 2 500 m². Žádný subdodavatel - máme kontrolu nad kvalitou každého svaru a každého profilu.</p>
       </div>
       <div class="step reveal">
-        <div class="step-num">- 04 / Montáž</div>
+        <div class="step-num">04. Montáž</div>
         <h3>Náš tým, ne subdodavatel</h3>
         <p>Montuje stejná parta, která vám vrata vyrobila. Po montáži zaučíme obsluhu a předáme záruku 5 let.</p>
       </div>
@@ -668,7 +700,7 @@ footer a:hover{color:var(--haze-soft)}
 
 <!-- SHOWCASE STRIP -->
 <div class="showcase">
-  <img src="assets/ref-4.jpg" alt="Zemědělská hala s vraty a větráním HAZE" class="showcase-img">
+  <img src="assets/ref-4.jpg" alt="Zemědělská hala s vraty a větráním HAZE" class="showcase-img" loading="lazy" decoding="async">
   <div class="showcase-overlay">
     <div class="showcase-content">
       <div>
@@ -693,42 +725,44 @@ footer a:hover{color:var(--haze-soft)}
     </div>
     <div class="refs-grid">
       <div class="ref reveal">
-        <img class="ref-img" src="assets/ref-1.jpg" alt="Boční ventilace stáje - realizace HAZE">
+        <img class="ref-img" src="assets/ref-1.jpg" alt="Boční ventilace stáje - realizace HAZE" loading="lazy" decoding="async">
         <div class="ref-cap">
           <div class="ref-cap-eyebrow">Ventilace · Stáj</div>
           <h4>Boční ventilace stáje</h4>
         </div>
       </div>
       <div class="ref reveal">
-        <img class="ref-img" src="assets/ref-2.jpg" alt="Boční ventilační systém - Okrouhlá Radouň">
+        <img class="ref-img" src="assets/ref-2.jpg" alt="Boční ventilační systém - Okrouhlá Radouň" loading="lazy" decoding="async">
         <div class="ref-cap">
-          <div class="ref-cap-eyebrow">BVS · Okrouhlá Radouň</div>
-          <h4>Boční ventilace, polykarbonát</h4>
+          <div class="ref-cap-eyebrow">BVS · Polykarbonát</div>
+          <h4>Okrouhlá Radouň</h4>
+          <p class="ref-meta">Boční ventilační systém</p>
         </div>
       </div>
       <div class="ref reveal">
-        <img class="ref-img" src="assets/ref-3.jpg" alt="BVS typ F s polykarbonátem - realizace HAZE">
+        <img class="ref-img" src="assets/ref-3.jpg" alt="BVS typ F s polykarbonátem - realizace HAZE" loading="lazy" decoding="async">
         <div class="ref-cap">
           <div class="ref-cap-eyebrow">BVS · Typ F</div>
           <h4>Boční ventilace s polykarbonátem</h4>
         </div>
       </div>
       <div class="ref reveal">
-        <img class="ref-img" src="assets/ref-6.jpg" alt="Hřebenová větrací štěrbina - Osičky">
+        <img class="ref-img" src="assets/ref-6.jpg" alt="Hřebenová větrací štěrbina - Osičky" loading="lazy" decoding="async">
         <div class="ref-cap">
-          <div class="ref-cap-eyebrow">Štěrbina · Osičky</div>
-          <h4>Hřebenová štěrbina stáje</h4>
+          <div class="ref-cap-eyebrow">Štěrbina · Stáj</div>
+          <h4>Osičky</h4>
+          <p class="ref-meta">Hřebenová větrací štěrbina</p>
         </div>
       </div>
       <div class="ref reveal">
-        <img class="ref-img" src="assets/ref-5.jpg" alt="Posuvná vrata zemědělské stáje - realizace HAZE">
+        <img class="ref-img" src="assets/ref-5.jpg" alt="Posuvná vrata zemědělské stáje - realizace HAZE" loading="lazy" decoding="async">
         <div class="ref-cap">
           <div class="ref-cap-eyebrow">Vrata · Stáj</div>
           <h4>Posuvná stájová vrata</h4>
         </div>
       </div>
       <div class="ref reveal">
-        <img class="ref-img" src="assets/ref-4.jpg" alt="Zemědělská hala s vraty a větráním HAZE">
+        <img class="ref-img" src="assets/ref-4.jpg" alt="Zemědělská hala s vraty a větráním HAZE" loading="lazy" decoding="async">
         <div class="ref-cap">
           <div class="ref-cap-eyebrow">Komplet · Hala</div>
           <h4>Zemědělská hala, vrata + ventilace</h4>
@@ -790,8 +824,8 @@ footer a:hover{color:var(--haze-soft)}
         <div class="story-fact"><span class="story-fact-label">Trhy</span><span class="story-fact-value">CZ · SK · HU</span></div>
         <div class="story-fact"><span class="story-fact-label">Realizace</span><span class="story-fact-value">200+ stájí</span></div>
         <div class="story-fact"><span class="story-fact-label">Záruka</span><span class="story-fact-value">5 let</span></div>
-        <div class="story-fact"><span class="story-fact-label">IČO</span><span class="story-fact-value">275 09 800</span></div>
-        <div class="story-fact"><span class="story-fact-label">DIČ</span><span class="story-fact-value">CZ27509800</span></div>
+        <div class="story-fact"><span class="story-fact-label">Konzultace</span><span class="story-fact-value">do 24 h</span></div>
+        <div class="story-fact"><span class="story-fact-label">Nabídka</span><span class="story-fact-value">do 48 h</span></div>
       </aside>
     </div>
   </div>
@@ -807,51 +841,24 @@ footer a:hover{color:var(--haze-soft)}
     </div>
     <div class="contact-grid">
       <form class="contact-form reveal" id="leadForm" action="mailto:info@haze.cz" method="post" enctype="text/plain">
-        <div class="field-row">
-          <div class="field">
-            <label for="name">Jméno a firma</label>
-            <input type="text" id="name" name="name" required placeholder="Jan Novák, ZD Křičeň">
-          </div>
-          <div class="field">
-            <label for="phone">Telefon</label>
-            <input type="tel" id="phone" name="phone" required placeholder="+420 ...">
-          </div>
+        <div class="field">
+          <label for="name">Jméno a firma</label>
+          <input type="text" id="name" name="name" required placeholder="Jan Novák, ZD Křičeň">
         </div>
         <div class="field">
-          <label for="email">E-mail</label>
-          <input type="email" id="email" name="email" required placeholder="vase@email.cz">
-        </div>
-        <div class="field-row">
-          <div class="field">
-            <label for="type">Typ poptávky</label>
-            <select id="type" name="type">
-              <option>Stájová vrata</option>
-              <option>Plachtová vrata</option>
-              <option>BVS ventilace + rolety</option>
-              <option>Svinovací vrata</option>
-              <option>Kombinace / projekt</option>
-              <option>Servis stávajících vrat</option>
-            </select>
-          </div>
-          <div class="field">
-            <label for="when">Kdy potřebujete</label>
-            <select id="when" name="when">
-              <option>Do měsíce</option>
-              <option>Do 3 měsíců</option>
-              <option>Letos</option>
-              <option>Zatím se rozhoduji</option>
-            </select>
-          </div>
+          <label for="phone">Telefon</label>
+          <input type="tel" id="phone" name="phone" required placeholder="+420 ...">
         </div>
         <div class="field">
-          <label for="msg">Co konkrétně potřebujete</label>
-          <textarea id="msg" name="message" placeholder="Stáj pro 80 dojnic, plánujeme rekonstrukci větrání. Stávající vrata netěsní, chceme posuvná..."></textarea>
+          <label for="msg">Co potřebujete</label>
+          <textarea id="msg" name="message" placeholder="Stáj pro 80 dojnic, plánujeme rekonstrukci větrání..."></textarea>
         </div>
         <label class="gdpr">
           <input type="checkbox" required>
           <span>Souhlasím se zpracováním osobních údajů pro účely poptávky. Údaje neposkytujeme třetím stranám.</span>
         </label>
-        <button type="submit" class="btn-submit">Odeslat poptávku</button>
+        <p class="form-note">Odeslání otevře váš e-mailový program. Pro rychlejší řešení volejte přímo na <a href="tel:+420602488989" style="color:var(--haze-dark);font-weight:700">+420 602 488 989</a>.</p>
+        <button type="submit" class="btn-submit">Zavolejte mi zpět</button>
       </form>
 
       <aside class="contact-aside reveal">
@@ -906,8 +913,8 @@ footer a:hover{color:var(--haze-soft)}
     </div>
     <div class="final-buttons">
       <a href="tel:+420602488989">Zavolat hned teď</a>
-      <a href="#contact">Vyplnit formulář</a>
     </div>
+    <p style="margin-top:16px;font-size:14px;color:rgba(255,255,255,.65)">Po-Pá 7:00-17:00. Mimo pracovní dobu vám zavoláme zpět.</p>
   </div>
 </section>
 
@@ -973,18 +980,15 @@ footer a:hover{color:var(--haze-soft)}
 </div>
 
 <script>
-// Loader
-window.addEventListener('load', () => {
-  setTimeout(() => {
-    document.getElementById('loader').classList.add('gone');
-    document.body.classList.add('loaded');
-  }, 650);
-});
-// Fallback in case load doesn't fire (screenshot tools etc.)
-setTimeout(() => {
-  document.getElementById('loader').classList.add('gone');
+// Endpoint for lead form. Replace REPLACE_ME with a real Formspree (or compatible) form ID before deploy.
+// On fetch success: success state + generate_lead fires. On fetch failure: mailto fallback + generate_lead still fires.
+const FORM_ENDPOINT = 'https://formspree.io/f/REPLACE_ME';
+
+// Mark page loaded immediately (no loader element anymore)
+document.addEventListener('DOMContentLoaded', () => {
   document.body.classList.add('loaded');
-}, 3000);
+});
+if (document.readyState !== 'loading') document.body.classList.add('loaded');
 
 // Header scroll state
 const hdr = document.getElementById('hdr');
@@ -1000,19 +1004,22 @@ const io = new IntersectionObserver(entries => {
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 setTimeout(() => document.querySelectorAll('.reveal').forEach(el => el.classList.add('in')), 4000);
 
-// Hero parallax (subtle)
+// Hero parallax (subtle) - skipped when user prefers reduced motion
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const heroImg = document.querySelector('.hero-img img');
 let ticking = false;
-window.addEventListener('scroll', () => {
-  if (!ticking && heroImg) {
-    requestAnimationFrame(() => {
-      const y = Math.min(window.scrollY, window.innerHeight);
-      heroImg.style.transform = `scale(1) translateY(${y * 0.18}px)`;
-      ticking = false;
-    });
-    ticking = true;
-  }
-});
+if (!reduceMotion) {
+  window.addEventListener('scroll', () => {
+    if (!ticking && heroImg) {
+      requestAnimationFrame(() => {
+        const y = Math.min(window.scrollY, window.innerHeight);
+        heroImg.style.transform = `scale(1) translateY(${y * 0.18}px)`;
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+}
 
 // Cookie consent
 function cookieChoice(accept) {
@@ -1028,16 +1035,22 @@ if (!localStorage.getItem('haze-cookies')) {
   setTimeout(() => document.getElementById('cookies').classList.add('show'), 1800);
 }
 
-// Form submit -> mailto fallback with structured body
-document.getElementById('leadForm').addEventListener('submit', (e) => {
-  e.preventDefault();
-  const f = e.target;
+// Form submit: real endpoint with mailto fallback
+function fireLeadEvent() {
+  if (typeof gtag === 'function') {
+    gtag('event','generate_lead',{form_type:'main_contact',send_to:'G-5V6W6CMFGR'});
+  }
+}
+function showFormSuccess(form) {
+  const wrap = document.createElement('div');
+  wrap.className = 'form-success reveal in';
+  wrap.innerHTML = '<h3>Děkujeme. Ozveme se do 24 hodin.</h3><p>Mezitím nám můžete zavolat na <a href="tel:+420602488989" style="color:var(--haze-dark);font-weight:700">+420 602 488 989</a> (Po-Pá 7:00-17:00).</p>';
+  form.replaceWith(wrap);
+}
+function mailtoFallback(f) {
   const body = [
     `Jméno a firma: ${f.name.value}`,
     `Telefon: ${f.phone.value}`,
-    `E-mail: ${f.email.value}`,
-    `Typ: ${f.type.value}`,
-    `Termín: ${f.when.value}`,
     ``,
     `Zpráva:`,
     f.message.value,
@@ -1046,11 +1059,35 @@ document.getElementById('leadForm').addEventListener('submit', (e) => {
     `Odesláno z: ${location.href}`,
     `Datum: ${new Date().toISOString()}`
   ].join('\n');
-  const subject = `Poptávka HAZE - ${f.type.value}`;
+  const subject = 'Poptávka HAZE';
   window.location.href = `mailto:info@haze.cz?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  if (typeof gtag === 'function') {
-    gtag('event','generate_lead',{form_type:'main_contact',send_to:'G-5V6W6CMFGR'});
+}
+document.getElementById('leadForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const f = e.target;
+  const usingEndpoint = FORM_ENDPOINT && !FORM_ENDPOINT.includes('REPLACE_ME');
+  if (usingEndpoint) {
+    try {
+      const res = await fetch(FORM_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(f)
+      });
+      if (res.ok) {
+        fireLeadEvent();
+        showFormSuccess(f);
+        return;
+      }
+      throw new Error('endpoint_not_ok');
+    } catch (err) {
+      fireLeadEvent();
+      mailtoFallback(f);
+      return;
+    }
   }
+  // Endpoint not configured -> straight to mailto
+  fireLeadEvent();
+  mailtoFallback(f);
 });
 
 // Track phone clicks
