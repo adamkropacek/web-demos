@@ -6,19 +6,16 @@
 <title>HAZE - Vrata, ventilace a doplňky pro moderní stáj | Od roku 2007</title>
 <meta name="description" content="Vyrábíme a montujeme stájová vrata, BVS ventilaci a zastřešení jímek. Projekt na míru, vlastní hala v Křičeni, realizace v CZ, SK a HU. Od roku 2007.">
 <meta name="robots" content="index,follow">
-<link rel="canonical" href="https://adamkropacek.github.io/web-demos/haze/">
+<link rel="canonical" href="https://www.haze.cz/">
 <meta property="og:title" content="HAZE - Vrata, ventilace a doplňky pro moderní stáj">
 <meta property="og:description" content="Projektujeme, vyrábíme a montujeme. Vlastní hala v Křičeni, realizace v CZ, SK a HU. Od roku 2007.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="cs_CZ">
-<meta property="og:url" content="https://adamkropacek.github.io/web-demos/haze/">
-<meta property="og:image" content="https://adamkropacek.github.io/web-demos/haze/assets/hero.jpg">
+<meta property="og:url" content="https://www.haze.cz/">
+<meta property="og:image" content="assets/hero.jpg">
 <link rel="preload" as="image" href="assets/hero.jpg">
 
-<!-- ============================================================
-     TRACKING - mirror live haze.cz tagy (Consent Mode v2 default DENIED)
-     GTM-5KJSMWSP (naše) + G-5V6W6CMFGR (GA4) + AW-11159013994 (Ads)
-     ============================================================ -->
+<!-- TRACKING - GTM-5KJSMWSP + G-5V6W6CMFGR (GA4) + AW-11159013994 (Ads), Consent Mode v2 -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -33,7 +30,7 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-5V6W6CMFGR"></script>
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-5KJSMWSP');</script>
 
-<!-- Schema.org -->
+<!-- Schema.org LocalBusiness -->
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
@@ -46,481 +43,37 @@
   "address":{"@type":"PostalAddress","streetAddress":"Křičeň 108","addressLocality":"Křičeň","postalCode":"533 41","addressCountry":"CZ"},
   "areaServed":["CZ","SK","HU"],
   "vatID":"CZ27509800",
-  "foundingDate":"2007"
+  "foundingDate":"2007",
+  "image":"assets/hero.jpg"
 }
 </script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-<style>
-:root{
-  --steel-900:#15171c;
-  --steel-800:#1c1d1f;
-  --steel-700:#26282b;
-  --steel-600:#34373b;
-  --steel-200:#d5d3cd;
-  --paper:#f4f2ec;
-  --paper-2:#eae7df;
-  --paper-3:#dfdbd0;
-  --ink:#1c1d1f;
-  --ink-soft:#52555a;
-  --haze:#ef7b1f;
-  --haze-dark:#d5650c;
-  --haze-soft:#f5a261;
-  --line:#cdc9bf;
-  --line-dark:rgba(255,255,255,.12);
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{
-  font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-  color:var(--ink); background:var(--paper); line-height:1.55;
-  -webkit-font-smoothing:antialiased; font-weight:400;
-}
-img{max-width:100%;display:block}
-a{color:inherit;text-decoration:none}
-.wrap{max-width:1240px;margin:0 auto;padding:0 28px}
-
-/* ========== LOADER ========== */
-.loader{position:fixed;inset:0;background:var(--steel-900);z-index:200;display:flex;align-items:center;justify-content:center;transition:opacity .5s ease,visibility .5s ease}
-.loader.gone{opacity:0;visibility:hidden;pointer-events:none}
-.loader-mark{font-family:'Manrope',sans-serif;font-weight:800;color:#fff;font-size:36px;letter-spacing:.18em;display:flex;align-items:center;gap:8px}
-.loader-mark .dot{width:10px;height:10px;background:var(--haze);border-radius:50%;animation:pulse 1.2s ease-in-out infinite}
-@keyframes pulse{0%,100%{opacity:.3;transform:scale(.85)}50%{opacity:1;transform:scale(1.1)}}
-
-/* ========== HEADER ========== */
-header{
-  position:fixed;top:0;left:0;right:0;z-index:80;
-  background:rgba(21,23,28,.78);backdrop-filter:blur(12px);
-  border-bottom:1px solid rgba(255,255,255,.06);
-  transition:background .3s ease,padding .3s ease;
-}
-header.scrolled{background:rgba(21,23,28,.95)}
-.hbar{display:flex;align-items:center;justify-content:space-between;
-  padding:18px 28px;max-width:1240px;margin:0 auto;gap:24px}
-.logo{display:flex;align-items:center;gap:12px;color:#fff}
-.logo-mark{width:36px;height:36px;background:var(--haze);
-  display:flex;align-items:center;justify-content:center;border-radius:6px;flex:none}
-.logo-mark svg{width:20px;height:20px;fill:#fff}
-.logo-text{font-family:'Manrope',sans-serif;font-weight:800;font-size:22px;
-  letter-spacing:.08em;line-height:1}
-.logo-text small{display:block;font-size:9.5px;font-weight:600;letter-spacing:.22em;
-  color:var(--steel-200);margin-top:3px;opacity:.7}
-.nav{display:flex;align-items:center;gap:36px}
-.nav-links{display:flex;gap:30px;list-style:none}
-.nav-links a{color:#fff;font-size:13.5px;font-weight:500;letter-spacing:.02em;
-  opacity:.78;transition:opacity .2s,color .2s}
-.nav-links a:hover{opacity:1;color:var(--haze-soft)}
-.nav-cta{background:var(--haze);color:#fff;padding:11px 22px;border-radius:4px;
-  font-size:13.5px;font-weight:700;letter-spacing:.02em;transition:background .2s,transform .2s}
-.nav-cta:hover{background:var(--haze-dark);transform:translateY(-1px)}
-.burger{display:none;color:#fff;font-size:22px;background:none;border:none;cursor:pointer}
-
-/* ========== HERO ========== */
-.hero{
-  position:relative;min-height:100vh;color:#fff;overflow:hidden;
-  display:flex;align-items:flex-end;padding-bottom:80px;padding-top:140px;
-}
-.hero-img{
-  position:absolute;inset:0;z-index:0;overflow:hidden;
-}
-.hero-img img{
-  width:100%;height:100%;object-fit:cover;
-  transform:scale(1.08);transition:transform 6s cubic-bezier(.22,.61,.36,1);
-  will-change:transform;
-}
-.loaded .hero-img img{transform:scale(1)}
-.hero-img::after{
-  content:'';position:absolute;inset:0;
-  background:
-    linear-gradient(100deg,rgba(15,17,22,.88) 0%,rgba(15,17,22,.78) 30%,rgba(15,17,22,.5) 58%,rgba(15,17,22,.18) 82%,rgba(15,17,22,0) 100%),
-    linear-gradient(to top,rgba(15,17,22,.7) 0%,transparent 38%);
-}
-.hero-content{position:relative;z-index:2;max-width:1240px;margin:0 auto;padding:0 28px;width:100%}
-.hero-grid{max-width:760px}
-.eyebrow{display:inline-flex;align-items:center;gap:10px;
-  font-size:11.5px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;
-  color:var(--haze-soft);margin-bottom:28px;opacity:0;transform:translateY(8px);
-  animation:fadeUp .8s ease forwards;animation-delay:.05s}
-.eyebrow::before{content:'';width:34px;height:1.5px;background:var(--haze);display:inline-block}
-h1{
-  font-family:'Manrope',sans-serif;font-weight:800;
-  font-size:clamp(2.4rem,5.4vw,4.6rem);line-height:1.04;letter-spacing:-.02em;
-  margin-bottom:30px;
-}
-h1 .line{display:block;overflow:hidden;padding-bottom:.08em}
-h1 .line span{display:inline-block;transform:translateY(120%);
-  transition:transform .9s cubic-bezier(.22,.61,.36,1);will-change:transform}
-.loaded h1 .line span{transform:translateY(0)}
-.loaded h1 .line:nth-child(1) span{transition-delay:.05s}
-.loaded h1 .line:nth-child(2) span{transition-delay:.18s}
-h1 em{font-style:italic;color:var(--haze-soft);font-weight:700}
-.hero-lead{
-  font-size:clamp(1rem,1.4vw,1.2rem);max-width:540px;color:rgba(255,255,255,.85);
-  margin-bottom:42px;line-height:1.55;font-weight:400;
-  opacity:0;transform:translateY(8px);animation:fadeUp .8s ease forwards;animation-delay:.9s;
-}
-.hero-actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center;
-  opacity:0;transform:translateY(8px);animation:fadeUp .8s ease forwards;animation-delay:1.1s;}
-.btn-primary{
-  background:var(--haze);color:#fff;padding:17px 32px;border-radius:4px;
-  font-size:14.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;
-  display:inline-flex;align-items:center;gap:14px;
-  transition:background .25s,transform .25s,box-shadow .25s;
-  box-shadow:0 8px 24px rgba(239,123,31,.35);
-}
-.btn-primary:hover{background:var(--haze-dark);transform:translateY(-2px);box-shadow:0 12px 30px rgba(239,123,31,.45)}
-.btn-arrow{
-  width:42px;height:42px;border:1.5px solid rgba(255,255,255,.35);border-radius:50%;
-  display:inline-flex;align-items:center;justify-content:center;
-  transition:transform .35s cubic-bezier(.22,.61,.36,1),background .25s,border-color .25s;
-}
-.btn-arrow svg{width:18px;height:18px;fill:none;stroke:#fff;stroke-width:1.6;
-  transition:transform .35s cubic-bezier(.22,.61,.36,1)}
-.btn-secondary{display:inline-flex;align-items:center;gap:14px;color:#fff;
-  font-size:14.5px;font-weight:600;letter-spacing:.04em;transition:color .2s}
-.btn-secondary:hover .btn-arrow{transform:rotate(45deg);background:var(--haze);border-color:var(--haze)}
-.btn-secondary:hover .btn-arrow svg{transform:rotate(-45deg)}
-.hero-meta{
-  display:flex;flex-wrap:wrap;gap:22px 38px;margin-top:62px;padding-top:30px;
-  border-top:1px solid rgba(255,255,255,.16);max-width:680px;
-  opacity:0;transform:translateY(8px);animation:fadeUp .8s ease forwards;animation-delay:1.3s;
-}
-.hero-meta-item{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.65);font-weight:600}
-.hero-meta-item strong{display:block;color:#fff;font-family:'Manrope',sans-serif;
-  font-size:18px;font-weight:700;letter-spacing:0;text-transform:none;margin-top:6px}
-
-@keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
-
-/* ========== STATS BAND ========== */
-.stats{background:var(--paper-2);padding:38px 0;border-bottom:1px solid var(--line)}
-.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
-.stat{padding:14px 28px;border-right:1px solid var(--line);text-align:left}
-.stat:last-child{border-right:none}
-.stat-eyebrow{font-size:11px;letter-spacing:.22em;text-transform:uppercase;
-  color:var(--haze-dark);font-weight:700;margin-bottom:8px}
-.stat-value{font-family:'Manrope',sans-serif;font-weight:700;font-size:20px;
-  color:var(--ink);line-height:1.2}
-
-/* ========== SECTIONS ========== */
-section{padding:120px 0;position:relative}
-.sec-eyebrow{font-size:11.5px;letter-spacing:.28em;text-transform:uppercase;
-  color:var(--haze-dark);font-weight:700;margin-bottom:18px;display:flex;align-items:center;gap:12px}
-.sec-eyebrow::before{content:'';width:30px;height:1.5px;background:var(--haze)}
-.sec-head{max-width:760px;margin-bottom:64px}
-.sec-head h2{
-  font-family:'Manrope',sans-serif;font-weight:700;
-  font-size:clamp(1.9rem,3.8vw,3.2rem);line-height:1.1;letter-spacing:-.015em;
-  color:var(--ink);
-}
-.sec-head h2 em{font-style:italic;color:var(--haze-dark);font-weight:700}
-.sec-head .lead{font-size:17px;color:var(--ink-soft);margin-top:20px;max-width:620px;line-height:1.6}
-
-/* ========== PROBLEM (why ventilation matters) ========== */
-.problem{background:var(--paper)}
-.problem-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
-.problem-stat{display:flex;align-items:baseline;gap:14px;margin-bottom:32px;padding-bottom:32px;border-bottom:1px solid var(--line)}
-.problem-stat:last-child{border-bottom:none;padding-bottom:0;margin-bottom:0}
-.problem-stat-num{font-family:'Manrope',sans-serif;font-weight:800;
-  font-size:64px;color:var(--haze);line-height:.9;letter-spacing:-.02em;flex:none;min-width:140px}
-.problem-stat-body h3{font-family:'Manrope',sans-serif;font-weight:700;font-size:20px;color:var(--ink);margin-bottom:6px}
-.problem-stat-body p{font-size:15px;color:var(--ink-soft);line-height:1.6}
-
-/* ========== PRODUCTS ========== */
-.products{background:var(--steel-900);color:#fff}
-.products .sec-eyebrow{color:var(--haze-soft)}
-.products .sec-eyebrow::before{background:var(--haze)}
-.products .sec-head h2{color:#fff}
-.products .sec-head h2 em{color:var(--haze-soft)}
-.products .sec-head .lead{color:rgba(255,255,255,.7)}
-.prod-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
-.prod{background:var(--steel-800);border:1px solid var(--line-dark);
-  border-radius:4px;overflow:hidden;display:flex;flex-direction:column;
-  transition:transform .35s cubic-bezier(.22,.61,.36,1),border-color .25s}
-.prod:hover{transform:translateY(-6px);border-color:rgba(239,123,31,.5)}
-.prod-img{aspect-ratio:4/3;width:100%;object-fit:cover;background:var(--steel-700)}
-.prod-body{padding:24px 22px 28px;flex:1;display:flex;flex-direction:column}
-.prod-num{font-family:'Manrope',sans-serif;font-size:11px;font-weight:700;
-  letter-spacing:.22em;color:var(--haze-soft);margin-bottom:10px}
-.prod-body h3{font-family:'Manrope',sans-serif;font-weight:700;font-size:20px;
-  color:#fff;margin-bottom:10px}
-.prod-body p{font-size:14.5px;color:rgba(255,255,255,.7);line-height:1.55;flex:1}
-.prod-link{margin-top:18px;color:var(--haze-soft);font-size:13px;font-weight:600;
-  letter-spacing:.06em;text-transform:uppercase;display:inline-flex;align-items:center;gap:8px;
-  transition:gap .25s,color .25s}
-.prod-link:hover{gap:12px;color:#fff}
-
-/* ========== PROCESS ========== */
-.process{background:var(--paper)}
-.steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;position:relative}
-.step{position:relative;padding-top:30px;border-top:2px solid var(--ink)}
-.step-num{font-family:'Manrope',sans-serif;font-weight:700;font-size:13px;
-  letter-spacing:.18em;color:var(--haze-dark);margin-bottom:14px}
-.step h3{font-family:'Manrope',sans-serif;font-weight:700;font-size:22px;
-  color:var(--ink);margin-bottom:12px;line-height:1.2}
-.step p{font-size:15px;color:var(--ink-soft);line-height:1.6}
-
-/* ========== SHOWCASE STRIP ========== */
-.showcase{position:relative;color:#fff;overflow:hidden}
-.showcase-img{aspect-ratio:21/9;width:100%;object-fit:cover}
-.showcase-overlay{position:absolute;inset:0;
-  background:linear-gradient(to right,rgba(15,17,22,.92) 0%,rgba(15,17,22,.5) 55%,rgba(15,17,22,.18) 100%);
-  display:flex;align-items:center}
-.showcase-content{max-width:1240px;margin:0 auto;padding:0 28px;width:100%;
-  display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap}
-.showcase-content > div{max-width:580px}
-.showcase-content strong{font-family:'Manrope',sans-serif;font-weight:700;
-  font-size:clamp(1.6rem,3vw,2.6rem);line-height:1.1;letter-spacing:-.015em;display:block;margin-bottom:10px}
-.showcase-content em{font-style:italic;color:var(--haze-soft)}
-.showcase-content p{font-size:16px;color:rgba(255,255,255,.78)}
-
-/* ========== REFERENCES ========== */
-.refs{background:var(--paper-2)}
-.refs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.ref{background:var(--paper);border:1px solid var(--line);overflow:hidden;
-  display:flex;flex-direction:column;transition:transform .35s cubic-bezier(.22,.61,.36,1)}
-.ref:hover{transform:translateY(-4px)}
-.ref-img{aspect-ratio:4/3;width:100%;object-fit:cover;background:var(--paper-3)}
-.ref-cap{padding:18px 20px 22px;border-top:1px solid var(--line)}
-.ref-cap-eyebrow{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;
-  color:var(--haze-dark);font-weight:700;margin-bottom:6px}
-.ref-cap h4{font-family:'Manrope',sans-serif;font-weight:700;font-size:16.5px;
-  color:var(--ink);line-height:1.3}
-
-/* ========== COMMITMENTS ========== */
-.commit{background:var(--steel-900);color:#fff}
-.commit .sec-eyebrow{color:var(--haze-soft)}
-.commit .sec-eyebrow::before{background:var(--haze)}
-.commit .sec-head h2{color:#fff}
-.commit .sec-head h2 em{color:var(--haze-soft)}
-.commit-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
-.commit-card{padding:42px 36px;background:var(--steel-800);border:1px solid var(--line-dark);
-  border-top:3px solid var(--haze);border-radius:4px}
-.commit-icon{width:42px;height:42px;display:flex;align-items:center;justify-content:center;
-  background:rgba(239,123,31,.15);border-radius:50%;margin-bottom:24px;color:var(--haze-soft)}
-.commit-icon svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.6}
-.commit-card h3{font-family:'Manrope',sans-serif;font-weight:700;font-size:20px;
-  color:#fff;margin-bottom:14px}
-.commit-card p{font-size:15px;color:rgba(255,255,255,.7);line-height:1.6}
-
-/* ========== STORY (about) ========== */
-.story{background:var(--paper)}
-.story-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:80px;align-items:start}
-.story-body p{font-size:16.5px;color:var(--ink-soft);line-height:1.7;margin-bottom:18px}
-.story-body p:first-child{font-size:19px;color:var(--ink);font-weight:500;line-height:1.55}
-.story-facts{background:var(--steel-900);color:#fff;padding:48px 40px;border-radius:4px;
-  position:sticky;top:120px}
-.story-facts h3{font-family:'Manrope',sans-serif;font-weight:700;font-size:18px;
-  color:var(--haze-soft);letter-spacing:.04em;margin-bottom:24px;text-transform:uppercase;font-size:12.5px;letter-spacing:.22em}
-.story-fact{padding:18px 0;border-bottom:1px solid var(--line-dark);display:flex;justify-content:space-between;gap:16px;align-items:baseline}
-.story-fact:last-child{border-bottom:none}
-.story-fact-label{font-size:13.5px;color:rgba(255,255,255,.65);font-weight:500}
-.story-fact-value{font-family:'Manrope',sans-serif;font-weight:700;font-size:15px;color:#fff;text-align:right}
-
-/* ========== CONTACT ========== */
-.contact{background:var(--paper-2);position:relative}
-.contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:80px;align-items:start}
-.contact-form{background:var(--paper);padding:42px 40px;border:1px solid var(--line);border-radius:4px;border-top:4px solid var(--haze)}
-.field{margin-bottom:18px}
-.field label{display:block;font-size:12.5px;font-weight:700;letter-spacing:.08em;
-  text-transform:uppercase;color:var(--ink);margin-bottom:8px}
-.field input,.field select,.field textarea{
-  width:100%;padding:14px 16px;border:1.5px solid var(--line);border-radius:3px;
-  font-size:15px;font-family:inherit;background:#fff;color:var(--ink);
-  transition:border-color .2s;
-}
-.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--haze)}
-.field textarea{resize:vertical;min-height:90px}
-.field-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.gdpr{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--ink-soft);margin:18px 0 22px;line-height:1.5}
-.gdpr input{margin-top:3px;flex:none}
-.btn-submit{width:100%;background:var(--haze);color:#fff;border:none;padding:18px;
-  font-size:15px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
-  cursor:pointer;border-radius:3px;font-family:inherit;
-  transition:background .25s,transform .2s}
-.btn-submit:hover{background:var(--haze-dark);transform:translateY(-1px)}
-.contact-aside{position:sticky;top:120px}
-.contact-aside h3{font-family:'Manrope',sans-serif;font-weight:700;
-  font-size:24px;color:var(--ink);margin-bottom:24px}
-.timeline-item{display:flex;gap:18px;padding-bottom:24px;position:relative}
-.timeline-item:not(:last-child)::before{content:'';position:absolute;left:13px;top:32px;bottom:-2px;width:2px;background:var(--line)}
-.timeline-num{flex:none;width:28px;height:28px;background:var(--haze);color:#fff;
-  border-radius:50%;display:flex;align-items:center;justify-content:center;
-  font-family:'Manrope',sans-serif;font-weight:700;font-size:13px;position:relative;z-index:1}
-.timeline-body{flex:1;padding-top:3px}
-.timeline-body h4{font-family:'Manrope',sans-serif;font-weight:700;font-size:15px;color:var(--ink);margin-bottom:4px}
-.timeline-body p{font-size:13.5px;color:var(--ink-soft);line-height:1.5}
-
-/* ========== FINAL CTA ========== */
-.final-cta{background:var(--steel-900);color:#fff;text-align:center;padding:140px 0}
-.final-cta .sec-eyebrow{justify-content:center;color:var(--haze-soft)}
-.final-cta .sec-eyebrow::before{background:var(--haze)}
-.final-cta h2{font-family:'Manrope',sans-serif;font-weight:700;
-  font-size:clamp(2rem,4.2vw,3.6rem);line-height:1.08;letter-spacing:-.015em;
-  max-width:780px;margin:0 auto 40px}
-.final-cta h2 em{font-style:italic;color:var(--haze-soft)}
-.final-contacts{display:flex;justify-content:center;gap:48px;margin-bottom:48px;flex-wrap:wrap}
-.final-contact{display:flex;align-items:center;gap:14px;color:#fff;
-  font-family:'Manrope',sans-serif;font-size:clamp(1.2rem,2vw,1.8rem);font-weight:700;
-  letter-spacing:-.005em;transition:color .25s}
-.final-contact:hover{color:var(--haze-soft)}
-.final-contact .ico{width:44px;height:44px;border:1.5px solid rgba(255,255,255,.3);border-radius:50%;
-  display:flex;align-items:center;justify-content:center;transition:border-color .25s,background .25s}
-.final-contact:hover .ico{border-color:var(--haze);background:var(--haze)}
-.final-contact .ico svg{width:18px;height:18px;fill:none;stroke:#fff;stroke-width:1.6}
-.final-buttons{display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
-.final-buttons a{
-  background:var(--haze);color:#fff;padding:18px 36px;border-radius:3px;
-  font-size:14.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
-  transition:background .25s,transform .25s;display:inline-flex;align-items:center;gap:12px}
-.final-buttons a:hover{background:var(--haze-dark);transform:translateY(-2px)}
-.final-buttons a:nth-child(2){background:transparent;border:1.5px solid rgba(255,255,255,.3)}
-.final-buttons a:nth-child(2):hover{background:rgba(255,255,255,.06);border-color:#fff}
-
-/* ========== FOOTER ========== */
-footer{background:#0f1115;color:rgba(255,255,255,.55);padding:64px 0 32px;font-size:13.5px}
-.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px}
-footer h5{font-family:'Manrope',sans-serif;color:#fff;font-size:12.5px;font-weight:700;
-  letter-spacing:.22em;text-transform:uppercase;margin-bottom:18px}
-footer ul{list-style:none}
-footer li{margin-bottom:8px}
-footer a{transition:color .2s}
-footer a:hover{color:var(--haze-soft)}
-.footer-brand{max-width:340px}
-.footer-brand p{margin-top:18px;line-height:1.6}
-.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:24px;
-  display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;font-size:12.5px}
-
-/* ========== STICKY MOBILE CTA ========== */
-.sticky-bar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:90;
-  background:var(--steel-900);border-top:2px solid var(--haze);
-  padding:10px 14px;gap:8px;box-shadow:0 -8px 24px rgba(0,0,0,.4)}
-.sticky-bar a{flex:1;padding:14px;text-align:center;border-radius:3px;
-  font-family:'Manrope',sans-serif;font-weight:700;font-size:13px;letter-spacing:.04em;text-transform:uppercase}
-.sticky-bar a:nth-child(1){background:var(--haze);color:#fff}
-.sticky-bar a:nth-child(2){background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.3)}
-
-/* ========== COOKIE BANNER ========== */
-.cookies{position:fixed;bottom:18px;left:18px;right:18px;max-width:480px;
-  background:var(--steel-900);color:#fff;padding:22px 24px;border-radius:6px;
-  border:1px solid var(--line-dark);border-top:3px solid var(--haze);z-index:100;
-  box-shadow:0 20px 50px rgba(0,0,0,.5);font-size:13.5px;line-height:1.5;
-  transform:translateY(20px);opacity:0;transition:transform .4s ease,opacity .4s ease}
-.cookies.show{transform:translateY(0);opacity:1}
-.cookies p{margin-bottom:14px;color:rgba(255,255,255,.85)}
-.cookies-btns{display:flex;gap:8px}
-.cookies-btns button{flex:1;padding:10px 14px;border:none;border-radius:3px;
-  font-family:inherit;font-weight:700;font-size:12.5px;letter-spacing:.04em;text-transform:uppercase;cursor:pointer;transition:background .2s}
-.cookies-btn-accept{background:var(--haze);color:#fff}
-.cookies-btn-accept:hover{background:var(--haze-dark)}
-.cookies-btn-decline{background:rgba(255,255,255,.08);color:#fff}
-.cookies-btn-decline:hover{background:rgba(255,255,255,.15)}
-
-/* ========== REVEAL ON SCROLL ========== */
-.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s cubic-bezier(.22,.61,.36,1)}
-.reveal.in{opacity:1;transform:translateY(0)}
-
-/* ========== HEADER PHONE ========== */
-.header-phone{color:#fff;font-family:'Manrope',sans-serif;font-weight:700;font-size:14px;letter-spacing:.02em;opacity:.9;transition:color .2s}
-.header-phone:hover{color:var(--haze-soft)}
-
-/* ========== HERO TRUST CHIPS ========== */
-.hero-trust{display:flex;flex-wrap:wrap;gap:10px 14px;align-items:center;margin:0 0 30px;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.78);font-weight:600;max-width:680px}
-.hero-trust .chip{display:inline-flex;align-items:center;gap:10px}
-.hero-trust .chip + .chip::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--haze);opacity:.85;margin-right:10px;display:inline-block}
-
-/* ========== REFERENCE META ========== */
-.ref-meta{font-size:13px;color:var(--ink-soft);margin-top:4px;font-weight:500}
-
-/* ========== FORM NOTE + SUCCESS ========== */
-.form-note{font-size:13px;color:var(--ink-soft);line-height:1.55;margin:0 0 14px}
-.form-success{padding:42px 32px;background:var(--paper);border:1px solid var(--line);border-top:4px solid var(--haze);border-radius:4px;text-align:left}
-.form-success h3{font-family:'Manrope',sans-serif;font-weight:700;font-size:22px;color:var(--ink);margin-bottom:10px;line-height:1.2}
-.form-success p{font-size:15px;color:var(--ink-soft);line-height:1.6}
-
-/* ========== A11Y: FOCUS + SKIP LINK ========== */
-a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--haze);outline-offset:2px;border-radius:2px}
-.skip-link{position:absolute;left:-9999px;background:var(--haze);color:#fff;padding:12px 18px;z-index:300;font-weight:700;font-family:'Manrope',sans-serif;letter-spacing:.04em;text-transform:uppercase;font-size:13px;border-radius:3px}
-.skip-link:focus{left:18px;top:18px}
-
-/* ========== RESPONSIVE ========== */
-@media (max-width:1100px){
-  .stats-grid{grid-template-columns:repeat(2,1fr)}
-  .stat{padding:20px 24px}
-  .stat:nth-child(2){border-right:none}
-  .stat:nth-child(1),.stat:nth-child(2){border-bottom:1px solid var(--line)}
-  .prod-grid{grid-template-columns:repeat(2,1fr)}
-  .steps-grid{grid-template-columns:repeat(2,1fr);gap:40px 24px}
-  .refs-grid{grid-template-columns:repeat(2,1fr)}
-  .commit-grid{grid-template-columns:1fr;gap:18px}
-  .problem-grid,.story-grid,.contact-grid{grid-template-columns:1fr;gap:48px}
-  .story-facts,.contact-aside{position:static}
-  .footer-grid{grid-template-columns:1fr 1fr;gap:36px}
-  .nav-links{display:none}
-  .header-phone{display:none}
-}
-@media (max-width:680px){
-  .wrap{padding:0 18px}
-  section{padding:80px 0}
-  .stats-grid{grid-template-columns:1fr}
-  .stat{border-right:none;border-bottom:1px solid var(--line);padding:16px 18px}
-  .stat:last-child{border-bottom:none}
-  .prod-grid,.refs-grid{grid-template-columns:1fr}
-  .steps-grid{grid-template-columns:1fr;gap:36px}
-  .field-row{grid-template-columns:1fr}
-  .hero{padding-top:120px;padding-bottom:60px;min-height:auto}
-  .hero-meta{gap:18px 24px;margin-top:42px;padding-top:24px}
-  .hero-actions{flex-direction:column;align-items:stretch}
-  .btn-primary,.btn-secondary{justify-content:center;width:100%}
-  .final-contacts{flex-direction:column;gap:22px;align-items:center}
-  .final-buttons{flex-direction:column;width:100%;padding:0 16px}
-  .final-buttons a{width:100%;justify-content:center}
-  .sticky-bar{display:flex}
-  .hbar{padding:14px 18px}
-  .nav-cta{display:none}
-  .footer-grid{grid-template-columns:1fr;gap:32px}
-  .commit-card{padding:32px 24px}
-  .story-facts{padding:32px 24px}
-  .contact-form{padding:28px 22px}
-  .contact{padding-bottom:88px}
-}
-
-/* ========== REDUCED MOTION ========== */
-@media (prefers-reduced-motion:reduce){
-  *{animation-duration:.01s !important;transition-duration:.01s !important}
-  .reveal{opacity:1;transform:none}
-  .hero-img img{transform:scale(1)}
-  .loader-mark .dot{animation:none}
-  h1 .line span{transform:translateY(0)}
-  .eyebrow,.hero-lead,.hero-actions,.hero-meta{opacity:1;transform:none;animation:none}
-}
-</style>
+<link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
 
 <a href="#hero" class="skip-link">Přeskočit na obsah</a>
-
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5KJSMWSP" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- HEADER -->
 <header id="hdr">
   <div class="hbar">
-    <a href="#" class="logo">
+    <a href="./" class="logo">
       <span class="logo-mark"><svg viewBox="0 0 24 24"><path d="M12 2L22 9v13H2V9L12 2zm0 2.5L4 10v10h16V10l-8-5.5z"/></svg></span>
       <span class="logo-text">HAZE<small>Vrata · Ventilace · Stáj</small></span>
     </a>
     <nav class="nav">
       <ul class="nav-links">
-        <li><a href="#problem">Proč ventilace</a></li>
-        <li><a href="#products">Produkty</a></li>
-        <li><a href="#process">Postup</a></li>
-        <li><a href="#refs">Reference</a></li>
-        <li><a href="#story">O nás</a></li>
+        <li><a href="produkty/" >Produkty</a></li>
+        <li><a href="reference/">Reference</a></li>
+        <li><a href="o-nas/">O nás</a></li>
+        <li><a href="kontakt/">Kontakt</a></li>
       </ul>
       <a href="tel:+420602488989" class="header-phone">+420 602 488 989</a>
-      <a href="#contact" class="nav-cta">Poptávka</a>
+      <a href="kontakt/" class="nav-cta">Poptávka</a>
     </nav>
   </div>
 </header>
@@ -550,7 +103,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
           Zavolat: +420 602 488 989
           <span class="btn-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
         </a>
-        <a href="#contact" class="btn-secondary">
+        <a href="kontakt/" class="btn-secondary">
           Nezávazná poptávka
           <span class="btn-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
         </a>
@@ -601,7 +154,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
           <div class="problem-stat-num">48 h</div>
           <div class="problem-stat-body">
             <h3>Nabídka do 48 hodin</h3>
-            <p>Po záměření dostanete konkrétní cenu, materiály a termín do dvou pracovních dnů. Bez schovaných položek - co podepíšete, to platí.</p>
+            <p>Po zaměření dostanete konkrétní cenu, materiály a termín do dvou pracovních dnů. Bez schovaných položek - co podepíšete, to platí.</p>
           </div>
         </div>
         <div class="problem-stat">
@@ -616,51 +169,51 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   </div>
 </section>
 
-<!-- PRODUCTS -->
+<!-- PRODUCTS PREVIEW (links to subpages) -->
 <section class="products" id="products">
   <div class="wrap">
     <div class="sec-head reveal">
       <div class="sec-eyebrow">Co vyrábíme</div>
       <h2>Vrata, ventilace a zastřešení - <em>vše na míru.</em></h2>
-      <p class="lead">Každý kus projektujeme na rozměr vašeho provozu. Bez typových kompromisů, bez "to vám tam dáme blízko".</p>
+      <p class="lead">Každý kus projektujeme na rozměr vašeho provozu. Bez typových kompromisů, bez „to vám tam dáme blízko".</p>
     </div>
     <div class="prod-grid">
-      <div class="prod reveal">
+      <a href="produkty/stajova-vrata/" class="prod reveal">
         <img class="prod-img" src="assets/prod-stajova.jpg" alt="Stájová vrata HAZE - realizace na zemědělské hale" loading="lazy" decoding="async">
         <div class="prod-body">
           <div class="prod-num">01.</div>
           <h3>Stájová vrata</h3>
           <p>Pro stáj, kravín a porodnu. Tichý chod, doraz proti průvanu, welfare pro chov skotu i prasat.</p>
-          <a href="#contact" class="prod-link">Konzultace →</a>
+          <span class="prod-link">Detail produktu →</span>
         </div>
-      </div>
-      <div class="prod reveal">
+      </a>
+      <a href="produkty/plachtova-vrata/" class="prod reveal">
         <img class="prod-img" src="assets/prod-plachtova.jpg" alt="Plachtová vrata HAZE - realizace ve stáji" loading="lazy" decoding="async">
         <div class="prod-body">
           <div class="prod-num">02.</div>
           <h3>Plachtová vrata</h3>
           <p>Stáje, sklady, přístřešky. Plachta odolná UV i mrazu, lehká obsluha, krátký výrobní cyklus.</p>
-          <a href="#contact" class="prod-link">Konzultace →</a>
+          <span class="prod-link">Detail produktu →</span>
         </div>
-      </div>
-      <div class="prod reveal">
+      </a>
+      <a href="produkty/bvs-ventilace/" class="prod reveal">
         <img class="prod-img" src="assets/prod-rolety.jpg" alt="Rolety BVS do stáje HAZE - boční ventilace" loading="lazy" decoding="async">
         <div class="prod-body">
           <div class="prod-num">03.</div>
           <h3>BVS ventilace + rolety</h3>
           <p>Boční ventilační systém A-F + rolovací vrata. Izolace v zimě, výměna vzduchu v létě.</p>
-          <a href="#contact" class="prod-link">Konzultace →</a>
+          <span class="prod-link">Detail produktu →</span>
         </div>
-      </div>
-      <div class="prod reveal">
+      </a>
+      <a href="produkty/svinovaci-vrata/" class="prod reveal">
         <img class="prod-img" src="assets/prod-svinovaci.jpg" alt="Svinovací vrata HAZE - realizace v zemědělském provozu" loading="lazy" decoding="async">
         <div class="prod-body">
           <div class="prod-num">04.</div>
           <h3>Svinovací vrata</h3>
           <p>Pro stáje, přístřešky i sklady. Úspora místa, robustní konstrukce, dlouhá životnost.</p>
-          <a href="#contact" class="prod-link">Konzultace →</a>
+          <span class="prod-link">Detail produktu →</span>
         </div>
-      </div>
+      </a>
     </div>
   </div>
 </section>
@@ -671,7 +224,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     <div class="sec-head reveal">
       <div class="sec-eyebrow">Jak to běží</div>
       <h2>Od konzultace po hotovou stáj <em>za 4-6 týdnů.</em></h2>
-      <p class="lead">Stejný tým od projektu po montáž. Žádné předávání mezi dodavateli, žádné "to není naše."</p>
+      <p class="lead">Stejný tým od projektu po montáž. Žádné předávání mezi dodavateli, žádné „to není naše."</p>
     </div>
     <div class="steps-grid">
       <div class="step reveal">
@@ -682,7 +235,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
       <div class="step reveal">
         <div class="step-num">02. Nabídka</div>
         <h3>Návrh do 48 hodin</h3>
-        <p>Konkrétní cena, materiály a termín. Bez schovaných položek a bez "kdyby" doložek. Co podepíšete, to platí.</p>
+        <p>Konkrétní cena, materiály a termín. Bez schovaných položek a bez „kdyby" doložek. Co podepíšete, to platí.</p>
       </div>
       <div class="step reveal">
         <div class="step-num">03. Výroba</div>
@@ -707,7 +260,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
         <strong>Vyrábíme <em>i</em> montujeme.</strong>
         <p>Za výsledek ručíme my - ne subdodavatel, ne katalogový prodejce. Konzultace zdarma, nabídka do 48 hodin.</p>
       </div>
-      <a href="#contact" class="btn-primary">
+      <a href="kontakt/" class="btn-primary">
         Chci nabídku
         <span class="btn-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       </a>
@@ -715,7 +268,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   </div>
 </div>
 
-<!-- REFERENCES -->
+<!-- REFERENCES PREVIEW -->
 <section class="refs" id="refs">
   <div class="wrap">
     <div class="sec-head reveal">
@@ -725,25 +278,11 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     </div>
     <div class="refs-grid">
       <div class="ref reveal">
-        <img class="ref-img" src="assets/ref-1.jpg" alt="Boční ventilace stáje - realizace HAZE" loading="lazy" decoding="async">
-        <div class="ref-cap">
-          <div class="ref-cap-eyebrow">Ventilace · Stáj</div>
-          <h4>Boční ventilace stáje</h4>
-        </div>
-      </div>
-      <div class="ref reveal">
         <img class="ref-img" src="assets/ref-2.jpg" alt="Boční ventilační systém - Okrouhlá Radouň" loading="lazy" decoding="async">
         <div class="ref-cap">
           <div class="ref-cap-eyebrow">BVS · Polykarbonát</div>
           <h4>Okrouhlá Radouň</h4>
           <p class="ref-meta">Boční ventilační systém</p>
-        </div>
-      </div>
-      <div class="ref reveal">
-        <img class="ref-img" src="assets/ref-3.jpg" alt="BVS typ F s polykarbonátem - realizace HAZE" loading="lazy" decoding="async">
-        <div class="ref-cap">
-          <div class="ref-cap-eyebrow">BVS · Typ F</div>
-          <h4>Boční ventilace s polykarbonátem</h4>
         </div>
       </div>
       <div class="ref reveal">
@@ -761,13 +300,12 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
           <h4>Posuvná stájová vrata</h4>
         </div>
       </div>
-      <div class="ref reveal">
-        <img class="ref-img" src="assets/ref-4.jpg" alt="Zemědělská hala s vraty a větráním HAZE" loading="lazy" decoding="async">
-        <div class="ref-cap">
-          <div class="ref-cap-eyebrow">Komplet · Hala</div>
-          <h4>Zemědělská hala, vrata + ventilace</h4>
-        </div>
-      </div>
+    </div>
+    <div style="text-align:center;margin-top:48px">
+      <a href="reference/" class="btn-secondary" style="color:var(--ink)">
+        Všechny realizace
+        <span class="btn-arrow" style="border-color:rgba(28,29,31,.35)"><svg viewBox="0 0 24 24" style="stroke:var(--ink)"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
     </div>
   </div>
 </section>
@@ -805,16 +343,21 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   </div>
 </section>
 
-<!-- STORY / ABOUT -->
+<!-- STORY PREVIEW -->
 <section class="story" id="story">
   <div class="wrap">
     <div class="story-grid">
       <div class="story-body reveal">
         <div class="sec-eyebrow">O HAZE</div>
-        <h2 style="font-family:'Manrope',sans-serif;font-weight:700;font-size:clamp(1.9rem,3.5vw,3rem);line-height:1.1;letter-spacing:-.015em;margin-bottom:32px">Od roku 2007 stavíme stáje, <em style="font-style:italic;color:var(--haze-dark)">které vydrží provoz.</em></h2>
+        <h2>Od roku 2007 stavíme stáje, <em>které vydrží provoz.</em></h2>
         <p>Začali jsme jako parta zámečníků v Křičeni. Vyrobit jedny vrata, druhé, deset. Dnes máme vlastní halu na 2 500 m², projektový tým a montážní party, které jezdí po celé ČR, na Slovensko i do Maďarska.</p>
-        <p>Nejsme prodejci katalogu. Každá zakázka začíná tím, že někdo z týmu fyzicky přijede zaměřit otvor a poslechnout si, co stáj potřebuje. Žádné typové rozměry, žádné "to dá rozum". To, co projektujeme, taky vyrábíme a montujeme.</p>
-        <p>Naše ICP jsou zemědělská družstva a rodinné farmy - dohodneme se přímo s ředitelem, zootechnikem nebo majitelem. Mluvíme jejich jazykem: dojivost, welfare, harmonogram dojení, plnění pojistných smluv. Bez marketingových frází.</p>
+        <p>Nejsme prodejci katalogu. Každá zakázka začíná tím, že někdo z týmu fyzicky přijede zaměřit otvor a poslechnout si, co stáj potřebuje. To, co projektujeme, taky vyrábíme a montujeme.</p>
+        <p style="margin-top:28px">
+          <a href="o-nas/" class="btn-secondary" style="color:var(--ink)">
+            Více o HAZE
+            <span class="btn-arrow" style="border-color:rgba(28,29,31,.35)"><svg viewBox="0 0 24 24" style="stroke:var(--ink)"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </a>
+        </p>
       </div>
       <aside class="story-facts reveal">
         <h3>Firma v číslech</h3>
@@ -932,19 +475,19 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
       <div>
         <h5>Produkty</h5>
         <ul>
-          <li><a href="#products">Stájová vrata</a></li>
-          <li><a href="#products">Plachtová vrata</a></li>
-          <li><a href="#products">BVS ventilace</a></li>
-          <li><a href="#products">Svinovací vrata</a></li>
+          <li><a href="produkty/stajova-vrata/">Stájová vrata</a></li>
+          <li><a href="produkty/plachtova-vrata/">Plachtová vrata</a></li>
+          <li><a href="produkty/bvs-ventilace/">BVS ventilace</a></li>
+          <li><a href="produkty/svinovaci-vrata/">Svinovací vrata</a></li>
         </ul>
       </div>
       <div>
         <h5>Web</h5>
         <ul>
-          <li><a href="#problem">Proč ventilace</a></li>
-          <li><a href="#process">Postup</a></li>
-          <li><a href="#refs">Reference</a></li>
-          <li><a href="#story">O nás</a></li>
+          <li><a href="produkty/">Produkty</a></li>
+          <li><a href="reference/">Reference</a></li>
+          <li><a href="o-nas/">O nás</a></li>
+          <li><a href="kontakt/">Kontakt</a></li>
         </ul>
       </div>
       <div>
@@ -967,7 +510,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 <!-- STICKY MOBILE CTA -->
 <div class="sticky-bar">
   <a href="tel:+420602488989">Zavolat</a>
-  <a href="#contact">Poptávka</a>
+  <a href="kontakt/">Poptávka</a>
 </div>
 
 <!-- COOKIE BANNER -->
@@ -979,129 +522,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   </div>
 </div>
 
-<script>
-// Endpoint for lead form. Replace REPLACE_ME with a real Formspree (or compatible) form ID before deploy.
-// On fetch success: success state + generate_lead fires. On fetch failure: mailto fallback + generate_lead still fires.
-const FORM_ENDPOINT = 'https://formspree.io/f/REPLACE_ME';
-
-// Mark page loaded immediately (no loader element anymore)
-document.addEventListener('DOMContentLoaded', () => {
-  document.body.classList.add('loaded');
-});
-if (document.readyState !== 'loading') document.body.classList.add('loaded');
-
-// Header scroll state
-const hdr = document.getElementById('hdr');
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 30) hdr.classList.add('scrolled');
-  else hdr.classList.remove('scrolled');
-});
-
-// Reveal on scroll
-const io = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
-}, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
-document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-setTimeout(() => document.querySelectorAll('.reveal').forEach(el => el.classList.add('in')), 4000);
-
-// Hero parallax (subtle) - skipped when user prefers reduced motion
-const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-const heroImg = document.querySelector('.hero-img img');
-let ticking = false;
-if (!reduceMotion) {
-  window.addEventListener('scroll', () => {
-    if (!ticking && heroImg) {
-      requestAnimationFrame(() => {
-        const y = Math.min(window.scrollY, window.innerHeight);
-        heroImg.style.transform = `scale(1) translateY(${y * 0.18}px)`;
-        ticking = false;
-      });
-      ticking = true;
-    }
-  });
-}
-
-// Cookie consent
-function cookieChoice(accept) {
-  if (accept) {
-    gtag('consent','update',{'ad_storage':'granted','ad_user_data':'granted','ad_personalization':'granted','analytics_storage':'granted'});
-    localStorage.setItem('haze-cookies','accepted');
-  } else {
-    localStorage.setItem('haze-cookies','declined');
-  }
-  document.getElementById('cookies').classList.remove('show');
-}
-if (!localStorage.getItem('haze-cookies')) {
-  setTimeout(() => document.getElementById('cookies').classList.add('show'), 1800);
-}
-
-// Form submit: real endpoint with mailto fallback
-function fireLeadEvent() {
-  if (typeof gtag === 'function') {
-    gtag('event','generate_lead',{form_type:'main_contact',send_to:'G-5V6W6CMFGR'});
-  }
-}
-function showFormSuccess(form) {
-  const wrap = document.createElement('div');
-  wrap.className = 'form-success reveal in';
-  wrap.innerHTML = '<h3>Děkujeme. Ozveme se do 24 hodin.</h3><p>Mezitím nám můžete zavolat na <a href="tel:+420602488989" style="color:var(--haze-dark);font-weight:700">+420 602 488 989</a> (Po-Pá 7:00-17:00).</p>';
-  form.replaceWith(wrap);
-}
-function mailtoFallback(f) {
-  const body = [
-    `Jméno a firma: ${f.name.value}`,
-    `Telefon: ${f.phone.value}`,
-    ``,
-    `Zpráva:`,
-    f.message.value,
-    ``,
-    `---`,
-    `Odesláno z: ${location.href}`,
-    `Datum: ${new Date().toISOString()}`
-  ].join('\n');
-  const subject = 'Poptávka HAZE';
-  window.location.href = `mailto:info@haze.cz?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-}
-document.getElementById('leadForm').addEventListener('submit', async (e) => {
-  e.preventDefault();
-  const f = e.target;
-  const usingEndpoint = FORM_ENDPOINT && !FORM_ENDPOINT.includes('REPLACE_ME');
-  if (usingEndpoint) {
-    try {
-      const res = await fetch(FORM_ENDPOINT, {
-        method: 'POST',
-        headers: { 'Accept': 'application/json' },
-        body: new FormData(f)
-      });
-      if (res.ok) {
-        fireLeadEvent();
-        showFormSuccess(f);
-        return;
-      }
-      throw new Error('endpoint_not_ok');
-    } catch (err) {
-      fireLeadEvent();
-      mailtoFallback(f);
-      return;
-    }
-  }
-  // Endpoint not configured -> straight to mailto
-  fireLeadEvent();
-  mailtoFallback(f);
-});
-
-// Track phone clicks
-document.querySelectorAll('a[href^="tel:"]').forEach(a => {
-  a.addEventListener('click', () => {
-    if (typeof gtag === 'function') gtag('event','phone_click',{send_to:'G-5V6W6CMFGR'});
-  });
-});
-document.querySelectorAll('a[href^="mailto:"]').forEach(a => {
-  a.addEventListener('click', () => {
-    if (typeof gtag === 'function') gtag('event','email_click',{send_to:'G-5V6W6CMFGR'});
-  });
-});
-</script>
-
+<script src="assets/scripts.js"></script>
 </body>
 </html>
