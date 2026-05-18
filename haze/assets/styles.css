@@ -1,6 +1,6 @@
 /* ============================================================
    HAZE site — shared stylesheet (multi-page)
-   Brand: Manrope + Inter, --haze orange #ef7b1f, paper/steel palette
+   Brand: Manrope + Inter, --haze orange #F79430 (Neon Carrot — official brand manual 2026), paper/steel palette
    Long-term durability: no framework, no preprocessor, plain CSS.
    ============================================================ */
 
@@ -15,9 +15,9 @@
   --paper-3:#dfdbd0;
   --ink:#1c1d1f;
   --ink-soft:#52555a;
-  --haze:#ef7b1f;
-  --haze-dark:#d5650c;
-  --haze-soft:#f5a261;
+  --haze:#F79430;
+  --haze-dark:#d97d18;
+  --haze-soft:#fab169;
   --line:#cdc9bf;
   --line-dark:rgba(255,255,255,.12);
 }
@@ -112,9 +112,9 @@ h1 em{font-style:italic;color:var(--haze-soft);font-weight:700}
   font-size:14.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;
   display:inline-flex;align-items:center;gap:14px;
   transition:background .25s,transform .25s,box-shadow .25s;
-  box-shadow:0 8px 24px rgba(239,123,31,.35);
+  box-shadow:0 8px 24px rgba(247,148,48,.35);
 }
-.btn-primary:hover{background:var(--haze-dark);transform:translateY(-2px);box-shadow:0 12px 30px rgba(239,123,31,.45)}
+.btn-primary:hover{background:var(--haze-dark);transform:translateY(-2px);box-shadow:0 12px 30px rgba(247,148,48,.45)}
 .btn-arrow{
   width:42px;height:42px;border:1.5px solid rgba(255,255,255,.35);border-radius:50%;
   display:inline-flex;align-items:center;justify-content:center;
@@ -209,7 +209,7 @@ section.tight{padding:80px 0}
 .prod{background:var(--steel-800);border:1px solid var(--line-dark);
   border-radius:4px;overflow:hidden;display:flex;flex-direction:column;
   transition:transform .35s cubic-bezier(.22,.61,.36,1),border-color .25s}
-.prod:hover{transform:translateY(-6px);border-color:rgba(239,123,31,.5)}
+.prod:hover{transform:translateY(-6px);border-color:rgba(247,148,48,.5)}
 .prod-img{aspect-ratio:4/3;width:100%;object-fit:cover;background:var(--steel-700)}
 .prod-body{padding:24px 22px 28px;flex:1;display:flex;flex-direction:column}
 .prod-num{font-family:'Manrope',sans-serif;font-size:11px;font-weight:700;
@@ -301,7 +301,7 @@ section.tight{padding:80px 0}
 .commit-card{padding:42px 36px;background:var(--steel-800);border:1px solid var(--line-dark);
   border-top:3px solid var(--haze);border-radius:4px}
 .commit-icon{width:42px;height:42px;display:flex;align-items:center;justify-content:center;
-  background:rgba(239,123,31,.15);border-radius:50%;margin-bottom:24px;color:var(--haze-soft)}
+  background:rgba(247,148,48,.15);border-radius:50%;margin-bottom:24px;color:var(--haze-soft)}
 .commit-icon svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.6}
 .commit-card h3{font-family:'Manrope',sans-serif;font-weight:700;font-size:20px;
   color:#fff;margin-bottom:14px}
@@ -518,4 +518,37 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   .hero-img img{transform:scale(1)}
   h1 .line span{transform:translateY(0)}
   .eyebrow,.hero-lead,.hero-actions,.hero-meta{opacity:1;transform:none;animation:none}
+}
+
+/* ========== NEWS / AKTUALITY ========== */
+.news-grid{padding:80px 0 40px;background:var(--paper)}
+.news-list{display:flex;flex-direction:column;gap:28px;max-width:880px;margin:0 auto}
+.news-card{
+  background:#fff;border:1px solid var(--line);border-radius:6px;
+  padding:36px 38px;transition:border-color .2s,box-shadow .25s,transform .25s;
+}
+.news-card:hover{border-color:var(--haze);box-shadow:0 10px 32px rgba(0,0,0,.06);transform:translateY(-2px)}
+.news-card.placeholder{border-style:dashed;opacity:.92}
+.news-card .news-meta{
+  display:flex;align-items:center;gap:14px;
+  font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--ink-soft);font-weight:600;margin-bottom:14px;
+}
+.news-card .news-cat{color:var(--haze-dark);font-weight:700}
+.news-card h2{
+  font-family:'Manrope',sans-serif;font-weight:700;
+  font-size:clamp(1.4rem,2.4vw,1.85rem);line-height:1.2;color:var(--ink);
+  margin-bottom:14px;letter-spacing:-.01em;
+}
+.news-card p{font-size:15.5px;line-height:1.65;color:var(--ink-soft)}
+.news-card a{color:var(--haze-dark);font-weight:600;border-bottom:1px solid transparent;transition:border-color .2s}
+.news-card a:hover{border-color:var(--haze)}
+.news-list-inline{list-style:none;margin-top:8px;display:flex;flex-direction:column;gap:10px}
+.news-list-inline li{font-size:15px;line-height:1.55;color:var(--ink-soft);padding-left:18px;position:relative}
+.news-list-inline li::before{content:'';position:absolute;left:0;top:.7em;width:6px;height:6px;background:var(--haze);border-radius:50%}
+.news-list-inline strong{color:var(--ink);font-weight:700}
+
+@media (max-width:680px){
+  .news-card{padding:28px 22px}
+  .news-list-inline li{font-size:14.5px}
 }
