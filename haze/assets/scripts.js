@@ -108,6 +108,12 @@ if (leadForm) {
   leadForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const f = e.target;
+    // Honeypot: if the hidden "website" field is filled, it's a bot. Silently succeed.
+    const hp = f.elements.website;
+    if (hp && hp.value && hp.value.trim() !== '') {
+      showFormSuccess(f);
+      return;
+    }
     const usingEndpoint = FORM_ENDPOINT && !FORM_ENDPOINT.includes('REPLACE_ME');
     if (usingEndpoint) {
       try {
