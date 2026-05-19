@@ -62,14 +62,25 @@
     </a>
     <nav class="nav">
       <ul class="nav-links">
-        <li><a href="./" class="active">Produkty</a></li>
-        <li><a href="../reference/">Reference</a></li>
-        <li><a href="../aktuality/">Aktuality</a></li>
         <li><a href="../o-nas/">O nás</a></li>
-        <li><a href="../kontakt/">Kontakt</a></li>
+        <li class="has-dropdown">
+          <a href="../produkty/" class="active">Produkty <span class="caret" aria-hidden="true">▾</span></a>
+          <div class="dropdown">
+            <a href="../produkty/stajova-vrata/">Stájová vrata</a>
+            <a href="../produkty/vrata-prumysl/">Vrata pro průmysl</a>
+            <a href="../produkty/bvs-ventilace/">BVS ventilace</a>
+            <a href="../produkty/stresni-vetrani/">Střešní větrání</a>
+            <a href="../produkty/protihlukove-steny/">Protihlukové stěny</a>
+            <div class="dropdown-sep"></div>
+            <a href="../produkty/zastreseni-jimek/">Zastřešení jímek</a>
+            <a href="../produkty/pletiva-doplnky/">Pletiva a doplňky</a>
+            <a href="../produkty/" class="dropdown-all">Všechny produkty →</a>
+          </div>
+        </li>
+        <li><a href="../nase-projekty/">Naše projekty</a></li>
       </ul>
       <a href="tel:+420602488989" class="header-phone">+420 602 488 989</a>
-      <a href="../kontakt/" class="nav-cta">Poptávka</a>
+      <a href="../kontakt/" class="nav-cta">Nezávazná konzultace</a>
     </nav>
   </div>
 </header>
@@ -86,6 +97,10 @@
 
 <section class="products tight">
   <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-eyebrow">Hlavní produktové linie</div>
+      <h2>Pět hlavních produktů, <em>jeden tým od projektu po montáž.</em></h2>
+    </div>
     <div class="prod-grid">
       <a href="stajova-vrata/" class="prod reveal">
         <img class="prod-img" src="../assets/prod-stajova.jpg" alt="Stájová vrata HAZE" loading="lazy" decoding="async">
@@ -96,12 +111,12 @@
           <span class="prod-link">Detail produktu →</span>
         </div>
       </a>
-      <a href="plachtova-vrata/" class="prod reveal">
-        <img class="prod-img" src="../assets/prod-plachtova.jpg" alt="Plachtová vrata HAZE" loading="lazy" decoding="async">
+      <a href="vrata-prumysl/" class="prod reveal">
+        <img class="prod-img" src="../assets/prod-svinovaci.jpg" alt="Vrata pro průmysl HAZE" loading="lazy" decoding="async">
         <div class="prod-body">
           <div class="prod-num">02.</div>
-          <h3>Plachtová vrata</h3>
-          <p>Pro stáje, sklady a přístřešky. Plachta odolná UV i mrazu, lehká obsluha, krátký výrobní cyklus.</p>
+          <h3>Vrata pro průmysl</h3>
+          <p>Rychloběžná, sekční, plachtová, svinovací a atypická. Pro výrobní haly, sklady a logistiku - i tam, kde standardní rozměry nestačí.</p>
           <span class="prod-link">Detail produktu →</span>
         </div>
       </a>
@@ -109,17 +124,17 @@
         <img class="prod-img" src="../assets/prod-rolety.jpg" alt="BVS ventilace a rolety" loading="lazy" decoding="async">
         <div class="prod-body">
           <div class="prod-num">03.</div>
-          <h3>BVS ventilace + rolety</h3>
-          <p>Boční ventilační systém typ A-F + rolovací vrata. Izolace v zimě, výměna vzduchu v létě.</p>
+          <h3>BVS ventilace</h3>
+          <p>Boční ventilační systém typ A-F. Svinovací, rolovací i polykarbonátová stěna. Izolace v zimě, výměna vzduchu v létě - bez průvanu na zvěř.</p>
           <span class="prod-link">Detail produktu →</span>
         </div>
       </a>
-      <a href="svinovaci-vrata/" class="prod reveal">
-        <img class="prod-img" src="../assets/prod-svinovaci.jpg" alt="Svinovací vrata HAZE" loading="lazy" decoding="async">
+      <a href="stresni-vetrani/" class="prod reveal">
+        <img class="prod-img" src="../assets/ref-3.jpg" alt="Střešní větrání HAZE" loading="lazy" decoding="async">
         <div class="prod-body">
           <div class="prod-num">04.</div>
-          <h3>Svinovací vrata</h3>
-          <p>Pro stáje, přístřešky i sklady. Úspora místa, robustní konstrukce, dlouhá životnost.</p>
+          <h3>Střešní větrání</h3>
+          <p>Větrací štěrbiny bez klapky i dvoukřídlé. Volné odsávání teplého vzduchu v souhře s BVS - prokázané welfare pro chov skotu.</p>
           <span class="prod-link">Detail produktu →</span>
         </div>
       </a>
@@ -128,7 +143,30 @@
         <div class="prod-body">
           <div class="prod-num">05.</div>
           <h3>Protihlukové stěny</h3>
-          <p>Pro sportovní haly, obce a průmyslové provozy. Ocelová konstrukce projektovaná na konkrétní akustický útlum.</p>
+          <p>Pro sportovní haly, obce a průmyslové provozy. Ocelová konstrukce projektovaná na konkrétní akustický útlum (25-35 dB).</p>
+          <span class="prod-link">Detail produktu →</span>
+        </div>
+      </a>
+    </div>
+
+    <div class="sec-head reveal" style="margin-top:80px">
+      <div class="sec-eyebrow">Doplňky a speciální produkty</div>
+      <h2>Dílčí řešení pro <em>celý projekt stáje.</em></h2>
+    </div>
+    <div class="prod-grid prod-grid-secondary">
+      <a href="zastreseni-jimek/" class="prod reveal">
+        <div class="prod-body">
+          <div class="prod-num">06.</div>
+          <h3>Zastřešení jímek</h3>
+          <p>Ocelová konstrukce nad kejdovými a fugátovými jímkami. Splnění zákona o emisích amoniaku, ochrana před deštěm i nečistotami.</p>
+          <span class="prod-link">Detail produktu →</span>
+        </div>
+      </a>
+      <a href="pletiva-doplnky/" class="prod reveal">
+        <div class="prod-body">
+          <div class="prod-num">07.</div>
+          <h3>Pletiva a doplňky</h3>
+          <p>Stájová pletiva, dělící sítě, klempířské prvky, plechování a okapy. Drobný hardware projektu pod jednou střechou.</p>
           <span class="prod-link">Detail produktu →</span>
         </div>
       </a>
@@ -182,20 +220,23 @@
       <div>
         <h5>Produkty</h5>
         <ul>
-          <li><a href="stajova-vrata/">Stájová vrata</a></li>
-          <li><a href="plachtova-vrata/">Plachtová vrata</a></li>
-          <li><a href="bvs-ventilace/">BVS ventilace</a></li>
-          <li><a href="svinovaci-vrata/">Svinovací vrata</a></li>
-          <li><a href="protihlukove-steny/">Protihlukové stěny</a></li>
+          <li><a href="../produkty/stajova-vrata/">Stájová vrata</a></li>
+          <li><a href="../produkty/vrata-prumysl/">Vrata pro průmysl</a></li>
+          <li><a href="../produkty/bvs-ventilace/">BVS ventilace</a></li>
+          <li><a href="../produkty/stresni-vetrani/">Střešní větrání</a></li>
+          <li><a href="../produkty/protihlukove-steny/">Protihlukové stěny</a></li>
+          <li><a href="../produkty/zastreseni-jimek/">Zastřešení jímek</a></li>
+          <li><a href="../produkty/pletiva-doplnky/">Pletiva a doplňky</a></li>
         </ul>
       </div>
       <div>
         <h5>Web</h5>
         <ul>
           <li><a href="../">Domů</a></li>
-          <li><a href="../reference/">Reference</a></li>
-          <li><a href="../aktuality/">Aktuality</a></li>
+          <li><a href="../produkty/">Produkty</a></li>
+          <li><a href="../nase-projekty/">Naše projekty</a></li>
           <li><a href="../o-nas/">O nás</a></li>
+          <li><a href="../aktuality/">Aktuality</a></li>
           <li><a href="../kontakt/">Kontakt</a></li>
         </ul>
       </div>
