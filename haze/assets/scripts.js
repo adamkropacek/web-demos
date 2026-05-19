@@ -13,11 +13,17 @@ document.addEventListener('DOMContentLoaded', () => {
 if (document.readyState !== 'loading') document.body.classList.add('loaded');
 
 // Header scroll state
+// On the homepage (where .hero is fullscreen) we hide the header until the user
+// scrolls so the hero photo reads as a clean fullscreen first impression.
+// Subpages (.subhero) keep the header visible at all times so navigation is reachable.
 const hdr = document.getElementById('hdr');
 if (hdr) {
+  const isHomepage = !!document.querySelector('.hero');
+  if (isHomepage) hdr.classList.add('hide-until-scroll');
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 30) hdr.classList.add('scrolled');
-    else hdr.classList.remove('scrolled');
+    if (window.scrollY > 50) hdr.classList.add('scrolled');
+    else if (!isHomepage) hdr.classList.remove('scrolled');
+    else if (window.scrollY < 20) hdr.classList.remove('scrolled');
   }, { passive: true });
 }
 
