@@ -36,35 +36,38 @@ a{color:inherit;text-decoration:none}
 /* ========== HEADER ========== */
 header{
   position:fixed;top:0;left:0;right:0;z-index:80;
-  background:rgba(21,23,28,.78);backdrop-filter:blur(12px);
-  border-bottom:1px solid rgba(255,255,255,.06);
-  transform:translateY(0);
-  transition:background .3s ease,padding .3s ease,transform .45s cubic-bezier(.22,.61,.36,1);
-  will-change:transform;
+  background:linear-gradient(to bottom,rgba(15,17,22,.92) 0%,rgba(15,17,22,.78) 100%);
+  backdrop-filter:blur(14px) saturate(140%);
+  -webkit-backdrop-filter:blur(14px) saturate(140%);
+  border-bottom:1px solid rgba(255,255,255,.08);
+  box-shadow:0 8px 24px rgba(0,0,0,.18);
+  transition:background .25s ease;
 }
-header.scrolled{background:rgba(21,23,28,.95)}
-header.solid{background:rgba(21,23,28,.96)}
-/* Homepage only: header is hidden until first scroll so hero photo reads fullscreen */
-header.hide-until-scroll{transform:translateY(-100%);pointer-events:none}
-header.hide-until-scroll.scrolled{transform:translateY(0);pointer-events:auto}
-@media (prefers-reduced-motion:reduce){
-  header.hide-until-scroll{transform:translateY(0);pointer-events:auto}
+header.scrolled{
+  background:rgba(15,17,22,.96);
+  border-bottom-color:rgba(255,255,255,.10);
+  box-shadow:0 6px 22px rgba(0,0,0,.32);
 }
+header.solid{background:rgba(15,17,22,.96)}
 .hbar{display:flex;align-items:center;justify-content:space-between;
-  padding:18px 28px;max-width:1240px;margin:0 auto;gap:24px}
+  padding:20px 28px;max-width:1240px;margin:0 auto;gap:24px;transition:padding .25s ease}
+header.scrolled .hbar{padding:14px 28px}
 .logo{display:flex;align-items:center;color:#fff;text-decoration:none}
-.logo-img{height:34px;width:auto;display:block;flex:none}
+.logo-img{height:40px;width:auto;display:block;flex:none;transition:height .25s ease}
+header.scrolled .logo-img{height:34px}
 .footer-brand .logo-img{height:30px}
-@media (max-width:760px){.logo-img{height:30px}}
+@media (max-width:760px){.logo-img{height:32px}header.scrolled .logo-img{height:30px}}
 .nav{display:flex;align-items:center;gap:36px}
 .nav-links{display:flex;gap:30px;list-style:none}
-.nav-links a{color:#fff;font-size:13.5px;font-weight:500;letter-spacing:.02em;
-  opacity:.78;transition:opacity .2s,color .2s}
+.nav-links a{color:#fff;font-size:14.5px;font-weight:600;letter-spacing:.02em;
+  opacity:.92;transition:opacity .2s,color .2s}
 .nav-links a:hover{opacity:1;color:var(--haze-soft)}
 .nav-links a.active{opacity:1;color:var(--haze-soft)}
-.nav-cta{background:var(--haze);color:#fff;padding:11px 22px;border-radius:4px;
-  font-size:13.5px;font-weight:700;letter-spacing:.02em;transition:background .2s,transform .2s}
-.nav-cta:hover{background:var(--haze-dark);transform:translateY(-1px)}
+.nav-cta{background:var(--haze);color:#fff;padding:13px 26px;border-radius:4px;
+  font-size:14px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;
+  box-shadow:0 6px 18px rgba(247,148,48,.32);
+  transition:background .2s,transform .2s,box-shadow .2s}
+.nav-cta:hover{background:var(--haze-dark);transform:translateY(-1px);box-shadow:0 10px 24px rgba(247,148,48,.45)}
 .burger{display:none;color:#fff;font-size:22px;background:none;border:none;cursor:pointer}
 
 /* ========== HERO (homepage) ========== */
