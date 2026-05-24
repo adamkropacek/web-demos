@@ -1,8 +1,0 @@
-# Cloudflare Pages redirects — applied at edge before static serve.
-# Format: <from>   <to>   <status>
-# Notes:
-#   - 301 = permanent (good for canonical), 302 = temporary
-#   - Astro emits /index.html with a <meta refresh> already, but the redirect
-#     here avoids the meta-refresh hop for users hitting the apex.
-
-/   /cs/   302
