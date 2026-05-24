@@ -1,562 +1,389 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>HAZE - Vrata, ventilace a doplňky pro moderní stáj | Od roku 2007</title>
-<meta name="description" content="Vyrábíme a montujeme stájová vrata, BVS ventilaci a zastřešení jímek. Projekt na míru, vlastní hala v Křičeni, realizace v CZ, SK a HU. Od roku 2007.">
-<meta name="robots" content="index,follow">
-<link rel="canonical" href="https://www.haze.cz/">
-<meta property="og:title" content="HAZE - Vrata, ventilace a doplňky pro moderní stáj">
-<meta property="og:description" content="Projektujeme, vyrábíme a montujeme. Vlastní hala v Křičeni, realizace v CZ, SK a HU. Od roku 2007.">
-<meta property="og:type" content="website">
-<meta property="og:locale" content="cs_CZ">
-<meta property="og:url" content="https://www.haze.cz/">
-<meta property="og:image" content="assets/og-haze.png">
-<meta property="og:image:type" content="image/png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<link rel="preload" as="image" href="assets/hero.webp" imagesrcset="assets/hero-sm.webp 800w, assets/hero.webp 1600w" imagesizes="100vw" type="image/webp">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HAZE - Ventilace, vrata a meteostanice pro zemědělství</title>
+  <meta name="description" content="Projektujeme, vyrábíme a montujeme větrací systémy, rolovací vrata, meteostanice a zastřešení jímek. Od roku 2007. Vlastní výrobní hala v Křičeni.">
 
-<!-- TRACKING - GTM-5KJSMWSP + G-5V6W6CMFGR (GA4) + AW-11159013994 (Ads), Consent Mode v2 -->
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('consent','default',{
-    'ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied',
-    'analytics_storage':'denied','wait_for_update':500
-  });
-  gtag('js', new Date());
-  gtag('config','G-5V6W6CMFGR');
-  gtag('config','AW-11159013994');
-</script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-5V6W6CMFGR"></script>
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-5KJSMWSP');</script>
+  <!-- Tracking - same as live haze.cz (GTM-5KJSMWSP workspace 3 awaiting publish) -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-5KJSMWSP');</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5V6W6CMFGR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5V6W6CMFGR');
+    gtag('config', 'AW-11159013994');
+  </script>
 
-<!-- Schema.org LocalBusiness -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"LocalBusiness",
-  "name":"HAZE, s.r.o.",
-  "description":"Výroba a montáž stájových vrat, BVS ventilace a doplňků pro stáje. Projekt na míru.",
-  "url":"https://www.haze.cz/",
-  "telephone":"+420602488989",
-  "email":"info@haze.cz",
-  "address":{"@type":"PostalAddress","streetAddress":"Křičeň 108","addressLocality":"Křičeň","postalCode":"533 41","addressCountry":"CZ"},
-  "areaServed":["CZ","SK","HU"],
-  "vatID":"CZ27509800",
-  "foundingDate":"2007",
-  "image":"assets/hero.jpg"
-}
-</script>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/styles.css">
-<!-- HAZE-FAVICON -->
-<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
-<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon-180.png">
-<meta name="theme-color" content="#F79430">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css">
 </head>
-<body>
+<body class="bg-white">
 
-<a href="#hero" class="skip-link">Přeskočit na obsah</a>
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5KJSMWSP" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5KJSMWSP" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
-<!-- HEADER -->
-<header id="hdr">
-  <div class="hbar">
-    <a href="./" class="logo">
-      <img src="assets/logo-white.svg" alt="HAZE" class="logo-img" width="118" height="55">
-    </a>
-    <nav class="nav">
-      <ul class="nav-links">
-        <li><a href="o-nas/">O nás</a></li>
-        <li class="has-dropdown">
-          <a href="produkty/">Produkty <span class="caret" aria-hidden="true">▾</span></a>
-          <div class="dropdown">
-            <a href="produkty/stajova-vrata/">Stájová vrata</a>
-            <a href="produkty/vrata-prumysl/">Vrata pro průmysl</a>
-            <a href="produkty/bvs-ventilace/">BVS ventilace</a>
-            <a href="produkty/stresni-vetrani/">Střešní větrání</a>
-            <a href="produkty/protihlukove-steny/">Protihlukové stěny</a>
-            <div class="dropdown-sep"></div>
-            <a href="produkty/zastreseni-jimek/">Zastřešení jímek</a>
-            <a href="produkty/pletiva-doplnky/">Pletiva a doplňky</a>
-            <a href="produkty/" class="dropdown-all">Všechny produkty →</a>
-          </div>
-        </li>
-        <li><a href="nase-projekty/">Naše projekty</a></li>
-      </ul>
-      <a href="tel:+420602488989" class="header-phone">+420 602 488 989</a>
-      <a href="kontakt/" class="nav-cta">Nezávazná konzultace</a>
-    </nav>
-  </div>
-</header>
-
-<!-- HERO -->
-<section class="hero" id="hero">
-  <div class="hero-img">
-    <picture>
-      <source type="image/webp" srcset="assets/hero-sm.webp 800w, assets/hero.webp 1600w" sizes="100vw">
-      <source type="image/jpeg" srcset="assets/hero-sm.jpg 800w, assets/hero.jpg 1600w" sizes="100vw">
-      <img src="assets/hero.jpg" alt="Interiér moderní stáje s ventilací HAZE" width="1600" height="1057" fetchpriority="high" decoding="async">
-    </picture>
-  </div>
-  <div class="hero-content">
-    <div class="hero-grid">
-      <div class="eyebrow">B2B · Zemědělství · Od roku 2007</div>
-      <h1>
-        <span class="line"><span>Stáj, která drží teplotu</span></span>
-        <span class="line"><span><em>a šetří krmivo.</em></span></span>
-      </h1>
-      <p class="hero-lead">Projektujeme, vyrábíme a montujeme. Vlastní hala v Křičeni, 200+ stájí v CZ, SK a HU. Konzultace zdarma, nabídka do 48 hodin.</p>
-      <div class="hero-trust">
-        <span class="chip">Od roku 2007</span>
-        <span class="chip">200+ stájí</span>
-        <span class="chip">Vlastní hala 2 500 m²</span>
-        <span class="chip">CZ · SK · HU</span>
-        <span class="chip">Záruka 5 let</span>
-      </div>
-      <div class="hero-actions">
-        <a href="tel:+420602488989" class="btn-primary">
-          Zavolat: +420 602 488 989
-          <span class="btn-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-        </a>
-        <a href="kontakt/" class="btn-secondary">
-          Nezávazná poptávka
-          <span class="btn-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- STATS BAND -->
-<div class="stats">
-  <div class="wrap">
-    <div class="stats-grid">
-      <div class="stat"><div class="stat-eyebrow">Na trhu</div><div class="stat-value">19 let</div></div>
-      <div class="stat"><div class="stat-eyebrow">Výroba</div><div class="stat-value">2 500 m²</div></div>
-      <div class="stat"><div class="stat-eyebrow">Realizace</div><div class="stat-value">200+</div></div>
-      <div class="stat"><div class="stat-eyebrow">Záruka</div><div class="stat-value">5 let</div></div>
-    </div>
-  </div>
-</div>
-
-<!-- PROBLEM / WHY VENTILATION -->
-<section class="problem" id="problem">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <div class="sec-eyebrow">Proč to řešíme</div>
-      <h2>Špatná ventilace stojí <em>každý den.</em></h2>
-      <p class="lead">Průvan, vlhko a teplota přes 21 °C - tři tiché ztráty, které vidíte až na čísle za měsíc. Vrata, štěrbiny a větrání mají na dojivost, přírůstky a zdraví stáda přímý vliv.</p>
-    </div>
-    <div class="problem-grid">
-      <div class="reveal">
-        <div class="problem-stat">
-          <div class="problem-stat-num">21°C</div>
-          <div class="problem-stat-body">
-            <h3>Hranice tepelného stresu</h3>
-            <p>Nad 21 °C u dojnic klesá příjem krmiva a dojivost se měří v litrech, ne v procentech. Boční ventilace a hřebenová štěrbina drží teplotu v pásmu, kde stádo neztrácí výkon.</p>
-          </div>
-        </div>
-        <div class="problem-stat">
-          <div class="problem-stat-num">4×</div>
-          <div class="problem-stat-body">
-            <h3>Rychlejší výměna vzduchu</h3>
-            <p>BVS systémy s polykarbonátem jsou navržené pro rychlejší výměnu vzduchu než trvale otevřená štítová vrata - bez průvanu na zvířatech a bez tepelných ztrát v zimě.</p>
-          </div>
-        </div>
-      </div>
-      <div class="reveal">
-        <div class="problem-stat">
-          <div class="problem-stat-num">48 h</div>
-          <div class="problem-stat-body">
-            <h3>Nabídka do 48 hodin</h3>
-            <p>Po zaměření dostanete konkrétní cenu, materiály a termín do dvou pracovních dnů. Bez schovaných položek - co podepíšete, to platí.</p>
-          </div>
-        </div>
-        <div class="problem-stat">
-          <div class="problem-stat-num">5 let</div>
-          <div class="problem-stat-body">
-            <h3>Záruka na konstrukci i montáž</h3>
-            <p>Servisní zásahy v ceně. Stojíme si za tím, co vyrobíme - od svaru po poslední kus plechu.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PRODUCTS PREVIEW (links to subpages) -->
-<section class="products" id="products">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <div class="sec-eyebrow">Co vyrábíme</div>
-      <h2>Vrata, ventilace a zastřešení - <em>vše na míru.</em></h2>
-      <p class="lead">Každý kus projektujeme na rozměr vašeho provozu. Bez typových kompromisů, bez „to vám tam dáme blízko".</p>
-    </div>
-    <div class="prod-grid">
-      <a href="produkty/stajova-vrata/" class="prod reveal">
-        <img class="prod-img" src="assets/prod-stajova.jpg" alt="Stájová vrata HAZE - realizace na zemědělské hale" loading="lazy" decoding="async">
-        <div class="prod-body">
-          <div class="prod-num">01.</div>
-          <h3>Stájová vrata</h3>
-          <p>Pro stáj, kravín a porodnu. Tichý chod, doraz proti průvanu, welfare pro chov skotu i prasat.</p>
-          <span class="prod-link">Detail produktu →</span>
-        </div>
+  <!-- NAVBAR -->
+  <nav class="navbar fixed top-0 left-0 right-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 md:px-6 py-3 md:py-4 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2">
+        <svg width="36" height="28" viewBox="0 0 36 28" fill="none" aria-hidden="true">
+          <path d="M18 0L36 14H28V28H8V14H0L18 0Z" fill="#F07B20"/>
+        </svg>
+        <span class="text-2xl font-black tracking-tight">HAZE</span>
       </a>
-      <a href="produkty/plachtova-vrata/" class="prod reveal">
-        <img class="prod-img" src="assets/prod-plachtova.jpg" alt="Plachtová vrata HAZE - realizace ve stáji" loading="lazy" decoding="async">
-        <div class="prod-body">
-          <div class="prod-num">02.</div>
-          <h3>Plachtová vrata</h3>
-          <p>Stáje, sklady, přístřešky. Plachta odolná UV i mrazu, lehká obsluha, krátký výrobní cyklus.</p>
-          <span class="prod-link">Detail produktu →</span>
-        </div>
+      <div class="desktop-nav hidden md:flex items-center gap-7 text-sm font-medium">
+        <a href="produkty.html" class="nav-link">Produkty</a>
+        <a href="meteostanice.html" class="nav-link">Meteostanice</a>
+        <a href="reference.html" class="nav-link">Reference</a>
+        <a href="o-nas.html" class="nav-link">O nás</a>
+        <a href="kontakt.html" class="nav-link">Kontakt</a>
+      </div>
+      <a href="kontakt.html" class="bg-orange text-white px-5 py-2.5 rounded-lg text-sm font-semibold transition-colors">
+        Nezávazná poptávka
       </a>
-      <a href="produkty/bvs-ventilace/" class="prod reveal">
-        <img class="prod-img" src="assets/prod-rolety.jpg" alt="Rolety BVS do stáje HAZE - boční ventilace" loading="lazy" decoding="async">
-        <div class="prod-body">
-          <div class="prod-num">03.</div>
-          <h3>BVS ventilace + rolety</h3>
-          <p>Boční ventilační systém A-F + rolovací vrata. Izolace v zimě, výměna vzduchu v létě.</p>
-          <span class="prod-link">Detail produktu →</span>
-        </div>
-      </a>
-      <a href="produkty/svinovaci-vrata/" class="prod reveal">
-        <img class="prod-img" src="assets/prod-svinovaci.jpg" alt="Svinovací vrata HAZE - realizace v zemědělském provozu" loading="lazy" decoding="async">
-        <div class="prod-body">
-          <div class="prod-num">04.</div>
-          <h3>Svinovací vrata</h3>
-          <p>Pro stáje, přístřešky i sklady. Úspora místa, robustní konstrukce, dlouhá životnost.</p>
-          <span class="prod-link">Detail produktu →</span>
-        </div>
-      </a>
-      <a href="produkty/protihlukove-steny/" class="prod reveal">
-        <img class="prod-img" src="assets/ref-4.jpg" alt="Protihlukové stěny HAZE - sportoviště a průmyslové projekty" loading="lazy" decoding="async">
-        <div class="prod-body">
-          <div class="prod-num">05.</div>
-          <h3>Protihlukové stěny</h3>
-          <p>Pro sportovní haly, obce a průmyslové provozy. Akustický útlum 25-35 dB, konstrukce na míru.</p>
-          <span class="prod-link">Detail produktu →</span>
-        </div>
-      </a>
+      <button id="mobile-menu-btn" class="md:hidden ml-2 text-white p-2" aria-label="Menu">
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
     </div>
-  </div>
-</section>
+    <div id="mobile-menu" class="hidden md:hidden bg-gray-900 px-4 py-4 border-t border-gray-800">
+      <a href="produkty.html" class="block py-2 text-white text-sm">Produkty</a>
+      <a href="meteostanice.html" class="block py-2 text-white text-sm">Meteostanice</a>
+      <a href="reference.html" class="block py-2 text-white text-sm">Reference</a>
+      <a href="o-nas.html" class="block py-2 text-white text-sm">O nás</a>
+      <a href="kontakt.html" class="block py-2 text-white text-sm">Kontakt</a>
+    </div>
+  </nav>
 
-<!-- PROCESS -->
-<section class="process" id="process">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <div class="sec-eyebrow">Jak to běží</div>
-      <h2>Od konzultace po hotovou stáj <em>za 4-6 týdnů.</em></h2>
-      <p class="lead">Stejný tým od projektu po montáž. Žádné předávání mezi dodavateli, žádné „to není naše."</p>
-    </div>
-    <div class="steps-grid">
-      <div class="step reveal">
-        <div class="step-num">01. Konzultace</div>
-        <h3>Zaměření a poptávka</h3>
-        <p>Zavoláme nebo přijedeme na místo. Zaměříme reálné otvory, podíváme se na stávající stáj a navrhneme řešení.</p>
-      </div>
-      <div class="step reveal">
-        <div class="step-num">02. Nabídka</div>
-        <h3>Návrh do 48 hodin</h3>
-        <p>Konkrétní cena, materiály a termín. Bez schovaných položek a bez „kdyby" doložek. Co podepíšete, to platí.</p>
-      </div>
-      <div class="step reveal">
-        <div class="step-num">03. Výroba</div>
-        <h3>Vlastní hala v Křičeni</h3>
-        <p>Vyrábíme u nás na 2 500 m². Žádný subdodavatel - máme kontrolu nad kvalitou každého svaru a každého profilu.</p>
-      </div>
-      <div class="step reveal">
-        <div class="step-num">04. Montáž</div>
-        <h3>Náš tým, ne subdodavatel</h3>
-        <p>Montuje stejná parta, která vám vrata vyrobila. Po montáži zaučíme obsluhu a předáme záruku 5 let.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SHOWCASE STRIP -->
-<div class="showcase">
-  <img src="assets/ref-4.jpg" alt="Zemědělská hala s vraty a větráním HAZE" class="showcase-img" loading="lazy" decoding="async">
-  <div class="showcase-overlay">
-    <div class="showcase-content">
-      <div>
-        <strong>Vyrábíme <em>i</em> montujeme.</strong>
-        <p>Za výsledek ručíme my - ne subdodavatel, ne katalogový prodejce. Konzultace zdarma, nabídka do 48 hodin.</p>
-      </div>
-      <a href="kontakt/" class="btn-primary">
-        Chci nabídku
-        <span class="btn-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-      </a>
-    </div>
-  </div>
-</div>
-
-<!-- REFERENCES PREVIEW -->
-<section class="refs" id="refs">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <div class="sec-eyebrow">Realizace</div>
-      <h2>200+ stájí v CZ, SK a HU.</h2>
-      <p class="lead">Ukázky reálných instalací - boční ventilace, hřebenové štěrbiny, posuvná vrata. Konkrétní reference dodáme na vyžádání před podpisem.</p>
-    </div>
-    <div class="refs-grid">
-      <div class="ref reveal">
-        <img class="ref-img" src="assets/ref-2.jpg" alt="Boční ventilační systém - Okrouhlá Radouň" loading="lazy" decoding="async">
-        <div class="ref-cap">
-          <div class="ref-cap-eyebrow">BVS · Polykarbonát</div>
-          <h4>Okrouhlá Radouň</h4>
-          <p class="ref-meta">Boční ventilační systém</p>
+  <!-- HERO -->
+  <section class="hero-bg pt-28 pb-16 px-4 md:px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="max-w-3xl">
+        <div class="inline-flex items-center gap-2 bg-white/10 text-orange-400 text-sm font-medium px-4 py-1.5 rounded-full mb-6 fade-up">
+          <span class="w-2 h-2 bg-orange-400 rounded-full"></span>
+          Od roku 2007 - 300+ realizovaných stájí v CZ, SK a HU
         </div>
-      </div>
-      <div class="ref reveal">
-        <img class="ref-img" src="assets/ref-6.jpg" alt="Hřebenová větrací štěrbina - Osičky" loading="lazy" decoding="async">
-        <div class="ref-cap">
-          <div class="ref-cap-eyebrow">Štěrbina · Stáj</div>
-          <h4>Osičky</h4>
-          <p class="ref-meta">Hřebenová větrací štěrbina</p>
-        </div>
-      </div>
-      <div class="ref reveal">
-        <img class="ref-img" src="assets/ref-5.jpg" alt="Posuvná vrata zemědělské stáje - realizace HAZE" loading="lazy" decoding="async">
-        <div class="ref-cap">
-          <div class="ref-cap-eyebrow">Vrata · Stáj</div>
-          <h4>Posuvná stájová vrata</h4>
-        </div>
-      </div>
-    </div>
-    <div style="text-align:center;margin-top:48px">
-      <a href="nase-projekty/" class="btn-secondary" style="color:var(--ink)">
-        Všechny realizace
-        <span class="btn-arrow" style="border-color:rgba(28,29,31,.35)"><svg viewBox="0 0 24 24" style="stroke:var(--ink)"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- COMMITMENTS -->
-<section class="commit">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <div class="sec-eyebrow">Tři věci, na které se spolehnete</div>
-      <h2>Co od nás <em>vždy</em> dostanete.</h2>
-    </div>
-    <div class="commit-grid">
-      <div class="commit-card reveal">
-        <div class="commit-icon">
-          <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4M12 2L4 6v6c0 5 4 9 8 10 4-1 8-5 8-10V6l-8-4z"/></svg>
-        </div>
-        <h3>Záruka 5 let</h3>
-        <p>Na konstrukci i montáž. Stojíme si za tím, co vyrobíme. Servisní zásahy do 5 let v ceně.</p>
-      </div>
-      <div class="commit-card reveal">
-        <div class="commit-icon">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
-        </div>
-        <h3>Termín 4-6 týdnů</h3>
-        <p>Od poptávky po hotovou montáž. Termín dohodneme a dodržíme - na harmonogram stáje se dá spolehnout.</p>
-      </div>
-      <div class="commit-card reveal">
-        <div class="commit-icon">
-          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><path d="M9 22V12h6v10"/></svg>
-        </div>
-        <h3>Jeden tým, od A do Z</h3>
-        <p>Konzultace, výroba i montáž u nás. Žádné předávání mezi dodavateli - za výsledek ručí jeden tým.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- STORY PREVIEW -->
-<section class="story" id="story">
-  <div class="wrap">
-    <div class="story-grid">
-      <div class="story-body reveal">
-        <div class="sec-eyebrow">O HAZE</div>
-        <h2>Od roku 2007 stavíme stáje, <em>které vydrží provoz.</em></h2>
-        <p>Začali jsme jako parta zámečníků v Křičeni. Vyrobit jedny vrata, druhé, deset. Dnes máme vlastní halu na 2 500 m², projektový tým a montážní party, které jezdí po celé ČR, na Slovensko i do Maďarska.</p>
-        <p>Nejsme prodejci katalogu. Každá zakázka začíná tím, že někdo z týmu fyzicky přijede zaměřit otvor a poslechnout si, co stáj potřebuje. To, co projektujeme, taky vyrábíme a montujeme.</p>
-        <p style="margin-top:28px">
-          <a href="o-nas/" class="btn-secondary" style="color:var(--ink)">
-            Více o HAZE
-            <span class="btn-arrow" style="border-color:rgba(28,29,31,.35)"><svg viewBox="0 0 24 24" style="stroke:var(--ink)"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-          </a>
+        <h1 class="text-4xl md:text-6xl font-black text-white leading-tight mb-6 fade-up delay-1">
+          Zdravá stáj.<br>
+          <span class="accent">Zdravá zvířata.</span><br>
+          Vyšší zisk.
+        </h1>
+        <p class="text-lg text-gray-400 max-w-xl leading-relaxed mb-10 fade-up delay-2">
+          Jeden dodavatel od poradenství po servis - projektujeme, vyrábíme i montujeme ve vlastní hale v Křičeni. Kalkulace do 3 pracovních dnů od poptávky.
         </p>
+        <div class="flex flex-wrap gap-4 fade-up delay-3">
+          <a href="kontakt.html" class="bg-orange text-white px-7 py-3.5 rounded-lg font-semibold text-base transition-colors">
+            Nezávazná poptávka →
+          </a>
+          <a href="produkty.html" class="border border-white/20 text-white px-7 py-3.5 rounded-lg font-semibold text-base hover:bg-white/10 transition-colors">
+            Prohlédnout produkty
+          </a>
+        </div>
       </div>
-      <aside class="story-facts reveal">
-        <h3>Firma v číslech</h3>
-        <div class="story-fact"><span class="story-fact-label">Založeno</span><span class="story-fact-value">2007</span></div>
-        <div class="story-fact"><span class="story-fact-label">Sídlo</span><span class="story-fact-value">Křičeň, CZ</span></div>
-        <div class="story-fact"><span class="story-fact-label">Vlastní hala</span><span class="story-fact-value">2 500 m²</span></div>
-        <div class="story-fact"><span class="story-fact-label">Trhy</span><span class="story-fact-value">CZ · SK · HU</span></div>
-        <div class="story-fact"><span class="story-fact-label">Realizace</span><span class="story-fact-value">200+ stájí</span></div>
-        <div class="story-fact"><span class="story-fact-label">Záruka</span><span class="story-fact-value">5 let</span></div>
-        <div class="story-fact"><span class="story-fact-label">Konzultace</span><span class="story-fact-value">do 24 h</span></div>
-        <div class="story-fact"><span class="story-fact-label">Nabídka</span><span class="story-fact-value">do 48 h</span></div>
-      </aside>
-    </div>
-  </div>
-</section>
 
-<!-- CONTACT -->
-<section class="contact" id="contact">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <div class="sec-eyebrow">Nezávazná poptávka</div>
-      <h2>Řekněte nám, <em>co potřebujete.</em></h2>
-      <p class="lead">Konzultace zdarma, nabídka do 48 hodin. Stačí pár vět - ozveme se zpět a domluvíme zaměření.</p>
+      <!-- Stats -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 fade-up delay-4">
+        <div class="stat-card">
+          <div class="text-2xl md:text-3xl font-black text-white">18+</div>
+          <div class="text-sm text-gray-500 mt-1">let na trhu</div>
+        </div>
+        <div class="stat-card">
+          <div class="text-2xl md:text-3xl font-black text-white">300+</div>
+          <div class="text-sm text-gray-500 mt-1">realizovaných stájí</div>
+        </div>
+        <div class="stat-card">
+          <div class="text-2xl md:text-3xl font-black text-white">2 500 m²</div>
+          <div class="text-sm text-gray-500 mt-1">vlastní výrobní hala</div>
+        </div>
+        <div class="stat-card">
+          <div class="text-2xl md:text-3xl font-black text-white">CZ · SK · HU</div>
+          <div class="text-sm text-gray-500 mt-1">trhy, kde působíme</div>
+        </div>
+      </div>
     </div>
-    <div class="contact-grid">
-      <form class="contact-form reveal" id="leadForm" action="mailto:info@haze.cz" method="post" enctype="text/plain">
-        <div class="field">
-          <label for="name">Jméno a firma</label>
-          <input type="text" id="name" name="name" required placeholder="Jan Novák, ZD Křičeň">
-        </div>
-        <div class="field">
-          <label for="phone">Telefon</label>
-          <input type="tel" id="phone" name="phone" required placeholder="+420 ...">
-        </div>
-        <div class="field">
-          <label for="msg">Co potřebujete</label>
-          <textarea id="msg" name="message" placeholder="Stáj pro 80 dojnic, plánujeme rekonstrukci větrání..."></textarea>
-        </div>
-        <label class="gdpr">
-          <input type="checkbox" required>
-          <span>Souhlasím se zpracováním osobních údajů pro účely poptávky. Údaje neposkytujeme třetím stranám.</span>
-        </label>
-        <p class="form-note">Odeslání otevře váš e-mailový program. Pro rychlejší řešení volejte přímo na <a href="tel:+420602488989" style="color:var(--haze-dark);font-weight:700">+420 602 488 989</a>.</p>
-        <button type="submit" class="btn-submit">Zavolejte mi zpět</button>
-      </form>
+  </section>
 
-      <aside class="contact-aside reveal">
-        <h3>Co se stane dál</h3>
-        <div class="timeline-item">
-          <div class="timeline-num">1</div>
-          <div class="timeline-body">
-            <h4>Do 24 hodin zavoláme</h4>
-            <p>Krátký telefonát - upřesníme rozsah a domluvíme termín zaměření.</p>
+  <!-- PROBLEM / WHY IT MATTERS -->
+  <section class="bg-white py-16 md:py-20 px-4 md:px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
+        <div>
+          <span class="text-sm font-semibold text-orange-500 uppercase tracking-widest">Proč na tom záleží</span>
+          <h2 class="text-4xl font-black mt-3 mb-6 leading-tight">
+            Špatná ventilace<br>vás stojí peníze.<br>
+            <span class="text-gray-400">Každý den.</span>
+          </h2>
+          <p class="text-gray-600 leading-relaxed mb-6">
+            Tepelný stres u krav nastává již při <strong>21 °C</strong>. Výsledek: nižší dojivost, horší zabřezávání, nemoci. Krávy v nevhodném mikroklimatu produkují méně a stojí více.
+          </p>
+          <p class="text-gray-600 leading-relaxed mb-8">
+            Správně navržená ventilace udrží teplotu ve stáji v termoneutrální zóně <strong>-6 °C až +19 °C</strong> po celý rok - automaticky, bez závislosti na lidském faktoru.
+          </p>
+          <div class="space-y-3">
+            <div class="flex items-center gap-3">
+              <div class="w-5 h-5 bg-orange-100 rounded-full flex items-center justify-center flex-shrink-0">
+                <svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="#F07B20" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+              <span class="text-gray-700">Vyšší dojivost nezávislá na ročním období</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="w-5 h-5 bg-orange-100 rounded-full flex items-center justify-center flex-shrink-0">
+                <svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="#F07B20" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+              <span class="text-gray-700">Vyrovnaná chuť žrát a pít, minimum výkyvů v přírůstcích</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="w-5 h-5 bg-orange-100 rounded-full flex items-center justify-center flex-shrink-0">
+                <svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="#F07B20" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+              <span class="text-gray-700">Lepší reprodukce a zdravotní stav stáda</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="w-5 h-5 bg-orange-100 rounded-full flex items-center justify-center flex-shrink-0">
+                <svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="#F07B20" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+              <span class="text-gray-700">Soulad s požadavky Animal Welfare (EU normy)</span>
+            </div>
           </div>
         </div>
-        <div class="timeline-item">
-          <div class="timeline-num">2</div>
-          <div class="timeline-body">
-            <h4>Zaměření na místě</h4>
-            <p>Přijedeme k vám, fyzicky zaměříme otvory a podíváme se na celkový kontext stáje.</p>
+        <div class="bg-gray-50 rounded-2xl p-8 border border-gray-100">
+          <div class="text-center mb-6">
+            <div class="text-4xl md:text-5xl font-black text-gray-900">21 °C</div>
+            <div class="text-sm text-gray-500 mt-1">hranice tepelného stresu u krav</div>
+          </div>
+          <div class="space-y-4">
+            <div class="bg-white rounded-xl p-4 border border-gray-100">
+              <div class="flex justify-between items-center mb-2">
+                <span class="text-sm font-medium text-gray-700">Termoneutrální zóna krav</span>
+                <span class="text-sm font-bold text-orange-500">-6 °C až +19 °C</span>
+              </div>
+              <div class="w-full bg-gray-100 rounded-full h-2">
+                <div class="bg-orange-400 h-2 rounded-full" style="width: 55%"></div>
+              </div>
+            </div>
+            <div class="bg-white rounded-xl p-4 border border-gray-100">
+              <div class="flex justify-between items-center mb-2">
+                <span class="text-sm font-medium text-gray-700">Termoneutrální zóna telat</span>
+                <span class="text-sm font-bold text-orange-500">+10 °C až +25 °C</span>
+              </div>
+              <div class="w-full bg-gray-100 rounded-full h-2">
+                <div class="bg-orange-300 h-2 rounded-full" style="width: 40%"></div>
+              </div>
+            </div>
+            <div class="bg-orange-50 rounded-xl p-4 border border-orange-100">
+              <p class="text-sm text-orange-800 font-medium">
+                Mikroklima řízené čidly. Bez denního zásahu obsluhy, 24/7.
+              </p>
+            </div>
           </div>
         </div>
-        <div class="timeline-item">
-          <div class="timeline-num">3</div>
-          <div class="timeline-body">
-            <h4>Konkrétní nabídka do 48 hodin</h4>
-            <p>Cena, materiály, termín. Bez skrytých položek - co podepíšete, to platí.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 KATEGORIE TEASER -->
+  <section class="bg-gray-50 py-16 md:py-20 px-4 md:px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12">
+        <span class="text-sm font-semibold text-orange-500 uppercase tracking-widest">Co nabízíme</span>
+        <h2 class="text-4xl font-black mt-3">Kompletní řešení pro vaši stáj</h2>
+        <p class="text-gray-500 mt-4 max-w-xl mx-auto">Všechny systémy vyrábíme ve vlastní hale v Křičeni a montujeme přímo u vás. Detail produktů na <a href="produkty.html" class="text-orange-500 font-medium hover:underline">stránce Produkty</a>.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+        <a href="produkty.html#ventilace" class="product-card bg-white rounded-2xl p-6 border border-gray-100 block">
+          <div class="card-icon w-12 h-12 bg-orange-50 rounded-xl flex items-center justify-center mb-4">
+            <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="#F07B20" stroke-width="1.8"><rect x="2" y="3" width="20" height="18" rx="2"/><line x1="2" y1="9" x2="22" y2="9"/><line x1="12" y1="9" x2="12" y2="21"/></svg>
+          </div>
+          <h3 class="font-bold text-lg mb-2">Větrací systémy</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Hřebenové štěrbiny, boční ventilace BVS (typy A-F), střešní odvětrání. Šířka stájí až 100 m, výška až 5,5 m.</p>
+        </a>
+
+        <a href="produkty.html#vrata" class="product-card bg-white rounded-2xl p-6 border border-gray-100 block">
+          <div class="card-icon w-12 h-12 bg-orange-50 rounded-xl flex items-center justify-center mb-4">
+            <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="#F07B20" stroke-width="1.8"><path d="M3 12l9-9 9 9M5 10v9a1 1 0 001 1h4v-5h4v5h4a1 1 0 001-1v-9"/></svg>
+          </div>
+          <h3 class="font-bold text-lg mb-2">Vrata a průchody</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Rolovací, skládací, řetízková a elektrická vrata. Max. šířka 12 m, výška 6,5 m. Žárově zinkovaná konstrukce.</p>
+        </a>
+
+        <a href="meteostanice.html" class="product-card bg-gray-900 rounded-2xl p-6 border border-gray-800 block">
+          <div class="card-icon w-12 h-12 bg-orange-500/20 rounded-xl flex items-center justify-center mb-4">
+            <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="#F07B20" stroke-width="1.8"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/></svg>
+          </div>
+          <h3 class="font-bold text-lg mb-2 text-white">Meteostanice HAZE</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Automaticky řídí mikroklima podle počasí - čidla větru, deště a teploty. Bez zásahu člověka.</p>
+        </a>
+
+        <a href="produkty.html#jimky" class="product-card bg-white rounded-2xl p-6 border border-gray-100 block">
+          <div class="card-icon w-12 h-12 bg-orange-50 rounded-xl flex items-center justify-center mb-4">
+            <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="#F07B20" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/></svg>
+          </div>
+          <h3 class="font-bold text-lg mb-2">Zastřešení jímek</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Průměr 15-35 m. Plachta 900 g/m², nerez. Snížení úniku čpavku a zatékání dešťové vody.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="bg-white py-14 md:py-20 px-4 md:px-6">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-14">
+        <span class="text-sm font-semibold text-orange-500 uppercase tracking-widest">Jak to funguje</span>
+        <h2 class="text-4xl font-black mt-3">Od prvního kontaktu<br>po hotovou stáj</h2>
+      </div>
+      <div class="space-y-8">
+        <div class="flex gap-6 items-start">
+          <div class="step-number">1</div>
+          <div class="pt-2">
+            <h3 class="font-bold text-xl mb-2">Poptávka a bezplatné poradenství</h3>
+            <p class="text-gray-500 leading-relaxed">Zašlete rozměry stáje, typ chovu a vaše požadavky. Dominik Hanousek vás kontaktuje do 24 hodin a doporučí vhodné řešení.</p>
           </div>
         </div>
-        <div class="timeline-item">
-          <div class="timeline-num">4</div>
-          <div class="timeline-body">
-            <h4>Výroba a montáž 4-6 týdnů</h4>
-            <p>Vlastní hala v Křičeni, montuje náš tým. Po předání zaučíme obsluhu a předáme záruku.</p>
+        <div class="w-px h-8 bg-orange-200 ml-6"></div>
+        <div class="flex gap-6 items-start">
+          <div class="step-number">2</div>
+          <div class="pt-2">
+            <h3 class="font-bold text-xl mb-2">Konfigurace a nabídka na míru</h3>
+            <p class="text-gray-500 leading-relaxed">Připravíme přesnou specifikaci s vizualizací a kalkulací. Veškerá technika zvolena podle rozměrů a typu provozu.</p>
           </div>
         </div>
-      </aside>
-    </div>
-  </div>
-</section>
-
-<!-- FINAL CTA -->
-<section class="final-cta">
-  <div class="wrap">
-    <div class="sec-eyebrow">Nechcete vyplňovat formulář?</div>
-    <h2>Zavolejte přímo. <em>Ozveme se zpět.</em></h2>
-    <div class="final-contacts">
-      <a href="tel:+420602488989" class="final-contact">
-        <span class="ico"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.37 1.9.72 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0122 16.92z"/></svg></span>
-        +420 602 488 989
-      </a>
-      <a href="mailto:info@haze.cz" class="final-contact">
-        <span class="ico"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg></span>
-        info@haze.cz
-      </a>
-    </div>
-    <div class="final-buttons">
-      <a href="tel:+420602488989">Zavolat hned teď</a>
-    </div>
-    <p style="margin-top:16px;font-size:14px;color:rgba(255,255,255,.65)">Po-Pá 7:00-17:00. Mimo pracovní dobu vám zavoláme zpět.</p>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="wrap">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <div class="logo">
-          <img src="assets/logo-white.svg" alt="HAZE" class="logo-img" width="100" height="46">
+        <div class="w-px h-8 bg-orange-200 ml-6"></div>
+        <div class="flex gap-6 items-start">
+          <div class="step-number">3</div>
+          <div class="pt-2">
+            <h3 class="font-bold text-xl mb-2">Výroba ve vlastní hale v Křičeni</h3>
+            <p class="text-gray-500 leading-relaxed">Vyrábíme vlastní kapacitou v moderní 2 500 m² hale. Digitalizované výrobní procesy zkracují dodací lhůty.</p>
+          </div>
         </div>
-        <p>Vyrábíme a montujeme vrata, BVS ventilaci a doplňky pro moderní stáj. Od roku 2007, vlastní hala v Křičeni, realizace v CZ, SK a HU.</p>
-      </div>
-      <div>
-        <h5>Produkty</h5>
-        <ul>
-          <li><a href="produkty/stajova-vrata/">Stájová vrata</a></li>
-          <li><a href="produkty/vrata-prumysl/">Vrata pro průmysl</a></li>
-          <li><a href="produkty/bvs-ventilace/">BVS ventilace</a></li>
-          <li><a href="produkty/stresni-vetrani/">Střešní větrání</a></li>
-          <li><a href="produkty/protihlukove-steny/">Protihlukové stěny</a></li>
-          <li><a href="produkty/zastreseni-jimek/">Zastřešení jímek</a></li>
-          <li><a href="produkty/pletiva-doplnky/">Pletiva a doplňky</a></li>
-        </ul>
-      </div>
-      <div>
-        <h5>Web</h5>
-        <ul>
-          <li><a href="">Domů</a></li>
-          <li><a href="produkty/">Produkty</a></li>
-          <li><a href="nase-projekty/">Naše projekty</a></li>
-          <li><a href="o-nas/">O nás</a></li>
-          <li><a href="aktuality/">Aktuality</a></li>
-          <li><a href="kontakt/">Kontakt</a></li>
-        </ul>
-      </div>
-      <div>
-        <h5>Kontakt</h5>
-        <ul>
-          <li><a href="tel:+420602488989">+420 602 488 989</a></li>
-          <li><a href="mailto:info@haze.cz">info@haze.cz</a></li>
-          <li>Křičeň 108, 533 41</li>
-          <li>HAZE, s.r.o. | IČ 275 09 800</li>
-        </ul>
+        <div class="w-px h-8 bg-orange-200 ml-6"></div>
+        <div class="flex gap-6 items-start">
+          <div class="step-number">4</div>
+          <div class="pt-2">
+            <h3 class="font-bold text-xl mb-2">Odborná montáž přímo u vás</h3>
+            <p class="text-gray-500 leading-relaxed">Naši technici provedou kompletní instalaci, zapojení meteostanice a zaškolení obsluhy. Servis zajišťujeme i po montáži.</p>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="footer-bottom">
-      <div>&copy; 2007-2026 HAZE, s.r.o. Všechna práva vyhrazena.</div>
-      <div>Společnost zapsaná v OR vedeném u KS v Hradci Králové, oddíl C, vložka 21758.</div>
+  </section>
+
+  <!-- REFERENCE TEASER -->
+  <section class="bg-gray-50 py-16 md:py-20 px-4 md:px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-10">
+        <span class="text-sm font-semibold text-orange-500 uppercase tracking-widest">Realizace</span>
+        <h2 class="text-4xl font-black mt-3">Stáje, které fungují</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-6">
+        <a href="reference.html" class="bg-white rounded-2xl p-6 border border-gray-100 block hover:border-orange-200 transition-colors">
+          <div class="text-xs font-semibold text-orange-500 uppercase tracking-widest mb-2">Realizace</div>
+          <h3 class="font-bold text-xl mb-2">Okrouhlá Radouň</h3>
+          <div class="text-sm font-medium text-gray-700 mb-3">220 kusů dojnic · BVS typy C+D + rolovací vrata · 2023</div>
+          <p class="text-gray-500 text-sm leading-relaxed">Kompletní BVS ventilace a rolovací vrata pro stáj dojnic, 220 kusů. Vlastní výroba a montáž z Křičeně.</p>
+        </a>
+        <a href="reference.html" class="bg-white rounded-2xl p-6 border border-gray-100 block hover:border-orange-200 transition-colors">
+          <div class="text-xs font-semibold text-orange-500 uppercase tracking-widest mb-2">Realizace</div>
+          <h3 class="font-bold text-xl mb-2">Osičky</h3>
+          <div class="text-sm font-medium text-gray-700 mb-3">Hřebenová štěrbina + boční ventilace + zastřešení jímky Ø 22 m · 2024</div>
+          <p class="text-gray-500 text-sm leading-relaxed">Hřebenová štěrbina, boční ventilace a zastřešení jímky o průměru 22 m. Provoz bez denního zásahu obsluhy.</p>
+        </a>
+        <a href="reference.html" class="bg-white rounded-2xl p-6 border border-gray-100 block hover:border-orange-200 transition-colors">
+          <div class="text-xs font-semibold text-orange-500 uppercase tracking-widest mb-2">Realizace</div>
+          <h3 class="font-bold text-xl mb-2">Humpolec</h3>
+          <div class="text-sm font-medium text-gray-700 mb-3">Rekonstrukce ventilace + nová vrata · stáj 95 kusů · 2024</div>
+          <p class="text-gray-500 text-sm leading-relaxed">Výměna starého větracího systému za BVS typ B s automatickým řízením přes meteostanici HAZE. Bez denního zásahu obsluhy.</p>
+        </a>
+        <a href="reference.html" class="bg-white rounded-2xl p-6 border border-gray-100 block hover:border-orange-200 transition-colors">
+          <div class="text-xs font-semibold text-orange-500 uppercase tracking-widest mb-2">Realizace</div>
+          <h3 class="font-bold text-xl mb-2">Krpálek Academy</h3>
+          <div class="text-sm font-medium text-gray-700 mb-3">Nová hala 1 800 m² · kompletní ventilace + vrata · 2023</div>
+          <p class="text-gray-500 text-sm leading-relaxed">Návrh, výroba i montáž z vlastní haly v Křičeni. Předáno v termínu 11 týdnů od podpisu smlouvy.</p>
+        </a>
+      </div>
+
+      <div class="text-center">
+        <a href="reference.html" class="inline-flex items-center gap-2 text-orange-500 font-semibold hover:underline">
+          Všechny realizace →
+        </a>
+      </div>
     </div>
-  </div>
-</footer>
+  </section>
 
-<!-- STICKY MOBILE CTA -->
-<div class="sticky-bar">
-  <a href="tel:+420602488989">Zavolat</a>
-  <a href="kontakt/">Poptávka</a>
-</div>
+  <!-- CTA STRIP -->
+  <section class="configurator-bg py-12 md:py-14 px-4 md:px-6">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl md:text-4xl font-black text-white mb-4">Plánujete novou stáj nebo rekonstrukci?</h2>
+      <p class="text-white/80 text-lg mb-8 max-w-2xl mx-auto">
+        Pošlete nám rozměry a typ chovu. Kalkulace do 3 pracovních dnů, vizualizace zdarma.
+      </p>
+      <div class="flex flex-wrap gap-4 justify-center">
+        <a href="kontakt.html" class="bg-white text-orange-500 px-7 py-3.5 rounded-lg font-bold hover:bg-gray-50 transition-colors">
+          Vyžádat nabídku →
+        </a>
+        <a href="tel:+420602488989" class="border-2 border-white/50 text-white px-7 py-3.5 rounded-lg font-semibold hover:bg-white/10 transition-colors">
+          📞 +420 602 488 989
+        </a>
+      </div>
+    </div>
+  </section>
 
-<!-- COOKIE BANNER -->
-<div class="cookies" id="cookies">
-  <p><strong style="color:#fff">Cookies a měření</strong><br>Používáme analytické cookies (Google Analytics, Google Ads) pro měření návštěvnosti. Bez vašeho souhlasu neukládáme nic mimo nezbytné soubory.</p>
-  <div class="cookies-btns">
-    <button class="cookies-btn-decline" onclick="cookieChoice(false)">Jen nezbytné</button>
-    <button class="cookies-btn-accept" onclick="cookieChoice(true)">Souhlasím</button>
-  </div>
-</div>
+  <!-- FOOTER -->
+  <footer class="bg-gray-900 py-12 px-4 md:px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid md:grid-cols-4 gap-8 mb-10">
+        <div class="md:col-span-2">
+          <div class="flex items-center gap-2 mb-4">
+            <svg width="32" height="25" viewBox="0 0 36 28" fill="none"><path d="M18 0L36 14H28V28H8V14H0L18 0Z" fill="#F07B20"/></svg>
+            <span class="text-xl font-black text-white tracking-tight">HAZE</span>
+          </div>
+          <p class="text-gray-500 text-sm leading-relaxed max-w-xs">
+            Technologické prvky v zemědělství. Od roku 2007 jsme dodali 300+ stájí chovatelům v CZ, SK a HU.
+          </p>
+          <div class="mt-4 text-sm text-gray-600">
+            HAZE s.r.o. · IČO 27509800 · DIČ CZ27509800
+          </div>
+        </div>
+        <div>
+          <div class="text-white font-semibold mb-4">Produkty</div>
+          <div class="space-y-2 text-sm">
+            <a href="produkty.html#ventilace" class="block text-gray-500 hover:text-orange-400">Větrací systémy</a>
+            <a href="produkty.html#vrata" class="block text-gray-500 hover:text-orange-400">Vrata a průchody</a>
+            <a href="meteostanice.html" class="block text-gray-500 hover:text-orange-400">Meteostanice HAZE</a>
+            <a href="produkty.html#jimky" class="block text-gray-500 hover:text-orange-400">Zastřešení jímek</a>
+          </div>
+        </div>
+        <div>
+          <div class="text-white font-semibold mb-4">Kontakt</div>
+          <div class="space-y-2 text-sm text-gray-500">
+            <div>Výroba: Křičeň 108, 533 41</div>
+            <div>Obchod: Praskačka 145</div>
+            <div class="pt-2">
+              <a href="tel:+420602488989" class="text-orange-400 hover:underline">+420 602 488 989</a>
+              <div><a href="mailto:dominik.hanousek@haze.cz" class="hover:text-orange-400">dominik.hanousek@haze.cz</a></div>
+            </div>
+            <div class="pt-2">
+              <a href="tel:+420495580264" class="hover:text-orange-400">+420 495 580 264</a>
+              <div><a href="mailto:info@haze.cz" class="hover:text-orange-400">info@haze.cz</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 pt-6 flex flex-col md:flex-row justify-between items-center gap-3">
+        <div class="text-gray-600 text-sm">© 2026 HAZE s.r.o. Všechna práva vyhrazena.</div>
+        <div class="flex gap-5 text-sm text-gray-600">
+          <a href="ochrana-osobnich-udaju.html" class="hover:text-orange-400">Ochrana osobních údajů</a>
+        </div>
+      </div>
+    </div>
+  </footer>
 
-<script src="assets/scripts.js"></script>
+<script>document.getElementById('mobile-menu-btn').addEventListener('click',function(){document.getElementById('mobile-menu').classList.toggle('hidden');});</script>
 </body>
 </html>
