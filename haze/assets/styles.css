@@ -63,11 +63,10 @@ header.scrolled .logo-img{height:34px}
   opacity:.92;transition:opacity .2s,color .2s}
 .nav-links a:hover{opacity:1;color:var(--haze-soft)}
 .nav-links a.active{opacity:1;color:var(--haze-soft)}
-.nav-cta{background:var(--haze);color:#fff;padding:13px 26px;border-radius:4px;
+.nav-cta{background:transparent;color:#fff;padding:12px 24px;border-radius:4px;border:1.5px solid rgba(255,255,255,.55);
   font-size:14px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;
-  box-shadow:0 6px 18px rgba(247,148,48,.32);
-  transition:background .2s,transform .2s,box-shadow .2s}
-.nav-cta:hover{background:var(--haze-dark);transform:translateY(-1px);box-shadow:0 10px 24px rgba(247,148,48,.45)}
+  transition:background .2s,border-color .2s,transform .2s}
+.nav-cta:hover{background:rgba(255,255,255,.1);border-color:#fff;transform:translateY(-1px)}
 .burger{display:none;color:#fff;font-size:22px;background:none;border:none;cursor:pointer}
 
 /* ========== HERO (homepage) ========== */
