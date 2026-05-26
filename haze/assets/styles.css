@@ -53,18 +53,18 @@ header.solid{background:rgba(15,17,22,.96)}
   padding:20px 28px;max-width:1240px;margin:0 auto;gap:24px;transition:padding .25s ease}
 header.scrolled .hbar{padding:14px 28px}
 .logo{display:flex;align-items:center;color:#fff;text-decoration:none}
-.logo-img{height:40px;width:auto;display:block;flex:none;transition:height .25s ease}
+.logo-img{height:44px;width:auto;display:block;flex:none;transition:height .25s ease}
 header.scrolled .logo-img{height:34px}
 .footer-brand .logo-img{height:30px}
 @media (max-width:760px){.logo-img{height:32px}header.scrolled .logo-img{height:30px}}
 .nav{display:flex;align-items:center;gap:36px}
 .nav-links{display:flex;gap:30px;list-style:none}
-.nav-links a{color:#fff;font-size:14.5px;font-weight:600;letter-spacing:.02em;
-  opacity:.92;transition:opacity .2s,color .2s}
+.nav-links a{color:#fff;font-size:16px;font-weight:600;letter-spacing:.02em;
+  opacity:.95;transition:opacity .2s,color .2s}
 .nav-links a:hover{opacity:1;color:var(--haze-soft)}
 .nav-links a.active{opacity:1;color:var(--haze-soft)}
-.nav-cta{background:var(--haze);color:#fff;padding:13px 26px;border-radius:4px;
-  font-size:14px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;
+.nav-cta{background:var(--haze);color:#fff;padding:14px 28px;border-radius:4px;
+  font-size:15px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;
   transition:background .2s,transform .2s}
 .nav-cta:hover{background:var(--haze-dark);transform:translateY(-1px)}
 .burger{display:none;color:#fff;font-size:22px;background:none;border:none;cursor:pointer}
@@ -89,7 +89,7 @@ header.scrolled .logo-img{height:34px}
     linear-gradient(to top,rgba(15,17,22,.7) 0%,transparent 38%);
 }
 .hero-content{position:relative;z-index:2;max-width:1240px;margin:0 auto;padding:0 28px;width:100%}
-.hero-grid{max-width:760px}
+.hero-grid{max-width:760px;display:flex;flex-direction:column;align-items:flex-start}
 .eyebrow{display:inline-flex;align-items:center;gap:10px;
   font-size:11.5px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;
   color:var(--haze-soft);margin-bottom:28px;opacity:0;transform:translateY(8px);
@@ -97,8 +97,8 @@ header.scrolled .logo-img{height:34px}
 .eyebrow::before{content:'';width:34px;height:1.5px;background:var(--haze);display:inline-block}
 h1{
   font-family:'Manrope',sans-serif;font-weight:800;
-  font-size:clamp(2.4rem,5vw,4.6rem);line-height:1.05;letter-spacing:-.02em;
-  margin-bottom:26px;
+  font-size:clamp(2.2rem,4vw,3.8rem);line-height:1.05;letter-spacing:-.02em;
+  margin-bottom:22px;
 }
 h1 .line{display:block;overflow:hidden;padding-bottom:.08em}
 h1 .line span{display:inline-block;transform:translateY(120%);
@@ -135,10 +135,11 @@ h1 em{font-style:italic;color:var(--haze-soft);font-weight:700}
 .btn-secondary:hover .btn-arrow{transform:rotate(45deg);background:var(--haze);border-color:var(--haze)}
 .btn-secondary:hover .btn-arrow svg{transform:rotate(-45deg)}
 .hero-cta{
-  display:inline-flex;align-items:center;justify-content:center;white-space:nowrap;
+  align-self:flex-start;
+  display:inline-flex;align-items:center;justify-content:center;
   background:var(--haze);color:#fff;
-  padding:18px 34px;border-radius:4px;
-  font-size:clamp(15px,1.15vw,17px);font-weight:700;letter-spacing:.04em;text-transform:uppercase;
+  padding:16px 32px;border-radius:4px;
+  font-size:15px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;
   transition:background .25s,transform .25s;
 }
 .hero-cta:hover{background:var(--haze-dark);transform:translateY(-2px)}
