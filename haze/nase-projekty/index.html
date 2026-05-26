@@ -45,6 +45,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/styles.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
 <!-- HAZE-FAVICON -->
 <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon-180.png">
@@ -92,6 +93,19 @@
     <div class="crumbs"><a href="../">Domů</a><span>›</span>Naše projekty</div>
     <h1>200+ stájí v <em>CZ, SK a HU.</em></h1>
     <p class="lead">Realizace z 19 let provozu. Boční ventilace, hřebenové štěrbiny, posuvná i křídlová vrata, BVS systémy s polykarbonátem. Konkrétní kontakty na realizace dodáme na vyžádání před podpisem.</p>
+  </div>
+</section>
+
+<section class="haze-mapa-section">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-eyebrow">Interaktivní mapa</div>
+      <h2>Kde už <em>stojíme.</em></h2>
+      <p class="lead">39 zachycených realizací napříč Českou republikou a Slovenskem - jen výřez z 200+ projektů. Klikněte na bod pro detail. Odstín oranžové rozlišuje kraj, modrý okraj značí slovenskou realizaci.</p>
+    </div>
+    <div id="haze-mapa-filtr" class="haze-mapa-filtr" aria-label="Filtr projektů podle produktu"></div>
+    <div id="haze-mapa" class="haze-mapa" role="region" aria-label="Mapa realizací HAZE"></div>
+    <div id="haze-mapa-list" class="haze-mapa-list"></div>
   </div>
 </section>
 
@@ -273,5 +287,7 @@
 </div>
 
 <script src="../assets/scripts.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="" defer></script>
+<script src="../assets/scripts-mapa.js" defer></script>
 </body>
 </html>
