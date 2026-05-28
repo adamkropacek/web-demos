@@ -160,7 +160,7 @@ h1 em{font-style:normal;color:var(--haze-soft);font-weight:700}
 /* ========== SUBPAGE HERO (smaller, no full-bleed photo) ========== */
 .subhero{
   background:var(--steel-900);color:#fff;position:relative;
-  padding:96px 0 40px;border-bottom:1px solid var(--line-dark);
+  padding:44px 0 28px;border-bottom:1px solid var(--line-dark);
 }
 .subhero::after{
   content:'';position:absolute;left:0;right:0;bottom:0;height:1px;
@@ -173,8 +173,8 @@ h1 em{font-style:normal;color:var(--haze-soft);font-weight:700}
 .crumbs a:hover{color:var(--haze-soft)}
 .crumbs span{color:rgba(255,255,255,.4);margin:0 10px}
 .subhero h1{
-  font-size:clamp(2rem,4.4vw,3.6rem);line-height:1.08;letter-spacing:-.015em;
-  margin-bottom:22px;max-width:840px;font-weight:700;
+  font-size:clamp(1.75rem,3.4vw,2.8rem);line-height:1.1;letter-spacing:-.015em;
+  margin-bottom:14px;max-width:840px;font-weight:700;
 }
 .subhero h1 em{font-style:normal;color:var(--haze-soft)}
 .subhero .lead{font-size:clamp(1rem,1.4vw,1.18rem);color:rgba(255,255,255,.78);max-width:660px;line-height:1.6}
@@ -192,6 +192,9 @@ h1 em{font-style:normal;color:var(--haze-soft);font-weight:700}
 /* ========== SECTIONS ========== */
 section{padding:104px 0;position:relative}
 section.tight{padding:72px 0}
+/* subpage: compact top so products/content sit near the fold (variant A, Adam 2026-05-28) */
+.subhero + section{padding-top:40px}
+.subhero + section .sec-head{margin-bottom:28px}
 .sec-eyebrow{font-size:11.5px;letter-spacing:.28em;text-transform:uppercase;
   color:var(--haze-dark);font-weight:700;margin-bottom:18px;display:flex;align-items:center;gap:12px}
 .sec-eyebrow::before{content:'';width:30px;height:1.5px;background:var(--haze)}
@@ -528,7 +531,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   .story-facts{padding:32px 24px}
   .contact-form{padding:28px 22px}
   .contact{padding-bottom:88px}
-  .subhero{padding:88px 0 32px}
+  .subhero{padding:40px 0 24px}
 }
 
 /* ========== REDUCED MOTION ========== */
