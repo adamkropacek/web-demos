@@ -140,6 +140,40 @@ if (leadForm) {
   });
 }
 
+// Mobile nav drawer (hamburger) — off-canvas panel below 1100px
+const navToggle = document.getElementById('navToggle');
+const navEl = document.querySelector('header .nav');
+if (navToggle && navEl) {
+  const isMobile = () => window.matchMedia('(max-width:1100px)').matches;
+  const closeNav = () => {
+    document.body.classList.remove('nav-open');
+    navToggle.setAttribute('aria-expanded', 'false');
+  };
+  navToggle.addEventListener('click', () => {
+    const open = document.body.classList.toggle('nav-open');
+    navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  // Dropdown row (Produkty) becomes a tap-to-expand accordion inside the drawer
+  navEl.querySelectorAll('.has-dropdown > a').forEach(a => {
+    a.addEventListener('click', e => {
+      if (isMobile()) { e.preventDefault(); a.parentElement.classList.toggle('mobile-open'); }
+    });
+  });
+  // Tapping any real link (not the dropdown toggle) closes the drawer
+  navEl.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      if (!a.parentElement.classList.contains('has-dropdown')) closeNav();
+    });
+  });
+  // Close on overlay click, Escape, and when resizing back to desktop
+  document.addEventListener('click', e => {
+    if (document.body.classList.contains('nav-open') &&
+        !navEl.contains(e.target) && !navToggle.contains(e.target)) closeNav();
+  });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeNav(); });
+  window.addEventListener('resize', () => { if (!isMobile()) closeNav(); });
+}
+
 // Track phone + email clicks
 document.querySelectorAll('a[href^="tel:"]').forEach(a => {
   a.addEventListener('click', () => {

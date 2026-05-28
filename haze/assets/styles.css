@@ -67,6 +67,13 @@ header.scrolled .logo-img{height:34px}
   font-size:13px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;
   transition:background .2s,transform .2s}
 .nav-cta:hover{background:var(--haze-dark);transform:translateY(-1px)}
+.nav-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;
+  width:44px;height:44px;padding:11px 9px;margin-left:auto;background:none;border:none;cursor:pointer;z-index:96}
+.nav-toggle span{display:block;height:2px;width:100%;background:#fff;border-radius:2px;
+  transition:transform .3s ease,opacity .2s ease}
+body.nav-open .nav-toggle span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+body.nav-open .nav-toggle span:nth-child(2){opacity:0}
+body.nav-open .nav-toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 .burger{display:none;color:#fff;font-size:22px;background:none;border:none;cursor:pointer}
 
 /* ========== HERO (homepage) ========== */
@@ -501,8 +508,26 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   .story-facts,.contact-aside{position:static}
   .footer-grid{grid-template-columns:1fr 1fr;gap:36px}
   .usecase-grid{grid-template-columns:1fr;gap:18px}
-  .nav-links{display:none}
-  .header-phone{display:none}
+  .nav-toggle{display:flex}
+  .nav{position:fixed;top:0;right:0;height:100vh;height:100dvh;width:min(84vw,340px);
+    flex-direction:column;align-items:stretch;justify-content:flex-start;gap:0;
+    padding:92px 26px 36px;background:var(--steel-900);border-left:1px solid var(--line-dark);
+    box-shadow:-16px 0 48px rgba(0,0,0,.55);transform:translateX(100%);
+    transition:transform .32s cubic-bezier(.4,0,.2,1);overflow-y:auto;z-index:95}
+  body.nav-open .nav{transform:translateX(0)}
+  body.nav-open{overflow:hidden}
+  body.nav-open::after{content:'';position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:94}
+  body.nav-open .cookies,body.nav-open .sticky-bar{display:none}
+  .nav-links{display:flex;flex-direction:column;gap:0;width:100%}
+  .nav-links > li{border-bottom:1px solid var(--line-dark)}
+  .nav-links > li > a{display:block;padding:16px 2px;font-size:17px;opacity:1}
+  .header-phone{display:block;padding:18px 2px;font-size:17px;opacity:1}
+  .nav-cta{display:inline-block;margin-top:24px;text-align:center;padding:15px;font-size:14px}
+  .nav-links .has-dropdown .dropdown{position:static;opacity:1;visibility:visible;transform:none;
+    display:none;border:none;box-shadow:none;background:transparent;min-width:0;padding:0 0 12px 14px}
+  .nav-links .has-dropdown.mobile-open .dropdown{display:block}
+  .nav-links .has-dropdown.mobile-open > a .caret{transform:rotate(180deg)}
+  .nav-links .dropdown a{padding:9px 0;font-size:14.5px}
   .sticky-bar{display:flex}
   .contact{padding-bottom:96px}
   section{padding:88px 0}
@@ -525,7 +550,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   .final-buttons{flex-direction:column;width:100%;padding:0 16px}
   .final-buttons a{width:100%;justify-content:center}
   .hbar{padding:14px 18px}
-  .nav-cta{display:none}
   .footer-grid{grid-template-columns:1fr;gap:32px}
   .commit-card{padding:32px 24px}
   .story-facts{padding:32px 24px}
