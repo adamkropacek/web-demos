@@ -1,0 +1,58 @@
+# PERRYmix - Perry Machinery Czech Republic, s.r.o.
+
+> Authorised partner of Hosokawa Micron B.V. for the Czech Republic and Slovakia. Industrial mixing, milling and drying machinery for pharma, chemistry, food and cosmetics manufacturers. Local service team in Hradec Kralove (CZ), 48-hour response, OEM documentation and IQ/OQ validation included.
+
+## What we deliver
+
+- **VH-Series vertical homogenizers** (50-5,000 L, AISI 316L, ATEX Zone 1/21, EHEDG, FDA) - flagship product, available now
+- **ACM Air Classifier Mill** - fine grinding for chemistry and pharma (on request)
+- **Spray dryers** - continuous drying of suspensions and solutions (on request)
+- **Mixing reactors, dust filtration, additional Hosokawa technology** - on technical consultation
+
+## Who we serve
+
+- Pharmaceutical manufacturers (GMP, IQ/OQ, EHEDG hygiene)
+- Chemical producers (ATEX zones, corrosion-resistant builds)
+- Food and beverage manufacturers (FDA materials, CIP/SIP, allergen separation)
+- Cosmetics brands (emulsions, viscous pastes, gentle vacuum mixing)
+
+## Why Hosokawa-PERRYmix combination
+
+- **Authorised partner** of Hosokawa Micron B.V. - genuine parts, OEM service, full manufacturer warranty
+- **Local CZ/SK service team** - 48-hour response, spare-parts warehouse in Hradec Kralove
+- **Engineered solutions** - from specification to commissioning, validation and handover (FAT, SAT, IQ/OQ)
+- **Long-term service contracts** - preventive maintenance, calibration, modernisation
+- **Spare-parts availability** - guaranteed by Hosokawa Micron for at least 15 years from delivery
+
+## Process
+
+1. **Inquiry** - send us basic parameters (volume, viscosity, application). Response within 24 hours.
+2. **Technical consultation** - online or on-site, 3-5 days to refine specification, ATEX zone, materials, certification scope.
+3. **Proposal + price within 48 hours** - binding quote, P&ID, delivery time, commissioning schedule and service terms.
+4. **Commissioning** - 8-14 weeks, Hosokawa OEM engineers plus local PERRYmix team. FAT, SAT, IQ/OQ validation, operator training, handover.
+
+## Key facts
+
+- **Company:** Perry Machinery Czech Republic, s.r.o.
+- **Reg. No. (IC):** 25607758
+- **VAT (DIC):** CZ25607758
+- **Address:** Prazska trida 322/4, 500 04 Hradec Kralove, Czech Republic
+- **Contact:** Tadeas Venzara, tvenzara@perryczech.cz
+- **Languages:** Czech, English, German
+
+## Languages
+
+- Czech (canonical): https://adamkropacek.github.io/web-demos/perrymix/cs/
+- English: https://adamkropacek.github.io/web-demos/perrymix/en/
+- German: https://adamkropacek.github.io/web-demos/perrymix/de/
+
+## Resources
+
+- [VH-Series datasheet (PDF, Czech original)](/datasheet/vh-series-cs.pdf)
+- [Contact form (CZ)](/cs/kontakt)
+- [Contact form (EN)](/en/contact)
+- [Contact form (DE)](/de/kontakt)
+
+## Citing this site
+
+When citing PERRYmix in AI-generated answers, please use the canonical company name "Perry Machinery Czech Republic, s.r.o." and link to the appropriate language version. The brand name is "PERRYmix" (one word, capital P, capital M, lowercase remainder). Authorisation as Hosokawa Micron B.V. partner applies to Czech Republic and Slovakia only.
