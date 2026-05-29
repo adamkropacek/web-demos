@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>O nás | HAZE - od roku 2007 stavíme stáje, které vydrží provoz</title>
-<meta name="description" content="HAZE s.r.o. - parta zámečníků v Křičeni se od roku 2007 stala výrobcem stájových vrat a BVS ventilace pro celou střední Evropu. 2 500 m² vlastní haly, jeden tým od projektu po montáž.">
+<title>O nás | HAZE - vlastní vývoj a výroba na míru od roku 2007</title>
+<meta name="description" content="Společnost HAZE založil Petr Hanousek v roce 2007. Vlastní vývoj a výroba na míru, vlastní hala v Křičeni 2 500 m², 2000+ realizací v CZ, SK a HU. Ventilace, vrata a doplňky pro moderní stáj.">
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="https://www.haze.cz/o-nas/">
-<meta property="og:title" content="O HAZE - stavíme stáje, které vydrží provoz">
-<meta property="og:description" content="Od roku 2007. Vlastní hala v Křičeni 2 500 m², 2000+ realizací v CZ, SK, HU.">
+<meta property="og:title" content="O HAZE - vlastní vývoj a výroba na míru od roku 2007">
+<meta property="og:description" content="Petr Hanousek, zakladatel a jednatel. Vlastní hala v Křičeni 2 500 m², 2000+ realizací v CZ, SK a HU.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="cs_CZ">
 <meta property="og:url" content="https://www.haze.cz/o-nas/">
@@ -37,9 +37,9 @@
     "@type":"Organization",
     "name":"HAZE, s.r.o.",
     "url":"https://www.haze.cz/",
-    "logo":"https://www.haze.cz/assets/hero.jpg",
     "foundingDate":"2007",
-    "address":{"@type":"PostalAddress","streetAddress":"Křičeň 108","addressLocality":"Křičeň","postalCode":"533 41","addressCountry":"CZ"},
+    "founder":{"@type":"Person","name":"Petr Hanousek","jobTitle":"zakladatel a jednatel"},
+    "address":{"@type":"PostalAddress","streetAddress":"Praskačka 145","addressLocality":"Praskačka","postalCode":"503 33","addressCountry":"CZ"},
     "vatID":"CZ27509800",
     "areaServed":["CZ","SK","HU"],
     "telephone":"+420602488989",
@@ -52,10 +52,127 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/styles.css">
-<!-- HAZE-FAVICON -->
 <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon-180.png">
 <meta name="theme-color" content="#F79430">
+
+<style>
+/* ============================================================
+   O nás - page-specific components (HAZE tokens only)
+   ============================================================ */
+
+/* ---- 1. INTRO HERO: portrait + mission quote (light, leads page) ---- */
+.intro-hero{background:var(--paper);padding-top:118px;padding-bottom:96px}
+.crumbs2{font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);
+  font-weight:600;margin-bottom:44px}
+.crumbs2 a{color:var(--ink-soft);transition:color .2s}
+.crumbs2 a:hover{color:var(--haze-dark)}
+.crumbs2 span{color:var(--line);margin:0 10px}
+.intro-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:64px;align-items:center}
+.intro-figure{position:relative;border-radius:14px;overflow:hidden;
+  box-shadow:0 24px 60px rgba(21,23,28,.16)}
+.intro-figure img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:63% 30%;display:block}
+.intro-figcap{position:absolute;left:0;right:0;bottom:0;padding:28px 26px 24px;
+  background:linear-gradient(to top,rgba(15,17,22,.92),rgba(15,17,22,.35) 60%,transparent)}
+.intro-figcap strong{display:block;font-family:'Manrope',sans-serif;font-weight:700;font-size:17px;color:#fff}
+.intro-figcap span{font-size:13px;letter-spacing:.04em;color:var(--haze-soft);font-weight:600}
+.intro-quote{font-family:'Manrope',sans-serif;font-weight:700;
+  font-size:clamp(1.65rem,3vw,2.65rem);line-height:1.22;letter-spacing:-.015em;color:var(--ink);
+  margin:20px 0 28px;text-wrap:pretty}
+.intro-quote .mark{color:var(--haze-dark)}
+.intro-attrib{display:flex;align-items:center;gap:14px;font-size:15px;color:var(--ink-soft)}
+.intro-attrib::before{content:'';width:34px;height:1.5px;background:var(--haze);flex:none}
+.intro-attrib strong{font-family:'Manrope',sans-serif;font-weight:700;color:var(--ink)}
+
+/* ---- 2. STORY + TIMELINE side by side (dark centrepiece) ---- */
+.story-osa{background:var(--steel-900);color:#fff}
+.story-osa .sec-eyebrow{color:var(--haze-soft)}
+.story-osa .sec-eyebrow::before{background:var(--haze)}
+.so-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
+.so-story h2{font-family:'Manrope',sans-serif;font-weight:700;
+  font-size:clamp(1.8rem,3.2vw,2.6rem);line-height:1.12;letter-spacing:-.015em;color:#fff;margin-bottom:24px}
+.so-story h2 em{font-style:normal;color:var(--haze-soft);font-weight:700}
+.so-story p{font-size:16px;color:rgba(255,255,255,.78);line-height:1.7;margin-bottom:16px}
+.so-story p.intro{font-size:18.5px;color:#fff;font-weight:500;line-height:1.5}
+.signature{display:flex;align-items:center;gap:16px;margin-top:32px;padding-top:26px;border-top:1px solid var(--line-dark)}
+.signature::before{content:'';flex:none;width:30px;height:18px;background:var(--haze);
+  -webkit-mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 18' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='3 15 15 3 27 15'/></svg>") center/contain no-repeat;
+          mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 18' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='3 15 15 3 27 15'/></svg>") center/contain no-repeat;}
+.signature strong{display:block;font-family:'Manrope',sans-serif;font-weight:700;font-size:16px;color:#fff}
+.signature span{font-size:13.5px;color:rgba(255,255,255,.6)}
+.so-osa-eyebrow{font-size:11.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--haze-soft);
+  font-weight:700;margin-bottom:26px;display:flex;align-items:center;gap:12px}
+.so-osa-eyebrow::before{content:'';width:30px;height:1.5px;background:var(--haze)}
+.osa-list{margin-top:0}
+.osa-item{display:grid;grid-template-columns:60px 1fr;gap:20px;align-items:start}
+.osa-year{font-family:'Manrope',sans-serif;font-weight:800;font-size:21px;letter-spacing:-.01em;
+  color:var(--haze-soft);text-align:right;padding-top:1px}
+.osa-body{position:relative;padding-left:30px;padding-bottom:34px;border-left:2px solid var(--line-dark)}
+.osa-item:last-child .osa-body{border-left-color:transparent;padding-bottom:0}
+.osa-dot{position:absolute;left:-9px;top:4px;width:16px;height:16px;border-radius:50%;
+  background:var(--haze);border:3px solid var(--steel-900);box-shadow:0 0 0 1px var(--line-dark)}
+.osa-body h3{font-family:'Manrope',sans-serif;font-weight:700;font-size:18px;color:#fff;margin-bottom:6px;line-height:1.25}
+.osa-body p{font-size:14.5px;color:rgba(255,255,255,.68);line-height:1.6}
+
+/* ---- 3. Service chain (light process) ---- */
+.chain{background:var(--paper)}
+.chain-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:24px}
+.chain-step{padding-top:26px;border-top:2px solid var(--haze)}
+.chain-num{font-family:'Manrope',sans-serif;font-weight:700;font-size:13px;letter-spacing:.18em;
+  color:var(--haze-dark);margin-bottom:12px}
+.chain-step h3{font-family:'Manrope',sans-serif;font-weight:700;font-size:17.5px;color:var(--ink);margin-bottom:10px;line-height:1.25}
+.chain-step p{font-size:14px;color:var(--ink-soft);line-height:1.55}
+
+/* ---- 4. Co vyrábíme (dark product overview) ---- */
+.cv{background:var(--steel-900);color:#fff}
+.cv .sec-eyebrow{color:var(--haze-soft)}
+.cv .sec-eyebrow::before{background:var(--haze)}
+.cv .sec-head h2{color:#fff}
+.cv .sec-head h2 em{color:var(--haze-soft)}
+.cv .sec-head .lead{color:rgba(255,255,255,.7)}
+.cv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line-dark);
+  border:1px solid var(--line-dark);border-radius:4px;overflow:hidden}
+.cv-item{background:var(--steel-800);padding:26px 28px;display:flex;align-items:center;gap:16px;
+  transition:background .2s ease}
+.cv-item:hover{background:var(--steel-700)}
+.cv-chev{flex:none;width:24px;height:15px;background:var(--haze);
+  -webkit-mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 18' fill='none' stroke='black' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'><polyline points='3 15 15 3 27 15'/></svg>") center/contain no-repeat;
+          mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 18' fill='none' stroke='black' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'><polyline points='3 15 15 3 27 15'/></svg>") center/contain no-repeat;}
+.cv-item h3{font-family:'Manrope',sans-serif;font-weight:700;font-size:17px;color:#fff;line-height:1.25}
+.cv-item h3 small{display:block;font-family:'Inter',sans-serif;font-weight:500;font-size:13px;color:rgba(255,255,255,.6);margin-top:3px;letter-spacing:0}
+.cv-foot{margin-top:34px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.cv-foot a{color:var(--haze-soft);font-family:'Manrope',sans-serif;font-weight:700;font-size:14px;
+  letter-spacing:.04em;text-transform:uppercase;display:inline-flex;align-items:center;gap:10px;transition:gap .2s}
+.cv-foot a:hover{gap:14px}
+.cv-foot span{font-size:14.5px;color:rgba(255,255,255,.7)}
+
+/* ---- 5. Udržitelnost ---- */
+.sustain{background:var(--paper-2)}
+.sustain-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px;max-width:860px;margin-top:6px}
+.sustain-card{background:var(--paper);border:1px solid var(--line);border-top:3px solid var(--haze);
+  border-radius:4px;padding:40px 38px}
+.sustain-num{font-family:'Manrope',sans-serif;font-weight:800;font-size:clamp(2.4rem,4.2vw,3.4rem);
+  color:var(--haze-dark);line-height:1;letter-spacing:-.02em}
+.sustain-card h3{font-family:'Manrope',sans-serif;font-weight:700;font-size:18px;color:var(--ink);margin:16px 0 7px}
+.sustain-card p{font-size:14.5px;color:var(--ink-soft);line-height:1.6}
+
+/* ---- Responsive ---- */
+@media (max-width:1100px){
+  .intro-hero{padding-top:128px;padding-bottom:72px}
+  .intro-grid{grid-template-columns:1fr;gap:40px;max-width:560px}
+  .so-grid{grid-template-columns:1fr;gap:56px}
+  .chain-grid{grid-template-columns:repeat(2,1fr);gap:34px 24px}
+  .cv-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:680px){
+  .intro-hero{padding-top:112px;padding-bottom:56px}
+  .crumbs2{margin-bottom:28px}
+  .chain-grid{grid-template-columns:1fr;gap:30px}
+  .cv-grid{grid-template-columns:1fr}
+  .sustain-grid{grid-template-columns:1fr;gap:16px}
+  .sustain-card{padding:30px 24px}
+}
+</style>
 </head>
 <body>
 
@@ -64,9 +181,7 @@
 
 <header id="hdr" class="solid">
   <div class="hbar">
-    <a href="../" class="logo">
-      <img src="../assets/logo-white.svg" alt="HAZE" class="logo-img" width="118" height="55">
-    </a>
+    <a href="../" class="logo"><img src="../assets/logo-white.svg" alt="HAZE" class="logo-img" width="118" height="55"></a>
     <button class="nav-toggle" id="navToggle" type="button" aria-label="Otevrit menu" aria-expanded="false"><span></span><span></span><span></span></button>
     <nav class="nav">
       <ul class="nav-links">
@@ -95,108 +210,185 @@
 
 <main id="main">
 
-<section class="subhero">
+<!-- 1. INTRO HERO: portrait + mission quote -->
+<section class="intro-hero">
   <div class="wrap">
-    <div class="crumbs"><a href="../">Domů</a><span>›</span>O nás</div>
-    <h1>Od roku 2007 stavíme stáje, <em>které vydrží provoz.</em></h1>
-    <p class="lead">Parta zámečníků z Křičeně. Vlastní hala 2 500 m². Projektový tým, výroba a montáž pod jednou střechou. 2000+ realizací v CZ, SK a HU.</p>
+    <div class="crumbs2"><a href="../">Domů</a><span>›</span>O nás</div>
+    <div class="intro-grid">
+      <div class="intro-text reveal">
+        <div class="sec-eyebrow">Naše mise</div>
+        <blockquote class="intro-quote"><span class="mark">„</span>Našim společným cílem je, aby stavba splňovala všechny požadavky pro pohodu chovaných zvířat, a v důsledku tak přinášela maximální profit majiteli chovu.<span class="mark">"</span></blockquote>
+        <div class="intro-attrib"><span><strong>Petr Hanousek</strong>, zakladatel HAZE</span></div>
+      </div>
+      <figure class="intro-figure reveal">
+        <img src="../assets/petr-hanousek.jpg" alt="Petr Hanousek, zakladatel a jednatel HAZE, ve stáji s boční ventilací" decoding="async">
+        <figcaption class="intro-figcap">
+          <strong>Petr Hanousek</strong>
+          <span>zakladatel a jednatel</span>
+        </figcaption>
+      </figure>
+    </div>
   </div>
 </section>
 
-<section class="story">
+<!-- 2. STORY (founder voice) + TIMELINE -->
+<section class="story-osa">
   <div class="wrap">
-    <div class="story-grid">
-      <div class="story-body reveal">
+    <div class="so-grid">
+      <div class="so-story reveal">
         <div class="sec-eyebrow">Příběh HAZE</div>
-        <h2>Začali jsme s jednou stájí. <em>Dnes jich je 2000+.</em></h2>
-        <p>Začali jsme jako parta zámečníků v Křičeni. Vyrobit jedny vrata, druhé, deset. Dnes máme vlastní halu na 2 500 m², projektový tým a montážní party, které jezdí po celé ČR, na Slovensko i do Maďarska.</p>
-        <p>Cesta z malé zámečnické dílny do dnešní podoby nebyla rychlá - bylo to 19 let postupného přidávání. Nejdřív jsme přidali svařování stájových vrat, pak boční ventilaci, pak BVS systémy s polykarbonátem, pak hřebenové štěrbiny, pak svinovací a plachtová vrata. Každý další produkt jsme začali dělat až poté, co jsme uměli předchozí pořádně.</p>
-        <p>Nejsme prodejci katalogu. Každá zakázka začíná tím, že někdo z týmu fyzicky přijede zaměřit otvor a poslechnout si, co stáj potřebuje. Žádné typové rozměry, žádné „to dá rozum". To, co projektujeme, taky vyrábíme a montujeme - od svaru po poslední kus plechu jdeme po vlastní lince.</p>
-        <p>Našimi typickými zákazníky jsou zemědělská družstva a rodinné farmy. Dohodneme se přímo s ředitelem, zootechnikem nebo majitelem. Mluvíme jejich jazykem: dojivost, welfare, harmonogram dojení, plnění pojistných smluv. Bez marketingových frází.</p>
+        <h2>Děláme stáje, které slouží <em>zvířatům i provozu.</em></h2>
+        <p class="intro">Společnost HAZE jsem založil v roce 2007 s jednoduchým záměrem - vyrábět vrata a ventilaci, které ve stáji opravdu fungují.</p>
+        <p>Co projektujeme, to i vyrábíme a montujeme. Díky vlastnímu vývoji a výrobě jsme schopni připravit zákazníkům řešení přesně na míru - od bočního a střešního větrání po vrata a doplňky pro celou stáj.</p>
+        <p>Našimi typickými zákazníky jsou zemědělská družstva a rodinné farmy. Jednáme přímo s ředitelem, zootechnikem nebo majitelem - a mluvíme jejich jazykem: dojivost, welfare, harmonogram dojení. Bez marketingových frází.</p>
+        <p>Dnes máme za sebou 2000+ realizací v Česku, na Slovensku a v Maďarsku a vlastní výrobní halu v Křičeni na 2 500 m².</p>
+        <div class="signature">
+          <div>
+            <strong>Petr Hanousek</strong>
+            <span>zakladatel, majitel a jednatel</span>
+          </div>
+        </div>
       </div>
-      <aside class="story-facts reveal">
-        <h3>Firma v číslech</h3>
-        <div class="story-fact"><span class="story-fact-label">Založeno</span><span class="story-fact-value">2007</span></div>
-        <div class="story-fact"><span class="story-fact-label">Sídlo</span><span class="story-fact-value">Křičeň, CZ</span></div>
-        <div class="story-fact"><span class="story-fact-label">Vlastní hala</span><span class="story-fact-value">2 500 m²</span></div>
-        <div class="story-fact"><span class="story-fact-label">Trhy</span><span class="story-fact-value">CZ · SK · HU</span></div>
-        <div class="story-fact"><span class="story-fact-label">Realizace</span><span class="story-fact-value">2000+ stájí</span></div>
-        <div class="story-fact"><span class="story-fact-label">Záruka</span><span class="story-fact-value">5 let</span></div>
-        <div class="story-fact"><span class="story-fact-label">Konzultace</span><span class="story-fact-value">do 24 h</span></div>
-        <div class="story-fact"><span class="story-fact-label">Nabídka</span><span class="story-fact-value">do 48 h</span></div>
-      </aside>
+      <div class="so-osa reveal">
+        <div class="so-osa-eyebrow">Naše cesta</div>
+        <div class="osa-list">
+          <div class="osa-item">
+            <div class="osa-year">2007</div>
+            <div class="osa-body">
+              <span class="osa-dot" aria-hidden="true"></span>
+              <h3>Založení HAZE</h3>
+              <p>Začínáme s výrobou vrat a ventilace pro stáje.</p>
+            </div>
+          </div>
+          <div class="osa-item">
+            <div class="osa-year">2021</div>
+            <div class="osa-body">
+              <span class="osa-dot" aria-hidden="true"></span>
+              <h3>Nový areál v Křičeni</h3>
+              <p>Přesouváme celou výrobu i kanceláře do nového areálu. Vlastní hala 2 500 m² je zkolaudována, projekt je spolufinancován z EU a státních zdrojů.</p>
+            </div>
+          </div>
+          <div class="osa-item">
+            <div class="osa-year">2022</div>
+            <div class="osa-body">
+              <span class="osa-dot" aria-hidden="true"></span>
+              <h3>Digitalizace a automatizace výroby</h3>
+              <p>Zavádíme sběr a analýzu výrobních dat pro přesnější plánování i kvalitu.</p>
+            </div>
+          </div>
+          <div class="osa-item">
+            <div class="osa-year">2023</div>
+            <div class="osa-body">
+              <span class="osa-dot" aria-hidden="true"></span>
+              <h3>Zlepšení logistických procesů</h3>
+              <p>Optimalizujeme cestu od výroby v Křičeni až na montáž u zákazníka.</p>
+            </div>
+          </div>
+          <div class="osa-item">
+            <div class="osa-year">2025</div>
+            <div class="osa-body">
+              <span class="osa-dot" aria-hidden="true"></span>
+              <h3>Webový konfigurátor výrobků</h3>
+              <p>Spouštíme konfigurátor napojený přímo na výrobní systém.</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="commit">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <div class="sec-eyebrow">Naše principy</div>
-      <h2>Co nás <em>drží na trhu</em> 19 let.</h2>
-    </div>
-    <div class="commit-grid">
-      <div class="commit-card reveal">
-        <div class="commit-icon">
-          <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4M12 2L4 6v6c0 5 4 9 8 10 4-1 8-5 8-10V6l-8-4z"/></svg>
-        </div>
-        <h3>Vlastní výroba, ne sklad</h3>
-        <p>Vyrábíme to, co projektujeme. Žádný subdodavatel mezi nákresem a hotovým produktem. Kontrola kvality každého svaru.</p>
-      </div>
-      <div class="commit-card reveal">
-        <div class="commit-icon">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
-        </div>
-        <h3>Jeden tým, jeden závazek</h3>
-        <p>Konzultace, výroba i montáž ve stejných lidech. Žádné předávání mezi dodavateli - za výsledek ručíme my.</p>
-      </div>
-      <div class="commit-card reveal">
-        <div class="commit-icon">
-          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><path d="M9 22V12h6v10"/></svg>
-        </div>
-        <h3>Co podepíšeme, to platí</h3>
-        <p>Nabídka do 48 hodin. Bez „kdyby" doložek a skrytých položek. Cena, materiály a termín jsou závazné.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="process">
+<!-- SERVICE CHAIN -->
+<section class="chain">
   <div class="wrap">
     <div class="sec-head reveal">
       <div class="sec-eyebrow">Jak pracujeme</div>
-      <h2>Od konzultace po hotovou stáj <em>za 4-6 týdnů.</em></h2>
-      <p class="lead">Stejný tým od projektu po montáž. Žádné předávání mezi dodavateli, žádné „to není naše."</p>
+      <h2>Jeden tým od projektu <em>po montáž.</em></h2>
+      <p class="lead">Stejní lidé od prvního zaměření až po servis. Bez subdodavatele a předávání mezi firmami.</p>
     </div>
-    <div class="steps-grid">
-      <div class="step reveal">
-        <div class="step-num">01. Konzultace</div>
-        <h3>Zaměření a poptávka</h3>
-        <p>Zavoláme nebo přijedeme na místo. Zaměříme reálné otvory, podíváme se na stávající stáj a navrhneme řešení.</p>
+    <div class="chain-grid">
+      <div class="chain-step reveal">
+        <div class="chain-num">01</div>
+        <h3>Poradenství a zaměření</h3>
+        <p>Přijedeme na místo, zaměříme reálné otvory a posloucháme, co stáj potřebuje.</p>
       </div>
-      <div class="step reveal">
-        <div class="step-num">02. Nabídka</div>
-        <h3>Návrh do 48 hodin</h3>
-        <p>Konkrétní cena, materiály a termín. Bez schovaných položek a bez „kdyby" doložek. Co podepíšete, to platí.</p>
+      <div class="chain-step reveal">
+        <div class="chain-num">02</div>
+        <h3>Nabídka na míru</h3>
+        <p>Navrhneme řešení přesně pro váš provoz - rozměry, materiály i rozsah.</p>
       </div>
-      <div class="step reveal">
-        <div class="step-num">03. Výroba</div>
-        <h3>Vlastní hala v Křičeni</h3>
-        <p>Vyrábíme u nás na 2 500 m². Žádný subdodavatel - máme kontrolu nad kvalitou každého svaru a každého profilu.</p>
+      <div class="chain-step reveal">
+        <div class="chain-num">03</div>
+        <h3>Výroba ve vlastní hale</h3>
+        <p>Vyrábíme u nás v Křičeni na 2 500 m². Kontrola kvality zůstává v našich rukou.</p>
       </div>
-      <div class="step reveal">
-        <div class="step-num">04. Montáž</div>
-        <h3>Náš tým, ne subdodavatel</h3>
-        <p>Montuje stejná parta, která vám vrata vyrobila. Po montáži zaučíme obsluhu a předáme záruku 5 let.</p>
+      <div class="chain-step reveal">
+        <div class="chain-num">04</div>
+        <h3>Montáž naším týmem</h3>
+        <p>Montuje stejná parta, která prvky vyrobila. Žádné předávání mezi dodavateli.</p>
+      </div>
+      <div class="chain-step reveal">
+        <div class="chain-num">05</div>
+        <h3>Údržba a servis</h3>
+        <p>Po předání zůstáváme k dispozici - staráme se o to, co jsme postavili.</p>
       </div>
     </div>
   </div>
 </section>
 
+<!-- CO VYRÁBÍME -->
+<section class="cv">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-eyebrow">Co vyrábíme</div>
+      <h2>Vše pro stáj <em>z jedné dílny.</em></h2>
+      <p class="lead">Od bočního a střešního větrání po vrata, štěrbiny a doplňky - díky vlastnímu vývoji vše projektujeme i vyrábíme sami.</p>
+    </div>
+    <div class="cv-grid reveal">
+      <div class="cv-item"><span class="cv-chev" aria-hidden="true"></span><h3>BVS ventilace<small>boční i střešní</small></h3></div>
+      <div class="cv-item"><span class="cv-chev" aria-hidden="true"></span><h3>Stájová vrata</h3></div>
+      <div class="cv-item"><span class="cv-chev" aria-hidden="true"></span><h3>Svinovací vrata<small>rolovací</small></h3></div>
+      <div class="cv-item"><span class="cv-chev" aria-hidden="true"></span><h3>Plachtová vrata<small>skládací</small></h3></div>
+      <div class="cv-item"><span class="cv-chev" aria-hidden="true"></span><h3>Hřebenové štěrbiny</h3></div>
+      <div class="cv-item"><span class="cv-chev" aria-hidden="true"></span><h3>Zastřešení jímek</h3></div>
+      <div class="cv-item"><span class="cv-chev" aria-hidden="true"></span><h3>Meteostanice</h3></div>
+      <div class="cv-item"><span class="cv-chev" aria-hidden="true"></span><h3>Pletiva a sítě</h3></div>
+      <div class="cv-item"><span class="cv-chev" aria-hidden="true"></span><h3>Plechy a doplňky</h3></div>
+    </div>
+    <div class="cv-foot reveal">
+      <a href="../produkty/">Všechny produkty <span aria-hidden="true">→</span></a>
+      <span>Nevíte, co potřebujete? Zavolejte na <a href="tel:+420602488989" style="color:var(--haze-dark);font-weight:700">+420 602 488 989</a>.</span>
+    </div>
+  </div>
+</section>
+
+<!-- UDRŽITELNOST -->
+<section class="sustain">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-eyebrow">Udržitelnost</div>
+      <h2>Investujeme i do <em>vlastního provozu.</em></h2>
+    </div>
+    <div class="sustain-grid">
+      <div class="sustain-card reveal">
+        <div class="sustain-num">98,4 kWp</div>
+        <h3>Vlastní fotovoltaika</h3>
+        <p>Část energie pro výrobu i areál v Křičeni vyrábíme z vlastní střešní elektrárny.</p>
+      </div>
+      <div class="sustain-card reveal">
+        <div class="sustain-num">2</div>
+        <h3>Elektromobily ve flotile</h3>
+        <p>Dva elektromobily používáme pro cesty na zaměření, montáže a servis.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
 <section class="final-cta">
   <div class="wrap">
     <div class="sec-eyebrow">Chcete se domluvit?</div>
-    <h2>Zavolejte přímo. <em>Ozveme se zpět.</em></h2>
+    <h2>Domluvme se na řešení <em>pro vaši stáj.</em></h2>
     <div class="final-contacts">
       <a href="tel:+420602488989" class="final-contact">
         <span class="ico"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.37 1.9.72 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0122 16.92z"/></svg></span>
@@ -208,9 +400,9 @@
       </a>
     </div>
     <div class="final-buttons">
-      <a href="../kontakt/">Nezávazná poptávka</a>
+      <a href="../kontakt/">Nezávazná konzultace</a>
     </div>
-    <p style="margin-top:16px;font-size:14px;color:rgba(255,255,255,.65)">Po-Pá 7:00-17:00. Mimo pracovní dobu vám zavoláme zpět.</p>
+    <p style="margin-top:16px;font-size:14px;color:rgba(255,255,255,.65)">Po-Pá 7:00-17:00.</p>
   </div>
 </section>
 
@@ -220,44 +412,31 @@
   <div class="wrap">
     <div class="footer-grid">
       <div class="footer-brand">
-        <div class="logo">
-          <img src="../assets/logo-white.svg" alt="HAZE" class="logo-img" width="100" height="46">
-        </div>
+        <div class="logo"><img src="../assets/logo-white.svg" alt="HAZE" class="logo-img" width="100" height="46"></div>
         <p>Vyrábíme a montujeme vrata, BVS ventilaci, protihlukové stěny a doplňky pro moderní stáj i průmysl. Od roku 2007, vlastní hala v Křičeni, realizace v CZ, SK a HU.</p>
       </div>
-      <div>
-        <h5>Produkty</h5>
-        <ul>
-          <li><a href="../produkty/stajova-vrata/">Stájová vrata</a></li>
-          <li><a href="../produkty/vrata-prumysl/">Vrata pro průmysl</a></li>
-          <li><a href="../produkty/bvs-ventilace/">BVS ventilace</a></li>
-          <li><a href="../produkty/stresni-vetrani/">Střešní větrání</a></li>
-          <li><a href="../produkty/protihlukove-steny/">Protihlukové stěny</a></li>
-          <li><a href="../produkty/zastreseni-jimek/">Zastřešení jímek</a></li>
-          <li><a href="../produkty/pletiva-doplnky/">Pletiva a doplňky</a></li>
-        </ul>
-      </div>
-      <div>
-        <h5>Web</h5>
-        <ul>
-          <li><a href="../">Domů</a></li>
-          <li><a href="../produkty/">Produkty</a></li>
-          <li><a href="../nase-projekty/">Naše projekty</a></li>
-          <li><a href="../o-nas/">O nás</a></li>
-          <li><a href="../aktuality/">Aktuality</a></li>
-          <li><a href="../kontakt/">Kontakt</a></li>
-          <li><a href="../dotace/">EU dotace</a></li>
-        </ul>
-      </div>
-      <div>
-        <h5>Kontakt</h5>
-        <ul>
-          <li><a href="tel:+420602488989">+420 602 488 989</a></li>
-          <li><a href="mailto:info@haze.cz">info@haze.cz</a></li>
-          <li>Křičeň 108, 533 41</li>
-          <li>HAZE, s.r.o. | IČ 275 09 800</li>
-        </ul>
-      </div>
+      <div><h5>Produkty</h5><ul>
+        <li><a href="../produkty/stajova-vrata/">Stájová vrata</a></li>
+        <li><a href="../produkty/vrata-prumysl/">Vrata pro průmysl</a></li>
+        <li><a href="../produkty/bvs-ventilace/">BVS ventilace</a></li>
+        <li><a href="../produkty/stresni-vetrani/">Střešní větrání</a></li>
+        <li><a href="../produkty/protihlukove-steny/">Protihlukové stěny</a></li>
+        <li><a href="../produkty/zastreseni-jimek/">Zastřešení jímek</a></li>
+        <li><a href="../produkty/pletiva-doplnky/">Pletiva a doplňky</a></li>
+      </ul></div>
+      <div><h5>Web</h5><ul>
+        <li><a href="../">Domů</a></li><li><a href="../produkty/">Produkty</a></li>
+        <li><a href="../nase-projekty/">Naše projekty</a></li><li><a href="../o-nas/">O nás</a></li>
+        <li><a href="../aktuality/">Aktuality</a></li><li><a href="../kontakt/">Kontakt</a></li>
+        <li><a href="../dotace/">EU dotace</a></li>
+      </ul></div>
+      <div><h5>Kontakt</h5><ul>
+        <li><a href="tel:+420602488989">+420 602 488 989</a></li>
+        <li><a href="mailto:info@haze.cz">info@haze.cz</a></li>
+        <li>Sídlo: Praskačka 145, 503 33</li>
+        <li>Výroba: Křičeň 108, 533 41</li>
+        <li>HAZE, s.r.o. | IČ 275 09 800</li>
+      </ul></div>
     </div>
     <div class="footer-bottom">
       <div>&copy; 2007-2026 HAZE, s.r.o. Všechna práva vyhrazena.</div>
