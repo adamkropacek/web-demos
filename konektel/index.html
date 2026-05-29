@@ -1,840 +1,808 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KonekTel — Řešení náročných komunikací</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --navy:   #060E1C;
-      --navy2:  #0B1628;
-      --blue:   #1A56DB;
-      --blue-light: #3B82F6;
-      --accent: #0EA5E9;
-      --cream:  #F0F5FF;
-      --muted:  #7A8FAD;
-      --border: rgba(255,255,255,0.08);
-    }
-    html { scroll-behavior: smooth; }
-    * { -webkit-font-smoothing: antialiased; }
-    body { font-family: 'DM Sans', sans-serif; background: #fff; color: var(--navy); }
-    h1,h2,h3,h4 { font-family: 'Space Grotesk', sans-serif; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230A0C10'/><circle cx='16' cy='21' r='2.2' fill='%23E8A24C'/><path d='M11 21a5 5 0 0 1 10 0' stroke='%23E8A24C' stroke-width='1.6' fill='none'/><path d='M8 21a8 8 0 0 1 16 0' stroke='%23E8A24C' stroke-opacity='.5' stroke-width='1.6' fill='none'/></svg>">
+<title>KonekTel, a.s. - Radiokomunikační systémy, na které se provoz spolehne</title>
+<meta name="description" content="Od roku 1991 navrhujeme, dodáváme a servisujeme profesionální radiokomunikační systémy. MOTOTRBO, TETRA, infrastruktura a servis pro městskou dopravu, záchranné složky a průmysl. Partner Motorola Solutions.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0A0C10;          /* near-black graphite */
+  --bg-2:#0E1117;        /* panel */
+  --bg-3:#141923;        /* raised card */
+  --bg-light:#F3F1EA;    /* datasheet paper */
+  --bg-light-2:#E8E5DB;
+  --ink:#E9ECF1;         /* off-white */
+  --ink-dark:#191B20;    /* on light */
+  --muted:#8A93A3;       /* cool grey */
+  --muted-2:#5B6373;
+  --muted-light:#6B6A62; /* muted on light */
+  --line:rgba(255,255,255,.08);
+  --line-2:rgba(255,255,255,.15);
+  --line-dark:rgba(25,27,32,.12);
+  --accent:#E8A24C;      /* signal amber */
+  --accent-2:#F4B85F;
+  --accent-deep:#C7822F;
+  --live:#46D38A;        /* signal-live green, used sparingly */
+  --maxw:1240px;
+}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:'Inter',system-ui,sans-serif;
+  background:var(--bg);color:var(--ink);
+  line-height:1.6;font-weight:400;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  overflow-x:hidden;
+}
+h1,h2,h3,h4{font-family:'Sora',sans-serif;font-weight:700;letter-spacing:-.02em;line-height:1.08}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.mono{font-family:'IBM Plex Mono',monospace}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 2.2rem}
+.eyebrow{
+  font-family:'IBM Plex Mono',monospace;font-size:.72rem;font-weight:500;
+  letter-spacing:.26em;text-transform:uppercase;color:var(--accent);
+  display:inline-flex;align-items:center;gap:.7rem;
+}
+.eyebrow::before{content:"";width:22px;height:1px;background:var(--accent);opacity:.7}
+.eyebrow.center::before{display:none}
 
-    /* ── NAV ── */
-    .nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      transition: background 0.3s ease, border-color 0.3s ease;
-      border-bottom: 1px solid transparent;
-    }
-    .nav.scrolled {
-      background: rgba(6,14,28,0.97);
-      backdrop-filter: blur(12px);
-      border-color: var(--border);
-    }
-    .nav-inner {
-      max-width: 1200px; margin: 0 auto;
-      padding: 0 2rem;
-      height: 68px;
-      display: flex; align-items: center; justify-content: space-between;
-    }
-    .nav-logo {
-      display: flex; align-items: center; gap: 10px;
-      text-decoration: none;
-    }
-    .nav-logo-mark {
-      width: 36px; height: 36px;
-      background: var(--blue);
-      border-radius: 6px;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .nav-logo-mark svg { width: 20px; height: 20px; fill: white; }
-    .nav-logo-text {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.15rem; font-weight: 700;
-      color: white; letter-spacing: -0.02em;
-    }
-    .nav-logo-text span { color: var(--accent); }
-    .nav-links {
-      display: flex; align-items: center; gap: 2rem;
-      list-style: none;
-    }
-    .nav-links a {
-      color: rgba(255,255,255,0.65);
-      text-decoration: none;
-      font-size: 0.88rem; font-weight: 500;
-      transition: color 0.2s;
-    }
-    .nav-links a:hover { color: white; }
-    .nav-cta {
-      background: var(--blue);
-      color: white !important;
-      padding: 0.55rem 1.2rem;
-      border-radius: 6px;
-      font-size: 0.85rem !important;
-      font-weight: 600 !important;
-      white-space: nowrap;
-      transition: background 0.2s !important;
-    }
-    .nav-cta:hover { background: var(--blue-light) !important; color: white !important; }
+/* ───────── LOADER ───────── */
+#loader{
+  position:fixed;inset:0;z-index:9999;background:var(--bg);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.3rem;
+  transition:opacity .5s ease,visibility .5s ease;
+}
+#loader.done{opacity:0;visibility:hidden}
+.load-mark{font-family:'Sora';font-weight:800;font-size:1.5rem;letter-spacing:-.03em;color:var(--ink)}
+.load-mark b{color:var(--accent)}
+.load-track{width:160px;height:2px;background:var(--line);overflow:hidden;border-radius:2px}
+.load-bar{height:100%;width:40%;background:var(--accent);animation:sweep 1.1s cubic-bezier(.6,0,.2,1) infinite}
+@keyframes sweep{0%{transform:translateX(-110%)}100%{transform:translateX(360%)}}
 
-    /* ── HERO ── */
-    .hero {
-      min-height: 100vh;
-      background: var(--navy);
-      position: relative; overflow: hidden;
-      display: flex; align-items: center;
-    }
-    .hero-bg {
-      position: absolute; inset: 0;
-      background-image: url('https://www.konektel.cz/files/mod_bannery/b10006f623.jpg');
-      background-size: cover; background-position: center;
-      filter: brightness(0.22);
-    }
-    .hero-overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(110deg, rgba(6,14,28,0.9) 0%, rgba(6,14,28,0.5) 55%, rgba(6,14,28,0.65) 100%);
-    }
-    .hero-grid-lines {
-      position: absolute; inset: 0;
-      background-image:
-        linear-gradient(rgba(26,86,219,0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(26,86,219,0.04) 1px, transparent 1px);
-      background-size: 64px 64px;
-    }
-    .hero-content {
-      position: relative; z-index: 2;
-      max-width: 1200px; margin: 0 auto;
-      padding: 0 2rem;
-      width: 100%;
-      padding-top: 80px;
-    }
-    .hero-badge {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(26,86,219,0.18);
-      border: 1px solid rgba(26,86,219,0.35);
-      color: var(--accent);
-      font-size: 0.75rem; font-weight: 600;
-      letter-spacing: 0.12em; text-transform: uppercase;
-      padding: 6px 14px; border-radius: 100px;
-      margin-bottom: 1.5rem;
-    }
-    .hero-badge-dot { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; }
-    .hero h1 {
-      font-size: clamp(2.4rem, 5vw, 4.2rem);
-      font-weight: 700; color: white;
-      line-height: 1.1; letter-spacing: -0.03em;
-      max-width: 680px;
-      margin-bottom: 1.5rem;
-    }
-    .hero h1 em { color: var(--accent); font-style: normal; }
-    .hero-sub {
-      font-size: 1.05rem; color: rgba(255,255,255,0.55);
-      max-width: 480px; line-height: 1.7;
-      margin-bottom: 2.5rem;
-    }
-    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
-    .btn-primary {
-      background: var(--blue);
-      color: white;
-      padding: 0.85rem 1.8rem;
-      border-radius: 7px;
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 0.9rem; font-weight: 600;
-      text-decoration: none;
-      transition: background 0.2s, transform 0.2s;
-      display: inline-flex; align-items: center; gap: 8px;
-    }
-    .btn-primary:hover { background: var(--blue-light); transform: translateY(-1px); }
-    .btn-outline {
-      border: 1px solid rgba(255,255,255,0.2);
-      color: rgba(255,255,255,0.8);
-      padding: 0.85rem 1.8rem;
-      border-radius: 7px;
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 0.9rem; font-weight: 500;
-      text-decoration: none;
-      transition: border-color 0.2s, color 0.2s;
-    }
-    .btn-outline:hover { border-color: rgba(255,255,255,0.5); color: white; }
+/* ───────── NAV ───────── */
+.nav{position:fixed;top:0;left:0;right:0;z-index:200;transition:background .35s,border-color .35s,backdrop-filter .35s;border-bottom:1px solid transparent}
+.nav.scrolled{background:rgba(10,12,16,.86);backdrop-filter:blur(14px);border-color:var(--line)}
+.nav-inner{max-width:var(--maxw);margin:0 auto;padding:0 2.2rem;height:74px;display:flex;align-items:center;justify-content:space-between;gap:2rem}
+.brand{display:flex;align-items:center;gap:.7rem}
+.brand-mark{width:34px;height:34px;border:1px solid var(--line-2);border-radius:7px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.brand-mark svg{width:34px;height:34px}
+.brand-name{font-family:'Sora';font-weight:700;font-size:1.18rem;letter-spacing:-.03em;color:#fff}
+.brand-name b{color:var(--accent);font-weight:700}
+.nav-links{display:flex;align-items:center;gap:2.1rem;list-style:none}
+.nav-links a{font-size:.85rem;font-weight:500;color:var(--muted);transition:color .2s;position:relative}
+.nav-links a:hover{color:#fff}
+.nav-right{display:flex;align-items:center;gap:1.4rem}
+.nav-status{font-family:'IBM Plex Mono';font-size:.7rem;letter-spacing:.14em;color:var(--muted);display:flex;align-items:center;gap:.5rem}
+.dot-live{width:7px;height:7px;border-radius:50%;background:var(--live);box-shadow:0 0 0 0 rgba(70,211,138,.6);animation:pulse 2.4s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(70,211,138,.5)}70%{box-shadow:0 0 0 7px rgba(70,211,138,0)}100%{box-shadow:0 0 0 0 rgba(70,211,138,0)}}
+.btn{font-family:'Sora';font-weight:600;font-size:.85rem;border-radius:7px;cursor:pointer;transition:all .22s;display:inline-flex;align-items:center;gap:.6rem;border:none}
+.btn-accent{background:var(--accent);color:#10120f;padding:.66rem 1.25rem}
+.btn-accent:hover{background:var(--accent-2);transform:translateY(-1px);box-shadow:0 10px 30px rgba(232,162,76,.22)}
+.nav-burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px}
+.nav-burger span{width:24px;height:2px;background:#fff;transition:.3s}
 
-    /* Stats bar */
-    .hero-stats {
-      display: grid; grid-template-columns: repeat(4, 1fr);
-      margin-top: 5rem;
-      border-top: 1px solid rgba(255,255,255,0.08);
-      padding-top: 2rem;
-      padding-bottom: 2.5rem;
-    }
-    .stat { padding: 0 1.5rem; border-left: 1px solid rgba(255,255,255,0.08); }
-    .stat:first-child { border-left: none; padding-left: 0; }
-    .stat-num {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 2.4rem; font-weight: 700; color: white;
-      line-height: 1;
-    }
-    .stat-num span { color: var(--accent); }
-    .stat-label {
-      font-size: 0.78rem; color: var(--muted);
-      letter-spacing: 0.08em; text-transform: uppercase;
-      margin-top: 0.4rem;
-    }
+/* mobile menu overlay */
+.mobile-menu{position:fixed;inset:0;z-index:190;background:rgba(10,12,16,.98);backdrop-filter:blur(10px);display:flex;flex-direction:column;justify-content:center;gap:1.6rem;padding:2.2rem;transform:translateY(-100%);transition:transform .45s cubic-bezier(.7,0,.2,1);visibility:hidden}
+.mobile-menu.open{transform:translateY(0);visibility:visible}
+.mobile-menu a{font-family:'Sora';font-size:1.7rem;font-weight:600;color:var(--ink)}
+.mobile-menu a span{font-family:'IBM Plex Mono';font-size:.8rem;color:var(--accent);margin-right:.9rem}
 
-    /* ── SECTION COMMON ── */
-    .section { padding: 96px 2rem; }
-    .section-inner { max-width: 1200px; margin: 0 auto; }
-    .section-tag {
-      font-size: 0.72rem; font-weight: 600;
-      letter-spacing: 0.18em; text-transform: uppercase;
-      color: var(--blue); margin-bottom: 1rem;
-    }
-    .section-title {
-      font-size: clamp(1.8rem, 3vw, 2.8rem);
-      font-weight: 700; letter-spacing: -0.03em;
-      line-height: 1.15; color: var(--navy);
-      margin-bottom: 1rem;
-    }
-    .section-title.light { color: white; }
-    .section-sub {
-      font-size: 1rem; color: #5A6B85;
-      max-width: 520px; line-height: 1.7;
-    }
-    .section-sub.light { color: rgba(255,255,255,0.5); }
+/* ───────── HERO ───────── */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;background:var(--bg);overflow:hidden;border-bottom:1px solid var(--line)}
+.hero-rings{position:absolute;top:50%;right:-8%;transform:translateY(-50%);width:min(900px,75vw);aspect-ratio:1;pointer-events:none}
+.ring{position:absolute;inset:0;border:1px solid rgba(232,162,76,.13);border-radius:50%;animation:ringpulse 7s linear infinite}
+.ring:nth-child(2){inset:14%;border-color:rgba(232,162,76,.10);animation-delay:-1.4s}
+.ring:nth-child(3){inset:28%;border-color:rgba(232,162,76,.08);animation-delay:-2.8s}
+.ring:nth-child(4){inset:42%;border-color:rgba(232,162,76,.16);animation-delay:-4.2s}
+.ring:nth-child(5){inset:56%;border-color:rgba(232,162,76,.22)}
+.ring-core{position:absolute;inset:64%;border-radius:50%;background:radial-gradient(circle,rgba(232,162,76,.5),rgba(232,162,76,0) 70%)}
+@keyframes ringpulse{0%{transform:scale(.96);opacity:.5}50%{opacity:1}100%{transform:scale(1.04);opacity:.5}}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.022) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.022) 1px,transparent 1px);background-size:58px 58px;mask-image:radial-gradient(circle at 30% 50%,#000,transparent 80%)}
+.hero-scan{position:absolute;inset:0;background:linear-gradient(rgba(255,255,255,.018) 50%,transparent 50%);background-size:100% 4px;pointer-events:none;opacity:.5}
+.hero-glow{position:absolute;top:-20%;left:-10%;width:60%;height:80%;background:radial-gradient(circle,rgba(40,70,120,.16),transparent 70%);pointer-events:none}
+.hero-inner{position:relative;z-index:3;max-width:var(--maxw);margin:0 auto;padding:9.5rem 2.2rem 4rem;width:100%}
+.hero-tag{margin-bottom:1.8rem;opacity:0;animation:fadeUp .7s .15s forwards}
+.hero h1{font-size:clamp(2.7rem,6.2vw,5.4rem);font-weight:800;line-height:1.02;max-width:14ch;margin-bottom:1.7rem}
+.hero h1 em{color:var(--accent);font-style:italic;font-weight:700}
+.hero h1 .w{display:inline-block;overflow:hidden;padding-bottom:.08em;vertical-align:bottom}
+.hero h1 .w>span{display:inline-block;transform:translateY(110%);animation:rise .9s cubic-bezier(.16,1,.3,1) forwards}
+.hero-lead{font-size:clamp(1rem,1.35vw,1.18rem);color:var(--muted);max-width:54ch;margin-bottom:2.6rem;line-height:1.72;opacity:0;animation:fadeUp .8s .95s forwards}
+.hero-lead b{color:var(--ink);font-weight:500}
+.hero-cta{display:flex;align-items:center;gap:1.3rem;flex-wrap:wrap;opacity:0;animation:fadeUp .8s 1.1s forwards}
+.btn-hero{background:var(--accent);color:#10120f;padding:1rem 1.8rem;font-size:.95rem;border-radius:8px}
+.btn-hero:hover{background:var(--accent-2);transform:translateY(-2px);box-shadow:0 14px 38px rgba(232,162,76,.26)}
+.cta-circle{display:inline-flex;align-items:center;gap:.9rem;font-family:'Sora';font-weight:500;font-size:.92rem;color:var(--ink)}
+.cta-circle .circ{width:46px;height:46px;border:1px solid var(--line-2);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:all .3s}
+.cta-circle:hover .circ{background:#fff;border-color:#fff;transform:rotate(45deg)}
+.cta-circle .circ svg{width:17px;height:17px;stroke:var(--ink);transition:stroke .3s}
+.cta-circle:hover .circ svg{stroke:#10120f;transform:rotate(-45deg)}
+.hero-meta{display:grid;grid-template-columns:repeat(4,1fr);margin-top:5rem;border-top:1px solid var(--line);opacity:0;animation:fadeUp .8s 1.35s forwards}
+.hmeta{padding:1.6rem 1.5rem 0;border-left:1px solid var(--line)}
+.hmeta:first-child{border-left:none;padding-left:0}
+.hmeta-k{font-family:'IBM Plex Mono';font-size:.68rem;letter-spacing:.2em;color:var(--muted-2);text-transform:uppercase;margin-bottom:.55rem}
+.hmeta-v{font-family:'Sora';font-weight:600;font-size:1.02rem;color:var(--ink);line-height:1.25}
+.hero-corner{position:absolute;bottom:2rem;right:2.4rem;z-index:3;font-family:'IBM Plex Mono';font-size:.66rem;letter-spacing:.16em;color:var(--muted-2);display:flex;align-items:center;gap:.55rem;opacity:0;animation:fadeUp .8s 1.6s forwards}
 
-    /* ── PRODUCTS ── */
-    .products { background: var(--cream); }
-    .products-header {
-      display: flex; justify-content: space-between; align-items: flex-end;
-      margin-bottom: 3rem; flex-wrap: wrap; gap: 1.5rem;
-    }
-    .products-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-    }
-    .product-card {
-      background: white;
-      border: 1px solid #E2EAF4;
-      border-radius: 12px; overflow: hidden;
-      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-    }
-    .product-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 16px 48px rgba(26,86,219,0.1);
-      border-color: rgba(26,86,219,0.3);
-    }
-    .product-card-img {
-      aspect-ratio: 4/3; overflow: hidden;
-      background: var(--cream);
-    }
-    .product-card-img img {
-      width: 100%; height: 100%; object-fit: cover;
-      transition: transform 0.4s ease;
-    }
-    .product-card:hover .product-card-img img { transform: scale(1.04); }
-    .product-card-body { padding: 1.4rem 1.6rem 1.8rem; }
-    .product-card-cat {
-      font-size: 0.7rem; font-weight: 600;
-      letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--blue); margin-bottom: 0.5rem;
-    }
-    .product-card-title {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.05rem; font-weight: 600;
-      color: var(--navy); margin-bottom: 0.5rem;
-    }
-    .product-card-desc {
-      font-size: 0.85rem; color: #5A6B85; line-height: 1.6;
-    }
-    .product-card-link {
-      display: inline-flex; align-items: center; gap: 6px;
-      font-size: 0.82rem; font-weight: 600;
-      color: var(--blue); text-decoration: none;
-      margin-top: 1rem;
-      transition: gap 0.2s;
-    }
-    .product-card-link:hover { gap: 10px; }
+@keyframes rise{to{transform:translateY(0)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
 
-    /* ── SERVICES ── */
-    .services { background: white; }
-    .services-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem; margin-top: 3rem;
-    }
-    .service-card {
-      border: 1px solid #E2EAF4;
-      border-radius: 12px; padding: 2rem 1.8rem 2.2rem;
-      transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
-    }
-    .service-card:hover {
-      border-color: rgba(26,86,219,0.35);
-      box-shadow: 0 12px 40px rgba(26,86,219,0.08);
-      transform: translateY(-3px);
-    }
-    .service-icon {
-      width: 48px; height: 48px;
-      background: rgba(26,86,219,0.08);
-      border-radius: 10px;
-      display: flex; align-items: center; justify-content: center;
-      margin-bottom: 1.2rem;
-      transition: background 0.25s;
-    }
-    .service-card:hover .service-icon { background: var(--blue); }
-    .service-icon svg { width: 22px; height: 22px; color: var(--blue); transition: color 0.25s; }
-    .service-card:hover .service-icon svg { color: white; }
-    .service-title {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.05rem; font-weight: 600;
-      color: var(--navy); margin-bottom: 0.6rem;
-    }
-    .service-desc { font-size: 0.87rem; color: #5A6B85; line-height: 1.65; }
+/* ───────── PARTNER STRIP ───────── */
+.partners{background:var(--bg-2);border-bottom:1px solid var(--line);padding:2.1rem 0}
+.partners-inner{max-width:var(--maxw);margin:0 auto;padding:0 2.2rem;display:flex;align-items:center;gap:2.6rem;flex-wrap:wrap;justify-content:space-between}
+.partners-label{font-family:'IBM Plex Mono';font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted-2);white-space:nowrap}
+.partners-logos{display:flex;align-items:center;gap:3rem;flex-wrap:wrap}
+.p-logo{height:26px;width:auto;filter:grayscale(1) brightness(2.4) opacity(.62);transition:filter .3s}
+.p-logo:hover{filter:grayscale(0) brightness(1) opacity(1)}
+.p-text{font-family:'Sora';font-weight:600;font-size:1.05rem;letter-spacing:.02em;color:var(--muted);opacity:.7;transition:.3s}
+.p-text:hover{color:var(--ink);opacity:1}
 
-    /* ── WHY US ── */
-    .why { background: var(--navy2); }
-    .why-grid {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 4rem; align-items: center;
-    }
-    .why-steps { display: flex; flex-direction: column; gap: 0; margin-top: 2rem; }
-    .why-step {
-      display: flex; gap: 1.2rem;
-      padding: 1.4rem 0;
-      border-bottom: 1px solid var(--border);
-    }
-    .why-step:last-child { border-bottom: none; }
-    .why-step-num {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 0.75rem; font-weight: 700;
-      color: var(--accent); letter-spacing: 0.1em;
-      min-width: 28px; padding-top: 2px;
-    }
-    .why-step-content h4 {
-      font-size: 0.95rem; font-weight: 600;
-      color: white; margin-bottom: 0.3rem;
-    }
-    .why-step-content p {
-      font-size: 0.83rem; color: var(--muted); line-height: 1.6;
-    }
-    .why-visual {
-      position: relative;
-    }
-    .why-img-wrap {
-      border-radius: 16px; overflow: hidden;
-      aspect-ratio: 4/3;
-      border: 1px solid var(--border);
-    }
-    .why-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
-    .why-badge {
-      position: absolute; bottom: -16px; left: -16px;
-      background: var(--blue);
-      border-radius: 12px; padding: 1.2rem 1.6rem;
-      color: white;
-    }
-    .why-badge-num {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 2rem; font-weight: 700; line-height: 1;
-    }
-    .why-badge-label { font-size: 0.75rem; color: rgba(255,255,255,0.7); margin-top: 2px; }
+/* ───────── SECTION SHELL ───────── */
+.section{padding:7.5rem 0}
+.sec-head{max-width:680px;margin-bottom:3.4rem}
+.sec-head h2{font-size:clamp(2rem,3.7vw,3.3rem);margin:1.1rem 0 1.1rem}
+.sec-head p{color:var(--muted);font-size:1.06rem;line-height:1.7}
 
-    /* ── PARTNERS ── */
-    .partners {
-      background: var(--cream);
-      padding: 32px 2rem;
-    }
-    .partners-inner {
-      max-width: 1200px; margin: 0 auto;
-      display: flex; flex-direction: column;
-      align-items: center; gap: 1.4rem;
-    }
-    .partners-label {
-      font-size: 0.72rem; font-weight: 600;
-      letter-spacing: 0.2em; text-transform: uppercase;
-      color: var(--muted);
-    }
-    .partners-logos {
-      display: flex; align-items: flex-end; gap: 4rem;
-      flex-wrap: wrap; justify-content: center;
-    }
-    .partner-item {
-      display: flex; flex-direction: column;
-      align-items: center; gap: 0.6rem;
-      transition: opacity 0.2s;
-      opacity: 0.45;
-    }
-    .partner-item:hover { opacity: 1; }
-    .partner-logo {
-      height: 36px; width: auto;
-      object-fit: contain;
-      filter: grayscale(1);
-    }
-    .partner-item:hover .partner-logo { filter: grayscale(0); }
-    .partner-name {
-      font-size: 0.68rem; font-weight: 600;
-      letter-spacing: 0.12em; text-transform: uppercase;
-      color: var(--muted);
-    }
+/* ───────── CAPABILITIES / positioning ───────── */
+.capab{background:var(--bg);border-bottom:1px solid var(--line)}
+.capab-statement{font-family:'Sora';font-weight:700;font-size:clamp(1.7rem,3.4vw,2.9rem);line-height:1.18;letter-spacing:-.02em;max-width:20ch;margin-bottom:.7rem}
+.capab-statement em{color:var(--accent);font-style:italic}
+.capab-top{display:grid;grid-template-columns:1.1fr .9fr;gap:3.5rem;align-items:end;margin-bottom:4rem}
+.capab-top p{color:var(--muted);font-size:1.05rem;line-height:1.75}
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+.pillar{border:1px solid var(--line);border-radius:14px;padding:2.1rem 1.9rem 2.3rem;background:linear-gradient(180deg,var(--bg-2),var(--bg));transition:border-color .3s,transform .3s}
+.pillar:hover{border-color:rgba(232,162,76,.4);transform:translateY(-4px)}
+.pillar-ic{width:46px;height:46px;border-radius:11px;background:rgba(232,162,76,.1);display:flex;align-items:center;justify-content:center;margin-bottom:1.3rem}
+.pillar-ic svg{width:22px;height:22px;stroke:var(--accent);fill:none;stroke-width:1.6}
+.pillar-n{font-family:'IBM Plex Mono';font-size:.68rem;letter-spacing:.18em;color:var(--muted-2);margin-bottom:.5rem}
+.pillar h3{font-size:1.18rem;margin-bottom:.7rem}
+.pillar p{color:var(--muted);font-size:.92rem;line-height:1.65}
 
-    /* ── CTA ── */
-    .cta-section {
-      background: var(--blue);
-      padding: 80px 2rem;
-    }
-    .cta-inner {
-      max-width: 760px; margin: 0 auto;
-      text-align: center;
-    }
-    .cta-inner h2 {
-      font-size: clamp(1.8rem, 3vw, 2.6rem);
-      font-weight: 700; color: white;
-      letter-spacing: -0.03em; margin-bottom: 1rem;
-    }
-    .cta-inner p {
-      color: rgba(255,255,255,0.7); font-size: 1rem;
-      line-height: 1.7; margin-bottom: 2rem;
-    }
-    .btn-white {
-      background: white; color: var(--blue);
-      padding: 0.9rem 2rem;
-      border-radius: 7px;
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 0.92rem; font-weight: 700;
-      text-decoration: none;
-      display: inline-flex; align-items: center; gap: 8px;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.15); }
+/* ───────── TECHNOLOGIE (light datasheet) ───────── */
+.tech{background:var(--bg-light);color:var(--ink-dark)}
+.tech .eyebrow{color:var(--accent-deep)}
+.tech .eyebrow::before{background:var(--accent-deep)}
+.tech .sec-head h2{color:var(--ink-dark)}
+.tech .sec-head p{color:var(--muted-light)}
+.tech-head{display:flex;justify-content:space-between;align-items:flex-end;gap:2rem;flex-wrap:wrap}
+.tech-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem;margin-top:3.2rem}
+.tcard{background:#fff;border:1px solid var(--line-dark);border-radius:14px;padding:1.9rem 1.8rem 2rem;transition:transform .28s,box-shadow .28s,border-color .28s;position:relative;overflow:hidden}
+.tcard::before{content:"";position:absolute;top:0;left:0;width:0;height:3px;background:var(--accent);transition:width .35s}
+.tcard:hover{transform:translateY(-5px);box-shadow:0 22px 50px rgba(25,27,32,.1);border-color:transparent}
+.tcard:hover::before{width:100%}
+.tcard-code{font-family:'IBM Plex Mono';font-weight:600;font-size:.74rem;letter-spacing:.12em;color:var(--accent-deep);margin-bottom:1rem}
+.tcard h3{font-size:1.3rem;color:var(--ink-dark);margin-bottom:.55rem;letter-spacing:-.02em}
+.tcard p{color:var(--muted-light);font-size:.9rem;line-height:1.62;margin-bottom:1.2rem}
+.chips{display:flex;flex-wrap:wrap;gap:.45rem}
+.chip{font-family:'IBM Plex Mono';font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:#5a5851;background:var(--bg-light-2);border:1px solid var(--line-dark);padding:.32rem .6rem;border-radius:5px}
+.tech-note{font-family:'IBM Plex Mono';font-size:.74rem;letter-spacing:.04em;color:var(--muted-light);margin-top:2.4rem;text-align:center}
 
-    /* ── FOOTER ── */
-    footer {
-      background: var(--navy);
-      padding: 56px 2rem 32px;
-      border-top: 1px solid var(--border);
-    }
-    .footer-inner {
-      max-width: 1200px; margin: 0 auto;
-      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
-      gap: 3rem; margin-bottom: 3rem;
-    }
-    .footer-brand p {
-      font-size: 0.87rem; color: var(--muted);
-      line-height: 1.7; margin-top: 1rem; max-width: 260px;
-    }
-    .footer-col h5 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 0.82rem; font-weight: 600;
-      color: white; letter-spacing: 0.08em;
-      text-transform: uppercase; margin-bottom: 1rem;
-    }
-    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; }
-    .footer-col ul a {
-      font-size: 0.87rem; color: var(--muted);
-      text-decoration: none; transition: color 0.2s;
-    }
-    .footer-col ul a:hover { color: white; }
-    .footer-bottom {
-      max-width: 1200px; margin: 0 auto;
-      padding-top: 1.5rem; border-top: 1px solid var(--border);
-      display: flex; justify-content: space-between; align-items: center;
-      flex-wrap: wrap; gap: 1rem;
-    }
-    .footer-bottom p { font-size: 0.8rem; color: var(--muted); }
+/* ───────── SEGMENTY ───────── */
+.seg{background:var(--bg);border-bottom:1px solid var(--line)}
+.seg-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.3rem;margin-top:3rem}
+.scard{border:1px solid var(--line);border-radius:14px;padding:2.3rem 2.1rem;background:var(--bg-2);display:flex;gap:1.5rem;transition:border-color .3s,background .3s}
+.scard:hover{border-color:var(--line-2);background:var(--bg-3)}
+.scard-ic{flex:none;width:52px;height:52px;border:1px solid var(--line-2);border-radius:12px;display:flex;align-items:center;justify-content:center}
+.scard-ic svg{width:25px;height:25px;stroke:var(--accent);fill:none;stroke-width:1.5}
+.scard h3{font-size:1.22rem;margin-bottom:.5rem}
+.scard p{color:var(--muted);font-size:.93rem;line-height:1.62}
+.scard-tag{font-family:'IBM Plex Mono';font-size:.66rem;letter-spacing:.16em;color:var(--muted-2);text-transform:uppercase;margin-top:.9rem;display:block}
 
-    /* ── REVEAL ── */
-    .reveal {
-      opacity: 0; transform: translateY(24px);
-      transition: opacity 1.2s ease, transform 1.2s ease;
-    }
-    .reveal.revealed { opacity: 1; transform: translateY(0); }
-    .reveal.d1 { transition-delay: 0.15s; }
-    .reveal.d2 { transition-delay: 0.3s; }
-    .reveal.d3 { transition-delay: 0.45s; }
+/* ───────── PROCES ───────── */
+.proc{background:var(--bg-2);border-bottom:1px solid var(--line)}
+.proc-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin-top:3.4rem;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.pstep{padding:2.2rem 1.7rem 2.6rem;border-left:1px solid var(--line);position:relative;transition:background .3s}
+.pstep:first-child{border-left:none}
+.pstep:hover{background:var(--bg-3)}
+.pstep-n{font-family:'IBM Plex Mono';font-size:.72rem;letter-spacing:.14em;color:var(--accent);margin-bottom:1.4rem;display:flex;align-items:center;gap:.5rem}
+.pstep-n::after{content:"";flex:1;height:1px;background:var(--line)}
+.pstep h3{font-size:1.05rem;margin-bottom:.6rem;line-height:1.25}
+.pstep p{color:var(--muted);font-size:.85rem;line-height:1.6}
 
-    /* ── RESPONSIVE ── */
-    @media (max-width: 900px) {
-      .products-grid, .services-grid { grid-template-columns: 1fr 1fr; }
-      .why-grid { grid-template-columns: 1fr; }
-      .why-visual { display: none; }
-      .footer-inner { grid-template-columns: 1fr 1fr; }
-      .hero-stats { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-    }
-    @media (max-width: 640px) {
-      .products-grid, .services-grid { grid-template-columns: 1fr; }
-      .footer-inner { grid-template-columns: 1fr; }
-      .nav-links { display: none; }
-      .hero-stats { grid-template-columns: 1fr 1fr; }
-      .stat-num { font-size: 1.8rem; }
-    }
-  </style>
+/* ───────── HERITAGE ───────── */
+.heritage{background:var(--bg);position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+.heritage-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:4rem;align-items:center}
+.big-year{font-family:'Sora';font-weight:800;font-size:clamp(5rem,12vw,11rem);line-height:.9;letter-spacing:-.04em;background:linear-gradient(180deg,var(--ink) 30%,var(--muted-2));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.big-year-sub{font-family:'IBM Plex Mono';font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-top:.4rem}
+.heritage-body h2{font-size:clamp(1.9rem,3.4vw,3rem);margin-bottom:1.3rem}
+.heritage-body h2 em{color:var(--accent);font-style:italic}
+.heritage-body p{color:var(--muted);font-size:1.04rem;line-height:1.74;margin-bottom:1.1rem}
+.heritage-body p b{color:var(--ink);font-weight:500}
+.herit-stats{display:flex;gap:3rem;margin-top:2rem;flex-wrap:wrap}
+.hs-num{font-family:'Sora';font-weight:700;font-size:2.3rem;color:var(--ink);line-height:1}
+.hs-num span{color:var(--accent)}
+.hs-lab{font-family:'IBM Plex Mono';font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-2);margin-top:.5rem;max-width:18ch}
+
+/* ───────── COMMITMENTS ───────── */
+.commit{background:var(--bg-2)}
+.commit-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:3rem}
+.ccard{border:1px solid var(--line);border-radius:14px;padding:2.3rem 2rem 2.5rem;background:var(--bg);transition:border-color .3s,transform .3s}
+.ccard:hover{border-color:rgba(232,162,76,.35);transform:translateY(-4px)}
+.ccard-ic{width:48px;height:48px;border-radius:50%;border:1px solid var(--line-2);display:flex;align-items:center;justify-content:center;margin-bottom:1.4rem}
+.ccard-ic svg{width:22px;height:22px;stroke:var(--accent);fill:none;stroke-width:1.6}
+.ccard h3{font-size:1.18rem;margin-bottom:.7rem}
+.ccard p{color:var(--muted);font-size:.92rem;line-height:1.66}
+
+/* ───────── KONTAKT ───────── */
+.contact{background:var(--bg);border-top:1px solid var(--line)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:4.5rem}
+.contact-info .eyebrow{margin-bottom:1.1rem}
+.contact-info h2{font-size:clamp(1.9rem,3.2vw,2.8rem);margin-bottom:1.4rem;line-height:1.1}
+.contact-info>p{color:var(--muted);font-size:1.03rem;line-height:1.7;margin-bottom:2.4rem;max-width:42ch}
+.cinfo-list{display:flex;flex-direction:column;gap:0}
+.cinfo{display:flex;gap:1.2rem;padding:1.25rem 0;border-top:1px solid var(--line);align-items:flex-start}
+.cinfo:last-child{border-bottom:1px solid var(--line)}
+.cinfo-ic{flex:none;width:38px;height:38px;border-radius:9px;background:rgba(232,162,76,.1);display:flex;align-items:center;justify-content:center}
+.cinfo-ic svg{width:18px;height:18px;stroke:var(--accent);fill:none;stroke-width:1.7}
+.cinfo-k{font-family:'IBM Plex Mono';font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted-2);margin-bottom:.25rem}
+.cinfo-v{font-size:1rem;color:var(--ink);font-weight:500}
+.cinfo-v a:hover{color:var(--accent)}
+.cinfo-v small{display:block;color:var(--muted);font-size:.84rem;font-weight:400;margin-top:.15rem}
+
+/* form */
+.form-card{background:var(--bg-2);border:1px solid var(--line);border-radius:16px;padding:2.6rem 2.4rem}
+.form-card .eyebrow{margin-bottom:.9rem}
+.form-card h3{font-size:1.5rem;margin-bottom:1.8rem;letter-spacing:-.02em}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
+.field label{display:block;font-family:'IBM Plex Mono';font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-2);margin-bottom:.5rem}
+.field input,.field select,.field textarea{width:100%;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:.8rem .9rem;color:var(--ink);font-family:'Inter';font-size:.92rem;transition:border-color .25s}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--accent)}
+.field textarea{resize:vertical;min-height:96px}
+.field select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%238A93A3' stroke-width='2' viewBox='0 0 24 24'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right .9rem center}
+.gdpr{display:flex;gap:.7rem;align-items:flex-start;margin:1rem 0 1.5rem;font-size:.78rem;color:var(--muted);line-height:1.5}
+.gdpr input{margin-top:.2rem;accent-color:var(--accent)}
+.form-card .btn-accent{width:100%;justify-content:center;padding:.95rem;font-size:.95rem}
+.form-note{font-family:'IBM Plex Mono';font-size:.68rem;color:var(--muted-2);text-align:center;margin-top:1rem;letter-spacing:.04em}
+
+/* ───────── FINAL CTA ───────── */
+.final{background:var(--bg-2);border-top:1px solid var(--line);text-align:center}
+.final .eyebrow{margin-bottom:1.5rem}
+.final h2{font-size:clamp(2.1rem,4.2vw,3.6rem);line-height:1.08;margin-bottom:1.2rem;max-width:18ch;margin-inline:auto}
+.final h2 em{color:var(--accent);font-style:italic}
+.final-lines{display:flex;gap:1.2rem;justify-content:center;flex-wrap:wrap;margin-top:2.4rem}
+.fbtn{display:inline-flex;align-items:center;gap:.7rem;background:var(--accent);color:#10120f;font-family:'Sora';font-weight:600;font-size:1rem;padding:1.05rem 2rem;border-radius:9px;transition:all .25s}
+.fbtn:hover{background:var(--accent-2);transform:translateY(-2px);box-shadow:0 14px 38px rgba(232,162,76,.24)}
+.fbtn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line-2)}
+.fbtn.ghost:hover{background:#fff;color:#10120f;border-color:#fff}
+.fbtn svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.9}
+
+/* ───────── FOOTER ───────── */
+footer{background:var(--bg);padding:4.5rem 0 2.5rem;border-top:1px solid var(--line)}
+.foot-inner{max-width:var(--maxw);margin:0 auto;padding:0 2.2rem;display:grid;grid-template-columns:2fr 1fr 1fr 1.2fr;gap:2.5rem;margin-bottom:3rem}
+.foot-brand p{color:var(--muted);font-size:.9rem;line-height:1.7;margin-top:1.1rem;max-width:30ch}
+.foot-col h5{font-family:'IBM Plex Mono';font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted-2);margin-bottom:1.1rem}
+.foot-col ul{list-style:none;display:flex;flex-direction:column;gap:.6rem}
+.foot-col a,.foot-col li{font-size:.88rem;color:var(--muted);transition:color .2s}
+.foot-col a:hover{color:var(--ink)}
+.foot-bottom{max-width:var(--maxw);margin:0 auto;padding:1.6rem 2.2rem 0;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.foot-bottom p,.foot-bottom span{font-family:'IBM Plex Mono';font-size:.72rem;letter-spacing:.05em;color:var(--muted-2)}
+
+/* sticky mobile cta */
+.sticky-cta{position:fixed;bottom:0;left:0;right:0;z-index:180;display:none;background:rgba(10,12,16,.95);backdrop-filter:blur(12px);border-top:1px solid var(--line);padding:.7rem;gap:.7rem}
+.sticky-cta a{flex:1;text-align:center;font-family:'Sora';font-weight:600;font-size:.9rem;padding:.85rem;border-radius:8px}
+.sticky-cta .s-call{background:var(--accent);color:#10120f}
+.sticky-cta .s-cons{border:1px solid var(--line-2);color:var(--ink)}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1)}
+html:not(.js) .reveal{opacity:1;transform:none}
+.reveal.in{opacity:1;transform:none}
+.reveal.d1{transition-delay:.1s}.reveal.d2{transition-delay:.2s}.reveal.d3{transition-delay:.3s}.reveal.d4{transition-delay:.4s}
+
+/* ───────── RESPONSIVE ───────── */
+@media(max-width:980px){
+  .nav-links,.nav-status{display:none}
+  .nav-burger{display:flex}
+  .hero-inner{padding-top:8rem}
+  .hero-meta{grid-template-columns:1fr 1fr;gap:0}
+  .hmeta:nth-child(3){border-left:none;padding-left:0}
+  .hmeta{padding-top:1.4rem;margin-top:0}
+  .hmeta:nth-child(n+3){border-top:1px solid var(--line);margin-top:0}
+  .hero-rings{opacity:.5;right:-30%}
+  .capab-top{grid-template-columns:1fr;gap:1.6rem;align-items:start}
+  .pillars,.tech-grid,.commit-grid{grid-template-columns:1fr 1fr}
+  .seg-grid{grid-template-columns:1fr}
+  .proc-grid{grid-template-columns:1fr 1fr}
+  .pstep:nth-child(odd){border-left:none}
+  .pstep{border-top:1px solid var(--line)}
+  .pstep:nth-child(-n+2){border-top:none}
+  .heritage-grid{grid-template-columns:1fr;gap:2rem}
+  .contact-grid{grid-template-columns:1fr;gap:2.6rem}
+  .foot-inner{grid-template-columns:1fr 1fr}
+  .sticky-cta{display:flex}
+  .hero-corner{display:none}
+  body{padding-bottom:66px}
+}
+@media(max-width:560px){
+  .wrap,.nav-inner,.hero-inner,.foot-inner,.foot-bottom,.partners-inner{padding-left:1.4rem;padding-right:1.4rem}
+  .section{padding:5rem 0}
+  .pillars,.tech-grid,.commit-grid,.proc-grid,.hero-meta{grid-template-columns:1fr}
+  .pstep{border-left:none}
+  .frow{grid-template-columns:1fr}
+  .foot-inner{grid-template-columns:1fr}
+  .hero h1{font-size:clamp(2.4rem,9vw,3.2rem)}
+  .hero-cta{gap:1rem}
+  .btn-hero{width:100%;justify-content:center}
+  .final-lines{flex-direction:column}
+  .fbtn{width:100%;justify-content:center}
+  .partners-inner{justify-content:flex-start;gap:1.4rem}
+  .partners-logos{gap:1.8rem}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .hero h1 .w>span{transform:none}
+  .reveal{opacity:1;transform:none}
+}
+</style>
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav class="nav" id="nav">
-    <div class="nav-inner">
-      <a href="#" class="nav-logo">
-        <div class="nav-logo-mark">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M1 12C1 5.925 5.925 1 12 1s11 4.925 11 11-4.925 11-11 11S1 18.075 1 12zm11-7a1 1 0 0 0-1 1v2a1 1 0 0 0 2 0V6a1 1 0 0 0-1-1zm0 14a1 1 0 0 0-1 1 1 1 0 0 0 2 0 1 1 0 0 0-1-1zm6.364-10.364a1 1 0 0 0-1.414 0l-1.414 1.414a1 1 0 0 0 1.414 1.414l1.414-1.414a1 1 0 0 0 0-1.414zM7.05 16.95a1 1 0 0 0-1.414 0 1 1 0 0 0 0 1.414 1 1 0 0 0 1.414 0 1 1 0 0 0 0-1.414zM19 11h-2a1 1 0 0 0 0 2h2a1 1 0 0 0 0-2zm-14 0H3a1 1 0 0 0 0 2h2a1 1 0 0 0 0-2zm11.364 5.95-1.414-1.414a1 1 0 0 0-1.414 1.414l1.414 1.414a1 1 0 0 0 1.414-1.414zM7.05 7.05 5.636 5.636a1 1 0 0 0-1.414 1.414L5.636 8.464A1 1 0 0 0 7.05 7.05zM12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8z"/>
-          </svg>
-        </div>
-        <span class="nav-logo-text">Konek<span>Tel</span></span>
+<!-- LOADER -->
+<div id="loader">
+  <div class="load-mark">Konek<b>Tel</b></div>
+  <div class="load-track"><div class="load-bar"></div></div>
+</div>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#top" class="brand">
+      <span class="brand-mark">
+        <svg viewBox="0 0 34 34" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="17" cy="22" r="2.4" fill="#E8A24C"/>
+          <path d="M11.7 22a5.3 5.3 0 0 1 10.6 0" stroke="#E8A24C" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <path d="M8.4 22a8.6 8.6 0 0 1 17.2 0" stroke="rgba(232,162,76,.55)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <path d="M5.2 22a11.8 11.8 0 0 1 23.6 0" stroke="rgba(232,162,76,.3)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        </svg>
+      </span>
+      <span class="brand-name">Konek<b>Tel</b></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#technologie">Technologie</a></li>
+      <li><a href="#segmenty">Řešení</a></li>
+      <li><a href="#proces">Jak pracujeme</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+    </ul>
+    <div class="nav-right">
+      <span class="nav-status"><span class="dot-live"></span>SÍŤ · ONLINE</span>
+      <a href="#kontakt" class="btn btn-accent">Konzultace</a>
+      <button class="nav-burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#technologie"><span>01</span>Technologie</a>
+  <a href="#segmenty"><span>02</span>Řešení</a>
+  <a href="#proces"><span>03</span>Jak pracujeme</a>
+  <a href="#heritage"><span>04</span>O firmě</a>
+  <a href="#kontakt"><span>05</span>Kontakt</a>
+</div>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="hero-glow"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-rings" aria-hidden="true">
+    <div class="ring"></div><div class="ring"></div><div class="ring"></div><div class="ring"></div><div class="ring"></div>
+    <div class="ring-core"></div>
+  </div>
+  <div class="hero-scan"></div>
+  <div class="hero-inner">
+    <div class="hero-tag"><span class="eyebrow">Radiokomunikační systémy · Od roku 1991</span></div>
+    <h1>
+      <span class="w"><span style="animation-delay:.28s">Spojení,</span></span>
+      <span class="w"><span style="animation-delay:.40s">které</span></span><br>
+      <span class="w"><span style="animation-delay:.52s"><em>nesmí&nbsp;selhat.</em></span></span>
+    </h1>
+    <p class="hero-lead">Navrhujeme, dodáváme a servisujeme profesionální radiokomunikační systémy pro <b>městskou dopravu, záchranné složky a průmysl</b>. MOTOTRBO, TETRA a infrastruktura, na kterou se provoz spolehne každou směnu.</p>
+    <div class="hero-cta">
+      <a href="#kontakt" class="btn btn-hero">Nezávazná konzultace</a>
+      <a href="#technologie" class="cta-circle">
+        <span class="circ"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        Prohlédnout technologie
       </a>
-      <ul class="nav-links">
-        <li><a href="#produkty">Produkty</a></li>
-        <li><a href="#sluzby">Služby</a></li>
-        <li><a href="#o-nas">O nás</a></li>
-        <li><a href="#kontakt">Reference</a></li>
-        <li><a href="#kontakt" class="nav-cta">Kontaktujte nás</a></li>
-      </ul>
     </div>
-  </nav>
+    <div class="hero-meta">
+      <div class="hmeta"><div class="hmeta-k">Platformy</div><div class="hmeta-v">MOTOTRBO · TETRA</div></div>
+      <div class="hmeta"><div class="hmeta-k">Záběr</div><div class="hmeta-v">Návrh → servis</div></div>
+      <div class="hmeta"><div class="hmeta-k">Na trhu</div><div class="hmeta-v">35 let · od 1991</div></div>
+      <div class="hmeta"><div class="hmeta-k">Technologie</div><div class="hmeta-v">Partner Motorola Solutions</div></div>
+    </div>
+  </div>
+  <div class="hero-corner"><span class="dot-live"></span>403-470 MHz · DMR / TETRA</div>
+</header>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-overlay"></div>
-    <div class="hero-grid-lines"></div>
-    <div class="hero-content">
-      <div class="hero-badge">
-        <span class="hero-badge-dot"></span>
-        Autorizovaný partner Motorola Solutions
-      </div>
-      <h1>Řešení <em>náročných</em><br>komunikací</h1>
-      <p class="hero-sub">
-        Od roku 1991 navrhujeme, dodáváme a servisujeme profesionální radiokomunikační systémy pro průmysl, bezpečnostní složky i komerční sféru.
-      </p>
-      <div class="hero-btns">
-        <a href="#produkty" class="btn-primary">Naše produkty →</a>
-        <a href="#kontakt" class="btn-outline">Konzultace zdarma</a>
-      </div>
+<!-- PARTNERS -->
+<section class="partners">
+  <div class="partners-inner">
+    <span class="partners-label">Technologičtí partneři</span>
+    <div class="partners-logos">
+      <img src="logo-motorola.png" alt="Motorola Solutions" class="p-logo">
+      <img src="logo-cambium.png" alt="Cambium Networks" class="p-logo">
+      <span class="p-text">Fleetware</span>
+    </div>
+  </div>
+</section>
 
-      <div class="hero-stats">
-        <div class="stat">
-          <div class="stat-num">34<span>+</span></div>
-          <div class="stat-label">Let zkušeností</div>
-        </div>
-        <div class="stat">
-          <div class="stat-num">500<span>+</span></div>
-          <div class="stat-label">Realizovaných projektů</div>
-        </div>
-        <div class="stat">
-          <div class="stat-num">24<span>/7</span></div>
-          <div class="stat-label">Technická podpora</div>
-        </div>
-        <div class="stat">
-          <div class="stat-num">3<span>x</span></div>
-          <div class="stat-label">Certifikované servisní středisko</div>
-        </div>
+<!-- CAPABILITIES -->
+<section class="section capab">
+  <div class="wrap">
+    <div class="capab-top">
+      <div class="reveal">
+        <span class="eyebrow">Co děláme</span>
+        <p class="capab-statement" style="margin-top:1.1rem">Nedodáváme krabice. Dodáváme <em>provozuschopnou komunikaci.</em></p>
+      </div>
+      <p class="reveal d1">Radiostanice si dnes koupí kdokoli. Spolehlivá komunikace v kritickém provozu je ale otázka návrhu, frekvenčního plánu, pokrytí, integrace a servisu. Za 35 let jsme tyto systémy postavili pro provozy, kde výpadek spojení není možnost.</p>
+    </div>
+    <div class="pillars">
+      <div class="pillar reveal">
+        <div class="pillar-ic"><svg viewBox="0 0 24 24"><path d="M3 12h4l3-8 4 16 3-8h4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="pillar-n">01 / Návrh</div>
+        <h3>Návrh na míru provozu</h3>
+        <p>Frekvenční plánování, výpočet pokrytí, dimenzování infrastruktury a zálohování. Začínáme analýzou prostředí, ne katalogem.</p>
+      </div>
+      <div class="pillar reveal d1">
+        <div class="pillar-ic"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.7l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.7l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" stroke-linecap="round" stroke-linejoin="round"/><path d="M3.3 7L12 12l8.7-5M12 22V12" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="pillar-n">02 / Dodávka</div>
+        <h3>Dodávka a integrace</h3>
+        <p>Certifikovaná zařízení, instalace infrastruktury, naprogramování a integrace do dispečinku a stávajících systémů.</p>
+      </div>
+      <div class="pillar reveal d2">
+        <div class="pillar-ic"><svg viewBox="0 0 24 24"><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1" stroke-linecap="round"/><circle cx="12" cy="12" r="3.2"/></svg></div>
+        <div class="pillar-n">03 / Servis</div>
+        <h3>Servis a rozvoj</h3>
+        <p>Dohled nad provozem, údržba, opravy a rozšiřování systému po celou dobu životnosti. Po předání systém neopouštíme.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- PARTNERS -->
-  <div class="partners">
-    <div class="partners-inner">
-      <span class="partners-label">Partneři</span>
-      <div class="partners-logos">
-        <div class="partner-item">
-          <img src="logo-motorola.png" alt="Motorola Solutions" class="partner-logo">
-          <span class="partner-name">Motorola Solutions</span>
+<!-- TECHNOLOGIE (datasheet light) -->
+<section class="section tech" id="technologie">
+  <div class="wrap">
+    <div class="tech-head">
+      <div class="sec-head reveal" style="margin-bottom:0">
+        <span class="eyebrow">Technologie a portfolio</span>
+        <h2>Platformy pro každé<br>nasazení</h2>
+      </div>
+      <p class="reveal d1" style="color:var(--muted-light);max-width:30ch;font-size:.96rem;line-height:1.7">Profesionální DMR a TETRA platformy Motorola Solutions, infrastruktura, datové sítě Cambium a krátkodobé zápůjčky.</p>
+    </div>
+    <div class="tech-grid">
+      <div class="tcard reveal">
+        <div class="tcard-code">MOTOTRBO · R7 / R5 / R2</div>
+        <h3>Ruční radiostanice</h3>
+        <p>Digitální (DMR) i analogový provoz. Odolné tělo, hlasová i datová komunikace. Od dostupné řady R2 po vlajkovou R7 s Wi-Fi, Bluetooth a GNSS.</p>
+        <div class="chips"><span class="chip">DMR</span><span class="chip">Digital</span><span class="chip">Ruční</span></div>
+      </div>
+      <div class="tcard reveal d1">
+        <div class="tcard-code">TETRA · ST7000</div>
+        <h3>TETRA terminály</h3>
+        <p>Profesionální terminál pro bezpečnostní a záchranné složky. Šifrovaný přenos hlasu i dat, skupinové volání a prioritizace provozu.</p>
+        <div class="chips"><span class="chip">TETRA</span><span class="chip">Šifrované</span><span class="chip">IZS</span></div>
+      </div>
+      <div class="tcard reveal d2">
+        <div class="tcard-code">SLR 8000</div>
+        <h3>Opakovače a infrastruktura</h3>
+        <p>Retranslační stanice a infrastruktura pro rozšíření pokrytí přes rozlehlé areály, tunely a městské sítě.</p>
+        <div class="chips"><span class="chip">Repeater</span><span class="chip">Pokrytí</span><span class="chip">Páteř sítě</span></div>
+      </div>
+      <div class="tcard reveal">
+        <div class="tcard-code">WAVE PTX</div>
+        <h3>Broadband Push-to-Talk</h3>
+        <p>Push-to-talk přes LTE a Wi-Fi. Propojí radiovou síť, chytré telefony a dispečink do jedné komunikační skupiny bez ohledu na vzdálenost.</p>
+        <div class="chips"><span class="chip">Broadband PTT</span><span class="chip">LTE / Wi-Fi</span></div>
+      </div>
+      <div class="tcard reveal d1">
+        <div class="tcard-code">VB400</div>
+        <h3>Osobní kamery</h3>
+        <p>Body-worn kamery pro záznam zásahů a provozních situací. Bezpečné ukládání a správa záznamů.</p>
+        <div class="chips"><span class="chip">Body-worn</span><span class="chip">Záznam</span></div>
+      </div>
+      <div class="tcard reveal d2">
+        <div class="tcard-code">CAMBIUM · DATA</div>
+        <h3>Bezdrátové datové sítě</h3>
+        <p>Spoje point-to-point a multipoint pro průmyslové areály a náročné venkovní prostředí. Telemetrie a SCADA pro dálkový sběr dat a řízení.</p>
+        <div class="chips"><span class="chip">Datový spoj</span><span class="chip">SCADA</span><span class="chip">Telemetrie</span></div>
+      </div>
+    </div>
+    <p class="tech-note">Krátkodobé zápůjčky radiostanic na akce, výstavy a stavby &nbsp;·&nbsp; konkrétní specifikace navrhneme podle vašeho provozu</p>
+  </div>
+</section>
+
+<!-- SEGMENTY -->
+<section class="section seg" id="segmenty">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Kde nasazujeme</span>
+      <h2>Provozy, kde spojení rozhoduje</h2>
+      <p>Stejná disciplína návrhu a servisu napříč obory, které si výpadek komunikace nemohou dovolit.</p>
+    </div>
+    <div class="seg-grid">
+      <div class="scard reveal">
+        <div class="scard-ic"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="14" rx="2"/><path d="M4 11h16M8 21l1.5-4M16 21l-1.5-4" stroke-linecap="round"/><circle cx="8" cy="14" r="1" fill="currentColor" stroke="none"/><circle cx="16" cy="14" r="1" fill="currentColor" stroke="none"/></svg></div>
+        <div>
+          <h3>Městská a regionální doprava</h3>
+          <p>Hlasová komunikace, dispečink a lokalizace vozidel pro dopravní podniky. Spolehlivý provoz po celé síti, každý den.</p>
+          <span class="scard-tag">Dispečink · GPS · Hlas</span>
         </div>
-        <div class="partner-item">
-          <img src="logo-cambium.png" alt="Cambium Networks" class="partner-logo">
-          <span class="partner-name">Cambium Networks</span>
+      </div>
+      <div class="scard reveal d1">
+        <div class="scard-ic"><svg viewBox="0 0 24 24"><path d="M12 2l8 3v6c0 5-3.5 8.5-8 11-4.5-2.5-8-6-8-11V5l8-3z" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div>
+          <h3>Bezpečnostní a záchranné složky</h3>
+          <p>Šifrovaná TETRA komunikace, prioritizace volání a integrace do systémů integrovaného záchranného systému.</p>
+          <span class="scard-tag">TETRA · Šifrované · IZS</span>
         </div>
-        <div class="partner-item">
-          <img src="https://www.konektel.cz/files/znacky/fleetware.png" alt="Fleetware" class="partner-logo">
-          <span class="partner-name">Fleetware</span>
+      </div>
+      <div class="scard reveal d2">
+        <div class="scard-ic"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V8l6-3v3l6-3v16M9 12h.01M9 16h.01M14 12h.01M14 16h.01" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div>
+          <h3>Průmysl, energetika, logistika</h3>
+          <p>Areálové radiové i datové sítě, provozní komunikace a telemetrie pro výrobní a distribuční provozy.</p>
+          <span class="scard-tag">Areál · Data · SCADA</span>
+        </div>
+      </div>
+      <div class="scard reveal d3">
+        <div class="scard-ic"><svg viewBox="0 0 24 24"><path d="M12 3v6M12 9a4 4 0 0 1 4 4M12 9a4 4 0 0 0-4 4" stroke-linecap="round"/><circle cx="12" cy="17" r="3"/><path d="M5 13a7 7 0 0 1 14 0" stroke-linecap="round"/></svg></div>
+        <div>
+          <h3>Eventy, stavby a dočasná nasazení</h3>
+          <p>Krátkodobé zápůjčky a rychlé pokrytí na akce, festivaly a stavební projekty. Vyzkoušení technologie bez závazku.</p>
+          <span class="scard-tag">Zápůjčky · Rychlé pokrytí</span>
         </div>
       </div>
     </div>
   </div>
+</section>
 
-  <!-- PRODUCTS -->
-  <section class="section products" id="produkty">
-    <div class="section-inner">
-      <div class="products-header">
-        <div>
-          <div class="section-tag reveal">Produktové portfolio</div>
-          <h2 class="section-title reveal d1">Profesionální rádiostanice<br>pro každé nasazení</h2>
-          <p class="section-sub reveal d2">MOTOTRBO, TETRA a další platformy pro spolehlivou komunikaci v kritických situacích.</p>
-        </div>
-        <a href="#kontakt" class="btn-primary reveal" style="align-self:flex-end">Zobrazit vše →</a>
+<!-- PROCES -->
+<section class="section proc" id="proces">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Jak pracujeme</span>
+      <h2>Pět kroků k systému,<br>který drží</h2>
+      <p>Komunikační systém není jednorázová dodávka. Je to dlouhodobý vztah od první analýzy po rozvoj.</p>
+    </div>
+    <div class="proc-grid">
+      <div class="pstep reveal"><div class="pstep-n">01</div><h3>Analýza a konzultace</h3><p>Pochopíme provozní podmínky, požadavky a prostředí dřív, než cokoli navrhneme.</p></div>
+      <div class="pstep reveal d1"><div class="pstep-n">02</div><h3>Výběr řešení</h3><p>Navrhneme optimální architekturu - platforma, pokrytí, frekvence, zálohy.</p></div>
+      <div class="pstep reveal d2"><div class="pstep-n">03</div><h3>Dodávka a implementace</h3><p>Kompletní dodávka, instalace, programování a integrace do provozu.</p></div>
+      <div class="pstep reveal d3"><div class="pstep-n">04</div><h3>Provozní dohled</h3><p>Servis, údržba a podpora. Hlídáme, aby systém fungoval i po předání.</p></div>
+      <div class="pstep reveal d4"><div class="pstep-n">05</div><h3>Dlouhodobý rozvoj</h3><p>Aktualizace a rozšiřování systému v rámci dlouhodobého partnerství.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- HERITAGE -->
+<section class="section heritage" id="heritage">
+  <div class="wrap">
+    <div class="heritage-grid">
+      <div class="reveal">
+        <div class="big-year" data-count="1991">1991</div>
+        <div class="big-year-sub">Rok založení · Pardubice</div>
       </div>
-
-      <div class="products-grid">
-        <div class="product-card reveal">
-          <div class="product-card-img">
-            <img src="https://www.konektel.cz/files/mod_clanky/30124.jpg" alt="MOTOTRBO R7" />
+      <div class="heritage-body reveal d1">
+        <span class="eyebrow">Proč KonekTel</span>
+        <h2 style="margin-top:1rem">35 let v jedné disciplíně - <em>profesionální rádio.</em></h2>
+        <p>Motorola definuje profesionální radiokomunikaci od roku 1928. My jsme na českém trhu od roku <b>1991</b> a po celou tu dobu děláme jednu věc: stavíme komunikační systémy, na které se provoz spolehne.</p>
+        <p>Nejsme přeprodejci krabic. Jsme partner, který systém navrhne, dodá, zprovozní a stará se o něj roky po předání.</p>
+        <div class="herit-stats">
+          <div>
+            <div class="hs-num" data-count="35" data-suffix="">35</div>
+            <div class="hs-lab">Let na českém trhu</div>
           </div>
-          <div class="product-card-body">
-            <div class="product-card-cat">MOTOTRBO</div>
-            <div class="product-card-title">R7 Vysílačka</div>
-            <div class="product-card-desc">Vlajková loď řady MOTOTRBO. Odolná konstrukce, Wi-Fi, Bluetooth a integrovaný GPS modul.</div>
-            <a href="#" class="product-card-link">Zobrazit detail →</a>
+          <div>
+            <div class="hs-num">A<span>→</span>Z</div>
+            <div class="hs-lab">Od analýzy po servis</div>
           </div>
-        </div>
-
-        <div class="product-card reveal d1">
-          <div class="product-card-img">
-            <img src="https://www.konektel.cz/files/mod_clanky/30123.jpg" alt="MOTOTRBO R5" />
-          </div>
-          <div class="product-card-body">
-            <div class="product-card-cat">MOTOTRBO</div>
-            <div class="product-card-title">R5 Vysílačka</div>
-            <div class="product-card-desc">Kompaktní a odolná rádiostanice s digitálním i analogovým provozem. Ideální pro průmyslové nasazení.</div>
-            <a href="#" class="product-card-link">Zobrazit detail →</a>
-          </div>
-        </div>
-
-        <div class="product-card reveal d2">
-          <div class="product-card-img">
-            <img src="https://www.konektel.cz/files/mod_clanky/30115.jpg" alt="TETRA ST7000" />
-          </div>
-          <div class="product-card-body">
-            <div class="product-card-cat">TETRA</div>
-            <div class="product-card-title">ST7000 Terminál</div>
-            <div class="product-card-desc">Profesionální TETRA terminál pro bezpečnostní složky a záchranáře. Šifrovaný přenos hlasu i dat.</div>
-            <a href="#" class="product-card-link">Zobrazit detail →</a>
-          </div>
-        </div>
-
-        <div class="product-card reveal">
-          <div class="product-card-img">
-            <img src="https://www.konektel.cz/files/mod_clanky/30118.jpg" alt="Mobilní rádiostanice" />
-          </div>
-          <div class="product-card-body">
-            <div class="product-card-cat">Mobilní stanice</div>
-            <div class="product-card-title">Vozidlové rádiostanice</div>
-            <div class="product-card-desc">Pevné instalace do vozidel pro dispečink, záchrannou službu a bezpečnostní složky.</div>
-            <a href="#" class="product-card-link">Zobrazit detail →</a>
-          </div>
-        </div>
-
-        <div class="product-card reveal d1">
-          <div class="product-card-img">
-            <img src="https://www.konektel.cz/files/mod_clanky/30107.jpg" alt="Zápůjčky" />
-          </div>
-          <div class="product-card-body">
-            <div class="product-card-cat">Pronájem</div>
-            <div class="product-card-title">Krátkodobé zápůjčky</div>
-            <div class="product-card-desc">Vysílačky na akce, festivaly nebo stavby. Vyzkoušejte technologii bez závazků.</div>
-            <a href="#" class="product-card-link">Zobrazit detail →</a>
-          </div>
-        </div>
-
-        <div class="product-card reveal d2">
-          <div class="product-card-img">
-            <img src="https://www.konektel.cz/files/mod_bannery/b10006f623.jpg" alt="Systémová řešení" />
-          </div>
-          <div class="product-card-body">
-            <div class="product-card-cat">Systémy</div>
-            <div class="product-card-title">Konektivita Cambium</div>
-            <div class="product-card-desc">Bezdrátové datové sítě pro průmyslové areály a náročné venkovní prostředí.</div>
-            <a href="#" class="product-card-link">Zobrazit detail →</a>
+          <div>
+            <div class="hs-num">MOTO<span>·</span></div>
+            <div class="hs-lab">Partner Motorola Solutions</div>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- SERVICES -->
-  <section class="section services" id="sluzby">
-    <div class="section-inner">
-      <div class="section-tag reveal">Naše služby</div>
-      <h2 class="section-title reveal d1" style="max-width:500px">Komplexní péče<br>od A do Z</h2>
-      <div class="services-grid">
-        <div class="service-card reveal">
-          <div class="service-icon">
-            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" width="22" height="22">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-            </svg>
-          </div>
-          <div class="service-title">Analýza & návrh</div>
-          <div class="service-desc">Zmapujeme vaše prostředí, požadavky a navrhneme optimální komunikační architekturu na míru.</div>
-        </div>
-        <div class="service-card reveal d1">
-          <div class="service-icon">
-            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" width="22" height="22">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-            </svg>
-          </div>
-          <div class="service-title">Dodávka & instalace</div>
-          <div class="service-desc">Kompletní dodávka certifikovaných zařízení, instalace infrastruktury a naprogramování systémů.</div>
-        </div>
-        <div class="service-card reveal d2">
-          <div class="service-icon">
-            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" width="22" height="22">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/>
-            </svg>
-          </div>
-          <div class="service-title">Servis 24/7</div>
-          <div class="service-desc">Nepřetržitý technický servis, pravidelná údržba a rychlý zásah při poruše. Certifikovaní technici.</div>
-        </div>
-        <div class="service-card reveal">
-          <div class="service-icon">
-            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" width="22" height="22">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
-            </svg>
-          </div>
-          <div class="service-title">Školení obsluhy</div>
-          <div class="service-desc">Praktická školení pro operátory a správce systémů. Certifikace Motorola Solutions.</div>
-        </div>
-        <div class="service-card reveal d1">
-          <div class="service-icon">
-            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" width="22" height="22">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
-            </svg>
-          </div>
-          <div class="service-title">Monitoring sítě</div>
-          <div class="service-desc">Vzdálený dohled nad komunikační infrastrukturou, proaktivní správa a reporting výkonu systémů.</div>
-        </div>
-        <div class="service-card reveal d2">
-          <div class="service-icon">
-            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" width="22" height="22">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/>
-            </svg>
-          </div>
-          <div class="service-title">Zápůjčky</div>
-          <div class="service-desc">Pronájem vysílaček na akce, výstavy a stavební projekty. Rychlá dostupnost, plná podpora.</div>
-        </div>
+<!-- COMMITMENTS -->
+<section class="section commit">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Na co se spolehnete</span>
+      <h2>Tři věci, které platí<br>u každé zakázky</h2>
+    </div>
+    <div class="commit-grid">
+      <div class="ccard reveal">
+        <div class="ccard-ic"><svg viewBox="0 0 24 24"><path d="M12 2v3M12 19v3M2 12h3M19 12h3" stroke-linecap="round"/><circle cx="12" cy="12" r="5.5"/><path d="M10 12l1.5 1.5L15 10" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>Servis po celou životnost</h3>
+        <p>Systém po předání neopouštíme. Údržba, opravy a rozvoj běží po celou dobu, kdy systém slouží.</p>
+      </div>
+      <div class="ccard reveal d1">
+        <div class="ccard-ic"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4L12 14.3 7.2 16.7l.9-5.4L4.2 7.7l5.4-.8L12 2z" stroke-linejoin="round"/></svg></div>
+        <h3>Certifikovaní technici</h3>
+        <p>Školení a certifikace Motorola Solutions. Zařízení i sítě konfiguruje a servisuje tým, který technologii rozumí.</p>
+      </div>
+      <div class="ccard reveal d2">
+        <div class="ccard-ic"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h10M4 18h7" stroke-linecap="round"/><circle cx="18" cy="16" r="3"/><path d="M18 14.5V16l1 1" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>Řešení z analýzy, ne z katalogu</h3>
+        <p>Návrh vychází z vašeho provozu a prostředí. Nedostanete univerzální balík, ale systém postavený na míru.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- WHY US -->
-  <section class="section why" id="o-nas">
-    <div class="section-inner">
-      <div class="why-grid">
-        <div>
-          <div class="section-tag" style="color:var(--accent)">Proč KonekTel</div>
-          <h2 class="section-title light reveal" style="margin-top:0.5rem">Náš přístup je<br>jiný od začátku.</h2>
-          <p class="section-sub light reveal d1">Motorola Solutions funguje od roku 1928. My jsme jejich partnery od roku 1991. Víme, co spolehlivá komunikace znamená.</p>
-
-          <div class="why-steps">
-            <div class="why-step reveal">
-              <div class="why-step-num">01</div>
-              <div class="why-step-content">
-                <h4>Analýza prostředí</h4>
-                <p>Nejdřív pochopíme vaše provozní podmínky — teprve pak navrhujeme řešení.</p>
-              </div>
-            </div>
-            <div class="why-step reveal d1">
-              <div class="why-step-num">02</div>
-              <div class="why-step-content">
-                <h4>Návrh systému</h4>
-                <p>Architektura komunikačního systému na míru — frekvenční plánování, pokrytí, zálohy.</p>
-              </div>
-            </div>
-            <div class="why-step reveal d2">
-              <div class="why-step-num">03</div>
-              <div class="why-step-content">
-                <h4>Dodávka & spuštění</h4>
-                <p>Certifikovaná zařízení, profesionální instalace a kompletní programování systémů.</p>
-              </div>
-            </div>
-            <div class="why-step reveal d3">
-              <div class="why-step-num">04</div>
-              <div class="why-step-content">
-                <h4>Školení a předání</h4>
-                <p>Obsluhu zaškolíme, dokumentaci předáme. Systém je váš.</p>
-              </div>
-            </div>
-            <div class="why-step reveal">
-              <div class="why-step-num">05</div>
-              <div class="why-step-content">
-                <h4>Dlouhodobé partnerství</h4>
-                <p>Servis, aktualizace a rozšiřování systémů po celou dobu životnosti.</p>
-              </div>
-            </div>
+<!-- KONTAKT -->
+<section class="section contact" id="kontakt">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <span class="eyebrow">Kontakt</span>
+        <h2>Popište nám provoz.<br>Navrhneme řešení.</h2>
+        <p>Nezávazná konzultace. Řekněte nám, co potřebujete pokrýt, a my navrhneme, jak na to.</p>
+        <div class="cinfo-list">
+          <div class="cinfo">
+            <div class="cinfo-ic"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.6a16 16 0 0 0 6 6l1.1-1.2a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div><div class="cinfo-k">Telefon</div><div class="cinfo-v"><a href="tel:+420466857111">+420 466 857 111</a></div></div>
           </div>
-        </div>
-
-        <div class="why-visual reveal">
-          <div class="why-img-wrap">
-            <img src="https://www.konektel.cz/files/mod_bannery/b10012f620.jpg" alt="KonekTel tým" />
+          <div class="cinfo">
+            <div class="cinfo-ic"><svg viewBox="0 0 24 24"><rect x="2.5" y="4.5" width="19" height="15" rx="2"/><path d="M3 6l9 6 9-6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div><div class="cinfo-k">E-mail</div><div class="cinfo-v"><a href="mailto:obchod@konektel.cz">obchod@konektel.cz</a><small>Technická podpora: podpora@konektel.cz</small></div></div>
           </div>
-          <div class="why-badge">
-            <div class="why-badge-num">1991</div>
-            <div class="why-badge-label">Na trhu od roku</div>
+          <div class="cinfo">
+            <div class="cinfo-ic"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.4"/></svg></div>
+            <div><div class="cinfo-k">Sídlo</div><div class="cinfo-v">Pražská 152, Popkovice<small>530 06 Pardubice</small></div></div>
+          </div>
+          <div class="cinfo">
+            <div class="cinfo-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div><div class="cinfo-k">Otevírací doba</div><div class="cinfo-v">Po - Pá: 08:00 - 16:00</div></div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- CTA -->
-  <section class="cta-section" id="kontakt">
-    <div class="cta-inner">
-      <h2>Připraveni zlepšit<br>vaši komunikaci?</h2>
-      <p>Konzultace zdarma — popište nám váš případ a my vám do 24 hodin navrhneme řešení.</p>
-      <a href="mailto:info@konektel.cz" class="btn-white">Napište nám →</a>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <span class="nav-logo-text" style="font-size:1.2rem">Konek<span style="color:var(--accent)">Tel</span></span>
-        <p>Profesionální radiokomunikační systémy pro průmysl, bezpečnost a komerční sféru. Autorizovaný partner Motorola Solutions od roku 1991.</p>
-      </div>
-      <div class="footer-col">
-        <h5>Produkty</h5>
-        <ul>
-          <li><a href="#">MOTOTRBO R7</a></li>
-          <li><a href="#">MOTOTRBO R5</a></li>
-          <li><a href="#">TETRA terminály</a></li>
-          <li><a href="#">Vozidlové stanice</a></li>
-          <li><a href="#">Cambium sítě</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h5>Služby</h5>
-        <ul>
-          <li><a href="#">Analýza & návrh</a></li>
-          <li><a href="#">Instalace</a></li>
-          <li><a href="#">Servis 24/7</a></li>
-          <li><a href="#">Školení</a></li>
-          <li><a href="#">Zápůjčky</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h5>Kontakt</h5>
-        <ul>
-          <li><a href="#">info@konektel.cz</a></li>
-          <li><a href="#">+420 495 xxx xxx</a></li>
-          <li><a href="#">Hradec Králové</a></li>
-          <li><a href="#">Praha</a></li>
-          <li><a href="#">Reference</a></li>
-        </ul>
+      <div class="form-card reveal d1">
+        <span class="eyebrow">Nezávazná poptávka</span>
+        <h3>Řekněte nám, co potřebujete</h3>
+        <form id="leadForm" onsubmit="return sendLead(event)">
+          <div class="frow">
+            <div class="field"><label>Jméno</label><input type="text" name="jmeno" required placeholder="Jan Novák"></div>
+            <div class="field"><label>Společnost</label><input type="text" name="firma" placeholder="Název organizace"></div>
+          </div>
+          <div class="frow">
+            <div class="field"><label>Telefon</label><input type="tel" name="tel" placeholder="+420"></div>
+            <div class="field"><label>E-mail</label><input type="email" name="email" required placeholder="vy@firma.cz"></div>
+          </div>
+          <div class="field" style="margin-bottom:1rem"><label>Oblast zájmu</label>
+            <select name="oblast">
+              <option>Radiostanice MOTOTRBO / TETRA</option>
+              <option>Komunikační systém na míru</option>
+              <option>Servis a podpora stávajícího systému</option>
+              <option>Datové sítě / SCADA</option>
+              <option>Krátkodobá zápůjčka</option>
+              <option>Něco jiného</option>
+            </select>
+          </div>
+          <div class="field"><label>Popis provozu / poptávky</label><textarea name="zprava" placeholder="Kolik uživatelů, jaké prostředí, co chcete pokrýt..."></textarea></div>
+          <label class="gdpr"><input type="checkbox" required> Souhlasím se zpracováním uvedených údajů za účelem zpracování této poptávky.</label>
+          <button type="submit" class="btn btn-accent">Odeslat poptávku</button>
+          <p class="form-note">Ozveme se zpravidla do následujícího pracovního dne</p>
+        </form>
       </div>
     </div>
-    <div class="footer-bottom">
-      <p>© 2025 KonekTel, a.s. — Všechna práva vyhrazena.</p>
-      <p>Ochrana osobních údajů · Podmínky použití</p>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="section final">
+  <div class="wrap">
+    <span class="eyebrow center">Připraveni začít</span>
+    <h2>Spolehlivá komunikace začíná <em>jedním hovorem.</em></h2>
+    <div class="final-lines">
+      <a href="tel:+420466857111" class="fbtn"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.6a16 16 0 0 0 6 6l1.1-1.2a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z" stroke-linecap="round" stroke-linejoin="round"/></svg>+420 466 857 111</a>
+      <a href="mailto:obchod@konektel.cz" class="fbtn ghost"><svg viewBox="0 0 24 24"><rect x="2.5" y="4.5" width="19" height="15" rx="2"/><path d="M3 6l9 6 9-6" stroke-linecap="round" stroke-linejoin="round"/></svg>obchod@konektel.cz</a>
     </div>
-  </footer>
+  </div>
+</section>
 
-  <script>
-    // Nav scroll
-    const nav = document.getElementById('nav');
-    window.addEventListener('scroll', () => {
-      nav.classList.toggle('scrolled', window.scrollY > 50);
-    }, { passive: true });
+<!-- FOOTER -->
+<footer>
+  <div class="foot-inner">
+    <div class="foot-brand">
+      <span class="brand-name" style="font-size:1.25rem">Konek<b>Tel</b></span>
+      <p>Profesionální radiokomunikační systémy pro dopravu, bezpečnost a průmysl. Na českém trhu od roku 1991.</p>
+    </div>
+    <div class="foot-col">
+      <h5>Technologie</h5>
+      <ul>
+        <li><a href="#technologie">MOTOTRBO</a></li>
+        <li><a href="#technologie">TETRA</a></li>
+        <li><a href="#technologie">Infrastruktura SLR</a></li>
+        <li><a href="#technologie">Cambium datové sítě</a></li>
+        <li><a href="#technologie">Zápůjčky</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h5>Řešení</h5>
+      <ul>
+        <li><a href="#segmenty">Městská doprava</a></li>
+        <li><a href="#segmenty">Záchranné složky</a></li>
+        <li><a href="#segmenty">Průmysl</a></li>
+        <li><a href="#proces">Jak pracujeme</a></li>
+        <li><a href="#kontakt">Servis</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h5>Kontakt</h5>
+      <ul>
+        <li><a href="tel:+420466857111">+420 466 857 111</a></li>
+        <li><a href="mailto:obchod@konektel.cz">obchod@konektel.cz</a></li>
+        <li>Pražská 152, Popkovice</li>
+        <li>530 06 Pardubice</li>
+        <li>Po - Pá 08:00 - 16:00</li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <p>© 2026 KonekTel, a.s.</p>
+    <span>IČO 15051145 · DIČ CZ15051145 · Radiokomunikace od 1991</span>
+  </div>
+</footer>
 
-    // Scroll reveal
-    const reveals = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('revealed');
-          observer.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.1 });
-    reveals.forEach(el => observer.observe(el));
-  </script>
+<!-- STICKY MOBILE CTA -->
+<div class="sticky-cta">
+  <a href="tel:+420466857111" class="s-call">Zavolat</a>
+  <a href="#kontakt" class="s-cons">Konzultace</a>
+</div>
+
+<script>
+document.documentElement.classList.add('js');
+
+// loader
+window.addEventListener('load',()=>{setTimeout(()=>document.getElementById('loader').classList.add('done'),550)});
+setTimeout(()=>document.getElementById('loader').classList.add('done'),2600); // failsafe
+
+// nav scrolled
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>40),{passive:true});
+
+// mobile menu
+const burger=document.getElementById('burger'),mm=document.getElementById('mobileMenu');
+burger.addEventListener('click',()=>{mm.classList.toggle('open');burger.classList.toggle('x')});
+mm.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mm.classList.remove('open')));
+
+// reveal
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+setTimeout(()=>document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in')),4000); // screenshot failsafe
+
+// count-up
+function countUp(el){
+  const target=+el.dataset.count, from = target>1000?1900:0, dur=1100, t0=performance.now();
+  function tick(t){const p=Math.min((t-t0)/dur,1),e=1-Math.pow(1-p,3);el.textContent=Math.round(from+(target-from)*e);if(p<1)requestAnimationFrame(tick)}
+  requestAnimationFrame(tick);
+}
+const cio=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){countUp(e.target);cio.unobserve(e.target)}})},{threshold:.6});
+document.querySelectorAll('[data-count]').forEach(el=>cio.observe(el));
+
+// hero ring parallax (subtle)
+const rings=document.querySelector('.hero-rings');
+let ticking=false;
+addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(()=>{if(rings&&scrollY<900)rings.style.transform=`translateY(calc(-50% + ${scrollY*0.06}px))`;ticking=false});ticking=true}},{passive:true});
+
+// form (demo handler -> mailto)
+function sendLead(e){
+  e.preventDefault();
+  const f=e.target, d=k=>encodeURIComponent((f[k]?.value||'').trim());
+  const body=`Jméno: ${decodeURIComponent(d('jmeno'))}%0D%0ASpolečnost: ${decodeURIComponent(d('firma'))}%0D%0ATelefon: ${decodeURIComponent(d('tel'))}%0D%0AE-mail: ${decodeURIComponent(d('email'))}%0D%0AOblast: ${decodeURIComponent(d('oblast'))}%0D%0A%0D%0A${decodeURIComponent(d('zprava'))}`;
+  window.location.href=`mailto:obchod@konektel.cz?subject=${encodeURIComponent('Poptávka z webu - '+(f.firma.value||f.jmeno.value))}&body=${body}`;
+  return false;
+}
+</script>
 </body>
 </html>
