@@ -523,7 +523,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     transition:transform .32s cubic-bezier(.4,0,.2,1);overflow-y:auto;z-index:95}
   body.nav-open .nav{transform:translateX(0)}
   body.nav-open{overflow:hidden}
-  body.nav-open::after{content:'';position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:94}
+  /* overlay must sit BELOW the fixed header (z-index:80) — the slide-in drawer lives inside
+     the header's stacking context, so an overlay above 80 covered the menu and ate every tap
+     (mobile nav appeared open but nothing was clickable). Keep it under 80, above page content. */
+  body.nav-open::after{content:'';position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:78}
   body.nav-open .cookies,body.nav-open .sticky-bar{display:none}
   .nav-links{display:flex;flex-direction:column;gap:0;width:100%}
   .nav-links > li{border-bottom:1px solid var(--line-dark)}
