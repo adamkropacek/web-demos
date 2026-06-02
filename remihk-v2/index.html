@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>REMI HK - Demo (verze dle podkladů Renaty) · Adam Kropáček</title>
+<meta name="description" content="DEMO koncept koupelnového studia REMI HK - verze přepracovaná dle podkladů Renaty Sobolíkové. Nekomerční ukázka. Originál: remihk.cz">
+<meta name="author" content="Adam Kropáček">
+<meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
+<meta name="googlebot" content="noindex, nofollow">
+<meta property="og:title" content="REMI HK - Demo v2 (dle podkladů Renaty)">
+<meta property="og:description" content="Portfolio demo ukázka. Originální web: remihk.cz">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#F5F1EA;
+  --bg-soft:#EDE7DC;
+  --bg-deep:#1F2229;
+  --ink:#26272B;
+  --muted:#75716A;
+  --line:rgba(38,39,43,.12);
+  --line-soft:rgba(38,39,43,.06);
+  --accent:#8B6D3F;
+  --accent-soft:#B89968;
+  --paper:#FAF7F1;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--ink);overflow-x:hidden;font-weight:300;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.serif{font-family:'Cormorant Garamond',serif;font-weight:400;letter-spacing:-.005em}
+.eyebrow{font-size:.7rem;letter-spacing:.32em;text-transform:uppercase;color:var(--accent);font-weight:500}
+.container{max-width:1340px;margin:0 auto;padding:0 2.5rem}
+@media(max-width:780px){.container{padding:0 1.25rem}}
+
+/* LOADER */
+#loader{position:fixed;inset:0;z-index:9999;background:var(--bg);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:2rem;transition:opacity .7s ease}
+#loader.done{opacity:0;pointer-events:none}
+.load-mark{font-family:'Cormorant Garamond',serif;font-size:2.4rem;letter-spacing:.08em;color:var(--ink);opacity:0;animation:fadeIn 1s .1s forwards}
+.load-mark span{color:var(--accent)}
+.load-bar{width:160px;height:1px;background:var(--line);overflow:hidden}
+.load-bar::after{content:'';display:block;height:100%;background:var(--accent);width:0;animation:fill 1.4s .3s cubic-bezier(.4,0,.2,1) forwards}
+@keyframes fill{to{width:100%}}
+@keyframes fadeIn{to{opacity:1}}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.4rem 2.5rem;display:flex;align-items:center;justify-content:space-between;transition:background .35s,padding .35s,border-color .35s;border-bottom:1px solid transparent}
+nav.scrolled{background:rgba(245,241,234,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:1rem 2.5rem;border-color:var(--line-soft)}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.55rem;letter-spacing:.06em;font-weight:500}
+.nav-logo span{color:var(--accent)}
+.nav-links{display:flex;gap:2.4rem}
+.nav-links a{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);opacity:.62;transition:opacity .2s;font-weight:400}
+.nav-links a:hover{opacity:1}
+.nav-cta{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;border:1px solid var(--ink);padding:.7rem 1.4rem;font-weight:500;transition:all .25s}
+.nav-cta:hover{background:var(--ink);color:var(--bg)}
+.nav-mobile{display:none;width:28px;height:18px;position:relative;cursor:pointer}
+.mobile-menu{display:none}
+.nav-mobile span{position:absolute;left:0;right:0;height:1px;background:var(--ink);transition:all .3s}
+.nav-mobile span:nth-child(1){top:2px}
+.nav-mobile span:nth-child(2){top:50%}
+.nav-mobile span:nth-child(3){bottom:2px}
+nav.open .nav-mobile span:nth-child(1){top:50%;transform:rotate(45deg)}
+nav.open .nav-mobile span:nth-child(2){opacity:0}
+nav.open .nav-mobile span:nth-child(3){bottom:50%;transform:translateY(50%) rotate(-45deg)}
+@media(max-width:980px){
+  nav{padding:1.1rem 1.25rem}
+  .nav-links,.nav-cta{display:none}
+  .nav-mobile{display:block}
+  .mobile-menu{position:fixed;top:0;left:0;right:0;bottom:0;background:var(--bg);z-index:99;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2rem;opacity:0;pointer-events:none;transition:opacity .35s;padding-top:60px}
+  .mobile-menu.open{opacity:1;pointer-events:all}
+  .mobile-menu a{font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--ink)}
+  .mobile-menu .nav-cta{display:inline-block;font-family:'Inter',sans-serif;font-size:.85rem;padding:1rem 2rem;margin-top:1rem}
+}
+
+/* HERO - editorial split: intro text + Renata portrait */
+.hero{min-height:100vh;display:grid;grid-template-columns:1.05fr .95fr;align-items:stretch;background:var(--bg)}
+.hero-text{display:flex;flex-direction:column;justify-content:center;padding:9rem 4.5rem 5rem}
+.hero-text .eyebrow{margin-bottom:1.6rem}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.6rem,4.4vw,4.4rem);line-height:1.04;font-weight:400;letter-spacing:-.02em;margin:0 0 1.8rem}
+.hero h1 em{font-style:italic;color:var(--accent);font-weight:400}
+.hero p.lead{font-size:1.08rem;line-height:1.75;color:var(--muted);max-width:480px;margin-bottom:2.6rem;font-weight:300}
+.hero-cta-row{display:flex;gap:1rem;align-items:center;flex-wrap:wrap}
+.hero-photo{position:relative;overflow:hidden;background:#15171c}
+.hero-photo img{width:100%;height:100%;object-fit:cover;transform:scale(1.06)}
+html.js .hero-photo img{animation:heroZoom 18s cubic-bezier(.22,.61,.36,1) .3s forwards}
+@keyframes heroZoom{to{transform:scale(1)}}
+.hero-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(245,241,234,.5) 0%,rgba(245,241,234,0) 22%);pointer-events:none}
+.hero-photo .sig{position:absolute;left:2rem;bottom:2rem;z-index:2;color:var(--paper);font-family:'Cormorant Garamond',serif;font-size:1.5rem;letter-spacing:.02em;text-shadow:0 2px 18px rgba(0,0,0,.45)}
+.hero-photo .sig small{display:block;font-family:'Inter',sans-serif;font-size:.66rem;letter-spacing:.28em;text-transform:uppercase;opacity:.85;margin-top:.35rem;font-weight:400}
+.btn-primary{display:inline-flex;align-items:center;gap:.7rem;background:var(--ink);color:var(--bg);padding:1.05rem 1.9rem;font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;font-weight:500;transition:background .25s}
+.btn-primary:hover{background:var(--accent);color:var(--bg)}
+.btn-primary svg{width:14px;height:14px;transition:transform .25s}
+.btn-primary:hover svg{transform:translateX(4px)}
+.cta-link{display:inline-flex;align-items:center;gap:1rem;color:var(--ink);font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;font-weight:500;transition:color .25s}
+.cta-link:hover{color:var(--accent)}
+.cta-link .arc{width:46px;height:46px;border:1px solid var(--line);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;transition:border-color .3s,transform .4s cubic-bezier(.22,.61,.36,1)}
+.cta-link .arc svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.4;transition:transform .4s cubic-bezier(.22,.61,.36,1)}
+.cta-link:hover .arc{border-color:var(--accent);transform:rotate(45deg)}
+.cta-link:hover .arc svg{transform:rotate(-45deg)}
+@media(max-width:980px){
+  .hero{grid-template-columns:1fr;min-height:auto}
+  .hero-text{padding:7.5rem 1.5rem 3rem;order:2}
+  .hero-photo{order:1;min-height:62vh}
+  .hero-photo::after{background:linear-gradient(to top,rgba(245,241,234,.35) 0%,rgba(245,241,234,0) 30%)}
+}
+@media(max-width:560px){
+  .hero-text{padding:6.5rem 1.25rem 2.5rem}
+  .hero h1{font-size:clamp(2.1rem,9vw,2.9rem)}
+  .hero-cta-row{flex-direction:column;align-items:stretch;gap:1rem}
+  .hero-cta-row .btn-primary{justify-content:center}
+}
+
+/* SECTION GENERIC */
+section{padding:7.5rem 0;position:relative}
+@media(max-width:780px){section{padding:4.5rem 0}}
+.section-head{max-width:760px;margin:0 0 4rem}
+.section-head.center{margin-left:auto;margin-right:auto;text-align:center}
+.section-head h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3.7vw,3.4rem);line-height:1.08;font-weight:400;letter-spacing:-.015em;margin:1.1rem 0 1.3rem}
+.section-head h2 em{font-style:italic;color:var(--accent);font-weight:400}
+.section-head p{font-size:1.02rem;line-height:1.7;color:var(--muted);max-width:620px}
+.section-head.center p{margin-left:auto;margin-right:auto}
+
+/* INTRO / O mně */
+.intro{background:var(--paper)}
+.intro-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:5rem;align-items:start}
+@media(max-width:880px){.intro-grid{grid-template-columns:1fr;gap:2.5rem}}
+.intro .eyebrow{display:block;margin-bottom:1.2rem}
+.intro h2{font-family:'Cormorant Garamond',serif;font-size:clamp(1.9rem,3.2vw,2.9rem);font-weight:400;line-height:1.12;letter-spacing:-.01em}
+.intro h2 em{font-style:italic;color:var(--accent)}
+.intro-body p{font-size:1.06rem;line-height:1.8;color:var(--ink);margin-bottom:1.3rem;font-weight:300}
+.intro-body p:last-child{margin-bottom:0}
+.intro-body .draft-note{font-size:.78rem;color:var(--accent);background:rgba(139,109,63,.06);border-left:2px solid var(--accent);padding:.7rem 1rem;line-height:1.6;margin-top:1.8rem;font-weight:400}
+
+/* INSPIRACE - gallery + references */
+.insp-gallery{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:200px;gap:1rem;margin-bottom:4rem}
+.insp-item{position:relative;overflow:hidden;background:#2a2a2a;cursor:pointer}
+.insp-item img{width:100%;height:100%;object-fit:cover;transition:transform .9s cubic-bezier(.2,.6,.3,1)}
+.insp-item:hover img{transform:scale(1.05)}
+.insp-item .tag{position:absolute;left:1rem;bottom:1rem;z-index:2;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--paper);background:rgba(31,34,41,.55);backdrop-filter:blur(4px);padding:.35rem .7rem;font-weight:500}
+.insp-item::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(31,34,41,.35) 0%,rgba(31,34,41,0) 45%);opacity:.5;transition:opacity .35s}
+.insp-item:hover::after{opacity:.75}
+/* mosaic spans */
+.insp-item.big{grid-column:span 6;grid-row:span 2}
+.insp-item.tall{grid-column:span 3;grid-row:span 2}
+.insp-item.wide{grid-column:span 6;grid-row:span 1}
+.insp-item.sq{grid-column:span 3;grid-row:span 1}
+@media(max-width:880px){
+  .insp-gallery{grid-template-columns:repeat(2,1fr);grid-auto-rows:160px}
+  .insp-item.big,.insp-item.tall,.insp-item.wide,.insp-item.sq{grid-column:span 1;grid-row:span 1}
+  .insp-item.big{grid-column:span 2;grid-row:span 2}
+}
+.refs{border-top:1px solid var(--line);padding-top:2.6rem}
+.refs .refs-label{font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);margin-bottom:1.6rem;font-weight:500}
+.refs-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.2rem 2.4rem}
+.ref{display:flex;flex-direction:column;gap:.25rem;padding-bottom:1.1rem;border-bottom:1px solid var(--line-soft)}
+.ref .r-name{font-family:'Cormorant Garamond',serif;font-size:1.45rem;line-height:1.2;color:var(--ink);font-weight:500}
+.ref .r-loc{font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:400}
+
+/* SORTIMENT */
+.sortiment{background:var(--bg-soft)}
+.cat-list{display:flex;flex-direction:column;gap:1px;background:var(--line);border:1px solid var(--line)}
+.cat{background:var(--bg);padding:2.4rem 2.6rem;display:grid;grid-template-columns:auto 1fr;gap:2.2rem;align-items:start;transition:background .25s}
+.cat:hover{background:var(--paper)}
+.cat-num{font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--accent);font-weight:500;line-height:1;min-width:2.2rem;padding-top:.2rem}
+.cat-main{min-width:0}
+.cat-title{font-family:'Cormorant Garamond',serif;font-size:1.7rem;line-height:1.15;color:var(--ink);font-weight:500;margin-bottom:.4rem}
+.cat-note{font-size:.92rem;line-height:1.6;color:var(--muted);margin-bottom:1.2rem;max-width:680px}
+.brand-row{display:flex;flex-wrap:wrap;gap:.5rem .55rem}
+.chip{font-size:.84rem;color:var(--ink);border:1px solid var(--line);padding:.42rem .85rem;font-weight:400;transition:border-color .2s,color .2s,background .2s;background:var(--paper)}
+.chip:hover{border-color:var(--accent);color:var(--accent)}
+.chip .o{font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-left:.4rem}
+.chip:hover .o{color:var(--accent-soft)}
+.subcat{margin-top:1.4rem;padding:1.2rem 1.4rem;background:linear-gradient(180deg,rgba(139,109,63,.07),rgba(139,109,63,.03));border:1px solid rgba(139,109,63,.18)}
+.subcat .sc-label{font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:.8rem}
+.cat-prod-notes{list-style:none;margin-top:1.2rem;display:flex;flex-direction:column;gap:.7rem}
+.cat-prod-notes li{font-size:.9rem;line-height:1.55;color:var(--muted);padding-left:1.1rem;position:relative}
+.cat-prod-notes li::before{content:'-';position:absolute;left:0;color:var(--accent)}
+.cat-prod-notes b{color:var(--ink);font-weight:500}
+.cat-soon{display:inline-block;margin-top:.4rem;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);border:1px dashed rgba(139,109,63,.4);padding:.4rem .8rem}
+@media(max-width:680px){
+  .cat{grid-template-columns:1fr;gap:.9rem;padding:1.8rem 1.4rem}
+  .cat-num{font-size:1.2rem}
+}
+
+/* SHOWROOM */
+.showroom-section{background:var(--bg-deep);color:var(--paper);padding:7rem 0}
+@media(max-width:780px){.showroom-section{padding:4.5rem 0}}
+.showroom-text{max-width:680px;margin:0 auto;text-align:center;display:flex;flex-direction:column;align-items:center}
+.showroom-text h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,3.6vw,3.2rem);font-weight:400;line-height:1.1;letter-spacing:-.01em;margin:1rem 0 1.4rem}
+.showroom-text h2 em{font-style:italic;color:var(--accent-soft)}
+.showroom-text p{color:rgba(255,255,255,.7);line-height:1.7;font-size:1.04rem;margin-bottom:2.4rem;max-width:520px;font-weight:300}
+.showroom-text .eyebrow{color:var(--accent-soft)}
+.showroom-info{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;margin-bottom:2.6rem;border-top:1px solid rgba(255,255,255,.12);border-bottom:1px solid rgba(255,255,255,.12);padding:2rem 0;width:100%;max-width:560px;text-align:left}
+.show-info-label{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:.6rem}
+.show-info-val{font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--paper);font-weight:500;line-height:1.45}
+.show-info-val a{color:var(--accent-soft)}
+.showroom-text .btn-primary{background:var(--accent);color:var(--bg-deep)}
+.showroom-text .btn-primary:hover{background:var(--accent-soft)}
+@media(max-width:540px){.showroom-info{grid-template-columns:1fr;gap:1.6rem}}
+
+/* CONTACT FORM */
+.contact{background:var(--bg-soft);padding:7rem 0}
+.contact-grid{display:grid;grid-template-columns:1.15fr 1fr;gap:5rem;align-items:start}
+@media(max-width:980px){.contact-grid{grid-template-columns:1fr;gap:3rem}}
+.contact-form{display:flex;flex-direction:column;gap:1.4rem}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
+@media(max-width:560px){.form-row{grid-template-columns:1fr;gap:1.4rem}}
+.field{display:flex;flex-direction:column;gap:.45rem}
+.field label{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-weight:500}
+.field label .req{color:var(--accent);margin-left:.2rem}
+.field input,.field textarea,.field select{background:var(--paper);border:1px solid var(--line);padding:.95rem 1.1rem;font-family:'Inter',sans-serif;font-size:.96rem;color:var(--ink);font-weight:400;transition:border-color .2s,background .2s;outline:none}
+.field input:focus,.field textarea:focus,.field select:focus{border-color:var(--accent);background:var(--bg)}
+.field textarea{resize:vertical;min-height:120px;line-height:1.55;font-family:'Inter',sans-serif}
+.field select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2375716A' stroke-width='1.5'><path d='M6 9l6 6 6-6'/></svg>");background-repeat:no-repeat;background-position:right 1rem center;background-size:18px;padding-right:2.6rem}
+.form-consent{display:flex;align-items:flex-start;gap:.7rem;font-size:.82rem;color:var(--muted);line-height:1.55}
+.form-consent input{margin-top:.18rem;accent-color:var(--accent)}
+.form-consent a{color:var(--accent);border-bottom:1px solid var(--accent)}
+.form-submit{display:inline-flex;align-items:center;gap:.7rem;background:var(--ink);color:var(--bg);padding:1.1rem 2rem;font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;font-weight:500;transition:background .25s;border:0;cursor:pointer;align-self:flex-start;font-family:'Inter',sans-serif}
+.form-submit:hover{background:var(--accent)}
+.form-submit svg{width:14px;height:14px;transition:transform .25s}
+.form-submit:hover svg{transform:translateX(4px)}
+.form-status{font-size:.85rem;color:var(--accent);min-height:1.2em;font-weight:500}
+.contact-aside h3{font-family:'Cormorant Garamond',serif;font-size:1.9rem;line-height:1.15;margin-bottom:1.2rem;font-weight:500}
+.contact-aside h3 em{font-style:italic;color:var(--accent)}
+.contact-aside p{font-size:.96rem;line-height:1.7;color:var(--muted);margin-bottom:2rem;max-width:420px}
+.contact-aside .alt{font-size:.84rem;color:var(--muted);line-height:1.9;border-top:1px solid var(--line);padding-top:1.5rem}
+.contact-aside .alt a{color:var(--ink);border-bottom:1px solid var(--line);transition:border-color .2s,color .2s}
+.contact-aside .alt a:hover{color:var(--accent);border-color:var(--accent)}
+
+/* FOOTER */
+footer{background:var(--bg-deep);color:var(--paper);padding:5rem 0 2rem}
+.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:4rem}
+@media(max-width:780px){.foot-grid{grid-template-columns:1fr 1fr;gap:2.5rem}}
+.foot-brand{font-family:'Cormorant Garamond',serif;font-size:1.7rem;letter-spacing:.06em;margin-bottom:1.2rem;font-weight:500}
+.foot-brand span{color:var(--accent-soft)}
+.foot-tag{color:rgba(255,255,255,.55);font-size:.92rem;line-height:1.65;max-width:340px;font-weight:300}
+.foot h4{font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent-soft);margin-bottom:1.3rem;font-weight:500}
+.foot ul{list-style:none}
+.foot ul li{margin-bottom:.7rem}
+.foot a{color:rgba(255,255,255,.65);font-size:.92rem;transition:color .2s;font-weight:300}
+.foot a:hover{color:var(--paper)}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:2rem;display:flex;justify-content:space-between;align-items:center;font-size:.78rem;color:rgba(255,255,255,.4);font-weight:300}
+@media(max-width:780px){.foot-bottom{flex-direction:column;gap:1rem;text-align:center}}
+
+/* STICKY MOBILE CTA */
+.sticky-mobile{display:none}
+@media(max-width:780px){
+  .sticky-mobile{display:flex;position:fixed;bottom:0;left:0;right:0;background:var(--bg-deep);z-index:80;padding:.7rem;gap:.5rem;border-top:1px solid rgba(255,255,255,.1)}
+  .sticky-mobile a{flex:1;padding:.85rem;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;text-align:center;color:var(--paper);font-weight:500}
+  .sticky-mobile a.tel{background:var(--accent)}
+  .sticky-mobile a.consult{border:1px solid rgba(255,255,255,.3)}
+  body{padding-bottom:60px}
+}
+
+/* REVEAL */
+.reveal{transition:opacity .9s ease,transform .9s ease}
+html.js .reveal{opacity:0;transform:translateY(20px)}
+html.js .reveal.in{opacity:1;transform:translateY(0)}
+.reveal-d1{transition-delay:.1s}.reveal-d2{transition-delay:.2s}.reveal-d3{transition-delay:.3s}
+@media(prefers-reduced-motion:reduce){html.js .reveal{opacity:1;transform:none}}
+
+/* DEMO PROTECTION */
+html, body{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;-webkit-touch-callout:none}
+input, textarea, [contenteditable]{-webkit-user-select:text;-moz-user-select:text;-ms-user-select:text;user-select:text}
+img, video, picture{-webkit-user-drag:none;-moz-user-drag:none;user-drag:none;pointer-events:none}
+a img, button img{pointer-events:auto}
+</style>
+</head>
+<body>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="load-mark">REMI<span>·</span>HK</div>
+  <div class="load-bar"></div>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="nav-logo">REMI<span>·</span>HK</a>
+  <div class="nav-links">
+    <a href="#o-mne">O mně</a>
+    <a href="#inspirace">Inspirace</a>
+    <a href="#sortiment">Sortiment</a>
+    <a href="#showroom">Showroom</a>
+    <a href="#formular">Kontakt</a>
+  </div>
+  <a href="#formular" class="nav-cta">Domluvit návštěvu</a>
+  <div class="nav-mobile" id="navMobile"><span></span><span></span><span></span></div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#o-mne">O mně</a>
+  <a href="#inspirace">Inspirace</a>
+  <a href="#sortiment">Sortiment</a>
+  <a href="#showroom">Showroom</a>
+  <a href="#formular">Kontakt</a>
+  <a href="#formular" class="nav-cta">Domluvit návštěvu</a>
+</div>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-text">
+    <span class="eyebrow">Koupelnové studio · Hradec Králové</span>
+    <h1>Koupelna začíná<br><em>výběrem materiálu.</em></h1>
+    <p class="lead">Showroom, kde si vyberete obklady, sanitu, baterie i doplňky od pečlivě vybraných evropských značek - na jednom místě a s osobním poradenstvím.</p>
+    <div class="hero-cta-row">
+      <a href="#sortiment" class="btn-primary">
+        Prohlédnout sortiment
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+      <a href="#inspirace" class="cta-link" aria-label="Inspirace a reference">
+        <span class="arc"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        Inspirace
+      </a>
+    </div>
+  </div>
+  <div class="hero-photo">
+    <img src="assets/renata.jpg" alt="Renata Sobolíková ve showroomu REMI HK" loading="eager">
+    <div class="sig">Renata Sobolíková<small>REMI HK · Hradec Králové</small></div>
+  </div>
+</header>
+
+<!-- O MNE / INTRO -->
+<section id="o-mne" class="intro">
+  <div class="container">
+    <div class="intro-grid">
+      <div class="reveal">
+        <span class="eyebrow">O mně</span>
+        <h2>Pár slov <em>na úvod</em></h2>
+      </div>
+      <div class="intro-body reveal reveal-d1">
+        <p>Koupelnu vybíráte jednou za mnoho let. Proto u mě najdete materiály, kterým věřím - značky, které sama znám, sahám si na ně a vím, jak vypadají v reálném prostoru, ne jen na obrázku v katalogu.</p>
+        <p>Ráda vám pomůžu sladit obklady, sanitu, baterie i doplňky do jednoho celku, který spolu ladí. Bez spěchu, v klidu showroomu a s vybranými kolekcemi pro letošní rok.</p>
+        <p class="draft-note">Pozn. pro Renatu: sem patří tvoje původní úvodní průpovídka - jakmile mi pošleš přesné znění, vložím ho beze změny. Tenhle text je jen dočasná výplň, aby blok nebyl prázdný.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INSPIRACE - galerie (návrhy + realizace) + reference -->
+<section id="inspirace">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Malá ochutnávka pro inspiraci</span>
+      <h2>Grafické návrhy <em>a realizace</em></h2>
+      <p>Výběr z vizualizací a hotových koupelen. Pro představu, jak materiály vypadají v reálném prostoru - od decentní klasiky po výrazné celky.</p>
+    </div>
+
+    <div class="insp-gallery reveal">
+      <div class="insp-item big"><img src="assets/realizace-02.jpg" alt="Realizace koupelny - mramor"><span class="tag">Realizace</span></div>
+      <div class="insp-item tall"><img src="assets/realizace-01.jpg" alt="Realizace koupelny - dekor s vanou"><span class="tag">Realizace</span></div>
+      <div class="insp-item sq"><img src="assets/navrh-01.jpg" alt="Grafický návrh koupelny"><span class="tag">Návrh</span></div>
+      <div class="insp-item sq"><img src="assets/navrh-02.jpg" alt="Grafický návrh koupelny"><span class="tag">Návrh</span></div>
+      <div class="insp-item wide"><img src="assets/realizace-04.jpg" alt="Realizace koupelny - mramorový obklad"><span class="tag">Realizace</span></div>
+      <div class="insp-item sq"><img src="assets/navrh-03.jpg" alt="Grafický návrh koupelny"><span class="tag">Návrh</span></div>
+      <div class="insp-item sq"><img src="assets/navrh-04.jpg" alt="Grafický návrh koupelny"><span class="tag">Návrh</span></div>
+      <div class="insp-item wide"><img src="assets/realizace-05.jpg" alt="Realizace koupelny - tmavý dekor"><span class="tag">Realizace</span></div>
+      <div class="insp-item sq"><img src="assets/navrh-05.jpg" alt="Grafický návrh koupelny"><span class="tag">Návrh</span></div>
+      <div class="insp-item sq"><img src="assets/realizace-03.jpg" alt="Realizace koupelny - dekor"><span class="tag">Realizace</span></div>
+    </div>
+
+    <div class="refs reveal reveal-d1">
+      <div class="refs-label">Reference - kde nás potkáte</div>
+      <div class="refs-list">
+        <div class="ref"><span class="r-name">Šemberovo divadlo</span><span class="r-loc">Vysoké Mýto</span></div>
+        <div class="ref"><span class="r-name">Havlíčkova vila</span><span class="r-loc">Břeclav</span></div>
+        <div class="ref"><span class="r-name">Hotel Studánka - wellness</span><span class="r-loc">Rychnov nad Kněžnou</span></div>
+        <div class="ref"><span class="r-name">Zámecký hotel</span><span class="r-loc">Ratměřice</span></div>
+        <div class="ref"><span class="r-name">Hotel Černý medvěd</span><span class="r-loc">Prachatice</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SORTIMENT - 12 kategorií -->
+<section id="sortiment" class="sortiment">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Sortiment</span>
+      <h2>Co u mě <em>najdete</em></h2>
+      <p>Pečlivě vybrané evropské značky napříč celou koupelnou - od velkoformátových obkladů po designové doplňky a wellness. Vše na jednom místě.</p>
+    </div>
+
+    <div class="cat-list reveal">
+
+      <!-- 1 -->
+      <div class="cat">
+        <div class="cat-num">01</div>
+        <div class="cat-main">
+          <div class="cat-title">Obklady a dlažby</div>
+          <div class="cat-note">Velkoformátové obklady a dlažby předních italských výrobců.</div>
+          <div class="brand-row">
+            <a class="chip" href="https://www.emilgroup.com/" target="_blank" rel="noopener">Emilgroup</a>
+            <a class="chip" href="https://technolam.it/" target="_blank" rel="noopener">Technolam<span class="o">velkoformáty 3 mm</span></a>
+          </div>
+          <div class="subcat">
+            <div class="sc-label">Prémiové dlažby a obklady</div>
+            <div class="brand-row">
+              <a class="chip" href="https://www.versace-ceramics.com/" target="_blank" rel="noopener">Versace</a>
+              <a class="chip" href="https://mirage.it/us/en/products/papier-maison-blue" target="_blank" rel="noopener">Dior - Mirage</a>
+              <a class="chip" href="https://www.lafabbrica.it/en/tonino-lamborghini/" target="_blank" rel="noopener">Tonino Lamborghini</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2 -->
+      <div class="cat">
+        <div class="cat-num">02</div>
+        <div class="cat-main">
+          <div class="cat-title">Mozaiky a dekorativní obklady</div>
+          <div class="cat-note">Drobné formáty a dekory pro detaily, které prostor odliší.</div>
+          <div class="brand-row">
+            <a class="chip" href="https://www.equipeceramicas.com/" target="_blank" rel="noopener">Equipe<span class="o">Španělsko</span></a>
+            <a class="chip" href="https://www.tonalite.it/" target="_blank" rel="noopener">Tonalité<span class="o">Itálie</span></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3 -->
+      <div class="cat">
+        <div class="cat-num">03</div>
+        <div class="cat-main">
+          <div class="cat-title">Výběr z kolekcí</div>
+          <div class="cat-note">Pro letošek jsem pro vás vybrala kolekce, které stojí za pozornost. Kompletní katalog si projdete přímo ve showroomu.</div>
+          <span class="cat-soon">Katalog - připravujeme odkaz</span>
+        </div>
+      </div>
+
+      <!-- 4 -->
+      <div class="cat">
+        <div class="cat-num">04</div>
+        <div class="cat-main">
+          <div class="cat-title">Sanitární keramika a koupelnový nábytek</div>
+          <ul class="cat-prod-notes">
+            <li><b>Catalano</b> - jeden z nejuznávanějších výrobců v Evropě. Povrch s ionty titanu a stříbra je antibakteriální a snadno se čistí. Čistý minimalistický design, umyvadlo s otvorem i bez.</li>
+            <li><b>Alice Ceramica</b> - nakonfigurujete si barevné provedení i ušlechtilý povrch, umyvadlo s otvorem nebo bez.</li>
+            <li><b>Lotosan</b> - originální kousky za příznivé ceny, se zárukou 5 let na výrobek.</li>
+            <li><b>Stonecloud</b> - umyvadla, která nakonfigurujete dle svých potřeb.</li>
+            <li><b>Lavita</b> - design vs. cena, který překvapí. Originální doplňky a kombi WC mísy.</li>
+            <li><b>Rexa Design</b> - design pro opravdové labužníky.</li>
+            <li><b>Alape</b> - ocelová umyvadla a výlevky.</li>
+            <li><b>Mirage / Bathmood</b> - umyvadlo ve stejném designu jako obklad a dlažba.</li>
+            <li><b>Kos by Zucchetti</b> - nápaditý design.</li>
+            <li><b>Galassia</b> - jednu z nejhezčích výlevek najdete právě tady.</li>
+          </ul>
+          <div class="brand-row" style="margin-top:1.2rem">
+            <a class="chip" href="https://www.idealstandard.cz/" target="_blank" rel="noopener">Ideal Standard</a>
+            <a class="chip" href="https://www.villeroy-boch.co.uk/b/bathroom-collections/" target="_blank" rel="noopener">Villeroy &amp; Boch</a>
+            <a class="chip" href="https://www.duravit.cz/" target="_blank" rel="noopener">Duravit</a>
+            <a class="chip" href="https://www.laufen.cz/" target="_blank" rel="noopener">Laufen</a>
+            <a class="chip" href="https://www.jika.cz/" target="_blank" rel="noopener">Jika</a>
+            <a class="chip" href="https://www.roca.cz/" target="_blank" rel="noopener">Roca</a>
+            <a class="chip" href="https://www.lebon.cz/" target="_blank" rel="noopener">Lebon</a>
+            <a class="chip" href="https://www.eden.cz/" target="_blank" rel="noopener">Eden</a>
+            <a class="chip" href="https://www.drevojas.cz/" target="_blank" rel="noopener">Dřevojas</a>
+            <a class="chip" href="https://www.krajcar.cz/" target="_blank" rel="noopener">Krajčár</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5 -->
+      <div class="cat">
+        <div class="cat-num">05</div>
+        <div class="cat-main">
+          <div class="cat-title">Sprchové kouty, vany, vaničky a žlaby</div>
+          <div class="cat-note"><b>Viega</b> - zkracovatelné žlaby a kompletní odvodnění do koupelny.</div>
+          <div class="brand-row">
+            <a class="chip" href="https://www.viega.cz/cs/produkty/Pouziti/Odvodneni_v_koupelne/podlahove-advantix-vario.html" target="_blank" rel="noopener">Viega</a>
+            <a class="chip" href="https://www.tece.com/cz" target="_blank" rel="noopener">Tece</a>
+            <a class="chip" href="https://www.unidrain.com/" target="_blank" rel="noopener">Unidrain</a>
+            <a class="chip" href="https://www.bemeta.cz/cs/sprchove-zlaby" target="_blank" rel="noopener">Bemeta</a>
+            <a class="chip" href="https://www.ronalbathrooms.com/cs" target="_blank" rel="noopener">Ronal</a>
+            <a class="chip" href="https://newtrendy.eu/cs" target="_blank" rel="noopener">New Trendy</a>
+            <a class="chip" href="https://www.radaway.cz/" target="_blank" rel="noopener">Radaway</a>
+            <a class="chip" href="https://www.riho.com/cs/" target="_blank" rel="noopener">Riho</a>
+            <a class="chip" href="https://www.santech.cz/" target="_blank" rel="noopener">Santech</a>
+            <a class="chip" href="https://www.polysan.cz/" target="_blank" rel="noopener">Polysan</a>
+            <a class="chip" href="https://www.hueppe.com/cs/" target="_blank" rel="noopener">Hüppe</a>
+            <a class="chip" href="https://www.duscholux.com/" target="_blank" rel="noopener">Duscholux</a>
+            <a class="chip" href="https://www.kaldewei.cz/" target="_blank" rel="noopener">Kaldewei</a>
+            <a class="chip" href="https://www.my-bette.com/en/products/baths" target="_blank" rel="noopener">Bette</a>
+            <a class="chip" href="https://www.ravak.cz/" target="_blank" rel="noopener">Ravak</a>
+            <a class="chip" href="https://www.vagnerplast.cz/" target="_blank" rel="noopener">Vagnerplast</a>
+            <a class="chip" href="https://www.kreiner.de/" target="_blank" rel="noopener">Kreiner</a>
+            <a class="chip" href="https://www.zucchettidesign.it/en/company/kos" target="_blank" rel="noopener">Kos</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6 -->
+      <div class="cat">
+        <div class="cat-num">06</div>
+        <div class="cat-main">
+          <div class="cat-title">Vodovodní baterie</div>
+          <div class="cat-note">Od osvědčené klasiky po designové armatury.</div>
+          <div class="brand-row">
+            <a class="chip" href="https://www.gessi.com/" target="_blank" rel="noopener">Gessi</a>
+            <a class="chip" href="https://www.tresgriferia.com/" target="_blank" rel="noopener">Tres</a>
+            <a class="chip" href="https://www.zucchettidesign.it/en/products" target="_blank" rel="noopener">Zucchetti</a>
+            <a class="chip" href="https://www.rubinetterie3m.it/en" target="_blank" rel="noopener">Treemme</a>
+            <a class="chip" href="https://www.steinberg-armaturen.de/" target="_blank" rel="noopener">Steinberg</a>
+            <a class="chip" href="https://www.dornbracht.com/" target="_blank" rel="noopener">Dornbracht</a>
+            <a class="chip" href="https://www.remer.eu/" target="_blank" rel="noopener">Remer</a>
+            <a class="chip" href="https://imexproducts.es/" target="_blank" rel="noopener">Imex</a>
+            <a class="chip" href="https://www.grohe.com/" target="_blank" rel="noopener">Grohe</a>
+            <a class="chip" href="https://www.hansgrohe.cz/" target="_blank" rel="noopener">Hansgrohe</a>
+            <a class="chip" href="https://www.hansa.com/" target="_blank" rel="noopener">Hansa</a>
+            <a class="chip" href="https://www.kludi.com/" target="_blank" rel="noopener">Kludi</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7 -->
+      <div class="cat">
+        <div class="cat-num">07</div>
+        <div class="cat-main">
+          <div class="cat-title">Doplňky</div>
+          <div class="cat-note">Detaily, které koupelnu dotáhnou.</div>
+          <div class="brand-row">
+            <a class="chip" href="https://www.beslagsboden.com/" target="_blank" rel="noopener">Beslagsboden<span class="o">Švédsko</span></a>
+            <a class="chip" href="https://medimex.es/" target="_blank" rel="noopener">Medimex<span class="o">Španělsko</span></a>
+            <span class="chip">Nimco</span>
+            <a class="chip" href="https://www.bemeta.cz/" target="_blank" rel="noopener">Bemeta</a>
+            <a class="chip" href="https://www.blomus.cz/" target="_blank" rel="noopener">Blomus</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 8 -->
+      <div class="cat">
+        <div class="cat-num">08</div>
+        <div class="cat-main">
+          <div class="cat-title">Topná tělesa, sušáky ručníků</div>
+          <div class="cat-note">Designové radiátory a sušáky.</div>
+          <div class="brand-row">
+            <a class="chip" href="https://www.bremradiators.com/" target="_blank" rel="noopener">Brem</a>
+            <a class="chip" href="https://www.zehnder.cz/cs/designove-radiatory" target="_blank" rel="noopener">Zehnder</a>
+            <a class="chip" href="https://www.isan.cz/" target="_blank" rel="noopener">Isan</a>
+            <a class="chip" href="https://www.pmh-co.eu/" target="_blank" rel="noopener">PMH</a>
+            <a class="chip" href="https://www.ocenasek.eu/" target="_blank" rel="noopener">Očenášek</a>
+            <a class="chip" href="https://niezawodny.pl/" target="_blank" rel="noopener">Instal Projekt</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 9 -->
+      <div class="cat">
+        <div class="cat-num">09</div>
+        <div class="cat-main">
+          <div class="cat-title">Stavební chemie, profily a jiné</div>
+          <ul class="cat-prod-notes">
+            <li><b>Schlüter</b> - lišty v dekoru kamene, žlaby a police pod obklad ve stejném dekoru, izolace, LED osvětlení, hliníkové sokly.</li>
+            <li><b>Zehnder</b> - ventilace, ventilátory s osvětlením.</li>
+            <li><b>Havos</b> - lišty k obkladům a dlažbám včetně dekorativních.</li>
+            <li><b>Revizní dvířka</b> - neviditelná revizní dvířka, systém pro tlačítka z obkladu.</li>
+            <li><b>Viega</b> - žlaby, tlačítka, podomítkové systémy, sifony.</li>
+            <li><b>Mapei</b> a <b>Schönox</b> - stavební chemie.</li>
+            <li><b>Litokol</b> - epoxidové spárovací hmoty, protiskluzné nátěry.</li>
+            <li><b>TimTom</b> - barevná tlačítka na zakázku, kompatibilní s Geberitem.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 10 -->
+      <div class="cat">
+        <div class="cat-num">10</div>
+        <div class="cat-main">
+          <div class="cat-title">Masážní boxy, sauny, vířivky</div>
+          <div class="cat-note">Wellness do koupelny i zahrady.</div>
+          <div class="brand-row">
+            <a class="chip" href="https://www.ronalbathrooms.com/cs_CZ/prehled-produktu/wellness" target="_blank" rel="noopener">Ronal Wellness</a>
+            <a class="chip" href="https://www.jacuzzi.com/" target="_blank" rel="noopener">Jacuzzi</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 11 -->
+      <div class="cat">
+        <div class="cat-num">11</div>
+        <div class="cat-main">
+          <div class="cat-title">Zahradní a bazénové baterie</div>
+          <div class="cat-note">Armatury pro venkovní a bazénové použití.</div>
+          <div class="brand-row">
+            <a class="chip" href="https://imexproducts.es/?s=poolimex&amp;post_type" target="_blank" rel="noopener">Imex Pool</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 12 -->
+      <div class="cat">
+        <div class="cat-num">12</div>
+        <div class="cat-main">
+          <div class="cat-title">Výjimečné a originální</div>
+          <div class="cat-note">Kousky, které jinde nenajdete - pro výrazný a osobitý prostor.</div>
+          <div class="brand-row">
+            <a class="chip" href="https://azimutdesign.it/" target="_blank" rel="noopener">Azimut Design</a>
+            <a class="chip" href="https://petracer.it/" target="_blank" rel="noopener">Petracer</a>
+            <a class="chip" href="https://glamora.it/" target="_blank" rel="noopener">Glamora<span class="o">vinylové tapety do koupelny</span></a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SHOWROOM -->
+<section id="showroom" class="showroom-section">
+  <div class="container">
+    <div class="showroom-text reveal">
+      <span class="eyebrow">Showroom</span>
+      <h2>Přijďte si <em>sáhnout na materiál</em></h2>
+      <p>Vzorky obkladů, sanity a baterií v reálných rozměrech a světle. Domluvte si návštěvu - vyhradím vám čas v klidu, bez spěchu.</p>
+
+      <div class="showroom-info">
+        <div>
+          <div class="show-info-label">Adresa</div>
+          <div class="show-info-val">Československé armády 216<br>Hradec Králové</div>
+        </div>
+        <div>
+          <div class="show-info-label">Domluva návštěvy</div>
+          <div class="show-info-val"><a href="tel:+420602484982">+420 602 484 982</a><br><a href="mailto:rsobolikova@post.cz">rsobolikova@post.cz</a></div>
+        </div>
+      </div>
+
+      <a href="#formular" class="btn-primary">
+        Domluvit návštěvu showroomu
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT FORM -->
+<section id="formular" class="contact">
+  <div class="container">
+    <div class="section-head reveal" style="margin-bottom:3.5rem">
+      <span class="eyebrow">Nezávazná zpráva</span>
+      <h2>Napište mi, <em>co řešíte</em></h2>
+      <p>Pár vět o vaší koupelně nebo o tom, co hledáte. Ozvu se a domluvíme návštěvu showroomu.</p>
+    </div>
+
+    <div class="contact-grid">
+      <form class="contact-form reveal" id="contactForm" novalidate>
+        <div class="form-row">
+          <div class="field">
+            <label for="cf-name">Jméno a příjmení <span class="req">*</span></label>
+            <input type="text" id="cf-name" name="name" required autocomplete="name" placeholder="Jan Novák">
+          </div>
+          <div class="field">
+            <label for="cf-phone">Telefon</label>
+            <input type="tel" id="cf-phone" name="phone" autocomplete="tel" placeholder="+420 ...">
+          </div>
+        </div>
+        <div class="field">
+          <label for="cf-email">E-mail <span class="req">*</span></label>
+          <input type="email" id="cf-email" name="email" required autocomplete="email" placeholder="vas@email.cz">
+        </div>
+        <div class="field">
+          <label for="cf-type">Co hledáte</label>
+          <select id="cf-type" name="type">
+            <option value="obklady">Obklady a dlažby</option>
+            <option value="sanita">Sanita a nábytek</option>
+            <option value="baterie">Baterie</option>
+            <option value="sprcha">Sprchové kouty, vany, žlaby</option>
+            <option value="kompletni">Kompletní koupelna</option>
+            <option value="jine">Něco jiného</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="cf-msg">Vaše zpráva</label>
+          <textarea id="cf-msg" name="message" placeholder="Co řešíte, jaký máte styl, co se vám líbí..."></textarea>
+        </div>
+        <label class="form-consent">
+          <input type="checkbox" id="cf-consent" name="consent" required>
+          <span>Souhlasím se zpracováním osobních údajů pro účely vyřízení zprávy. Údaje neposílám nikomu třetímu.</span>
+        </label>
+        <button type="submit" class="form-submit">
+          Odeslat zprávu
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </button>
+        <div class="form-status" id="cf-status" role="status" aria-live="polite"></div>
+      </form>
+
+      <aside class="contact-aside reveal reveal-d1">
+        <h3>Raději <em>rovnou zavolat?</em></h3>
+        <p>Zastihnete mě na telefonu i e-mailu. Domluvíme se na termínu, který vám sedne.</p>
+        <div class="alt">
+          <a href="tel:+420602484982">+420 602 484 982</a><br>
+          <a href="mailto:rsobolikova@post.cz">rsobolikova@post.cz</a><br>
+          Československé armády 216, Hradec Králové
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">REMI<span>·</span>HK</div>
+        <p class="foot-tag">Koupelnové studio Renaty Sobolíkové v Hradci Králové. Pečlivě vybrané evropské značky obkladů, sanity, baterií a doplňků - na jednom místě.</p>
+      </div>
+      <div>
+        <h4>Sortiment</h4>
+        <ul>
+          <li><a href="#sortiment">Obklady a dlažby</a></li>
+          <li><a href="#sortiment">Sanita a nábytek</a></li>
+          <li><a href="#sortiment">Baterie</a></li>
+          <li><a href="#sortiment">Sprchové kouty</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Studio</h4>
+        <ul>
+          <li><a href="#o-mne">O mně</a></li>
+          <li><a href="#inspirace">Inspirace</a></li>
+          <li><a href="#showroom">Showroom</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Kontakt</h4>
+        <ul>
+          <li><a href="tel:+420602484982">+420 602 484 982</a></li>
+          <li><a href="mailto:rsobolikova@post.cz">rsobolikova@post.cz</a></li>
+          <li>Čs. armády 216<br>Hradec Králové</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div>© 2026 REMI HK · Renata Sobolíková · Hradec Králové</div>
+      <div>Demo v2 · dle podkladů Renaty · Adam Kropáček</div>
+    </div>
+  </div>
+</footer>
+
+<!-- STICKY MOBILE CTA -->
+<div class="sticky-mobile">
+  <a href="tel:+420602484982" class="tel">Zavolat</a>
+  <a href="#formular" class="consult">Napsat</a>
+</div>
+
+<script>
+document.documentElement.classList.add('js');
+window.addEventListener('load',()=>{setTimeout(()=>{document.getElementById('loader').classList.add('done');document.body.classList.add('loaded');},600);});
+setTimeout(()=>{if(!document.body.classList.contains('loaded')){document.getElementById('loader')?.classList.add('done');document.body.classList.add('loaded');}},1500);
+
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',scrollY>40)});
+
+const mob=document.getElementById('navMobile'),mm=document.getElementById('mobileMenu');
+mob.addEventListener('click',()=>{nav.classList.toggle('open');mm.classList.toggle('open')});
+mm.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');mm.classList.remove('open')}));
+
+const io=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add('in')),{threshold:.1,rootMargin:'0px 0px -60px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+setTimeout(()=>document.querySelectorAll('.reveal:not(.in)').forEach(el=>el.classList.add('in')),4000);
+
+const cf=document.getElementById('contactForm'),cfStatus=document.getElementById('cf-status');
+if(cf){
+  cf.addEventListener('submit',e=>{
+    e.preventDefault();
+    const fd=new FormData(cf);
+    const name=fd.get('name')?.toString().trim(),email=fd.get('email')?.toString().trim(),consent=fd.get('consent');
+    if(!name||!email||!consent){cfStatus.textContent='Vyplňte prosím jméno, e-mail a souhlas.';cfStatus.style.color='#A14545';return;}
+    const lines=[`Jméno: ${name}`,`E-mail: ${email}`,`Telefon: ${fd.get('phone')||'-'}`,`Hledá: ${fd.get('type')||'-'}`,``,`Zpráva:`,fd.get('message')||'-'].join('\n');
+    const mailto=`mailto:rsobolikova@post.cz?subject=${encodeURIComponent('Zpráva z webu - '+name)}&body=${encodeURIComponent(lines)}`;
+    cfStatus.style.color='';cfStatus.textContent='Otevírá se váš e-mailový klient s předvyplněnou zprávou...';
+    window.location.href=mailto;
+    setTimeout(()=>{cfStatus.textContent='Pokud se klient neotevřel, napište přímo na rsobolikova@post.cz.';},3000);
+  });
+}
+</script>
+
+<!-- DEMO PROTECTION · Adam Kropáček -->
+<script>
+(function(){
+  var blocked=function(e){e.preventDefault();e.stopPropagation();return false;};
+  document.addEventListener('contextmenu',blocked);
+  document.addEventListener('dragstart',function(e){if(e.target&&(e.target.tagName==='IMG'||e.target.tagName==='PICTURE'||e.target.tagName==='VIDEO')){blocked(e);}});
+  document.addEventListener('keydown',function(e){var k=(e.key||'').toLowerCase();var ctrl=e.ctrlKey||e.metaKey;if(e.key==='F12'){return blocked(e);}if(ctrl&&e.shiftKey&&(k==='i'||k==='c'||k==='j')){return blocked(e);}if(ctrl&&(k==='u'||k==='s'||k==='p')){return blocked(e);}});
+  ['copy','cut'].forEach(function(evt){document.addEventListener(evt,function(e){var t=e.target;if(t&&(t.tagName==='INPUT'||t.tagName==='TEXTAREA'||t.isContentEditable))return;blocked(e);});});
+  try{console.log('%c REMI HK · DEMO v2 ','background:#1F2229;color:#B89968;font:600 14px/1.6 Inter,Arial;padding:6px 12px;border-radius:3px');console.log('%c Autor: Adam Kropáček · Originál: https://www.remihk.cz','color:#75716A;font:400 12px Inter,Arial');}catch(e){}
+})();
+</script>
+
+</body>
+</html>
