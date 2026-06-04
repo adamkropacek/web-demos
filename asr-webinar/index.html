@@ -1,0 +1,2326 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Webinar All Seasons Residence · Pavel Patřičný · pravidelně každý týden</title>
+<meta name="description" content="Jak dosáhnout výnosu 14 % p.a. po dobu 2,5 roku do splatnosti dluhopisu. Pravidelný live webinář každý týden - vyberte si termín, který vám vyhovuje. Zerobond 14 % p.a. nebo kupón 12 % p.a. Projití projektu podle dat z prospektu.">
+
+<meta property="og:title" content="Webinar All Seasons Residence: 14 % p.a., splatnost 2,5 roku · pravidelně každý týden">
+<meta property="og:description" content="Live webinář o dluhopisech All Seasons Residence. Kupón 12 % p.a. měsíčně nebo zerobond 14 % p.a. v září 2028. 60 minut + Q&A.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://webinar.allseasonsresidence.cz/assets/hero_brozura.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+<!-- Meta Pixel placeholder -->
+<!-- <script>!function(f,b,e,v,n,t,s)... fbq('init','PIXEL_ID');fbq('track','PageView');</script> -->
+
+<!-- GA4 placeholder -->
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script> -->
+
+<!-- F2.5 (2026-05-18 audit): ASR brain web_sessions tracking. Konsentni gating
+     resi backend (/api/track checkuje consent flag pred persistem). Endpoint
+     vraci 204 i bez consent (no-op). Fire-and-forget, no awaiting. -->
+<script>
+(function(){
+  try {
+    var TRACKING_ENDPOINT = "https://asr.oneflow.cz/api/track";
+    var sid = (function(){
+      try {
+        var k = "asr_sid";
+        var existing = sessionStorage.getItem(k);
+        if (existing) return existing;
+        var fresh = (crypto && crypto.randomUUID) ? crypto.randomUUID() : Date.now() + "-" + Math.random().toString(36).slice(2);
+        sessionStorage.setItem(k, fresh);
+        return fresh;
+      } catch (e) { return Date.now() + "-" + Math.random().toString(36).slice(2); }
+    })();
+    var params = new URLSearchParams(location.search);
+    var payload = {
+      session_id: sid,
+      event_type: "page_view",
+      page_url: location.href,
+      page_title: document.title,
+      referrer: document.referrer || null,
+      utm_source: params.get("utm_source"),
+      utm_medium: params.get("utm_medium"),
+      utm_campaign: params.get("utm_campaign"),
+      utm_content: params.get("utm_content"),
+      utm_term: params.get("utm_term"),
+      fbclid: params.get("fbclid"),
+      gclid: params.get("gclid"),
+      consent_marketing: false  // Default no consent; LP nema dosud consent UI
+    };
+    if (navigator.sendBeacon) {
+      navigator.sendBeacon(TRACKING_ENDPOINT, new Blob([JSON.stringify(payload)], {type: "application/json"}));
+    } else {
+      fetch(TRACKING_ENDPOINT, {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(payload),
+        keepalive: true
+      }).catch(function(){});
+    }
+  } catch (e) { /* tracking je best-effort */ }
+})();
+</script>
+
+<style>
+:root {
+  --dark-green: #032817;
+  --dark-green-2: #0a3925;
+  --dark-green-deep: #021a0f;
+  --bronze: #f0b27f;
+  --bronze-dark: #d18a4a;
+  --bronze-deep: #a5652d;
+  --cream: #f8f5ee;
+  --cream-2: #efe9dc;
+  --white: #ffffff;
+  --text: #1a1a1a;
+  --text-muted: #5a5a5a;
+  --border: rgba(240,178,127,0.18);
+  --border-light: #e0d9c8;
+  --shadow-card: 0 6px 18px rgba(3,40,23,0.06);
+  --shadow-card-hover: 0 14px 38px rgba(3,40,23,0.14);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--text);
+  background: var(--cream);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, .h-display {
+  font-family: "Oswald", sans-serif;
+  font-weight: 500;
+  line-height: 1.12;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+
+/* ============= LAYOUT ============= */
+.container { max-width: 1480px; margin: 0 auto; padding: 0 40px; }
+.container-narrow { max-width: 880px; margin: 0 auto; padding: 0 40px; }
+.container-wide { max-width: 1700px; margin: 0 auto; padding: 0 40px; }
+.container-full { width: 100%; padding: 0; }
+
+@media (max-width: 980px) {
+  .container, .container-narrow, .container-wide { padding: 0 28px; }
+}
+@media (max-width: 720px) {
+  .container, .container-narrow, .container-wide { padding: 0 20px; }
+}
+
+.section { padding: 96px 0; position: relative; }
+.section-light { background: var(--cream); color: var(--text); }
+.section-dark { background: var(--dark-green); color: var(--cream); }
+.section-dark h1, .section-dark h2, .section-dark h3 { color: var(--cream); }
+.section-dark p, .section-dark li { color: rgba(248,245,238,0.88); }
+
+@media (max-width: 720px) {
+  .section { padding: 64px 0; }
+}
+
+.eyebrow {
+  font-family: "Oswald", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--bronze);
+  margin-bottom: 18px;
+  display: inline-block;
+}
+.section-light .eyebrow { color: var(--bronze-deep); }
+
+a { color: inherit; text-decoration: none; }
+
+/* ============= NAV ============= */
+.nav {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(3,40,23,0.96); backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+  padding: 18px 0;
+}
+.nav-inner { display: flex; justify-content: space-between; align-items: center; gap: 24px; }
+.nav-brand img {
+  display: block;
+  height: 40px; width: auto;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.2));
+}
+@media (max-width: 720px) { .nav-brand img { height: 30px; } }
+
+/* Countdown integrated into nav (between brand and CTA) */
+.nav-countdown {
+  display: flex; align-items: center; gap: 16px;
+  flex: 1 1 auto;
+  justify-content: center;
+}
+.nav-countdown-label {
+  font-family: "Oswald", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  color: var(--bronze);
+  white-space: nowrap;
+}
+.nav-countdown-grid {
+  display: flex; gap: 8px;
+}
+.nav-countdown-cell {
+  background: rgba(3,40,23,0.65);
+  border: 1px solid rgba(240,178,127,0.22);
+  border-radius: 3px;
+  padding: 6px 10px;
+  min-width: 48px;
+  text-align: center;
+  line-height: 1;
+}
+.nav-countdown-cell .num {
+  display: block;
+  font-family: "Oswald", sans-serif;
+  font-size: 18px;
+  color: var(--cream);
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+.nav-countdown-cell .unit {
+  display: block;
+  font-family: "Oswald", sans-serif;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(248,245,238,0.55);
+  margin-top: 3px;
+}
+@media (max-width: 960px) {
+  .nav-countdown-label { display: none; }
+}
+@media (max-width: 720px) {
+  .nav-countdown { display: none; }
+  .nav { padding: 12px 0; }
+}
+
+.nav-cta {
+  font-family: "Oswald", sans-serif; font-size: 12px; font-weight: 500;
+  background: var(--bronze); color: var(--dark-green);
+  padding: 11px 22px; letter-spacing: 0.12em; text-transform: uppercase;
+  border-radius: 3px; transition: background 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+  white-space: nowrap;
+}
+.nav-cta:hover {
+  background: #e5a26a;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(240,178,127,0.25);
+}
+
+/* ============= HERO ============= */
+.hero {
+  position: relative;
+  color: var(--cream);
+  padding: 80px 0 90px;
+  overflow: hidden;
+  isolation: isolate;
+  min-height: 92vh;
+  display: flex;
+  align-items: center;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background-image: url('assets/hero_brozura.webp');
+  background-size: cover;
+  background-position: center center;
+  z-index: -2;
+  transform: scale(1.02);
+  animation: heroZoom 18s ease-in-out infinite alternate;
+}
+.hero-bg::after {
+  /* gradient overlay over photo for text readability - lehčí, ať obrázek z brožury vystoupí */
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(135deg, rgba(3,40,23,0.62) 0%, rgba(3,40,23,0.38) 45%, rgba(3,40,23,0.22) 100%),
+    linear-gradient(180deg, rgba(3,40,23,0.20) 0%, rgba(3,40,23,0.10) 50%, rgba(3,40,23,0.72) 100%);
+}
+@keyframes heroZoom {
+  from { transform: scale(1.02); }
+  to   { transform: scale(1.10); }
+}
+.hero::before {
+  content: ''; position: absolute; right: -160px; top: -80px;
+  width: 560px; height: 560px;
+  background: radial-gradient(circle, rgba(240,178,127,0.18), transparent 65%);
+  pointer-events: none;
+  z-index: -1;
+}
+.hero::after {
+  content: ''; position: absolute; left: -120px; bottom: -160px;
+  width: 420px; height: 420px;
+  background: radial-gradient(circle, rgba(240,178,127,0.10), transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-bg { animation: none; transform: none; }
+}
+
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: "Oswald", sans-serif; font-size: 13px; font-weight: 500;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--bronze);
+  border: 1px solid rgba(240,178,127,0.35);
+  padding: 9px 18px;
+  margin-bottom: 28px;
+  border-radius: 2px;
+}
+.hero-eyebrow::before {
+  content: ''; display: inline-block;
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--bronze);
+  animation: pulse 2.4s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(240,178,127,0.6); }
+  50% { opacity: 0.7; box-shadow: 0 0 0 6px rgba(240,178,127,0); }
+}
+
+.hero h1 {
+  font-size: clamp(34px, 5vw, 60px);
+  color: var(--cream);
+  margin-bottom: 24px;
+  max-width: 980px;
+  line-height: 1.22;
+}
+@media (max-width: 720px) {
+  .hero h1 { line-height: 1.20; }
+}
+.hero-sub {
+  font-size: clamp(17px, 1.4vw, 21px);
+  color: rgba(248,245,238,0.86);
+  font-weight: 300;
+  max-width: 760px;
+  margin-bottom: 22px;
+  line-height: 1.6;
+}
+.hero-secondary {
+  font-size: clamp(15px, 1.1vw, 17px);
+  color: rgba(248,245,238,0.72);
+  font-weight: 300;
+  max-width: 760px;
+  margin-bottom: 36px;
+  line-height: 1.65;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(320px, 0.6fr);
+  gap: 64px;
+  align-items: center;
+  width: 100%;
+}
+@media (max-width: 980px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 44px; align-items: stretch; }
+}
+
+/* Hero stats strip */
+.hero-stats {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px;
+  padding: 22px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 32px;
+}
+.hero-stat .v {
+  font-family: "Oswald", sans-serif; font-size: 22px; color: var(--bronze);
+  display: block; line-height: 1.1;
+}
+.hero-stat .l {
+  font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(248,245,238,0.6); margin-top: 4px; display: block;
+}
+@media (max-width: 600px) { .hero-stats { grid-template-columns: repeat(2, 1fr); } }
+
+/* Hero CTA pair */
+.hero-cta-row {
+  display: flex; flex-wrap: wrap; gap: 14px;
+  margin: 36px 0 22px;
+}
+.btn-primary, .btn-secondary {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  font-family: "Oswald", sans-serif; font-size: 14px; font-weight: 500;
+  text-transform: uppercase; letter-spacing: 0.10em;
+  padding: 18px 30px;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background 180ms ease, transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+.btn-primary {
+  background: var(--bronze); color: var(--dark-green);
+}
+.btn-primary:hover {
+  background: #e5a26a;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(240,178,127,0.32);
+}
+.btn-primary .arrow {
+  transition: transform 180ms ease;
+  font-family: monospace; font-size: 18px; line-height: 1;
+}
+.btn-primary:hover .arrow { transform: translateX(4px); }
+.btn-secondary {
+  background: transparent; color: var(--cream);
+  border-color: rgba(248,245,238,0.3);
+}
+.btn-secondary:hover {
+  border-color: var(--bronze);
+  color: var(--bronze);
+  background: rgba(240,178,127,0.06);
+}
+
+.hero-badges {
+  display: flex; flex-wrap: wrap; gap: 18px;
+  margin-top: 18px;
+  font-size: 13px; color: rgba(248,245,238,0.75);
+}
+.hero-badges span { display: inline-flex; align-items: center; gap: 6px; }
+.hero-badges span::before {
+  content: '✓'; color: var(--bronze); font-weight: 600;
+}
+
+/* Hero date card */
+.date-card {
+  background: rgba(3,26,15,0.78);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(240,178,127,0.28);
+  border-radius: 6px;
+  padding: 36px 32px;
+  position: relative;
+  box-shadow: 0 18px 50px rgba(0,0,0,0.35);
+}
+.date-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--bronze-deep), var(--bronze), var(--bronze-deep));
+  border-radius: 6px 6px 0 0;
+}
+.date-num {
+  font-family: "Oswald", sans-serif;
+  font-size: clamp(72px, 8vw, 120px);
+  font-weight: 500;
+  line-height: 1;
+  color: var(--cream);
+  text-align: center;
+  letter-spacing: 0.02em;
+}
+.date-month {
+  font-family: "Oswald", sans-serif;
+  text-align: center;
+  font-size: 12px;
+  letter-spacing: 0.32em;
+  color: var(--bronze);
+  text-transform: uppercase;
+  margin-top: 6px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(240,178,127,0.18);
+}
+.date-day {
+  text-align: center;
+  font-size: 13px;
+  color: rgba(248,245,238,0.7);
+  margin-top: 14px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid rgba(240,178,127,0.18);
+}
+.date-table {
+  margin-top: 22px;
+  width: 100%;
+  border-collapse: collapse;
+}
+.date-table tr td {
+  padding: 11px 0;
+  border-bottom: 1px solid rgba(240,178,127,0.10);
+  font-size: 14px;
+}
+.date-table tr:last-child td { border-bottom: 0; }
+.date-table .lbl {
+  font-family: "Oswald", sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.20em;
+  color: var(--bronze);
+  text-transform: uppercase;
+}
+.date-table .val {
+  text-align: right;
+  color: var(--cream);
+  font-weight: 500;
+}
+.date-card-cta {
+  display: block; width: 100%;
+  margin-top: 24px;
+  background: var(--bronze); color: var(--dark-green);
+  font-family: "Oswald", sans-serif; font-size: 14px; font-weight: 500;
+  text-transform: uppercase; letter-spacing: 0.10em;
+  padding: 18px;
+  text-align: center;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: background 180ms ease, transform 180ms ease;
+}
+.date-card-cta:hover {
+  background: #e5a26a;
+  transform: translateY(-1px);
+}
+
+/* Hero form box (WebinarJam embed in hero) */
+.hero-form-box {
+  background: rgba(3,26,15,0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(240,178,127,0.30);
+  border-radius: 6px;
+  padding: 0;
+  position: relative;
+  box-shadow: 0 18px 50px rgba(0,0,0,0.40);
+  overflow: hidden;
+}
+.hero-form-box::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--bronze-deep), var(--bronze), var(--bronze-deep));
+  z-index: 1;
+}
+.hero-form-header {
+  padding: 24px 28px 18px;
+  border-bottom: 1px solid rgba(240,178,127,0.18);
+  text-align: center;
+}
+.hero-form-date {
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+}
+.hero-form-num {
+  font-family: "Oswald", sans-serif;
+  font-size: clamp(40px, 5vw, 56px);
+  line-height: 1;
+  color: var(--cream);
+  letter-spacing: 0.02em;
+}
+.hero-form-month {
+  font-family: "Oswald", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.30em;
+  color: var(--bronze);
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+.hero-form-day {
+  font-size: 12px;
+  color: rgba(248,245,238,0.70);
+  margin-top: 4px;
+}
+.hero-form-box .wj-embed-box {
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  min-height: 360px;
+  background: transparent;
+}
+
+/* ============= MARQUEE STRIP ============= */
+.marquee-strip {
+  background: var(--dark-green-deep);
+  border-top: 1px solid rgba(240,178,127,0.15);
+  border-bottom: 1px solid rgba(240,178,127,0.15);
+  padding: 18px 0;
+  overflow: hidden;
+  position: relative;
+}
+.marquee-strip::before, .marquee-strip::after {
+  content: '';
+  position: absolute; top: 0; bottom: 0; width: 80px;
+  z-index: 2; pointer-events: none;
+}
+.marquee-strip::before {
+  left: 0;
+  background: linear-gradient(90deg, var(--dark-green-deep), transparent);
+}
+.marquee-strip::after {
+  right: 0;
+  background: linear-gradient(-90deg, var(--dark-green-deep), transparent);
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 40s linear infinite;
+}
+.marquee-item {
+  display: inline-flex; align-items: center; gap: 14px;
+  padding: 0 36px;
+  font-family: "Oswald", sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  color: rgba(248,245,238,0.70);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.marquee-item .dot {
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--bronze);
+  flex-shrink: 0;
+}
+.marquee-item strong {
+  color: var(--bronze);
+  font-weight: 500;
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none; }
+}
+
+/* Form box */
+.form-box {
+  background: var(--dark-green-2);
+  border: 1px solid var(--border);
+  padding: 34px 30px;
+  border-radius: 6px;
+  position: relative;
+  box-shadow: 0 14px 40px rgba(0,0,0,0.18);
+}
+.form-box::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--bronze-deep), var(--bronze), var(--bronze-deep));
+  border-radius: 6px 6px 0 0;
+}
+.form-box h3 {
+  font-size: 18px; color: var(--bronze); margin-bottom: 6px; letter-spacing: 0.08em;
+}
+.form-box .form-sub { font-size: 14px; color: rgba(248,245,238,0.7); margin-bottom: 22px; }
+.form-field { margin-bottom: 14px; }
+.form-field label {
+  display: block; font-family: "Oswald", sans-serif; font-size: 11px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--bronze); margin-bottom: 6px;
+}
+.form-field input[type="text"], .form-field input[type="email"], .form-field input[type="tel"] {
+  width: 100%; height: 48px; padding: 0 14px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(240,178,127,0.25);
+  color: var(--cream);
+  font-family: "Source Serif 4", serif; font-size: 16px;
+  border-radius: 4px;
+  transition: border-color 150ms ease, background 150ms ease;
+}
+.form-field input:focus {
+  outline: none; border-color: var(--bronze);
+  background: rgba(255,255,255,0.06);
+}
+.form-field-checkbox {
+  display: flex; align-items: flex-start; gap: 10px;
+  font-size: 13px; color: rgba(248,245,238,0.78);
+  margin: 14px 0 4px;
+}
+.form-field-checkbox input { margin-top: 4px; flex-shrink: 0; }
+.form-cta {
+  width: 100%; height: 56px; margin-top: 12px;
+  background: var(--bronze); color: var(--dark-green);
+  font-family: "Oswald", sans-serif; font-size: 16px; font-weight: 500;
+  text-transform: uppercase; letter-spacing: 0.06em;
+  border: none; cursor: pointer; border-radius: 4px;
+  transition: background 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+}
+.form-cta:hover {
+  background: #e5a26a;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(240,178,127,0.3);
+}
+.form-fud {
+  text-align: center; font-size: 12px; color: rgba(248,245,238,0.6);
+  margin-top: 12px; line-height: 1.5;
+}
+.form-badges {
+  display: flex; flex-wrap: wrap; gap: 12px; justify-content: center;
+  margin-top: 14px; padding-top: 14px;
+  border-top: 1px dashed rgba(240,178,127,0.2);
+  font-size: 11px; color: rgba(248,245,238,0.55);
+}
+.form-badges span { letter-spacing: 0.04em; }
+
+/* ============= PRE-CTA STRIP ============= */
+.precta {
+  background: var(--dark-green-deep); padding: 26px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.precta-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
+  text-align: center;
+}
+.precta-item .lbl {
+  font-family: "Oswald", sans-serif; font-size: 10px; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--bronze); margin-bottom: 4px;
+}
+.precta-item .val { font-size: 15px; color: var(--cream); font-weight: 600; }
+@media (max-width: 720px) { .precta-grid { grid-template-columns: repeat(2, 1fr); gap: 16px 12px; } }
+
+/* ============= SECTIONS GENERAL ============= */
+.section h2 {
+  font-size: clamp(28px, 3.4vw, 42px);
+  margin-bottom: 22px;
+}
+.section .lead {
+  font-size: 18px; line-height: 1.7;
+  color: var(--text-muted); max-width: 760px;
+  margin-bottom: 36px;
+}
+.section-dark .lead { color: rgba(248,245,238,0.8); }
+
+.section .body p {
+  font-size: 17px;
+  line-height: 1.75;
+  color: var(--text-muted);
+  max-width: 760px;
+  margin-bottom: 18px;
+}
+.section-dark .body p { color: rgba(248,245,238,0.84); }
+
+.section .body p strong { color: var(--text); }
+.section-dark .body p strong { color: var(--cream); }
+
+.section .body ul {
+  list-style: none; padding: 0; margin: 0 0 22px;
+  max-width: 760px;
+}
+.section .body ul li {
+  position: relative;
+  padding: 10px 0 10px 26px;
+  font-size: 17px; line-height: 1.6;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border-light);
+}
+.section-dark .body ul li {
+  color: rgba(248,245,238,0.85);
+  border-bottom-color: rgba(240,178,127,0.14);
+}
+.section .body ul li::before {
+  content: ''; position: absolute; left: 0; top: 22px;
+  width: 12px; height: 2px; background: var(--bronze-deep);
+}
+.section-dark .body ul li::before { background: var(--bronze); }
+
+/* Pull quote / accent paragraph */
+.pull {
+  font-size: clamp(20px, 2vw, 26px);
+  font-family: "Source Serif 4", serif;
+  font-style: italic;
+  font-weight: 300;
+  line-height: 1.4;
+  color: var(--bronze-deep);
+  border-left: 3px solid var(--bronze);
+  padding: 8px 0 8px 24px;
+  margin: 32px 0;
+  max-width: 760px;
+}
+.section-dark .pull { color: var(--bronze); border-left-color: var(--bronze); }
+
+/* 4-criteria grid */
+.crit-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 28px; margin-top: 36px;
+}
+@media (max-width: 720px) { .crit-grid { grid-template-columns: 1fr; } }
+.crit-card {
+  background: var(--cream);
+  border: 1px solid var(--border-light);
+  padding: 32px 28px;
+  border-radius: 6px;
+  position: relative;
+  transition: transform 240ms ease, box-shadow 240ms ease;
+}
+.crit-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card-hover);
+}
+.section-dark .crit-card {
+  background: var(--dark-green-2);
+  border-color: var(--border);
+}
+.section-dark .crit-card:hover {
+  box-shadow: 0 14px 38px rgba(0,0,0,0.3);
+}
+.crit-num {
+  font-family: "Oswald", sans-serif; font-size: 13px;
+  color: var(--bronze-deep); letter-spacing: 0.18em;
+  margin-bottom: 10px; display: block;
+  text-transform: uppercase;
+}
+.section-dark .crit-num { color: var(--bronze); }
+.crit-card h3 { font-size: 20px; margin-bottom: 12px; }
+.crit-card p { color: var(--text-muted); font-size: 16px; line-height: 1.65; }
+.section-dark .crit-card p { color: rgba(248,245,238,0.82); }
+
+/* Yield split (kupon vs zerobond) */
+.yield-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 32px;
+}
+@media (max-width: 720px) { .yield-grid { grid-template-columns: 1fr; } }
+.yield-card {
+  background: var(--cream);
+  border: 1px solid var(--border-light);
+  padding: 28px;
+  border-radius: 6px;
+  transition: transform 240ms ease, box-shadow 240ms ease;
+}
+.yield-card:hover {
+  transform: translateY(-3px); box-shadow: var(--shadow-card-hover);
+}
+.yield-card.featured {
+  background: var(--dark-green);
+  border-color: var(--bronze);
+  color: var(--cream);
+}
+.yield-card.featured h3 { color: var(--bronze); }
+.yield-card.featured .yield-num { color: var(--bronze); }
+.yield-card.featured p { color: rgba(248,245,238,0.85); }
+
+.yield-num {
+  font-family: "Oswald", sans-serif;
+  font-size: clamp(36px, 4vw, 52px);
+  color: var(--bronze-deep);
+  line-height: 1;
+  margin: 6px 0 10px;
+  display: block;
+}
+.yield-card h3 {
+  font-size: 14px; letter-spacing: 0.18em;
+  color: var(--bronze-deep); margin-bottom: 4px;
+  text-transform: uppercase;
+}
+.yield-card p { font-size: 15px; color: var(--text-muted); line-height: 1.6; margin-top: 8px; }
+
+/* Speaker block */
+.speaker-grid {
+  display: grid; grid-template-columns: 280px 1fr; gap: 56px; align-items: start;
+  margin-top: 36px;
+}
+@media (max-width: 720px) { .speaker-grid { grid-template-columns: 1fr; gap: 28px; } }
+.speaker-photo {
+  width: 100%; aspect-ratio: 4/5;
+  background: linear-gradient(160deg, var(--cream-2), var(--cream));
+  border: 1px solid var(--border-light);
+  border-radius: 4px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: "Oswald", sans-serif; font-size: 64px; color: var(--bronze-deep);
+  letter-spacing: 0.06em;
+}
+.speaker-cred {
+  list-style: none; padding: 0; margin: 22px 0 0;
+}
+.speaker-cred li {
+  padding: 14px 0;
+  border-top: 1px solid var(--border-light);
+  font-size: 16px;
+}
+.speaker-cred li:last-child { border-bottom: 1px solid var(--border-light); }
+.speaker-cred .cred-num {
+  font-family: "Oswald", sans-serif; color: var(--bronze-deep); font-size: 22px;
+  display: inline-block; min-width: 80px;
+}
+
+/* For who / not who */
+.forwho-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 36px;
+  margin-top: 32px;
+}
+@media (max-width: 720px) { .forwho-grid { grid-template-columns: 1fr; } }
+.forwho-col {
+  border-top: 2px solid var(--bronze-deep);
+  padding-top: 22px;
+}
+.forwho-col.no { border-top-color: rgba(165,101,45,0.35); }
+.forwho-col h3 {
+  font-size: 18px; margin-bottom: 18px;
+  color: var(--bronze-deep);
+}
+.forwho-col.no h3 { color: var(--text-muted); }
+.forwho-col ul { list-style: none; padding: 0; }
+.forwho-col li {
+  padding: 12px 0 12px 22px;
+  border-bottom: 1px solid var(--border-light);
+  position: relative;
+  font-size: 16px; line-height: 1.55;
+}
+.forwho-col li::before {
+  content: ''; position: absolute; left: 0; top: 20px;
+  width: 10px; height: 2px; background: var(--bronze-deep);
+}
+.forwho-col.no li::before { background: var(--text-muted); }
+
+/* Deliverables */
+.deliv-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+  margin-top: 32px;
+}
+@media (max-width: 980px) { .deliv-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .deliv-grid { grid-template-columns: 1fr; } }
+.deliv-card {
+  background: var(--dark-green-2);
+  border: 1px solid var(--border);
+  padding: 28px 24px;
+  border-radius: 6px;
+  transition: transform 240ms ease, box-shadow 240ms ease;
+}
+.deliv-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.25);
+}
+.deliv-num {
+  font-family: "Oswald", sans-serif; color: var(--bronze); font-size: 32px;
+  display: block; margin-bottom: 8px; line-height: 1;
+}
+.deliv-card h3 {
+  font-size: 17px; margin-bottom: 10px; color: var(--cream);
+  letter-spacing: 0.04em;
+}
+.deliv-card p { font-size: 15px; color: rgba(248,245,238,0.78); line-height: 1.6; }
+
+/* FAQ */
+.faq details {
+  border-bottom: 1px solid var(--border-light);
+  padding: 20px 0;
+}
+.faq summary {
+  font-family: "Oswald", sans-serif; font-size: 17px; font-weight: 500;
+  letter-spacing: 0.04em;
+  cursor: pointer; list-style: none; outline: none;
+  display: flex; justify-content: space-between; align-items: center; gap: 16px;
+  color: var(--text);
+  transition: color 180ms ease;
+}
+.faq summary:hover { color: var(--bronze-deep); }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after {
+  content: '+'; font-size: 26px; color: var(--bronze-dark);
+  transition: transform 240ms ease;
+  flex-shrink: 0; line-height: 1;
+}
+.faq details[open] summary::after { transform: rotate(45deg); }
+.faq details > p, .faq details > div {
+  padding-top: 14px; color: var(--text-muted); font-size: 16px;
+  line-height: 1.7;
+}
+
+/* Final CTA */
+.final-cta {
+  background: var(--dark-green); color: var(--cream);
+  padding: 96px 0; text-align: center; position: relative; overflow: hidden;
+}
+.final-cta::before {
+  content: ''; position: absolute; left: -120px; bottom: -120px;
+  width: 420px; height: 420px;
+  background: radial-gradient(circle, rgba(240,178,127,0.10), transparent 65%);
+  pointer-events: none;
+}
+.final-cta::after {
+  content: ''; position: absolute; right: -100px; top: -100px;
+  width: 340px; height: 340px;
+  background: radial-gradient(circle, rgba(240,178,127,0.08), transparent 70%);
+  pointer-events: none;
+}
+.final-cta h2 { font-size: clamp(30px, 4vw, 48px); margin-bottom: 16px; color: var(--cream); }
+.final-cta .lead { color: rgba(248,245,238,0.8); margin: 0 auto 36px; }
+.final-cta-form { max-width: 520px; margin: 0 auto; position: relative; z-index: 2; }
+
+/* Footer */
+.footer {
+  background: var(--dark-green-deep); color: rgba(248,245,238,0.7);
+  padding: 64px 0 36px; font-size: 14px;
+}
+.footer-compliance {
+  background: var(--dark-green-2);
+  border-left: 3px solid var(--bronze);
+  padding: 24px 26px;
+  margin-bottom: 40px;
+  border-radius: 0 4px 4px 0;
+  font-size: 14px; line-height: 1.7;
+}
+.footer-grid {
+  display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 32px;
+  padding-bottom: 30px; border-bottom: 1px solid rgba(240,178,127,0.12);
+}
+@media (max-width: 720px) { .footer-grid { grid-template-columns: 1fr; gap: 24px; } }
+.footer-grid h4 {
+  font-size: 12px; letter-spacing: 0.18em; color: var(--bronze);
+  margin-bottom: 14px; text-transform: uppercase;
+}
+.footer-bottom {
+  margin-top: 24px;
+  font-size: 12px; color: rgba(248,245,238,0.5);
+  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+}
+
+/* Sticky mobile CTA */
+.sticky-cta {
+  display: none;
+  position: fixed; bottom: 0; left: 0; right: 0;
+  background: var(--dark-green);
+  border-top: 1px solid var(--bronze);
+  padding: 12px 16px;
+  z-index: 60;
+  padding-bottom: calc(12px + env(safe-area-inset-bottom));
+}
+.sticky-cta a {
+  display: block; text-align: center;
+  background: var(--bronze); color: var(--dark-green);
+  padding: 14px; font-family: "Oswald", sans-serif; font-size: 15px;
+  font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em;
+  border-radius: 4px;
+  transition: background 180ms ease;
+}
+.sticky-cta a:hover { background: #e5a26a; }
+@media (max-width: 720px) {
+  .sticky-cta { display: block; }
+  body { padding-bottom: 80px; }
+}
+
+/* Editor placeholder block */
+.editor-blank {
+  background: repeating-linear-gradient(
+    135deg,
+    rgba(240,178,127,0.05),
+    rgba(240,178,127,0.05) 10px,
+    rgba(240,178,127,0.10) 10px,
+    rgba(240,178,127,0.10) 20px
+  );
+  border: 2px dashed rgba(240,178,127,0.4);
+  border-radius: 6px;
+  padding: 28px;
+  margin: 24px 0;
+  font-family: "Oswald", sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  color: var(--bronze-deep);
+  text-transform: uppercase;
+  text-align: center;
+}
+.section-dark .editor-blank {
+  background: repeating-linear-gradient(
+    135deg,
+    rgba(240,178,127,0.04),
+    rgba(240,178,127,0.04) 10px,
+    rgba(240,178,127,0.08) 10px,
+    rgba(240,178,127,0.08) 20px
+  );
+  border-color: rgba(240,178,127,0.35);
+  color: var(--bronze);
+}
+
+/* ============= SCROLL REVEAL ============= */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 700ms cubic-bezier(.2,.7,.2,1), transform 700ms cubic-bezier(.2,.7,.2,1);
+}
+.reveal.is-visible { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: 80ms; }
+.reveal-delay-2 { transition-delay: 160ms; }
+.reveal-delay-3 { transition-delay: 240ms; }
+.reveal-delay-4 { transition-delay: 320ms; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .hero::before, .hero::after { animation: none; }
+  .hero-eyebrow::before { animation: none; }
+}
+
+/* Timeline */
+.timeline { list-style: none; padding: 0; margin-top: 36px; }
+.timeline li {
+  display: grid; grid-template-columns: 160px 1fr; gap: 24px;
+  padding: 20px 0; border-bottom: 1px solid var(--border);
+}
+.timeline li:last-child { border-bottom: 0; }
+.timeline .when {
+  font-family: "Oswald", sans-serif; font-size: 13px;
+  color: var(--bronze); letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.timeline .when.live { font-weight: 600; }
+.timeline .what { font-size: 16px; line-height: 1.6; }
+.timeline .what strong { color: var(--cream); display: block; margin-bottom: 4px; font-family: "Oswald", sans-serif; font-weight: 500; letter-spacing: 0.04em; }
+@media (max-width: 600px) { .timeline li { grid-template-columns: 1fr; gap: 6px; } }
+
+/* ============= WEBINARJAM EMBED BOX ============= */
+.wj-embed-box {
+  width: 100%;
+  min-height: 480px;
+  background: rgba(3,26,15,0.55);
+  border: 1px dashed rgba(240,178,127,0.40);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 28px;
+  margin-bottom: 14px;
+}
+.wj-embed-box iframe { width: 100%; min-height: 480px; border: 0; }
+.wj-placeholder {
+  text-align: center; max-width: 420px;
+  display: flex; flex-direction: column; gap: 12px;
+}
+.wj-placeholder-label {
+  font-family: "Oswald", sans-serif;
+  font-size: 14px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--bronze);
+  font-weight: 500;
+}
+.wj-placeholder-hint {
+  font-size: 13px;
+  color: rgba(248,245,238,0.65);
+  line-height: 1.55;
+}
+
+/* ============= INLINE CTA STRIP ============= */
+.cta-strip {
+  background: var(--dark-green-deep);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 28px 0;
+  position: relative;
+}
+.cta-strip::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--bronze), transparent);
+}
+.cta-strip .container {
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 20px;
+}
+.cta-strip-text {
+  display: flex; flex-direction: column; gap: 4px;
+  flex: 1; min-width: 280px;
+}
+.cta-strip-text strong {
+  font-family: "Oswald", sans-serif;
+  color: var(--cream); font-size: 17px;
+  letter-spacing: 0.04em; line-height: 1.3;
+}
+.cta-strip-text span {
+  font-size: 13px;
+  color: rgba(248,245,238,0.65);
+  letter-spacing: 0.04em;
+}
+.cta-strip-btn { white-space: nowrap; }
+@media (max-width: 720px) {
+  .cta-strip .container { flex-direction: column; align-items: flex-start; }
+  .cta-strip-btn { width: 100%; }
+}
+
+/* ============= ORIGIN STORY (full-bleed viz bg) ============= */
+.origin-section {
+  position: relative;
+  padding: 110px 0;
+  color: var(--cream);
+  overflow: hidden;
+  isolation: isolate;
+}
+.origin-bg {
+  position: absolute; inset: 0; z-index: -2;
+  background-image: url('assets/origin_bg.webp');
+  background-size: cover;
+  background-position: center 35%;
+}
+.origin-bg::after {
+  content: ''; position: absolute; inset: 0;
+  background:
+    linear-gradient(135deg, rgba(3,40,23,0.92) 0%, rgba(3,40,23,0.74) 50%, rgba(3,40,23,0.55) 100%),
+    linear-gradient(180deg, rgba(3,40,23,0.45) 0%, rgba(3,40,23,0.30) 60%, rgba(3,40,23,0.85) 100%);
+}
+.origin-section .eyebrow { color: var(--bronze); }
+.origin-section h2 {
+  font-size: clamp(28px, 3.6vw, 46px);
+  color: var(--cream);
+  max-width: 980px;
+  margin-bottom: 22px;
+  line-height: 1.18;
+}
+.origin-section .lead {
+  color: rgba(248,245,238,0.85);
+  max-width: 820px;
+  font-size: 17px;
+  line-height: 1.7;
+  margin-bottom: 44px;
+}
+.origin-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-bottom: 38px;
+  border-top: 1px solid rgba(240,178,127,0.20);
+  padding-top: 32px;
+}
+.origin-stat {
+  display: flex; flex-direction: column; gap: 8px;
+  border-left: 2px solid rgba(240,178,127,0.40);
+  padding-left: 22px;
+}
+.origin-stat .v {
+  font-family: "Oswald", sans-serif;
+  font-size: clamp(36px, 4.2vw, 56px);
+  color: var(--cream);
+  line-height: 1;
+  letter-spacing: 0.01em;
+}
+.origin-stat .l {
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(248,245,238,0.70);
+}
+@media (max-width: 720px) {
+  .origin-stats { grid-template-columns: 1fr; gap: 22px; }
+  .origin-section { padding: 80px 0; }
+}
+
+/* ============= JOURNEY TIMELINE (year + photo) ============= */
+.journey-section { padding: 96px 0; background: var(--cream); }
+.journey-section .eyebrow { color: var(--bronze-deep); }
+.journey-section h2 {
+  font-size: clamp(28px, 3.4vw, 42px);
+  margin-bottom: 22px;
+}
+.journey-section .lead {
+  color: var(--text-muted);
+  max-width: 820px;
+  margin-bottom: 48px;
+}
+.journey-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 28px;
+  position: relative;
+}
+.journey-grid::before {
+  content: '';
+  position: absolute;
+  top: 70px;
+  left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--bronze), transparent);
+  opacity: 0.4;
+  z-index: 0;
+}
+.journey-card {
+  display: flex; flex-direction: column;
+  text-align: left;
+  position: relative;
+  z-index: 1;
+}
+.journey-img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  background: var(--dark-green);
+  background-size: cover;
+  background-position: center;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  border: 1px solid var(--border-light);
+}
+.journey-img.no-photo {
+  display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(160deg, var(--dark-green), var(--dark-green-2));
+  color: var(--bronze);
+  font-family: "Oswald", sans-serif;
+  font-size: 22px;
+  letter-spacing: 0.10em;
+}
+.journey-year {
+  font-family: "Oswald", sans-serif;
+  font-size: clamp(28px, 2.8vw, 36px);
+  color: var(--bronze-deep);
+  margin-bottom: 8px;
+  line-height: 1;
+}
+.journey-text {
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--text-muted);
+}
+@media (max-width: 980px) {
+  .journey-grid { grid-template-columns: repeat(3, 1fr); }
+  .journey-grid::before { display: none; }
+}
+@media (max-width: 600px) {
+  .journey-grid { grid-template-columns: repeat(2, 1fr); gap: 22px; }
+}
+
+/* ============= FAQ ACCORDION ============= */
+.faq-list { display: flex; flex-direction: column; gap: 14px; margin-top: 28px; }
+.faq-item {
+  border: 1px solid var(--border-light);
+  border-radius: 4px;
+  background: var(--white);
+  overflow: hidden;
+  transition: border-color 180ms ease, box-shadow 180ms ease;
+}
+.faq-item[open] {
+  border-color: rgba(240,178,127,0.55);
+  box-shadow: var(--shadow-card);
+}
+.faq-item summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 22px 26px;
+  font-family: "Oswald", sans-serif;
+  font-size: 16px;
+  letter-spacing: 0.03em;
+  color: var(--text);
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 16px;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: '+';
+  font-family: "Oswald", sans-serif;
+  font-size: 22px;
+  color: var(--bronze-deep);
+  transition: transform 200ms ease;
+  flex-shrink: 0;
+}
+.faq-item[open] summary::after {
+  content: '−';
+}
+.faq-item .faq-answer {
+  padding: 0 26px 24px;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text-muted);
+}
+.faq-item .faq-answer p { margin-bottom: 12px; }
+.faq-item .faq-answer p:last-child { margin-bottom: 0; }
+
+/* ============= COUNTDOWN ============= */
+.countdown-bar {
+  background: var(--dark-green-deep);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 28px 0;
+  position: relative;
+}
+.countdown-bar::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--bronze), transparent);
+}
+.countdown-inner {
+  display: flex; align-items: center; justify-content: center;
+  flex-wrap: wrap; gap: 36px;
+}
+.countdown-label {
+  font-family: "Oswald", sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--bronze);
+  display: flex; flex-direction: column; gap: 4px;
+}
+.countdown-label span:last-child {
+  font-size: 11px;
+  color: rgba(248,245,238,0.55);
+  letter-spacing: 0.10em;
+}
+.countdown-grid {
+  display: flex; gap: 14px;
+}
+.countdown-cell {
+  background: rgba(3,40,23,0.85);
+  border: 1px solid rgba(240,178,127,0.22);
+  border-radius: 4px;
+  padding: 12px 18px;
+  min-width: 78px;
+  text-align: center;
+  position: relative;
+}
+.countdown-cell .num {
+  display: block;
+  font-family: "Oswald", sans-serif;
+  font-size: clamp(28px, 3vw, 38px);
+  color: var(--cream);
+  line-height: 1;
+  letter-spacing: 0.02em;
+  font-variant-numeric: tabular-nums;
+}
+.countdown-cell .unit {
+  display: block;
+  font-family: "Oswald", sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(248,245,238,0.60);
+  margin-top: 6px;
+}
+.countdown-cta {
+  font-family: "Oswald", sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  background: var(--bronze);
+  color: var(--dark-green);
+  padding: 14px 24px;
+  border-radius: 4px;
+  white-space: nowrap;
+  transition: background 180ms ease, transform 180ms ease;
+}
+.countdown-cta:hover { background: #e5a26a; transform: translateY(-1px); }
+.countdown-bar.live .countdown-cell { border-color: var(--bronze); }
+@media (max-width: 720px) {
+  .countdown-inner { gap: 18px; }
+  .countdown-cell { min-width: 64px; padding: 10px 12px; }
+  .countdown-grid { gap: 8px; }
+  .countdown-label { text-align: center; align-items: center; }
+}
+
+/* ============= O WEBINÁŘI (intro tease block) ============= */
+.webinar-tease {
+  margin-top: 36px;
+  padding: 32px 36px;
+  background: var(--dark-green);
+  border-radius: 6px;
+  position: relative;
+  border-left: 3px solid var(--bronze);
+}
+.webinar-tease h3 {
+  color: var(--cream);
+  font-size: 22px;
+  margin-bottom: 10px;
+  letter-spacing: 0.02em;
+}
+.webinar-tease p.intro {
+  color: rgba(248,245,238,0.82);
+  font-size: 16px;
+  line-height: 1.65;
+  margin-bottom: 22px;
+}
+.webinar-tease ul {
+  list-style: none; padding: 0; margin: 0;
+  display: flex; flex-direction: column; gap: 16px;
+}
+.webinar-tease ul li {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 14px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(248,245,238,0.88);
+}
+.webinar-tease ul li::before {
+  content: '✓';
+  display: flex; align-items: center; justify-content: center;
+  width: 28px; height: 28px;
+  background: var(--bronze);
+  color: var(--dark-green);
+  border-radius: 50%;
+  font-size: 16px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+.webinar-tease ul li strong { color: var(--cream); }
+@media (max-width: 720px) {
+  .webinar-tease { padding: 24px; }
+}
+
+/* ============= PROČ PRÁVĚ ASR (full-bleed viz bg) ============= */
+.proc-asr-section {
+  position: relative;
+  padding: 150px 0;
+  color: var(--cream);
+  overflow: hidden;
+  isolation: isolate;
+}
+.proc-asr-bg {
+  position: absolute; inset: 0; z-index: -2;
+  background-image: url('assets/proc_asr_bg2.webp');
+  background-size: cover;
+  background-position: center center;
+}
+.proc-asr-bg::after {
+  content: ''; position: absolute; inset: 0;
+  background:
+    linear-gradient(135deg, rgba(3,40,23,0.62) 0%, rgba(3,40,23,0.42) 50%, rgba(3,40,23,0.28) 100%),
+    linear-gradient(180deg, rgba(3,40,23,0.20) 0%, rgba(3,40,23,0.10) 50%, rgba(3,40,23,0.62) 100%);
+}
+.proc-asr-section .eyebrow { color: var(--bronze); }
+.proc-asr-section h2 {
+  font-size: clamp(28px, 3.6vw, 44px);
+  color: var(--cream);
+  max-width: 820px;
+  margin-bottom: 22px;
+  line-height: 1.18;
+}
+.proc-asr-section .lead-intro {
+  color: rgba(248,245,238,0.92);
+  font-size: 18px;
+  line-height: 1.65;
+  max-width: 820px;
+  margin-bottom: 32px;
+}
+.proc-asr-section .proc-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 32px 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  max-width: 880px;
+}
+.proc-asr-section .proc-bullets li {
+  position: relative;
+  padding: 18px 22px 18px 56px;
+  background: rgba(3,40,23,0.55);
+  border: 1px solid rgba(240,178,127,0.22);
+  border-radius: 4px;
+  color: rgba(248,245,238,0.92);
+  font-size: 16px;
+  line-height: 1.65;
+  backdrop-filter: blur(2px);
+}
+.proc-asr-section .proc-bullets li::before {
+  content: '';
+  position: absolute;
+  left: 22px; top: 24px;
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  background: var(--bronze);
+  box-shadow: 0 0 0 4px rgba(240,178,127,0.18);
+}
+.proc-asr-section .proc-bullets li strong { color: var(--cream); }
+.proc-asr-section .body-out {
+  color: rgba(248,245,238,0.85);
+  font-size: 16px;
+  line-height: 1.75;
+  max-width: 820px;
+  font-style: italic;
+  border-left: 2px solid var(--bronze);
+  padding-left: 18px;
+  margin-top: 28px;
+}
+@media (max-width: 720px) {
+  .proc-asr-section { padding: 96px 0; }
+  .proc-asr-section .proc-bullets li { padding: 16px 18px 16px 48px; font-size: 15px; }
+  .proc-asr-section .proc-bullets li::before { left: 18px; top: 22px; width: 14px; height: 14px; }
+}
+
+/* ============= FINAL CTA WITH VIZ BG ============= */
+.final-cta-bg {
+  position: relative;
+  padding: 110px 0 90px;
+  color: var(--cream);
+  overflow: hidden;
+  isolation: isolate;
+}
+.final-cta-bg::before {
+  content: '';
+  position: absolute; inset: 0; z-index: -2;
+  background-image: url('assets/finale_bg.webp');
+  background-size: cover;
+  background-position: center 40%;
+}
+.final-cta-bg::after {
+  content: '';
+  position: absolute; inset: 0; z-index: -1;
+  background:
+    linear-gradient(135deg, rgba(3,26,15,0.92) 0%, rgba(3,26,15,0.78) 50%, rgba(3,26,15,0.62) 100%),
+    linear-gradient(180deg, rgba(3,26,15,0.45) 0%, rgba(3,26,15,0.30) 60%, rgba(3,26,15,0.85) 100%);
+}
+.final-cta-bg h2 {
+  font-size: clamp(28px, 3.4vw, 44px);
+  color: var(--cream);
+  margin-bottom: 16px;
+  line-height: 1.18;
+}
+.final-cta-bg .lead {
+  color: rgba(248,245,238,0.82);
+  max-width: 720px;
+  margin: 0 auto 36px;
+  text-align: center;
+}
+.final-cta-bg .container {
+  text-align: center;
+}
+.final-cta-bg .form-box {
+  text-align: left;
+  max-width: 720px;
+  margin: 0 auto;
+}
+</style>
+</head>
+<body>
+
+<!-- ============= NAV ============= -->
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="#top" class="nav-brand" aria-label="All Seasons Residence">
+      <img src="assets/asr_logo_white_sm.png" alt="All Seasons Residence">
+    </a>
+    <div class="nav-countdown" aria-label="Termín webináře">
+      <span class="nav-countdown-label">Pravidelně každý týden · rezervujte níže</span>
+    </div>
+    <a href="#register" class="nav-cta">Chci se účastnit</a>
+  </div>
+</nav>
+
+<!-- ============= HERO ============= -->
+<section class="hero" id="top">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="container">
+
+    <div class="hero-grid">
+      <div class="reveal">
+        <span class="hero-eyebrow">Live webinář · pravidelně každý týden</span>
+
+        <h1>Jak dosáhnout výnosu 14 % p.a. po dobu 2,5 roku do splatnosti dluhopisu</h1>
+
+        <p class="hero-sub">
+          Na webináři vám sdělíme všechny důležité informace o projektu. Jaké různé typy investic projekt nabízí, kdo za ním stojí, v jaké fázi se nachází a jaké je riziko.
+        </p>
+
+        <p class="hero-secondary">
+          Cílem tohoto vysílání je zodpovědět nejvíce dotazů potenciálním investorům, aby se mohli rozhodnout, zda investovat nebo ne na základě faktů.
+        </p>
+
+        <div class="hero-cta-row">
+          <a href="#register" class="btn-primary">
+            Chci se účastnit webináře
+            <span class="arrow">→</span>
+          </a>
+          <a href="#program" class="btn-secondary">Co se naučím</a>
+        </div>
+
+        <div class="hero-badges">
+          <span>Zdarma</span>
+          <span>Živě online</span>
+          <span>60 min + Q&amp;A</span>
+          <span>Edukační formát</span>
+        </div>
+      </div>
+
+      <aside class="reveal reveal-delay-2">
+        <div class="form-box hero-form-box" id="webinarjam-embed-hero">
+          <div class="hero-form-header">
+            <div class="hero-form-date">
+              <span class="hero-form-month" style="font-size:13px; letter-spacing:0.20em;">Pravidelně</span>
+              <span class="hero-form-num" style="font-size:clamp(22px,2.8vw,32px);">Každý týden</span>
+              <span class="hero-form-day">živě online · vyberte si termín</span>
+            </div>
+          </div>
+          <!-- WEBINARJAM EMBED START (hero) -->
+          <div class="wj-embed-box">
+            <div class="wj-placeholder">
+              <span class="wj-placeholder-label">formulář WebinarJam embed</span>
+            </div>
+          </div>
+          <!-- WEBINARJAM EMBED END -->
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ============= MARQUEE STRIP (institutional signals, scrolling) ============= -->
+<div class="marquee-strip" aria-hidden="true">
+  <div class="marquee-track">
+    <!-- Track repeated 2× for seamless loop -->
+    <span class="marquee-item"><span class="dot"></span>Savills · pozemek <strong>11,4 mil EUR</strong></span>
+    <span class="marquee-item"><span class="dot"></span>Track record <strong>MMG · 20 let v CEE</strong></span>
+    <span class="marquee-item"><span class="dot"></span>MMG portfolio <strong>1,5 mld USD</strong></span>
+    <span class="marquee-item"><span class="dot"></span>Splatnost dluhopisu · <strong>září 2028</strong></span>
+    <span class="marquee-item"><span class="dot"></span>Prospekt schválen <strong>ČNB</strong></span>
+    <span class="marquee-item"><span class="dot"></span>Lokalita <strong>Zakopané</strong> · hlavní polské horské středisko</span>
+    <span class="marquee-item"><span class="dot"></span>Výnos zerobond <strong>14 % p.a.</strong></span>
+    <span class="marquee-item"><span class="dot"></span>Splatnost <strong>září 2028</strong></span>
+    <!-- Duplicate -->
+    <span class="marquee-item"><span class="dot"></span>Savills · pozemek <strong>11,4 mil EUR</strong></span>
+    <span class="marquee-item"><span class="dot"></span>Track record <strong>MMG · 20 let v CEE</strong></span>
+    <span class="marquee-item"><span class="dot"></span>MMG portfolio <strong>1,5 mld USD</strong></span>
+    <span class="marquee-item"><span class="dot"></span>Splatnost dluhopisu · <strong>září 2028</strong></span>
+    <span class="marquee-item"><span class="dot"></span>Prospekt schválen <strong>ČNB</strong></span>
+    <span class="marquee-item"><span class="dot"></span>Lokalita <strong>Zakopané</strong> · hlavní polské horské středisko</span>
+    <span class="marquee-item"><span class="dot"></span>Výnos zerobond <strong>14 % p.a.</strong></span>
+    <span class="marquee-item"><span class="dot"></span>Splatnost <strong>září 2028</strong></span>
+  </div>
+</div>
+
+<!-- ============= REGISTER (WebinarJam embed) ============= -->
+<section class="section section-dark" id="register" style="padding: 72px 0;">
+  <div class="container" style="max-width: 720px;">
+    <div class="reveal" style="text-align: center; margin-bottom: 32px;">
+      <span class="eyebrow">Rezervace místa</span>
+      <h2 style="font-size: clamp(26px, 3vw, 36px);">Rezervovat místo na webinář</h2>
+      <p style="color: rgba(248,245,238,0.78); margin-top: 14px; max-width: 540px; margin-left: auto; margin-right: auto;">Vyberte si termín, který vám vyhovuje · 60 minut + Q&amp;A · zdarma</p>
+    </div>
+
+    <div class="form-box reveal reveal-delay-1" id="webinarjam-embed-1">
+      <!-- WEBINARJAM EMBED START -->
+      <div class="wj-embed-box">
+        <div class="wj-placeholder">
+          <span class="wj-placeholder-label">formulář WebinarJam embed</span>
+        </div>
+      </div>
+      <!-- WEBINARJAM EMBED END -->
+    </div>
+  </div>
+</section>
+
+<!-- ============= SECTION: SPEAKER ============= -->
+<section class="section section-light">
+  <div class="container reveal">
+    <span class="eyebrow">Kdo webinář vede</span>
+    <h2>Pavel Patřičný</h2>
+
+    <div class="speaker-grid">
+      <div class="speaker-photo">PP</div>
+      <div>
+        <p style="font-size: 18px; color: var(--text-muted); line-height: 1.7;">
+          Webinář vede <strong>Pavel Patřičný</strong>, Manažer projektu ASR.
+        </p>
+        <p style="font-size: 17px; color: var(--text-muted); line-height: 1.7; margin-top: 14px;">
+          Pavel má za sebou 10 let na burze v akciích, ETF a derivátech a 7 let v investičních nemovitostech.
+        </p>
+        <p style="font-size: 17px; color: var(--text-muted); line-height: 1.7; margin-top: 14px;">
+          Na webináři nebude dělat obecnou přednášku o investování. Projde konkrétní emisi All Seasons Residence krok za krokem - co se staví, jaké povinnosti má emitent zapsané v prospektu, jaká rizika investor podstupuje a jakým způsobem do projektu můžete vstoupit.
+        </p>
+
+        <ul class="speaker-cred">
+          <li><span class="cred-num">10 let</span> na burze (akcie, ETF, deriváty)</li>
+          <li><span class="cred-num">7 let</span> v investičních nemovitostech</li>
+          <li><span class="cred-num">Manažer projektu ASR</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="reveal" style="text-align: center; margin-top: 64px; padding-top: 56px; border-top: 1px solid var(--border-light);">
+      <a href="#register-final" class="btn-primary">
+        Chci se účastnit webináře
+        <span class="arrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============= SECTION: 4 HLAVNÍ BODY WEBINÁŘE ============= -->
+<section class="section section-dark" id="program">
+  <div class="container">
+    <div class="reveal">
+      <span class="eyebrow">Struktura webináře</span>
+      <h2>Čtyři hlavní body, které na webináři projdeme</h2>
+      <p class="lead">
+        Pavel projde projekt krok za krokem - co se staví, jaké povinnosti má emitent a jaká rizika investor podstupuje, kde projekt stojí a jakým způsobem do něj můžete vstoupit.
+      </p>
+    </div>
+
+    <div class="crit-grid">
+      <div class="crit-card reveal reveal-delay-1">
+        <span class="crit-num">Bod 1</span>
+        <h3>Projekt</h3>
+        <p>Co se v Zakopaném reálně staví. 220 luxusních apartmánů a wellness centrum na pozemku 11 000 m². Kdo je za projektem (developer MMG, 20 let v CEE, 40+ projektů) a v jaké fázi je dnes.</p>
+      </div>
+      <div class="crit-card reveal reveal-delay-2">
+        <span class="crit-num">Bod 2</span>
+        <h3>Struktura emise</h3>
+        <p>Česká emise dluhopisů o objemu <strong>7,7 mil. EUR</strong>, prospekt schválený Českou národní bankou. Dvě varianty pro investora: kupón 12 % p.a. s měsíční výplatou, nebo zerobond 14 % p.a. s jednorázovou výplatou v září 2028. Prospekt obsahuje 8 kovenantů - smluvních povinností emitenta.</p>
+      </div>
+      <div class="crit-card reveal reveal-delay-3">
+        <span class="crit-num">Bod 3</span>
+        <h3>Lokalita</h3>
+        <p>Proč Zakopané a proč Polsko. Nejnavštěvovanější polské horské středisko s celoroční obsazeností, evropská jurisdikce, rostoucí ekonomika.</p>
+      </div>
+      <div class="crit-card reveal reveal-delay-4">
+        <span class="crit-num">Bod 4</span>
+        <h3>Možnosti investice</h3>
+        <p>Dvě varianty dluhopisu: <strong>kupón 12 % p.a.</strong> vyplácen měsíčně, nebo <strong>zerobond 14 % p.a.</strong> vyplácen jednorázově v září 2028. Která varianta sedí komu na konkrétních příkladech v prospektu.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Inline CTA strip -->
+<div class="cta-strip">
+  <div class="container reveal">
+    <div class="cta-strip-text">
+      <strong>Chcete vidět všechna čísla a dokumenty na vlastní oči?</strong>
+      <span>Zdarma · pravidelně každý týden · 60 minut + Q&amp;A</span>
+    </div>
+    <a href="#register-final" class="btn-primary cta-strip-btn">
+      Chci se účastnit
+      <span class="arrow">→</span>
+    </a>
+  </div>
+</div>
+
+<!-- ============= SECTION: KOMU JE WEBINÁŘ URČEN (přepsáno 2026-05-20) ============= -->
+<section class="section section-light">
+  <div class="container-narrow reveal">
+    <span class="eyebrow">Komu je webinář určen</span>
+    <h2>PRO INVESTORY, KTEŘÍ CHTĚJÍ ROZHODNUTÍ NA ZÁKLADĚ FAKT, NE NA ZÁKLADĚ LETÁKU</h2>
+
+    <div class="body">
+      <p>Pokud zvažujete investici do dluhopisů All Seasons Residence, na webináři projdete projekt krok za krokem s Pavlem Patřičným. Co se staví, kdo je emitent, v jaké fázi je projekt a jaká rizika investor podstupuje.</p>
+
+      <p>Cílem není nikoho přesvědčit, aby investoval. Cílem je dát vám dostatek informací k vlastnímu rozhodnutí. Ano, ne, nebo zatím ne.</p>
+
+      <p>Investice do firemních dluhopisů se nedá rozhodnout z půlstránkového letáku. Webinář projde to, co se na letáku neukazuje - povinnosti emitenta v prospektu, kovenanty, splatnost, rizika. Otevřeně i to, co projekt nemá.</p>
+
+      <p class="pull">60 minut. Fakta, kontext, otázky a odpovědi.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============= SECTION: TIMELINE ============= -->
+<section class="section section-dark">
+  <div class="container-narrow reveal">
+    <span class="eyebrow">Program webináře</span>
+    <h2>Jak bude webinář probíhat</h2>
+
+    <!-- Countdown inline v programu -->
+    <p style="color: var(--bronze); font-family: 'Oswald', sans-serif; letter-spacing: 0.14em; text-transform: uppercase; font-size: 13px; margin: 22px 0 36px;">Webinář probíhá pravidelně každý týden - vyberte si dostupný termín přímo v registraci</p>
+
+    <ul class="timeline">
+      <li>
+        <div class="when">00:00 - 03:00</div>
+        <div class="what">
+          <strong>Co je All Seasons Residence + co si odnesete</strong>
+          Krátké uvedení projektu a kritérií, podle kterých dává smysl posuzovat nemovitostní dluhopisy obecně - nejen tuto konkrétní emisi.
+        </div>
+      </li>
+      <li>
+        <div class="when">03:00 - 08:00</div>
+        <div class="what">
+          <strong>Povinnosti emitenta: Co znamená „prospekt pod ČNB"</strong>
+          Pavel říká doslova: „Prospekt je pod dohledem ČNB. Dluhopisy samy nejsou zajištěny." Co to v praxi znamená, co naopak NEznamená a proč je to nejčastější otázka na schůzce.
+        </div>
+      </li>
+      <li>
+        <div class="when">08:00 - 14:00</div>
+        <div class="what">
+          <strong>Struktura emise: Účelové vázání peněz + dokumentace</strong>
+          Kam mají podle prospektu téct prostředky z emise, jaké reportovací povinnosti emitent má a co má investor v dokumentaci konkrétně hledat. Rizika investice projdeme samostatně.
+        </div>
+      </li>
+      <li>
+        <div class="when">14:00 - 20:00</div>
+        <div class="what">
+          <strong>Lokalita: Polsko jako ekonomický tygr + proč Zakopané</strong>
+          Konkurence není jiný dluhopis, konkurence je apartmán v Dubaji nebo Španělsku. Proč Zakopané sedí jiné rizikové profilu než exotika a proč evropská jurisdikce hraje roli.
+        </div>
+      </li>
+      <li>
+        <div class="when">20:00 - 28:00</div>
+        <div class="what">
+          <strong>Varianty výplaty: kupón vs zerobond</strong>
+          Kupón 12 % p.a. s měsíční výplatou pro pravidelný cashflow, nebo zerobond 14 % p.a. s jednorázovou výplatou v září 2028. Která varianta sedí komu podle horizontu a cíle.
+        </div>
+      </li>
+      <li>
+        <div class="when">28:00 - 36:00</div>
+        <div class="what">
+          <strong>Stavební povolení: aktuální status</strong>
+          Nejčastější obava, kterou Pavel od investorů slyší. Stavební povolení je očekávané v Q3/2026. Aktuální stav, další kroky emitenta a co se v prospektu řeší v případě zpoždění.
+        </div>
+      </li>
+      <li>
+        <div class="when">36:00 - 44:00</div>
+        <div class="what">
+          <strong>Developer MMG + 8 kovenantů v prospektu</strong>
+          Master Management Group: 20 let na trhu, 40+ realizovaných projektů, portfolio 1,5 mld USD. Vlastnická struktura, mantinely emitenta v prospektu a co konkrétně 8 kovenantů zakazuje a vyžaduje.
+        </div>
+      </li>
+      <li>
+        <div class="when">44:00 - 52:00</div>
+        <div class="what">
+          <strong>Yield mechaniky: kupón 12 % p.a. vs zerobond 14 % p.a.</strong>
+          Kupón 12 % p.a. s měsíční výplatou pro pravidelný cashflow. Zerobond 14 % p.a. s jednorázovou výplatou v září 2028. Která varianta sedí komu na konkrétních příkladech.
+        </div>
+      </li>
+      <li>
+        <div class="when live">52:00 - 60:00</div>
+        <div class="what">
+          <strong>Rozhodovací rámec: 4 kritéria pro každý dluhopis</strong>
+          Čtyři praktické otázky: struktura emise, zkušenost developera, smluvní povinnosti emitenta (kovenanty), výstupní strategie a splatnost. Co si z nich odnést pro jakoukoli další emisi nemovitostního dluhopisu, ne jen pro ASR.
+        </div>
+      </li>
+      <li>
+        <div class="when live">+ 15 minut Q&amp;A</div>
+        <div class="what">
+          <strong>Otevřená diskuze</strong>
+          Dotazy k projektu, dokumentům, výnosové struktuře, rizikům a dalším krokům přímo s Pavlem.
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- Inline CTA strip -->
+<div class="cta-strip">
+  <div class="container reveal">
+    <div class="cta-strip-text">
+      <strong>Vidíte v programu téma, které vás zajímá?</strong>
+      <span>Pravidelně každý týden · zdarma</span>
+    </div>
+    <a href="#register-final" class="btn-primary cta-strip-btn">
+      Chci se účastnit
+      <span class="arrow">→</span>
+    </a>
+  </div>
+</div>
+
+<!-- ============= SECTION: CO SI ODNESETE ============= -->
+<section class="section section-light">
+  <div class="container reveal">
+    <span class="eyebrow">Co se dozvíte na webináři</span>
+    <h2>Po webináři budete mít jasno v těchto bodech</h2>
+    <p class="lead">Každý bod programu se promítá do konkrétní informace, kterou si odnesete.</p>
+
+    <!-- O webináři tease (inspired by zakopane.allseasonsresidence.cz) -->
+    <div class="webinar-tease">
+      <h3>O webináři</h3>
+      <p class="intro">Připojte se k <strong>Pavlu Patřičnému</strong> (Manažer projektu ASR), který vám v tomto exkluzivním 60minutovém webináři odhalí:</p>
+      <ul>
+        <li><span><strong>Proč Zakopané předbíhá Varšavu</strong> v cenách nemovitostí a proč je to „zimní hlavní město Polska" s celoroční obsazeností.</span></li>
+        <li><span><strong>Jak funguje rozdíl mezi kupónem 12 % p.a.</strong> s měsíční výplatou a <strong>zerobondem 14 % p.a.</strong> s jednorázovou výplatou v září 2028 - která varianta dává smysl pro vaši situaci.</span></li>
+        <li><span><strong>Jaká pravidla má emitent zapsaná v prospektu</strong> - 8 kovenantů (omezení zadlužení, reportovací povinnosti, zákaz převodů podílů). Všechno na konkrétních dokumentech, ne na slibech.</span></li>
+      </ul>
+    </div>
+
+    <div class="deliv-grid" style="margin-top: 36px;">
+      <div class="deliv-card">
+        <span class="deliv-num">1</span>
+        <h3>Rozdíl mezi typy investic</h3>
+        <p>Budete znát rozdíl mezi <strong>kupónem 12 % p.a.</strong> s měsíční výplatou a <strong>zerobondem 14 % p.a.</strong> s jednorázovou výplatou v září 2028 - a budete vědět, která varianta dává smysl pro vaši situaci.</p>
+      </div>
+      <div class="deliv-card">
+        <span class="deliv-num">2</span>
+        <h3>Kdo stojí za projektem</h3>
+        <p>Poznáte developera <strong>MMG (Master Management Group)</strong>, jeho 20letý track record v CEE, portfolio za 1,5 mld USD a roli zakladatelů projektu Paul Kusmierz a Josef Musil.</p>
+      </div>
+      <div class="deliv-card">
+        <span class="deliv-num">3</span>
+        <h3>Jaké ocenění projekt získal</h3>
+        <p>Uvidíte ocenění pozemku 11 000 m² nezávislou společností <strong>Savills na 11,4 mil. EUR</strong> a co znamená poměr aktiva k emisi <strong>1,48</strong> v praxi.</p>
+      </div>
+      <div class="deliv-card">
+        <span class="deliv-num">4</span>
+        <h3>Jaké je riziko</h3>
+        <p>Otevřeně si projdeme, co znamená Pavlova věta <em>„Prospekt je pod ČNB, ale dluhopisy nejsou zajištěny"</em> a jak číst rizika v dokumentech, místo abyste je hledali sami.</p>
+      </div>
+      <div class="deliv-card">
+        <span class="deliv-num">5</span>
+        <h3>Externí prověření projektu</h3>
+        <p>Dozvíte se, jaké povinnosti má emitent zapsané v prospektu a jaká rizika investor podstupuje. Konkrétně: 8 kovenantů, schvalovací proces ČNB a jaké jsou limity těchto smluvních pojistek.</p>
+      </div>
+      <div class="deliv-card">
+        <span class="deliv-num">6</span>
+        <h3>Q&amp;A 15 minut</h3>
+        <p>Možnost položit vlastní dotaz Pavlu Patřičnému v Q&amp;A bezprostředně po edukační části. Anonymita zaručena, žádný dotaz není hloupý.</p>
+      </div>
+    </div>
+
+    <p style="margin-top: 36px; font-size: 17px; color: var(--text-muted); max-width: 760px; line-height: 1.7;">
+      <strong style="color: var(--text);">Bonus:</strong> Po webináři bude možné požádat o <strong>30min individuální konzultaci s Pavlem</strong>. Kapacita je omezená na 20 míst. Konzultace není povinná.
+    </p>
+  </div>
+</section>
+
+<!-- Inline CTA strip -->
+<div class="cta-strip">
+  <div class="container reveal">
+    <div class="cta-strip-text">
+      <strong>Chcete mít jasno ve všech těchto bodech?</strong>
+      <span>Pravidelně každý týden · živé vysílání · zdarma</span>
+    </div>
+    <a href="#register-final" class="btn-primary cta-strip-btn">
+      Chci se účastnit
+      <span class="arrow">→</span>
+    </a>
+  </div>
+</div>
+
+<!-- (Sekce 'Komu webinář pomůže' / 'Pro koho je' odstraněna podle promptu -'celou tuto sekci vymaž') -->
+
+<!-- ============= SECTION: FAQ ============= -->
+<section class="section section-light">
+  <div class="container-narrow reveal">
+    <span class="eyebrow">Časté otázky</span>
+    <h2>Nejčastější dotazy investorů</h2>
+    <p class="lead">Otázky převzaté z reálných schůzek Pavla Patřičného a od jeho obchodníků - tady najdete krátké odpovědi, na webináři je rozebereme do hloubky.</p>
+
+    <div class="faq-list">
+      <details class="faq-item" open>
+        <summary>Jaké povinnosti má emitent a jaká rizika investor podstupuje?</summary>
+        <div class="faq-answer">
+          <p>Emitentem je <strong>Stachonie Investment s.r.o.</strong> a emise je vedena pod prospektem schváleným Českou národní bankou. Prospekt obsahuje <strong>8 kovenantů</strong> - smluvních povinností emitenta (omezení zadlužení, povinnost reportovat investorům, zákaz převodů podílů a další). Konkrétní seznam povinností i rizikových faktorů je v prospektu.</p>
+          <p>Investice do dluhopisů nese riziko: návratnost není garantována, výnos závisí na splnění závazků emitenta, a stavební fáze projektu znamená developerské riziko. Co konkrétní kovenanty zakazují a kde jsou jejich limity rozebereme na webináři.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Kdy bude projekt postavený a kdy dostanu peníze zpět?</summary>
+        <div class="faq-answer">
+          <p>Stavební povolení projektu je očekáváno v <strong>Q3/2026</strong>. Splatnost dluhopisů je <strong>září 2028</strong> a vyplývá ze smluvních podmínek emise, nikoli z dokončení stavby.</p>
+          <p>U <strong>kupónové varianty 12 % p.a.</strong> dostáváte výplatu měsíčně po celou dobu trvání emise. U <strong>zerobond varianty 14 % p.a.</strong> dostáváte celou částku včetně výnosu jednorázově v září 2028. Aktuální status povolení rozebereme na webináři.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Co se stane, když developer zkrachuje nebo nedokončí projekt?</summary>
+        <div class="faq-answer">
+          <p>Tohle je férová otázka, kterou si má každý investor položit. Na webináři projdeme, jaká pravidla má emitent zapsaná v prospektu (smluvní zákaz prodeje podílů, povinnost reportovat investorům, omezení zadlužení) a jaké jsou postupy v krajním scénáři.</p>
+          <p>Developer MMG má za sebou <strong>20 let na trhu</strong>, <strong>40+ realizovaných projektů</strong> a portfolio <strong>1,5 mld USD</strong>. Track record je faktem, není to ale záruka úspěchu této emise - to je důležité říci přímo.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Proč Polsko a proč Zakopané?</summary>
+        <div class="faq-answer">
+          <p>Polsko za posledních 20 let dohnalo Česko v ekonomickém růstu - HDP, příjmy, turismus. Zakopané je <strong>nejnavštěvovanější polské horské středisko</strong> s celoroční obsazeností (lyžování + letní wellness/turistika).</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Jaký je rozdíl mezi kupónem 12 % a zerobondem 14 %?</summary>
+        <div class="faq-answer">
+          <p><strong>Kupón 12 % p.a.:</strong> pravidelný cashflow na účet každý měsíc po celou dobu trvání emise. Pro investory, kteří chtějí pravidelný příjem.</p>
+          <p><strong>Zerobond 14 % p.a.:</strong> jednorázová výplata celé částky včetně úroků v září 2028. Vyšší celkový výnos, žádný měsíční cashflow během trvání. Pro investory, kteří chtějí maximalizovat výnos a peníze nepotřebují průběžně.</p>
+          <p>Která varianta sedí komu, projdeme na konkrétních příkladech.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Kdy webinář probíhá a jak si vyberu termín?</summary>
+        <div class="faq-answer">
+          <p>Webinář probíhá <strong>pravidelně každý týden</strong>, živě online. Konkrétní dostupné termíny si vyberete přímo v <strong>registraci</strong> - zaregistrujte se a zvolte čas, který vám vyhovuje.</p>
+          <p>Po registraci vám přijde e-mailové potvrzení s přesným datem a časem vašeho termínu a s odkazem pro připojení. Připomeneme se vám i krátce před začátkem.</p>
+          <p>Pokud se jeden týden nestihnete připojit, můžete se zaregistrovat na jiný dostupný termín - obsah webináře je vždy stejný, jde jen o výběr času.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Jak je to s daněmi z výnosu?</summary>
+        <div class="faq-answer">
+          <p>Zdanění výnosů z dluhopisů se v ČR řídí platnou legislativou. Konkrétní daňový dopad závisí na osobní situaci investora (právní forma, doba držby, daňová rezidence). Pro individuální posouzení doporučujeme konzultaci s daňovým poradcem.</p>
+          <p>Daňový režim apartmánu jako nemovitosti se odvíjí od zvoleného režimu vlastnictví (osobní vs. obchodní), režimu DPH u pronájmu a dalších faktorů.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Kolik webinář stojí a co se ode mě očekává?</summary>
+        <div class="faq-answer">
+          <p>Webinář je <strong>zdarma</strong>. 60 minut edukace + 15 minut Q&amp;A. Žádná prodejní prezentace - obsah má edukační charakter.</p>
+          <p>Po webináři máte možnost požádat o 30min individuální konzultaci s Pavlem (kapacita 20 míst, není povinná). Pokud po webináři investovat nechcete, je to v pořádku - Pavlův přístup zní: „Klient musí chtít sám."</p>
+        </div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============= ZÁLOHA - sekce přesunuté 2026-05-04 (nepoužívat v live; držené pro reference) ============= -->
+<!-- Origin Story + Journey Timeline + Proč právě ASR - Adam: "stavit bez tehle sekci" -->
+<div hidden aria-hidden="true" data-backup="origin+journey+proc-asr | 2026-05-04">
+
+<!-- ============= SECTION: ORIGIN STORY (Jak vznikl projekt) ============= -->
+<section class="origin-section">
+  <div class="origin-bg"></div>
+  <div class="container reveal">
+    <span class="eyebrow">Jak vznikl projekt All Seasons Residence</span>
+    <h2>Finální projekt zahrnuje 220 luxusních apartmánů a wellness centrum v Zakopaném</h2>
+    <p class="lead">
+      Po 16 letech úsilí o změnu územního plánu prodali původní vlastníci své podíly strategickým partnerům. Do projektu vstoupil zkušený developer Paul Kusmierz (vlastník MMG, portfolio 1,5 mld USD) a Josef Musil (bývalý obchodní ředitel DRFG).
+    </p>
+
+    <div class="origin-stats">
+      <div class="origin-stat">
+        <span class="v">11&nbsp;tis. m²</span>
+        <span class="l">V krásném Zakopaném</span>
+      </div>
+      <div class="origin-stat">
+        <span class="v">220</span>
+        <span class="l">Luxusních apartmánů</span>
+      </div>
+      <div class="origin-stat">
+        <span class="v">92</span>
+        <span class="l">Vydělávajících investorů</span>
+      </div>
+    </div>
+
+    <a href="#register-final" class="btn-primary">
+      Chci se účastnit webináře
+      <span class="arrow">→</span>
+    </a>
+  </div>
+</section>
+
+<!-- ============= SECTION: JOURNEY TIMELINE (18 let) ============= -->
+<section class="journey-section">
+  <div class="container reveal">
+    <span class="eyebrow">18 let trpělivosti a vize</span>
+    <h2>Jediný zástupce Polska mezi projekty z Dubaje, Španělska nebo Kypru</h2>
+    <p class="lead">
+      Vytvořili jsme unikátní investiční model kombinující dluhopisy a předprodej apartmánů. Developer nabídl investorům účast ve výši 7,7 mil. EUR. Nepřekvapilo nás, že i když se stavba ještě nerozběhla, nadšení investoři již zainvestovali více než polovinu této ekvity.
+    </p>
+
+    <div class="journey-grid">
+      <div class="journey-card">
+        <div class="journey-img no-photo">2006</div>
+        <div class="journey-year">2006</div>
+        <p class="journey-text">Georg Mula a čtyři místní obyvatelé získali pozemek o rozloze 11 tisíc m² v malebném Zakopaném.</p>
+      </div>
+      <div class="journey-card">
+        <div class="journey-img no-photo">2007</div>
+        <div class="journey-year">2007</div>
+        <p class="journey-text">Začali jsme dlouhý proces změny územního plánu s vizí vybudování luxusního rezidenčního projektu.</p>
+      </div>
+      <div class="journey-card">
+        <div class="journey-img no-photo">MMG</div>
+        <div class="journey-year">2022</div>
+        <p class="journey-text">Do projektu vstoupil zkušený developer Paul Kusmierz (vlastník MMG) a Josef Musil (bývalý obchodní ředitel DRFG).</p>
+      </div>
+      <div class="journey-card">
+        <div class="journey-img no-photo">220</div>
+        <div class="journey-year">2024</div>
+        <p class="journey-text">Získání všech potřebných povolení a souhlasů od dotčených orgánů. Finální projekt zahrnuje 220 luxusních apartmánů, 220 parkovacích míst v podzemí a wellness centrum.</p>
+      </div>
+      <div class="journey-card">
+        <div class="journey-img no-photo">7,7 €M</div>
+        <div class="journey-year">2025</div>
+        <p class="journey-text">Dnes již zainvestovalo 92 investorů za cca 5 milionů EUR a bude se zahajovat výstavba s plánovaným dokončením do konce roku 2027.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============= SECTION: PROČ PRÁVĚ ASR (full-bleed viz bg) ============= -->
+<section class="proc-asr-section">
+  <div class="proc-asr-bg"></div>
+  <div class="container-narrow reveal">
+    <span class="eyebrow">Projekt</span>
+    <h2>Proč právě All Seasons Residence</h2>
+
+    <p class="lead-intro">All Seasons Residence je plánovaný rezidenční komplex v Zakopaném. Tady jsou klíčová fakta, která má investor mít před sebou, než se rozhodne.</p>
+
+    <ul class="proc-bullets">
+      <li><strong>220 apartmánů</strong> na pozemku 11 000 m² v Zakopaném - nejnavštěvovanější polské horské středisko s celoroční obsazeností.</li>
+      <li><strong>Developer Master Management Group</strong> (MMG): 20 let v CEE, 40+ realizovaných projektů, portfolio 1,5 mld. USD.</li>
+      <li><strong>Česká emise</strong> vedena přes Stachonie Investment s.r.o. <strong>Prospekt schválen ČNB.</strong></li>
+      <li><strong>Pozemek oceněn Savills</strong> (12/2024) na 11,4 mil. EUR; objem emise 7,7 mil. EUR. Poměr aktiva vůči emisi <strong>1,48</strong> - hodnota majetku převyšuje objem dluhopisů.</li>
+      <li><strong>8 kovenantů</strong> zapsaných v prospektu: omezení zadlužení, povinnost reportovat investorům, smluvní zákaz převodů podílů a další smluvní povinnosti emitenta.</li>
+      <li><strong>8 kovenantů</strong> zapsaných v prospektu - smluvní povinnosti emitenta (omezení dluhu, reportovací povinnost, zákaz převodů podílů).</li>
+      <li><strong>Splatnost dluhopisu září 2028</strong>: kupón 12 % p.a. s měsíční výplatou, nebo zerobond 14 % p.a. s jednorázovou výplatou v září 2028.</li>
+      <li><strong>Dvě varianty výnosu</strong>: kupón 12 % p.a. s měsíční výplatou, nebo zerobond 14 % p.a. s jednorázovou výplatou v září 2028.</li>
+    </ul>
+
+    <p class="body-out">Detail každého bodu plus jeho kontext, rizika a omezení projdeme na webináři - aby každé číslo bylo zasazeno do souvislostí, ne použito jako slogan.</p>
+  </div>
+</section>
+
+</div>
+<!-- ============= /ZÁLOHA ============= -->
+<!-- ============= FINAL CTA (WebinarJam embed + viz bg) ============= -->
+<section class="final-cta-bg" id="register-final">
+  <div class="container reveal">
+    <span class="eyebrow" style="color: var(--bronze);">Rezervace místa</span>
+    <h2>Rezervovat místo na webinář</h2>
+    <p class="lead">Pravidelný live webinář každý týden · 60 minut + 15 minut Q&amp;A · zdarma. Vyberte si termín níže.</p>
+
+    <div class="form-box" id="webinarjam-embed-2">
+      <!-- WEBINARJAM EMBED START (final CTA) -->
+      <div class="wj-embed-box">
+        <div class="wj-placeholder">
+          <span class="wj-placeholder-label">formulář WebinarJam embed</span>
+        </div>
+      </div>
+      <!-- WEBINARJAM EMBED END -->
+    </div>
+  </div>
+</section>
+
+<!-- ============= FOOTER ============= -->
+<footer class="footer">
+  <div class="container">
+
+    <div class="footer-compliance">
+      <strong style="color: var(--bronze); font-family: 'Oswald', sans-serif; letter-spacing: 0.06em; text-transform: uppercase; font-size: 13px;">Identifikace emitenta a prospekt</strong><br><br>
+      Emitentem dluhopisů je společnost <strong>Stachonie Investment s.r.o.</strong>, IČO: 178 12 895, se sídlem Silurská 1175/8, Hlubočepy, 152 00 Praha 5. Rozhodnutí ČNB o schválení prospektu č.j. 2025/110658/CNB/650 ze dne 10. září 2025 a Konečné podmínky jsou Emitentem uveřejněny na <a href="https://www.allseasonsresidence.cz/pro-investory" style="color: var(--bronze); text-decoration: underline;">www.allseasonsresidence.cz v sekci „Pro investory"</a>.<br><br>
+
+      <strong style="color: var(--bronze); font-family: 'Oswald', sans-serif; letter-spacing: 0.06em; text-transform: uppercase; font-size: 13px;">Propagační sdělení a upozornění na rizika</strong><br><br>
+      Toto sdělení má propagační a informační charakter a týká se možnosti investice do dluhopisů emitenta Stachonie Investment s.r.o. Nejedná se o investiční poradenství ani o individuální doporučení zohledňující osobní finanční situaci, investiční cíle nebo zkušenosti konkrétního investora.<br><br>
+      Schválení prospektu Českou národní bankou neznamená potvrzení kvality emitenta ani dluhopisů. Česká národní banka neposuzuje ekonomickou výhodnost investice ani schopnost emitenta dostát svým závazkům.<br><br>
+      Investice do dluhopisů je spojena s riziky. Dluhopisy nejsou bankovním vkladem, nevztahuje se na ně zákonné pojištění vkladů a návratnost investované částky ani dosažení očekávaného výnosu nejsou zaručeny. Investor by se měl před přijetím investičního rozhodnutí seznámit s příslušnou emisní dokumentací a rizikovými faktory v prospektu.
+    </div>
+
+    <div class="footer-grid">
+      <div>
+        <h4>All Seasons Residence</h4>
+        <p style="line-height: 1.7;">Rezidenční komplex 220 apartmánů v Zakopaném, Polsko.<br>Developer: Master Management Group (MMG).<br>Česká emise: Stachonie Investment s.r.o.</p>
+      </div>
+      <div>
+        <h4>Kontakt</h4>
+        <p style="line-height: 1.85;">
+          I. P. Pavlova 5, 120 00 Praha 2<br>
+          <a href="mailto:info@allseasonsresidence.cz" style="color: var(--cream);">info@allseasonsresidence.cz</a><br>
+          <a href="tel:+420602403527" style="color: var(--cream);">+420 602 403 527</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 All Seasons Residence</span>
+      <span>Webinář provozuje Pavel Patřičný ve spolupráci s OneFlow</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============= STICKY MOBILE CTA ============= -->
+<div class="sticky-cta">
+  <a href="#register-final">Chci se účastnit webináře</a>
+</div>
+
+<script>
+// ============= SCROLL REVEAL =============
+(function() {
+  if (!('IntersectionObserver' in window)) {
+    document.querySelectorAll('.reveal').forEach(function(el) { el.classList.add('is-visible'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(function(el) { io.observe(el); });
+})();
+
+// ============= COUNTDOWN TICKER =============
+(function() {
+  var grids = document.querySelectorAll('[data-countdown]');
+  if (!grids.length) return;
+  function pad(n) { return n < 10 ? '0' + n : '' + n; }
+  function tick() {
+    grids.forEach(function(grid) {
+      var target = new Date(grid.getAttribute('data-countdown')).getTime();
+      var now = Date.now();
+      var diff = Math.max(0, target - now);
+      var d = Math.floor(diff / 86400000);
+      var h = Math.floor((diff % 86400000) / 3600000);
+      var m = Math.floor((diff % 3600000) / 60000);
+      var s = Math.floor((diff % 60000) / 1000);
+      var dEl = grid.querySelector('[data-cd="d"]');
+      var hEl = grid.querySelector('[data-cd="h"]');
+      var mEl = grid.querySelector('[data-cd="m"]');
+      var sEl = grid.querySelector('[data-cd="s"]');
+      if (dEl) dEl.textContent = pad(d);
+      if (hEl) hEl.textContent = pad(h);
+      if (mEl) mEl.textContent = pad(m);
+      if (sEl) sEl.textContent = pad(s);
+      if (diff <= 0) {
+        var bar = grid.closest('.countdown-bar');
+        if (bar) bar.classList.add('live');
+      }
+    });
+  }
+  tick();
+  setInterval(tick, 1000);
+})();
+
+// ============= UTM TRACKING (preserved from v3) =============
+(function() {
+  var TRACKED_PARAMS = [
+    'utm_source', 'utm_medium', 'utm_campaign',
+    'utm_content', 'utm_term',
+    'gclid', 'fbclid', 'msclkid'
+  ];
+  var STORAGE_KEY = 'asr_attribution';
+
+  function readAttribution() {
+    var p = new URLSearchParams(window.location.search);
+    var attr = {};
+    var hasNew = false;
+    TRACKED_PARAMS.forEach(function(k) {
+      var v = p.get(k);
+      if (v) { attr[k] = v; hasNew = true; }
+    });
+    if (hasNew) {
+      if (attr.utm_source && !attr.utm_campaign) attr.utm_campaign = 'webinar';
+      if (attr.utm_source && !attr.utm_medium) {
+        attr.utm_medium = (attr.utm_source.indexOf('ads') >= 0 || attr.gclid || attr.fbclid) ? 'paid' : 'organic';
+      }
+      attr._first_seen = new Date().toISOString();
+      attr._referrer = document.referrer || '';
+      attr._landing_path = window.location.pathname + window.location.search;
+      try { sessionStorage.setItem(STORAGE_KEY, JSON.stringify(attr)); } catch(e) {}
+      return attr;
+    }
+    try {
+      var stored = sessionStorage.getItem(STORAGE_KEY);
+      if (stored) return JSON.parse(stored);
+    } catch(e) {}
+    var ref = document.referrer || '';
+    var fallback = {};
+    if (ref.indexOf('facebook.com') >= 0 || ref.indexOf('instagram.com') >= 0) {
+      fallback.utm_source = ref.indexOf('instagram') >= 0 ? 'ig_organic' : 'fb_organic';
+      fallback.utm_medium = 'organic';
+    } else if (ref.indexOf('linkedin.com') >= 0) {
+      fallback.utm_source = 'linkedin';
+      fallback.utm_medium = 'organic';
+    } else if (ref.indexOf('google.') >= 0) {
+      fallback.utm_source = 'google';
+      fallback.utm_medium = 'organic';
+    } else if (ref) {
+      fallback.utm_source = 'referral';
+      fallback.utm_medium = 'referral';
+    } else {
+      fallback.utm_source = 'direct';
+      fallback.utm_medium = 'direct';
+    }
+    fallback.utm_campaign = 'webinar';
+    fallback._first_seen = new Date().toISOString();
+    fallback._referrer = ref;
+    return fallback;
+  }
+
+  var attribution = readAttribution();
+
+  function injectIntoForm(form) {
+    Object.keys(attribution).forEach(function(k) {
+      var input = document.createElement('input');
+      input.type = 'hidden';
+      input.name = k;
+      input.value = String(attribution[k] || '');
+      form.appendChild(input);
+    });
+  }
+  document.querySelectorAll('form').forEach(injectIntoForm);
+
+  window.__asrAttribution = attribution;
+})();
+</script>
+
+</body>
+</html>
