@@ -791,3 +791,42 @@ main > section.news-grid:first-child{padding-top:120px}
 /* ========== DEMO: subpage links disabled (subpages not yet built) ========== */
 .is-disabled{pointer-events:none;opacity:.55;cursor:not-allowed}
 .is-disabled:hover{color:inherit !important;background:inherit !important;border-color:inherit !important;transform:none !important;text-decoration:none}
+
+/* ========== PRODUKTY PAGE COLOR FLIP (body.prod-flip) ========== */
+/* Per Dominik feedback 2026-06-02: produkty section order white -> black -> white. */
+/* 1) Co vyrabime grid = LIGHT */
+body.prod-flip .products{background:var(--paper);color:var(--ink)}
+body.prod-flip .products .sec-eyebrow{color:var(--haze-dark)}
+body.prod-flip .products .sec-head h2{color:var(--ink)}
+body.prod-flip .products .sec-head h2 em{color:var(--haze-dark)}
+body.prod-flip .products .sec-head .lead{color:var(--ink-soft)}
+body.prod-flip .products .prod{background:#fff;border-color:var(--line)}
+body.prod-flip .products .prod:hover{border-color:rgba(247,148,48,.6)}
+body.prod-flip .products .prod-img{background:var(--paper-3)}
+body.prod-flip .products .prod-num{color:var(--haze-dark)}
+body.prod-flip .products .prod-body h3{color:var(--ink)}
+body.prod-flip .products .prod-body p{color:var(--ink-soft)}
+body.prod-flip .products .prod-link{color:var(--haze-dark)}
+body.prod-flip .products .prod-link:hover{color:var(--ink)}
+/* 2) Jak vypada spoluprace = DARK + taller (fix cramped band) */
+body.prod-flip .process{background:var(--steel-900);color:#fff;padding:116px 0}
+body.prod-flip .process .sec-eyebrow{color:var(--haze-soft)}
+body.prod-flip .process .sec-head h2{color:#fff}
+body.prod-flip .process .sec-head h2 em{color:var(--haze-soft)}
+body.prod-flip .process .steps-grid{gap:40px}
+body.prod-flip .process .step{border-top-color:rgba(255,255,255,.35);padding-top:38px}
+body.prod-flip .process .step-num{color:var(--haze-soft)}
+body.prod-flip .process .step h3{color:#fff}
+body.prod-flip .process .step p{color:rgba(255,255,255,.72)}
+/* 3) Final CTA = LIGHT */
+body.prod-flip .final-cta{background:var(--paper);color:var(--ink)}
+body.prod-flip .final-cta .sec-eyebrow{color:var(--haze-dark)}
+body.prod-flip .final-cta h2{color:var(--ink)}
+body.prod-flip .final-cta h2 em{color:var(--haze-dark)}
+body.prod-flip .final-cta .final-contact{color:var(--ink)}
+body.prod-flip .final-cta .final-contact:hover{color:var(--haze-dark)}
+body.prod-flip .final-cta .final-contact .ico{border-color:rgba(28,29,31,.25)}
+body.prod-flip .final-cta .final-contact .ico svg{stroke:var(--ink)}
+body.prod-flip .final-cta .final-contact:hover .ico svg{stroke:#fff}
+body.prod-flip .final-cta p{color:var(--ink-soft)!important}
+@media(max-width:680px){body.prod-flip .process{padding:84px 0}}
