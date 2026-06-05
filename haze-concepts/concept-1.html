@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Návrh 1 - Industrial Bold | Boční ventilace HAZE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--haze:#F79430;--haze-d:#d97b1c;--ink:#101114;--ink2:#1b1d22;--paper:#f4f2ec;--line:rgba(255,255,255,.12)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;color:#fff;background:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+h1,h2,h3,.mono{font-family:'Manrope',sans-serif}
+a{color:inherit;text-decoration:none}
+/* concept ribbon */
+.ribbon{background:var(--haze);color:#1a1205;text-align:center;font-family:'Manrope';font-weight:700;font-size:13px;letter-spacing:.04em;padding:8px}
+/* header */
+header{position:sticky;top:0;z-index:50;background:rgba(16,17,20,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.hbar{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{font-family:'Manrope';font-weight:800;font-size:22px;letter-spacing:-.02em}
+.logo b{color:var(--haze)}
+.nav{display:flex;gap:28px;font-size:14px;font-weight:500}
+.nav a{opacity:.75}.nav a:hover{opacity:1;color:var(--haze)}
+.cta-sm{background:var(--haze);color:#1a1205;padding:11px 22px;border-radius:3px;font-family:'Manrope';font-weight:700;font-size:13px}
+/* HERO - image bg, distinct from header */
+.hero{position:relative;min-height:88vh;display:flex;align-items:flex-end;overflow:hidden}
+.hero-bg{position:absolute;inset:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(105deg,rgba(16,17,20,.95) 30%,rgba(16,17,20,.45) 75%,rgba(16,17,20,.2))}
+.hero-in{position:relative;z-index:2;padding:0 0 80px}
+.kicker{display:inline-flex;align-items:center;gap:10px;font-family:'Manrope';font-weight:700;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--haze);margin-bottom:26px}
+.kicker::before{content:'';width:42px;height:2px;background:var(--haze)}
+.hero h1{font-weight:800;font-size:clamp(2.6rem,6.5vw,5.4rem);line-height:.98;letter-spacing:-.03em;max-width:14ch}
+.hero h1 em{font-style:normal;color:var(--haze)}
+.hero p{font-size:clamp(1.05rem,1.6vw,1.35rem);max-width:54ch;margin:28px 0 36px;color:rgba(255,255,255,.82)}
+.btns{display:flex;gap:14px;flex-wrap:wrap}
+.btn{padding:18px 34px;border-radius:3px;font-family:'Manrope';font-weight:700;font-size:15px;letter-spacing:.02em;display:inline-flex;align-items:center;gap:10px;transition:.2s}
+.btn-p{background:var(--haze);color:#1a1205}.btn-p:hover{background:#fff}
+.btn-o{border:1.5px solid rgba(255,255,255,.35)}.btn-o:hover{border-color:var(--haze);color:var(--haze)}
+.hero-strip{position:relative;z-index:2;display:flex;gap:0;border-top:1px solid var(--line)}
+.hero-strip div{flex:1;padding:22px 24px;border-right:1px solid var(--line)}
+.hero-strip div:last-child{border-right:none}
+.hero-strip b{display:block;font-family:'Manrope';font-weight:800;font-size:24px;color:var(--haze)}
+.hero-strip span{font-size:12.5px;color:rgba(255,255,255,.6);letter-spacing:.04em}
+/* sections */
+section{padding:104px 0}
+.eyb{font-family:'Manrope';font-weight:700;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--haze);margin-bottom:18px;display:flex;align-items:center;gap:10px}
+.eyb::before{content:'';width:34px;height:2px;background:var(--haze)}
+h2{font-weight:800;font-size:clamp(2rem,4vw,3.2rem);line-height:1.04;letter-spacing:-.02em;max-width:18ch}
+h2 em{font-style:normal;color:var(--haze)}
+.lead{font-size:18px;color:rgba(255,255,255,.72);max-width:60ch;margin-top:22px}
+/* problem zig */
+.zig{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;margin-top:56px}
+.zig img{width:100%;height:100%;min-height:380px;object-fit:cover;border-radius:4px}
+.zig.rev{direction:rtl}.zig.rev>*{direction:ltr}
+.bullets{list-style:none;margin-top:24px}
+.bullets li{padding:16px 0;border-top:1px solid var(--line);display:flex;gap:16px;font-size:15.5px}
+.bullets li::before{content:'';flex:none;width:14px;height:14px;margin-top:5px;background:var(--haze);clip-path:polygon(0 50%,50% 0,100% 50%,50% 100%)}
+.bullets b{font-family:'Manrope'}
+/* variants A-F */
+.vsec{background:var(--ink2)}
+.vgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:48px}
+.vcard{background:var(--ink);border:1px solid var(--line);border-top:3px solid var(--haze);border-radius:4px;padding:30px 26px}
+.vcard .code{font-family:'Manrope';font-weight:800;font-size:34px;color:var(--haze);letter-spacing:-.02em}
+.vcard h3{font-weight:700;font-size:19px;margin:6px 0 10px}
+.vcard p{font-size:14px;color:rgba(255,255,255,.62)}
+/* cta */
+.cta{background:var(--haze);color:#1a1205;text-align:center}
+.cta h2{margin:0 auto;color:#1a1205}.cta h2 em{color:#fff}
+.cta .phone{font-family:'Manrope';font-weight:800;font-size:clamp(1.8rem,4vw,3rem);margin:26px 0;display:inline-block}
+.cta .btns{justify-content:center}
+.cta .btn-d{background:#1a1205;color:var(--haze)}.cta .btn-d:hover{background:#fff;color:#1a1205}
+.note{font-size:13.5px;margin-top:18px;opacity:.7}
+footer{background:#0a0b0d;padding:40px 0;font-size:13px;color:rgba(255,255,255,.5);text-align:center}
+@media(max-width:820px){.nav{display:none}.zig,.vgrid{grid-template-columns:1fr;gap:32px}.zig.rev{direction:ltr}.hero-strip{flex-wrap:wrap}.hero-strip div{flex:1 1 50%;border-bottom:1px solid var(--line)}}
+</style>
+</head>
+<body>
+<div class="ribbon">NÁVRH 1 z 5 - "Industrial Bold" - ukázka produktové stránky (Boční ventilace)</div>
+<header><div class="wrap hbar">
+  <div class="logo">HA<b>Z</b>E</div>
+  <nav class="nav"><a>Produkty</a><a>Realizace</a><a>O nás</a><a>Kontakt</a></nav>
+  <a class="cta-sm">Nezávazná poptávka</a>
+</div></header>
+
+<section class="hero" style="padding:0">
+  <div class="hero-bg"><img src="../haze-v2/assets/ref-1.jpg" alt="Boční ventilace stáje HAZE"></div>
+  <div class="wrap hero-in">
+    <span class="kicker">Boční ventilační systémy - typ A až F</span>
+    <h1>Teplota v pásmu, <em>kde stádo neztrácí výkon.</em></h1>
+    <p>Boční stěna, která v létě otevře a vymění vzduch, v zimě uzavře a drží teplo - bez průvanu na zvířatech. Navrhneme, vyrobíme a namontujeme přesně na vaši stáj.</p>
+    <div class="btns">
+      <a class="btn btn-p">Chci nezávaznou nabídku →</a>
+      <a class="btn btn-o">Zavolat +420 602 488 989</a>
+    </div>
+  </div>
+  <div class="wrap" style="position:relative;z-index:2"><div class="hero-strip">
+    <div><b>19 let</b><span>na trhu od 2007</span></div>
+    <div><b>2 500 m²</b><span>vlastní výrobní hala</span></div>
+    <div><b>10 000+</b><span>realizací v CZ, SK, HU</span></div>
+    <div><b>2 roky</b><span>záruka na konstrukci i montáž</span></div>
+  </div></div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyb">Proč to řešit</div>
+    <h2>Nad 21 °C stádo <em>tiše ztrácí.</em></h2>
+    <div class="zig">
+      <div>
+        <p class="lead">Tepelný stres sráží příjem krmiva a dojivost. V zimě zase netěsná stěna pouští dovnitř průvan a teplo uniká ven. Obojí stojí peníze každý den - jen to není vidět na první pohled, ale na čísle za měsíc.</p>
+        <ul class="bullets">
+          <li><span><b>Léto:</b> nadměrné teplo = nižší příjem krmiva a dojivost</span></li>
+          <li><span><b>Zima:</b> průvan na zvířatech a únik tepla = vyšší náklady</span></li>
+          <li><span><b>Řešení:</b> regulovatelná boční stěna podle počasí, ne napevno</span></li>
+        </ul>
+      </div>
+      <img src="../haze-v2/assets/hero.jpg" alt="Interiér moderní stáje">
+    </div>
+  </div>
+</section>
+
+<section class="vsec">
+  <div class="wrap">
+    <div class="eyb">Varianty</div>
+    <h2>Šest typů. <em>Vyberete podle provozu.</em></h2>
+    <p class="lead">Od jednoduché svinovací plachty po polykarbonátovou stěnu pro maximální izolaci. Konkrétní typ navrhneme po zaměření podle orientace, klimatu a provozu stáje.</p>
+    <div class="vgrid">
+      <div class="vcard"><div class="code">A / B</div><h3>Svinovací stěna</h3><p>Plachtová stěna, která se navine nahoru. Jednoduché, spolehlivé řešení pro běžný provoz.</p></div>
+      <div class="vcard"><div class="code">C / D / E</div><h3>Rolovací stěna</h3><p>Plachta se roluje plynule podle potřeby. Přesná regulace výšky otevření.</p></div>
+      <div class="vcard"><div class="code">F</div><h3>Polykarbonát</h3><p>Pevná průsvitná stěna. Maximální izolace a světlo, kde je potřeba nejvíc držet teplo.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyb">Jak to děláme</div>
+    <h2><em>Vlastní výroba,</em> montáž naším týmem.</h2>
+    <div class="zig rev">
+      <div>
+        <ul class="bullets">
+          <li><span><b>Materiál:</b> plachta odolná UV i mrazu, nebo polykarbonát dle požadavku na izolaci a světlo</span></li>
+          <li><span><b>Ovládání:</b> manuální klikou, motorické, volitelně automatické podle teploty a větru</span></li>
+          <li><span><b>Rozměry:</b> vždy na míru délky a výšky boční stěny</span></li>
+          <li><span><b>Montáž:</b> zajišťuje náš montážní tým, po předání zaučíme obsluhu</span></li>
+        </ul>
+      </div>
+      <img src="../haze-v2/assets/ref-3.jpg" alt="Polykarbonátová boční stěna HAZE">
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>Pošlete rozměry, <em>ozveme se s nabídkou.</em></h2>
+    <a class="phone" href="tel:+420602488989">+420 602 488 989</a>
+    <div class="btns">
+      <a class="btn btn-d">Nezávazná poptávka →</a>
+    </div>
+    <div class="note">Konzultace zdarma. Nabídku připravíme do 48 hodin.</div>
+  </div>
+</section>
+
+<footer><div class="wrap">HAZE, s.r.o. - vlastní hala v Křični - realizace v CZ, SK a HU - © 2007-2026</div></footer>
+</body>
+</html>
