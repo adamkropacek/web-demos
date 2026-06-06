@@ -40,14 +40,12 @@
 .eu-project{background:var(--paper);border:1px solid var(--line);border-top:3px solid var(--haze);
   border-radius:4px;padding:36px 40px;display:flex;flex-direction:column;gap:18px}
 .eu-project-emblems{display:flex;align-items:center;gap:24px;flex-wrap:wrap;padding-bottom:18px;border-bottom:1px solid var(--line);margin-bottom:6px}
-.eu-emblem{display:inline-flex;align-items:center;gap:10px;padding:8px 14px;background:#003399;color:#fff;border-radius:3px;font-family:'Manrope',sans-serif;font-weight:700;font-size:12px;letter-spacing:.05em;line-height:1.3}
-.eu-emblem .stars{color:#FFCC00;font-size:13px;letter-spacing:0}
-.eu-emblem-text{font-size:12.5px;line-height:1.35}
-.eu-emblem-text strong{display:block;font-weight:700;color:#fff}
-.eu-emblem-text small{display:block;font-weight:500;color:rgba(255,255,255,.85);font-size:11px}
-.mpo-emblem{display:inline-flex;align-items:center;gap:10px;padding:8px 14px;background:#fff;color:var(--ink);border:1.5px solid var(--ink);border-radius:3px;font-family:'Manrope',sans-serif;font-weight:700;font-size:12px;letter-spacing:.04em;line-height:1.3}
-.mpo-emblem-stripe{display:inline-block;width:16px;height:11px;background:linear-gradient(to bottom,#fff 50%,#D7141A 50%);border:1px solid #ccc;flex:none;position:relative}
-.mpo-emblem-stripe::before{content:'';position:absolute;left:0;top:0;width:7px;height:11px;background:#11457E;border-right:1px solid #ccc}
+.eu-lockup,.mpo-lockup{display:flex;align-items:center;gap:11px}
+.eu-lockup img{height:40px;width:60px;flex:none;display:block;border-radius:1px}
+.mpo-lockup img{height:40px;width:40px;flex:none;display:block}
+.eu-cap{font-size:11px;line-height:1.32;color:var(--ink-soft);font-weight:600;max-width:210px}
+.eu-cap strong{display:block;color:var(--ink);font-weight:700;font-size:12px;letter-spacing:.01em;margin-bottom:1px}
+.mpo-cap{font-size:10.5px;line-height:1.28;color:var(--ink);font-weight:700;letter-spacing:.03em;text-transform:uppercase;max-width:130px}
 .eu-project h2{font-family:'Manrope',sans-serif;font-weight:700;font-size:22px;color:var(--ink);line-height:1.25;letter-spacing:-.005em}
 .eu-project h2 em{font-style:italic;color:var(--haze-dark);font-weight:700}
 .eu-project p{font-size:15px;color:var(--ink-soft);line-height:1.65}
@@ -122,10 +120,7 @@
       <!-- PROJEKT 1: FVE -->
       <article class="eu-project">
         <div class="eu-project-emblems">
-          <span class="eu-emblem">
-            <span class="stars">★★★★★</span>
-            <span class="eu-emblem-text"><strong>Financováno</strong><small>Evropskou unií · NextGenerationEU</small></span>
-          </span>
+          <span class="eu-lockup"><img src="../assets/eu/eu-flag.svg" alt="Evropská unie" width="60" height="40"><span class="eu-cap"><strong>Financováno Evropskou unií</strong>NextGenerationEU</span></span>
         </div>
         <h2>Fotovoltaická elektrárna bez akumulace <em>HAZE, s.r.o.</em></h2>
         <dl>
@@ -140,11 +135,8 @@
       <!-- PROJEKT 2: Digitalizace -->
       <article class="eu-project">
         <div class="eu-project-emblems">
-          <span class="eu-emblem">
-            <span class="stars">★★★★★</span>
-            <span class="eu-emblem-text"><strong>Evropská unie</strong><small>Evropský fond pro regionální rozvoj</small></span>
-          </span>
-          <span class="mpo-emblem"><span class="mpo-emblem-stripe" aria-hidden="true"></span> Ministerstvo průmyslu a obchodu</span>
+          <span class="eu-lockup"><img src="../assets/eu/eu-flag.svg" alt="Evropská unie" width="60" height="40"><span class="eu-cap"><strong>Evropská unie</strong>Evropský fond pro regionální rozvoj</span></span>
+          <span class="mpo-lockup"><img src="../assets/eu/mpo-mark.svg" alt="Ministerstvo průmyslu a obchodu" width="40" height="40"><span class="mpo-cap">Ministerstvo průmyslu a obchodu</span></span>
         </div>
         <h2>Digitalizace a automatizace výroby <em>ve společnosti HAZE, s. r. o.</em></h2>
         <p>Naše společnost realizuje projekt <strong>„Digitalizace a automatizace výroby ve společnosti HAZE, s. r. o."</strong>, který je spolufinancován z Operačního programu Podnikání a inovace pro konkurenceschopnost, tedy ze zdrojů Evropské unie a státního rozpočtu ČR. Tento projekt byl realizován za finanční podpory z prostředků státního rozpočtu prostřednictvím Ministerstva průmyslu a obchodu.</p>
@@ -154,11 +146,8 @@
       <!-- PROJEKT 3: Výstavba areálu -->
       <article class="eu-project">
         <div class="eu-project-emblems">
-          <span class="eu-emblem">
-            <span class="stars">★★★★★</span>
-            <span class="eu-emblem-text"><strong>Evropská unie</strong><small>Evropský fond pro regionální rozvoj</small></span>
-          </span>
-          <span class="mpo-emblem"><span class="mpo-emblem-stripe" aria-hidden="true"></span> Ministerstvo průmyslu a obchodu</span>
+          <span class="eu-lockup"><img src="../assets/eu/eu-flag.svg" alt="Evropská unie" width="60" height="40"><span class="eu-cap"><strong>Evropská unie</strong>Evropský fond pro regionální rozvoj</span></span>
+          <span class="mpo-lockup"><img src="../assets/eu/mpo-mark.svg" alt="Ministerstvo průmyslu a obchodu" width="40" height="40"><span class="mpo-cap">Ministerstvo průmyslu a obchodu</span></span>
         </div>
         <h2>Výstavba výrobního areálu <em>firmy HAZE, s. r. o.</em></h2>
         <p>Naše společnost realizuje projekt <strong>„Výstavba výrobního areálu firmy HAZE, s. r. o."</strong>, který je spolufinancován z Operačního programu Podnikání a inovace pro konkurenceschopnost, tedy ze zdrojů Evropské unie a státního rozpočtu ČR.</p>
@@ -168,11 +157,8 @@
       <!-- PROJEKT 4: Elektromobilita -->
       <article class="eu-project">
         <div class="eu-project-emblems">
-          <span class="eu-emblem">
-            <span class="stars">★★★★★</span>
-            <span class="eu-emblem-text"><strong>Evropská unie</strong><small>Evropský fond pro regionální rozvoj</small></span>
-          </span>
-          <span class="mpo-emblem"><span class="mpo-emblem-stripe" aria-hidden="true"></span> Ministerstvo průmyslu a obchodu</span>
+          <span class="eu-lockup"><img src="../assets/eu/eu-flag.svg" alt="Evropská unie" width="60" height="40"><span class="eu-cap"><strong>Evropská unie</strong>Evropský fond pro regionální rozvoj</span></span>
+          <span class="mpo-lockup"><img src="../assets/eu/mpo-mark.svg" alt="Ministerstvo průmyslu a obchodu" width="40" height="40"><span class="mpo-cap">Ministerstvo průmyslu a obchodu</span></span>
         </div>
         <h2>Podpora elektromobility <em>společnosti HAZE, s. r. o.</em></h2>
         <p>Naše společnost realizuje projekt <strong>„Podpora elektromobility společnosti HAZE, s. r. o."</strong>, který je spolufinancován z Operačního programu Podnikání a inovace pro konkurenceschopnost, tedy ze zdrojů Evropské unie a státního rozpočtu ČR.</p>
