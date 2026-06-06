@@ -84,61 +84,68 @@
 .intro-attrib::before{content:'';width:34px;height:1.5px;background:var(--haze);flex:none}
 .intro-attrib strong{font-family:'Manrope',sans-serif;font-weight:700;color:var(--ink)}
 
-/* ---- 2. STORY + TIMELINE side by side (dark centrepiece) ---- */
-.story-osa{background:var(--steel-900);color:#fff}
-.story-osa .sec-eyebrow{color:var(--haze-soft)}
+/* ---- 2. STORY + TIMELINE side by side (light) ---- */
+.story-osa{background:var(--paper-2)}
+.story-osa .sec-eyebrow{color:var(--haze-dark)}
 .story-osa .sec-eyebrow::before{background:var(--haze)}
 .so-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
 .so-story h2{font-family:'Manrope',sans-serif;font-weight:700;
-  font-size:clamp(1.8rem,3.2vw,2.6rem);line-height:1.12;letter-spacing:-.015em;color:#fff;margin-bottom:24px}
-.so-story h2 em{font-style:normal;color:var(--haze-soft);font-weight:700}
-.so-story p{font-size:16px;color:rgba(255,255,255,.78);line-height:1.7;margin-bottom:16px}
-.so-story p.intro{font-size:18.5px;color:#fff;font-weight:500;line-height:1.5}
-.signature{display:flex;align-items:center;gap:16px;margin-top:32px;padding-top:26px;border-top:1px solid var(--line-dark)}
+  font-size:clamp(1.8rem,3.2vw,2.6rem);line-height:1.12;letter-spacing:-.015em;color:var(--ink);margin-bottom:24px}
+.so-story h2 em{font-style:normal;color:var(--haze-dark);font-weight:700}
+.so-story p{font-size:16px;color:var(--ink-soft);line-height:1.7;margin-bottom:16px}
+.so-story p.intro{font-size:18.5px;color:var(--ink);font-weight:500;line-height:1.5}
+.signature{display:flex;align-items:center;gap:16px;margin-top:32px;padding-top:26px;border-top:1px solid var(--line)}
 .signature::before{content:'';flex:none;width:30px;height:18px;background:var(--haze);
   -webkit-mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 18' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='3 15 15 3 27 15'/></svg>") center/contain no-repeat;
           mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 18' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='3 15 15 3 27 15'/></svg>") center/contain no-repeat;}
-.signature strong{display:block;font-family:'Manrope',sans-serif;font-weight:700;font-size:16px;color:#fff}
-.signature span{font-size:13.5px;color:rgba(255,255,255,.6)}
-.so-osa-eyebrow{font-size:11.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--haze-soft);
+.signature strong{display:block;font-family:'Manrope',sans-serif;font-weight:700;font-size:16px;color:var(--ink)}
+.signature span{font-size:13.5px;color:var(--ink-soft)}
+.so-osa-eyebrow{font-size:11.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--haze-dark);
   font-weight:700;margin-bottom:26px;display:flex;align-items:center;gap:12px}
 .so-osa-eyebrow::before{content:'';width:30px;height:1.5px;background:var(--haze)}
 .osa-list{margin-top:0;position:relative}
 .osa-track,.osa-fill{position:absolute;left:78px;width:2px;border-radius:2px;top:0;height:0;z-index:0;pointer-events:none}
-.osa-track{background:var(--line-dark)}
-.osa-fill{background:var(--haze);box-shadow:0 0 12px rgba(247,148,48,.5);transition:height .12s linear}
+.osa-track{background:var(--line)}
+.osa-fill{background:var(--haze);box-shadow:0 0 12px rgba(247,148,48,.4);transition:height .12s linear}
 .osa-item{position:relative;z-index:1;display:grid;grid-template-columns:60px 1fr;gap:20px;align-items:start}
 .osa-year{font-family:'Manrope',sans-serif;font-weight:800;font-size:21px;letter-spacing:-.01em;
-  color:rgba(255,255,255,.3);text-align:right;padding-top:1px;transition:color .45s ease}
-.osa-item.active .osa-year{color:var(--haze-soft)}
+  color:rgba(20,22,26,.32);text-align:right;padding-top:1px;transition:color .45s ease}
+.osa-item.active .osa-year{color:var(--haze-dark)}
 .osa-body{position:relative;padding-left:30px;padding-bottom:34px}
 .osa-item:last-child .osa-body{padding-bottom:0}
 .osa-dot{position:absolute;left:-9px;top:4px;width:16px;height:16px;border-radius:50%;
-  background:var(--steel-700);border:3px solid var(--steel-900);box-shadow:0 0 0 1px var(--line-dark);
+  background:#fff;border:3px solid var(--paper-2);box-shadow:0 0 0 1px var(--line);
   transition:background .45s ease,box-shadow .45s ease,transform .45s ease}
-.osa-item.active .osa-dot{background:var(--haze);box-shadow:0 0 0 5px rgba(247,148,48,.18),0 0 0 1px var(--haze);transform:scale(1.18)}
-.osa-body h3{font-family:'Manrope',sans-serif;font-weight:700;font-size:18px;color:#fff;margin-bottom:6px;line-height:1.25}
-.osa-body p{font-size:14.5px;color:rgba(255,255,255,.68);line-height:1.6}
+.osa-item.active .osa-dot{background:var(--haze);box-shadow:0 0 0 5px rgba(247,148,48,.16),0 0 0 1px var(--haze);transform:scale(1.18)}
+.osa-body h3{font-family:'Manrope',sans-serif;font-weight:700;font-size:18px;color:var(--ink);margin-bottom:6px;line-height:1.25}
+.osa-body p{font-size:14.5px;color:var(--ink-soft);line-height:1.6}
 
-/* ---- 3. Service chain (light process) ---- */
-.chain{background:var(--paper)}
+/* ---- 3. Service chain (dark process) ---- */
+.chain{background:var(--steel-900)}
+.chain .sec-eyebrow{color:var(--haze-soft)}
+.chain .sec-eyebrow::before{background:var(--haze)}
+.chain .sec-head h2{color:#fff}
+.chain .sec-head h2 em{color:var(--haze-soft)}
+.chain .sec-head .lead{color:rgba(255,255,255,.72)}
 .chain-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:24px}
 .chain-step{padding-top:26px;border-top:2px solid var(--haze)}
 .chain-num{font-family:'Manrope',sans-serif;font-weight:700;font-size:13px;letter-spacing:.18em;
-  color:var(--haze-dark);margin-bottom:12px}
-.chain-step h3{font-family:'Manrope',sans-serif;font-weight:700;font-size:17.5px;color:var(--ink);margin-bottom:10px;line-height:1.25}
-.chain-step p{font-size:14px;color:var(--ink-soft);line-height:1.55}
+  color:var(--haze-soft);margin-bottom:12px}
+.chain-step h3{font-family:'Manrope',sans-serif;font-weight:700;font-size:17.5px;color:#fff;margin-bottom:10px;line-height:1.25}
+.chain-step p{font-size:14px;color:rgba(255,255,255,.7);line-height:1.55}
 
 /* ---- 4. EU dotace (light) ---- */
 .eu{background:var(--paper-2)}
 .eu-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:8px}
 .eu-card{background:var(--paper);border:1px solid var(--line);border-top:3px solid var(--haze);
   border-radius:4px;padding:30px 30px;display:flex;flex-direction:column;gap:13px}
-.eu-badge{display:inline-flex;align-items:center;gap:10px;align-self:flex-start;padding:8px 13px;
-  background:#003399;color:#fff;border-radius:3px;font-family:'Manrope',sans-serif;font-weight:700;
-  font-size:11.5px;letter-spacing:.04em;line-height:1.3}
-.eu-badge .stars{color:#FFCC00;font-size:12px;letter-spacing:0;flex:none}
-.eu-badge small{display:block;font-weight:500;color:rgba(255,255,255,.85);font-size:10.5px;letter-spacing:.02em;margin-top:1px}
+.eu-logos{display:flex;align-items:center;gap:20px;flex-wrap:wrap;padding-bottom:16px;border-bottom:1px solid var(--line);margin-bottom:2px}
+.eu-lockup,.mpo-lockup{display:flex;align-items:center;gap:11px}
+.eu-lockup img{height:40px;width:60px;flex:none;display:block;border-radius:1px}
+.mpo-lockup img{height:40px;width:40px;flex:none;display:block}
+.eu-cap{font-size:10.5px;line-height:1.32;color:var(--ink-soft);font-weight:600;max-width:190px}
+.eu-cap strong{display:block;color:var(--ink);font-weight:700;font-size:11.5px;letter-spacing:.01em;margin-bottom:1px}
+.mpo-cap{font-size:10px;line-height:1.28;color:var(--ink);font-weight:700;letter-spacing:.03em;text-transform:uppercase;max-width:118px}
 .eu-card h3{font-family:'Manrope',sans-serif;font-weight:700;font-size:18px;color:var(--ink);line-height:1.25}
 .eu-card p{font-size:14.5px;color:var(--ink-soft);line-height:1.62}
 .eu-foot{margin-top:30px}
@@ -336,22 +343,33 @@
     </div>
     <div class="eu-grid reveal">
       <div class="eu-card">
-        <span class="eu-badge"><span class="stars">★★★★★</span><span>Financováno EU<small>NextGenerationEU</small></span></span>
+        <div class="eu-logos">
+          <span class="eu-lockup"><img src="../assets/eu/eu-flag.svg" alt="Evropská unie" width="60" height="40"><span class="eu-cap"><strong>Financováno Evropskou unií</strong>NextGenerationEU</span></span>
+        </div>
         <h3>Fotovoltaická elektrárna 98,4 kWp</h3>
         <p>Vlastní střešní elektrárna bez akumulace ve výrobním areálu v Křični. Snižuje emise i provozní náklady - část energie pro výrobu i areál vyrábíme sami.</p>
       </div>
       <div class="eu-card">
-        <span class="eu-badge"><span class="stars">★★★★★</span><span>Evropská unie<small>Evropský fond pro regionální rozvoj</small></span></span>
+        <div class="eu-logos">
+          <span class="eu-lockup"><img src="../assets/eu/eu-flag.svg" alt="Evropská unie" width="60" height="40"><span class="eu-cap"><strong>Evropská unie</strong>Evropský fond pro regionální rozvoj</span></span>
+          <span class="mpo-lockup"><img src="../assets/eu/mpo-mark.svg" alt="Ministerstvo průmyslu a obchodu" width="40" height="40"><span class="mpo-cap">Ministerstvo průmyslu a obchodu</span></span>
+        </div>
         <h3>Digitalizace a automatizace výroby</h3>
         <p>Propojení výrobních technologií a sběr dat pro přesnější plánování i kvalitu. Spolufinancováno z OP PIK - EU a státní rozpočet ČR (MPO).</p>
       </div>
       <div class="eu-card">
-        <span class="eu-badge"><span class="stars">★★★★★</span><span>Evropská unie<small>Evropský fond pro regionální rozvoj</small></span></span>
+        <div class="eu-logos">
+          <span class="eu-lockup"><img src="../assets/eu/eu-flag.svg" alt="Evropská unie" width="60" height="40"><span class="eu-cap"><strong>Evropská unie</strong>Evropský fond pro regionální rozvoj</span></span>
+          <span class="mpo-lockup"><img src="../assets/eu/mpo-mark.svg" alt="Ministerstvo průmyslu a obchodu" width="40" height="40"><span class="mpo-cap">Ministerstvo průmyslu a obchodu</span></span>
+        </div>
         <h3>Výstavba výrobního areálu</h3>
         <p>Sjednocení výroby, skladů a administrativy na jednom místě v Křični. Spolufinancováno z OP PIK - EU a státní rozpočet ČR (MPO).</p>
       </div>
       <div class="eu-card">
-        <span class="eu-badge"><span class="stars">★★★★★</span><span>Evropská unie<small>Evropský fond pro regionální rozvoj</small></span></span>
+        <div class="eu-logos">
+          <span class="eu-lockup"><img src="../assets/eu/eu-flag.svg" alt="Evropská unie" width="60" height="40"><span class="eu-cap"><strong>Evropská unie</strong>Evropský fond pro regionální rozvoj</span></span>
+          <span class="mpo-lockup"><img src="../assets/eu/mpo-mark.svg" alt="Ministerstvo průmyslu a obchodu" width="40" height="40"><span class="mpo-cap">Ministerstvo průmyslu a obchodu</span></span>
+        </div>
         <h3>Podpora elektromobility</h3>
         <p>Dva elektromobily pro zaměření, montáže a servis - méně hluku a nižší ekologická zátěž. Spolufinancováno z OP PIK - EU a státní rozpočet ČR (MPO).</p>
       </div>
@@ -469,12 +487,20 @@
     update();
   }
   function update(){
+    var sec=list.closest('section');
+    var sr=sec.getBoundingClientRect();
+    var vh=window.innerHeight;
+    /* fill driven by section scroll: empty when section top near 80% vh,
+       full (2025 reached) right as the section is leaving the top */
+    var startTop=vh*0.80, endBottom=vh*0.22;
+    var denom=(startTop-(endBottom-sr.height))||1;
+    var p=(startTop-sr.top)/denom;
+    p=p<0?0:(p>1?1:p);
     var firstC=cy(dots[0]), lastC=cy(dots[dots.length-1]);
-    var trig=window.innerHeight*0.52;
-    var cur=Math.max(firstC,Math.min(trig,lastC));
-    fill.style.height=(cur-firstC)+'px';
+    var front=firstC+p*(lastC-firstC);
+    fill.style.height=(p*(lastC-firstC))+'px';
     for(var i=0;i<dots.length;i++){
-      if(cy(dots[i])-2<=cur){items[i].classList.add('active');}
+      if(cy(dots[i])<=front+1){items[i].classList.add('active');}
       else{items[i].classList.remove('active');}
     }
   }
