@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Naše projekty | HAZE - realizace větrání, vrat a stájové techniky</title>
-<meta name="description" content="Vybrané realizace HAZE - boční ventilace BVS, rolovací vrata a doplňky pro stáje, jízdárny i průmysl. Přes 10 000 realizací po celé ČR, SK i Maďarsku.">
+<meta name="description" content="Vybrané realizace HAZE - boční i střešní ventilace, vrata, meteostanice a dělicí stěny pro stáje, jízdárny i průmysl. Přes 10 000 realizací po celé ČR, SK i Maďarsku.">
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="https://www.haze.cz/nase-projekty/">
 <meta property="og:title" content="Naše projekty | HAZE">
-<meta property="og:description" content="Vybrané realizace HAZE - boční ventilace BVS, rolovací vrata a doplňky. Přes 10 000 realizací v CZ, SK a HU.">
+<meta property="og:description" content="Vybrané realizace HAZE - boční i střešní ventilace, vrata, meteostanice a dělicí stěny. Přes 10 000 realizací v CZ, SK a HU.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="cs_CZ">
 <meta property="og:url" content="https://www.haze.cz/nase-projekty/">
@@ -56,28 +56,24 @@
 .pstat{display:flex;flex-direction:column;gap:5px}
 .pnum{font-family:'Manrope',sans-serif;font-weight:800;font-size:34px;line-height:1;color:var(--haze-dark);letter-spacing:-.02em}
 .plbl{font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);font-weight:600}
-.proj-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:10px}
-.proj{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden}
-.proj>summary{list-style:none;cursor:pointer;display:block}
-.proj>summary::-webkit-details-marker{display:none}
-.proj-media{position:relative;aspect-ratio:16/10;overflow:hidden;background:var(--paper-2)}
-.proj-media img{width:100%;height:100%;object-fit:cover;transition:transform .45s ease}
-.proj:hover .proj-media img,.proj[open] .proj-media img{transform:scale(1.04)}
-.proj-tag{position:absolute;top:13px;left:13px;background:var(--haze);color:#fff;font-family:'Manrope',sans-serif;font-weight:700;font-size:11px;letter-spacing:.04em;text-transform:uppercase;padding:6px 11px;border-radius:5px}
-.proj-bar{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:18px 20px}
-.proj-name{display:block;font-family:'Manrope',sans-serif;font-weight:800;font-size:17px;color:var(--ink)}
-.proj-loc{display:block;font-size:13px;color:var(--ink-soft);margin-top:3px}
-.proj-more{font-family:'Manrope',sans-serif;font-weight:700;font-size:13px;color:var(--haze-dark);white-space:nowrap;display:inline-flex;align-items:center;gap:7px}
-.proj-more::after{content:'+';font-size:19px;line-height:1;transition:transform .2s ease}
-.proj[open] .proj-more::after{transform:rotate(45deg)}
-.proj-body{padding:0 20px 22px;border-top:1px solid var(--paper-3)}
-.proj-body p{font-size:15px;line-height:1.66;color:var(--ink-soft);padding-top:15px;max-width:62ch}
+.realz{margin-top:10px;border-top:1px solid var(--line)}
+.realz-item{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;padding:48px 0;border-bottom:1px solid var(--line)}
+.realz-item:nth-child(even) .realz-media{order:2}
+.realz-media{position:relative;border-radius:14px;overflow:hidden;aspect-ratio:16/10;background:var(--paper-2)}
+.realz-media img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.realz-item:hover .realz-media img{transform:scale(1.03)}
+.realz-tag{position:absolute;top:14px;left:14px;background:var(--haze);color:#fff;font-family:'Manrope',sans-serif;font-weight:700;font-size:11px;letter-spacing:.04em;text-transform:uppercase;padding:7px 12px;border-radius:5px}
+.realz-kicker{font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);font-weight:600;margin-bottom:9px}
+.realz-name{font-family:'Manrope',sans-serif;font-weight:800;font-size:25px;color:var(--ink);line-height:1.1}
+.realz-loc{font-size:14px;color:var(--ink-soft);margin-top:5px}
+.realz-desc{font-size:15.5px;line-height:1.66;color:var(--ink-soft);margin-top:16px;max-width:56ch}
 .proj-extra{background:var(--paper-2)}
 .proj-list{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
 .proj-list span{background:#fff;border:1px solid var(--line);border-radius:30px;padding:9px 16px;font-size:14px;color:var(--ink);font-weight:600}
 .proj-list span b{color:var(--ink-soft);font-weight:400}
 .proj-note{margin-top:24px;font-size:15px;color:var(--ink-soft);max-width:60ch}
-@media(max-width:760px){.proj-grid{grid-template-columns:1fr}.proj-intro{padding-top:96px}.pnum{font-size:28px}}
+@media(max-width:860px){.realz-item{grid-template-columns:1fr;gap:22px;padding:34px 0}.realz-item:nth-child(even) .realz-media{order:0}.realz-name{font-size:22px}}
+@media(max-width:760px){.proj-intro{padding-top:96px}.pnum{font-size:28px}.proj-stats{gap:24px 36px}}
 </style>
 </head>
 <body>
@@ -140,88 +136,108 @@
 <!-- TOP 10 -->
 <section style="padding-top:0">
   <div class="wrap">
-    <div class="sec-head reveal"><div class="sec-eyebrow">Vybrané projekty</div><h2>Deset realizací, <em>každá jiná.</em></h2><p class="lead">Rozklikněte projekt a podívejte se, co jsme tam řešili.</p></div>
-    <div class="proj-grid reveal">
+    <div class="sec-head reveal"><div class="sec-eyebrow">Vybrané projekty</div><h2>Deset realizací, <em>každá jiná.</em></h2><p class="lead">U každé realizace vidíte, jaké systémy jsme tam postavili - od bočního i střešního větrání přes vrata a meteostanice až po dělicí stěny.</p></div>
+    <div class="realz">
 
-      <details class="proj">
-        <summary>
-          <div class="proj-media"><img src="../assets/projekty/bohdalov.jpg" alt="Farma Bohdalov - realizace HAZE" loading="lazy"><span class="proj-tag">BVS D+</span></div>
-          <div class="proj-bar"><div><span class="proj-name">Farma Bohdalov</span><span class="proj-loc">Bohdalov, Vysočina</span></div><span class="proj-more">Co se dělalo</span></div>
-        </summary>
-        <div class="proj-body"><p>Šest bočních stěn BVS D+, zákryty boxů a rolovací i posuvná vrata. Jedna z našich vlajkových realizací kompletního větrání stáje.</p></div>
-      </details>
+      <div class="realz-item reveal">
+        <div class="realz-media"><img src="../assets/projekty/bohdalov.jpg" alt="Farma Bohdalov - realizace HAZE" loading="lazy"><span class="realz-tag">Ventilace + vrata</span></div>
+        <div>
+          <div class="realz-kicker">Vlajková realizace</div>
+          <h3 class="realz-name">Farma Bohdalov</h3>
+          <div class="realz-loc">Bohdalov, Vysočina</div>
+          <p class="realz-desc">Šest bočních ventilačních stěn (provedení D+), zákryty boxů a rolovací i posuvná vrata. Jedna z našich vlajkových realizací kompletního větrání stáje.</p>
+        </div>
+      </div>
 
-      <details class="proj">
-        <summary>
-          <div class="proj-media"><img src="../assets/projekty/ovcary.jpg" alt="John Deere Ovčáry - realizace HAZE" loading="lazy"><span class="proj-tag">BVS E</span></div>
-          <div class="proj-bar"><div><span class="proj-name">John Deere Ovčáry</span><span class="proj-loc">Ovčáry u Kolína</span></div><span class="proj-more">Co se dělalo</span></div>
-        </summary>
-        <div class="proj-body"><p>Boční systém BVS E do výšky 3,5 m se dvěma svislými posuvnými podporami. Barevné provedení sladěné s halou.</p></div>
-      </details>
+      <div class="realz-item reveal">
+        <div class="realz-media"><img src="../assets/projekty/ovcary.jpg" alt="John Deere Ovčáry - realizace HAZE" loading="lazy"><span class="realz-tag">Boční ventilace</span></div>
+        <div>
+          <div class="realz-kicker">Velký zemědělský provoz</div>
+          <h3 class="realz-name">John Deere Ovčáry</h3>
+          <div class="realz-loc">Ovčáry u Kolína</div>
+          <p class="realz-desc">Boční ventilační systém (provedení E) do výšky 3,5 m se dvěma svislými posuvnými podporami. Barevné provedení sladěné s halou.</p>
+        </div>
+      </div>
 
-      <details class="proj">
-        <summary>
-          <div class="proj-media"><img src="../assets/projekty/okrouhla-radoun.jpg" alt="Farma Okrouhlá Radouň - realizace HAZE" loading="lazy"><span class="proj-tag">BVS B</span></div>
-          <div class="proj-bar"><div><span class="proj-name">Farma Okrouhlá Radouň</span><span class="proj-loc">Okrouhlá Radouň, Jihočeský kraj</span></div><span class="proj-more">Co se dělalo</span></div>
-        </summary>
-        <div class="proj-body"><p>Boční stěny BVS B, moderní meteostanice, hřebenová štěrbina a rolovací vrata - moderní automaticky řízené větrání.</p></div>
-      </details>
+      <div class="realz-item reveal">
+        <div class="realz-media"><img src="../assets/projekty/okrouhla-radoun.jpg" alt="Farma Okrouhlá Radouň - realizace HAZE" loading="lazy"><span class="realz-tag">Ventilace + vrata + meteostanice</span></div>
+        <div>
+          <div class="realz-kicker">Automaticky řízené větrání</div>
+          <h3 class="realz-name">Farma Okrouhlá Radouň</h3>
+          <div class="realz-loc">Okrouhlá Radouň, Jihočeský kraj</div>
+          <p class="realz-desc">Boční ventilační stěny (provedení B), moderní meteostanice, hřebenová štěrbina a rolovací vrata - kompletní automaticky řízené větrání.</p>
+        </div>
+      </div>
 
-      <details class="proj">
-        <summary>
-          <div class="proj-media"><img src="../assets/projekty/hans-prefa.jpg" alt="H.A.N.S. Prefa Lysá nad Labem - realizace HAZE" loading="lazy"><span class="proj-tag">BVS E · průmysl</span></div>
-          <div class="proj-bar"><div><span class="proj-name">H.A.N.S. Prefa</span><span class="proj-loc">Lysá nad Labem</span></div><span class="proj-more">Co se dělalo</span></div>
-        </summary>
-        <div class="proj-body"><p>Průmyslová instalace BVS E do výšky 5 m se zesílenou plachtou 690 g/m². Ukázka nasazení mimo zemědělství - ventilace výrobní haly na prefabrikovaný beton.</p></div>
-      </details>
+      <div class="realz-item reveal">
+        <div class="realz-media"><img src="../assets/projekty/hans-prefa.jpg" alt="H.A.N.S. Prefa Lysá nad Labem - realizace HAZE" loading="lazy"><span class="realz-tag">Průmysl · ventilace</span></div>
+        <div>
+          <div class="realz-kicker">Nasazení mimo zemědělství</div>
+          <h3 class="realz-name">H.A.N.S. Prefa</h3>
+          <div class="realz-loc">Lysá nad Labem</div>
+          <p class="realz-desc">Průmyslová instalace bočního ventilačního systému (provedení E) do výšky 5 m se zesílenou plachtou 690 g/m². Ventilace výrobní haly na prefabrikovaný beton.</p>
+        </div>
+      </div>
 
-      <details class="proj">
-        <summary>
-          <div class="proj-media"><img src="../assets/projekty/krpalek.jpg" alt="Krpálek Academy Praha - realizace HAZE" loading="lazy"><span class="proj-tag">Dělicí stěna</span></div>
-          <div class="proj-bar"><div><span class="proj-name">Krpálek Academy</span><span class="proj-loc">Praha</span></div><span class="proj-more">Co se dělalo</span></div>
-        </summary>
-        <div class="proj-body"><p>Motoricky ovládaná dělicí stěna z PVC plachty o ploše 240 m² ve sportovní hale Lukáše Krpálka. Důkaz, že naše systémy fungují i mimo stáje.</p></div>
-      </details>
+      <div class="realz-item reveal">
+        <div class="realz-media"><img src="../assets/projekty/krpalek.jpg" alt="Krpálek Academy Praha - realizace HAZE" loading="lazy"><span class="realz-tag">Dělicí stěna</span></div>
+        <div>
+          <div class="realz-kicker">Sportovní hala</div>
+          <h3 class="realz-name">Krpálek Academy</h3>
+          <div class="realz-loc">Praha</div>
+          <p class="realz-desc">Motoricky ovládaná dělicí stěna z PVC plachty o ploše 240 m² ve sportovní hale Lukáše Krpálka. Důkaz, že naše systémy fungují i mimo stáje.</p>
+        </div>
+      </div>
 
-      <details class="proj">
-        <summary>
-          <div class="proj-media"><img src="../assets/projekty/vadin.jpg" alt="Farma Vadín - realizace HAZE" loading="lazy"><span class="proj-tag">BVS D</span></div>
-          <div class="proj-bar"><div><span class="proj-name">Farma Vadín</span><span class="proj-loc">Vadín, Vysočina</span></div><span class="proj-more">Co se dělalo</span></div>
-        </summary>
-        <div class="proj-body"><p>Šest bočních stěn BVS D a meteostanice AG05 v provozu pro 600 kusů dojnic. Kompletní automaticky řízené větrání velké stáje.</p></div>
-      </details>
+      <div class="realz-item reveal">
+        <div class="realz-media"><img src="../assets/projekty/vadin.jpg" alt="Farma Vadín - realizace HAZE" loading="lazy"><span class="realz-tag">Ventilace + meteostanice</span></div>
+        <div>
+          <div class="realz-kicker">600 kusů dojnic</div>
+          <h3 class="realz-name">Farma Vadín</h3>
+          <div class="realz-loc">Vadín, Vysočina</div>
+          <p class="realz-desc">Šest bočních ventilačních stěn (provedení D) a meteostanice AG05 v provozu pro 600 kusů dojnic. Kompletní automaticky řízené větrání velké stáje.</p>
+        </div>
+      </div>
 
-      <details class="proj">
-        <summary>
-          <div class="proj-media"><img src="../assets/projekty/mladonovice.jpg" alt="Farma Mladoňovice - realizace HAZE" loading="lazy"><span class="proj-tag">BVS C</span></div>
-          <div class="proj-bar"><div><span class="proj-name">Farma Mladoňovice</span><span class="proj-loc">Mladoňovice, Pardubický kraj</span></div><span class="proj-more">Co se dělalo</span></div>
-        </summary>
-        <div class="proj-body"><p>Boční systém BVS C s prémiovou plachtou Sattler (o 30 % pevnější), hřebenovou štěrbinou a zastřešenými vraty.</p></div>
-      </details>
+      <div class="realz-item reveal">
+        <div class="realz-media"><img src="../assets/projekty/mladonovice.jpg" alt="Farma Mladoňovice - realizace HAZE" loading="lazy"><span class="realz-tag">Ventilace + střešní + vrata</span></div>
+        <div>
+          <div class="realz-kicker">Prémiová plachta Sattler</div>
+          <h3 class="realz-name">Farma Mladoňovice</h3>
+          <div class="realz-loc">Mladoňovice, Pardubický kraj</div>
+          <p class="realz-desc">Boční ventilační systém (provedení C) s prémiovou plachtou Sattler (o 30 % pevnější), hřebenovou štěrbinou a zastřešenými vraty.</p>
+        </div>
+      </div>
 
-      <details class="proj">
-        <summary>
-          <div class="proj-media"><img src="../assets/projekty/zelatovice.jpg" alt="AGRAS Želatovice - realizace HAZE" loading="lazy"><span class="proj-tag">BVS D+</span></div>
-          <div class="proj-bar"><div><span class="proj-name">AGRAS Želatovice</span><span class="proj-loc">Želatovice, Olomoucký kraj</span></div><span class="proj-more">Co se dělalo</span></div>
-        </summary>
-        <div class="proj-body"><p>Boční stěny BVS D+, dvoukřídlá polykarbonátová hřebenová štěrbina a meteostanice AG pro automatické řízení mikroklimatu.</p></div>
-      </details>
+      <div class="realz-item reveal">
+        <div class="realz-media"><img src="../assets/projekty/zelatovice.jpg" alt="AGRAS Želatovice - realizace HAZE" loading="lazy"><span class="realz-tag">Ventilace + střešní + meteostanice</span></div>
+        <div>
+          <div class="realz-kicker">Automatické řízení mikroklimatu</div>
+          <h3 class="realz-name">AGRAS Želatovice</h3>
+          <div class="realz-loc">Želatovice, Olomoucký kraj</div>
+          <p class="realz-desc">Boční ventilační stěny (provedení D+), dvoukřídlá polykarbonátová hřebenová štěrbina a meteostanice pro automatické řízení mikroklimatu.</p>
+        </div>
+      </div>
 
-      <details class="proj">
-        <summary>
-          <div class="proj-media"><img src="../assets/projekty/novy-teleckov.jpg" alt="Farma Nový Telečkov - realizace HAZE" loading="lazy"><span class="proj-tag">BVS B</span></div>
-          <div class="proj-bar"><div><span class="proj-name">Farma Nový Telečkov</span><span class="proj-loc">Nový Telečkov, Vysočina</span></div><span class="proj-more">Co se dělalo</span></div>
-        </summary>
-        <div class="proj-body"><p>Boční stěny BVS B s meteostanicí AG06, hřebenovou štěrbinou a elektrickými rolovacími vraty.</p></div>
-      </details>
+      <div class="realz-item reveal">
+        <div class="realz-media"><img src="../assets/projekty/novy-teleckov.jpg" alt="Farma Nový Telečkov - realizace HAZE" loading="lazy"><span class="realz-tag">Ventilace + vrata + meteostanice</span></div>
+        <div>
+          <div class="realz-kicker">Elektrická rolovací vrata</div>
+          <h3 class="realz-name">Farma Nový Telečkov</h3>
+          <div class="realz-loc">Nový Telečkov, Vysočina</div>
+          <p class="realz-desc">Boční ventilační stěny (provedení B) s meteostanicí AG06, hřebenovou štěrbinou a elektrickými rolovacími vraty.</p>
+        </div>
+      </div>
 
-      <details class="proj">
-        <summary>
-          <div class="proj-media"><img src="../assets/projekty/holesov.jpg" alt="Jízdárna Holešov-Dobrotice - realizace HAZE" loading="lazy"><span class="proj-tag">BVS F</span></div>
-          <div class="proj-bar"><div><span class="proj-name">Jízdárna Holešov-Dobrotice</span><span class="proj-loc">Holešov-Dobrotice, Zlínský kraj</span></div><span class="proj-more">Co se dělalo</span></div>
-        </summary>
-        <div class="proj-body"><p>Polykarbonátová boční stěna BVS F v jednom panelu o délce 65 m. Prosvětlená a tepelně stabilní stěna pro jízdárnu.</p></div>
-      </details>
+      <div class="realz-item reveal">
+        <div class="realz-media"><img src="../assets/projekty/holesov.jpg" alt="Jízdárna Holešov-Dobrotice - realizace HAZE" loading="lazy"><span class="realz-tag">Jízdárna · ventilace</span></div>
+        <div>
+          <div class="realz-kicker">Prosvětlená stěna 65 m</div>
+          <h3 class="realz-name">Jízdárna Holešov-Dobrotice</h3>
+          <div class="realz-loc">Holešov-Dobrotice, Zlínský kraj</div>
+          <p class="realz-desc">Polykarbonátová boční ventilační stěna (provedení F) v jednom panelu o délce 65 m. Prosvětlená a tepelně stabilní stěna pro jízdárnu.</p>
+        </div>
+      </div>
 
     </div>
   </div>
