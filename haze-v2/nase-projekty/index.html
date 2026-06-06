@@ -67,11 +67,7 @@
 .realz-name{font-family:'Manrope',sans-serif;font-weight:800;font-size:25px;color:var(--ink);line-height:1.1}
 .realz-loc{font-size:14px;color:var(--ink-soft);margin-top:5px}
 .realz-desc{font-size:15.5px;line-height:1.66;color:var(--ink-soft);margin-top:16px;max-width:56ch}
-.proj-extra{background:var(--paper-2)}
-.proj-list{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
-.proj-list span{background:#fff;border:1px solid var(--line);border-radius:30px;padding:9px 16px;font-size:14px;color:var(--ink);font-weight:600}
-.proj-list span b{color:var(--ink-soft);font-weight:400}
-.proj-note{margin-top:24px;font-size:15px;color:var(--ink-soft);max-width:60ch}
+.proj-index-sec{background:var(--paper-2)}
 @media(max-width:860px){.realz-item{grid-template-columns:1fr;gap:22px;padding:34px 0}.realz-item:nth-child(even) .realz-media{order:0}.realz-name{font-size:22px}}
 @media(max-width:760px){.proj-intro{padding-top:96px}.pnum{font-size:28px}.proj-stats{gap:24px 36px}}
 </style>
@@ -243,25 +239,115 @@
   </div>
 </section>
 
-<!-- DALSI REALIZACE -->
-<section class="proj-extra">
+<!-- PREHLED REALIZACI PODLE KRAJE (tabulka kraju a mest - vraceno Adam 2026-06-07) -->
+<section class="proj-index-sec">
   <div class="wrap">
-    <div class="sec-head reveal"><div class="sec-eyebrow">A desítky dalších</div><h2>Kde všude <em>jsme byli.</em></h2></div>
-    <div class="proj-list reveal">
-      <span>Nížkov <b>· Vysočina</b></span>
-      <span>Pikárec <b>· Vysočina</b></span>
-      <span>Vlčkovice <b>· SK</b></span>
-      <span>Olbramice <b>· Moravskoslezský</b></span>
-      <span>Rybná nad Zdobnicí <b>· Královéhradecký</b></span>
-      <span>Svinišťany <b>· Královéhradecký</b></span>
-      <span>Uhřice <b>· Vysočina</b></span>
-      <span>Podmyče <b>· Jihomoravský</b></span>
-      <span>Hněvkovice <b>· Vysočina</b></span>
-      <span>Jilem <b>· Vysočina</b></span>
-      <span>Litovel <b>· Olomoucký</b></span>
-      <span>Královice <b>· Středočeský</b></span>
+    <div class="sec-head reveal">
+      <div class="sec-eyebrow">Přehled realizací</div>
+      <h2>Kde všude <em>jsme byli.</em></h2>
+      <p class="lead">Výřez z 10 000+ provozů v CZ a SK, řazeno podle kraje. Konkrétní kontakt na referenci dodáme na vyžádání před podpisem.</p>
     </div>
-    <p class="proj-note">A stovky dalších realizací po celé České republice, na Slovensku i v Maďarsku - od jedněch vrat až po kompletní řízené větrání stáje.</p>
+    <div class="proj-index">
+      <div class="proj-region reveal">
+        <div class="proj-region-head"><h3>Vysočina</h3><span class="proj-cnt">13 realizací</span></div>
+        <ul class="proj-list">
+        <li class="proj-it">Farma Bohdalov</li>
+        <li class="proj-it">Farma Bohdalov (II. etapa)</li>
+        <li class="proj-it">Farma Nížkov</li>
+        <li class="proj-it">Farma Pikárec</li>
+        <li class="proj-it">Farma Uhřice</li>
+        <li class="proj-it">Farma Nový Telečkov</li>
+        <li class="proj-it">Farma Vadín</li>
+        <li class="proj-it">Farma Hněvkovice</li>
+        <li class="proj-it">Farma Jilem</li>
+        <li class="proj-it">Kojčice</li>
+        <li class="proj-it">Kožichovice</li>
+        <li class="proj-it">Onšov-Pacov</li>
+        <li class="proj-it">Radostín nad Oslavou</li>
+        </ul>
+      </div>
+      <div class="proj-region reveal">
+        <div class="proj-region-head"><h3>Středočeský</h3><span class="proj-cnt">5 realizací</span></div>
+        <ul class="proj-list">
+        <li class="proj-it">John Deere Ovčáry</li>
+        <li class="proj-it">H.A.N.S. Prefa Lysá nad Labem</li>
+        <li class="proj-it">Stáj Olbramovice</li>
+        <li class="proj-it">Dřevčice (plachtová vrata)</li>
+        <li class="proj-it">Teletín</li>
+        </ul>
+      </div>
+      <div class="proj-region reveal">
+        <div class="proj-region-head"><h3>Královéhradecký</h3><span class="proj-cnt">4 realizací</span></div>
+        <ul class="proj-list">
+        <li class="proj-it">Farma Vlčkovice</li>
+        <li class="proj-it">Farma Rybná nad Zdobnicí</li>
+        <li class="proj-it">Farma Svinišťany</li>
+        <li class="proj-it">Stihnov (Skřivany u N. Bydžova)</li>
+        </ul>
+      </div>
+      <div class="proj-region reveal">
+        <div class="proj-region-head"><h3>Olomoucký</h3><span class="proj-cnt">4 realizací</span></div>
+        <ul class="proj-list">
+        <li class="proj-it">AGRAS Želatovice</li>
+        <li class="proj-it">Farma Litovel</li>
+        <li class="proj-it">Stáj Příkazy</li>
+        <li class="proj-it">Buková (Prostějovsko)</li>
+        </ul>
+      </div>
+      <div class="proj-region reveal">
+        <div class="proj-region-head"><h3>Jihočeský</h3><span class="proj-cnt">3 realizací</span></div>
+        <ul class="proj-list">
+        <li class="proj-it">Okrouhlá Radouň</li>
+        <li class="proj-it">Želeč u Tábora</li>
+        <li class="proj-it">Ratiboř (Chyšky-Milevsko)</li>
+        </ul>
+      </div>
+      <div class="proj-region reveal">
+        <div class="proj-region-head"><h3>Plzeňský</h3><span class="proj-cnt">2 realizací</span></div>
+        <ul class="proj-list">
+        <li class="proj-it">Královice (jezdecké centrum)</li>
+        <li class="proj-it">Zemětice-Merklín u Přeštic</li>
+        </ul>
+      </div>
+      <div class="proj-region reveal">
+        <div class="proj-region-head"><h3>Pardubický</h3><span class="proj-cnt">2 realizací</span></div>
+        <ul class="proj-list">
+        <li class="proj-it">Farma Mladoňovice</li>
+        <li class="proj-it">Dolany (Pardubicko)</li>
+        </ul>
+      </div>
+      <div class="proj-region reveal">
+        <div class="proj-region-head"><h3>Moravskoslezský</h3><span class="proj-cnt">1 realizací</span></div>
+        <ul class="proj-list">
+        <li class="proj-it">Farma Olbramice</li>
+        </ul>
+      </div>
+      <div class="proj-region reveal">
+        <div class="proj-region-head"><h3>Zlínský</h3><span class="proj-cnt">1 realizací</span></div>
+        <ul class="proj-list">
+        <li class="proj-it">Jízdárna Holešov-Dobrotice</li>
+        </ul>
+      </div>
+      <div class="proj-region reveal">
+        <div class="proj-region-head"><h3>Jihomoravský</h3><span class="proj-cnt">1 realizací</span></div>
+        <ul class="proj-list">
+        <li class="proj-it">Farma Podmyče</li>
+        </ul>
+      </div>
+      <div class="proj-region reveal">
+        <div class="proj-region-head"><h3>Praha</h3><span class="proj-cnt">1 realizací</span></div>
+        <ul class="proj-list">
+        <li class="proj-it">Krpálek Academy (Hloubětín)</li>
+        </ul>
+      </div>
+      <div class="proj-region reveal">
+        <div class="proj-region-head"><h3>Slovensko</h3><span class="proj-cc">SK</span><span class="proj-cnt">2 realizací</span></div>
+        <ul class="proj-list">
+        <li class="proj-it">Baka (SR) <span class="proj-sub">· Trnavský</span></li>
+        <li class="proj-it">Tvrdošín (SR) <span class="proj-sub">· Žilinský</span></li>
+        </ul>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -272,7 +358,6 @@
     <div class="sec-head reveal">
       <div class="sec-eyebrow">Nezávazná poptávka</div>
       <h2>Napište nám <em>pár vět o vaší stáji.</em></h2>
-      <p class="lead">Konzultace zdarma, nabídka do 48 hodin. Stačí pár vět nebo zavolejte přímo - rychlejší cestou bývá telefon.</p>
     </div>
     <div class="contact-grid">
       <form class="contact-form reveal" id="leadForm" action="mailto:dominik.hanousek@haze.cz" method="post" enctype="text/plain">
@@ -301,7 +386,6 @@
           <input type="checkbox" required>
           <span>Souhlasím se zpracováním osobních údajů pro účely poptávky. Údaje neposkytujeme třetím stranám.</span>
         </label>
-        <p class="form-note">Odeslání otevře váš e-mailový program. Pro rychlejší řešení volejte přímo na <a href="tel:+420602488989" style="color:var(--haze-dark);font-weight:700">+420 602 488 989</a>.</p>
         <button type="submit" class="btn-submit">Zavolejte mi zpět</button>
       </form>
 

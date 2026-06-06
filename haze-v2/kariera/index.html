@@ -51,25 +51,18 @@
 <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon-180.png">
 <meta name="theme-color" content="#F79430">
 <style>
-/* Kariéra - job card accordion (scoped to this page) */
+/* Kariéra - jednoduché rozklikávací boxy pozic (scoped) */
 .kar-intro{max-width:680px;margin:-16px 0 38px;font-size:17px;color:var(--ink-soft);line-height:1.65}
-.jobs{max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:16px}
-.job{background:#fff;border:1px solid var(--line);border-radius:8px;overflow:hidden;transition:border-color .2s ease,box-shadow .25s ease}
-.job[open]{border-color:var(--haze);box-shadow:0 12px 32px rgba(0,0,0,.07)}
-.job > summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:18px;padding:24px 28px}
-.job > summary::-webkit-details-marker{display:none}
-.job-head{display:flex;flex-direction:column;gap:6px}
-.job-cat{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--haze-dark);font-weight:700}
-.job-title{font-family:'Manrope',sans-serif;font-weight:700;font-size:19px;color:var(--ink);line-height:1.2}
-.job-loc{margin-left:auto;font-size:13px;color:var(--ink-soft);font-weight:600;white-space:nowrap}
-.job > summary::after{content:'+';font-family:'Manrope',sans-serif;font-weight:400;font-size:28px;line-height:1;color:var(--haze-dark);flex:none;transition:transform .2s ease}
-.job[open] > summary::after{transform:rotate(45deg)}
-.job > summary:hover .job-title{color:var(--haze-dark)}
-.job-body{padding:0 28px 28px}
-.job-body p{font-size:15.5px;line-height:1.7;color:var(--ink-soft);max-width:74ch;margin:0 0 18px}
-.job-apply{display:inline-block;background:var(--haze);color:#fff;font-family:'Manrope',sans-serif;font-weight:700;font-size:14px;padding:12px 22px;border-radius:4px;transition:background .2s ease,transform .2s ease}
-.job-apply:hover{background:var(--haze-dark);transform:translateY(-1px)}
-@media(max-width:600px){.job > summary{padding:20px;gap:12px}.job-loc{display:none}.job-title{font-size:16.5px}.job-body{padding:0 20px 24px}}
+.kar-card{display:block;cursor:pointer}
+.kar-card .news-meta time{color:var(--ink-soft)}
+.kar-more{display:inline-flex;align-items:center;gap:8px;margin-top:16px;
+  font-family:'Manrope',sans-serif;font-weight:700;font-size:13.5px;letter-spacing:.02em;color:var(--haze-dark);transition:gap .2s,color .2s}
+.kar-card:hover .kar-more{gap:12px;color:var(--haze)}
+/* zmenšená závěrečná sekce (Adam 2026-06-07: nemá být tak obrovská) */
+.kar-final{padding:76px 0}
+.kar-final h2{font-size:clamp(1.55rem,3vw,2.1rem);margin-bottom:26px}
+.kar-final .final-contact{font-size:clamp(1.05rem,1.6vw,1.35rem)}
+@media(max-width:600px){.kar-final{padding:56px 0}}
 </style>
 </head>
 <body>
@@ -121,141 +114,52 @@
       <div class="sec-eyebrow">Kariéra · Otevřené pozice</div>
       <h2>Koho do týmu <em>hledáme.</em></h2>
     </div>
-    <p class="kar-intro reveal">Vyrábíme a montujeme ve vlastní hale v Křični. Hledáme řemeslníky a techniky, kteří chtějí vidět výsledek své práce. Rozklikněte pozici a ozvěte se nám.</p>
-    <div class="jobs reveal">
+    <p class="kar-intro reveal">Vyrábíme a montujeme ve vlastní hale v Křični. Hledáme řemeslníky a techniky, kteří chtějí vidět výsledek své práce. Rozklikněte pozici a podívejte se na detail.</p>
+    <div class="news-list">
 
-      <details class="job">
-        <summary>
-          <div class="job-head"><span class="job-cat">Výroba</span><span class="job-title">Zámečník se svářečskou praxí</span></div>
-          <span class="job-loc">Křičeň</span>
-        </summary>
-        <div class="job-body">
-          <p>Hledáme kolegu na pozici zámečník se svářečskou praxí pro sváření CO2 (MIG/MAG - ZK 135), montáže a zámečnické práce dle výkresové dokumentace. Práce ve vlastní hale, ne na cizí montáži - kvalitu každého svaru máme pod kontrolou.</p>
-          <a class="job-apply" href="mailto:radka.svojgrova@haze.cz?subject=Kariera%20HAZE%20-%20reakce%20na%20pozici">Mám zájem o pozici</a>
-        </div>
-      </details>
+      <a class="news-card kar-card reveal" href="zamecnik-svarec/">
+        <div class="news-meta"><span class="news-cat">Výroba</span><time>Křičeň</time></div>
+        <h2>Zámečník se svářečskou praxí</h2>
+        <p>Sváření CO2 (MIG/MAG), montáž a zámečnické práce podle výkresové dokumentace. Práce ve vlastní hale, ne na cizí montáži - kvalitu každého svaru máme pod kontrolou.</p>
+        <span class="kar-more">Více informací →</span>
+      </a>
 
-      <details class="job">
-        <summary>
-          <div class="job-head"><span class="job-cat">Servis</span><span class="job-title">Montážní / servisní technik</span></div>
-          <span class="job-loc">ČR · SK</span>
-        </summary>
-        <div class="job-body">
-          <p>Hledáme montážního/servisního technika, který se bude podílet na montáži a instalaci zařízení, jejich údržbě, diagnostice poruch a poskytování technické podpory zákazníkům. Řidičák skupiny B výhodou, zaučíme.</p>
-          <a class="job-apply" href="mailto:radka.svojgrova@haze.cz?subject=Kariera%20HAZE%20-%20reakce%20na%20pozici">Mám zájem o pozici</a>
-        </div>
-      </details>
+      <a class="news-card kar-card reveal" href="montazni-technik/">
+        <div class="news-meta"><span class="news-cat">Servis</span><time>ČR · SK</time></div>
+        <h2>Montážní / servisní technik</h2>
+        <p>Montáž a instalace našich zařízení u zákazníka, údržba, diagnostika poruch a technická podpora. Řidičák skupiny B výhodou, zaučíme.</p>
+        <span class="kar-more">Více informací →</span>
+      </a>
 
-      <details class="job">
-        <summary>
-          <div class="job-head"><span class="job-cat">Montáž</span><span class="job-title">Výškový pracovník</span></div>
-          <span class="job-loc">ČR · SK</span>
-        </summary>
-        <div class="job-body">
-          <p>Hledáme technika-montéra, který bude zodpovědný za montáž a instalaci našich zařízení pomocí horolezecké techniky, jejich pravidelnou údržbu a servis. Platné osvědčení nebo ochota si ho doplnit.</p>
-          <a class="job-apply" href="mailto:radka.svojgrova@haze.cz?subject=Kariera%20HAZE%20-%20reakce%20na%20pozici">Mám zájem o pozici</a>
-        </div>
-      </details>
+      <a class="news-card kar-card reveal" href="vyskovy-pracovnik/">
+        <div class="news-meta"><span class="news-cat">Montáž</span><time>ČR · SK</time></div>
+        <h2>Výškový pracovník</h2>
+        <p>Montáž a instalace zařízení pomocí horolezecké techniky, údržba a servis ve výškách. Platné osvědčení nebo ochota si ho doplnit.</p>
+        <span class="kar-more">Více informací →</span>
+      </a>
 
-      <details class="job">
-        <summary>
-          <div class="job-head"><span class="job-cat">Elektro</span><span class="job-title">Revizní technik - elektrikář</span></div>
-          <span class="job-loc">ČR</span>
-        </summary>
-        <div class="job-body">
-          <p>Hledáme revizního technika-elektrikáře, který bude zodpovědný za provádění pravidelných revizí dle platných norem a předpisů, vystavování revizních zpráv a doporučování potřebných oprav či údržby zařízení. Vyhláška 50 podmínkou.</p>
-          <a class="job-apply" href="mailto:radka.svojgrova@haze.cz?subject=Kariera%20HAZE%20-%20reakce%20na%20pozici">Mám zájem o pozici</a>
-        </div>
-      </details>
+      <a class="news-card kar-card reveal" href="revizni-technik/">
+        <div class="news-meta"><span class="news-cat">Elektro</span><time>ČR</time></div>
+        <h2>Revizní technik - elektrikář</h2>
+        <p>Pravidelné revize dle platných norem a předpisů, vystavování revizních zpráv s doporučením údržby. Vyhláška 50 podmínkou.</p>
+        <span class="kar-more">Více informací →</span>
+      </a>
 
-      <details class="job">
-        <summary>
-          <div class="job-head"><span class="job-cat">IT</span><span class="job-title">IT / IS administrátor</span></div>
-          <span class="job-loc">Křičeň</span>
-        </summary>
-        <div class="job-body">
-          <p>Hledáme kolegu, který rozšíří náš tým IT a pomůže kolegům postarat se o technické zázemí a IT podporu uživatelů napříč firmou. Rozšiřujeme IT tým, jak roste výroba i administrativa.</p>
-          <a class="job-apply" href="mailto:radka.svojgrova@haze.cz?subject=Kariera%20HAZE%20-%20reakce%20na%20pozici">Mám zájem o pozici</a>
-        </div>
-      </details>
+      <a class="news-card kar-card reveal" href="it-administrator/">
+        <div class="news-meta"><span class="news-cat">IT</span><time>Křičeň</time></div>
+        <h2>IT / IS administrátor</h2>
+        <p>Technické zázemí a IT podpora uživatelů napříč firmou. Rozšiřujeme IT tým, jak roste výroba i administrativa.</p>
+        <span class="kar-more">Více informací →</span>
+      </a>
 
     </div>
   </div>
 </section>
 
-<!-- SEKCE "Co u nas najdete / stabilni firma" ODSTRANENA (Adam 2026-05-29) -->
-
-<!-- KARIERA FORM (shared #leadForm, careers-framed) -->
-<section class="contact" id="kontakt" style="background:var(--paper)">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <div class="sec-eyebrow">Nezávazná reakce</div>
-      <h2>Pošlete nám pár vět <em>o sobě.</em></h2>
-      <p class="lead">Nevidíte přesně svoji pozici, ale řemeslo nebo technika je vaše? Ozvěte se i tak. Stačí pár vět nebo zavolejte přímo.</p>
-    </div>
-    <div class="contact-grid">
-      <form class="contact-form reveal" id="leadForm" action="mailto:radka.svojgrova@haze.cz" method="post" enctype="text/plain">
-        <div class="field">
-          <label for="name">Jméno</label>
-          <input type="text" id="name" name="name" required placeholder="Jan Novák">
-        </div>
-        <div class="field">
-          <label for="phone">Telefon</label>
-          <input type="tel" id="phone" name="phone" required placeholder="+420 ...">
-        </div>
-        <div class="field">
-          <label for="email">E-mail</label>
-          <input type="email" id="email" name="email" placeholder="jan@email.cz">
-        </div>
-        <div class="field">
-          <label for="msg">O sobě a co umíte</label>
-          <textarea id="msg" name="message" placeholder="Zámečník-svářeč, 5 let praxe, hledám práci ve výrobě..."></textarea>
-        </div>
-        <div class="hp-field" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden">
-          <label for="website">Webové stránky</label>
-          <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
-        </div>
-        <input type="hidden" name="page" value="Kariéra">
-        <label class="gdpr">
-          <input type="checkbox" required>
-          <span>Souhlasím se zpracováním osobních údajů pro účely náboru. Údaje neposkytujeme třetím stranám.</span>
-        </label>
-        <p class="form-note">Odeslání otevře váš e-mailový program. Životopis můžete přiložit přímo v e-mailu na <a href="mailto:radka.svojgrova@haze.cz" style="color:var(--haze-dark);font-weight:700">radka.svojgrova@haze.cz</a>.</p>
-        <button type="submit" class="btn-submit">Ozvat se</button>
-      </form>
-
-      <aside class="contact-aside reveal">
-        <h3>Jak to probíhá</h3>
-        <div class="timeline-item">
-          <div class="timeline-num">1</div>
-          <div class="timeline-body">
-            <h4>Ozveme se zpět</h4>
-            <p>Po vašem e-mailu se vám ozve Radka z personalistiky a domluvíme další krok.</p>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-num">2</div>
-          <div class="timeline-body">
-            <h4>Krátký pohovor</h4>
-            <p>Projdeme vaši praxi a ukážeme vám, jak to u nás v hale i na montáži chodí.</p>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-num">3</div>
-          <div class="timeline-body">
-            <h4>Nástup a zaučení</h4>
-            <p>Domluvíme termín nástupu. Zaučíme vás, ať práci zvládnete bez stresu.</p>
-          </div>
-        </div>
-      </aside>
-    </div>
-  </div>
-</section>
-
-<section class="final-cta">
+<section class="final-cta kar-final">
   <div class="wrap">
     <div class="sec-eyebrow">Máte dotaz k náboru?</div>
-    <h2>Napište přímo <em>personalistce.</em></h2>
+    <h2>Napište na tento email.</h2>
     <div class="final-contacts">
       <a href="mailto:radka.svojgrova@haze.cz?subject=Kariera%20HAZE" class="final-contact" style="flex-direction:column;gap:8px">
         <span class="ico"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg></span>

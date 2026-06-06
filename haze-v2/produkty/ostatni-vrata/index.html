@@ -58,7 +58,7 @@
 }
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Inter',-apple-system,sans-serif;color:var(--ink);background:var(--paper);line-height:1.65;-webkit-font-smoothing:antialiased}
-.wrap{max-width:1180px;margin:0 auto;padding:0 40px}
+.wrap{max-width:1360px;margin:0 auto;padding:0 40px}
 h1,h2,h3,h4,h5{font-family:'Manrope',sans-serif;letter-spacing:-.02em}
 a{color:inherit;text-decoration:none}
 img{display:block;max-width:100%}
@@ -73,6 +73,7 @@ h2 em{font-style:normal;color:var(--haze-dark)}
 /* INTRO */
 .intro{padding:118px 0 48px;border-bottom:1px solid var(--line)}
 .crumbs{font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);font-weight:600;margin-bottom:28px}
+.crumbs a{color:var(--ink-soft)}
 .crumbs a:hover{color:var(--haze-dark)}.crumbs span{margin:0 9px;color:var(--line)}
 .intro-grid{display:grid;grid-template-columns:1.04fr .96fr;gap:54px;align-items:center}
 .intro h1{font-weight:800;font-size:clamp(2.2rem,4vw,3.3rem);line-height:1.04;max-width:16ch}
@@ -81,16 +82,8 @@ h2 em{font-style:normal;color:var(--haze-dark)}
 .intro-media{border-radius:12px;overflow:hidden;aspect-ratio:16/11;background:var(--paper-2)}
 .intro-media img{width:100%;height:100%;object-fit:cover}
 
-/* OVERVIEW TABLE */
-.ovw{margin-top:8px;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--white)}
-.ovt{width:100%;border-collapse:collapse;font-size:14.5px}
-.ovt thead th{background:var(--steel-900);color:#fff;font-family:'Manrope';font-weight:700;font-size:11px;letter-spacing:.05em;text-transform:uppercase;text-align:left;padding:15px 18px}
-.ovt td{padding:15px 18px;border-bottom:1px solid var(--line-soft);color:var(--ink-soft);vertical-align:top}
-.ovt tbody tr:last-child td{border-bottom:none}
-.ovt tbody tr:nth-child(even){background:var(--paper)}
-.ovt td strong{font-family:'Manrope';font-weight:700;color:var(--ink)}
-.ovt a.jump{color:var(--haze-dark);font-weight:600;font-size:13px;white-space:nowrap}
-.ovw-title{font-family:'Manrope';font-weight:800;font-size:20px;margin:44px 0 16px}
+.ch-jump{color:var(--haze-dark);font-weight:700;font-size:13px;margin-top:12px;align-self:flex-start}
+.ch-jump:hover{color:var(--haze)}
 
 /* PER-VARIANT BLOCKS */
 .ptype{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:center;padding:64px 0;border-bottom:1px solid var(--line)}
@@ -107,21 +100,38 @@ h2 em{font-style:normal;color:var(--haze-dark)}
 .ptable th{text-align:left;font-family:'Manrope';font-weight:700;font-size:13px;color:var(--ink);padding:11px 0;width:38%;vertical-align:top}
 .ptable td{font-size:14px;color:var(--ink-soft);padding:11px 0;vertical-align:top}
 
-/* CHOOSE + FAQ */
+/* SECTION ALTERNATING BG (Adam 2026-06-07: bila/bezova striping) */
 .bg-2{background:var(--paper-2)}
-.choose{list-style:none;margin-top:34px;display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-.choose li{background:var(--white);border:1px solid var(--line);border-left:3px solid var(--haze);border-radius:8px;padding:18px 22px;font-size:15px;color:var(--ink-soft)}
-.choose li b{font-family:'Manrope';color:var(--ink);font-weight:700}
-.choose li .tag{font-family:'Manrope';font-weight:800;color:var(--haze-dark)}
-/* FAQ accordion */
-.faq{margin-top:30px;border-top:1px solid var(--line)}
-.faq details{border-bottom:1px solid var(--line)}
-.faq summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:20px 0;font-family:'Manrope';font-weight:700;font-size:17px;color:var(--ink)}
+.sec-white{background:var(--white)}
+.sec-beige{background:var(--paper-2)}
+
+/* INTRO + MID CTA */
+.cta-row{margin-top:34px;display:flex;flex-wrap:wrap;gap:16px;align-items:center}
+.mid-cta{margin-top:40px;text-align:center}
+
+/* CHOOSE - enriched cards (replaces old comparison table) */
+.choose{list-style:none;margin-top:34px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.choose li{background:var(--white);border:1px solid var(--line);border-top:3px solid var(--haze);border-radius:10px;padding:22px 22px 20px;display:flex;flex-direction:column;gap:7px}
+.choose li .tag{font-family:'Manrope';font-weight:800;font-size:17px;color:var(--ink)}
+.choose li .ch-lead{font-size:14px;color:var(--ink);font-weight:700;font-family:'Manrope'}
+.choose li .ch-desc{font-size:13.5px;color:var(--ink-soft);line-height:1.55}
+.choose li dl{margin-top:auto;padding-top:13px;margin-top:13px;border-top:1px solid var(--line-soft);display:grid;grid-template-columns:auto 1fr;gap:5px 12px}
+.choose li dt{font-size:10.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--haze-dark);font-weight:700;white-space:nowrap;padding-top:1px}
+.choose li dd{font-size:12.5px;color:var(--ink-soft);line-height:1.4}
+
+/* FAQ - card accordion */
+.faq{margin-top:8px;display:flex;flex-direction:column;gap:12px}
+.faq details{background:var(--white);border:1px solid var(--line);border-radius:10px;overflow:hidden;transition:border-color .2s,box-shadow .25s}
+.faq details[open]{border-color:var(--haze);box-shadow:0 12px 30px rgba(21,23,28,.07)}
+.faq summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:20px 24px;font-family:'Manrope';font-weight:700;font-size:17px;color:var(--ink)}
 .faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:'+';font-family:'Manrope';font-weight:500;font-size:26px;line-height:1;color:var(--haze-dark);flex:none;transition:transform .2s ease}
+.faq summary::after{content:'+';font-family:'Manrope';font-weight:400;font-size:28px;line-height:1;color:var(--haze-dark);flex:none;transition:transform .2s ease}
 .faq details[open] summary::after{transform:rotate(45deg)}
 .faq summary:hover{color:var(--haze-dark)}
-.faq details>p{font-size:15px;color:var(--ink-soft);max-width:80ch;padding:0 0 22px;margin-top:-2px}
+.faq details>p{font-size:15px;color:var(--ink-soft);max-width:80ch;padding:0 24px 22px;margin-top:-4px}
+
+@media(max-width:980px){.choose{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:680px){.choose{grid-template-columns:1fr}.wrap{padding:0 18px}}
 
 </style>
 </head>
@@ -173,8 +183,9 @@ h2 em{font-style:normal;color:var(--haze-dark)}
         <h1>Ostatní vrata <em>a průchody.</em></h1>
         <p class="lead">Kromě rolovacích vrat vyrábíme i posuvná, křídlová a středová vrata, lamelové průchody, roletové uzávěry a speciální atypická i rychloběžná vrata. Základ tvoří ocelová žárově zinkovaná konstrukce s deskovou výplní. Níže najdete detail každého provedení i srovnání v tabulce.</p>
         <div class="cta-row">
-          <a class="btn-primary" href="#kontakt">Nezávazná poptávka →</a>
-          <a class="btn-ghost" href="tel:+420602488989">nebo zavolejte <b>+420 602 488 989</b></a>
+          <a class="btn-primary" href="#kontakt">Chci nabídku do 48h
+            <span class="btn-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </a>
         </div>
       </div>
       <div class="intro-media reveal"><img src="../../assets/products/ostatni-vrata/hero.jpg" alt="Posuvná vrata HAZE - realizace"></div>
@@ -183,7 +194,7 @@ h2 em{font-style:normal;color:var(--haze-dark)}
 </section>
 
 <!-- PER-VARIANT DETAIL -->
-<section>
+<section class="sec-beige">
   <div class="wrap">
     <div class="sec-head reveal"><div class="eyebrow">Provedení detailně</div><h2>Každé provedení <em>popsané.</em></h2></div>
 
@@ -273,57 +284,92 @@ h2 em{font-style:normal;color:var(--haze-dark)}
   </div>
 </section>
 
-<!-- HOW TO CHOOSE + COMPARISON TABLE -->
-<section class="bg-2">
+<!-- HOW TO CHOOSE (comparison data folded into cards) -->
+<section class="sec-white">
   <div class="wrap">
-    <div class="sec-head reveal"><div class="eyebrow">Jak vybrat provedení</div><h2>Která vrata <em>vybrat.</em></h2><p class="lead">Rozhoduje šířka vjezdu, kolik je kolem místa a zda jde o běžný vjezd, vnitřní průchod nebo speciální provoz.</p></div>
+    <div class="sec-head reveal"><div class="eyebrow">Jak vybrat provedení</div><h2>Která vrata <em>vybrat.</em></h2><p class="lead">Rozhoduje šířka vjezdu, kolik je kolem místa a zda jde o běžný vjezd, vnitřní průchod nebo speciální provoz. U každého provedení vidíte ovládání, klíčový parametr i kam se hodí.</p></div>
     <ul class="choose reveal">
-      <li><span class="tag">Posuvná</span> - <b>Bez místa pro křídla.</b> Posun do strany, jedno- i dvoukřídlé, desková výplň.</li>
-      <li><span class="tag">Křídlová</span> - <b>Klasický vjezd.</b> Kyvná otvíravá vrata tam, kde je místo pro vykývnutí.</li>
-      <li><span class="tag">Průchody a uzávěry</span> - <b>Lehké dělení.</b> Lamelové průchody do 2500 mm a izolované roletové uzávěry.</li>
-      <li><span class="tag">Středová</span> - <b>Široký vjezd.</b> Do 12 m se středovým, na přání sklápěcím sloupkem.</li>
-      <li><span class="tag">Atypická</span> - <b>Speciální provoz.</b> Do výšky 8 m, s meteostanicí, např. posklizňové linky.</li>
-      <li><span class="tag">Rychloběžná</span> - <b>Průmysl.</b> Vysoká rychlost otevírání a anti-crash systém.</li>
+      <li>
+        <span class="tag">Posuvná</span>
+        <span class="ch-lead">Bez místa pro křídla.</span>
+        <span class="ch-desc">Posun do strany, jedno- i dvoukřídlé, ocelová žárově zinkovaná konstrukce s deskovou výplní.</span>
+        <dl>
+          <dt>Ovládání</dt><dd>Posuv do strany</dd>
+          <dt>Parametr</dt><dd>Jedno- i dvoukřídlé</dd>
+          <dt>Hodí se na</dt><dd>Vjezdy bez místa pro křídla</dd>
+        </dl>
+        <a class="ch-jump" href="#posuvna">Detail →</a>
+      </li>
+      <li>
+        <span class="tag">Křídlová</span>
+        <span class="ch-lead">Klasický vjezd.</span>
+        <span class="ch-desc">Kyvná otvíravá vrata tam, kde je kolem dost místa pro vykývnutí křídel.</span>
+        <dl>
+          <dt>Ovládání</dt><dd>Kyvné, otvíravé</dd>
+          <dt>Parametr</dt><dd>Jedno- i dvoukřídlé</dd>
+          <dt>Hodí se na</dt><dd>Vjezdy s místem pro vykývnutí</dd>
+        </dl>
+        <a class="ch-jump" href="#kridlova">Detail →</a>
+      </li>
+      <li>
+        <span class="tag">Průchody a uzávěry</span>
+        <span class="ch-lead">Lehké dělení.</span>
+        <span class="ch-desc">Lamelové průchody do 2500 mm a izolované hliníkové roletové uzávěry s uzamčením.</span>
+        <dl>
+          <dt>Ovládání</dt><dd>Lamely / roleta</dd>
+          <dt>Parametr</dt><dd>Průchod do 2500 mm</dd>
+          <dt>Hodí se na</dt><dd>Vnitřní průchody mezi sekcemi</dd>
+        </dl>
+        <a class="ch-jump" href="#pruchody">Detail →</a>
+      </li>
+      <li>
+        <span class="tag">Středová</span>
+        <span class="ch-lead">Široký vjezd.</span>
+        <span class="ch-desc">Do šíře 12 m, se středovým - na přání sklápěcím - sloupkem.</span>
+        <dl>
+          <dt>Ovládání</dt><dd>Mechanické nebo elektrické</dd>
+          <dt>Parametr</dt><dd>Šíře do 12 m</dd>
+          <dt>Hodí se na</dt><dd>Široké vjezdy se sloupkem</dd>
+        </dl>
+        <a class="ch-jump" href="#stredova">Detail →</a>
+      </li>
+      <li>
+        <span class="tag">Atypická</span>
+        <span class="ch-lead">Speciální provoz.</span>
+        <span class="ch-desc">Do výšky 8 m, vždy s meteostanicí - např. posklizňové zpracovatelské linky.</span>
+        <dl>
+          <dt>Ovládání</dt><dd>Dle provedení</dd>
+          <dt>Parametr</dt><dd>Výška do 8 m, meteostanice</dd>
+          <dt>Hodí se na</dt><dd>Speciální provozy, posklizňové linky</dd>
+        </dl>
+        <a class="ch-jump" href="#atypicka">Detail →</a>
+      </li>
+      <li>
+        <span class="tag">Rychloběžná</span>
+        <span class="ch-lead">Průmysl.</span>
+        <span class="ch-desc">Vysoká rychlost otevírání a integrovaný anti-crash systém pro častý průjezd.</span>
+        <dl>
+          <dt>Ovládání</dt><dd>Elektrické, rychlé</dd>
+          <dt>Parametr</dt><dd>Anti-crash systém</dd>
+          <dt>Hodí se na</dt><dd>Průmysl, rychlý průjezd</dd>
+        </dl>
+        <a class="ch-jump" href="#rychlobezna">Detail →</a>
+      </li>
     </ul>
-    <h3 class="ovw-title">Srovnání provedení</h3>
-    <div class="ovw reveal">
-      <table class="ovt">
-        <thead><tr><th>Provedení</th><th>Otevírání / ovládání</th><th>Klíčový parametr</th><th>Hodí se na</th><th></th></tr></thead>
-        <tbody>
-          <tr><td><strong>Posuvná vrata</strong></td><td>Posuv do strany</td><td>Jedno- i dvoukřídlé</td><td>Vjezdy bez místa pro křídla</td><td><a class="jump" href="#posuvna">Detail →</a></td></tr>
-          <tr><td><strong>Křídlová vrata</strong></td><td>Kyvné, otvíravé</td><td>Jedno- i dvoukřídlé</td><td>Vjezdy s místem pro vykývnutí</td><td><a class="jump" href="#kridlova">Detail →</a></td></tr>
-          <tr><td><strong>Lamelové průchody a uzávěry</strong></td><td>Lamely / roleta</td><td>Průchod do 2500 mm</td><td>Vnitřní průchody mezi sekcemi</td><td><a class="jump" href="#pruchody">Detail →</a></td></tr>
-          <tr><td><strong>Středová vrata</strong></td><td>Mechanické nebo elektrické</td><td>Šíře do 12 m</td><td>Široké vjezdy se sloupkem</td><td><a class="jump" href="#stredova">Detail →</a></td></tr>
-          <tr><td><strong>Atypická vrata</strong></td><td>Dle provedení</td><td>Výška do 8 m, meteostanice</td><td>Speciální provozy, posklizňové linky</td><td><a class="jump" href="#atypicka">Detail →</a></td></tr>
-          <tr><td><strong>Rychloběžná vrata</strong></td><td>Elektrické, rychlé</td><td>Anti-crash systém</td><td>Průmysl, rychlý průjezd</td><td><a class="jump" href="#rychlobezna">Detail →</a></td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section>
-  <div class="wrap">
-    <div class="sec-head reveal"><div class="eyebrow">Časté dotazy</div><h2>Co se ptáte <em>nejčastěji.</em></h2></div>
-    <div class="faq reveal">
-      <details><summary>Z čeho je konstrukce vrat?</summary><p>Základem je ocelová žárově zinkovaná konstrukce, u většiny provedení s deskovou výplní. Konstrukce je navržená pro provoz ve stáji i v průmyslu.</p></details>
-      <details><summary>Jaký je rozdíl mezi posuvnými a křídlovými vraty?</summary><p>Posuvná vrata se posouvají do strany, takže nepotřebují místo pro vykývnutí - hodí se do těsných míst. Křídlová vrata se otevírají kyvně do strany a potřebují kolem sebe volný prostor. Obě vyrábíme v jednokřídlém i dvoukřídlém provedení.</p></details>
-      <details><summary>Kdy zvolit středová vrata?</summary><p>Středová vrata jsou pro široké vjezdy do 12 m. Mají středový sloupek, který lze na přání řešit jako sklápěcí, a dodáváme je v mechanickém i elektrickém provedení.</p></details>
-      <details><summary>Co jsou lamelové průchody a roletové uzávěry?</summary><p>Lehčí náhrada pevných vrat tam, kde stačí jen dělení prostoru. Lamelové průchody dodáváme v různých tloušťkách a barvách do výšky 2500 mm, izolované hliníkové roletové uzávěry se ovládají kompenzační pružinou s možností uzamčení.</p></details>
-      <details><summary>Na co jsou atypická vrata?</summary><p>Na speciální provozy, například posklizňové zpracovatelské linky. Vyrábíme je do výšky 8 m a součástí dodávky je vždy meteostanice.</p></details>
-      <details><summary>Vyrábíte i rychloběžná vrata pro průmysl?</summary><p>Ano. Elektrická rychloběžná vrata mají vysokou rychlost otevírání a integrovaný anti-crash systém, hodí se do průmyslových provozů s častým a rychlým průjezdem.</p></details>
+    <div class="mid-cta">
+      <a class="btn-primary" href="#kontakt">Chci nabídku do 48h
+        <span class="btn-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
     </div>
   </div>
 </section>
 
 <!-- KONTAKT FORM (shared) -->
-<section class="contact" id="kontakt" style="background:var(--paper)">
+<section class="contact" id="kontakt" style="background:var(--paper-2)">
   <div class="wrap">
     <div class="sec-head reveal">
       <div class="sec-eyebrow">Nezávazná poptávka</div>
       <h2>Napište nám <em>pár vět o vaší stáji.</em></h2>
-      <p class="lead">Konzultace zdarma, nabídka do 48 hodin. Stačí pár vět nebo zavolejte přímo - rychlejší cestou bývá telefon.</p>
     </div>
     <div class="contact-grid">
       <form class="contact-form reveal" id="leadForm" action="mailto:dominik.hanousek@haze.cz" method="post" enctype="text/plain">
@@ -352,7 +398,6 @@ h2 em{font-style:normal;color:var(--haze-dark)}
           <input type="checkbox" required>
           <span>Souhlasím se zpracováním osobních údajů pro účely poptávky. Údaje neposkytujeme třetím stranám.</span>
         </label>
-        <p class="form-note">Odeslání otevře váš e-mailový program. Pro rychlejší řešení volejte přímo na <a href="tel:+420602488989" style="color:var(--haze-dark);font-weight:700">+420 602 488 989</a>.</p>
         <button type="submit" class="btn-submit">Zavolejte mi zpět</button>
       </form>
 
@@ -409,7 +454,21 @@ h2 em{font-style:normal;color:var(--haze-dark)}
     <div class="final-buttons">
       <a href="../../kontakt/">Nezávazná konzultace</a>
     </div>
-    <p style="margin-top:16px;font-size:14px;color:rgba(255,255,255,.65)">Sídlo: Praskačka 145, 503 33 &middot; Vlastní hala: Křičeň 108, 533 41</p>
+  </div>
+</section>
+
+<!-- FAQ (presunuto uplne dolu pod posledni CTA - Adam 2026-06-07) -->
+<section class="sec-white">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">Časté dotazy</div><h2>Co se ptáte <em>nejčastěji.</em></h2></div>
+    <div class="faq reveal">
+      <details><summary>Z čeho je konstrukce vrat?</summary><p>Základem je ocelová žárově zinkovaná konstrukce, u většiny provedení s deskovou výplní. Konstrukce je navržená pro provoz ve stáji i v průmyslu.</p></details>
+      <details><summary>Jaký je rozdíl mezi posuvnými a křídlovými vraty?</summary><p>Posuvná vrata se posouvají do strany, takže nepotřebují místo pro vykývnutí - hodí se do těsných míst. Křídlová vrata se otevírají kyvně do strany a potřebují kolem sebe volný prostor. Obě vyrábíme v jednokřídlém i dvoukřídlém provedení.</p></details>
+      <details><summary>Kdy zvolit středová vrata?</summary><p>Středová vrata jsou pro široké vjezdy do 12 m. Mají středový sloupek, který lze na přání řešit jako sklápěcí, a dodáváme je v mechanickém i elektrickém provedení.</p></details>
+      <details><summary>Co jsou lamelové průchody a roletové uzávěry?</summary><p>Lehčí náhrada pevných vrat tam, kde stačí jen dělení prostoru. Lamelové průchody dodáváme v různých tloušťkách a barvách do výšky 2500 mm, izolované hliníkové roletové uzávěry se ovládají kompenzační pružinou s možností uzamčení.</p></details>
+      <details><summary>Na co jsou atypická vrata?</summary><p>Na speciální provozy, například posklizňové zpracovatelské linky. Vyrábíme je do výšky 8 m a součástí dodávky je vždy meteostanice.</p></details>
+      <details><summary>Vyrábíte i rychloběžná vrata pro průmysl?</summary><p>Ano. Elektrická rychloběžná vrata mají vysokou rychlost otevírání a integrovaný anti-crash systém, hodí se do průmyslových provozů s častým a rychlým průjezdem.</p></details>
+    </div>
   </div>
 </section>
 

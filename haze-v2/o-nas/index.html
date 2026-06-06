@@ -62,7 +62,7 @@
    ============================================================ */
 
 /* ---- 1. INTRO HERO: portrait + mission quote (light, leads page) ---- */
-.intro-hero{background:var(--paper);padding-top:118px;padding-bottom:96px}
+.intro-hero{background:var(--paper);padding-top:120px;padding-bottom:72px}
 .crumbs2{font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);
   font-weight:600;margin-bottom:44px}
 .crumbs2 a{color:var(--ink-soft);transition:color .2s}
@@ -71,7 +71,7 @@
 .intro-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:64px;align-items:center}
 .intro-figure{position:relative;border-radius:14px;overflow:hidden;
   box-shadow:0 24px 60px rgba(21,23,28,.16)}
-.intro-figure img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:63% 30%;display:block}
+.intro-figure img{width:100%;aspect-ratio:4/5;max-height:520px;object-fit:cover;object-position:63% 30%;display:block}
 .intro-figcap{position:absolute;left:0;right:0;bottom:0;padding:28px 26px 24px;
   background:linear-gradient(to top,rgba(15,17,22,.92),rgba(15,17,22,.35) 60%,transparent)}
 .intro-figcap strong{display:block;font-family:'Manrope',sans-serif;font-weight:700;font-size:17px;color:#fff}
@@ -84,55 +84,55 @@
 .intro-attrib::before{content:'';width:34px;height:1.5px;background:var(--haze);flex:none}
 .intro-attrib strong{font-family:'Manrope',sans-serif;font-weight:700;color:var(--ink)}
 
-/* ---- 2. STORY + TIMELINE side by side (light) ---- */
-.story-osa{background:var(--paper-2)}
-.story-osa .sec-eyebrow{color:var(--haze-dark)}
+/* ---- 2. STORY + TIMELINE side by side (DARK - Adam 2026-06-07) ---- */
+.story-osa{background:var(--steel-900)}
+.story-osa .sec-eyebrow{color:var(--haze-soft)}
 .story-osa .sec-eyebrow::before{background:var(--haze)}
 .so-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
 .so-story h2{font-family:'Manrope',sans-serif;font-weight:700;
-  font-size:clamp(1.8rem,3.2vw,2.6rem);line-height:1.12;letter-spacing:-.015em;color:var(--ink);margin-bottom:24px}
-.so-story h2 em{font-style:normal;color:var(--haze-dark);font-weight:700}
-.so-story p{font-size:16px;color:var(--ink-soft);line-height:1.7;margin-bottom:16px}
-.so-story p.intro{font-size:18.5px;color:var(--ink);font-weight:500;line-height:1.5}
-.signature{display:flex;align-items:center;gap:16px;margin-top:32px;padding-top:26px;border-top:1px solid var(--line)}
+  font-size:clamp(1.8rem,3.2vw,2.6rem);line-height:1.12;letter-spacing:-.015em;color:#fff;margin-bottom:24px}
+.so-story h2 em{font-style:normal;color:var(--haze-soft);font-weight:700}
+.so-story p{font-size:16px;color:rgba(255,255,255,.74);line-height:1.7;margin-bottom:16px}
+.so-story p.intro{font-size:18.5px;color:#fff;font-weight:500;line-height:1.5}
+.signature{display:flex;align-items:center;gap:16px;margin-top:32px;padding-top:26px;border-top:1px solid rgba(255,255,255,.14)}
 .signature::before{content:'';flex:none;width:30px;height:18px;background:var(--haze);
   -webkit-mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 18' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='3 15 15 3 27 15'/></svg>") center/contain no-repeat;
           mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 18' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='3 15 15 3 27 15'/></svg>") center/contain no-repeat;}
-.signature strong{display:block;font-family:'Manrope',sans-serif;font-weight:700;font-size:16px;color:var(--ink)}
-.signature span{font-size:13.5px;color:var(--ink-soft)}
-.so-osa-eyebrow{font-size:11.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--haze-dark);
+.signature strong{display:block;font-family:'Manrope',sans-serif;font-weight:700;font-size:16px;color:#fff}
+.signature span{font-size:13.5px;color:rgba(255,255,255,.6)}
+.so-osa-eyebrow{font-size:11.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--haze-soft);
   font-weight:700;margin-bottom:26px;display:flex;align-items:center;gap:12px}
 .so-osa-eyebrow::before{content:'';width:30px;height:1.5px;background:var(--haze)}
 .osa-list{margin-top:0;position:relative}
 .osa-track,.osa-fill{position:absolute;left:78px;width:2px;border-radius:2px;top:0;height:0;z-index:0;pointer-events:none}
-.osa-track{background:var(--line)}
-.osa-fill{background:var(--haze);box-shadow:0 0 12px rgba(247,148,48,.4);transition:height .12s linear}
+.osa-track{background:rgba(255,255,255,.18)}
+.osa-fill{background:var(--haze);box-shadow:0 0 12px rgba(247,148,48,.5);transition:height .12s linear}
 .osa-item{position:relative;z-index:1;display:grid;grid-template-columns:60px 1fr;gap:20px;align-items:start}
 .osa-year{font-family:'Manrope',sans-serif;font-weight:800;font-size:21px;letter-spacing:-.01em;
-  color:rgba(20,22,26,.32);text-align:right;padding-top:1px;transition:color .45s ease}
-.osa-item.active .osa-year{color:var(--haze-dark)}
+  color:rgba(255,255,255,.34);text-align:right;padding-top:1px;transition:color .45s ease}
+.osa-item.active .osa-year{color:var(--haze-soft)}
 .osa-body{position:relative;padding-left:30px;padding-bottom:34px}
 .osa-item:last-child .osa-body{padding-bottom:0}
 .osa-dot{position:absolute;left:-9px;top:4px;width:16px;height:16px;border-radius:50%;
-  background:#fff;border:3px solid var(--paper-2);box-shadow:0 0 0 1px var(--line);
+  background:var(--steel-900);border:3px solid var(--steel-900);box-shadow:0 0 0 1px rgba(255,255,255,.28);
   transition:background .45s ease,box-shadow .45s ease,transform .45s ease}
-.osa-item.active .osa-dot{background:var(--haze);box-shadow:0 0 0 5px rgba(247,148,48,.16),0 0 0 1px var(--haze);transform:scale(1.18)}
-.osa-body h3{font-family:'Manrope',sans-serif;font-weight:700;font-size:18px;color:var(--ink);margin-bottom:6px;line-height:1.25}
-.osa-body p{font-size:14.5px;color:var(--ink-soft);line-height:1.6}
+.osa-item.active .osa-dot{background:var(--haze);box-shadow:0 0 0 5px rgba(247,148,48,.2),0 0 0 1px var(--haze);transform:scale(1.18)}
+.osa-body h3{font-family:'Manrope',sans-serif;font-weight:700;font-size:18px;color:#fff;margin-bottom:6px;line-height:1.25}
+.osa-body p{font-size:14.5px;color:rgba(255,255,255,.7);line-height:1.6}
 
-/* ---- 3. Service chain (dark process) ---- */
-.chain{background:var(--steel-900)}
-.chain .sec-eyebrow{color:var(--haze-soft)}
+/* ---- 3. Service chain (LIGHT process - Adam 2026-06-07) ---- */
+.chain{background:var(--paper)}
+.chain .sec-eyebrow{color:var(--haze-dark)}
 .chain .sec-eyebrow::before{background:var(--haze)}
-.chain .sec-head h2{color:#fff}
-.chain .sec-head h2 em{color:var(--haze-soft)}
-.chain .sec-head .lead{color:rgba(255,255,255,.72)}
+.chain .sec-head h2{color:var(--ink)}
+.chain .sec-head h2 em{color:var(--haze-dark)}
+.chain .sec-head .lead{color:var(--ink-soft)}
 .chain-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:24px}
 .chain-step{padding-top:26px;border-top:2px solid var(--haze)}
 .chain-num{font-family:'Manrope',sans-serif;font-weight:700;font-size:13px;letter-spacing:.18em;
-  color:var(--haze-soft);margin-bottom:12px}
-.chain-step h3{font-family:'Manrope',sans-serif;font-weight:700;font-size:17.5px;color:#fff;margin-bottom:10px;line-height:1.25}
-.chain-step p{font-size:14px;color:rgba(255,255,255,.7);line-height:1.55}
+  color:var(--haze-dark);margin-bottom:12px}
+.chain-step h3{font-family:'Manrope',sans-serif;font-weight:700;font-size:17.5px;color:var(--ink);margin-bottom:10px;line-height:1.25}
+.chain-step p{font-size:14px;color:var(--ink-soft);line-height:1.55}
 
 /* ---- 4. EU dotace (light) ---- */
 .eu{background:var(--paper-2)}
@@ -379,7 +379,6 @@
     <div class="sec-head reveal">
       <div class="sec-eyebrow">Nezávazná poptávka</div>
       <h2>Napište nám <em>pár vět o vaší stáji.</em></h2>
-      <p class="lead">Konzultace zdarma, nabídka do 48 hodin. Stačí pár vět nebo zavolejte přímo - rychlejší cestou bývá telefon.</p>
     </div>
     <div class="contact-grid">
       <form class="contact-form reveal" id="leadForm" action="mailto:dominik.hanousek@haze.cz" method="post" enctype="text/plain">
@@ -408,7 +407,6 @@
           <input type="checkbox" required>
           <span>Souhlasím se zpracováním osobních údajů pro účely poptávky. Údaje neposkytujeme třetím stranám.</span>
         </label>
-        <p class="form-note">Odeslání otevře váš e-mailový program. Pro rychlejší řešení volejte přímo na <a href="tel:+420602488989" style="color:var(--haze-dark);font-weight:700">+420 602 488 989</a>.</p>
         <button type="submit" class="btn-submit">Zavolejte mi zpět</button>
       </form>
 
@@ -465,7 +463,6 @@
     <div class="final-buttons">
       <a href="../kontakt/">Nezávazná konzultace</a>
     </div>
-    <p style="margin-top:16px;font-size:14px;color:rgba(255,255,255,.65)">Sídlo: Praskačka 145, 503 33 &middot; Vlastní hala: Křičeň 108, 533 41</p>
   </div>
 </section>
 
@@ -555,10 +552,10 @@
   }
   function update(){
     var vh=window.innerHeight;
-    /* read-line: a year lights as its dot rises past ~34% of the viewport.
-       The fill tip follows this line, so it tracks scroll and 2025 completes
-       while the dot is still clearly on screen (upper third), not after it scrolls off. */
-    var line=vh*0.34;
+    /* read-line low in viewport (~82%) so years light early as they scroll in and
+       2025 (last node) completes by the time the user reaches the END of the
+       Pribeh HAZE section, not after it scrolls off (Adam 2026-06-07). */
+    var line=vh*0.82;
     var firstC=cy(dots[0]), lastC=cy(dots[dots.length-1]);
     var front=Math.max(firstC, Math.min(line, lastC));
     fill.style.height=(front-firstC)+'px';

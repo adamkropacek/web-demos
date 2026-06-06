@@ -54,6 +54,28 @@
 <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon-180.png">
 <meta name="theme-color" content="#F79430">
+<style>
+/* Kontakt - tym karty + mapa (Adam 2026-06-07) */
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:8px}
+.team-card{background:var(--paper);border:1px solid var(--line);border-top:3px solid var(--haze);
+  border-radius:10px;padding:30px 28px;display:flex;flex-direction:column}
+.team-ico{width:52px;height:52px;border-radius:50%;background:rgba(247,148,48,.14);
+  display:flex;align-items:center;justify-content:center;color:var(--haze-dark);margin-bottom:16px}
+.team-ico svg{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:1.6}
+.team-role{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--haze-dark);font-weight:700;margin-bottom:4px}
+.team-name{font-family:'Manrope',sans-serif;font-weight:800;font-size:19px;color:var(--ink);margin-bottom:14px;line-height:1.2}
+.team-line{display:flex;align-items:center;gap:10px;font-size:15px;color:var(--ink-soft);margin-bottom:8px}
+.team-line:last-child{margin-bottom:0}
+.team-line svg{width:16px;height:16px;flex:none;fill:none;stroke:var(--haze-dark);stroke-width:1.7}
+.team-card a{color:var(--ink-soft);transition:color .2s}
+.team-card a:hover{color:var(--haze-dark)}
+.fakturace-note{margin-top:30px;text-align:center;font-size:15px;color:var(--ink-soft)}
+.fakturace-note a{color:var(--haze-dark);font-weight:700}
+.map-embed{border-radius:12px;overflow:hidden;border:1px solid var(--line);aspect-ratio:4/3;background:var(--paper-2)}
+.map-embed iframe{width:100%;height:100%;border:0;display:block}
+.map-aside .contact-details{margin-top:24px}
+@media(max-width:900px){.team-grid{grid-template-columns:1fr}}
+</style>
 </head>
 <body>
 
@@ -100,12 +122,51 @@
   <div class="wrap">
     <div class="crumbs"><a href="../">Domů</a><span>›</span>Kontakt</div>
     <h1>Pojďme to <em>domluvit.</em></h1>
-    <p class="lead">Konzultace zdarma, nabídka do 48 hodin. Stačí pár vět nebo zavolejte přímo - rychlejší cestou bývá telefon.</p>
   </div>
 </section>
 
-<section class="contact">
+<!-- TYM - 3 kontakty z haze.cz (Adam 2026-06-07) -->
+<section class="contact" style="background:var(--paper-2)">
   <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-eyebrow">Kontakty</div>
+      <h2>Tým <em>HAZE.</em></h2>
+    </div>
+    <div class="team-grid reveal">
+      <div class="team-card">
+        <div class="team-ico"><svg viewBox="0 0 24 24"><path d="M3 7h18v12a2 2 0 01-2 2H5a2 2 0 01-2-2V7z"/><path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2"/></svg></div>
+        <div class="team-role">Obchodní oddělení</div>
+        <div class="team-name">Dominik Hanousek</div>
+        <div class="team-line"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.37 1.9.72 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0122 16.92z"/></svg><a href="tel:+420602488989">+420 602 488 989</a></div>
+        <div class="team-line"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg><a href="mailto:dominik.hanousek@haze.cz">dominik.hanousek@haze.cz</a></div>
+      </div>
+      <div class="team-card">
+        <div class="team-ico"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 00-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 005.4-5.4l-2.6 2.6-2-2 2.6-2.6z"/></svg></div>
+        <div class="team-role">Servisní oddělení</div>
+        <div class="team-name">Jindřich Vaníček</div>
+        <div class="team-line"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.37 1.9.72 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0122 16.92z"/></svg><a href="tel:+420733655695">+420 733 655 695</a></div>
+        <div class="team-line"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg><a href="mailto:jindrich.vanicek@haze.cz">jindrich.vanicek@haze.cz</a></div>
+      </div>
+      <div class="team-card">
+        <div class="team-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a6 6 0 016-6h4a6 6 0 016 6v1"/></svg></div>
+        <div class="team-role">Asistentka společnosti</div>
+        <div class="team-name">Kristýna Zemánková</div>
+        <div class="team-line"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.37 1.9.72 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0122 16.92z"/></svg><a href="tel:+420736122848">+420 736 122 848</a></div>
+        <div class="team-line"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.37 1.9.72 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0122 16.92z"/></svg><a href="tel:+420495580264">+420 495 580 264</a></div>
+        <div class="team-line"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg><a href="mailto:info@haze.cz">info@haze.cz</a></div>
+      </div>
+    </div>
+    <p class="fakturace-note">Pro zasílání faktur nás kontaktujte na <a href="mailto:fakturace@haze.cz">fakturace@haze.cz</a>.</p>
+  </div>
+</section>
+
+<!-- FORMULAR + MAPA PROVOZOVNY -->
+<section class="contact" style="background:var(--paper)">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-eyebrow">Nezávazná poptávka</div>
+      <h2>Napište nám <em>pár vět o vaší stáji.</em></h2>
+    </div>
     <div class="contact-grid">
       <form class="contact-form reveal" id="leadForm" action="mailto:dominik.hanousek@haze.cz" method="post" enctype="text/plain">
         <div class="field">
@@ -124,60 +185,26 @@
           <label for="msg">Co potřebujete</label>
           <textarea id="msg" name="message" placeholder="Stáj pro 80 dojnic, plánujeme rekonstrukci větrání..."></textarea>
         </div>
-        <!-- Anti-bot honeypot (hidden field - real users won't fill it) -->
         <div class="hp-field" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden">
           <label for="website">Webové stránky</label>
           <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
         </div>
+        <input type="hidden" name="page" value="Kontakt">
         <label class="gdpr">
           <input type="checkbox" required>
           <span>Souhlasím se zpracováním osobních údajů pro účely poptávky. Údaje neposkytujeme třetím stranám.</span>
         </label>
-        <p class="form-note">Odeslání otevře váš e-mailový program. Pro rychlejší řešení volejte přímo na <a href="tel:+420602488989" style="color:var(--haze-dark);font-weight:700">+420 602 488 989</a>.</p>
         <button type="submit" class="btn-submit">Zavolejte mi zpět</button>
       </form>
 
-      <aside class="contact-aside reveal">
-        <h3>Co se stane dál</h3>
-        <div class="timeline-item">
-          <div class="timeline-num">1</div>
-          <div class="timeline-body">
-            <h4>Do 24 hodin zavoláme</h4>
-            <p>Krátký telefonát - upřesníme rozsah a domluvíme termín zaměření.</p>
-          </div>
+      <aside class="contact-aside map-aside reveal">
+        <div class="map-embed">
+          <iframe src="https://maps.google.com/maps?q=K%C5%99i%C4%8De%C5%88%20108%2C%20533%2041%20K%C5%99i%C4%8De%C5%88&hl=cs&z=15&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mapa - HAZE, výroba a sídlo Křičeň 108"></iframe>
         </div>
-        <div class="timeline-item">
-          <div class="timeline-num">2</div>
-          <div class="timeline-body">
-            <h4>Zaměření na místě</h4>
-            <p>Přijedeme k vám, fyzicky zaměříme otvory a podíváme se na celkový kontext stáje.</p>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-num">3</div>
-          <div class="timeline-body">
-            <h4>Konkrétní nabídka do 48 hodin</h4>
-            <p>Cena, materiály, termín. Bez skrytých položek - co podepíšete, to platí.</p>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-num">4</div>
-          <div class="timeline-body">
-            <h4>Výroba a montáž 5-10 týdnů</h4>
-            <p>Vlastní hala v Křični, montuje náš tým. Po předání zaučíme obsluhu a předáme záruku.</p>
-          </div>
-        </div>
-
         <dl class="contact-details">
-          <dt>Obchodní oddělení - Dominik Hanousek</dt>
-          <dd><a href="tel:+420602488989">+420 602 488 989</a> · <a href="mailto:dominik.hanousek@haze.cz">dominik.hanousek@haze.cz</a></dd>
-          <dt>Servisní oddělení - Jindřich Vaníček</dt>
-          <dd><a href="tel:+420733655695">+420 733 655 695</a> · <a href="mailto:jindrich.vanicek@haze.cz">jindrich.vanicek@haze.cz</a></dd>
-          <dt>Asistentka společnosti - Kristýna Zemánková</dt>
-          <dd><a href="tel:+420736122848">+420 736 122 848</a> · <a href="tel:+420495580264">+420 495 580 264</a> · <a href="mailto:info@haze.cz">info@haze.cz</a></dd>
           <dt>Výroba a sídlo</dt>
           <dd>Křičeň 108, 533 41 Křičeň</dd>
-          <dt>Obchodní kancelář</dt>
+          <dt>Kancelář a vedení</dt>
           <dd>Praskačka 145, 503 33 Praskačka</dd>
           <dt>Firma</dt>
           <dd>HAZE, s.r.o.<br><span style="font-size:13px;color:var(--ink-soft);font-weight:500">IČ 275 09 800, DIČ CZ27509800</span></dd>
