@@ -51,13 +51,14 @@
 <meta name="theme-color" content="#F79430">
 <style>
 /* Nase projekty (scoped) */
-.proj-intro{padding-top:120px}
-.proj-stats{display:flex;flex-wrap:wrap;gap:36px 56px;margin-top:36px;padding-top:30px;border-top:1px solid var(--line)}
+.proj-intro{padding-top:120px;padding-bottom:28px}
+.proj-stats{display:flex;flex-wrap:wrap;gap:36px 56px;margin-top:32px;padding-top:30px;border-top:1px solid var(--line)}
 .pstat{display:flex;flex-direction:column;gap:5px}
 .pnum{font-family:'Manrope',sans-serif;font-weight:800;font-size:34px;line-height:1;color:var(--haze-dark);letter-spacing:-.02em}
 .plbl{font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);font-weight:600}
-.realz{margin-top:10px;border-top:1px solid var(--line)}
-.realz-item{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;padding:48px 0;border-bottom:1px solid var(--line)}
+.realz{margin-top:10px;border-top:1px solid var(--line);counter-reset:realz}
+.realz-item{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;padding:48px 0;border-bottom:1px solid var(--line);counter-increment:realz;scroll-margin-top:96px}
+.realz-kicker::before{content:counter(realz,decimal-leading-zero);display:inline-block;background:var(--haze);color:#fff;font-family:'Manrope',sans-serif;font-weight:800;font-size:12px;padding:2px 9px;border-radius:5px;margin-right:11px;vertical-align:1px}
 .realz-item:nth-child(even) .realz-media{order:2}
 .realz-media{position:relative;border-radius:14px;overflow:hidden;aspect-ratio:16/10;background:var(--paper-2)}
 .realz-media img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
@@ -101,12 +102,12 @@
           <a href="../produkty/" class="dropdown-all">Všechny produkty →</a>
         </div>
       </li>
-      <li><a href="../nase-projekty/">Naše projekty</a></li>
+      <li><a href="../nase-projekty/" class="active">Naše projekty</a></li>
       <li><a href="../kariera/">Kariéra</a></li>
       <li><a href="../aktuality/">Novinky</a></li>
       <li><a href="../kontakt/">Kontakt</a></li>
       </ul>
-      <a href="../kontakt/" class="nav-cta">Nezávazná konzultace</a>
+      <a href="#kontakt" class="nav-cta">Nezávazná konzultace</a>
     </nav>
   </div>
 </header>
@@ -129,13 +130,12 @@
   </div>
 </section>
 
-<!-- TOP 10 -->
-<section style="padding-top:0">
+<!-- TOP 10 (cislovane, Adam 2026-06-07: duplicitni nadpis odstranen) -->
+<section style="padding-top:8px">
   <div class="wrap">
-    <div class="sec-head reveal"><div class="sec-eyebrow">Vybrané projekty</div><h2>Deset realizací, <em>každá jiná.</em></h2><p class="lead">U každé realizace vidíte, jaké systémy jsme tam postavili - od bočního i střešního větrání přes vrata a meteostanice až po dělicí stěny.</p></div>
     <div class="realz">
 
-      <div class="realz-item reveal">
+      <div class="realz-item reveal" id="bohdalov">
         <div class="realz-media"><img src="../assets/projekty/bohdalov.jpg" alt="Farma Bohdalov - realizace HAZE" loading="lazy"><span class="realz-tag">Ventilace + vrata</span></div>
         <div>
           <div class="realz-kicker">Vlajková realizace</div>
@@ -145,7 +145,7 @@
         </div>
       </div>
 
-      <div class="realz-item reveal">
+      <div class="realz-item reveal" id="ovcary">
         <div class="realz-media"><img src="../assets/projekty/ovcary.jpg" alt="John Deere Ovčáry - realizace HAZE" loading="lazy"><span class="realz-tag">Boční ventilace</span></div>
         <div>
           <div class="realz-kicker">Velký zemědělský provoz</div>
@@ -155,7 +155,7 @@
         </div>
       </div>
 
-      <div class="realz-item reveal">
+      <div class="realz-item reveal" id="okrouhla-radoun">
         <div class="realz-media"><img src="../assets/projekty/okrouhla-radoun.jpg" alt="Farma Okrouhlá Radouň - realizace HAZE" loading="lazy"><span class="realz-tag">Ventilace + vrata + meteostanice</span></div>
         <div>
           <div class="realz-kicker">Automaticky řízené větrání</div>
@@ -165,7 +165,7 @@
         </div>
       </div>
 
-      <div class="realz-item reveal">
+      <div class="realz-item reveal" id="hans-prefa">
         <div class="realz-media"><img src="../assets/projekty/hans-prefa.jpg" alt="H.A.N.S. Prefa Lysá nad Labem - realizace HAZE" loading="lazy"><span class="realz-tag">Průmysl · ventilace</span></div>
         <div>
           <div class="realz-kicker">Nasazení mimo zemědělství</div>
@@ -175,7 +175,7 @@
         </div>
       </div>
 
-      <div class="realz-item reveal">
+      <div class="realz-item reveal" id="krpalek">
         <div class="realz-media"><img src="../assets/projekty/krpalek.jpg" alt="Krpálek Academy Praha - realizace HAZE" loading="lazy"><span class="realz-tag">Dělicí stěna</span></div>
         <div>
           <div class="realz-kicker">Sportovní hala</div>
@@ -185,7 +185,7 @@
         </div>
       </div>
 
-      <div class="realz-item reveal">
+      <div class="realz-item reveal" id="vadin">
         <div class="realz-media"><img src="../assets/projekty/vadin.jpg" alt="Farma Vadín - realizace HAZE" loading="lazy"><span class="realz-tag">Ventilace + meteostanice</span></div>
         <div>
           <div class="realz-kicker">600 kusů dojnic</div>
@@ -195,7 +195,7 @@
         </div>
       </div>
 
-      <div class="realz-item reveal">
+      <div class="realz-item reveal" id="mladonovice">
         <div class="realz-media"><img src="../assets/projekty/mladonovice.jpg" alt="Farma Mladoňovice - realizace HAZE" loading="lazy"><span class="realz-tag">Ventilace + střešní + vrata</span></div>
         <div>
           <div class="realz-kicker">Prémiová plachta Sattler</div>
@@ -205,7 +205,7 @@
         </div>
       </div>
 
-      <div class="realz-item reveal">
+      <div class="realz-item reveal" id="zelatovice">
         <div class="realz-media"><img src="../assets/projekty/zelatovice.jpg" alt="AGRAS Želatovice - realizace HAZE" loading="lazy"><span class="realz-tag">Ventilace + střešní + meteostanice</span></div>
         <div>
           <div class="realz-kicker">Automatické řízení mikroklimatu</div>
@@ -215,7 +215,7 @@
         </div>
       </div>
 
-      <div class="realz-item reveal">
+      <div class="realz-item reveal" id="novy-teleckov">
         <div class="realz-media"><img src="../assets/projekty/novy-teleckov.jpg" alt="Farma Nový Telečkov - realizace HAZE" loading="lazy"><span class="realz-tag">Ventilace + vrata + meteostanice</span></div>
         <div>
           <div class="realz-kicker">Elektrická rolovací vrata</div>
@@ -225,7 +225,7 @@
         </div>
       </div>
 
-      <div class="realz-item reveal">
+      <div class="realz-item reveal" id="holesov">
         <div class="realz-media"><img src="../assets/projekty/holesov.jpg" alt="Jízdárna Holešov-Dobrotice - realizace HAZE" loading="lazy"><span class="realz-tag">Jízdárna · ventilace</span></div>
         <div>
           <div class="realz-kicker">Prosvětlená stěna 65 m</div>
@@ -357,7 +357,7 @@
   <div class="wrap">
     <div class="sec-head reveal">
       <div class="sec-eyebrow">Nezávazná poptávka</div>
-      <h2>Napište nám <em>pár vět o vaší stáji.</em></h2>
+      <h2>Vyplňte formulář a my se vám <em>ozveme do následujícího pracovního dne.</em></h2>
     </div>
     <div class="contact-grid">
       <form class="contact-form reveal" id="leadForm" action="mailto:dominik.hanousek@haze.cz" method="post" enctype="text/plain">
@@ -416,7 +416,7 @@
           <div class="timeline-num">4</div>
           <div class="timeline-body">
             <h4>Výroba a montáž 5-10 týdnů</h4>
-            <p>Vlastní hala v Křični, montuje náš tým. Po předání zaučíme obsluhu a předáme záruku.</p>
+            <p>Výroba v naší hale, montáž na místě projektu. Po předání zaučíme obsluhu a předáme záruku.</p>
           </div>
         </div>
       </aside>

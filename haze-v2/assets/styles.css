@@ -24,7 +24,7 @@
 
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-#contact{scroll-margin-top:96px}
+#contact,#kontakt,#leadForm{scroll-margin-top:96px}
 body{
   font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
   color:var(--ink); background:var(--paper); line-height:1.55;
@@ -168,7 +168,7 @@ h1 em{font-style:normal;color:var(--haze-soft);font-weight:700}
 /* ========== SUBPAGE HERO (smaller, no full-bleed photo) ========== */
 .subhero{
   background:var(--steel-900);color:#fff;position:relative;
-  padding:44px 0 28px;border-bottom:1px solid var(--line-dark);
+  padding:108px 0 32px;border-bottom:1px solid var(--line-dark);
 }
 .subhero::after{
   content:'';position:absolute;left:0;right:0;bottom:0;height:1px;
@@ -566,7 +566,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   .story-facts{padding:32px 24px}
   .contact-form{padding:28px 22px}
   .contact{padding-bottom:88px}
-  .subhero{padding:40px 0 24px}
+  .subhero{padding:96px 0 24px}
 }
 
 /* ========== REDUCED MOTION ========== */
