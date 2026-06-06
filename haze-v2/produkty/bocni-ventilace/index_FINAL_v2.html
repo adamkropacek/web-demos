@@ -141,6 +141,39 @@ h2 em{font-style:normal;color:var(--haze-dark)}
 .cta .btn{background:var(--haze);color:#fff;font-family:'Manrope';font-weight:700;font-size:15px;padding:14px 28px;border-radius:7px}
 .cta .btn:hover{background:var(--haze-dark)}
 
+/* INTRO CTA ROW */
+.cta-row{margin-top:30px;display:flex;gap:18px;flex-wrap:wrap;align-items:center}
+.btn-primary{background:var(--haze);color:#fff;font-family:'Manrope';font-weight:700;font-size:15px;padding:14px 28px;border-radius:7px;display:inline-flex;align-items:center;gap:8px}
+.btn-primary:hover{background:var(--haze-dark);color:#fff}
+.btn-ghost{font-family:'Manrope';font-weight:600;font-size:14.5px;color:var(--ink-soft)}
+.btn-ghost b{font-family:'Manrope';font-weight:800;color:var(--ink)}
+.btn-ghost:hover{color:var(--haze-dark)}
+
+/* LEAD FORM */
+.poptavka{background:var(--paper-2)}
+.pform-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:start;margin-top:8px}
+.lead-form{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:34px}
+.lead-form .row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.fld{margin-bottom:16px}
+.fld label{display:block;font-family:'Manrope';font-weight:700;font-size:12.5px;color:var(--ink);margin-bottom:7px}
+.fld input,.fld textarea{width:100%;font-family:'Inter';font-size:15px;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:13px 15px;transition:.15s}
+.fld input:focus,.fld textarea:focus{outline:none;border-color:var(--haze);background:#fff}
+.fld textarea{min-height:120px;resize:vertical}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.btn-submit{width:100%;background:var(--haze);color:#fff;font-family:'Manrope';font-weight:800;font-size:16px;padding:16px;border:none;border-radius:8px;cursor:pointer;transition:.15s;margin-top:4px}
+.btn-submit:hover{background:var(--haze-dark)}
+.form-note{font-size:12.5px;color:var(--ink-soft);margin-top:14px;text-align:center}
+.pcontact .k{font-family:'Manrope';font-weight:700;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--haze-dark);margin-bottom:16px}
+.pcontact h3{font-weight:800;font-size:25px;line-height:1.15;margin-bottom:10px}
+.pcontact p{font-size:15px;color:var(--ink-soft);margin-bottom:26px;max-width:40ch}
+.dcontact{display:flex;flex-direction:column;gap:12px}
+.dbtn{display:flex;align-items:center;gap:14px;background:var(--white);border:1px solid var(--line);border-radius:10px;padding:15px 20px;transition:.15s}
+.dbtn:hover{border-color:var(--haze)}
+.dbtn .ic{width:42px;height:42px;flex:none;border-radius:9px;background:var(--haze-tint);color:var(--haze-dark);display:flex;align-items:center;justify-content:center;font-size:19px}
+.dbtn .dl{display:block;font-family:'Manrope';font-weight:700;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft)}
+.dbtn .dv{display:block;font-family:'Manrope';font-weight:800;font-size:18px;color:var(--ink)}
+@media(max-width:760px){.pform-grid{grid-template-columns:1fr;gap:30px}.lead-form{padding:24px}.lead-form .row{grid-template-columns:1fr}}
+
 /* FOOTER */
 .ft{background:var(--white);border-top:1px solid var(--line);padding:54px 0 30px;font-size:14px;color:var(--ink-soft)}
 .ft-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.1fr;gap:40px}
@@ -187,6 +220,7 @@ h2 em{font-style:normal;color:var(--haze-dark)}
     <div class="crumbs"><a href="../../">Domů</a><span>›</span><a href="../">Produkty</a><span>›</span>Boční ventilační systémy</div>
     <h1>Boční ventilační systémy <em>BVS A-F.</em></h1>
     <p class="lead">Boční stěna stáje, kterou lze otevřít pro výměnu vzduchu a uzavřít proti chladu a průvanu. Vyrábíme šest typů A až F ve třech principech - svinovací, rolovací a polykarbonátová stěna. Liší se způsobem otevírání, ovládáním, materiálem výplně a maximálním rozměrem. Níže najdete detail každého typu i srovnání v tabulce.</p>
+    <div class="cta-row"><a class="btn-primary" href="#poptavka">Nezávazná poptávka →</a><a class="btn-ghost" href="tel:+420602488989">nebo zavolejte <b>+420 602 488 989</b></a></div>
   </div>
 </section>
 
@@ -336,7 +370,7 @@ h2 em{font-style:normal;color:var(--haze-dark)}
     </div>
     <div class="act">
       <a class="ph" href="tel:+420602488989">+420 602 488 989</a>
-      <a class="btn" href="../../kontakt/">Napsat poptávku →</a>
+      <a class="btn" href="#poptavka">Vyplnit poptávku →</a>
     </div>
   </div>
 </section>
@@ -352,6 +386,38 @@ h2 em{font-style:normal;color:var(--haze-dark)}
       <details><summary>Zvládne stěna i stínění, nejen větrání?</summary><p>Ano, typ D má pohyblivé horní i spodní uchycení a slouží k odvětrávání i ke stínění zároveň.</p></details>
       <details><summary>Jak probíhá montáž?</summary><p>Stěnu vyrobíme na míru a montáž zajišťuje náš montážní tým. Po předání zaučíme obsluhu. Na konstrukci i montáž poskytujeme záruku 2 roky.</p></details>
       <details><summary>Jde stěnou nahradit rolovací vrata?</summary><p>U širokých vjezdů ano - díky robustní konstrukci a variabilním rozměrům to umožňuje zejména typ E.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- POPTAVKA / LEAD FORM -->
+<section class="poptavka" id="poptavka">
+  <div class="wrap">
+    <div class="sec-head"><div class="eyebrow">Nezávazná poptávka</div><h2>Pošlete nám <em>poptávku.</em></h2><p class="lead">Napište rozměry stěny a typ provozu - ozveme se do 48 hodin s návrhem typu BVS a cenou. Konzultace i nacenění jsou zdarma.</p></div>
+    <div class="pform-grid">
+      <form class="lead-form" action="mailto:dominik.hanousek@haze.cz" method="post" enctype="text/plain">
+        <div class="row">
+          <div class="fld"><label for="name">Jméno *</label><input type="text" id="name" name="name" required placeholder="Jan Novák"></div>
+          <div class="fld"><label for="company">Firma / farma</label><input type="text" id="company" name="company" placeholder="ZD Křičeň"></div>
+        </div>
+        <div class="row">
+          <div class="fld"><label for="phone">Telefon *</label><input type="tel" id="phone" name="phone" required placeholder="+420 ..."></div>
+          <div class="fld"><label for="email">E-mail</label><input type="email" id="email" name="email" placeholder="jan@farma.cz"></div>
+        </div>
+        <div class="fld"><label for="msg">Co potřebujete</label><textarea id="msg" name="message" placeholder="Rozměry stěny, typ provozu, např. stáj pro 200 dojnic, boční stěna 60 × 3 m..."></textarea></div>
+        <input type="text" class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button type="submit" class="btn-submit">Odeslat poptávku</button>
+        <p class="form-note">Odpovídáme do 48 hodin. Konzultace i nacenění jsou zdarma a nezávazné.</p>
+      </form>
+      <div class="pcontact">
+        <div class="k">Raději rovnou?</div>
+        <h3>Zavolejte nebo napište.</h3>
+        <p>Poradíme s výběrem typu BVS a domluvíme zaměření přímo na stavbě.</p>
+        <div class="dcontact">
+          <a class="dbtn" href="tel:+420602488989"><span class="ic">✆</span><span><span class="dl">Zavolat</span><span class="dv">+420 602 488 989</span></span></a>
+          <a class="dbtn" href="mailto:dominik.hanousek@haze.cz"><span class="ic">✉</span><span><span class="dl">Napsat e-mail</span><span class="dv">dominik.hanousek@haze.cz</span></span></a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
