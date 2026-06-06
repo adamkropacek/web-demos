@@ -73,6 +73,7 @@ h2 em{font-style:normal;color:var(--haze-dark)}
 /* INTRO */
 .intro{padding:118px 0 48px;border-bottom:1px solid var(--line)}
 .crumbs{font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);font-weight:600;margin-bottom:28px}
+.crumbs a{color:var(--ink-soft)}
 .crumbs a:hover{color:var(--haze-dark)}.crumbs span{margin:0 9px;color:var(--line)}
 .intro-grid{display:grid;grid-template-columns:1.04fr .96fr;gap:54px;align-items:center}
 .intro h1{font-weight:800;font-size:clamp(2.2rem,4vw,3.3rem);line-height:1.04;max-width:16ch}
@@ -96,21 +97,35 @@ h2 em{font-style:normal;color:var(--haze-dark)}
 .spec-body p{font-size:15.5px;color:var(--ink-soft);margin-bottom:18px}
 @media(max-width:900px){.spec-grid{grid-template-columns:1fr;gap:26px}}
 
-/* CHOOSE + FAQ */
+/* SECTION ALTERNATING BG */
 .bg-2{background:var(--paper-2)}
-.choose{list-style:none;margin-top:34px;display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-.choose li{background:var(--white);border:1px solid var(--line);border-left:3px solid var(--haze);border-radius:8px;padding:18px 22px;font-size:15px;color:var(--ink-soft)}
-.choose li b{font-family:'Manrope';color:var(--ink);font-weight:700}
-.choose li .tag{font-family:'Manrope';font-weight:800;color:var(--haze-dark)}
-/* FAQ accordion */
-.faq{margin-top:30px;border-top:1px solid var(--line)}
-.faq details{border-bottom:1px solid var(--line)}
-.faq summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:20px 0;font-family:'Manrope';font-weight:700;font-size:17px;color:var(--ink)}
+.sec-white{background:var(--white)}
+.sec-beige{background:var(--paper-2)}
+
+/* INTRO + MID CTA */
+.cta-row{margin-top:34px;display:flex;flex-wrap:wrap;gap:16px;align-items:center}
+.mid-cta{margin-top:40px;text-align:center}
+
+/* CHOOSE - enriched cards */
+.choose{list-style:none;margin-top:34px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.choose li{background:var(--white);border:1px solid var(--line);border-top:3px solid var(--haze);border-radius:10px;padding:22px 22px 20px;display:flex;flex-direction:column;gap:7px}
+.choose li .tag{font-family:'Manrope';font-weight:800;font-size:17px;color:var(--ink)}
+.choose li .ch-lead{font-size:14px;color:var(--ink);font-weight:700;font-family:'Manrope'}
+.choose li .ch-desc{font-size:13.5px;color:var(--ink-soft);line-height:1.55}
+
+/* FAQ - card accordion */
+.faq{margin-top:8px;display:flex;flex-direction:column;gap:12px}
+.faq details{background:var(--white);border:1px solid var(--line);border-radius:10px;overflow:hidden;transition:border-color .2s,box-shadow .25s}
+.faq details[open]{border-color:var(--haze);box-shadow:0 12px 30px rgba(21,23,28,.07)}
+.faq summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:20px 24px;font-family:'Manrope';font-weight:700;font-size:17px;color:var(--ink)}
 .faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:'+';font-family:'Manrope';font-weight:500;font-size:26px;line-height:1;color:var(--haze-dark);flex:none;transition:transform .2s ease}
+.faq summary::after{content:'+';font-family:'Manrope';font-weight:400;font-size:28px;line-height:1;color:var(--haze-dark);flex:none;transition:transform .2s ease}
 .faq details[open] summary::after{transform:rotate(45deg)}
 .faq summary:hover{color:var(--haze-dark)}
-.faq details>p{font-size:15px;color:var(--ink-soft);max-width:80ch;padding:0 0 22px;margin-top:-2px}
+.faq details>p{font-size:15px;color:var(--ink-soft);max-width:80ch;padding:0 24px 22px;margin-top:-4px}
+
+@media(max-width:980px){.choose{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:680px){.choose{grid-template-columns:1fr}.wrap{padding:0 18px}}
 
 </style>
 </head>
@@ -162,8 +177,9 @@ h2 em{font-style:normal;color:var(--haze-dark)}
         <h1>Zastřešení <em>jímek.</em></h1>
         <p class="lead">Zakrýváme kejdové a fugátové jímky o vnitřním průměru 15 až 35 m silnostěnnou plachtou na nerezové konstrukci. Zastřešení snižuje emise amoniaku a pachových plynů a zároveň brání úniku dešťové vody do jímky. Odborné posouzení, statický výpočet i montáž zajišťujeme my.</p>
         <div class="cta-row">
-          <a class="btn-primary" href="#kontakt">Nezávazná poptávka →</a>
-          <a class="btn-ghost" href="tel:+420602488989">nebo zavolejte <b>+420 602 488 989</b></a>
+          <a class="btn-primary" href="#kontakt">Chci nabídku do 48h
+            <span class="btn-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </a>
         </div>
       </div>
       <div class="intro-media reveal"><img src="../../assets/products/zastreseni-jimek/img2.jpg" alt="Zastřešení jímky HAZE - realizace"></div>
@@ -201,30 +217,21 @@ h2 em{font-style:normal;color:var(--haze-dark)}
   <div class="wrap">
     <div class="sec-head reveal"><div class="eyebrow">Proč jímku zastřešit</div><h2>Co zastřešení <em>přináší.</em></h2><p class="lead">Zakrytí jímky řeší emise i hospodaření s dešťovou vodou a chrání betonovou nádrž.</p></div>
     <ul class="choose reveal">
-      <li><span class="tag">Méně emisí</span> - <b>Amoniak a pach.</b> Plachta snižuje únik amoniaku a pachových plynů z jímky do ovzduší.</li>
-      <li><span class="tag">Bez dešťové vody</span> - <b>Menší objem.</b> Zastřešení brání úniku dešťové vody do jímky, takže neředí obsah a nezvyšuje objem k odvozu.</li>
-      <li><span class="tag">Posouzení a statika</span> - <b>Ke každé jímce.</b> Odborné posouzení provádíme na místě a dodáváme statický výpočet.</li>
-      <li><span class="tag">Nerezová konstrukce</span> - <b>Dlouhá životnost.</b> Pásy, lana i středový kruh jsou z nerezové oceli, odolné stájovému prostředí.</li>
+      <li><span class="tag">Méně emisí</span><span class="ch-lead">Amoniak a pach.</span><span class="ch-desc">Plachta snižuje únik amoniaku a pachových plynů z jímky do ovzduší.</span></li>
+      <li><span class="tag">Bez dešťové vody</span><span class="ch-lead">Menší objem.</span><span class="ch-desc">Zastřešení brání úniku dešťové vody do jímky, takže neředí obsah a nezvyšuje objem k odvozu.</span></li>
+      <li><span class="tag">Posouzení a statika</span><span class="ch-lead">Ke každé jímce.</span><span class="ch-desc">Odborné posouzení provádíme na místě a dodáváme statický výpočet.</span></li>
+      <li><span class="tag">Nerezová konstrukce</span><span class="ch-lead">Dlouhá životnost.</span><span class="ch-desc">Pásy, lana i středový kruh jsou z nerezové oceli, odolné stájovému prostředí.</span></li>
     </ul>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section>
-  <div class="wrap">
-    <div class="sec-head reveal"><div class="eyebrow">Časté dotazy</div><h2>Co se ptáte <em>nejčastěji.</em></h2></div>
-    <div class="faq reveal">
-      <details><summary>Jak velkou jímku zvládnete zastřešit?</summary><p>Zakrýváme jímky o vnitřním průměru 15 až 35 m. Konkrétní řešení navrhneme po odborném posouzení přímo na místě.</p></details>
-      <details><summary>Z čeho je plachta a konstrukce?</summary><p>Plachta je silnostěnná, o gramáži 900 g/m². Nosná konstrukce - ocelové pásy, středový kruh a silnostěnná lana - je z nerezové oceli, takže odolává stájovému prostředí a má dlouhou životnost.</p></details>
-      <details><summary>Pomůže zastřešení s emisemi?</summary><p>Ano. Zakrytí jímky snižuje únik amoniaku a pachových plynů z hladiny do ovzduší a zároveň brání tomu, aby do jímky natékala dešťová voda.</p></details>
-      <details><summary>Provádíte statický výpočet?</summary><p>Ano. Ke každé jímce děláme odborné posouzení na místě a dodáváme statický výpočet. Kompletní instalaci pak zajišťuje náš tým.</p></details>
-      <details><summary>Jde zastřešit i stávající betonovou jímku?</summary><p>Ano. Ocelové pásy se osazují kolem připravené betonové jímky a středový kruh se kotví na nerezový nebo betonový sloup. Vhodnost konkrétní jímky posoudíme na místě.</p></details>
+    <div class="mid-cta">
+      <a class="btn-primary" href="#kontakt">Chci nabídku do 48h
+        <span class="btn-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
     </div>
   </div>
 </section>
 
 <!-- KONTAKT FORM (shared) -->
-<section class="contact" id="kontakt" style="background:var(--paper)">
+<section class="contact" id="kontakt" style="background:var(--paper-2)">
   <div class="wrap">
     <div class="sec-head reveal">
       <div class="sec-eyebrow">Nezávazná poptávka</div>
@@ -312,6 +319,20 @@ h2 em{font-style:normal;color:var(--haze-dark)}
     </div>
     <div class="final-buttons">
       <a href="../../kontakt/">Nezávazná konzultace</a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ (presunuto pod posledni CTA - sjednoceni s ostatni-vrata) -->
+<section class="sec-white">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">Časté dotazy</div><h2>Co se ptáte <em>nejčastěji.</em></h2></div>
+    <div class="faq reveal">
+      <details><summary>Jak velkou jímku zvládnete zastřešit?</summary><p>Zakrýváme jímky o vnitřním průměru 15 až 35 m. Konkrétní řešení navrhneme po odborném posouzení přímo na místě.</p></details>
+      <details><summary>Z čeho je plachta a konstrukce?</summary><p>Plachta je silnostěnná, o gramáži 900 g/m². Nosná konstrukce - ocelové pásy, středový kruh a silnostěnná lana - je z nerezové oceli, takže odolává stájovému prostředí a má dlouhou životnost.</p></details>
+      <details><summary>Pomůže zastřešení s emisemi?</summary><p>Ano. Zakrytí jímky snižuje únik amoniaku a pachových plynů z hladiny do ovzduší a zároveň brání tomu, aby do jímky natékala dešťová voda.</p></details>
+      <details><summary>Provádíte statický výpočet?</summary><p>Ano. Ke každé jímce děláme odborné posouzení na místě a dodáváme statický výpočet. Kompletní instalaci pak zajišťuje náš tým.</p></details>
+      <details><summary>Jde zastřešit i stávající betonovou jímku?</summary><p>Ano. Ocelové pásy se osazují kolem připravené betonové jímky a středový kruh se kotví na nerezový nebo betonový sloup. Vhodnost konkrétní jímky posoudíme na místě.</p></details>
     </div>
   </div>
 </section>

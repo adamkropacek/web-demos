@@ -73,6 +73,7 @@ h2 em{font-style:normal;color:var(--haze-dark)}
 /* INTRO */
 .intro{padding:118px 0 48px;border-bottom:1px solid var(--line)}
 .crumbs{font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);font-weight:600;margin-bottom:28px}
+.crumbs a{color:var(--ink-soft)}
 .crumbs a:hover{color:var(--haze-dark)}.crumbs span{margin:0 9px;color:var(--line)}
 .intro-grid{display:grid;grid-template-columns:1.04fr .96fr;gap:54px;align-items:center}
 .intro h1{font-weight:800;font-size:clamp(2.2rem,4vw,3.3rem);line-height:1.04;max-width:16ch}
@@ -96,21 +97,35 @@ h2 em{font-style:normal;color:var(--haze-dark)}
 .spec-body p{font-size:15.5px;color:var(--ink-soft);margin-bottom:18px}
 @media(max-width:900px){.spec-grid{grid-template-columns:1fr;gap:26px}.spec-media{aspect-ratio:16/11}}
 
-/* CHOOSE + FAQ */
+/* SECTION ALTERNATING BG */
 .bg-2{background:var(--paper-2)}
-.choose{list-style:none;margin-top:34px;display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-.choose li{background:var(--white);border:1px solid var(--line);border-left:3px solid var(--haze);border-radius:8px;padding:18px 22px;font-size:15px;color:var(--ink-soft)}
-.choose li b{font-family:'Manrope';color:var(--ink);font-weight:700}
-.choose li .tag{font-family:'Manrope';font-weight:800;color:var(--haze-dark)}
-/* FAQ accordion */
-.faq{margin-top:30px;border-top:1px solid var(--line)}
-.faq details{border-bottom:1px solid var(--line)}
-.faq summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:20px 0;font-family:'Manrope';font-weight:700;font-size:17px;color:var(--ink)}
+.sec-white{background:var(--white)}
+.sec-beige{background:var(--paper-2)}
+
+/* INTRO + MID CTA */
+.cta-row{margin-top:34px;display:flex;flex-wrap:wrap;gap:16px;align-items:center}
+.mid-cta{margin-top:40px;text-align:center}
+
+/* CHOOSE - enriched cards */
+.choose{list-style:none;margin-top:34px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.choose li{background:var(--white);border:1px solid var(--line);border-top:3px solid var(--haze);border-radius:10px;padding:22px 22px 20px;display:flex;flex-direction:column;gap:7px}
+.choose li .tag{font-family:'Manrope';font-weight:800;font-size:17px;color:var(--ink)}
+.choose li .ch-lead{font-size:14px;color:var(--ink);font-weight:700;font-family:'Manrope'}
+.choose li .ch-desc{font-size:13.5px;color:var(--ink-soft);line-height:1.55}
+
+/* FAQ - card accordion */
+.faq{margin-top:8px;display:flex;flex-direction:column;gap:12px}
+.faq details{background:var(--white);border:1px solid var(--line);border-radius:10px;overflow:hidden;transition:border-color .2s,box-shadow .25s}
+.faq details[open]{border-color:var(--haze);box-shadow:0 12px 30px rgba(21,23,28,.07)}
+.faq summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:20px 24px;font-family:'Manrope';font-weight:700;font-size:17px;color:var(--ink)}
 .faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:'+';font-family:'Manrope';font-weight:500;font-size:26px;line-height:1;color:var(--haze-dark);flex:none;transition:transform .2s ease}
+.faq summary::after{content:'+';font-family:'Manrope';font-weight:400;font-size:28px;line-height:1;color:var(--haze-dark);flex:none;transition:transform .2s ease}
 .faq details[open] summary::after{transform:rotate(45deg)}
 .faq summary:hover{color:var(--haze-dark)}
-.faq details>p{font-size:15px;color:var(--ink-soft);max-width:80ch;padding:0 0 22px;margin-top:-2px}
+.faq details>p{font-size:15px;color:var(--ink-soft);max-width:80ch;padding:0 24px 22px;margin-top:-4px}
+
+@media(max-width:980px){.choose{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:680px){.choose{grid-template-columns:1fr}.wrap{padding:0 18px}}
 
 </style>
 </head>
@@ -162,8 +177,9 @@ h2 em{font-style:normal;color:var(--haze-dark)}
         <h1>Protihlukové stěny <em>na míru.</em></h1>
         <p class="lead">Ocelová konstrukce projektovaná na konkrétní akustický útlum. Pro sportovní haly, obce, sportoviště i průmyslové provozy - všude tam, kde hluk z provozu naráží na limity hygienických norem nebo komfort okolí. Vyrábíme ve vlastní hale a montujeme vlastním týmem, takže máme termín i rozměry pod kontrolou.</p>
         <div class="cta-row">
-          <a class="btn-primary" href="#kontakt">Nezávazná poptávka →</a>
-          <a class="btn-ghost" href="tel:+420602488989">nebo zavolejte <b>+420 602 488 989</b></a>
+          <a class="btn-primary" href="#kontakt">Chci nabídku do 48h
+            <span class="btn-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </a>
         </div>
       </div>
       <div class="intro-media reveal"><img src="../../assets/protihlukove-steny.jpg" alt="Protihluková stěna HAZE - realizace"></div>
@@ -203,31 +219,21 @@ h2 em{font-style:normal;color:var(--haze-dark)}
   <div class="wrap">
     <div class="sec-head reveal"><div class="eyebrow">Pro koho</div><h2>Kde stěna <em>řeší problém.</em></h2><p class="lead">Stěnu navrhujeme podle situace - od sportovní haly přes obecní sportoviště po průmysl a vnitřní dělení prostor.</p></div>
     <ul class="choose reveal">
-      <li><span class="tag">Sportovní hala</span> - <b>Limity hluku.</b> Provozní hluk naráží na limity směrem k sousední zástavbě. Akustický projekt a naše konstrukce řeší provoz bez omezení hodin.</li>
-      <li><span class="tag">Obecní sportoviště</span> - <b>Podmínka dotace.</b> Dotační tituly vyžadují splnění akustické studie. Stěnu projektujeme na její výsledky a dodáme podklady ke kolaudaci.</li>
-      <li><span class="tag">Průmyslový provoz</span> - <b>Sousední zástavba.</b> Hluk z výroby nebo logistiky narušuje rezidenční zónu. Modulární stěnu postavíme bez dlouhých uzávěr provozu.</li>
-      <li><span class="tag">Dělicí stěny</span> - <b>Rozdělení prostoru.</b> Dělicí a clonící stěny z PVC plachty i pevných panelů, například dělicí stěna 240 m² ve sportovní hale Lukáše Krpálka.</li>
+      <li><span class="tag">Sportovní hala</span><span class="ch-lead">Limity hluku.</span><span class="ch-desc">Provozní hluk naráží na limity směrem k sousední zástavbě. Akustický projekt a naše konstrukce řeší provoz bez omezení hodin.</span></li>
+      <li><span class="tag">Obecní sportoviště</span><span class="ch-lead">Podmínka dotace.</span><span class="ch-desc">Dotační tituly vyžadují splnění akustické studie. Stěnu projektujeme na její výsledky a dodáme podklady ke kolaudaci.</span></li>
+      <li><span class="tag">Průmyslový provoz</span><span class="ch-lead">Sousední zástavba.</span><span class="ch-desc">Hluk z výroby nebo logistiky narušuje rezidenční zónu. Modulární stěnu postavíme bez dlouhých uzávěr provozu.</span></li>
+      <li><span class="tag">Dělicí stěny</span><span class="ch-lead">Rozdělení prostoru.</span><span class="ch-desc">Dělicí a clonící stěny z PVC plachty i pevných panelů, například dělicí stěna 240 m² ve sportovní hale Lukáše Krpálka.</span></li>
     </ul>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section>
-  <div class="wrap">
-    <div class="sec-head reveal"><div class="eyebrow">Časté dotazy</div><h2>Co se ptáte <em>nejčastěji.</em></h2></div>
-    <div class="faq reveal">
-      <details><summary>Jaký akustický útlum stěna zajistí?</summary><p>Konkrétní hodnotu projektujeme ve spolupráci s akustikem podle akustické studie nebo měření a podle volby výplně. Útlum proto neslibujeme paušálně - vychází z konkrétního zadání a typu provozu.</p></details>
-      <details><summary>Z čeho je stěna postavená?</summary><p>Nosný je ocelový rám, žárově zinkovaný nebo práškově lakovaný. Výplň volíme podle akustického projektu - perforovaný plech, sendvičové panely s minerální vlnou nebo dřevěné akustické moduly.</p></details>
-      <details><summary>Jak velkou stěnu zvládnete?</summary><p>Systém je modulární, výška standardně 2 až 6 m, délky bez omezení. U delších úseků řešíme dilatace podle konkrétní délky.</p></details>
-      <details><summary>Děláte i podklady pro stavební úřad nebo dotaci?</summary><p>Stěnu projektujeme na výsledky akustické studie a dodáme podklady potřebné ke kolaudaci. Konkrétní rozsah dohodneme podle vašeho projektu.</p></details>
-      <details><summary>Stavíte i obyčejné dělicí stěny?</summary><p>Ano. Kromě protihlukových stěn vyrábíme i dělicí a clonící stěny z PVC plachty i pevných panelů. Příkladem je dělicí stěna o ploše 240 m² ve sportovní hale Lukáše Krpálka.</p></details>
-      <details><summary>Kdo stěnu vyrobí a namontuje?</summary><p>Vyrábíme ve vlastní hale a montujeme vlastním týmem. Díky tomu máme pod kontrolou rozměry i termín a nejsme závislí na subdodavatelích.</p></details>
+    <div class="mid-cta">
+      <a class="btn-primary" href="#kontakt">Chci nabídku do 48h
+        <span class="btn-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
     </div>
   </div>
 </section>
 
 <!-- KONTAKT FORM (shared) -->
-<section class="contact" id="kontakt" style="background:var(--paper)">
+<section class="contact" id="kontakt" style="background:var(--paper-2)">
   <div class="wrap">
     <div class="sec-head reveal">
       <div class="sec-eyebrow">Nezávazná poptávka</div>
@@ -315,6 +321,21 @@ h2 em{font-style:normal;color:var(--haze-dark)}
     </div>
     <div class="final-buttons">
       <a href="../../kontakt/">Nezávazná konzultace</a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ (presunuto pod posledni CTA - sjednoceni s ostatni-vrata) -->
+<section class="sec-white">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">Časté dotazy</div><h2>Co se ptáte <em>nejčastěji.</em></h2></div>
+    <div class="faq reveal">
+      <details><summary>Jaký akustický útlum stěna zajistí?</summary><p>Konkrétní hodnotu projektujeme ve spolupráci s akustikem podle akustické studie nebo měření a podle volby výplně. Útlum proto neslibujeme paušálně - vychází z konkrétního zadání a typu provozu.</p></details>
+      <details><summary>Z čeho je stěna postavená?</summary><p>Nosný je ocelový rám, žárově zinkovaný nebo práškově lakovaný. Výplň volíme podle akustického projektu - perforovaný plech, sendvičové panely s minerální vlnou nebo dřevěné akustické moduly.</p></details>
+      <details><summary>Jak velkou stěnu zvládnete?</summary><p>Systém je modulární, výška standardně 2 až 6 m, délky bez omezení. U delších úseků řešíme dilatace podle konkrétní délky.</p></details>
+      <details><summary>Děláte i podklady pro stavební úřad nebo dotaci?</summary><p>Stěnu projektujeme na výsledky akustické studie a dodáme podklady potřebné ke kolaudaci. Konkrétní rozsah dohodneme podle vašeho projektu.</p></details>
+      <details><summary>Stavíte i obyčejné dělicí stěny?</summary><p>Ano. Kromě protihlukových stěn vyrábíme i dělicí a clonící stěny z PVC plachty i pevných panelů. Příkladem je dělicí stěna o ploše 240 m² ve sportovní hale Lukáše Krpálka.</p></details>
+      <details><summary>Kdo stěnu vyrobí a namontuje?</summary><p>Vyrábíme ve vlastní hale a montujeme vlastním týmem. Díky tomu máme pod kontrolou rozměry i termín a nejsme závislí na subdodavatelích.</p></details>
     </div>
   </div>
 </section>

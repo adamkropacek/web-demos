@@ -73,6 +73,7 @@ h2 em{font-style:normal;color:var(--haze-dark)}
 /* INTRO */
 .intro{padding:118px 0 48px;border-bottom:1px solid var(--line)}
 .crumbs{font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);font-weight:600;margin-bottom:28px}
+.crumbs a{color:var(--ink-soft)}
 .crumbs a:hover{color:var(--haze-dark)}.crumbs span{margin:0 9px;color:var(--line)}
 .intro-grid{display:grid;grid-template-columns:1.04fr .96fr;gap:54px;align-items:center}
 .intro h1{font-weight:800;font-size:clamp(2.2rem,4vw,3.3rem);line-height:1.04;max-width:16ch}
@@ -93,7 +94,7 @@ h2 em{font-style:normal;color:var(--haze-dark)}
 .ovw-title{font-family:'Manrope';font-weight:800;font-size:20px;margin:44px 0 16px}
 
 /* PER-VARIANT BLOCKS */
-.ptype{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:center;padding:64px 0;border-bottom:1px solid var(--line)}
+.ptype{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:center;padding:64px 0;border-bottom:1px solid var(--line);scroll-margin-top:96px}
 .ptype:last-child{border-bottom:none}
 .ptype-media{border-radius:12px;overflow:hidden;aspect-ratio:16/10;background:var(--paper-2)}
 .ptype-media img{width:100%;height:100%;object-fit:cover}
@@ -107,21 +108,40 @@ h2 em{font-style:normal;color:var(--haze-dark)}
 .ptable th{text-align:left;font-family:'Manrope';font-weight:700;font-size:13px;color:var(--ink);padding:11px 0;width:38%;vertical-align:top}
 .ptable td{font-size:14px;color:var(--ink-soft);padding:11px 0;vertical-align:top}
 
-/* CHOOSE + FAQ */
+/* SECTION ALTERNATING BG */
 .bg-2{background:var(--paper-2)}
-.choose{list-style:none;margin-top:34px;display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-.choose li{background:var(--white);border:1px solid var(--line);border-left:3px solid var(--haze);border-radius:8px;padding:18px 22px;font-size:15px;color:var(--ink-soft)}
-.choose li b{font-family:'Manrope';color:var(--ink);font-weight:700}
-.choose li .tag{font-family:'Manrope';font-weight:800;color:var(--haze-dark)}
-/* FAQ accordion */
-.faq{margin-top:30px;border-top:1px solid var(--line)}
-.faq details{border-bottom:1px solid var(--line)}
-.faq summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:20px 0;font-family:'Manrope';font-weight:700;font-size:17px;color:var(--ink)}
+.sec-white{background:var(--white)}
+.sec-beige{background:var(--paper-2)}
+
+/* INTRO + MID CTA */
+.cta-row{margin-top:34px;display:flex;flex-wrap:wrap;gap:16px;align-items:center}
+.mid-cta{margin-top:40px;text-align:center}
+
+/* CHOOSE - enriched cards (replaces old comparison table) */
+.choose{list-style:none;margin-top:34px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.choose li{background:var(--white);border:1px solid var(--line);border-top:3px solid var(--haze);border-radius:10px;padding:22px 22px 20px;display:flex;flex-direction:column;gap:7px}
+.choose li .tag{font-family:'Manrope';font-weight:800;font-size:17px;color:var(--ink)}
+.choose li .ch-lead{font-size:14px;color:var(--ink);font-weight:700;font-family:'Manrope'}
+.choose li .ch-desc{font-size:13.5px;color:var(--ink-soft);line-height:1.55}
+.choose li dl{margin-top:auto;padding-top:13px;margin-top:13px;border-top:1px solid var(--line-soft);display:grid;grid-template-columns:auto 1fr;gap:5px 12px}
+.choose li dt{font-size:10.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--haze-dark);font-weight:700;white-space:nowrap;padding-top:1px}
+.choose li dd{font-size:12.5px;color:var(--ink-soft);line-height:1.4}
+.ch-jump{color:var(--haze-dark);font-weight:700;font-size:13px;margin-top:12px;align-self:flex-start}
+.ch-jump:hover{color:var(--haze)}
+
+/* FAQ - card accordion */
+.faq{margin-top:8px;display:flex;flex-direction:column;gap:12px}
+.faq details{background:var(--white);border:1px solid var(--line);border-radius:10px;overflow:hidden;transition:border-color .2s,box-shadow .25s}
+.faq details[open]{border-color:var(--haze);box-shadow:0 12px 30px rgba(21,23,28,.07)}
+.faq summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:20px 24px;font-family:'Manrope';font-weight:700;font-size:17px;color:var(--ink)}
 .faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:'+';font-family:'Manrope';font-weight:500;font-size:26px;line-height:1;color:var(--haze-dark);flex:none;transition:transform .2s ease}
+.faq summary::after{content:'+';font-family:'Manrope';font-weight:400;font-size:28px;line-height:1;color:var(--haze-dark);flex:none;transition:transform .2s ease}
 .faq details[open] summary::after{transform:rotate(45deg)}
 .faq summary:hover{color:var(--haze-dark)}
-.faq details>p{font-size:15px;color:var(--ink-soft);max-width:80ch;padding:0 0 22px;margin-top:-2px}
+.faq details>p{font-size:15px;color:var(--ink-soft);max-width:80ch;padding:0 24px 22px;margin-top:-4px}
+
+@media(max-width:980px){.choose{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:680px){.choose{grid-template-columns:1fr}.wrap{padding:0 18px}}
 
 </style>
 </head>
@@ -173,8 +193,9 @@ h2 em{font-style:normal;color:var(--haze-dark)}
         <h1>Střešní <em>ventilace.</em></h1>
         <p class="lead">Hřebenové větrací štěrbiny odvádějí teplý vzduch a vlhkost z hřebene střechy a zároveň prosvětlují stáj. Vyrábíme dvě rodiny - dvoukřídlé štěrbiny s regulací, které se ovládají elektropohonem, a bezklapkové oblouky z laminátu nebo polykarbonátu, které větrají trvale. Šíře štěrbiny pokrýváme od 0,4 do 4,5 m. Níže najdete detail i srovnání v tabulce.</p>
         <div class="cta-row">
-          <a class="btn-primary" href="#kontakt">Nezávazná poptávka →</a>
-          <a class="btn-ghost" href="tel:+420602488989">nebo zavolejte <b>+420 602 488 989</b></a>
+          <a class="btn-primary" href="#kontakt">Chci nabídku do 48h
+            <span class="btn-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </a>
         </div>
       </div>
       <div class="intro-media reveal"><img src="../../assets/products/stresni-vetrani/hero.jpg" alt="Hřebenová větrací štěrbina HAZE - realizace"></div>
@@ -183,7 +204,7 @@ h2 em{font-style:normal;color:var(--haze-dark)}
 </section>
 
 <!-- PER-VARIANT DETAIL -->
-<section>
+<section class="sec-beige">
   <div class="wrap">
     <div class="sec-head reveal"><div class="eyebrow">Provedení detailně</div><h2>Každé provedení <em>popsané.</em></h2></div>
 
@@ -248,51 +269,66 @@ h2 em{font-style:normal;color:var(--haze-dark)}
   </div>
 </section>
 
-<!-- HOW TO CHOOSE + COMPARISON TABLE -->
-<section class="bg-2">
+<!-- HOW TO CHOOSE (comparison data folded into cards) -->
+<section class="sec-white">
   <div class="wrap">
-    <div class="sec-head reveal"><div class="eyebrow">Jak vybrat provedení</div><h2>Které větrání <em>vybrat.</em></h2><p class="lead">Rozhoduje, zda chcete větrání plynule regulovat, jaká je šíře štěrbiny, sklon střechy a zda potřebujete lepší tepelnou izolaci.</p></div>
+    <div class="sec-head reveal"><div class="eyebrow">Jak vybrat provedení</div><h2>Které větrání <em>vybrat.</em></h2><p class="lead">Rozhoduje, zda chcete větrání plynule regulovat, jaká je šíře štěrbiny a sklon střechy. U každého provedení vidíte parametr i kam se hodí.</p></div>
     <ul class="choose reveal">
-      <li><span class="tag">Regulovatelná</span> - <b>Plynulá kontrola.</b> Dvoukřídlá štěrbina s elektropohonem a meteostanicí, plachta nebo polykarbonát, pro dojírny.</li>
-      <li><span class="tag">Bez regulace</span> - <b>Trvalé větrání.</b> Bezklapkové oblouky 0,4 - 4,5 m, jednoduchá konstrukce, nejnižší cena.</li>
-      <li><span class="tag">Polykarbonát vs laminát</span> - <b>Izolace vs cena.</b> Polykarbonát lépe izoluje a brání přehřátí, laminát je cenově výhodnější.</li>
-      <li><span class="tag">Sklon a oplechování</span> - <b>Sklon pod 16°.</b> Při nízkém sklonu střechy je nutné metalické oplechování proti zatékání.</li>
+      <li>
+        <span class="tag">Regulovatelná</span>
+        <span class="ch-lead">Plynulá kontrola.</span>
+        <span class="ch-desc">Dvoukřídlá štěrbina s elektropohonem a meteostanicí, výplň plachta nebo polykarbonát.</span>
+        <dl>
+          <dt>Provedení</dt><dd>Dvoukřídlá, regulace</dd>
+          <dt>Parametr</dt><dd>Šíře 1000 - 1800 mm</dd>
+          <dt>Hodí se na</dt><dd>Dojírny a průmysl</dd>
+        </dl>
+        <a class="ch-jump" href="#regulace">Detail →</a>
+      </li>
+      <li>
+        <span class="tag">Bezklapkové</span>
+        <span class="ch-lead">Trvalé větrání.</span>
+        <span class="ch-desc">Bezklapkové oblouky z laminátu nebo polykarbonátu, jednoduchá konstrukce, nejnižší cena.</span>
+        <dl>
+          <dt>Provedení</dt><dd>Oblouk bez klapky</dd>
+          <dt>Parametr</dt><dd>Šíře 0,4 - 4,5 m</dd>
+          <dt>Hodí se na</dt><dd>Stáje, čekárny, sklady</dd>
+        </dl>
+        <a class="ch-jump" href="#bez-regulace">Detail →</a>
+      </li>
+      <li>
+        <span class="tag">Sedlové zakrytí</span>
+        <span class="ch-lead">Bezúdržbové.</span>
+        <span class="ch-desc">Vrchní zakrytí hřebene ve sklonu střechy, polykarbonát s kovovým deflektorem, bez údržby.</span>
+        <dl>
+          <dt>Provedení</dt><dd>Zakrytí hřebene</dd>
+          <dt>Parametr</dt><dd>Sklon 18 - 30°</dd>
+          <dt>Hodí se na</dt><dd>Přirozené větrání a světlo</dd>
+        </dl>
+        <a class="ch-jump" href="#sedlove">Detail →</a>
+      </li>
+      <li>
+        <span class="tag">Oplechování</span>
+        <span class="ch-lead">Sklon pod 16°.</span>
+        <span class="ch-desc">Metalické oplechování proti zatékání u nízkých sklonů, s těsnicím profilem i bez, dle RAL.</span>
+        <dl>
+          <dt>Provedení</dt><dd>Doplněk</dd>
+          <dt>Parametr</dt><dd>Sklon pod 16°</dd>
+          <dt>Hodí se na</dt><dd>Ochrana proti zatékání</dd>
+        </dl>
+        <a class="ch-jump" href="#oplechovani">Detail →</a>
+      </li>
     </ul>
-    <h3 class="ovw-title">Srovnání variant</h3>
-    <div class="ovw reveal">
-      <table class="ovt">
-        <thead><tr><th>Varianta</th><th>Regulace</th><th>Materiál</th><th>Šíře štěrbiny</th><th></th></tr></thead>
-        <tbody>
-          <tr><td><strong>Plachtová dvoukřídlá</strong></td><td>Ano</td><td>Plachta</td><td>1 - 1,7 m</td><td><a class="jump" href="#regulace">Detail →</a></td></tr>
-          <tr><td><strong>Polykarbonátová dvoukřídlá</strong></td><td>Ano</td><td>Polykarbonát</td><td>1 - 1,7 m</td><td><a class="jump" href="#regulace">Detail →</a></td></tr>
-          <tr><td><strong>Bez vrchního oblouku "H"</strong></td><td>Ne</td><td>Bez oblouku</td><td>0,4 - 0,8 m</td><td><a class="jump" href="#bez-regulace">Detail →</a></td></tr>
-          <tr><td><strong>Laminátový oblouk</strong></td><td>Ne</td><td>Laminát</td><td>0,4 - 1,5 m</td><td><a class="jump" href="#bez-regulace">Detail →</a></td></tr>
-          <tr><td><strong>Laminátový samonosný oblouk</strong></td><td>Ne</td><td>Laminát</td><td>1,5 - 4,5 m</td><td><a class="jump" href="#bez-regulace">Detail →</a></td></tr>
-          <tr><td><strong>Polykarbonátový samonosný oblouk</strong></td><td>Ne</td><td>Polykarbonát</td><td>1,5 - 4,5 m</td><td><a class="jump" href="#bez-regulace">Detail →</a></td></tr>
-          <tr><td><strong>Deskový polykarbonát</strong></td><td>Ne</td><td>Polykarbonátové panely</td><td>0,5 - 4,5 m</td><td><a class="jump" href="#bez-regulace">Detail →</a></td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section>
-  <div class="wrap">
-    <div class="sec-head reveal"><div class="eyebrow">Časté dotazy</div><h2>Co se ptáte <em>nejčastěji.</em></h2></div>
-    <div class="faq reveal">
-      <details><summary>Jaký je rozdíl mezi regulovatelnou a bezklapkovou štěrbinou?</summary><p>Dvoukřídlou štěrbinu s regulací lze plynule otevírat a zavírat elektropohonem a propojit s meteostanicí, takže reaguje na počasí. Bezklapkové oblouky se uzavřít nedají - větrají a prosvětlují stáj trvale, mají jednodušší konstrukci a nižší cenu.</p></details>
-      <details><summary>Mám zvolit laminát, nebo polykarbonát?</summary><p>Laminát je cenově nejvýhodnější, ale hůř izoluje. Polykarbonát lépe drží teplo, má vysokou propustnost světla a brání přehřátí stáje. U regulovatelné štěrbiny i u oblouků nabízíme obě varianty.</p></details>
-      <details><summary>Jak velkou šíři štěrbiny zvládnete?</summary><p>Podle varianty od 0,4 do 4,5 m. Menší oblouky (0,4 - 1,5 m) jsou pro užší hřebeny, samonosné oblouky a deskový polykarbonát zvládnou až 4,5 m. Dvoukřídlá štěrbina s regulací má šíři otevření 1000 - 1800 mm.</p></details>
-      <details><summary>Co když má střecha malý sklon?</summary><p>Při sklonu střechy nižším než 16° je nutné metalické oplechování, které brání zatékání vody. Dodáváme ho s těsnicím profilem i bez něj, v barvách dle vzorníku RAL.</p></details>
-      <details><summary>Jde štěrbinu napojit na automatiku?</summary><p>Ano. Dvoukřídlá štěrbina s regulací se ovládá elektropohonem, propojí se s meteostanicí HAZE a lze ji zapojit do automatizace řízení stáje. Součástí je i záložní napájení.</p></details>
-      <details><summary>Pro jaké provozy se štěrbiny hodí?</summary><p>Pro stáje skotu, koní, ovcí a koz, čekárny a dojírny, ale i pro čistírny odpadních vod, sklady a průmyslové budovy. Konkrétní provedení navrhneme podle stavby a provozu.</p></details>
+    <div class="mid-cta">
+      <a class="btn-primary" href="#kontakt">Chci nabídku do 48h
+        <span class="btn-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
     </div>
   </div>
 </section>
 
 <!-- KONTAKT FORM (shared) -->
-<section class="contact" id="kontakt" style="background:var(--paper)">
+<section class="contact" id="kontakt" style="background:var(--paper-2)">
   <div class="wrap">
     <div class="sec-head reveal">
       <div class="sec-eyebrow">Nezávazná poptávka</div>
@@ -380,6 +416,21 @@ h2 em{font-style:normal;color:var(--haze-dark)}
     </div>
     <div class="final-buttons">
       <a href="../../kontakt/">Nezávazná konzultace</a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ (presunuto pod posledni CTA - sjednoceni s ostatni-vrata) -->
+<section class="sec-white">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">Časté dotazy</div><h2>Co se ptáte <em>nejčastěji.</em></h2></div>
+    <div class="faq reveal">
+      <details><summary>Jaký je rozdíl mezi regulovatelnou a bezklapkovou štěrbinou?</summary><p>Dvoukřídlou štěrbinu s regulací lze plynule otevírat a zavírat elektropohonem a propojit s meteostanicí, takže reaguje na počasí. Bezklapkové oblouky se uzavřít nedají - větrají a prosvětlují stáj trvale, mají jednodušší konstrukci a nižší cenu.</p></details>
+      <details><summary>Mám zvolit laminát, nebo polykarbonát?</summary><p>Laminát je cenově nejvýhodnější, ale hůř izoluje. Polykarbonát lépe drží teplo, má vysokou propustnost světla a brání přehřátí stáje. U regulovatelné štěrbiny i u oblouků nabízíme obě varianty.</p></details>
+      <details><summary>Jak velkou šíři štěrbiny zvládnete?</summary><p>Podle varianty od 0,4 do 4,5 m. Menší oblouky (0,4 - 1,5 m) jsou pro užší hřebeny, samonosné oblouky a deskový polykarbonát zvládnou až 4,5 m. Dvoukřídlá štěrbina s regulací má šíři otevření 1000 - 1800 mm.</p></details>
+      <details><summary>Co když má střecha malý sklon?</summary><p>Při sklonu střechy nižším než 16° je nutné metalické oplechování, které brání zatékání vody. Dodáváme ho s těsnicím profilem i bez něj, v barvách dle vzorníku RAL.</p></details>
+      <details><summary>Jde štěrbinu napojit na automatiku?</summary><p>Ano. Dvoukřídlá štěrbina s regulací se ovládá elektropohonem, propojí se s meteostanicí HAZE a lze ji zapojit do automatizace řízení stáje. Součástí je i záložní napájení.</p></details>
+      <details><summary>Pro jaké provozy se štěrbiny hodí?</summary><p>Pro stáje skotu, koní, ovcí a koz, čekárny a dojírny, ale i pro čistírny odpadních vod, sklady a průmyslové budovy. Konkrétní provedení navrhneme podle stavby a provozu.</p></details>
     </div>
   </div>
 </section>

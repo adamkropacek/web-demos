@@ -73,6 +73,7 @@ h2 em{font-style:normal;color:var(--haze-dark)}
 /* INTRO */
 .intro{padding:118px 0 48px;border-bottom:1px solid var(--line)}
 .crumbs{font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);font-weight:600;margin-bottom:28px}
+.crumbs a{color:var(--ink-soft)}
 .crumbs a:hover{color:var(--haze-dark)}.crumbs span{margin:0 9px;color:var(--line)}
 .intro-grid{display:grid;grid-template-columns:1.04fr .96fr;gap:54px;align-items:center}
 .intro h1{font-weight:800;font-size:clamp(2.2rem,4vw,3.3rem);line-height:1.04;max-width:16ch}
@@ -93,21 +94,35 @@ h2 em{font-style:normal;color:var(--haze-dark)}
 .spec-body{max-width:880px}
 .spec-body>p{font-size:16px;color:var(--ink-soft);margin-bottom:22px}
 
-/* CHOOSE + FAQ */
+/* SECTION ALTERNATING BG */
 .bg-2{background:var(--paper-2)}
-.choose{list-style:none;margin-top:34px;display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-.choose li{background:var(--white);border:1px solid var(--line);border-left:3px solid var(--haze);border-radius:8px;padding:18px 22px;font-size:15px;color:var(--ink-soft)}
-.choose li b{font-family:'Manrope';color:var(--ink);font-weight:700}
-.choose li .tag{font-family:'Manrope';font-weight:800;color:var(--haze-dark)}
-/* FAQ accordion */
-.faq{margin-top:30px;border-top:1px solid var(--line)}
-.faq details{border-bottom:1px solid var(--line)}
-.faq summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:20px 0;font-family:'Manrope';font-weight:700;font-size:17px;color:var(--ink)}
+.sec-white{background:var(--white)}
+.sec-beige{background:var(--paper-2)}
+
+/* INTRO + MID CTA */
+.cta-row{margin-top:34px;display:flex;flex-wrap:wrap;gap:16px;align-items:center}
+.mid-cta{margin-top:40px;text-align:center}
+
+/* CHOOSE - enriched cards */
+.choose{list-style:none;margin-top:34px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.choose li{background:var(--white);border:1px solid var(--line);border-top:3px solid var(--haze);border-radius:10px;padding:22px 22px 20px;display:flex;flex-direction:column;gap:7px}
+.choose li .tag{font-family:'Manrope';font-weight:800;font-size:17px;color:var(--ink)}
+.choose li .ch-lead{font-size:14px;color:var(--ink);font-weight:700;font-family:'Manrope'}
+.choose li .ch-desc{font-size:13.5px;color:var(--ink-soft);line-height:1.55}
+
+/* FAQ - card accordion */
+.faq{margin-top:8px;display:flex;flex-direction:column;gap:12px}
+.faq details{background:var(--white);border:1px solid var(--line);border-radius:10px;overflow:hidden;transition:border-color .2s,box-shadow .25s}
+.faq details[open]{border-color:var(--haze);box-shadow:0 12px 30px rgba(21,23,28,.07)}
+.faq summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:20px 24px;font-family:'Manrope';font-weight:700;font-size:17px;color:var(--ink)}
 .faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:'+';font-family:'Manrope';font-weight:500;font-size:26px;line-height:1;color:var(--haze-dark);flex:none;transition:transform .2s ease}
+.faq summary::after{content:'+';font-family:'Manrope';font-weight:400;font-size:28px;line-height:1;color:var(--haze-dark);flex:none;transition:transform .2s ease}
 .faq details[open] summary::after{transform:rotate(45deg)}
 .faq summary:hover{color:var(--haze-dark)}
-.faq details>p{font-size:15px;color:var(--ink-soft);max-width:80ch;padding:0 0 22px;margin-top:-2px}
+.faq details>p{font-size:15px;color:var(--ink-soft);max-width:80ch;padding:0 24px 22px;margin-top:-4px}
+
+@media(max-width:980px){.choose{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:680px){.choose{grid-template-columns:1fr}.wrap{padding:0 18px}}
 
 </style>
 </head>
@@ -159,8 +174,9 @@ h2 em{font-style:normal;color:var(--haze-dark)}
         <h1>Meteostanice <em>pro stáj.</em></h1>
         <p class="lead">Meteostanice sleduje počasí a podle něj automaticky řídí větrání stáje. Ovládá hřebenové štěrbiny, boční ventilaci, ventilátory i osvětlení a udržuje stabilní mikroklima bez zásahu obsluhy. Nejnovější model AG06 má přehledný dotykový displej.</p>
         <div class="cta-row">
-          <a class="btn-primary" href="#kontakt">Nezávazná poptávka →</a>
-          <a class="btn-ghost" href="tel:+420602488989">nebo zavolejte <b>+420 602 488 989</b></a>
+          <a class="btn-primary" href="#kontakt">Chci nabídku do 48h
+            <span class="btn-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </a>
         </div>
       </div>
       <div class="intro-media reveal"><img src="../../assets/news/meteostanice.jpg" alt="Meteostanice HAZE - ovládací panel"></div>
@@ -196,32 +212,23 @@ h2 em{font-style:normal;color:var(--haze-dark)}
   <div class="wrap">
     <div class="sec-head reveal"><div class="eyebrow">Co meteostanice řeší</div><h2>Co umí <em>ovládat.</em></h2><p class="lead">Meteostanice spojuje větrací prvky do jednoho systému a stará se o stabilní mikroklima po celý rok.</p></div>
     <ul class="choose reveal">
-      <li><span class="tag">Hřebenové štěrbiny</span> - <b>Regulace podle počasí.</b> Otevírá a zavírá dvoukřídlé hřebenové štěrbiny podle proudění vzduchu, teploty a srážek.</li>
-      <li><span class="tag">Boční ventilace</span> - <b>Strana po straně.</b> Řídí boční ventilační systémy s odlišným nastavením pro návětrnou a závětrnou stranu.</li>
-      <li><span class="tag">Nucená ventilace</span> - <b>Proti tepelnému stresu.</b> Podle teplotních senzorů spouští ventilátory a chrání skot před přehřátím, bez zásahu obsluhy.</li>
-      <li><span class="tag">Prevence přehřátí</span> - <b>Letní režim.</b> Reguluje rolovací stěnu tak, aby se po obvodu nehromadilo teplo u krajních boxů.</li>
-      <li><span class="tag">Osvětlení</span> - <b>Celoročně.</b> Spolupracuje s umělým osvětlením a udržuje dostatečnou hladinu světla po celý rok.</li>
-      <li><span class="tag">Sezónní režimy</span> - <b>Léto a zima.</b> Přednastavené letní a zimní režimy s ochranou před mrazem a možností ručního doladění.</li>
+      <li><span class="tag">Hřebenové štěrbiny</span><span class="ch-lead">Regulace podle počasí.</span><span class="ch-desc">Otevírá a zavírá dvoukřídlé hřebenové štěrbiny podle proudění vzduchu, teploty a srážek.</span></li>
+      <li><span class="tag">Boční ventilace</span><span class="ch-lead">Strana po straně.</span><span class="ch-desc">Řídí boční ventilační systémy s odlišným nastavením pro návětrnou a závětrnou stranu.</span></li>
+      <li><span class="tag">Nucená ventilace</span><span class="ch-lead">Proti tepelnému stresu.</span><span class="ch-desc">Podle teplotních senzorů spouští ventilátory a chrání skot před přehřátím, bez zásahu obsluhy.</span></li>
+      <li><span class="tag">Prevence přehřátí</span><span class="ch-lead">Letní režim.</span><span class="ch-desc">Reguluje rolovací stěnu tak, aby se po obvodu nehromadilo teplo u krajních boxů.</span></li>
+      <li><span class="tag">Osvětlení</span><span class="ch-lead">Celoročně.</span><span class="ch-desc">Spolupracuje s umělým osvětlením a udržuje dostatečnou hladinu světla po celý rok.</span></li>
+      <li><span class="tag">Sezónní režimy</span><span class="ch-lead">Léto a zima.</span><span class="ch-desc">Přednastavené letní a zimní režimy s ochranou před mrazem a možností ručního doladění.</span></li>
     </ul>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section>
-  <div class="wrap">
-    <div class="sec-head reveal"><div class="eyebrow">Časté dotazy</div><h2>Co se ptáte <em>nejčastěji.</em></h2></div>
-    <div class="faq reveal">
-      <details><summary>Co všechno meteostanice ovládá?</summary><p>Hřebenové větrací štěrbiny, boční ventilaci, ventilátory (nucenou ventilaci) a osvětlení. Spojuje větrací prvky stáje do jednoho systému a řídí je podle počasí a teploty.</p></details>
-      <details><summary>Jaké senzory meteostanice používá?</summary><p>Senzory rychlosti větru (jeden na každou stranu stáje), vyhřívaný deštní senzor, který detekuje i sníh, a jeden až tři teplotní senzory podle velikosti stáje.</p></details>
-      <details><summary>Funguje automaticky, nebo se musí obsluhovat?</summary><p>Reaguje automaticky podle naměřených hodnot, například spouští ventilátory při vysoké teplotě bez zásahu obsluhy. Ruční doladění (prahy ventilátorů, zimní provoz, ochrana před mrazem) je ale možné.</p></details>
-      <details><summary>Liší se větrání podle strany stáje?</summary><p>Ano. Nastavení je odlišné pro návětrnou a závětrnou stranu, takže každá strana stáje větrá podle aktuálních podmínek.</p></details>
-      <details><summary>Lze meteostanici přidat k naší ventilaci?</summary><p>Meteostanice je řídicí prvek našich větracích systémů - hřebenových štěrbin i boční ventilace. Vhodné zapojení posoudíme podle toho, jaké větrání máte nebo plánujete.</p></details>
+    <div class="mid-cta">
+      <a class="btn-primary" href="#kontakt">Chci nabídku do 48h
+        <span class="btn-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
     </div>
   </div>
 </section>
 
 <!-- KONTAKT FORM (shared) -->
-<section class="contact" id="kontakt" style="background:var(--paper)">
+<section class="contact" id="kontakt" style="background:var(--paper-2)">
   <div class="wrap">
     <div class="sec-head reveal">
       <div class="sec-eyebrow">Nezávazná poptávka</div>
@@ -309,6 +316,20 @@ h2 em{font-style:normal;color:var(--haze-dark)}
     </div>
     <div class="final-buttons">
       <a href="../../kontakt/">Nezávazná konzultace</a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ (presunuto pod posledni CTA - sjednoceni s ostatni-vrata) -->
+<section class="sec-white">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">Časté dotazy</div><h2>Co se ptáte <em>nejčastěji.</em></h2></div>
+    <div class="faq reveal">
+      <details><summary>Co všechno meteostanice ovládá?</summary><p>Hřebenové větrací štěrbiny, boční ventilaci, ventilátory (nucenou ventilaci) a osvětlení. Spojuje větrací prvky stáje do jednoho systému a řídí je podle počasí a teploty.</p></details>
+      <details><summary>Jaké senzory meteostanice používá?</summary><p>Senzory rychlosti větru (jeden na každou stranu stáje), vyhřívaný deštní senzor, který detekuje i sníh, a jeden až tři teplotní senzory podle velikosti stáje.</p></details>
+      <details><summary>Funguje automaticky, nebo se musí obsluhovat?</summary><p>Reaguje automaticky podle naměřených hodnot, například spouští ventilátory při vysoké teplotě bez zásahu obsluhy. Ruční doladění (prahy ventilátorů, zimní provoz, ochrana před mrazem) je ale možné.</p></details>
+      <details><summary>Liší se větrání podle strany stáje?</summary><p>Ano. Nastavení je odlišné pro návětrnou a závětrnou stranu, takže každá strana stáje větrá podle aktuálních podmínek.</p></details>
+      <details><summary>Lze meteostanici přidat k naší ventilaci?</summary><p>Meteostanice je řídicí prvek našich větracích systémů - hřebenových štěrbin i boční ventilace. Vhodné zapojení posoudíme podle toho, jaké větrání máte nebo plánujete.</p></details>
     </div>
   </div>
 </section>

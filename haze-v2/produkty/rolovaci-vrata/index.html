@@ -73,6 +73,7 @@ h2 em{font-style:normal;color:var(--haze-dark)}
 /* INTRO */
 .intro{padding:118px 0 48px;border-bottom:1px solid var(--line)}
 .crumbs{font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);font-weight:600;margin-bottom:28px}
+.crumbs a{color:var(--ink-soft)}
 .crumbs a:hover{color:var(--haze-dark)}.crumbs span{margin:0 9px;color:var(--line)}
 .intro-grid{display:grid;grid-template-columns:1.04fr .96fr;gap:54px;align-items:center}
 .intro h1{font-weight:800;font-size:clamp(2.2rem,4vw,3.3rem);line-height:1.04;max-width:16ch}
@@ -93,7 +94,7 @@ h2 em{font-style:normal;color:var(--haze-dark)}
 .ovw-title{font-family:'Manrope';font-weight:800;font-size:20px;margin:44px 0 16px}
 
 /* PER-VARIANT BLOCKS */
-.ptype{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:center;padding:64px 0;border-bottom:1px solid var(--line)}
+.ptype{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:center;padding:64px 0;border-bottom:1px solid var(--line);scroll-margin-top:96px}
 .ptype:last-child{border-bottom:none}
 .ptype-media{border-radius:12px;overflow:hidden;aspect-ratio:16/10;background:var(--paper-2)}
 .ptype-media img{width:100%;height:100%;object-fit:cover}
@@ -107,21 +108,40 @@ h2 em{font-style:normal;color:var(--haze-dark)}
 .ptable th{text-align:left;font-family:'Manrope';font-weight:700;font-size:13px;color:var(--ink);padding:11px 0;width:38%;vertical-align:top}
 .ptable td{font-size:14px;color:var(--ink-soft);padding:11px 0;vertical-align:top}
 
-/* CHOOSE + FAQ */
+/* SECTION ALTERNATING BG */
 .bg-2{background:var(--paper-2)}
-.choose{list-style:none;margin-top:34px;display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-.choose li{background:var(--white);border:1px solid var(--line);border-left:3px solid var(--haze);border-radius:8px;padding:18px 22px;font-size:15px;color:var(--ink-soft)}
-.choose li b{font-family:'Manrope';color:var(--ink);font-weight:700}
-.choose li .tag{font-family:'Manrope';font-weight:800;color:var(--haze-dark)}
-/* FAQ accordion */
-.faq{margin-top:30px;border-top:1px solid var(--line)}
-.faq details{border-bottom:1px solid var(--line)}
-.faq summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:20px 0;font-family:'Manrope';font-weight:700;font-size:17px;color:var(--ink)}
+.sec-white{background:var(--white)}
+.sec-beige{background:var(--paper-2)}
+
+/* INTRO + MID CTA */
+.cta-row{margin-top:34px;display:flex;flex-wrap:wrap;gap:16px;align-items:center}
+.mid-cta{margin-top:40px;text-align:center}
+
+/* CHOOSE - enriched cards (replaces old comparison table) */
+.choose{list-style:none;margin-top:34px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.choose li{background:var(--white);border:1px solid var(--line);border-top:3px solid var(--haze);border-radius:10px;padding:22px 22px 20px;display:flex;flex-direction:column;gap:7px}
+.choose li .tag{font-family:'Manrope';font-weight:800;font-size:17px;color:var(--ink)}
+.choose li .ch-lead{font-size:14px;color:var(--ink);font-weight:700;font-family:'Manrope'}
+.choose li .ch-desc{font-size:13.5px;color:var(--ink-soft);line-height:1.55}
+.choose li dl{margin-top:auto;padding-top:13px;margin-top:13px;border-top:1px solid var(--line-soft);display:grid;grid-template-columns:auto 1fr;gap:5px 12px}
+.choose li dt{font-size:10.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--haze-dark);font-weight:700;white-space:nowrap;padding-top:1px}
+.choose li dd{font-size:12.5px;color:var(--ink-soft);line-height:1.4}
+.ch-jump{color:var(--haze-dark);font-weight:700;font-size:13px;margin-top:12px;align-self:flex-start}
+.ch-jump:hover{color:var(--haze)}
+
+/* FAQ - card accordion */
+.faq{margin-top:8px;display:flex;flex-direction:column;gap:12px}
+.faq details{background:var(--white);border:1px solid var(--line);border-radius:10px;overflow:hidden;transition:border-color .2s,box-shadow .25s}
+.faq details[open]{border-color:var(--haze);box-shadow:0 12px 30px rgba(21,23,28,.07)}
+.faq summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:20px 24px;font-family:'Manrope';font-weight:700;font-size:17px;color:var(--ink)}
 .faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:'+';font-family:'Manrope';font-weight:500;font-size:26px;line-height:1;color:var(--haze-dark);flex:none;transition:transform .2s ease}
+.faq summary::after{content:'+';font-family:'Manrope';font-weight:400;font-size:28px;line-height:1;color:var(--haze-dark);flex:none;transition:transform .2s ease}
 .faq details[open] summary::after{transform:rotate(45deg)}
 .faq summary:hover{color:var(--haze-dark)}
-.faq details>p{font-size:15px;color:var(--ink-soft);max-width:80ch;padding:0 0 22px;margin-top:-2px}
+.faq details>p{font-size:15px;color:var(--ink-soft);max-width:80ch;padding:0 24px 22px;margin-top:-4px}
+
+@media(max-width:980px){.choose{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:680px){.choose{grid-template-columns:1fr}.wrap{padding:0 18px}}
 
 </style>
 </head>
@@ -172,6 +192,11 @@ h2 em{font-style:normal;color:var(--haze-dark)}
       <div>
         <h1>Rolovací vrata <em>na míru.</em></h1>
         <p class="lead">Roleta se navíjí svisle vzhůru, takže nepřekáží po stranách ani u stropu a otevírá rychle. Vyrábíme čtyři provedení - elektrická, řetízková, zateplená a skládací. Liší se ovládáním, izolací a maximálním rozměrem. Níže najdete detail každého provedení i srovnání v tabulce.</p>
+        <div class="cta-row">
+          <a class="btn-primary" href="#kontakt">Chci nabídku do 48h
+            <span class="btn-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </a>
+        </div>
       </div>
       <div class="intro-media reveal"><img src="../../assets/rolovaci.jpg" alt="Rolovací vrata HAZE - realizace"></div>
     </div>
@@ -179,7 +204,7 @@ h2 em{font-style:normal;color:var(--haze-dark)}
 </section>
 
 <!-- PER-VARIANT DETAIL -->
-<section>
+<section class="sec-beige">
   <div class="wrap">
     <div class="sec-head reveal"><div class="eyebrow">Provedení detailně</div><h2>Každé provedení <em>popsané.</em></h2></div>
 
@@ -249,48 +274,66 @@ h2 em{font-style:normal;color:var(--haze-dark)}
   </div>
 </section>
 
-<!-- HOW TO CHOOSE + COMPARISON TABLE -->
-<section class="bg-2">
+<!-- HOW TO CHOOSE (comparison data folded into cards) -->
+<section class="sec-white">
   <div class="wrap">
-    <div class="sec-head reveal"><div class="eyebrow">Jak vybrat provedení</div><h2>Které vrata <em>vybrat.</em></h2><p class="lead">Rozhodují rozměry vjezdu, jak často se vraty manipuluje a zda potřebujete tepelnou izolaci.</p></div>
+    <div class="sec-head reveal"><div class="eyebrow">Jak vybrat provedení</div><h2>Které vrata <em>vybrat.</em></h2><p class="lead">Rozhodují rozměry vjezdu, jak často se vraty manipuluje a zda potřebujete tepelnou izolaci. U každého provedení vidíte ovládání, klíčový rozměr i kam se hodí.</p></div>
     <ul class="choose reveal">
-      <li><span class="tag">Elektrická</span> - <b>Častý průjezd.</b> Dálkové ovládání a záložní klika. Pro krmné chodby a běžný provoz do 5 × 6 m.</li>
-      <li><span class="tag">Řetízková</span> - <b>Rychlá ruční obsluha.</b> Mechanická převodovka bez elektřiny, do 20 m² plochy.</li>
-      <li><span class="tag">Zateplená</span> - <b>Stálá teplota.</b> Zateplená stěna 16/32 mm do dojíren a chovů citlivých na teplo.</li>
-      <li><span class="tag">Skládací</span> - <b>Široké vjezdy.</b> Až 12 m venku a 20 m uvnitř, tam kde rolovací vrata nestačí.</li>
+      <li>
+        <span class="tag">Elektrická</span>
+        <span class="ch-lead">Častý průjezd.</span>
+        <span class="ch-desc">Elektropohon s dálkovým ovládáním a záložní klikou, plachta nebo protiprůvanová síť. Pro krmné chodby a běžný provoz.</span>
+        <dl>
+          <dt>Ovládání</dt><dd>Elektropohon + dálkové, záložní klika</dd>
+          <dt>Rozměr</dt><dd>5 × 6 m</dd>
+          <dt>Hodí se na</dt><dd>Časté průjezdy, krmné chodby</dd>
+        </dl>
+        <a class="ch-jump" href="#elektricka">Detail →</a>
+      </li>
+      <li>
+        <span class="tag">Řetízková</span>
+        <span class="ch-lead">Rychlá ruční obsluha.</span>
+        <span class="ch-desc">Mechanická řetízková převodovka bez elektřiny, volitelně bezpečnostní pádová brzda.</span>
+        <dl>
+          <dt>Ovládání</dt><dd>Mechanicky, řetízková převodovka</dd>
+          <dt>Rozměr</dt><dd>do 20 m² plochy</dd>
+          <dt>Hodí se na</dt><dd>Rychlá ruční manipulace</dd>
+        </dl>
+        <a class="ch-jump" href="#retizkova">Detail →</a>
+      </li>
+      <li>
+        <span class="tag">Zateplená</span>
+        <span class="ch-lead">Stálá teplota.</span>
+        <span class="ch-desc">Zateplená stěna 16/32 mm se štětinovým těsněním do dojíren a chovů citlivých na teplo.</span>
+        <dl>
+          <dt>Ovládání</dt><dd>Elektropohon</dd>
+          <dt>Rozměr</dt><dd>4 × 4 m</dd>
+          <dt>Hodí se na</dt><dd>Dojírny, chovy s nárokem na teplo</dd>
+        </dl>
+        <a class="ch-jump" href="#zateplena">Detail →</a>
+      </li>
+      <li>
+        <span class="tag">Skládací</span>
+        <span class="ch-lead">Široké vjezdy.</span>
+        <span class="ch-desc">PVC plachta nebo síť pro vjezdy příliš široké na klasická rolovací vrata, ve vnitřních prostorech až 20 m.</span>
+        <dl>
+          <dt>Ovládání</dt><dd>Průmyslový pohon</dd>
+          <dt>Rozměr</dt><dd>12 × 5 m (vnitřní až 20 m)</dd>
+          <dt>Hodí se na</dt><dd>Velmi široké vjezdy</dd>
+        </dl>
+        <a class="ch-jump" href="#skladaci">Detail →</a>
+      </li>
     </ul>
-    <h3 class="ovw-title">Srovnání provedení</h3>
-    <div class="ovw reveal">
-      <table class="ovt">
-        <thead><tr><th>Provedení</th><th>Ovládání</th><th>Výplň</th><th>Max. rozměr</th><th>Hodí se na</th><th></th></tr></thead>
-        <tbody>
-          <tr><td><strong>Elektrická</strong></td><td>Elektropohon + dálkové ovládání, záložní klika</td><td>Plachta nebo síť</td><td>5 × 6 m</td><td>Časté průjezdy, krmné chodby</td><td><a class="jump" href="#elektricka">Detail →</a></td></tr>
-          <tr><td><strong>Řetízková</strong></td><td>Mechanicky, řetízková převodovka</td><td>Plachta nebo síť</td><td>do 20 m² plochy</td><td>Rychlá ruční manipulace</td><td><a class="jump" href="#retizkova">Detail →</a></td></tr>
-          <tr><td><strong>Elektrická zateplená</strong></td><td>Elektropohon</td><td>Zateplená stěna 16 / 32 mm</td><td>4 × 4 m</td><td>Dojírny, chovy s nárokem na teplo</td><td><a class="jump" href="#zateplena">Detail →</a></td></tr>
-          <tr><td><strong>Skládací</strong></td><td>Průmyslový pohon</td><td>PVC plachta nebo síť</td><td>12 × 5 m (vnitřní až 20 m)</td><td>Velmi široké vjezdy</td><td><a class="jump" href="#skladaci">Detail →</a></td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section>
-  <div class="wrap">
-    <div class="sec-head reveal"><div class="eyebrow">Časté dotazy</div><h2>Co se ptáte <em>nejčastěji.</em></h2></div>
-    <div class="faq reveal">
-      <details><summary>Z čeho je konstrukce a výplň?</summary><p>Konstrukce je z žárově zinkované oceli, odolná v podmínkách stájového provozu. Výplň tvoří plachtovina odolná UV i mrazu, volitelně protiprůvanová síť. Zateplené provedení má izolovanou stěnu 16 nebo 32 mm.</p></details>
-      <details><summary>Jak se vrata ovládají?</summary><p>Elektrickým pohonem s dálkovým ovládáním (se záložní klikou pro případ výpadku proudu), nebo mechanicky řetízkovou převodovkou. Skládací vrata mají vždy průmyslový pohon.</p></details>
-      <details><summary>Jak velký vjezd zvládnete?</summary><p>Podle provedení - elektrická do 5 × 6 m, zateplená do 4 × 4 m, skládací do 12 m venku a až 20 m v interiéru. Každá vrata vyrábíme na míru konkrétního vjezdu.</p></details>
-      <details><summary>Udrží zateplená vrata teplo?</summary><p>Ano. Zateplené provedení má štětinové těsnění a součinitel prostupu tepla (U) 3,9 - 5,5 W/m²K, ve dvou tloušťkách stěny a odstínech šedá a okrová.</p></details>
-      <details><summary>Jdou vrata sladit barevně?</summary><p>Ano, vybíráte z odstínů dle vzorníku RAL, včetně volitelného zastřešení ze zinkového plechu a různých vodicích profilů.</p></details>
-      <details><summary>Jak probíhá montáž?</summary><p>Vrata vyrobíme na míru a montáž zajišťuje náš tým, zevnitř i zvenčí podle možností stavby. Po předání zaučíme obsluhu a poskytujeme záruku 2 roky na konstrukci i montáž.</p></details>
+    <div class="mid-cta">
+      <a class="btn-primary" href="#kontakt">Chci nabídku do 48h
+        <span class="btn-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
     </div>
   </div>
 </section>
 
 <!-- KONTAKT FORM (shared) -->
-<section class="contact" id="kontakt" style="background:var(--paper)">
+<section class="contact" id="kontakt" style="background:var(--paper-2)">
   <div class="wrap">
     <div class="sec-head reveal">
       <div class="sec-eyebrow">Nezávazná poptávka</div>
@@ -378,6 +421,21 @@ h2 em{font-style:normal;color:var(--haze-dark)}
     </div>
     <div class="final-buttons">
       <a href="../../kontakt/">Nezávazná konzultace</a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ (presunuto pod posledni CTA - sjednoceni s ostatni-vrata) -->
+<section class="sec-white">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">Časté dotazy</div><h2>Co se ptáte <em>nejčastěji.</em></h2></div>
+    <div class="faq reveal">
+      <details><summary>Z čeho je konstrukce a výplň?</summary><p>Konstrukce je z žárově zinkované oceli, odolná v podmínkách stájového provozu. Výplň tvoří plachtovina odolná UV i mrazu, volitelně protiprůvanová síť. Zateplené provedení má izolovanou stěnu 16 nebo 32 mm.</p></details>
+      <details><summary>Jak se vrata ovládají?</summary><p>Elektrickým pohonem s dálkovým ovládáním (se záložní klikou pro případ výpadku proudu), nebo mechanicky řetízkovou převodovkou. Skládací vrata mají vždy průmyslový pohon.</p></details>
+      <details><summary>Jak velký vjezd zvládnete?</summary><p>Podle provedení - elektrická do 5 × 6 m, zateplená do 4 × 4 m, skládací do 12 m venku a až 20 m v interiéru. Každá vrata vyrábíme na míru konkrétního vjezdu.</p></details>
+      <details><summary>Udrží zateplená vrata teplo?</summary><p>Ano. Zateplené provedení má štětinové těsnění a součinitel prostupu tepla (U) 3,9 - 5,5 W/m²K, ve dvou tloušťkách stěny a odstínech šedá a okrová.</p></details>
+      <details><summary>Jdou vrata sladit barevně?</summary><p>Ano, vybíráte z odstínů dle vzorníku RAL, včetně volitelného zastřešení ze zinkového plechu a různých vodicích profilů.</p></details>
+      <details><summary>Jak probíhá montáž?</summary><p>Vrata vyrobíme na míru a montáž zajišťuje náš tým, zevnitř i zvenčí podle možností stavby. Po předání zaučíme obsluhu a poskytujeme záruku 2 roky na konstrukci i montáž.</p></details>
     </div>
   </div>
 </section>

@@ -73,10 +73,14 @@ h2 em{font-style:normal;color:var(--haze-dark)}
 /* INTRO */
 .intro{padding:118px 0 48px;border-bottom:1px solid var(--line)}
 .crumbs{font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);font-weight:600;margin-bottom:28px}
+.crumbs a{color:var(--ink-soft)}
 .crumbs a:hover{color:var(--haze-dark)}.crumbs span{margin:0 9px;color:var(--line)}
+.intro-grid{display:grid;grid-template-columns:1.04fr .96fr;gap:54px;align-items:center}
 .intro h1{font-weight:800;font-size:clamp(2.2rem,4vw,3.3rem);line-height:1.04;max-width:18ch}
 .intro h1 em{font-style:normal;color:var(--haze-dark)}
-.intro .lead{font-size:18px;color:var(--ink-soft);margin-top:20px;max-width:74ch}
+.intro .lead{font-size:18px;color:var(--ink-soft);margin-top:18px;max-width:52ch}
+.intro-media{border-radius:12px;overflow:hidden;aspect-ratio:16/11;background:var(--paper-2)}
+.intro-media img{width:100%;height:100%;object-fit:cover}
 
 /* OVERVIEW TABLE */
 .ovw{margin-top:8px;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--white)}
@@ -91,7 +95,7 @@ h2 em{font-style:normal;color:var(--haze-dark)}
 .ovw-title{font-family:'Manrope';font-weight:800;font-size:20px;margin:44px 0 16px}
 
 /* PER-TYPE BLOCKS */
-.ptype{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:center;padding:64px 0;border-bottom:1px solid var(--line)}
+.ptype{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:center;padding:64px 0;border-bottom:1px solid var(--line);scroll-margin-top:96px}
 .ptype:last-child{border-bottom:none}
 .ptype-media{border-radius:12px;overflow:hidden;aspect-ratio:16/10;background:var(--paper-2)}
 .ptype-media img{width:100%;height:100%;object-fit:cover}
@@ -106,21 +110,40 @@ h2 em{font-style:normal;color:var(--haze-dark)}
 .ptable th{text-align:left;font-family:'Manrope';font-weight:700;font-size:13px;color:var(--ink);padding:11px 0;width:42%;vertical-align:top}
 .ptable td{font-size:14px;color:var(--ink-soft);padding:11px 0;vertical-align:top}
 
-/* CHOOSE / FAQ */
+/* SECTION ALTERNATING BG */
 .bg-2{background:var(--paper-2)}
-.choose{list-style:none;margin-top:34px;display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-.choose li{background:var(--white);border:1px solid var(--line);border-left:3px solid var(--haze);border-radius:8px;padding:18px 22px;font-size:15px;color:var(--ink-soft)}
-.choose li b{font-family:'Manrope';color:var(--ink);font-weight:700}
-.choose li .tag{font-family:'Manrope';font-weight:800;color:var(--haze-dark)}
-/* FAQ accordion */
-.faq{margin-top:30px;border-top:1px solid var(--line)}
-.faq details{border-bottom:1px solid var(--line)}
-.faq summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:20px 0;font-family:'Manrope';font-weight:700;font-size:17px;color:var(--ink)}
+.sec-white{background:var(--white)}
+.sec-beige{background:var(--paper-2)}
+
+/* INTRO + MID CTA */
+.cta-row{margin-top:34px;display:flex;flex-wrap:wrap;gap:16px;align-items:center}
+.mid-cta{margin-top:40px;text-align:center}
+
+/* CHOOSE - enriched cards (replaces old comparison table) */
+.choose{list-style:none;margin-top:34px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.choose li{background:var(--white);border:1px solid var(--line);border-top:3px solid var(--haze);border-radius:10px;padding:22px 22px 20px;display:flex;flex-direction:column;gap:7px}
+.choose li .tag{font-family:'Manrope';font-weight:800;font-size:17px;color:var(--ink)}
+.choose li .ch-lead{font-size:14px;color:var(--ink);font-weight:700;font-family:'Manrope'}
+.choose li .ch-desc{font-size:13.5px;color:var(--ink-soft);line-height:1.55}
+.choose li dl{margin-top:auto;padding-top:13px;margin-top:13px;border-top:1px solid var(--line-soft);display:grid;grid-template-columns:auto 1fr;gap:5px 12px}
+.choose li dt{font-size:10.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--haze-dark);font-weight:700;white-space:nowrap;padding-top:1px}
+.choose li dd{font-size:12.5px;color:var(--ink-soft);line-height:1.4}
+.ch-jump{color:var(--haze-dark);font-weight:700;font-size:13px;margin-top:12px;align-self:flex-start}
+.ch-jump:hover{color:var(--haze)}
+
+/* FAQ - card accordion */
+.faq{margin-top:8px;display:flex;flex-direction:column;gap:12px}
+.faq details{background:var(--white);border:1px solid var(--line);border-radius:10px;overflow:hidden;transition:border-color .2s,box-shadow .25s}
+.faq details[open]{border-color:var(--haze);box-shadow:0 12px 30px rgba(21,23,28,.07)}
+.faq summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:20px 24px;font-family:'Manrope';font-weight:700;font-size:17px;color:var(--ink)}
 .faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:'+';font-family:'Manrope';font-weight:500;font-size:26px;line-height:1;color:var(--haze-dark);flex:none;transition:transform .2s ease}
+.faq summary::after{content:'+';font-family:'Manrope';font-weight:400;font-size:28px;line-height:1;color:var(--haze-dark);flex:none;transition:transform .2s ease}
 .faq details[open] summary::after{transform:rotate(45deg)}
 .faq summary:hover{color:var(--haze-dark)}
-.faq details>p{font-size:15px;color:var(--ink-soft);max-width:80ch;padding:0 0 22px;margin-top:-2px}
+.faq details>p{font-size:15px;color:var(--ink-soft);max-width:80ch;padding:0 24px 22px;margin-top:-4px}
+
+@media(max-width:980px){.choose{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:680px){.choose{grid-template-columns:1fr}.wrap{padding:0 18px}}
 
 </style>
 </head>
@@ -167,14 +190,23 @@ h2 em{font-style:normal;color:var(--haze-dark)}
 <section class="intro">
   <div class="wrap">
     <div class="crumbs"><a href="../../">Domů</a><span>›</span><a href="../">Produkty</a><span>›</span>Boční ventilační systémy</div>
-    <h1>Boční ventilační systémy <em>(provedení A-F).</em></h1>
-    <p class="lead">Boční stěna stáje, kterou lze otevřít pro výměnu vzduchu a uzavřít proti chladu a průvanu. Vyrábíme šest typů A až F ve třech principech - svinovací, rolovací a polykarbonátová stěna. Liší se způsobem otevírání, ovládáním, materiálem výplně a maximálním rozměrem. Níže najdete detail každého typu i srovnání v tabulce.</p>
-    <div class="cta-row"><a class="btn-primary" href="#kontakt">Nezávazná poptávka →</a><a class="btn-ghost" href="tel:+420602488989">nebo zavolejte <b>+420 602 488 989</b></a></div>
+    <div class="intro-grid">
+      <div>
+        <h1>Boční ventilační systémy <em>(provedení A-F).</em></h1>
+        <p class="lead">Boční stěna stáje, kterou lze otevřít pro výměnu vzduchu a uzavřít proti chladu a průvanu. Vyrábíme šest typů A až F ve třech principech - svinovací, rolovací a polykarbonátová stěna. Liší se způsobem otevírání, ovládáním, materiálem výplně a maximálním rozměrem. Níže najdete detail každého typu i srovnání v tabulce.</p>
+        <div class="cta-row">
+          <a class="btn-primary" href="#kontakt">Chci nabídku do 48h
+            <span class="btn-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </a>
+        </div>
+      </div>
+      <div class="intro-media reveal"><img src="../../assets/bvs-c.jpg" alt="Boční ventilační systém HAZE - realizace"></div>
+    </div>
   </div>
 </section>
 
 <!-- PER-TYPE DETAIL -->
-<section>
+<section class="sec-beige">
   <div class="wrap">
     <div class="sec-head reveal"><div class="eyebrow">Typy A až F detailně</div><h2>Každý typ <em>popsaný.</em></h2></div>
 
@@ -283,50 +315,88 @@ h2 em{font-style:normal;color:var(--haze-dark)}
   </div>
 </section>
 
-<!-- HOW TO CHOOSE + COMPARISON TABLE -->
-<section class="bg-2">
+<!-- HOW TO CHOOSE (comparison data folded into cards) -->
+<section class="sec-white">
   <div class="wrap">
-    <div class="sec-head reveal"><div class="eyebrow">Jak vybrat typ</div><h2>Který typ <em>na vaši stáj.</em></h2><p class="lead">Rozhodují rozměry stěny, požadavek na ovládání a to, zda potřebujete jen větrat, nebo i stínit a izolovat.</p></div>
+    <div class="sec-head reveal"><div class="eyebrow">Jak vybrat typ</div><h2>Který typ <em>na vaši stáj.</em></h2><p class="lead">Rozhodují rozměry stěny, požadavek na ovládání a to, zda potřebujete jen větrat, nebo i stínit a izolovat. U každého typu vidíte druh stěny, max. rozměr i ovládání.</p></div>
     <ul class="choose reveal">
-      <li><span class="tag">A / B</span> - <b>Jednoduché a osvědčené větrání.</b> Svinovací stěna pro běžný provoz. Typ B navíc plachtu nešpiní a drží napnutou.</li>
-      <li><span class="tag">C / D</span> - <b>Plynulá regulace a velké stěny.</b> Rolovací stěna až 100 m široká; pro výšky nad 4 m verze C+/D+. Typ D umí i stínit.</li>
-      <li><span class="tag">E</span> - <b>Rychlá reakce a průmysl.</b> Navíjí 2× rychleji, zvládne i náhradu rolovacích vrat u širokých vjezdů.</li>
-      <li><span class="tag">F</span> - <b>Izolace a denní světlo.</b> Polykarbonátová stěna do čekáren před dojírnami a tam, kde záleží na teple.</li>
+      <li>
+        <span class="tag">Typ A</span>
+        <span class="ch-lead">Osvědčené větrání.</span>
+        <span class="ch-desc">Svinovací stěna pro běžné odvětrávání stájí, jednoduchá a spolehlivá obsluha.</span>
+        <dl>
+          <dt>Stěna</dt><dd>Svinovací, PVC plachta</dd>
+          <dt>Rozměr</dt><dd>60 × 2,9 m</dd>
+          <dt>Ovládání</dt><dd>Ruční nebo elektro</dd>
+        </dl>
+        <a class="ch-jump" href="#typ-a">Detail →</a>
+      </li>
+      <li>
+        <span class="tag">Typ B</span>
+        <span class="ch-lead">Stále napnutá plachta.</span>
+        <span class="ch-desc">Svinovací stěna, kde se plachta navíjí dole - nešpiní se a zůstává stále napnutá.</span>
+        <dl>
+          <dt>Stěna</dt><dd>Svinovací, PVC plachta</dd>
+          <dt>Rozměr</dt><dd>60 × 3 m</dd>
+          <dt>Ovládání</dt><dd>Naviják nebo elektro</dd>
+        </dl>
+        <a class="ch-jump" href="#typ-b">Detail →</a>
+      </li>
+      <li>
+        <span class="tag">Typ C / C+</span>
+        <span class="ch-lead">Plynulá regulace.</span>
+        <span class="ch-desc">Rolovací stěna až 100 m široká s plynulou regulací výšky; pro výšky nad 4 m verze C+.</span>
+        <dl>
+          <dt>Stěna</dt><dd>Rolovací, PVC plachta</dd>
+          <dt>Rozměr</dt><dd>100 × 5,5 m</dd>
+          <dt>Ovládání</dt><dd>Elektropohon</dd>
+        </dl>
+        <a class="ch-jump" href="#typ-c">Detail →</a>
+      </li>
+      <li>
+        <span class="tag">Typ D / D+</span>
+        <span class="ch-lead">Větrání i stínění.</span>
+        <span class="ch-desc">Rolovací stěna se dvěma motory - kromě větrání umí i stínit; pro výšky nad 4 m verze D+.</span>
+        <dl>
+          <dt>Stěna</dt><dd>Rolovací, PVC plachta</dd>
+          <dt>Rozměr</dt><dd>100 × 5,5 m</dd>
+          <dt>Ovládání</dt><dd>Elektro (2 motory)</dd>
+        </dl>
+        <a class="ch-jump" href="#typ-d">Detail →</a>
+      </li>
+      <li>
+        <span class="tag">Typ E</span>
+        <span class="ch-lead">Rychlá reakce, průmysl.</span>
+        <span class="ch-desc">Navíjí 2× rychleji než běžné systémy, zvládne i náhradu rolovacích vrat u širokých vjezdů.</span>
+        <dl>
+          <dt>Stěna</dt><dd>Rolovací, PVC plachta</dd>
+          <dt>Rozměr</dt><dd>60 × 4,5 m</dd>
+          <dt>Ovládání</dt><dd>Elektropohon</dd>
+        </dl>
+        <a class="ch-jump" href="#typ-e">Detail →</a>
+      </li>
+      <li>
+        <span class="tag">Typ F</span>
+        <span class="ch-lead">Izolace a denní světlo.</span>
+        <span class="ch-desc">Polykarbonátová stěna do čekáren před dojírnami a tam, kde záleží na teple a denním světle.</span>
+        <dl>
+          <dt>Stěna</dt><dd>Polykarbonát 16 / 32 mm</dd>
+          <dt>Rozměr</dt><dd>60 × 2,5 m</dd>
+          <dt>Ovládání</dt><dd>Naviják nebo elektro</dd>
+        </dl>
+        <a class="ch-jump" href="#typ-f">Detail →</a>
+      </li>
     </ul>
-    <h3 class="ovw-title">Srovnání všech typů A-F</h3>
-    <div class="ovw reveal">
-      <table class="ovt">
-        <thead><tr><th>Typ</th><th>Druh stěny</th><th>Výplň</th><th>Max. rozměr (š × v)</th><th>Ovládání</th><th>Hodí se na</th><th></th></tr></thead>
-        <tbody>
-          <tr><td class="c">A</td><td><strong>Svinovací</strong></td><td>PVC plachta</td><td>60 × 2,9 m</td><td>ruční / elektro</td><td>běžné odvětrávání stájí</td><td><a class="jump" href="#typ-a">Detail →</a></td></tr>
-          <tr><td class="c">B</td><td><strong>Svinovací</strong></td><td>PVC plachta</td><td>60 × 3 m</td><td>naviják / elektro</td><td>plachta se nešpiní, stále napnutá</td><td><a class="jump" href="#typ-b">Detail →</a></td></tr>
-          <tr><td class="c">C / C+</td><td><strong>Rolovací</strong></td><td>PVC plachta</td><td>100 × 5,5 m</td><td>elektropohon</td><td>skot, čekárny, jízdárny</td><td><a class="jump" href="#typ-c">Detail →</a></td></tr>
-          <tr><td class="c">D / D+</td><td><strong>Rolovací</strong></td><td>PVC plachta</td><td>100 × 5,5 m</td><td>elektro (2 motory)</td><td>ventilace i stínění</td><td><a class="jump" href="#typ-d">Detail →</a></td></tr>
-          <tr><td class="c">E</td><td><strong>Rolovací</strong></td><td>PVC plachta</td><td>60 × 4,5 m</td><td>elektropohon</td><td>průmysl, široké vjezdy</td><td><a class="jump" href="#typ-e">Detail →</a></td></tr>
-          <tr><td class="c">F</td><td><strong>Polykarbonát</strong></td><td>PC 16 / 32 mm</td><td>60 × 2,5 m</td><td>naviják / elektro</td><td>izolace, čekárny u dojíren</td><td><a class="jump" href="#typ-f">Detail →</a></td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section>
-  <div class="wrap">
-    <div class="sec-head reveal"><div class="eyebrow">Časté dotazy</div><h2>Co se ptáte <em>nejčastěji.</em></h2></div>
-    <div class="faq reveal">
-      <details><summary>Z čeho je výplň stěny?</summary><p>U typů A až E PVC plachta odolná UV záření i mrazu, u typu F dutinkový polykarbonát o tloušťce 16 nebo 32 mm. Polykarbonát volíme tam, kde je potřeba lepší tepelná izolace a průchod denního světla.</p></details>
-      <details><summary>Jak se boční stěna ovládá?</summary><p>Mechanickým navijákem (ručně) nebo elektropohonem. Elektrické typy lze napojit na meteostanici HAZE a stěnu řídit automaticky podle teploty a větru.</p></details>
-      <details><summary>Jak velkou stěnu zvládnete zakrýt?</summary><p>Podle typu - šířka až 100 m a výška až 5,5 m (rolovací verze C+ a D+ se dvěma hřídelemi). Každou stěnu vyrábíme přesně na míru, ne z polotovarů.</p></details>
-      <details><summary>Zvládne stěna i stínění, nejen větrání?</summary><p>Ano, typ D má pohyblivé horní i spodní uchycení a slouží k odvětrávání i ke stínění zároveň.</p></details>
-      <details><summary>Jak probíhá montáž?</summary><p>Stěnu vyrobíme na míru a montáž zajišťuje náš montážní tým. Po předání zaučíme obsluhu. Na konstrukci i montáž poskytujeme záruku 2 roky.</p></details>
-      <details><summary>Jde stěnou nahradit rolovací vrata?</summary><p>U širokých vjezdů ano - díky robustní konstrukci a variabilním rozměrům to umožňuje zejména typ E.</p></details>
+    <div class="mid-cta">
+      <a class="btn-primary" href="#kontakt">Chci nabídku do 48h
+        <span class="btn-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
     </div>
   </div>
 </section>
 
 <!-- KONTAKT FORM (shared) -->
-<section class="contact" id="kontakt" style="background:var(--paper)">
+<section class="contact" id="kontakt" style="background:var(--paper-2)">
   <div class="wrap">
     <div class="sec-head reveal">
       <div class="sec-eyebrow">Nezávazná poptávka</div>
@@ -414,6 +484,21 @@ h2 em{font-style:normal;color:var(--haze-dark)}
     </div>
     <div class="final-buttons">
       <a href="../../kontakt/">Nezávazná konzultace</a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ (presunuto pod posledni CTA - sjednoceni s ostatni-vrata) -->
+<section class="sec-white">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">Časté dotazy</div><h2>Co se ptáte <em>nejčastěji.</em></h2></div>
+    <div class="faq reveal">
+      <details><summary>Z čeho je výplň stěny?</summary><p>U typů A až E PVC plachta odolná UV záření i mrazu, u typu F dutinkový polykarbonát o tloušťce 16 nebo 32 mm. Polykarbonát volíme tam, kde je potřeba lepší tepelná izolace a průchod denního světla.</p></details>
+      <details><summary>Jak se boční stěna ovládá?</summary><p>Mechanickým navijákem (ručně) nebo elektropohonem. Elektrické typy lze napojit na meteostanici HAZE a stěnu řídit automaticky podle teploty a větru.</p></details>
+      <details><summary>Jak velkou stěnu zvládnete zakrýt?</summary><p>Podle typu - šířka až 100 m a výška až 5,5 m (rolovací verze C+ a D+ se dvěma hřídelemi). Každou stěnu vyrábíme přesně na míru, ne z polotovarů.</p></details>
+      <details><summary>Zvládne stěna i stínění, nejen větrání?</summary><p>Ano, typ D má pohyblivé horní i spodní uchycení a slouží k odvětrávání i ke stínění zároveň.</p></details>
+      <details><summary>Jak probíhá montáž?</summary><p>Stěnu vyrobíme na míru a montáž zajišťuje náš montážní tým. Po předání zaučíme obsluhu. Na konstrukci i montáž poskytujeme záruku 2 roky.</p></details>
+      <details><summary>Jde stěnou nahradit rolovací vrata?</summary><p>U širokých vjezdů ano - díky robustní konstrukci a variabilním rozměrům to umožňuje zejména typ E.</p></details>
     </div>
   </div>
 </section>
