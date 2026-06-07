@@ -409,6 +409,19 @@ section.tight{padding:72px 0}
 .contact-details a{color:var(--ink);transition:color .2s}
 .contact-details a:hover{color:var(--haze-dark)}
 
+/* Call block pod "Co se stane dal" (Adam 2026-06-07) - prosty, bez boxu */
+.callbox{margin-top:26px;padding-top:24px;border-top:1px solid var(--line)}
+.callbox-eyebrow{font-family:'Manrope',sans-serif;font-weight:700;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--haze-dark);margin-bottom:6px}
+.callbox-title{font-family:'Manrope',sans-serif;font-weight:800;font-size:21px;line-height:1.1;letter-spacing:-.01em;color:var(--ink);margin-bottom:14px}
+.callbox a{display:flex;align-items:center;gap:12px;text-decoration:none;font-family:'Manrope',sans-serif;font-weight:700;font-size:18px;color:var(--ink);margin-top:8px;transition:color .2s}
+.callbox a:hover{color:var(--haze-dark)}
+.callbox a .ico{flex:none;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:1.5px solid rgba(28,29,31,.25);transition:border-color .2s,background .2s}
+.callbox a .ico svg{width:16px;height:16px;fill:none;stroke:var(--ink);stroke-width:1.7;transition:stroke .2s}
+.callbox a:hover .ico{border-color:var(--haze);background:var(--haze)}
+.callbox a:hover .ico svg{stroke:#fff}
+.callbox a.mail{font-size:15px;font-weight:600;color:var(--ink-soft)}
+.callbox a.mail:hover{color:var(--haze-dark)}
+
 /* ========== FINAL CTA ========== */
 .final-cta{background:var(--steel-900);color:#fff;text-align:center;padding:140px 0}
 .final-cta .sec-eyebrow{justify-content:center;color:var(--haze-soft)}
