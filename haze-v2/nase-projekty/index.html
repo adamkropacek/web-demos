@@ -68,6 +68,14 @@
 .realz-name{font-family:'Manrope',sans-serif;font-weight:800;font-size:25px;color:var(--ink);line-height:1.1}
 .realz-loc{font-size:14px;color:var(--ink-soft);margin-top:5px}
 .realz-desc{font-size:15.5px;line-height:1.66;color:var(--ink-soft);margin-top:16px;max-width:56ch}
+.realz-more{margin-top:16px;border-top:1px solid var(--line)}
+.realz-more summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:9px;font-family:'Manrope',sans-serif;font-weight:700;font-size:13.5px;letter-spacing:.02em;color:var(--haze-dark);padding:12px 0}
+.realz-more summary::-webkit-details-marker{display:none}
+.realz-more summary::after{content:"+";font-size:17px;font-weight:800;color:var(--haze);line-height:1}
+.realz-more[open] summary::after{content:"-"}
+.realz-facts{list-style:none;margin:2px 0 14px;padding:0;display:grid;gap:9px}
+.realz-facts li{position:relative;padding-left:22px;font-size:14.5px;line-height:1.55;color:var(--ink-soft)}
+.realz-facts li::before{content:"";position:absolute;left:0;top:8px;width:7px;height:7px;background:var(--haze);border-radius:2px}
 .proj-index-sec{background:var(--paper-2)}
 @media(max-width:860px){.realz-item{grid-template-columns:1fr;gap:22px;padding:34px 0}.realz-item:nth-child(even) .realz-media{order:0}.realz-name{font-size:22px}}
 @media(max-width:760px){.proj-intro{padding-top:96px}.pnum{font-size:28px}.proj-stats{gap:24px 36px}}
@@ -142,6 +150,7 @@
           <h3 class="realz-name">Farma Bohdalov</h3>
           <div class="realz-loc">Bohdalov, Vysočina</div>
           <p class="realz-desc">Šest bočních ventilačních stěn (provedení D+) opatřených límcem, posuvná a rolovací vrata. Jedna z našich vlajkových realizací kompletního větrání stáje.</p>
+          <details class="realz-more"><summary>Co jsme na realizaci dělali</summary><ul class="realz-facts"><li>6× boční ventilační stěna, provedení D+ s límcem</li><li>Posuvná a rolovací vrata</li><li>Kompletní větrání stáje - jedna z našich vlajkových realizací</li></ul></details>
         </div>
       </div>
 
@@ -152,6 +161,7 @@
           <h3 class="realz-name">John Deere Ovčáry</h3>
           <div class="realz-loc">Ovčáry u Kolína</div>
           <p class="realz-desc">Boční ventilační systém (provedení E) do výšky 3,5 m, šířky plachet 14,9 / 17 / 20 / 14,5 bm. Barevné provedení sladěné s halou.</p>
+          <details class="realz-more"><summary>Co jsme na realizaci dělali</summary><ul class="realz-facts"><li>Boční ventilace provedení E do výšky 3,5 m</li><li>Šířky plachet 14,9 / 17 / 20 / 14,5 bm</li><li>Barevné provedení sladěné s halou</li><li>Areál John Deere</li></ul></details>
         </div>
       </div>
 
@@ -162,6 +172,7 @@
           <h3 class="realz-name">Farma Okrouhlá Radouň</h3>
           <div class="realz-loc">Okrouhlá Radouň, Jihočeský kraj</div>
           <p class="realz-desc">Boční ventilační stěny (provedení B), moderní meteostanice, hřebenová štěrbina a elektrická rolovací vrata - kompletní automaticky řízené větrání.</p>
+          <details class="realz-more"><summary>Co jsme na realizaci dělali</summary><ul class="realz-facts"><li>Boční ventilace provedení B</li><li>Moderní meteostanice a hřebenová štěrbina</li><li>Elektrická rolovací vrata</li><li>Kompletní automaticky řízené větrání</li></ul></details>
         </div>
       </div>
 
@@ -172,6 +183,7 @@
           <h3 class="realz-name">H.A.N.S. Prefa</h3>
           <div class="realz-loc">Lysá nad Labem</div>
           <p class="realz-desc">Průmyslová instalace bočního ventilačního systému (provedení E) do výšky 5 m se zesílenou plachtou 690 g/m². Ventilace výrobní haly na prefabrikovaný beton.</p>
+          <details class="realz-more"><summary>Co jsme na realizaci dělali</summary><ul class="realz-facts"><li>Průmyslová boční ventilace provedení E do výšky 5 m</li><li>Zesílená plachta 690 g/m²</li><li>Ventilace výrobní haly - nasazení mimo zemědělství</li></ul></details>
         </div>
       </div>
 
@@ -182,6 +194,7 @@
           <h3 class="realz-name">Krpálek Academy</h3>
           <div class="realz-loc">Praha</div>
           <p class="realz-desc">Motoricky ovládaná dvouvrstvá dělicí stěna z PVC o ploše přes 240 m² ve sportovní hale Krpálek Academy. Důkaz, že naše systémy fungují i mimo stáje.</p>
+          <details class="realz-more"><summary>Co jsme na realizaci dělali</summary><ul class="realz-facts"><li>Motoricky ovládaná dvouvrstvá dělicí stěna z PVC</li><li>Plocha přes 240 m²</li><li>Sportovní hala Krpálek Academy</li></ul></details>
         </div>
       </div>
 
@@ -192,6 +205,7 @@
           <h3 class="realz-name">Farma Vadín</h3>
           <div class="realz-loc">Vadín, Vysočina</div>
           <p class="realz-desc">Šest bočních ventilačních stěn (provedení D), meteostanice AG05 a elektrická rolovací vrata se zastřešením, provoz pro 600 dojnic. Kompletní automaticky řízené větrání velké stáje.</p>
+          <details class="realz-more"><summary>Co jsme na realizaci dělali</summary><ul class="realz-facts"><li>6× boční ventilace provedení D</li><li>Meteostanice AG05</li><li>Stáj pro 600 dojnic</li></ul></details>
         </div>
       </div>
 
@@ -202,6 +216,7 @@
           <h3 class="realz-name">Farma Mladoňovice</h3>
           <div class="realz-loc">Mladoňovice, Pardubický kraj</div>
           <p class="realz-desc">Boční ventilační systém (provedení C) s prémiovou plachtou Sattler (o 30 % pevnější), hřebenovou štěrbinou a zastřešenými vraty.</p>
+          <details class="realz-more"><summary>Co jsme na realizaci dělali</summary><ul class="realz-facts"><li>Boční ventilace provedení C, plachta Sattler (+30 % pevnosti)</li><li>Hřebenová štěrbina</li><li>Krytá vrata</li></ul></details>
         </div>
       </div>
 
@@ -212,6 +227,7 @@
           <h3 class="realz-name">AGRAS Želatovice</h3>
           <div class="realz-loc">Želatovice, Olomoucký kraj</div>
           <p class="realz-desc">Boční ventilační stěny (provedení D+) s elektropohonem, dvoukřídlá polykarbonátová hřebenová štěrbina a meteostanice pro automatické řízení mikroklimatu.</p>
+          <details class="realz-more"><summary>Co jsme na realizaci dělali</summary><ul class="realz-facts"><li>Boční ventilace provedení D+</li><li>Dvoukřídlá hřebenová štěrbina z polykarbonátu</li><li>Meteostanice AG</li></ul></details>
         </div>
       </div>
 
@@ -222,6 +238,7 @@
           <h3 class="realz-name">Farma Nový Telečkov</h3>
           <div class="realz-loc">Nový Telečkov, Vysočina</div>
           <p class="realz-desc">Boční ventilační stěny (provedení B) s meteostanicí AG06, hřebenovou štěrbinou a elektrickými rolovacími vraty.</p>
+          <details class="realz-more"><summary>Co jsme na realizaci dělali</summary><ul class="realz-facts"><li>Boční ventilace provedení B</li><li>Meteostanice AG06 a hřebenová štěrbina</li><li>Elektrická rolovací vrata</li><li>Stáj pro 210 telat</li></ul></details>
         </div>
       </div>
 
@@ -232,6 +249,7 @@
           <h3 class="realz-name">Jízdárna Holešov-Dobrotice</h3>
           <div class="realz-loc">Holešov-Dobrotice, Zlínský kraj</div>
           <p class="realz-desc">Polykarbonátová boční ventilační stěna (provedení F) v jednom panelu o délce 65 m. Prosvětlená a tepelně stabilní stěna pro jízdárnu.</p>
+          <details class="realz-more"><summary>Co jsme na realizaci dělali</summary><ul class="realz-facts"><li>Boční ventilace provedení F</li><li>Polykarbonátová stěna - jeden panel 65 m</li><li>Jízdárna Holešov-Dobrotice</li></ul></details>
         </div>
       </div>
 
