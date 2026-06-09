@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <rect width="64" height="64" rx="14" fill="#0A0A0B"/>
+  <g fill="none" stroke="#E5342B" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"
+     filter="drop-shadow(0 0 2px rgba(229,52,43,.7))">
+    <!-- brow -->
+    <path d="M14 22 Q32 12 50 22"/>
+    <!-- eye almond -->
+    <path d="M12 33 Q32 21 54 31 Q40 43 12 33 Z"/>
+    <!-- teardrop -->
+    <path d="M26 40 Q23 50 27 57"/>
+    <!-- spiral tail -->
+    <path d="M45 38 Q57 45 56 34 Q55 28 49 33"/>
+  </g>
+  <circle cx="32" cy="31" r="4.2" fill="#E5342B"/>
+</svg>

@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>HORUS // intelligence terminal</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="mask-icon" href="favicon.svg" color="#E5342B">
 <meta name="description" content="HORUS - all sides, the shape of the evidence, no verdict. A live intelligence terminal for geopolitics, market-movers and world-movers.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -150,6 +152,26 @@ section.blk{padding:108px 0;border-bottom:1px solid var(--line);position:relativ
 .pill p{color:var(--mute);font-size:14.5px}
 @media(max-width:780px){.pillars{grid-template-columns:1fr}}
 
+/* the math - stat strip + comparison */
+.statstrip{margin-top:46px;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.statstrip .s{background:var(--bg);padding:30px 22px;text-align:center}
+.statstrip .num{font-family:var(--display);font-weight:700;font-size:clamp(30px,4.4vw,46px);color:var(--red);line-height:1;letter-spacing:-.02em}
+.statstrip .lab{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);margin-top:12px}
+@media(max-width:780px){.statstrip{grid-template-columns:repeat(2,1fr)}}
+.vs{margin-top:18px;display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
+.vs .col{background:var(--bg);padding:30px 30px}
+.vs .col.h{background:var(--surf)}
+.vs .ch{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--mute);margin-bottom:18px}
+.vs .col.h .ch{color:var(--red)}
+.vs ul{list-style:none;padding:0;margin:0}
+.vs li{font-size:14.5px;color:var(--mute2);padding:9px 0 9px 24px;position:relative;border-bottom:1px solid var(--line)}
+.vs li:last-child{border-bottom:none}
+.vs li::before{content:"—";position:absolute;left:0;color:var(--mute);font-family:var(--mono)}
+.vs .col.h li::before{content:"◉";color:var(--red);font-size:11px;top:11px}
+.vs .col.h li{color:var(--ink)}
+.mathnote{font-family:var(--mono);font-size:11px;color:var(--mute);margin-top:18px;letter-spacing:.03em}
+@media(max-width:680px){.vs{grid-template-columns:1fr}}
+
 /* ceiling quote */
 .ceiling{background:var(--surf2);border:1px solid var(--line);border-left:3px solid var(--red);
   padding:38px 40px;border-radius:3px;margin-top:8px}
@@ -187,7 +209,7 @@ footer{padding:44px 0 60px;text-align:center}
 <header id="topbar">
   <div class="wrap nav">
     <div class="brand"><span class="gl"></span>HORUS</div>
-    <div class="meta">STATUS <b>● LIVE</b> &nbsp;//&nbsp; UPLINK <b>STABLE</b> &nbsp;//&nbsp; <span id="clock">--:--:-- UTC</span></div>
+    <div class="meta">STATUS <b style="color:var(--red)">● PRE-LAUNCH</b> &nbsp;//&nbsp; WAITLIST <b>OPEN</b> &nbsp;//&nbsp; <span id="clock">--:--:-- UTC</span></div>
   </div>
 </header>
 
@@ -198,10 +220,10 @@ footer{padding:44px 0 60px;text-align:center}
   </div>
   <div class="hero-head" id="heroHead">
     <h1 class="h1" id="h1"></h1>
-    <p class="sub" id="sub">HORUS is a live intelligence terminal. Every side of an event, side by side. The shape of the evidence, never a verdict. You connect the last dots.</p>
+    <p class="sub" id="sub">HORUS is an intelligence terminal in the making. Every side of an event, side by side. The shape of the evidence, never a verdict. You connect the last dots.</p>
     <div class="tag" id="tag">ALL SIDES<span class="sep">/</span>THE SHAPE OF THE EVIDENCE<span class="sep">/</span>YOU DECIDE</div>
     <div class="cta" id="cta">
-      <a href="#access" class="btn p">Request access</a>
+      <a href="#access" class="btn p">Join the waitlist</a>
       <a href="#how" class="btn g">How it works</a>
     </div>
   </div>
@@ -264,10 +286,46 @@ footer{padding:44px 0 60px;text-align:center}
   </div>
 </section>
 
+<!-- THE MATH -->
+<section class="blk" id="math">
+  <div class="wrap reveal-up">
+    <div class="pre">// 05 - the math</div>
+    <h2 class="lead">One feed gives you one story. HORUS is built to compile <span class="rt">all of them, around the clock</span>.</h2>
+    <p class="muted">Reading a single outlet, you get one narrative and you never see what it left out. HORUS is built to pull from the whole spectrum 24/7 and compile it into the shape of the evidence - so the comparison is not "which outlet", it is "one side vs every side".</p>
+    <div class="statstrip">
+      <div class="s"><div class="num">24/7</div><div class="lab">continuous compile</div></div>
+      <div class="s"><div class="num">100+</div><div class="lab">languages in the firehose</div></div>
+      <div class="s"><div class="num">~15<span style="font-size:.5em"> min</span></div><div class="lab">global refresh cadence</div></div>
+      <div class="s"><div class="num">5</div><div class="lab">spectrum lanes / event</div></div>
+    </div>
+    <div class="vs">
+      <div class="col">
+        <div class="ch">One outlet (e.g. Fox, or any single feed)</div>
+        <ul>
+          <li>1 narrative, framed by one desk</li>
+          <li>the other sides are simply omitted</li>
+          <li>no opposition shown next to a strong claim</li>
+          <li>no record of who was right last time</li>
+        </ul>
+      </div>
+      <div class="col h">
+        <div class="ch">HORUS (built to)</div>
+        <ul>
+          <li>every side of the event, side by side</li>
+          <li>what each side emphasizes vs omits, mapped</li>
+          <li>the strongest evidence always carries its opposition</li>
+          <li>a temporal track record of how it moved</li>
+        </ul>
+      </div>
+    </div>
+    <div class="mathnote">// numbers describe the global news firehose HORUS is built on (GDELT-class: 100+ languages, refreshed ~every 15 min) and the spectrum it compiles - pre-launch, this is what HORUS is built to do, not a live claim.</div>
+  </div>
+</section>
+
 <!-- CEILING -->
 <section class="blk" id="ceiling">
   <div class="wrap reveal-up">
-    <div class="pre">// 05 - the honest ceiling</div>
+    <div class="pre">// 06 - the honest ceiling</div>
     <div class="ceiling">
       <p>No software beats a state that manufactures its own primary evidence, and a truth with no public trace is invisible. HORUS is an <span class="rt">X-ray on the shape of the evidence</span> - not an oracle. The moment a tool claims to hand you the truth, it has become propaganda.</p>
       <div class="by">— built into the DNA</div>
@@ -278,12 +336,12 @@ footer{padding:44px 0 60px;text-align:center}
 <!-- ACCESS -->
 <section class="blk" id="access">
   <div class="wrap reveal-up">
-    <div class="pre" style="text-align:center">// 06 - early access</div>
-    <h2 class="lead">Get the eye. <span class="rt">Decide for yourself.</span></h2>
-    <p class="muted" style="margin-left:auto;margin-right:auto">Early access for analysts, desks and the merely curious. No spam, no noise - just the signal when it opens.</p>
+    <div class="pre" style="text-align:center">// 07 - the waitlist</div>
+    <h2 class="lead">Not live yet. <span class="rt">Get in line for the eye.</span></h2>
+    <p class="muted" style="margin-left:auto;margin-right:auto">HORUS is being built. Join the waitlist - analysts, desks and the merely curious get first access the day the eye opens. No spam, no noise.</p>
     <form class="accessbox" id="accessForm" onsubmit="return reqAccess(event)">
       <input type="email" id="email" placeholder="you@desk.com" required>
-      <button class="btn p" type="submit">Request access</button>
+      <button class="btn p" type="submit">Join the waitlist</button>
     </form>
     <div class="fineprint" id="finePrint">No outcome promised. HORUS shows the shape of the evidence - the thinking is still yours.</div>
   </div>
@@ -359,11 +417,11 @@ document.head.appendChild(kf);
 /* ============ LOADER boot sequence ============ */
 const bootEl=document.getElementById("boot");
 const lines=[
-  ['<span class="dim">$</span> horus --init <span class="rt">intelligence-terminal</span>',120],
-  ['establishing uplink <span class="ok">... ok</span>',260],
-  ['ingesting stream <span class="dim">[ geopolitics // markets // world-movers ]</span> <span class="ok">ok</span>',300],
-  ['indexing sources <span class="dim">all sides, no gatekeeper</span> <span class="ok">ok</span>',300],
-  ['evidence engine <span class="dim">shape only, no verdict</span> <span class="ok">ok</span>',280],
+  ['<span class="dim">$</span> horus <span class="rt">--build</span> intelligence-terminal',120],
+  ['compiling source spectrum <span class="dim">all sides, no gatekeeper</span> <span class="ok">ok</span>',280],
+  ['calibrating evidence engine <span class="dim">shape only, no verdict</span> <span class="ok">ok</span>',280],
+  ['scope <span class="dim">[ geopolitics // markets // world-movers ]</span> <span class="ok">ok</span>',280],
+  ['pre-launch sequence <span class="ok">staged</span>',260],
   ['<span class="rt">WE DON\'T KNOW WHAT WE DON\'T KNOW</span>',420],
   ['opening the eye <span class="cur"></span>',300],
 ];
@@ -413,7 +471,7 @@ setInterval(clk,1000);clk();
 /* ============ access form (no backend - mailto handoff) ============ */
 function reqAccess(e){e.preventDefault();
   const v=document.getElementById("email").value.trim();
-  document.getElementById("finePrint").innerHTML='<span class="rt">◉</span> request logged for <b style="color:var(--mute2)">'+v.replace(/[<>]/g,'')+'</b> - the eye opens soon.';
+  document.getElementById("finePrint").innerHTML='<span class="rt">◉</span> you are on the waitlist, <b style="color:var(--mute2)">'+v.replace(/[<>]/g,'')+'</b> - we open the eye soon.';
   document.getElementById("accessForm").style.opacity=".4";
   return false;
 }
