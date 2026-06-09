@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HORUS // intelligence terminal</title>
+<meta name="description" content="HORUS - all sides, the shape of the evidence, no verdict. A live intelligence terminal for geopolitics, market-movers and world-movers.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0A0A0B; --surf:#111317; --surf2:#15181E; --line:#23262E;
+  --red:#E5342B; --red-deep:#C8102E;
+  --ink:#EDEEF0; --mute:#8A8F98; --mute2:#C7CBD1; --cyan:#3FB6C8;
+  --mono:"JetBrains Mono",ui-monospace,monospace;
+  --ui:"Inter","Segoe UI",sans-serif;
+  --display:"Space Grotesk","Inter",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);color:var(--ink);font-family:var(--ui);
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;line-height:1.55;
+}
+body.locked{overflow:hidden;height:100vh}
+::selection{background:var(--red);color:#fff}
+
+/* ---------- grain + scanlines overlay ---------- */
+.fx{position:fixed;inset:0;pointer-events:none;z-index:60}
+.fx.scan{
+  background:repeating-linear-gradient(to bottom,
+    rgba(255,255,255,.025) 0px,rgba(255,255,255,.025) 1px,
+    transparent 2px,transparent 4px);
+  mix-blend-mode:overlay;opacity:.5;
+}
+.fx.vig{background:radial-gradient(120% 90% at 50% 35%,transparent 55%,rgba(0,0,0,.65) 100%)}
+
+/* ---------- LOADER ---------- */
+#loader{
+  position:fixed;inset:0;z-index:100;background:var(--bg);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  transition:opacity .9s ease,visibility .9s;gap:30px;padding:24px;
+}
+#loader.gone{opacity:0;visibility:hidden}
+.boot{
+  font-family:var(--mono);font-size:12.5px;color:var(--mute2);
+  width:min(560px,92vw);min-height:172px;letter-spacing:.02em;
+}
+.boot .ln{opacity:0;white-space:pre-wrap}
+.boot .ln.on{opacity:1}
+.boot .ok{color:var(--cyan)}
+.boot .rd{color:var(--red)}
+.boot .dim{color:var(--mute)}
+.bar{width:min(560px,92vw);height:2px;background:var(--line);position:relative;overflow:hidden}
+.bar i{position:absolute;inset:0;width:0;background:linear-gradient(90deg,var(--red-deep),var(--red));box-shadow:0 0 12px var(--red)}
+.boot .cur{display:inline-block;width:8px;height:14px;background:var(--red);vertical-align:-2px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+
+/* ---------- shared layout ---------- */
+.wrap{width:min(1180px,92vw);margin:0 auto}
+.mono{font-family:var(--mono)}
+.kicker{font-family:var(--mono);font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--mute);display:inline-flex;align-items:center;gap:9px}
+.kicker::before{content:"";width:18px;height:1px;background:var(--red)}
+.rt{color:var(--red)}
+
+/* ---------- top bar ---------- */
+header{position:fixed;top:0;left:0;right:0;z-index:50;
+  border-bottom:1px solid transparent;transition:.4s;backdrop-filter:blur(0)}
+header.solid{background:rgba(10,10,11,.72);border-color:var(--line);backdrop-filter:blur(10px)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:62px}
+.brand{display:flex;align-items:center;gap:11px;font-family:var(--display);font-weight:700;letter-spacing:.04em;font-size:18px}
+.brand .gl{width:13px;height:13px;border-radius:50%;background:var(--red);box-shadow:0 0 14px var(--red);position:relative}
+.brand .gl::after{content:"";position:absolute;inset:3px;border-radius:50%;background:var(--bg)}
+.nav .meta{font-family:var(--mono);font-size:11px;color:var(--mute);letter-spacing:.06em}
+.nav .meta b{color:var(--cyan);font-weight:500}
+@media(max-width:680px){.nav .meta{display:none}}
+
+/* ---------- HERO ---------- */
+#hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;position:relative;padding:120px 0 60px}
+.eyewrap{width:min(620px,86vw);position:relative;filter:drop-shadow(0 0 40px rgba(229,52,43,.10))}
+#eye{width:100%;height:auto;overflow:visible}
+#eye .stroke{fill:none;stroke:var(--red);stroke-width:1.6;stroke-linecap:round;
+  filter:drop-shadow(0 0 5px rgba(229,52,43,.55));
+  stroke-dasharray:1;stroke-dashoffset:1;opacity:.0}
+#eye .node{fill:#fff;opacity:0;filter:drop-shadow(0 0 4px rgba(229,52,43,.9))}
+#eye .iris{fill:none;stroke:var(--red);stroke-width:1.4;opacity:0}
+#eye .sweep{stroke:var(--cyan);stroke-width:1.5;opacity:0;transform-origin:center;filter:drop-shadow(0 0 6px var(--cyan))}
+
+.hero-head{margin-top:34px}
+.h1{font-family:var(--display);font-weight:700;line-height:1.04;letter-spacing:-.01em;
+  font-size:clamp(30px,6.2vw,68px);text-wrap:balance}
+.h1 .word{display:inline-block;opacity:0;transform:translateY(14px);margin-right:.26em}
+.sub{margin:22px auto 0;max-width:640px;color:var(--mute2);font-size:clamp(15px,1.7vw,18px);opacity:0}
+.tag{margin-top:18px;font-family:var(--mono);font-size:12.5px;letter-spacing:.12em;color:var(--mute);opacity:0;text-transform:uppercase}
+.tag .sep{color:var(--red);margin:0 8px}
+.cta{margin-top:38px;display:flex;gap:14px;flex-wrap:wrap;justify-content:center;opacity:0}
+.btn{font-family:var(--ui);font-weight:600;font-size:14px;padding:13px 24px;border-radius:2px;
+  text-decoration:none;letter-spacing:.02em;transition:.18s;border:1px solid var(--line)}
+.btn.p{background:var(--red);color:#fff;border-color:var(--red)}
+.btn.p:hover{background:var(--red-deep);box-shadow:0 0 26px rgba(229,52,43,.4)}
+.btn.g{color:var(--mute2);background:transparent}
+.btn.g:hover{border-color:var(--red);color:#fff}
+.reveal .word,.reveal .sub,.reveal .tag,.reveal .cta{animation:rise .7s cubic-bezier(.2,.7,.2,1) forwards}
+.reveal .sub{animation-delay:.5s}.reveal .tag{animation-delay:.62s}.reveal .cta{animation-delay:.74s}
+@keyframes rise{to{opacity:1;transform:translateY(0)}}
+.scrollcue{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);font-family:var(--mono);
+  font-size:10px;letter-spacing:.3em;color:var(--mute);opacity:0;animation:fadedelay 1s 1.4s forwards}
+.scrollcue i{display:block;width:1px;height:26px;background:linear-gradient(var(--red),transparent);margin:8px auto 0}
+@keyframes fadedelay{to{opacity:.8}}
+
+/* ---------- ticker ---------- */
+.ticker{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--surf);
+  overflow:hidden;white-space:nowrap;font-family:var(--mono);font-size:12px;color:var(--mute);padding:11px 0}
+.ticker .run{display:inline-block;animation:slide 34s linear infinite}
+.ticker b{color:var(--mute2);font-weight:500}
+.ticker .d{color:var(--red);margin:0 18px}
+@keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ---------- sections ---------- */
+section.blk{padding:108px 0;border-bottom:1px solid var(--line);position:relative}
+.lead{font-family:var(--display);font-weight:600;font-size:clamp(24px,3.6vw,40px);line-height:1.18;letter-spacing:-.01em;max-width:880px;text-wrap:balance}
+.lead .rt{color:var(--red)}
+.muted{color:var(--mute);max-width:680px;margin-top:20px;font-size:16px}
+.pre{font-family:var(--mono);font-size:12px;color:var(--mute);letter-spacing:.2em;text-transform:uppercase;margin-bottom:26px}
+
+/* pipeline steps */
+.steps{margin-top:50px;display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
+.step{background:var(--bg);padding:26px 28px;display:grid;grid-template-columns:54px 1fr;gap:20px;align-items:start;transition:.25s}
+.step:hover{background:var(--surf)}
+.step .n{font-family:var(--mono);font-size:13px;color:var(--red);border:1px solid var(--line);width:42px;height:42px;display:flex;align-items:center;justify-content:center;border-radius:2px}
+.step h4{font-family:var(--display);font-weight:600;font-size:18px;margin-bottom:6px}
+.step p{color:var(--mute);font-size:14.5px;max-width:760px}
+
+/* never-grid (the discipline) */
+.never{margin-top:46px;display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.never .c{background:var(--bg);padding:30px 28px}
+.never .c .x{font-family:var(--mono);color:var(--red);font-size:13px;letter-spacing:.1em}
+.never .c h4{font-family:var(--display);font-weight:600;font-size:17px;margin:10px 0 7px}
+.never .c p{color:var(--mute);font-size:14px}
+@media(max-width:680px){.never{grid-template-columns:1fr}}
+
+/* pillars */
+.pillars{margin-top:48px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.pill{background:var(--surf);border:1px solid var(--line);border-radius:3px;padding:30px 26px;position:relative;overflow:hidden}
+.pill::before{content:"";position:absolute;top:0;left:0;width:100%;height:2px;background:linear-gradient(90deg,var(--red),transparent)}
+.pill .ic{font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--red);text-transform:uppercase}
+.pill h4{font-family:var(--display);font-weight:600;font-size:20px;margin:14px 0 9px}
+.pill p{color:var(--mute);font-size:14.5px}
+@media(max-width:780px){.pillars{grid-template-columns:1fr}}
+
+/* ceiling quote */
+.ceiling{background:var(--surf2);border:1px solid var(--line);border-left:3px solid var(--red);
+  padding:38px 40px;border-radius:3px;margin-top:8px}
+.ceiling p{font-family:var(--display);font-weight:500;font-size:clamp(19px,2.4vw,27px);line-height:1.3;letter-spacing:-.01em}
+.ceiling .by{font-family:var(--mono);font-size:11px;color:var(--mute);letter-spacing:.2em;text-transform:uppercase;margin-top:18px}
+
+/* access */
+#access{text-align:center}
+#access .lead{margin:0 auto}
+.accessbox{margin:40px auto 0;max-width:520px;display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.accessbox input{flex:1;min-width:240px;background:var(--surf);border:1px solid var(--line);color:var(--ink);
+  font-family:var(--mono);font-size:14px;padding:14px 16px;border-radius:2px;outline:none}
+.accessbox input:focus{border-color:var(--red)}
+.fineprint{font-family:var(--mono);font-size:11px;color:var(--mute);margin-top:18px;letter-spacing:.04em}
+
+footer{padding:44px 0 60px;text-align:center}
+.foot-brand{font-family:var(--display);font-weight:700;letter-spacing:.06em;font-size:15px}
+.foot-meta{font-family:var(--mono);font-size:11px;color:var(--mute);margin-top:12px;letter-spacing:.06em}
+.js .reveal-up{opacity:0;transform:translateY(24px);transition:.8s cubic-bezier(.2,.7,.2,1)}
+.js .reveal-up.in{opacity:1;transform:none}
+</style>
+</head>
+<body class="locked">
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="boot" id="boot"></div>
+  <div class="bar"><i id="barfill"></i></div>
+</div>
+
+<!-- overlays -->
+<div class="fx scan"></div>
+<div class="fx vig"></div>
+
+<header id="topbar">
+  <div class="wrap nav">
+    <div class="brand"><span class="gl"></span>HORUS</div>
+    <div class="meta">STATUS <b>● LIVE</b> &nbsp;//&nbsp; UPLINK <b>STABLE</b> &nbsp;//&nbsp; <span id="clock">--:--:-- UTC</span></div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="eyewrap">
+    <svg id="eye" viewBox="0 0 760 470" aria-label="Eye of Horus constellation"></svg>
+  </div>
+  <div class="hero-head" id="heroHead">
+    <h1 class="h1" id="h1"></h1>
+    <p class="sub" id="sub">HORUS is a live intelligence terminal. Every side of an event, side by side. The shape of the evidence, never a verdict. You connect the last dots.</p>
+    <div class="tag" id="tag">ALL SIDES<span class="sep">/</span>THE SHAPE OF THE EVIDENCE<span class="sep">/</span>YOU DECIDE</div>
+    <div class="cta" id="cta">
+      <a href="#access" class="btn p">Request access</a>
+      <a href="#how" class="btn g">How it works</a>
+    </div>
+  </div>
+  <div class="scrollcue">SCROLL<i></i></div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker"><div class="run" id="run"></div></div>
+
+<!-- PROBLEM -->
+<section class="blk" id="why">
+  <div class="wrap reveal-up">
+    <div class="pre">// 01 - the problem</div>
+    <h2 class="lead">The problem is not too little information. It is too much - and every source is a <span class="rt">silo with one narrative</span>.</h2>
+    <p class="muted">At a major event you cannot tell what actually happened, how solid the evidence is, what each side leaves out, or how it connects to the past - not without hours of your own OSINT. So you swallow one camp, or you drown in the noise. HORUS does neither for you. It shows you the shape, and you think.</p>
+  </div>
+</section>
+
+<!-- HOW -->
+<section class="blk" id="how">
+  <div class="wrap reveal-up">
+    <div class="pre">// 02 - what HORUS does</div>
+    <h2 class="lead">It connects the dots. It does <span class="rt">not</span> judge.</h2>
+    <div class="steps">
+      <div class="step"><div class="n">01</div><div><h4>Catch the debate gaining traction</h4><p>Anywhere it surfaces - wires, OSINT, even a thread of comments. Relevance comes from traction over time, not from who is speaking. An anonymous claim starts at zero weight; weight grows as people, journalists and articles pile onto it.</p></div></div>
+      <div class="step"><div class="n">02</div><div><h4>Pull the rival claims</h4><p>Side A throws X, side B throws Y. We extract the competing assertions instead of picking a winner.</p></div></div>
+      <div class="step"><div class="n">03</div><div><h4>Attach the formal material</h4><p>Articles, reports, filings, satellite, theories - matched to each claim so you see what stands behind it.</p></div></div>
+      <div class="step"><div class="n">04</div><div><h4>Order by the KIND of evidence</h4><p>A court record or a satellite reads differently from a comment - so it sits higher. That is visual prominence, descriptive of the evidence type. It is never a score of truth.</p></div></div>
+      <div class="step"><div class="n">05</div><div><h4>The strongest evidence always carries its opposition</h4><p>Next to the satellite hangs the voice that disputes the satellite - even the fringe one. Nothing is hidden. You weigh it.</p></div></div>
+      <div class="step"><div class="n">06</div><div><h4>Show how it moved through time</h4><p>How attention built or collapsed, who piled on, what got memory-holed. Then you connect the last dots and decide.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- THE DISCIPLINE -->
+<section class="blk" id="never">
+  <div class="wrap reveal-up">
+    <div class="pre">// 03 - the discipline</div>
+    <h2 class="lead">The whole product is what HORUS <span class="rt">refuses</span> to do.</h2>
+    <div class="never">
+      <div class="c"><div class="x">NO</div><h4>No verdict</h4><p>The words "true" and "false" never leave the engine as a ruling. It shows the shape; you are the judge.</p></div>
+      <div class="c"><div class="x">NO</div><h4>No gatekeeping at the door</h4><p>No source is filtered out by its attributes. Anyone may enter. Traction decides relevance, not a hidden bouncer.</p></div>
+      <div class="c"><div class="x">NO</div><h4>Volume moves nothing</h4><p>A flood of mentions does not make a claim more credible or less. We show the shape of attention as data, and stop there.</p></div>
+      <div class="c"><div class="x">NO</div><h4>No arbiter, no "fake news"</h4><p>That category is the arbiter's trap. Our enemy is the single-view silo, not a list of who is allowed to be right.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PILLARS -->
+<section class="blk" id="scope">
+  <div class="wrap reveal-up">
+    <div class="pre">// 04 - scope</div>
+    <h2 class="lead">Only what actually moves the world.</h2>
+    <div class="pillars">
+      <div class="pill"><div class="ic">// 01</div><h4>Geopolitics</h4><p>Conflict, diplomacy, sanctions, alliances - the events that redraw territory and power.</p></div>
+      <div class="pill"><div class="ic">// 02</div><h4>Market-movers</h4><p>Energy, supply chains, macro shocks - geopolitical risk that prices in before the headlines.</p></div>
+      <div class="pill"><div class="ic">// 03</div><h4>World-movers</h4><p>The tech that shifts power - AI, chips, cyber, biotech, space - and the big government breaks.</p></div>
+    </div>
+    <p class="muted">Local crime, celebrity, regional noise stay out by default - unless they start attaching to the macro dots, and the connection layer pulls them up.</p>
+  </div>
+</section>
+
+<!-- CEILING -->
+<section class="blk" id="ceiling">
+  <div class="wrap reveal-up">
+    <div class="pre">// 05 - the honest ceiling</div>
+    <div class="ceiling">
+      <p>No software beats a state that manufactures its own primary evidence, and a truth with no public trace is invisible. HORUS is an <span class="rt">X-ray on the shape of the evidence</span> - not an oracle. The moment a tool claims to hand you the truth, it has become propaganda.</p>
+      <div class="by">— built into the DNA</div>
+    </div>
+  </div>
+</section>
+
+<!-- ACCESS -->
+<section class="blk" id="access">
+  <div class="wrap reveal-up">
+    <div class="pre" style="text-align:center">// 06 - early access</div>
+    <h2 class="lead">Get the eye. <span class="rt">Decide for yourself.</span></h2>
+    <p class="muted" style="margin-left:auto;margin-right:auto">Early access for analysts, desks and the merely curious. No spam, no noise - just the signal when it opens.</p>
+    <form class="accessbox" id="accessForm" onsubmit="return reqAccess(event)">
+      <input type="email" id="email" placeholder="you@desk.com" required>
+      <button class="btn p" type="submit">Request access</button>
+    </form>
+    <div class="fineprint" id="finePrint">No outcome promised. HORUS shows the shape of the evidence - the thinking is still yours.</div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-brand"><span style="color:var(--red)">◉</span> HORUS</div>
+    <div class="foot-meta">all sides // the shape of the evidence // no verdict &nbsp;·&nbsp; we don't know what we don't know</div>
+  </div>
+</footer>
+
+<script>
+/* ============ EYE OF HORUS - constellation from connected dots ============ */
+const NS="http://www.w3.org/2000/svg";
+const eye=document.getElementById("eye");
+// stroke paths trace the Eye of Horus: brow, upper lid, lower lid, teardrop, spiral tail
+const PATHS=[
+  // eyebrow
+  "M 150 168 C 300 96 470 96 612 156",
+  // upper lid (almond top)
+  "M 150 250 C 300 168 470 176 628 232",
+  // lower lid (almond bottom) back to inner corner
+  "M 628 232 C 540 300 360 326 150 250",
+  // teardrop dropping from under the eye, curling
+  "M 300 318 C 292 380 314 408 286 452",
+  // spiral tail from the outer corner
+  "M 470 312 C 560 360 660 360 668 296 C 672 256 626 252 632 300",
+];
+const paths=PATHS.map(d=>{const p=document.createElementNS(NS,"path");p.setAttribute("d",d);p.setAttribute("class","stroke");eye.appendChild(p);return p;});
+// iris ring + pupil + radar sweep at eye centre
+const cx=372,cy=246;
+const iris=document.createElementNS(NS,"circle");iris.setAttribute("cx",cx);iris.setAttribute("cy",cy);iris.setAttribute("r",30);iris.setAttribute("class","iris");eye.appendChild(iris);
+const pupil=document.createElementNS(NS,"circle");pupil.setAttribute("cx",cx);pupil.setAttribute("cy",cy);pupil.setAttribute("r",6);pupil.setAttribute("class","node");pupil.style.transition="opacity .4s";eye.appendChild(pupil);
+const sweep=document.createElementNS(NS,"line");sweep.setAttribute("x1",cx);sweep.setAttribute("y1",cy);sweep.setAttribute("x2",cx+30);sweep.setAttribute("y2",cy);sweep.setAttribute("class","sweep");eye.appendChild(sweep);
+
+// sample dots along each path, store for staggered reveal
+let nodes=[];
+paths.forEach((p,pi)=>{
+  const len=p.getTotalLength();
+  p.style.strokeDasharray=len;p.style.strokeDashoffset=len;
+  const count=Math.max(6,Math.round(len/34));
+  for(let i=0;i<=count;i++){
+    const pt=p.getPointAtLength(len*i/count);
+    const c=document.createElementNS(NS,"circle");
+    c.setAttribute("cx",pt.x);c.setAttribute("cy",pt.y);c.setAttribute("r", i%3===0?2.4:1.6);
+    c.setAttribute("class","node");eye.appendChild(c);
+    nodes.push({el:c,delay:pi*180+i*26});
+  }
+});
+
+function assembleEye(){
+  // 1: dots blink in
+  nodes.forEach(n=>setTimeout(()=>{n.el.style.transition="opacity .5s";n.el.style.opacity=Math.random()*.5+.5;
+    // gentle twinkle
+    setInterval(()=>{n.el.style.opacity=Math.random()*.45+.45;},1400+Math.random()*1600);
+  },n.delay));
+  // 2: strokes draw
+  paths.forEach((p,i)=>setTimeout(()=>{
+    p.style.transition="stroke-dashoffset 1.1s ease, opacity .5s";p.style.opacity=".85";p.style.strokeDashoffset=0;
+  },420+i*150));
+  // 3: iris + radar
+  setTimeout(()=>{iris.style.transition="opacity .6s";iris.style.opacity=".7";
+    pupil.style.opacity="1";
+    sweep.style.opacity=".9";sweep.style.animation="radar 3.4s linear infinite";
+  },1500);
+}
+// radar keyframe injected
+const kf=document.createElement("style");
+kf.textContent="@keyframes radar{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}";
+document.head.appendChild(kf);
+
+/* ============ LOADER boot sequence ============ */
+const bootEl=document.getElementById("boot");
+const lines=[
+  ['<span class="dim">$</span> horus --init <span class="rt">intelligence-terminal</span>',120],
+  ['establishing uplink <span class="ok">... ok</span>',260],
+  ['ingesting stream <span class="dim">[ geopolitics // markets // world-movers ]</span> <span class="ok">ok</span>',300],
+  ['indexing sources <span class="dim">all sides, no gatekeeper</span> <span class="ok">ok</span>',300],
+  ['evidence engine <span class="dim">shape only, no verdict</span> <span class="ok">ok</span>',280],
+  ['<span class="rt">WE DON\'T KNOW WHAT WE DON\'T KNOW</span>',420],
+  ['opening the eye <span class="cur"></span>',300],
+];
+let li=0;
+function typeLine(){
+  if(li>=lines.length){finishBoot();return;}
+  const [html,wait]=lines[li];
+  const d=document.createElement("div");d.className="ln on";d.innerHTML=html;bootEl.appendChild(d);
+  document.getElementById("barfill").style.width=((li+1)/lines.length*100)+"%";
+  document.getElementById("barfill").style.transition="width .3s";
+  li++;setTimeout(typeLine,wait);
+}
+function finishBoot(){
+  setTimeout(()=>{
+    document.getElementById("loader").classList.add("gone");
+    document.body.classList.remove("locked");
+    assembleEye();
+    setTimeout(()=>{document.getElementById("heroHead").classList.add("reveal");},650);
+  },480);
+}
+// build headline words
+const HEAD="WE DON'T KNOW WHAT WE DON'T KNOW".split(" ");
+const h1=document.getElementById("h1");
+HEAD.forEach((w,i)=>{const s=document.createElement("span");s.className="word";s.style.animationDelay=(i*0.06)+"s";
+  s.textContent=w;h1.appendChild(s);});
+
+window.addEventListener("load",()=>{setTimeout(typeLine,420);});
+// safety: if fonts/load stall, force-start
+setTimeout(()=>{if(li===0)typeLine();},1600);
+
+/* ============ ticker ============ */
+const tick=["GEOPOLITICS","ENERGY & SUPPLY CHAINS","AI & SEMICONDUCTORS","CYBER","SANCTIONS REGIMES","SPACE","BIOTECH","GOVERNMENT BREAKS","CAPITAL FLOWS","ALLIANCES"];
+const runEl=document.getElementById("run");
+const seg=tick.map(t=>`<b>${t}</b><span class="d">◆</span>`).join("");
+runEl.innerHTML=seg+seg;
+
+/* ============ scroll reveal + sticky header + clock ============ */
+document.documentElement.classList.add("js");
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add("in");}),{threshold:.12});
+document.querySelectorAll(".reveal-up").forEach(el=>io.observe(el));
+const bar=document.getElementById("topbar");
+addEventListener("scroll",()=>{bar.classList.toggle("solid",scrollY>40);});
+function clk(){const d=new Date();const p=n=>String(n).padStart(2,"0");
+  document.getElementById("clock").textContent=`${p(d.getUTCHours())}:${p(d.getUTCMinutes())}:${p(d.getUTCSeconds())} UTC`;}
+setInterval(clk,1000);clk();
+
+/* ============ access form (no backend - mailto handoff) ============ */
+function reqAccess(e){e.preventDefault();
+  const v=document.getElementById("email").value.trim();
+  document.getElementById("finePrint").innerHTML='<span class="rt">◉</span> request logged for <b style="color:var(--mute2)">'+v.replace(/[<>]/g,'')+'</b> - the eye opens soon.';
+  document.getElementById("accessForm").style.opacity=".4";
+  return false;
+}
+</script>
+</body>
+</html>
