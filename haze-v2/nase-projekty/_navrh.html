@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NÁVRH - Naše projekty | HAZE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
+<meta name="theme-color" content="#F79430">
+<style>
+/* ===== NÁVRH v2: realizace skoro hned, kompaktní hero ===== */
+
+/* 1. KOMPAKTNÍ HERO */
+.pj-hero{padding:124px 0 30px}
+.pj-hero .top{display:grid;grid-template-columns:1.25fr .75fr;gap:48px;align-items:end}
+.pj-hero-eyebrow{font-family:'Manrope',sans-serif;font-weight:700;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--haze-dark);margin-bottom:14px}
+.pj-hero h1{font-family:'Manrope',sans-serif;font-weight:800;font-size:clamp(28px,3.6vw,42px);line-height:1.06;letter-spacing:-.02em;margin:0 0 16px;color:var(--ink)}
+.pj-hero h1 em{font-style:normal;color:var(--haze)}
+.pj-hero-lead{font-size:15.5px;line-height:1.65;color:var(--ink-soft);max-width:54ch;margin:0}
+.pj-hero-stats{display:flex;flex-wrap:wrap;gap:22px 0;justify-content:flex-end}
+.pj-hs{display:flex;flex-direction:column;gap:4px;padding-left:24px;border-left:1px solid var(--line)}
+.pj-hs:first-child{padding-left:0;border-left:0}
+.pj-hs b{font-family:'Manrope',sans-serif;font-weight:800;font-size:24px;line-height:1;letter-spacing:-.02em;color:var(--haze-dark)}
+.pj-hs span{font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-soft);font-weight:600}
+
+/* 2. SLIM FILTR */
+.pj-filters{padding:0 0 8px;position:sticky;top:0;z-index:30;background:var(--paper)}
+.pj-frow{display:flex;flex-wrap:wrap;align-items:center;gap:9px;padding:16px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.pj-flabel{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);font-weight:700;margin-right:4px}
+.pj-pill{font-family:'Inter',sans-serif;font-size:13px;font-weight:500;color:var(--ink);background:#fff;border:1px solid var(--line);padding:7px 14px;border-radius:999px;cursor:pointer;transition:.18s;white-space:nowrap}
+.pj-pill:hover{border-color:var(--haze)}
+.pj-pill.is-on{background:var(--haze);border-color:var(--haze);color:#fff;font-weight:600}
+
+/* 3. TOP 10 REALIZACE (formát ze současné stránky, který se líbí) */
+.realz{margin-top:6px;counter-reset:realz}
+.realz-item{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;padding:44px 0;border-bottom:1px solid var(--line);counter-increment:realz;scroll-margin-top:96px}
+.realz-item:first-child{padding-top:30px}
+.realz-kicker::before{content:counter(realz,decimal-leading-zero);display:inline-block;background:var(--haze);color:#fff;font-family:'Manrope',sans-serif;font-weight:800;font-size:12px;padding:2px 9px;border-radius:5px;margin-right:11px;vertical-align:1px}
+.realz-item:nth-child(even) .realz-media{order:2}
+.realz-media{position:relative;border-radius:14px;overflow:hidden;aspect-ratio:16/10;background:var(--paper-2)}
+.realz-media img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.realz-item:hover .realz-media img{transform:scale(1.03)}
+.realz-tag{position:absolute;top:14px;left:14px;background:var(--haze);color:#fff;font-family:'Manrope',sans-serif;font-weight:700;font-size:11px;letter-spacing:.04em;text-transform:uppercase;padding:7px 12px;border-radius:5px}
+.realz-kicker{font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);font-weight:600;margin-bottom:9px}
+.realz-name{font-family:'Manrope',sans-serif;font-weight:800;font-size:25px;color:var(--ink);line-height:1.1}
+.realz-loc{font-size:14px;color:var(--ink-soft);margin-top:5px}
+.realz-desc{font-size:15.5px;line-height:1.66;color:var(--ink-soft);margin-top:16px;max-width:56ch}
+.realz-link{margin-top:18px;font-family:'Manrope',sans-serif;font-weight:700;font-size:14px;color:var(--haze-dark);display:inline-flex;align-items:center;gap:7px;text-decoration:none}
+.realz-link .ar{transition:transform .2s}
+.realz-item:hover .realz-link .ar{transform:translateX(4px)}
+
+/* 4. CO UKAZUJEME */
+.pj-show{background:var(--steel-900);color:#fff;margin-top:18px}
+.pj-show .sec-eyebrow{color:var(--haze-soft)}
+.pj-show h2{color:#fff}
+.pj-show h2 em{color:var(--haze);font-style:normal}
+.pj-show-lead{color:rgba(255,255,255,.72);font-size:16px;line-height:1.7;max-width:62ch}
+.pj-show-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:46px}
+.pj-show-card{background:var(--steel-800);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:30px 26px}
+.pj-show-ico{width:46px;height:46px;border-radius:11px;background:rgba(247,148,48,.14);display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.pj-show-ico svg{width:23px;height:23px;color:var(--haze)}
+.pj-show-card h3{font-family:'Manrope',sans-serif;font-weight:800;font-size:18px;margin:0 0 9px}
+.pj-show-card p{font-size:14.5px;line-height:1.65;color:rgba(255,255,255,.66);margin:0}
+
+/* 5. CTA */
+.pj-cta{background:var(--haze);color:#fff;text-align:center;padding:62px 0}
+.pj-cta h2{font-family:'Manrope',sans-serif;font-weight:800;font-size:clamp(26px,3.4vw,38px);line-height:1.1;letter-spacing:-.02em;margin:0 0 14px;color:#fff}
+.pj-cta p{font-size:16.5px;color:rgba(255,255,255,.9);margin:0 0 28px;max-width:54ch;margin-inline:auto}
+.pj-cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.pj-cta .b1{background:#fff;color:var(--steel-900);font-family:'Manrope',sans-serif;font-weight:700;font-size:15px;padding:15px 28px;border-radius:10px;text-decoration:none}
+.pj-cta .b2{background:rgba(255,255,255,.16);color:#fff;font-family:'Manrope',sans-serif;font-weight:700;font-size:15px;padding:15px 28px;border-radius:10px;text-decoration:none;border:1px solid rgba(255,255,255,.4)}
+
+@media(max-width:900px){
+  .pj-hero .top{grid-template-columns:1fr;gap:26px;align-items:start}
+  .pj-hero-stats{justify-content:flex-start}
+  .pj-show-grid{grid-template-columns:1fr}
+}
+@media(max-width:860px){
+  .realz-item{grid-template-columns:1fr;gap:20px;padding:32px 0}
+  .realz-item:nth-child(even) .realz-media{order:0}
+  .realz-name{font-size:22px}
+}
+@media(max-width:620px){.pj-hero{padding-top:108px}.pj-filters{position:static}}
+</style>
+</head>
+<body>
+
+<header id="hdr" class="solid">
+  <div class="hbar">
+    <a href="../" class="logo"><img src="../assets/logo-white.svg" alt="HAZE" class="logo-img" width="118" height="55"></a>
+    <button class="nav-toggle" id="navToggle" type="button" aria-label="Otevrit menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <nav class="nav">
+      <ul class="nav-links">
+      <li><a href="../o-nas/">O nás</a></li>
+      <li class="has-dropdown"><a href="../produkty/">Produkty <span class="caret" aria-hidden="true">▾</span></a></li>
+      <li><a href="../nase-projekty/" class="active">Naše projekty</a></li>
+      <li><a href="../kariera/">Kariéra</a></li>
+      <li><a href="../aktuality/">Novinky</a></li>
+      <li><a href="../kontakt/">Kontakt</a></li>
+      </ul>
+      <a href="#kontakt" class="nav-cta">Nezávazná konzultace</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- 1. KOMPAKTNÍ HERO -->
+<section class="pj-hero">
+  <div class="wrap">
+    <div class="top">
+      <div>
+        <div class="pj-hero-eyebrow">Naše projekty</div>
+        <h1>Každá stáj má jiné rozměry. Řešení proto navrhujeme <em>na míru.</em></h1>
+        <p class="pj-hero-lead">Vybrané realizace vrat, ventilace, sítí a zastřešení pro zemědělské i průmyslové provozy v CZ, SK a HU. Každý projekt začíná zaměřením na místě a končí montáží vlastním týmem.</p>
+      </div>
+      <div class="pj-hero-stats">
+        <div class="pj-hs"><b>10 000+</b><span>realizací</span></div>
+        <div class="pj-hs"><b>CZ·SK·HU</b><span>kde montujeme</span></div>
+        <div class="pj-hs"><b>Vlastní</b><span>výroba i montáž</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. SLIM FILTR -->
+<section class="pj-filters">
+  <div class="wrap">
+    <div class="pj-frow">
+      <span class="pj-flabel">Typ řešení</span>
+      <button class="pj-pill is-on">Vše</button>
+      <button class="pj-pill">Boční ventilace</button>
+      <button class="pj-pill">Střešní ventilace</button>
+      <button class="pj-pill">Vrata</button>
+      <button class="pj-pill">Sítě a stěny</button>
+      <button class="pj-pill">Meteostanice</button>
+    </div>
+  </div>
+</section>
+
+<!-- 3. TOP 10 REALIZACE -->
+<section style="padding-top:6px">
+  <div class="wrap">
+    <div class="realz">
+
+      <div class="realz-item" id="bohdalov">
+        <div class="realz-media"><img src="../assets/projekty/bohdalov.jpg" alt="Farma Bohdalov"><span class="realz-tag">Ventilace + vrata</span></div>
+        <div>
+          <div class="realz-kicker">Vlajková realizace</div>
+          <h3 class="realz-name">Farma Bohdalov</h3>
+          <div class="realz-loc">Bohdalov, Vysočina</div>
+          <p class="realz-desc">Šest bočních ventilačních stěn (provedení D+) opatřených límcem, posuvná a rolovací vrata. Jedna z našich vlajkových realizací kompletního větrání stáje.</p>
+          <a href="#" class="realz-link">Detail projektu <span class="ar">→</span></a>
+        </div>
+      </div>
+
+      <div class="realz-item" id="ovcary">
+        <div class="realz-media"><img src="../assets/projekty/ovcary.jpg" alt="John Deere Ovčáry"><span class="realz-tag">Boční ventilace</span></div>
+        <div>
+          <div class="realz-kicker">Velký zemědělský provoz</div>
+          <h3 class="realz-name">John Deere Ovčáry</h3>
+          <div class="realz-loc">Ovčáry u Kolína</div>
+          <p class="realz-desc">Boční ventilační systém (provedení E) do výšky 3,5 m, šířky plachet 14,9 / 17 / 20 / 14,5 bm. Barevné provedení sladěné s halou.</p>
+          <a href="#" class="realz-link">Detail projektu <span class="ar">→</span></a>
+        </div>
+      </div>
+
+      <div class="realz-item" id="okrouhla-radoun">
+        <div class="realz-media"><img src="../assets/projekty/okrouhla-radoun.jpg" alt="Farma Okrouhlá Radouň"><span class="realz-tag">Ventilace + vrata + meteostanice</span></div>
+        <div>
+          <div class="realz-kicker">Automaticky řízené větrání</div>
+          <h3 class="realz-name">Farma Okrouhlá Radouň</h3>
+          <div class="realz-loc">Okrouhlá Radouň, Jihočeský kraj</div>
+          <p class="realz-desc">Boční ventilační stěny (provedení B), moderní meteostanice, hřebenová štěrbina a elektrická rolovací vrata - kompletní automaticky řízené větrání.</p>
+          <a href="#" class="realz-link">Detail projektu <span class="ar">→</span></a>
+        </div>
+      </div>
+
+      <div class="realz-item" id="hans-prefa">
+        <div class="realz-media"><img src="../assets/projekty/hans-prefa.jpg" alt="H.A.N.S. Prefa Lysá nad Labem"><span class="realz-tag">Průmysl · ventilace</span></div>
+        <div>
+          <div class="realz-kicker">Nasazení mimo zemědělství</div>
+          <h3 class="realz-name">H.A.N.S. Prefa</h3>
+          <div class="realz-loc">Lysá nad Labem</div>
+          <p class="realz-desc">Průmyslová instalace bočního ventilačního systému (provedení E) do výšky 5 m se zesílenou plachtou 690 g/m². Ventilace výrobní haly na prefabrikovaný beton.</p>
+          <a href="#" class="realz-link">Detail projektu <span class="ar">→</span></a>
+        </div>
+      </div>
+
+      <div class="realz-item" id="krpalek">
+        <div class="realz-media"><img src="../assets/projekty/krpalek.jpg" alt="Krpálek Academy Praha"><span class="realz-tag">Dělicí stěna</span></div>
+        <div>
+          <div class="realz-kicker">Sportovní hala</div>
+          <h3 class="realz-name">Krpálek Academy</h3>
+          <div class="realz-loc">Praha</div>
+          <p class="realz-desc">Motoricky ovládaná dvouvrstvá dělicí stěna z PVC o ploše přes 240 m² ve sportovní hale Krpálek Academy. Důkaz, že naše systémy fungují i mimo stáje.</p>
+          <a href="#" class="realz-link">Detail projektu <span class="ar">→</span></a>
+        </div>
+      </div>
+
+      <div class="realz-item" id="vadin">
+        <div class="realz-media"><img src="../assets/projekty/vadin.jpg" alt="Farma Vadín"><span class="realz-tag">Ventilace + meteostanice</span></div>
+        <div>
+          <div class="realz-kicker">600 kusů dojnic</div>
+          <h3 class="realz-name">Farma Vadín</h3>
+          <div class="realz-loc">Vadín, Vysočina</div>
+          <p class="realz-desc">Šest bočních ventilačních stěn (provedení D), meteostanice AG05 a elektrická rolovací vrata se zastřešením, provoz pro 600 dojnic. Kompletní automaticky řízené větrání velké stáje.</p>
+          <a href="#" class="realz-link">Detail projektu <span class="ar">→</span></a>
+        </div>
+      </div>
+
+      <div class="realz-item" id="mladonovice">
+        <div class="realz-media"><img src="../assets/projekty/mladonovice.jpg" alt="Farma Mladoňovice"><span class="realz-tag">Ventilace + střešní + vrata</span></div>
+        <div>
+          <div class="realz-kicker">Prémiová plachta Sattler</div>
+          <h3 class="realz-name">Farma Mladoňovice</h3>
+          <div class="realz-loc">Mladoňovice, Pardubický kraj</div>
+          <p class="realz-desc">Boční ventilační systém (provedení C) s prémiovou plachtou Sattler (o 30 % pevnější), hřebenovou štěrbinou a zastřešenými vraty.</p>
+          <a href="#" class="realz-link">Detail projektu <span class="ar">→</span></a>
+        </div>
+      </div>
+
+      <div class="realz-item" id="zelatovice">
+        <div class="realz-media"><img src="../assets/projekty/zelatovice.jpg" alt="AGRAS Želatovice"><span class="realz-tag">Ventilace + střešní + meteostanice</span></div>
+        <div>
+          <div class="realz-kicker">Automatické řízení mikroklimatu</div>
+          <h3 class="realz-name">AGRAS Želatovice</h3>
+          <div class="realz-loc">Želatovice, Olomoucký kraj</div>
+          <p class="realz-desc">Boční ventilační stěny (provedení D+) s elektropohonem, dvoukřídlá polykarbonátová hřebenová štěrbina a meteostanice pro automatické řízení mikroklimatu.</p>
+          <a href="#" class="realz-link">Detail projektu <span class="ar">→</span></a>
+        </div>
+      </div>
+
+      <div class="realz-item" id="novy-teleckov">
+        <div class="realz-media"><img src="../assets/projekty/novy-teleckov.jpg" alt="Farma Nový Telečkov"><span class="realz-tag">Ventilace + vrata + meteostanice</span></div>
+        <div>
+          <div class="realz-kicker">Elektrická rolovací vrata</div>
+          <h3 class="realz-name">Farma Nový Telečkov</h3>
+          <div class="realz-loc">Nový Telečkov, Vysočina</div>
+          <p class="realz-desc">Boční ventilační stěny (provedení B) s meteostanicí AG06, hřebenovou štěrbinou a elektrickými rolovacími vraty.</p>
+          <a href="#" class="realz-link">Detail projektu <span class="ar">→</span></a>
+        </div>
+      </div>
+
+      <div class="realz-item" id="holesov">
+        <div class="realz-media"><img src="../assets/projekty/holesov.jpg" alt="Jízdárna Holešov-Dobrotice"><span class="realz-tag">Jízdárna · ventilace</span></div>
+        <div>
+          <div class="realz-kicker">Prosvětlená stěna 65 m</div>
+          <h3 class="realz-name">Jízdárna Holešov-Dobrotice</h3>
+          <div class="realz-loc">Holešov-Dobrotice, Zlínský kraj</div>
+          <p class="realz-desc">Polykarbonátová boční ventilační stěna (provedení F) v jednom panelu o délce 65 m. Prosvětlená a tepelně stabilní stěna pro jízdárnu.</p>
+          <a href="#" class="realz-link">Detail projektu <span class="ar">→</span></a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 4. CO UKAZUJEME -->
+<section class="pj-show">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-eyebrow">Co na projektech ukazujeme</div>
+      <h2>Neukazujeme jen hotovou montáž. <em>Ukazujeme, proč řešení funguje.</em></h2>
+      <p class="pj-show-lead">Reálný provoz, detail provedení a řešení postavené na míru každé stavbě - to, co rozhoduje o tom, jestli systém vydrží roky.</p>
+    </div>
+    <div class="pj-show-grid">
+      <div class="pj-show-card">
+        <div class="pj-show-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 20h20"/><path d="M4 20V8l8-5 8 5v12"/><path d="M9 20v-6h6v6"/></svg></div>
+        <h3>Reálný provoz</h3>
+        <p>Fotky ze stájí, hal a jímek. Žádné vizualizace - jen skutečné dokončené realizace v běžném provozu.</p>
+      </div>
+      <div class="pj-show-card">
+        <div class="pj-show-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l2.5 2.5M16.5 16.5L19 19M19 5l-2.5 2.5M7.5 16.5L5 19"/></svg></div>
+        <h3>Detail provedení</h3>
+        <p>Napojení, kotvení, vedení, konstrukce a ovládání. To, co rozhoduje o životnosti řešení.</p>
+      </div>
+      <div class="pj-show-card">
+        <div class="pj-show-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 14l3-3 3 3 5-6"/></svg></div>
+        <h3>Řešení na míru</h3>
+        <p>Každý projekt má jiné rozměry, jiné zatížení a jiné požadavky obsluhy. Nic z toho neřešíme typově.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. CTA -->
+<section class="pj-cta">
+  <div class="wrap">
+    <h2>Řešíte podobný provoz?</h2>
+    <p>Pošlete nám rozměry stáje nebo si rovnou domluvte zaměření na místě. Ozveme se do následujícího pracovního dne.</p>
+    <div class="pj-cta-btns">
+      <a href="../kontakt/" class="b1">Chci podobné řešení</a>
+      <a href="tel:+420602488989" class="b2">Zavolat: +420 602 488 989</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-bottom" style="border:0;justify-content:center">
+      <div>&copy; 2007-2026 HAZE, s.r.o. &nbsp;·&nbsp; NÁVRH v2 - Naše projekty</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
