@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Kariéra | HAZE - práce ve výrobě a montáži stájové techniky</title>
-<meta name="description" content="Kariéra v HAZE s.r.o. Hledáme zámečníky-svářeče, montážní a servisní techniky, výškové pracovníky, revizní techniky a IT správce. Vlastní výroba v Křični od roku 2007. CV pošlete na info@haze.cz.">
+<meta name="description" content="Kariéra v HAZE s.r.o. Hledáme zámečníky-svářeče, montážní a servisní techniky, výškové pracovníky, revizní techniky a IT správce. Vlastní výroba v Křični od roku 2007. CV pošlete na radka.svojgrova@haze.cz.">
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="https://www.haze.cz/kariera/">
 <meta property="og:title" content="Kariéra HAZE - přidejte se do týmu">
-<meta property="og:description" content="Vlastní výroba a montáž stájové techniky. Hledáme řemeslníky i techniky. CV na info@haze.cz.">
+<meta property="og:description" content="Vlastní výroba a montáž stájové techniky. Hledáme řemeslníky i techniky. CV na radka.svojgrova@haze.cz.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="cs_CZ">
 <meta property="og:url" content="https://www.haze.cz/kariera/">
@@ -50,6 +50,20 @@
 <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon-180.png">
 <meta name="theme-color" content="#F79430">
+<style>
+/* Kariéra - jednoduché rozklikávací boxy pozic (scoped) */
+.kar-intro{max-width:680px;margin:-16px 0 38px;font-size:17px;color:var(--ink-soft);line-height:1.65}
+.kar-card{display:block;cursor:pointer}
+.kar-card .news-meta time{color:var(--ink-soft)}
+.kar-more{display:inline-flex;align-items:center;gap:8px;margin-top:16px;
+  font-family:'Manrope',sans-serif;font-weight:700;font-size:13.5px;letter-spacing:.02em;color:var(--haze-dark);transition:gap .2s,color .2s}
+.kar-card:hover .kar-more{gap:12px;color:var(--haze)}
+/* zmenšená závěrečná sekce (Adam 2026-06-07: nemá být tak obrovská) */
+.kar-final{padding:76px 0}
+.kar-final h2{font-size:clamp(1.55rem,3vw,2.1rem);margin-bottom:26px}
+.kar-final .final-contact{font-size:clamp(1.05rem,1.6vw,1.35rem)}
+@media(max-width:600px){.kar-final{padding:56px 0}}
+</style>
 </head>
 <body>
 
@@ -59,7 +73,7 @@
 <header id="hdr" class="solid">
   <div class="hbar">
     <a href="../" class="logo">
-      <img src="../assets/logo-white.svg" alt="HAZE" class="logo-img" width="118" height="55">
+      <img src="../assets/logo-white.svg" alt="HAZE" class="logo-img" width="118" height="55" decoding="async">
     </a>
     <button class="nav-toggle" id="navToggle" type="button" aria-label="Otevrit menu" aria-expanded="false"><span></span><span></span><span></span></button>
     <nav class="nav">
@@ -68,22 +82,23 @@
       <li class="has-dropdown">
         <a href="../produkty/">Produkty <span class="caret" aria-hidden="true">▾</span></a>
         <div class="dropdown">
-          <a href="../produkty/stajova-vrata/">Stájová vrata</a>
-          <a href="../produkty/vrata-prumysl/">Vrata pro průmysl</a>
-          <a href="../produkty/bvs-ventilace/">BVS ventilace</a>
-          <a href="../produkty/stresni-vetrani/">Střešní větrání</a>
+          <a href="../produkty/rolovaci-vrata/">Rolovací vrata</a>
+          <a href="../produkty/ostatni-vrata/">Ostatní vrata</a>
+          <a href="../produkty/bocni-ventilace/">Boční ventilační systémy</a>
+          <a href="../produkty/stresni-vetrani/">Střešní ventilační systémy</a>
+          <a href="../produkty/site/">Sítě</a>
+          <a href="../produkty/meteostanice/">Meteostanice</a>
           <a href="../produkty/protihlukove-steny/">Protihlukové stěny</a>
-          <div class="dropdown-sep"></div>
           <a href="../produkty/zastreseni-jimek/">Zastřešení jímek</a>
-          <a href="../produkty/pletiva-doplnky/">Pletiva a doplňky</a>
           <a href="../produkty/" class="dropdown-all">Všechny produkty →</a>
         </div>
       </li>
       <li><a href="../nase-projekty/">Naše projekty</a></li>
-      <li><a href="../kariera/">Kariéra</a></li>
+      <li><a href="../kariera/" class="active">Kariéra</a></li>
       <li><a href="../aktuality/">Novinky</a></li>
+      <li><a href="../kontakt/">Kontakt</a></li>
       </ul>
-      <a href="../kontakt/" class="nav-cta">Nezávazná konzultace</a>
+      <a href="#kontakt" class="nav-cta">Nezávazná konzultace</a>
     </nav>
   </div>
 </header>
@@ -98,60 +113,59 @@
       <div class="sec-eyebrow">Kariéra · Otevřené pozice</div>
       <h2>Koho do týmu <em>hledáme.</em></h2>
     </div>
+    <p class="kar-intro reveal">Vyrábíme a montujeme ve vlastní hale v Křični. Hledáme řemeslníky a techniky, kteří chtějí vidět výsledek své práce. Rozklikněte pozici a podívejte se na detail.</p>
     <div class="news-list">
 
-      <article class="news-card reveal">
-        <div class="news-meta"><span class="news-cat">Výroba</span><time>Křičeň</time></div>
+      <a class="news-card kar-card reveal" href="zamecnik-svarec/">
+        <div class="news-meta"><span class="news-cat">Výroba</span></div>
         <h2>Zámečník se svářečskou praxí</h2>
-        <p>Sváření CO2 (MIG/MAG), montáž a zámečnické práce podle technické dokumentace. Práce ve vlastní hale, ne na cizí montáži - kvalitu každého svaru máme pod kontrolou.</p>
-      </article>
+        <p>Sváření CO2 (MIG/MAG), montáž a zámečnické práce podle výkresové dokumentace. Práce ve vlastní hale, ne na cizí montáži - kvalitu každého svaru máme pod kontrolou.</p>
+        <span class="kar-more">Více informací →</span>
+      </a>
 
-      <article class="news-card reveal">
-        <div class="news-meta"><span class="news-cat">Servis</span><time>ČR · SK · HU</time></div>
-        <h2>Montážní a servisní technik</h2>
+      <a class="news-card kar-card reveal" href="montazni-technik/">
+        <div class="news-meta"><span class="news-cat">Servis</span></div>
+        <h2>Montážní / servisní technik</h2>
         <p>Montáž a instalace našich zařízení u zákazníka, údržba, diagnostika poruch a technická podpora. Řidičák skupiny B výhodou, zaučíme.</p>
-      </article>
+        <span class="kar-more">Více informací →</span>
+      </a>
 
-      <article class="news-card reveal">
-        <div class="news-meta"><span class="news-cat">Montáž</span><time>ČR · SK · HU</time></div>
+      <a class="news-card kar-card reveal" href="vyskovy-pracovnik/">
+        <div class="news-meta"><span class="news-cat">Montáž</span></div>
         <h2>Výškový pracovník</h2>
         <p>Montáž a instalace zařízení pomocí horolezecké techniky, údržba a servis ve výškách. Platné osvědčení nebo ochota si ho doplnit.</p>
-      </article>
+        <span class="kar-more">Více informací →</span>
+      </a>
 
-      <article class="news-card reveal">
-        <div class="news-meta"><span class="news-cat">Elektro</span><time>ČR</time></div>
+      <a class="news-card kar-card reveal" href="revizni-technik/">
+        <div class="news-meta"><span class="news-cat">Elektro</span></div>
         <h2>Revizní technik - elektrikář</h2>
         <p>Pravidelné revize dle platných norem a předpisů, vystavování revizních zpráv s doporučením údržby. Vyhláška 50 podmínkou.</p>
-      </article>
+        <span class="kar-more">Více informací →</span>
+      </a>
 
-      <article class="news-card reveal">
-        <div class="news-meta"><span class="news-cat">IT</span><time>Křičeň</time></div>
+      <a class="news-card kar-card reveal" href="it-administrator/">
+        <div class="news-meta"><span class="news-cat">IT</span></div>
         <h2>IT / IS administrátor</h2>
         <p>Technické zázemí a IT podpora uživatelů napříč firmou. Rozšiřujeme IT tým, jak roste výroba i administrativa.</p>
-      </article>
+        <span class="kar-more">Více informací →</span>
+      </a>
 
     </div>
   </div>
 </section>
 
-<!-- SEKCE "Co u nas najdete / stabilni firma" ODSTRANENA (Adam 2026-05-29) -->
-
-<section class="final-cta">
+<section class="final-cta kar-final" id="kontakt">
   <div class="wrap">
-    <div class="sec-eyebrow">Máte zájem</div>
-    <h2>Pošlete nám pár vět <em>o sobě.</em></h2>
-    <p style="max-width:620px;margin:0 auto 8px;color:rgba(255,255,255,.8)">Nevidíte přesně svoji pozici, ale řemeslo nebo technika je vaše? Ozvěte se i tak. Pošlete životopis a krátce, co umíte, na <a href="mailto:info@haze.cz?subject=Kariéra%20HAZE" style="color:#fff;text-decoration:underline">info@haze.cz</a> - ozveme se zpět.</p>
+    <div class="sec-eyebrow">Máte nějaký dotaz nebo zájem o pozici?</div>
+    <h2>Napište na tento email.</h2>
     <div class="final-contacts">
-      <a href="mailto:info@haze.cz?subject=Kariéra%20HAZE" class="final-contact">
+      <a href="mailto:radka.svojgrova@haze.cz?subject=Kariera%20HAZE" class="final-contact" style="flex-direction:column;gap:8px">
         <span class="ico"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg></span>
-        info@haze.cz
-      </a>
-      <a href="tel:+420602488989" class="final-contact">
-        <span class="ico"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.37 1.9.72 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0122 16.92z"/></svg></span>
-        +420 602 488 989
+        <span>radka.svojgrova@haze.cz</span>
+        <span style="font-size:13px;font-weight:500;color:rgba(255,255,255,.6);letter-spacing:.02em">Radka Švojgrová, personalistika</span>
       </a>
     </div>
-    <p style="margin-top:16px;font-size:14px;color:rgba(255,255,255,.65)">Po-Pá 7:00-17:00. Vlastní hala: Křičeň 108. Sídlo: Praskačka 145.</p>
   </div>
 </section>
 
@@ -162,20 +176,21 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <div class="logo">
-          <img src="../assets/logo-white.svg" alt="HAZE" class="logo-img" width="100" height="46">
+          <img src="../assets/logo-white.svg" alt="HAZE" class="logo-img" width="100" height="46" decoding="async">
         </div>
-        <p>Vyrábíme a montujeme vrata, BVS ventilaci, protihlukové stěny a doplňky pro moderní stáj i průmysl. Od roku 2007, vlastní hala v Křični, realizace v CZ, SK a HU.</p>
+        <p>Vyrábíme a montujeme vrata, boční ventilaci, protihlukové stěny a doplňky pro moderní stáj i průmysl. Od roku 2007, vlastní hala v Křični, realizace v CZ, SK a HU.</p>
       </div>
       <div>
         <h5>Produkty</h5>
         <ul>
-          <li><a href="../produkty/stajova-vrata/">Stájová vrata</a></li>
-          <li><a href="../produkty/vrata-prumysl/">Vrata pro průmysl</a></li>
-          <li><a href="../produkty/bvs-ventilace/">BVS ventilace</a></li>
-          <li><a href="../produkty/stresni-vetrani/">Střešní větrání</a></li>
+          <li><a href="../produkty/rolovaci-vrata/">Rolovací vrata</a></li>
+          <li><a href="../produkty/ostatni-vrata/">Ostatní vrata</a></li>
+          <li><a href="../produkty/bocni-ventilace/">Boční ventilační systémy</a></li>
+          <li><a href="../produkty/stresni-vetrani/">Střešní ventilační systémy</a></li>
+          <li><a href="../produkty/site/">Sítě</a></li>
+          <li><a href="../produkty/meteostanice/">Meteostanice</a></li>
           <li><a href="../produkty/protihlukove-steny/">Protihlukové stěny</a></li>
           <li><a href="../produkty/zastreseni-jimek/">Zastřešení jímek</a></li>
-          <li><a href="../produkty/pletiva-doplnky/">Pletiva a doplňky</a></li>
         </ul>
       </div>
       <div>

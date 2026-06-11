@@ -185,3 +185,20 @@ document.querySelectorAll('a[href^="mailto:"]').forEach(a => {
     if (typeof gtag === 'function') gtag('event','email_click',{send_to:'G-5V6W6CMFGR'});
   });
 });
+
+// TV / presentation mode — explicit, persisted across pages.
+// Enable: add ?tv (or ?tv=1) to the URL. Disable: ?tv=0. Toggle anytime: Shift+T.
+// Persists via localStorage so clicking through the whole site stays zoomed.
+(function () {
+  const KEY = 'haze_tv';
+  const q = new URLSearchParams(location.search);
+  if (q.has('tv')) localStorage.setItem(KEY, q.get('tv') === '0' ? '0' : '1');
+  const apply = () => document.documentElement.classList.toggle('tv-mode', localStorage.getItem(KEY) === '1');
+  apply();
+  document.addEventListener('keydown', (e) => {
+    if (e.shiftKey && (e.key === 'T' || e.key === 't')) {
+      localStorage.setItem(KEY, localStorage.getItem(KEY) === '1' ? '0' : '1');
+      apply();
+    }
+  });
+})();
