@@ -861,3 +861,50 @@ body.prod-flip .final-cta p{color:var(--ink-soft)!important}
   .spec-matrix-wrap{overflow-x:auto}
   .spec-matrix{min-width:560px}
 }
+
+/* ============================================================
+   TV / LARGE-SCREEN PRESENTATION
+   Auto tiers widen the container + scale the fixed-px text on
+   big displays so content fills the screen instead of sitting
+   in a narrow column with wide empty margins. The 1700px floor
+   skips typical scaled laptops (Windows 125% = ~1536 CSS px)
+   and catches real 4K TVs / large monitors.
+   TV mode (html.tv-mode) is an explicit zoom for legibility from
+   across a room - toggle with ?tv in the URL or Shift+T; it
+   persists across pages. Normal phone/laptop visitors unaffected.
+   ============================================================ */
+
+/* --- Auto: large display / 1080p TV (gentle) --- */
+@media (min-width:1700px){
+  .wrap,.hbar,.hero-content,.showcase-content{max-width:1560px}
+  .nav-links a{font-size:17px}
+  .hero-lead{max-width:640px}
+  .sec-head .lead{font-size:18px}
+  .prod-body p{font-size:15.5px}
+  .step p,.problem-stat-body p,.commit-card p{font-size:16px}
+  .stat-value{font-size:22px}
+  .specs li span{font-size:15.5px}
+  footer{font-size:14.5px}
+}
+
+/* --- Auto: 4K TV / ultra-wide (strong) --- */
+@media (min-width:2200px){
+  .wrap,.hbar,.hero-content,.showcase-content{max-width:1840px;padding-left:48px;padding-right:48px}
+  .hero-grid{max-width:920px}
+  .sec-head{max-width:920px}
+  .nav-links{gap:42px}
+  .nav-links a{font-size:19px}
+  .sec-head .lead{font-size:20px}
+  .prod-grid{gap:36px}
+  .prod-body h3{font-size:23px}
+  .prod-body p{font-size:16.5px}
+  .step h3{font-size:25px}
+  .step p,.problem-stat-body p,.story-body p,.commit-card p{font-size:18px}
+  .stat-value{font-size:26px}
+  .specs li span{font-size:17px}
+  footer{font-size:16px}
+}
+
+/* --- Explicit TV presentation mode (zoom whole page) --- */
+html.tv-mode{zoom:1.15}
+@media (min-width:2600px){ html.tv-mode{zoom:1.35} }
