@@ -27,7 +27,7 @@
   --accent-soft:#B89968;
   --paper:#FAF7F1;
 }
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;scroll-padding-top:96px}
 body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--ink);overflow-x:hidden;font-weight:300;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
 img{max-width:100%;display:block;height:auto}
@@ -86,7 +86,7 @@ nav.open .nav-mobile span:nth-child(3){bottom:50%;transform:translateY(50%) rota
 }
 
 /* HERO (full-bleed photo + dark gradient + text on left) */
-.hero{min-height:100vh;position:relative;display:flex;align-items:center;overflow:hidden;background:#15171c}
+.hero{min-height:100vh;position:relative;display:flex;flex-direction:column;justify-content:center;overflow:hidden;background:#15171c}
 .hero-bg{position:absolute;inset:0;z-index:0;overflow:hidden}
 .hero-bg img{width:100%;height:100%;object-fit:cover;transform:scale(1.1);will-change:transform}
 html.js .hero-bg img{animation:heroZoom 22s cubic-bezier(.22,.61,.36,1) .4s forwards}
@@ -95,7 +95,7 @@ html.js .hero-bg img{animation:heroZoom 22s cubic-bezier(.22,.61,.36,1) .4s forw
   linear-gradient(100deg, rgba(15,17,22,.88) 0%, rgba(15,17,22,.74) 28%, rgba(15,17,22,.42) 56%, rgba(15,17,22,.1) 78%, rgba(15,17,22,.02) 100%),
   linear-gradient(to top, rgba(15,17,22,.6) 0%, rgba(15,17,22,0) 38%);
   pointer-events:none}
-.hero-text{position:relative;z-index:2;padding:8rem 4rem 6rem;max-width:780px;width:60%;color:var(--paper)}
+.hero-text{position:relative;z-index:2;padding:6rem 4rem 0;width:100%;max-width:820px;color:var(--paper)}
 .hero-text .eyebrow{color:var(--accent-soft)}
 .hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.7rem,5vw,5rem);line-height:1.02;font-weight:400;letter-spacing:-.02em;margin:1.4rem 0 1.8rem;color:var(--paper)}
 .hero h1 em{font-style:italic;color:var(--accent-soft);font-weight:400}
@@ -105,7 +105,7 @@ html.js .hero-bg img{animation:heroZoom 22s cubic-bezier(.22,.61,.36,1) .4s forw
 .btn-primary:hover{background:var(--accent-soft);color:var(--bg-deep)}
 .btn-primary svg{width:14px;height:14px;transition:transform .25s}
 .btn-primary:hover svg{transform:translateX(4px)}
-.hero-meta{position:absolute;bottom:3rem;left:4rem;right:4rem;z-index:2;display:flex;align-items:center;gap:2.8rem;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.55)}
+.hero-meta{position:relative;z-index:2;width:100%;max-width:980px;padding:2.6rem 4rem 0;display:flex;align-items:center;gap:2.8rem;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.55)}
 .hero-meta strong{color:var(--paper);font-weight:500;font-size:1.3rem;font-family:'Cormorant Garamond',serif;letter-spacing:0;text-transform:none}
 .hero-meta .item{display:flex;align-items:baseline;gap:.75rem}
 /* Renata identity chip in hero meta */
@@ -381,9 +381,17 @@ footer{background:var(--bg-deep);color:var(--paper);padding:5rem 0 2rem}
 .tl-step{display:flex;flex-direction:column;gap:.25rem}
 .tl-step .tl-when{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);font-weight:500}
 .tl-step .tl-what{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--ink);font-weight:500}
-.contact-aside .alt{font-size:.92rem;color:var(--muted);line-height:1.9;border-top:1px solid var(--line);padding-top:1.5rem}
-.contact-aside .alt a{display:inline-block;font-size:1.32rem;font-weight:600;color:var(--ink);border-bottom:1px solid var(--line);transition:border-color .2s,color .2s;margin-top:.35rem}
-.contact-aside .alt a:hover{color:var(--accent);border-color:var(--accent)}
+.contact-aside .callbox{margin-top:2.4rem;padding-top:1.8rem;border-top:1px solid var(--line)}
+.callbox-eyebrow{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);font-weight:500;margin-bottom:.5rem}
+.callbox-title{font-family:'Cormorant Garamond',serif;font-size:1.6rem;line-height:1.1;color:var(--ink);margin-bottom:1.1rem;font-weight:500}
+.callbox a{display:flex;align-items:center;gap:.9rem;font-size:1.15rem;font-weight:500;color:var(--ink);margin-top:.75rem;transition:color .2s}
+.callbox a:hover{color:var(--accent)}
+.callbox a .ico{flex:none;width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:1px solid var(--line);transition:border-color .2s,background .2s}
+.callbox a .ico svg{width:17px;height:17px;fill:none;stroke:var(--ink);stroke-width:1.6;transition:stroke .2s}
+.callbox a:hover .ico{border-color:var(--accent);background:var(--accent)}
+.callbox a:hover .ico svg{stroke:var(--paper)}
+.callbox a.mail{font-size:1rem;color:var(--muted)}
+.callbox a.mail:hover{color:var(--accent)}
 
 /* STICKY MOBILE CTA */
 .sticky-mobile{display:none}
@@ -514,9 +522,7 @@ html.js .reveal.in{opacity:1;transform:translateY(0)}
           <p>Chci vám nabídnout to nejlepší v rámci vašich možností a dle vašich představ. Neváhejte mě kontaktovat, pracovní dobu přizpůsobuji klientům a začneme třeba kávou.</p>
         </div>
         <div class="about-sign">
-          <span class="tese">Těším se na vás</span>
-          <span class="nm">Renata Sobolíková</span>
-          <span class="rl">REMI HK · Hradec Králové</span>
+          <span class="tese">Těším se na vaši návštěvu v showroomu.</span>
         </div>
       </div>
     </div>
@@ -1040,9 +1046,11 @@ html.js .reveal.in{opacity:1;transform:translateY(0)}
             <span class="tl-what">Vybíráte v klidu, vašim tempem a podle vašich možností</span>
           </div>
         </div>
-        <div class="alt">
-          Raději rovnou zavolat?<br>
-          <a href="tel:+420602484982">+420 602 484 982</a> · <a href="mailto:rsobolikova@post.cz">rsobolikova@post.cz</a>
+        <div class="callbox">
+          <div class="callbox-eyebrow">Nechce se vám vyplňovat formulář?</div>
+          <div class="callbox-title">Zavolejte mi rovnou</div>
+          <a href="tel:+420602484982"><span class="ico"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.37 1.9.72 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0122 16.92z"/></svg></span>+420 602 484 982</a>
+          <a class="mail" href="mailto:rsobolikova@post.cz"><span class="ico"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg></span>rsobolikova@post.cz</a>
         </div>
       </aside>
     </div>
