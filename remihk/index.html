@@ -40,7 +40,7 @@ img{max-width:100%;display:block;height:auto}
 #loader{
   position:fixed;inset:0;z-index:9999;background:var(--bg);
   display:flex;align-items:center;justify-content:center;flex-direction:column;gap:2rem;
-  transition:opacity .7s ease;
+  transition:opacity .3s ease;
 }
 #loader.done{opacity:0;pointer-events:none}
 .load-mark{font-family:'Cormorant Garamond',serif;font-size:2.4rem;letter-spacing:.08em;color:var(--ink);opacity:0;animation:fadeIn 1s .1s forwards}
@@ -105,7 +105,7 @@ html.js .hero-bg img{animation:heroZoom 22s cubic-bezier(.22,.61,.36,1) .4s forw
 .btn-primary:hover{background:var(--accent-soft);color:var(--bg-deep)}
 .btn-primary svg{width:14px;height:14px;transition:transform .25s}
 .btn-primary:hover svg{transform:translateX(4px)}
-.hero-meta{position:relative;z-index:2;width:100%;max-width:980px;padding:2.6rem 4rem 0;display:flex;align-items:center;gap:2.8rem;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.55)}
+.hero-meta{position:relative;z-index:2;width:100%;max-width:980px;padding:2.6rem 4rem 3.4rem;display:flex;align-items:center;gap:2.8rem;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.55)}
 .hero-meta strong{color:var(--paper);font-weight:500;font-size:1.3rem;font-family:'Cormorant Garamond',serif;letter-spacing:0;text-transform:none}
 .hero-meta .item{display:flex;align-items:baseline;gap:.75rem}
 /* Renata identity chip in hero meta */
@@ -194,7 +194,7 @@ section{padding:8rem 0;position:relative}
 .section-head.center p{margin-left:auto;margin-right:auto}
 
 /* STATS BAND */
-.stats{background:var(--bg-deep);color:var(--paper);padding:5rem 0}
+.stats{background:var(--bg-deep);color:var(--paper);padding:3rem 0}
 .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:3rem}
 .stat{text-align:left}
 .stat-num{font-family:'Cormorant Garamond',serif;font-size:3.2rem;line-height:1;color:var(--accent-soft);margin-bottom:.6rem}
@@ -404,7 +404,7 @@ footer{background:var(--bg-deep);color:var(--paper);padding:5rem 0 2rem}
 }
 
 /* REVEAL ANIM (CSS-gated so no-JS / screenshot tools see content) */
-.reveal{transition:opacity .9s ease,transform .9s ease}
+.reveal{transition:opacity .55s ease,transform .55s ease}
 html.js .reveal{opacity:0;transform:translateY(20px)}
 html.js .reveal.in{opacity:1;transform:translateY(0)}
 .reveal-d1{transition-delay:.1s}.reveal-d2{transition-delay:.2s}.reveal-d3{transition-delay:.3s}
@@ -454,7 +454,7 @@ html.js .reveal.in{opacity:1;transform:translateY(0)}
     <h1>
       <span class="w"><span>Koupelna</span></span> <span class="w"><span>jako</span></span> <span class="w"><span>prostor,</span></span><br><span class="w"><span><em>ne</em></span></span> <span class="w"><span><em>jen</em></span></span> <span class="w"><span><em>místnost.</em></span></span>
     </h1>
-    <p class="lead">V netradiční vzorkovně v Gayerových kasárnách si vyberete obklady, dlažby, sanitu, baterie i doplňky od evropských výrobců, kteří určují světové trendy. Osobně, v klidu a na jednom místě.</p>
+    <p class="lead">Ve vzorkovně v Gayerových kasárnách si vyberete obklady, dlažby, sanitu, baterie i doplňky od evropských výrobců, kteří určují světové trendy. Osobně, v klidu a na jednom místě.</p>
     <div class="hero-cta-row">
       <a href="#sortiment" class="btn-primary">
         Prohlédnout sortiment
@@ -477,7 +477,7 @@ html.js .reveal.in{opacity:1;transform:translateY(0)}
 </header>
 
 <!-- STATS - jen ověřená fakta -->
-<section class="stats" style="padding:5rem 0">
+<section class="stats">
   <div class="container">
     <div class="stats-grid">
       <div class="stat reveal">
@@ -624,9 +624,6 @@ html.js .reveal.in{opacity:1;transform:translateY(0)}
         <span class="rl">Prachatice</span>
       </div>
     </div>
-    <p class="refs-note reveal">„V referencích záměrně uvádím pouze komerční projekty - své klienty neobtěžuji následným focením a zveřejňováním jejich soukromého interiéru."
-      <span class="who">Renata Sobolíková</span>
-    </p>
   </div>
 </section>
 
@@ -935,7 +932,7 @@ html.js .reveal.in{opacity:1;transform:translateY(0)}
       <div class="katalog-body reveal reveal-d1">
         <span class="eyebrow">Pro letošek jsme pro vás vybrali</span>
         <h2>BOOK Design <em>2025 / 2026</em></h2>
-        <p>Aktuální výběr kolekcí obkladů a dlažeb, které stojí za pozornost. Prolistujte si katalog v klidu doma - a až vás něco zaujme, přijďte si na materiál sáhnout do showroomu.</p>
+        <p>Aktuální výběr kolekcí obkladů a dlažeb, které stojí za pozornost. Prohlédněte si materiály z pohodlí domova.</p>
         <div class="katalog-meta">
           <div class="km"><div class="v">220</div><div class="l">stran</div></div>
           <div class="km"><div class="v">2025/26</div><div class="l">aktuální edice</div></div>
@@ -1079,16 +1076,6 @@ html.js .reveal.in{opacity:1;transform:translateY(0)}
       </a>
     </div>
 
-    <div class="cta-row reveal reveal-d3" style="margin-top:2.5rem">
-      <a href="tel:+420602484982" class="btn-primary">
-        Zavolat hned teď
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-      </a>
-      <a href="mailto:rsobolikova@post.cz" class="btn-primary">
-        Napsat e-mail
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-      </a>
-    </div>
   </div>
 </section>
 
@@ -1142,22 +1129,15 @@ html.js .reveal.in{opacity:1;transform:translateY(0)}
 // Mark JS-on so reveal animations gate on it (no-JS / screenshot tools see content)
 document.documentElement.classList.add('js');
 
-// Loader -> triggers body.loaded which fires hero entrance animation sequence
-window.addEventListener('load',()=>{
-  setTimeout(()=>{
-    document.getElementById('loader').classList.add('done');
-    document.getElementById('heroImg').classList.add('loaded');
-    document.body.classList.add('loaded');
-  },650);
-});
-// Failsafe: if `load` doesn't fire (slow img), still kick off after 1.5s
-setTimeout(()=>{
-  if(!document.body.classList.contains('loaded')){
-    document.getElementById('loader')?.classList.add('done');
-    document.getElementById('heroImg')?.classList.add('loaded');
-    document.body.classList.add('loaded');
-  }
-},1500);
+// Loader -> hide as soon as DOM is ready (don't wait for full image load)
+function remihkReveal(){
+  document.getElementById('loader')?.classList.add('done');
+  document.getElementById('heroImg')?.classList.add('loaded');
+  document.body.classList.add('loaded');
+}
+if(document.readyState!=='loading'){remihkReveal();}
+else{document.addEventListener('DOMContentLoaded',()=>setTimeout(remihkReveal,60));}
+setTimeout(remihkReveal,900); // failsafe
 
 // Nav scroll
 const nav=document.getElementById('nav');
