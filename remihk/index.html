@@ -463,6 +463,9 @@ html.js .reveal.in{opacity:1;transform:translateY(0)}
 @keyframes marq{to{transform:translateX(-50%)}}
 @media(prefers-reduced-motion:reduce){.marquee-track{animation:none}}
 
+/* Scroll progress bar */
+#scrollbar{position:fixed;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--accent),var(--accent-soft));z-index:150;will-change:width}
+
 /* Lightbox galerie realizaci */
 .pf-img{cursor:zoom-in}
 .lb{position:fixed;inset:0;z-index:200;background:rgba(15,17,22,.95);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .35s}
@@ -479,6 +482,8 @@ html.js .reveal.in{opacity:1;transform:translateY(0)}
 </style>
 </head>
 <body>
+
+<div id="scrollbar"></div>
 
 <!-- LOADER -->
 <div id="loader">
@@ -1348,6 +1353,26 @@ if(matchMedia('(pointer:fine)').matches){
     el.addEventListener('mouseleave',()=>{el.style.translate='0 0';});
   });
 }
+
+// ===== Scroll progress bar + hero parallax-fade =====
+const sbar=document.getElementById('scrollbar');
+const heroText=document.querySelector('.hero-text');
+const heroMeta=document.querySelector('.hero-meta');
+const reduced=matchMedia('(prefers-reduced-motion:reduce)').matches;
+let sraf=null;
+window.addEventListener('scroll',()=>{
+  if(sraf)return;
+  sraf=requestAnimationFrame(()=>{
+    const y=window.scrollY, doc=document.documentElement.scrollHeight-innerHeight;
+    if(sbar)sbar.style.width=(doc>0?(y/doc*100):0)+'%';
+    if(!reduced&&heroText&&y<innerHeight){
+      const o=Math.max(0,1-y/(innerHeight*0.62));
+      heroText.style.opacity=o; heroText.style.translate='0 '+(y*0.22).toFixed(1)+'px';
+      if(heroMeta){heroMeta.style.opacity=o;}
+    }
+    sraf=null;
+  });
+},{passive:true});
 
 // ===== Scrollspy - aktivni sekce v navigaci =====
 const navMap={};
