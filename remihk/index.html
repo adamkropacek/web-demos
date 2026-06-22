@@ -125,8 +125,8 @@ section .btn-primary:hover{background:var(--accent);color:var(--bg)}
 nav:not(.scrolled) .nav-logo,
 nav:not(.scrolled) .nav-links a{color:var(--paper)}
 nav:not(.scrolled) .nav-logo span{color:var(--accent-soft)}
-nav:not(.scrolled) .nav-cta{border-color:var(--paper);color:var(--paper)}
-nav:not(.scrolled) .nav-cta:hover{background:var(--paper);color:var(--bg-deep)}
+nav:not(.scrolled) .nav-cta{background:var(--accent);border-color:var(--accent);color:#fff;box-shadow:0 8px 24px -10px rgba(0,0,0,.5)}
+nav:not(.scrolled) .nav-cta:hover{background:var(--accent-soft);border-color:var(--accent-soft);color:var(--bg-deep)}
 nav:not(.scrolled) .nav-mobile span{background:var(--paper)}
 
 /* hero entrance animation */
@@ -444,6 +444,38 @@ html.js .reveal.in{opacity:1;transform:translateY(0)}
   html.js .pf .pf-img img{clip-path:none}
   .section-head h2::after,.about-body h2::after,.katalog-body h2::after,.showroom-text h2::after,.cta h2::after{width:54px;transition:none}
 }
+
+/* ===== PRO EFEKTY ===== */
+/* Scrollspy - aktivni sekce se v navigaci podtrhne */
+.nav-links a{position:relative}
+.nav-links a::after{content:'';position:absolute;left:0;right:100%;bottom:-5px;height:1px;background:var(--accent-soft);transition:right .35s cubic-bezier(.22,.61,.36,1)}
+.nav-links a.active{opacity:1}
+.nav-links a.active::after{right:0}
+
+/* Prestige brand marquee - nekonecny pas znacek */
+.brandband{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:2.4rem 0;overflow:hidden}
+.brandband .bb-label{text-align:center;font-size:.66rem;letter-spacing:.28em;text-transform:uppercase;color:var(--accent);font-weight:500;margin-bottom:1.7rem}
+.marquee{display:flex;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
+.marquee-track{display:flex;flex-shrink:0;align-items:center;animation:marq 42s linear infinite;will-change:transform}
+.brandband:hover .marquee-track{animation-play-state:paused}
+.marquee-track span{font-family:'Cormorant Garamond',serif;font-size:1.7rem;color:var(--ink);white-space:nowrap;opacity:.8}
+.marquee-track span::after{content:'·';margin:0 2.4rem;color:var(--accent-soft);opacity:.7}
+@keyframes marq{to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.marquee-track{animation:none}}
+
+/* Lightbox galerie realizaci */
+.pf-img{cursor:zoom-in}
+.lb{position:fixed;inset:0;z-index:200;background:rgba(15,17,22,.95);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .35s}
+.lb.open{opacity:1;pointer-events:auto}
+.lb img{max-width:90vw;max-height:80vh;object-fit:contain;box-shadow:0 30px 80px -20px rgba(0,0,0,.7);transform:scale(.96);transition:transform .4s cubic-bezier(.22,.61,.36,1)}
+.lb.open img{transform:scale(1)}
+.lb-cap{position:absolute;bottom:4.5vh;left:0;right:0;text-align:center;color:rgba(255,255,255,.82);font-family:'Cormorant Garamond',serif;font-size:1.35rem;padding:0 1rem}
+.lb-cap .s{display:block;font-family:'Inter',sans-serif;font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent-soft);margin-top:.45rem;font-weight:500}
+.lb-close,.lb-nav{position:absolute;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.25);color:#fff;width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .25s,border-color .25s}
+.lb-close:hover,.lb-nav:hover{background:var(--accent);border-color:var(--accent)}
+.lb-close{top:4vh;right:4vw}.lb-prev{left:3vw;top:50%;transform:translateY(-50%)}.lb-next{right:3vw;top:50%;transform:translateY(-50%)}
+.lb-nav svg,.lb-close svg{width:20px;height:20px;stroke:#fff;fill:none;stroke-width:1.6}
+@media(max-width:680px){.lb-prev{left:1vw}.lb-next{right:1vw}.lb-close{top:2.5vh;right:4vw}.lb img{max-width:94vw}}
 </style>
 </head>
 <body>
@@ -502,11 +534,8 @@ html.js .reveal.in{opacity:1;transform:translateY(0)}
     </div>
   </div>
   <div class="hero-meta">
-    <div class="item renata-chip">
-      <img src="assets/renata-chip.jpg" alt="Renata Sobolíková">
-      <div class="rc-txt"><strong>Renata Sobolíková</strong><span>majitelka studia</span></div>
-    </div>
-    <div class="item"><strong>Od roku 1999</strong></div>
+    <div class="item"><strong>Renata Sobolíková</strong><span>majitelka studia</span></div>
+    <div class="item"><strong>Od roku 1999</strong><span>koupelnové studio</span></div>
     <div class="item"><strong>Gayerovy kasárny</strong><span>showroom · HK</span></div>
   </div>
 </header>
@@ -661,6 +690,16 @@ html.js .reveal.in{opacity:1;transform:translateY(0)}
     </div>
   </div>
 </section>
+
+<!-- BRAND MARQUEE - prestiz znacek, nekonecny pas -->
+<div class="brandband" aria-hidden="true">
+  <div class="bb-label">Značky, které u nás najdete</div>
+  <div class="marquee">
+    <div class="marquee-track">
+      <span>Versace</span><span>Dior Maison</span><span>Tonino Lamborghini</span><span>Catalano</span><span>Rexa Design</span><span>Duravit</span><span>Villeroy &amp; Boch</span><span>Laufen</span><span>Kaldewei</span><span>Bette</span><span>Kos by Zucchetti</span><span>Alice Ceramica</span><span>Emilgroup</span><span>Ideal Standard</span><span>Galassia</span><span>Viega</span><span>Versace</span><span>Dior Maison</span><span>Tonino Lamborghini</span><span>Catalano</span><span>Rexa Design</span><span>Duravit</span><span>Villeroy &amp; Boch</span><span>Laufen</span><span>Kaldewei</span><span>Bette</span><span>Kos by Zucchetti</span><span>Alice Ceramica</span><span>Emilgroup</span><span>Ideal Standard</span><span>Galassia</span><span>Viega</span>
+    </div>
+  </div>
+</div>
 
 <!-- SORTIMENT - 12 kategorií, accordion index -->
 <section id="sortiment" class="sortiment">
@@ -1169,6 +1208,15 @@ html.js .reveal.in{opacity:1;transform:translateY(0)}
   <a href="#formular" class="consult">Návštěva</a>
 </div>
 
+<!-- LIGHTBOX -->
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Galerie realizací">
+  <button class="lb-close" aria-label="Zavřít"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"/></svg></button>
+  <button class="lb-nav lb-prev" aria-label="Předchozí"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+  <button class="lb-nav lb-next" aria-label="Další"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+  <img src="" alt="">
+  <div class="lb-cap"></div>
+</div>
+
 <script>
 // Mark JS-on so reveal animations gate on it (no-JS / screenshot tools see content)
 document.documentElement.classList.add('js');
@@ -1298,6 +1346,40 @@ if(matchMedia('(pointer:fine)').matches){
     el.addEventListener('mousemove',e=>{const r=el.getBoundingClientRect();
       el.style.translate=`${((e.clientX-(r.left+r.width/2))/r.width)*8}px ${((e.clientY-(r.top+r.height/2))/r.height)*6}px`;});
     el.addEventListener('mouseleave',()=>{el.style.translate='0 0';});
+  });
+}
+
+// ===== Scrollspy - aktivni sekce v navigaci =====
+const navMap={};
+document.querySelectorAll('.nav-links a[href^="#"]').forEach(a=>navMap[a.getAttribute('href')]=a);
+const spy=new IntersectionObserver(es=>es.forEach(e=>{
+  const a=navMap['#'+e.target.id]; if(!a)return;
+  if(e.isIntersecting){document.querySelectorAll('.nav-links a.active').forEach(x=>x.classList.remove('active'));a.classList.add('active');}
+}),{rootMargin:'-45% 0px -50% 0px',threshold:0});
+document.querySelectorAll('section[id]').forEach(s=>spy.observe(s));
+
+// ===== Lightbox galerie realizaci =====
+const pfImgs=[...document.querySelectorAll('.pf-img img')];
+const lb=document.getElementById('lb');
+if(lb&&pfImgs.length){
+  const lbImg=lb.querySelector('img'),lbCap=lb.querySelector('.lb-cap');
+  let lbi=0;
+  function openLb(i){
+    lbi=(i+pfImgs.length)%pfImgs.length;const im=pfImgs[lbi];
+    lbImg.src=im.currentSrc||im.src;lbImg.alt=im.alt;
+    const card=im.closest('.pf'),t=card?.querySelector('.pf-meta .t')?.textContent||'',s=card?.querySelector('.pf-meta .s')?.textContent||'';
+    lbCap.innerHTML=t+'<span class="s">'+s+'</span>';
+    lb.classList.add('open');document.body.style.overflow='hidden';
+  }
+  function closeLb(){lb.classList.remove('open');document.body.style.overflow='';}
+  pfImgs.forEach((im,i)=>im.closest('.pf-img').addEventListener('click',()=>openLb(i)));
+  lb.querySelector('.lb-close').addEventListener('click',closeLb);
+  lb.querySelector('.lb-prev').addEventListener('click',e=>{e.stopPropagation();openLb(lbi-1);});
+  lb.querySelector('.lb-next').addEventListener('click',e=>{e.stopPropagation();openLb(lbi+1);});
+  lb.addEventListener('click',e=>{if(e.target===lb)closeLb();});
+  document.addEventListener('keydown',e=>{
+    if(!lb.classList.contains('open'))return;
+    if(e.key==='Escape')closeLb();else if(e.key==='ArrowLeft')openLb(lbi-1);else if(e.key==='ArrowRight')openLb(lbi+1);
   });
 }
 </script>
