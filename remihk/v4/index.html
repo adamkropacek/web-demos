@@ -481,11 +481,11 @@ html.js .reveal.in{opacity:1;transform:translateY(0)}
 
 /* Lightbox galerie realizaci */
 .pf-img{cursor:zoom-in}
-.lb{position:fixed;inset:0;z-index:200;background:rgba(15,17,22,.95);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .35s}
+.lb{position:fixed;inset:0;z-index:200;background:rgba(15,17,22,.985);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.5rem;padding:7vh 5vw;opacity:0;pointer-events:none;transition:opacity .35s}
 .lb.open{opacity:1;pointer-events:auto}
-.lb img{max-width:90vw;max-height:80vh;object-fit:contain;box-shadow:0 30px 80px -20px rgba(0,0,0,.7);transform:scale(.96);transition:transform .4s cubic-bezier(.22,.61,.36,1)}
+.lb img{max-width:90vw;max-height:74vh;object-fit:contain;box-shadow:0 30px 80px -20px rgba(0,0,0,.7);transform:scale(.96);transition:transform .4s cubic-bezier(.22,.61,.36,1)}
 .lb.open img{transform:scale(1)}
-.lb-cap{position:absolute;bottom:4.5vh;left:0;right:0;text-align:center;color:rgba(255,255,255,.82);font-family:'Cormorant Garamond',serif;font-size:1.35rem;padding:0 1rem}
+.lb-cap{position:static;text-align:center;color:rgba(255,255,255,.82);font-family:'Cormorant Garamond',serif;font-size:1.35rem;padding:0 1rem;flex:0 0 auto}
 .lb-cap .s{display:block;font-family:'Inter',sans-serif;font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent-soft);margin-top:.45rem;font-weight:500}
 .lb-close,.lb-nav{position:absolute;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.25);color:#fff;width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .25s,border-color .25s}
 .lb-close:hover,.lb-nav:hover{background:var(--accent);border-color:var(--accent)}
