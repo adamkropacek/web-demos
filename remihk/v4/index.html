@@ -231,12 +231,12 @@ section{padding:8rem 0;position:relative}
 .about-sign .rl{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);font-weight:500;margin-top:.3rem}
 
 /* INSPIRACE - portfolio grid */
-.portfolio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
-@media(max-width:980px){.portfolio-grid{grid-template-columns:repeat(2,1fr);gap:1rem}}
-@media(max-width:560px){.portfolio-grid{grid-template-columns:1fr;gap:1rem}}
-.pf{position:relative;overflow:hidden;background:#2a2a2a;display:flex;flex-direction:column}
-.pf-img{position:relative;overflow:hidden;aspect-ratio:4/3;background:#2a2a2a}
-.pf-img img{width:100%;height:100%;object-fit:cover;transition:transform .9s cubic-bezier(.2,.6,.3,1)}
+.portfolio-grid{column-count:3;column-gap:1.4rem}
+@media(max-width:980px){.portfolio-grid{column-count:2;column-gap:1rem}}
+@media(max-width:560px){.portfolio-grid{column-count:1}}
+.pf{position:relative;overflow:hidden;background:#2a2a2a;display:flex;flex-direction:column;break-inside:avoid;margin-bottom:1.4rem}
+.pf-img{position:relative;overflow:hidden;background:#2a2a2a;line-height:0}
+.pf-img img{width:100%;height:auto;display:block;object-fit:cover;transition:transform .9s cubic-bezier(.2,.6,.3,1)}
 .pf-img::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(31,34,41,.45) 0%,rgba(31,34,41,0) 50%);opacity:.45;transition:opacity .35s}
 .pf:hover .pf-img img{transform:scale(1.05)}
 .pf:hover .pf-img::after{opacity:.7}
@@ -679,7 +679,13 @@ html.js .reveal.in{opacity:1;transform:translateY(0)}
           <div class="pf-img"><img src="assets/navrh-04.jpg" alt="Grafický 3D návrh koupelny" loading="lazy" width="1280" height="720"></div>
         </div>
         <div class="pf reveal">
+          <div class="pf-img"><img src="assets/navrh-05.jpg" alt="Grafický 3D návrh koupelny" loading="lazy"></div>
+        </div>
+        <div class="pf reveal">
           <div class="pf-img"><img src="assets/navrh-06.jpg" alt="Grafický 3D návrh koupelny" loading="lazy"></div>
+        </div>
+        <div class="pf reveal">
+          <div class="pf-img"><img src="assets/navrh-07.jpg" alt="Grafický 3D návrh koupelny" loading="lazy" width="1621" height="912"></div>
         </div>
     </div>
   </div>
