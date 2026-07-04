@@ -871,7 +871,7 @@ div.section.section-post-header > div > div.column.one.single-photo-wrapper.imag
 <svg class="icon_search" width="26" viewBox="0 0 26 26" aria-label="search icon"><defs><style>.path{fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:1.5px;}</style></defs><circle class="path" cx="11.35" cy="11.35" r="6"></circle><line class="path" x1="15.59" y1="15.59" x2="20.65" y2="20.65"></line></svg>
 <span class="mfn-close-icon icon_close" tabindex="0"><span class="icon">✕</span></span>
 <input type="text" class="field" name="s" autocomplete="off" placeholder="Zadejte, co hledáte" aria-label="Zadejte, co hledáte" />
-<input type="submit" class="display-none" value="" aria-label="Search"/></form></div></div></div></div></header></div><div id="Content" role="main"><div class="content_wrapper clearfix"><div class="sections_group"><style id="dr-accents">
+<input type="submit" class="display-none" value="" aria-label="Search"/></form></div></div></div></div></header></div><div id="Subheader"><div class="container"><div class="column one"><h1 class="title">Dual Return Investment System</h1></div></div></div><div id="Content" role="main"><div class="content_wrapper clearfix"><div class="sections_group"><style id="dr-accents">
 /* ============================================================
    Dual Return - per-page decorative CSS.
    Mirrors the mechanism Betheme/Muffin uses on the live pages:
@@ -881,8 +881,11 @@ div.section.section-post-header > div > div.column.one.single-photo-wrapper.imag
    No font-family/size overrides on prose, no grid overrides -
    typography and fractions inherit from the theme.
    ============================================================ */
-/* section rhythm (live pages: light padT 40-60 / padB 0, dark 45/40) */
-.mcb-section-dr01{padding-top:40px}
+/* subheader title centered like live subpages */
+#Subheader{text-align:center}
+
+/* section rhythm (live pages: light padT 20-60 / padB 0, dark 30-45/20-40) */
+.mcb-section-dr01{padding-top:50px}
 .mcb-section-dr02{padding-top:55px}
 .mcb-section-dr03{padding-top:55px}
 .mcb-section-dr04{padding-top:55px}
@@ -918,6 +921,9 @@ div.section.section-post-header > div > div.column.one.single-photo-wrapper.imag
 /* centered CTA column */
 .dr-btn-c{text-align:center;margin-top:35px}
 
+/* two-col image alignment - image hugs the text block vertically like /lokalita/ */
+.dr-imgwrap .mcb-wrap-inner{padding-top:10px}
+
 /* dark section: keep the native peach button readable (theme .dark would
    flip the label to translucent white on peach) */
 .mcb-section-dr07 .button,.mcb-section-dr07 .button .button_label{color:#032817}
@@ -939,21 +945,38 @@ div.section.section-post-header > div > div.column.one.single-photo-wrapper.imag
 }
 </style>
 
-<!-- ============ SEKCE 1: Dual Return Investment System (uvod) ============ -->
+<!-- ============ SEKCE 1: Uvod (dvousloupec text + vizualizace, pak stat boxy) ============ -->
 <section class="section mcb-section mfn-default-section mcb-section-dr01 default-width">
   <div class="mcb-background-overlay"></div>
   <div class="section_wrapper mfn-wrapper-for-wraps mcb-section-inner mcb-section-inner-dr01">
-    <div class="wrap mcb-wrap mcb-wrap-dr01w1 one tablet-one laptop-one mobile-one clearfix" data-desktop-col="one" data-laptop-col="laptop-one" data-tablet-col="tablet-one" data-mobile-col="mobile-one">
+    <div class="wrap mcb-wrap mcb-wrap-dr01w1 one-second tablet-one-second laptop-one-second mobile-one clearfix" data-desktop-col="one-second" data-laptop-col="laptop-one-second" data-tablet-col="tablet-one-second" data-mobile-col="mobile-one">
       <div class="mcb-wrap-inner mcb-wrap-inner-dr01w1 mfn-module-wrapper mfn-wrapper-for-wraps">
         <div class="mcb-wrap-background-overlay"></div>
         <div class="column mcb-column mcb-item-dr01i1 one laptop-one tablet-one mobile-one column_column li-colors">
           <div class="mcb-column-inner mfn-module-wrapper mcb-column-inner-dr01i1 mcb-item-column-inner">
             <div class="column_attr mfn-inline-editor clearfix">
-              <h2 style="text-align: center;">Dual Return Investment System</h2>
-              <h4 style="text-align: center;">Fixní výnos z dluhopisu. Potenciál růstu hodnoty nemovitosti.</h4>
-              <p style="text-align: center;">Dual Return Investment System propojuje předem definovaný výnos z investice do dluhopisu s možností využít potenciální zhodnocení plynoucí z růstu ceny apartmánu v projektu All Seasons Residence.</p>
-              <p style="text-align: center;">Nejprve investujete do dluhopisu s výnosem 12 % nebo 14 % p.a. Při investici nad 1 000 000 Kč zároveň získáváte přednostní možnost vybrat si konkrétní apartmán za startovací cenu ještě před zahájením veřejného prodeje.</p>
-              <p style="text-align: center;">Pokud hodnota apartmánu během výstavby vzroste, může vzniknout druhá investiční příležitost: rozdíl mezi cenou sjednanou v rané fázi projektu a jeho budoucí tržní hodnotou.</p>
+              <h2>Fixní výnos z dluhopisu. Potenciál růstu hodnoty nemovitosti.</h2>
+              <p>Dual Return Investment System propojuje předem definovaný výnos z investice do dluhopisu s možností využít potenciální zhodnocení plynoucí z růstu ceny apartmánu v projektu All Seasons Residence.</p>
+              <p>Nejprve investujete do dluhopisu s výnosem 12 % nebo 14 % p.a. Při investici nad 1 000 000 Kč zároveň získáváte přednostní možnost vybrat si konkrétní apartmán za startovací cenu ještě před zahájením veřejného prodeje.</p>
+              <p>Pokud hodnota apartmánu během výstavby vzroste, může vzniknout druhá investiční příležitost: rozdíl mezi cenou sjednanou v rané fázi projektu a jeho budoucí tržní hodnotou.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="wrap mcb-wrap mcb-wrap-dr01w2 one-second tablet-one-second laptop-one-second mobile-one dr-imgwrap clearfix" data-desktop-col="one-second" data-laptop-col="laptop-one-second" data-tablet-col="tablet-one-second" data-mobile-col="mobile-one">
+      <div class="mcb-wrap-inner mcb-wrap-inner-dr01w2 mfn-module-wrapper mfn-wrapper-for-wraps">
+        <div class="mcb-wrap-background-overlay"></div>
+        <div class="column mcb-column mcb-item-dr01i2 one laptop-one tablet-one mobile-one column_image">
+          <div class="mcb-column-inner mfn-module-wrapper mcb-column-inner-dr01i2 mcb-item-image-inner">
+            <div class="image_frame image_item no_link scale-with-grid alignnone no_border">
+              <div class="image_wrapper"><img width="1200" height="675" src="https://www.allseasonsresidence.cz/wp-content/uploads/2024/03/viz-02.jpg" class="scale-with-grid" alt="All Seasons Residence - vizualizace"></div>
+            </div>
+          </div>
+        </div>
+        <div class="column mcb-column mcb-item-dr01i3 one laptop-one tablet-one mobile-one column_column li-colors">
+          <div class="mcb-column-inner mfn-module-wrapper mcb-column-inner-dr01i3 mcb-item-column-inner">
+            <div class="column_attr mfn-inline-editor clearfix">
               <p>Po splatnosti dluhopisu se sami rozhodnete, zda:</p>
               <ul>
                 <li>investici ukončíte a vyberete si jistinu i výnos,</li>
@@ -965,35 +988,35 @@ div.section.section-post-header > div > div.column.one.single-photo-wrapper.imag
         </div>
       </div>
     </div>
-    <div class="wrap mcb-wrap mcb-wrap-dr01w2 one tablet-one laptop-one mobile-one dr-boxrow clearfix" data-desktop-col="one" data-laptop-col="laptop-one" data-tablet-col="tablet-one" data-mobile-col="mobile-one">
-      <div class="mcb-wrap-inner mcb-wrap-inner-dr01w2 mfn-module-wrapper mfn-wrapper-for-wraps">
+    <div class="wrap mcb-wrap mcb-wrap-dr01w3 one tablet-one laptop-one mobile-one dr-boxrow clearfix" data-desktop-col="one" data-laptop-col="laptop-one" data-tablet-col="tablet-one" data-mobile-col="mobile-one">
+      <div class="mcb-wrap-inner mcb-wrap-inner-dr01w3 mfn-module-wrapper mfn-wrapper-for-wraps">
         <div class="mcb-wrap-background-overlay"></div>
-        <div class="column mcb-column mcb-item-dr01i2 one laptop-one tablet-one mobile-one column_column bile-bloky zlute-bloky mfn-item-custom-width dr-stat">
-          <div class="mcb-column-inner mfn-module-wrapper mcb-column-inner-dr01i2 mcb-item-column-inner">
+        <div class="column mcb-column mcb-item-dr01i4 one laptop-one tablet-one mobile-one column_column bile-bloky zlute-bloky mfn-item-custom-width dr-stat">
+          <div class="mcb-column-inner mfn-module-wrapper mcb-column-inner-dr01i4 mcb-item-column-inner">
             <div class="column_attr mfn-inline-editor clearfix">
               <p><strong>Od 50 000 Kč</strong></p>
               <p>minimální investice</p>
             </div>
           </div>
         </div>
-        <div class="column mcb-column mcb-item-dr01i3 one laptop-one tablet-one mobile-one column_column bile-bloky zlute-bloky mfn-item-custom-width dr-stat">
-          <div class="mcb-column-inner mfn-module-wrapper mcb-column-inner-dr01i3 mcb-item-column-inner">
+        <div class="column mcb-column mcb-item-dr01i5 one laptop-one tablet-one mobile-one column_column bile-bloky zlute-bloky mfn-item-custom-width dr-stat">
+          <div class="mcb-column-inner mfn-module-wrapper mcb-column-inner-dr01i5 mcb-item-column-inner">
             <div class="column_attr mfn-inline-editor clearfix">
               <p><strong>12 % nebo 14 % p.a.</strong></p>
               <p>podle zvoleného typu dluhopisu</p>
             </div>
           </div>
         </div>
-        <div class="column mcb-column mcb-item-dr01i4 one laptop-one tablet-one mobile-one column_column bile-bloky zlute-bloky mfn-item-custom-width dr-stat">
-          <div class="mcb-column-inner mfn-module-wrapper mcb-column-inner-dr01i4 mcb-item-column-inner">
+        <div class="column mcb-column mcb-item-dr01i6 one laptop-one tablet-one mobile-one column_column bile-bloky zlute-bloky mfn-item-custom-width dr-stat">
+          <div class="mcb-column-inner mfn-module-wrapper mcb-column-inner-dr01i6 mcb-item-column-inner">
             <div class="column_attr mfn-inline-editor clearfix">
               <p><strong>Nad 1 000 000 Kč</strong></p>
               <p>přednostní možnost výběru apartmánu</p>
             </div>
           </div>
         </div>
-        <div class="column mcb-column mcb-item-dr01i5 one laptop-one tablet-one mobile-one column_column bile-bloky zlute-bloky mfn-item-custom-width dr-stat">
-          <div class="mcb-column-inner mfn-module-wrapper mcb-column-inner-dr01i5 mcb-item-column-inner">
+        <div class="column mcb-column mcb-item-dr01i7 one laptop-one tablet-one mobile-one column_column bile-bloky zlute-bloky mfn-item-custom-width dr-stat">
+          <div class="mcb-column-inner mfn-module-wrapper mcb-column-inner-dr01i7 mcb-item-column-inner">
             <div class="column_attr mfn-inline-editor clearfix">
               <p><strong>Září 2028</strong></p>
               <p>splatnost dluhopisů</p>
@@ -1002,11 +1025,11 @@ div.section.section-post-header > div > div.column.one.single-photo-wrapper.imag
         </div>
       </div>
     </div>
-    <div class="wrap mcb-wrap mcb-wrap-dr01w3 one tablet-one laptop-one mobile-one clearfix" data-desktop-col="one" data-laptop-col="laptop-one" data-tablet-col="tablet-one" data-mobile-col="mobile-one">
-      <div class="mcb-wrap-inner mcb-wrap-inner-dr01w3 mfn-module-wrapper mfn-wrapper-for-wraps">
+    <div class="wrap mcb-wrap mcb-wrap-dr01w4 one tablet-one laptop-one mobile-one clearfix" data-desktop-col="one" data-laptop-col="laptop-one" data-tablet-col="tablet-one" data-mobile-col="mobile-one">
+      <div class="mcb-wrap-inner mcb-wrap-inner-dr01w4 mfn-module-wrapper mfn-wrapper-for-wraps">
         <div class="mcb-wrap-background-overlay"></div>
-        <div class="column mcb-column mcb-item-dr01i6 one laptop-one tablet-one mobile-one column_button dr-btn-c">
-          <div class="mcb-column-inner mfn-module-wrapper mcb-column-inner-dr01i6 mcb-item-button-inner">
+        <div class="column mcb-column mcb-item-dr01i8 one laptop-one tablet-one mobile-one column_button dr-btn-c">
+          <div class="mcb-column-inner mfn-module-wrapper mcb-column-inner-dr01i8 mcb-item-button-inner">
             <a class="button  button_size_2" href="https://www.allseasonsresidence.cz/dluhopisy/" title=""><span class="button_label">Zjistit, která varianta je pro mě vhodná</span></a>
           </div>
         </div>
@@ -1074,25 +1097,49 @@ div.section.section-post-header > div > div.column.one.single-photo-wrapper.imag
 <section class="section mcb-section mfn-default-section mcb-section-dr03 default-width">
   <div class="mcb-background-overlay"></div>
   <div class="section_wrapper mfn-wrapper-for-wraps mcb-section-inner mcb-section-inner-dr03">
-    <div class="wrap mcb-wrap mcb-wrap-dr03w1 one tablet-one laptop-one mobile-one clearfix" data-desktop-col="one" data-laptop-col="laptop-one" data-tablet-col="tablet-one" data-mobile-col="mobile-one">
-      <div class="mcb-wrap-inner mcb-wrap-inner-dr03w1 mfn-module-wrapper mfn-wrapper-for-wraps">
+    <div class="wrap mcb-wrap mcb-wrap-dr03w0 one tablet-one laptop-one mobile-one clearfix" data-desktop-col="one" data-laptop-col="laptop-one" data-tablet-col="tablet-one" data-mobile-col="mobile-one">
+      <div class="mcb-wrap-inner mcb-wrap-inner-dr03w0 mfn-module-wrapper mfn-wrapper-for-wraps">
         <div class="mcb-wrap-background-overlay"></div>
-        <div class="column mcb-column mcb-item-dr03i1 one laptop-one tablet-one mobile-one column_column">
-          <div class="mcb-column-inner mfn-module-wrapper mcb-column-inner-dr03i1 mcb-item-column-inner">
+        <div class="column mcb-column mcb-item-dr03i0 one laptop-one tablet-one mobile-one column_column">
+          <div class="mcb-column-inner mfn-module-wrapper mcb-column-inner-dr03i0 mcb-item-column-inner">
             <div class="column_attr mfn-inline-editor clearfix">
               <h2 style="text-align: center;">Jak Dual Return Investment System funguje</h2>
-              <h3 style="text-align: center;">Krok 1: Vyberete si dluhopis</h3>
-              <p style="text-align: center;">Na začátku si zvolíte variantu, která nejlépe odpovídá vaší investiční strategii.</p>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="wrap mcb-wrap mcb-wrap-dr03w2 one tablet-one laptop-one mobile-one dr-boxrow clearfix" data-desktop-col="one" data-laptop-col="laptop-one" data-tablet-col="tablet-one" data-mobile-col="mobile-one">
+    <div class="wrap mcb-wrap mcb-wrap-dr03w1 one-second tablet-one-second laptop-one-second mobile-one dr-imgwrap clearfix" data-desktop-col="one-second" data-laptop-col="laptop-one-second" data-tablet-col="tablet-one-second" data-mobile-col="mobile-one">
+      <div class="mcb-wrap-inner mcb-wrap-inner-dr03w1 mfn-module-wrapper mfn-wrapper-for-wraps">
+        <div class="mcb-wrap-background-overlay"></div>
+        <div class="column mcb-column mcb-item-dr03i1 one laptop-one tablet-one mobile-one column_image">
+          <div class="mcb-column-inner mfn-module-wrapper mcb-column-inner-dr03i1 mcb-item-image-inner">
+            <div class="image_frame image_item no_link scale-with-grid alignnone no_border">
+              <div class="image_wrapper"><img width="1200" height="844" src="https://www.allseasonsresidence.cz/wp-content/uploads/2024/02/obr-dluhopisy.jpg" class="scale-with-grid" alt="Investiční dluhopisy"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="wrap mcb-wrap mcb-wrap-dr03w2 one-second tablet-one-second laptop-one-second mobile-one clearfix" data-desktop-col="one-second" data-laptop-col="laptop-one-second" data-tablet-col="tablet-one-second" data-mobile-col="mobile-one">
       <div class="mcb-wrap-inner mcb-wrap-inner-dr03w2 mfn-module-wrapper mfn-wrapper-for-wraps">
         <div class="mcb-wrap-background-overlay"></div>
-        <div class="column mcb-column mcb-item-dr03i2 one laptop-one tablet-one mobile-one column_column li-colors dr-card dr-card-peach dr-half">
+        <div class="column mcb-column mcb-item-dr03i2 one laptop-one tablet-one mobile-one column_column">
           <div class="mcb-column-inner mfn-module-wrapper mcb-column-inner-dr03i2 mcb-item-column-inner">
+            <div class="column_attr mfn-inline-editor clearfix">
+              <h3>Krok 1: Vyberete si dluhopis</h3>
+              <p>Na začátku si zvolíte variantu, která nejlépe odpovídá vaší investiční strategii.</p>
+              <p class="dr-note">„Konkrétní výnos a celková částka vyplacená při splatnosti se řídí emisními podmínkami příslušného dluhopisu a okamžikem investice.“</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="wrap mcb-wrap mcb-wrap-dr03w3 one tablet-one laptop-one mobile-one dr-boxrow clearfix" data-desktop-col="one" data-laptop-col="laptop-one" data-tablet-col="tablet-one" data-mobile-col="mobile-one">
+      <div class="mcb-wrap-inner mcb-wrap-inner-dr03w3 mfn-module-wrapper mfn-wrapper-for-wraps">
+        <div class="mcb-wrap-background-overlay"></div>
+        <div class="column mcb-column mcb-item-dr03i3 one laptop-one tablet-one mobile-one column_column li-colors dr-card dr-card-peach dr-half">
+          <div class="mcb-column-inner mfn-module-wrapper mcb-column-inner-dr03i3 mcb-item-column-inner">
             <div class="column_attr mfn-inline-editor clearfix">
               <h4>Kupónový dluhopis</h4>
               <h3>12 % p.a.</h3>
@@ -1106,8 +1153,8 @@ div.section.section-post-header > div > div.column.one.single-photo-wrapper.imag
             </div>
           </div>
         </div>
-        <div class="column mcb-column mcb-item-dr03i3 one laptop-one tablet-one mobile-one column_column li-colors dr-card dr-card-peach dr-half">
-          <div class="mcb-column-inner mfn-module-wrapper mcb-column-inner-dr03i3 mcb-item-column-inner">
+        <div class="column mcb-column mcb-item-dr03i4 one laptop-one tablet-one mobile-one column_column li-colors dr-card dr-card-peach dr-half">
+          <div class="mcb-column-inner mfn-module-wrapper mcb-column-inner-dr03i4 mcb-item-column-inner">
             <div class="column_attr mfn-inline-editor clearfix">
               <h4>Zerobond</h4>
               <h3>14 % p.a.</h3>
@@ -1123,15 +1170,14 @@ div.section.section-post-header > div > div.column.one.single-photo-wrapper.imag
         </div>
       </div>
     </div>
-    <div class="wrap mcb-wrap mcb-wrap-dr03w3 one tablet-one laptop-one mobile-one clearfix" data-desktop-col="one" data-laptop-col="laptop-one" data-tablet-col="tablet-one" data-mobile-col="mobile-one">
-      <div class="mcb-wrap-inner mcb-wrap-inner-dr03w3 mfn-module-wrapper mfn-wrapper-for-wraps">
+    <div class="wrap mcb-wrap mcb-wrap-dr03w4 one-second tablet-one-second laptop-one-second mobile-one clearfix" data-desktop-col="one-second" data-laptop-col="laptop-one-second" data-tablet-col="tablet-one-second" data-mobile-col="mobile-one">
+      <div class="mcb-wrap-inner mcb-wrap-inner-dr03w4 mfn-module-wrapper mfn-wrapper-for-wraps">
         <div class="mcb-wrap-background-overlay"></div>
-        <div class="column mcb-column mcb-item-dr03i4 one laptop-one tablet-one mobile-one column_column li-colors">
-          <div class="mcb-column-inner mfn-module-wrapper mcb-column-inner-dr03i4 mcb-item-column-inner">
+        <div class="column mcb-column mcb-item-dr03i5 one laptop-one tablet-one mobile-one column_column li-colors">
+          <div class="mcb-column-inner mfn-module-wrapper mcb-column-inner-dr03i5 mcb-item-column-inner">
             <div class="column_attr mfn-inline-editor clearfix">
-              <p class="dr-note" style="text-align: center;">„Konkrétní výnos a celková částka vyplacená při splatnosti se řídí emisními podmínkami příslušného dluhopisu a okamžikem investice.“</p>
-              <h3 style="text-align: center;">Krok 2: Získáte přednostní možnost výběru apartmánu</h3>
-              <p style="text-align: center;">Pokud investujete více než 1 000 000 Kč, získáte přednostní přístup k nabídce apartmánů ještě před zahájením veřejného prodeje.</p>
+              <h3>Krok 2: Získáte přednostní možnost výběru apartmánu</h3>
+              <p>Pokud investujete více než 1 000 000 Kč, získáte přednostní přístup k nabídce apartmánů ještě před zahájením veřejného prodeje.</p>
               <p>Můžete si tak:</p>
               <ul>
                 <li>vybrat konkrétní apartmán,</li>
@@ -1139,9 +1185,32 @@ div.section.section-post-header > div > div.column.one.single-photo-wrapper.imag
                 <li>zajistit si vstup do projektu ještě před širším trhem,</li>
                 <li>doplatit jeho kupní cenu až v pozdější fázi podle smluvních podmínek.</li>
               </ul>
-              <p class="dr-note" style="text-align: center;">„Během výstavby se tržní hodnota apartmánů může měnit. Kupní cena rezervovaného apartmánu se přitom řídí podmínkami stanovenými při rezervaci a následnou smluvní dokumentací.“</p>
-              <h3 style="text-align: center;">Krok 3: Po splatnosti rozhodujete, jak bude váš kapitál pokračovat</h3>
-              <p style="text-align: center;">Po splatnosti dluhopisu v září 2028 můžete vloženou jistinu a dosažený výnos využít několika způsoby.</p>
+              <p class="dr-note">„Během výstavby se tržní hodnota apartmánů může měnit. Kupní cena rezervovaného apartmánu se přitom řídí podmínkami stanovenými při rezervaci a následnou smluvní dokumentací.“</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="wrap mcb-wrap mcb-wrap-dr03w5 one-second tablet-one-second laptop-one-second mobile-one dr-imgwrap clearfix" data-desktop-col="one-second" data-laptop-col="laptop-one-second" data-tablet-col="tablet-one-second" data-mobile-col="mobile-one">
+      <div class="mcb-wrap-inner mcb-wrap-inner-dr03w5 mfn-module-wrapper mfn-wrapper-for-wraps">
+        <div class="mcb-wrap-background-overlay"></div>
+        <div class="column mcb-column mcb-item-dr03i6 one laptop-one tablet-one mobile-one column_image">
+          <div class="mcb-column-inner mfn-module-wrapper mcb-column-inner-dr03i6 mcb-item-image-inner">
+            <div class="image_frame image_item no_link scale-with-grid alignnone no_border">
+              <div class="image_wrapper"><img width="1200" height="675" src="https://www.allseasonsresidence.cz/wp-content/uploads/2024/03/viz-09.jpg" class="scale-with-grid" alt="All Seasons Residence - apartmány"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="wrap mcb-wrap mcb-wrap-dr03w6 one tablet-one laptop-one mobile-one clearfix" data-desktop-col="one" data-laptop-col="laptop-one" data-tablet-col="tablet-one" data-mobile-col="mobile-one">
+      <div class="mcb-wrap-inner mcb-wrap-inner-dr03w6 mfn-module-wrapper mfn-wrapper-for-wraps">
+        <div class="mcb-wrap-background-overlay"></div>
+        <div class="column mcb-column mcb-item-dr03i7 one laptop-one tablet-one mobile-one column_column">
+          <div class="mcb-column-inner mfn-module-wrapper mcb-column-inner-dr03i7 mcb-item-column-inner">
+            <div class="column_attr mfn-inline-editor clearfix">
+              <h3>Krok 3: Po splatnosti rozhodujete, jak bude váš kapitál pokračovat</h3>
+              <p>Po splatnosti dluhopisu v září 2028 můžete vloženou jistinu a dosažený výnos využít několika způsoby.</p>
             </div>
           </div>
         </div>
@@ -1208,14 +1277,14 @@ div.section.section-post-header > div > div.column.one.single-photo-wrapper.imag
 <section class="section mcb-section mfn-default-section mcb-section-dr05 default-width">
   <div class="mcb-background-overlay"></div>
   <div class="section_wrapper mfn-wrapper-for-wraps mcb-section-inner mcb-section-inner-dr05">
-    <div class="wrap mcb-wrap mcb-wrap-dr05w1 one tablet-one laptop-one mobile-one clearfix" data-desktop-col="one" data-laptop-col="laptop-one" data-tablet-col="tablet-one" data-mobile-col="mobile-one">
+    <div class="wrap mcb-wrap mcb-wrap-dr05w1 one-second tablet-one-second laptop-one-second mobile-one clearfix" data-desktop-col="one-second" data-laptop-col="laptop-one-second" data-tablet-col="tablet-one-second" data-mobile-col="mobile-one">
       <div class="mcb-wrap-inner mcb-wrap-inner-dr05w1 mfn-module-wrapper mfn-wrapper-for-wraps">
         <div class="mcb-wrap-background-overlay"></div>
         <div class="column mcb-column mcb-item-dr05i1 one laptop-one tablet-one mobile-one column_column li-colors">
           <div class="mcb-column-inner mfn-module-wrapper mcb-column-inner-dr05i1 mcb-item-column-inner">
             <div class="column_attr mfn-inline-editor clearfix">
-              <h2 style="text-align: center;">Startovací cena dnes. Tržní hodnota v budoucnu.</h2>
-              <p style="text-align: center;">Investor, který využije přednostní výběr apartmánu, získává možnost vstoupit do projektu za cenových podmínek nastavených v rané fázi prodeje.</p>
+              <h2>Startovací cena dnes. Tržní hodnota v budoucnu.</h2>
+              <p>Investor, který využije přednostní výběr apartmánu, získává možnost vstoupit do projektu za cenových podmínek nastavených v rané fázi prodeje.</p>
               <p>Během výstavby se může hodnota apartmánů měnit zejména v závislosti na:</p>
               <ul>
                 <li>postupu realizace projektu,</li>
@@ -1229,11 +1298,23 @@ div.section.section-post-header > div > div.column.one.single-photo-wrapper.imag
         </div>
       </div>
     </div>
-    <div class="wrap mcb-wrap mcb-wrap-dr05w2 one tablet-one laptop-one mobile-one dr-boxrow clearfix" data-desktop-col="one" data-laptop-col="laptop-one" data-tablet-col="tablet-one" data-mobile-col="mobile-one">
+    <div class="wrap mcb-wrap mcb-wrap-dr05w2 one-second tablet-one-second laptop-one-second mobile-one dr-imgwrap clearfix" data-desktop-col="one-second" data-laptop-col="laptop-one-second" data-tablet-col="tablet-one-second" data-mobile-col="mobile-one">
       <div class="mcb-wrap-inner mcb-wrap-inner-dr05w2 mfn-module-wrapper mfn-wrapper-for-wraps">
         <div class="mcb-wrap-background-overlay"></div>
-        <div class="column mcb-column mcb-item-dr05i2 one laptop-one tablet-one mobile-one column_column dr-cenobox">
-          <div class="mcb-column-inner mfn-module-wrapper mcb-column-inner-dr05i2 mcb-item-column-inner">
+        <div class="column mcb-column mcb-item-dr05i2 one laptop-one tablet-one mobile-one column_image">
+          <div class="mcb-column-inner mfn-module-wrapper mcb-column-inner-dr05i2 mcb-item-image-inner">
+            <div class="image_frame image_item no_link scale-with-grid alignnone no_border">
+              <div class="image_wrapper"><img width="1200" height="675" src="https://www.allseasonsresidence.cz/wp-content/uploads/2024/02/adobestock-486584246.jpeg" class="scale-with-grid" alt="Tatry - panorama"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="wrap mcb-wrap mcb-wrap-dr05w3 one tablet-one laptop-one mobile-one dr-boxrow clearfix" data-desktop-col="one" data-laptop-col="laptop-one" data-tablet-col="tablet-one" data-mobile-col="mobile-one">
+      <div class="mcb-wrap-inner mcb-wrap-inner-dr05w3 mfn-module-wrapper mfn-wrapper-for-wraps">
+        <div class="mcb-wrap-background-overlay"></div>
+        <div class="column mcb-column mcb-item-dr05i3 one laptop-one tablet-one mobile-one column_column dr-cenobox">
+          <div class="mcb-column-inner mfn-module-wrapper mcb-column-inner-dr05i3 mcb-item-column-inner">
             <div class="column_attr mfn-inline-editor clearfix">
               <p style="text-align: center;">Podle databáze Cenogram vzrostly realizované ceny bytových jednotek v Zakopaném z <strong>9 713 PLN/m²</strong> v roce 2016 na <strong>20 170 PLN/m²</strong> v roce 2025.</p>
             </div>
@@ -1241,11 +1322,11 @@ div.section.section-post-header > div > div.column.one.single-photo-wrapper.imag
         </div>
       </div>
     </div>
-    <div class="wrap mcb-wrap mcb-wrap-dr05w3 one tablet-one laptop-one mobile-one clearfix" data-desktop-col="one" data-laptop-col="laptop-one" data-tablet-col="tablet-one" data-mobile-col="mobile-one">
-      <div class="mcb-wrap-inner mcb-wrap-inner-dr05w3 mfn-module-wrapper mfn-wrapper-for-wraps">
+    <div class="wrap mcb-wrap mcb-wrap-dr05w4 one tablet-one laptop-one mobile-one clearfix" data-desktop-col="one" data-laptop-col="laptop-one" data-tablet-col="tablet-one" data-mobile-col="mobile-one">
+      <div class="mcb-wrap-inner mcb-wrap-inner-dr05w4 mfn-module-wrapper mfn-wrapper-for-wraps">
         <div class="mcb-wrap-background-overlay"></div>
-        <div class="column mcb-column mcb-item-dr05i3 one laptop-one tablet-one mobile-one column_column">
-          <div class="mcb-column-inner mfn-module-wrapper mcb-column-inner-dr05i3 mcb-item-column-inner">
+        <div class="column mcb-column mcb-item-dr05i4 one laptop-one tablet-one mobile-one column_column">
+          <div class="mcb-column-inner mfn-module-wrapper mcb-column-inner-dr05i4 mcb-item-column-inner">
             <div class="column_attr mfn-inline-editor clearfix">
               <p style="text-align: center;">U vybraných srovnatelných projektů v lokalitě docházelo během výstavby k významnému růstu cen. Historický vývoj však není zárukou budoucího růstu hodnoty konkrétního apartmánu.</p>
             </div>
