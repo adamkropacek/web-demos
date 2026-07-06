@@ -897,10 +897,16 @@ div.section.section-post-header > div > div.column.one.single-photo-wrapper.imag
 /* box rows: same wrap rules as live timeline wrap (space-around + stretch) */
 .dr-boxrow .mcb-wrap-inner{justify-content:space-around;align-items:stretch;row-gap:20px}
 
-/* stat boxes - live timeline-box look: 2px peach border, Oswald 20px,
-   strong 1.5em + serif sub lines via site-wide .bile-bloky/.zlute-bloky rules */
-.dr-stat .column_attr{color:#032817;font-size:20px;font-family:'Oswald',sans-serif;line-height:1.5em}
-.dr-stat .mcb-column-inner{border:2px solid #f0b27f;height:100%;padding:26px 25px 12px 0}
+/* stat boxes - live /developer/ timeline boxes (computed 2026-07-06):
+   .bile-bloky/.zlute-bloky rules are PER-PAGE generated CSS there, not
+   site-wide, so they must be mirrored here: inner 2px #f0b27f with 25px
+   left inset, number line Oswald 20/30 + strong 30px w700, sub line
+   Source Serif 4 17/30, p margin 0 0 15px */
+.dr-stat .column_attr{color:#032817}
+.dr-stat .column_attr p{font-family:'Oswald',sans-serif;font-size:20px;line-height:30px;margin:0 0 15px}
+.dr-stat .column_attr p strong{font-size:30px;line-height:30px;font-weight:700}
+.dr-stat .column_attr p+p{font-family:'Source Serif 4',Georgia,serif;font-size:17px;line-height:30px}
+.dr-stat .mcb-column-inner{border:2px solid #f0b27f;height:100%;padding:20px 20px 8px 25px}
 .mcb-wrap .dr-stat{flex:0 0 23.5%;max-width:23.5%}
 
 /* cards (roviny / scenare / model) - 1px dark-green border like the
@@ -939,7 +945,7 @@ div.section.section-post-header > div > div.column.one.single-photo-wrapper.imag
 @media only screen and (max-width:767px){
   .mcb-wrap .dr-stat{flex:0 0 49%;max-width:49%}
   .mcb-wrap .dr-half,.mcb-wrap .dr-third{flex:0 0 100%;max-width:100%}
-  .dr-stat .mcb-column-inner{padding:20px 15px 8px 0}
+  .dr-stat .mcb-column-inner{padding:16px 15px 6px 18px}
   .dr-card .mcb-column-inner{padding:24px 20px 10px}
   .dr-cenobox .mcb-column-inner{padding:24px 20px 6px}
 }
