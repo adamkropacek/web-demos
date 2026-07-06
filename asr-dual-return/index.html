@@ -938,16 +938,25 @@ div.section.section-post-header > div > div.column.one.single-photo-wrapper.imag
    so the marker also renders on the off-site preview host */
 .li-colors li:before{background:url(https://www.allseasonsresidence.cz/wp-content/uploads/2024/02/odrazka-ctverec.svg)}
 
+/* tablet (<=959): stats 4 -> 2x2, two-col cards stay side by side,
+   three scenarios stack (their native Betheme classes are tablet-one) */
 @media only screen and (max-width:959px){
   .mcb-wrap .dr-stat{flex:0 0 49%;max-width:49%}
   .mcb-wrap .dr-half{flex:0 0 48.5%;max-width:48.5%}
+  .mcb-wrap .dr-third{flex:0 0 100%;max-width:100%}
+  .dr-card.dr-third .mcb-column-inner{padding:26px 30px 14px}
 }
+/* mobile-landscape (<=767): two-col cards stack, tighter box padding */
 @media only screen and (max-width:767px){
   .mcb-wrap .dr-stat{flex:0 0 49%;max-width:49%}
   .mcb-wrap .dr-half,.mcb-wrap .dr-third{flex:0 0 100%;max-width:100%}
   .dr-stat .mcb-column-inner{padding:16px 15px 6px 18px}
   .dr-card .mcb-column-inner{padding:24px 20px 10px}
   .dr-cenobox .mcb-column-inner{padding:24px 20px 6px}
+}
+/* mobile-portrait (<=479): stat boxes stack 1 per row */
+@media only screen and (max-width:479px){
+  .mcb-wrap .dr-stat{flex:0 0 100%;max-width:100%}
 }
 </style>
 
