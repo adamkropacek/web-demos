@@ -871,45 +871,28 @@ div.section.section-post-header > div > div.column.one.single-photo-wrapper.imag
 <svg class="icon_search" width="26" viewBox="0 0 26 26" aria-label="search icon"><defs><style>.path{fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:1.5px;}</style></defs><circle class="path" cx="11.35" cy="11.35" r="6"></circle><line class="path" x1="15.59" y1="15.59" x2="20.65" y2="20.65"></line></svg>
 <span class="mfn-close-icon icon_close" tabindex="0"><span class="icon">✕</span></span>
 <input type="text" class="field" name="s" autocomplete="off" placeholder="Zadejte, co hledáte" aria-label="Zadejte, co hledáte" />
-<input type="submit" class="display-none" value="" aria-label="Search"/></form></div></div></div></div></header></div><div id="Content" role="main"><div class="content_wrapper clearfix"><div class="sections_group"><style id="dr-accents">
+<input type="submit" class="display-none" value="" aria-label="Search"/></form></div></div></div></div></header></div><div id="Subheader"><div class="container"><div class="column one"><h1 class="title">Dual Return Investment System</h1></div></div></div><div id="Content" role="main"><div class="content_wrapper clearfix"><div class="sections_group"><style id="dr-accents">
 /* ============================================================
    Dual Return - per-page decorative CSS.
    Mirrors the mechanism Betheme/Muffin uses on the live pages:
-   per-page generated rules for section rhythm, box borders,
-   custom box widths and section/wrap background imagery
-   (homepage hero mcb-section-goayo0409: margin-top -170px,
-   padding 270/185, bg cover 70% 50%; band mcb-section-hctcejw8:
-   bg cover; /pro-investory/ boxes 2px #f0b27f, flex 0 0 220px -
-   all measured live 2026-07-06).
+   per-page generated rules for section rhythm, box borders and
+   custom box widths (see /pro-investory-1855/ generated CSS,
+   e.g. .mcb-item-993a7f1d7 border 2px #f0b27f, flex 0 0 220px).
    No font-family/size overrides on prose, no grid overrides -
    typography and fractions inherit from the theme.
    ============================================================ */
+/* subheader title centered like live subpages */
+#Subheader{text-align:center}
 
-/* --- HERO: homepage-hero clone (measured live 1920: marT -170,
-   pad 270/185, bg uvodni-foto cover 70% 50%; title column fixed
-   width; h1 strong = #F0B27F + .bily-text = site-wide rules) --- */
-.mcb-section-dr00{margin-top:-170px;padding-top:285px;padding-bottom:255px;background-color:#032817;background-image:url(https://www.allseasonsresidence.cz/wp-content/uploads/2024/02/uvodni-foto.jpg);background-repeat:no-repeat;background-size:cover;background-position:70% 50%}
-.mcb-wrap .dr-heroCol{flex:0 0 410px;max-width:410px}
-.mcb-section-dr00 .column_button{margin-top:6px}
-
-/* --- full-bleed photo bands: homepage full-width band mechanism
-   (section bg cover, height from padding, content stays 1200) --- */
-.dr-band{background-repeat:no-repeat;background-size:cover;background-position:50% 50%}
-.mcb-section-dr01b{background-image:url(https://www.allseasonsresidence.cz/wp-content/uploads/2024/03/viz-02.jpg);padding-top:255px;padding-bottom:255px;margin-top:80px}
-.mcb-section-dr04b{background-image:url(https://www.allseasonsresidence.cz/wp-content/uploads/2024/03/viz-10.jpg);padding-top:255px;padding-bottom:255px;margin-top:80px;background-position:50% 62%}
-
-/* section rhythm (light padT / padB 0; dark photo band below) */
-.mcb-section-dr01{padding-top:70px}
-.mcb-section-dr02{padding-top:75px}
-.mcb-section-dr03{padding-top:75px}
-.mcb-section-dr04{padding-top:75px}
-.mcb-section-dr05{padding-top:70px}
-.mcb-section-dr06{padding-top:75px}
-.mcb-section-dr08{padding-top:75px;padding-bottom:80px}
-
-/* dark exkurze section: real photo under a dark green overlay
-   (hero-family mechanism; theme .dark section keeps text white) */
-.mcb-section-dr07{background-color:#032817;background-image:linear-gradient(rgba(3,40,23,.89),rgba(3,40,23,.89)),url(https://www.allseasonsresidence.cz/wp-content/uploads/2024/02/adobestock-424030043.jpeg);background-repeat:no-repeat;background-size:cover;background-position:50% 42%;padding-top:70px;padding-bottom:55px;margin-top:80px}
+/* section rhythm (live pages: light padT 20-60 / padB 0, dark 30-45/20-40) */
+.mcb-section-dr01{padding-top:50px}
+.mcb-section-dr02{padding-top:55px}
+.mcb-section-dr03{padding-top:55px}
+.mcb-section-dr04{padding-top:55px}
+.mcb-section-dr05{padding-top:55px}
+.mcb-section-dr06{padding-top:55px}
+.mcb-section-dr07{background-color:#032817;padding-top:45px;padding-bottom:40px;margin-top:55px}
+.mcb-section-dr08{padding-top:55px;padding-bottom:70px}
 
 /* box rows: same wrap rules as live timeline wrap (space-around + stretch) */
 .dr-boxrow .mcb-wrap-inner{justify-content:space-around;align-items:stretch;row-gap:20px}
@@ -933,28 +916,8 @@ div.section.section-post-header > div > div.column.one.single-photo-wrapper.imag
 .mcb-wrap .dr-half{flex:0 0 48.5%;max-width:48.5%}
 .mcb-wrap .dr-third{flex:0 0 31.5%;max-width:31.5%}
 
-/* photo-topped cards: real site imagery bleeding to the card frame;
-   fixed crop height so both card headings align (frame must outgrow
-   the padded content box - theme caps image_frame at max-width:100%) */
-.dr-card .dr-cardimg{display:block;margin:-33px -31px 26px;max-width:none;width:calc(100% + 62px)}
-.dr-card .dr-cardimg .image_wrapper{width:100%}
-.dr-card .dr-cardimg .image_wrapper img{display:block;width:100%;height:290px;object-fit:cover}
-
-/* two-col image wraps: photo fills the full height of the text next
-   to it (image column pinned over the stretched wrap; the section
-   wrapper must stretch its wrap rows - theme default is flex-start,
-   which would collapse a wrap whose only child is absolute) */
-.mcb-section-inner-dr03{align-items:stretch}
-.dr-fillwrap{position:relative}
-.dr-fillwrap .column_image{position:absolute;top:5px;left:0;right:0;bottom:40px;margin:0}
-.dr-fillwrap .column_image .mcb-column-inner,.dr-fillwrap .image_frame,.dr-fillwrap .image_wrapper{height:100%}
-.dr-fillwrap .image_wrapper img{width:100%;height:100%;object-fit:cover;display:block}
-
-/* Cenogram emphasis box; its half-wrap centres against the taller
-   text column next to it (section wrapper is flex, theme default
-   align-items:flex-start) */
+/* Cenogram emphasis box */
 .dr-cenobox .mcb-column-inner{border:2px solid #f0b27f;padding:34px 45px 14px;height:100%}
-.mcb-section-inner-dr05{align-items:center}
 
 /* quotes / disclaimers + FAQ divider */
 .dr-note{font-style:italic}
@@ -964,6 +927,9 @@ div.section.section-post-header > div > div.column.one.single-photo-wrapper.imag
 /* centered CTA column */
 .dr-btn-c{text-align:center;margin-top:35px}
 
+/* two-col image alignment - image hugs the text block vertically like /lokalita/ */
+.dr-imgwrap .mcb-wrap-inner{padding-top:10px}
+
 /* dark section: keep the native peach button readable (theme .dark would
    flip the label to translucent white on peach) */
 .mcb-section-dr07 .button,.mcb-section-dr07 .button .button_label{color:#032817}
@@ -972,33 +938,21 @@ div.section.section-post-header > div > div.column.one.single-photo-wrapper.imag
    so the marker also renders on the off-site preview host */
 .li-colors li:before{background:url(https://www.allseasonsresidence.cz/wp-content/uploads/2024/02/odrazka-ctverec.svg)}
 
-/* laptop/tablet (<=959): stats 4 -> 2x2, two-col cards stay side by side,
-   three scenarios stack; hero bg recentres (live tablet = 50% 50%) */
+/* tablet (<=959): stats 4 -> 2x2, two-col cards stay side by side,
+   three scenarios stack (their native Betheme classes are tablet-one) */
 @media only screen and (max-width:959px){
-  .mcb-section-dr00{background-position:50% 50%}
   .mcb-wrap .dr-stat{flex:0 0 49%;max-width:49%}
   .mcb-wrap .dr-half{flex:0 0 48.5%;max-width:48.5%}
   .mcb-wrap .dr-third{flex:0 0 100%;max-width:100%}
   .dr-card.dr-third .mcb-column-inner{padding:26px 30px 14px}
-  .mcb-section-dr01b,.mcb-section-dr04b{padding-top:190px;padding-bottom:190px}
 }
-/* mobile-landscape (<=767): hero drops under the solid mobile header
-   (live m390: marT 0, pad 180/50), two-col cards stack, photo wraps
-   become normal stacked images, tighter box padding */
+/* mobile-landscape (<=767): two-col cards stack, tighter box padding */
 @media only screen and (max-width:767px){
-  .mcb-section-dr00{margin-top:0;padding-top:180px;padding-bottom:60px}
-  .mcb-wrap .dr-heroCol{flex:0 0 100%;max-width:100%}
-  .mcb-section-dr01b,.mcb-section-dr04b{padding-top:135px;padding-bottom:135px;margin-top:55px}
-  .mcb-section-dr07{margin-top:55px}
   .mcb-wrap .dr-stat{flex:0 0 49%;max-width:49%}
   .mcb-wrap .dr-half,.mcb-wrap .dr-third{flex:0 0 100%;max-width:100%}
   .dr-stat .mcb-column-inner{padding:16px 15px 6px 18px}
   .dr-card .mcb-column-inner{padding:24px 20px 10px}
-  .dr-card .dr-cardimg{margin:-25px -21px 20px;width:calc(100% + 42px)}
-  .dr-card .dr-cardimg .image_wrapper img{height:220px}
   .dr-cenobox .mcb-column-inner{padding:24px 20px 6px}
-  .dr-fillwrap .column_image{position:static;margin:0 0 15px}
-  .dr-fillwrap .image_wrapper img{height:auto}
 }
 /* mobile-portrait (<=479): stat boxes stack 1 per row */
 @media only screen and (max-width:479px){
@@ -1006,32 +960,7 @@ div.section.section-post-header > div > div.column.one.single-photo-wrapper.imag
 }
 </style>
 
-<!-- ============ SEKCE 0: Full-bleed hero (homepage-style) ============ -->
-<section class="section mcb-section mfn-default-section mcb-section-dr00 default-width">
-  <div class="mcb-background-overlay"></div>
-  <div class="section_wrapper mfn-wrapper-for-wraps mcb-section-inner mcb-section-inner-dr00">
-    <div class="wrap mcb-wrap mcb-wrap-dr00w1 one tablet-one laptop-one mobile-one clearfix" data-desktop-col="one" data-laptop-col="laptop-one" data-tablet-col="tablet-one" data-mobile-col="mobile-one">
-      <div class="mcb-wrap-inner mcb-wrap-inner-dr00w1 mfn-module-wrapper mfn-wrapper-for-wraps">
-        <div class="mcb-wrap-background-overlay"></div>
-        <div class="column mcb-column mcb-item-dr00i1 one laptop-one tablet-one mobile-one column_column bily-text mfn-item-custom-width dr-heroCol">
-          <div class="mcb-column-inner mfn-module-wrapper mcb-column-inner-dr00i1 mcb-item-column-inner">
-            <div class="column_attr mfn-inline-editor clearfix">
-              <h1><strong>Dual Return</strong><br>Investment System</h1>
-              <p>Fixní výnos z dluhopisu. Potenciál růstu hodnoty nemovitosti.</p>
-            </div>
-          </div>
-        </div>
-        <div class="column mcb-column mcb-item-dr00i2 one laptop-one tablet-one mobile-one column_button">
-          <div class="mcb-column-inner mfn-module-wrapper mcb-column-inner-dr00i2 mcb-item-button-inner">
-            <a class="button  button_size_2" href="https://www.allseasonsresidence.cz/kontakt/" title=""><span class="button_label">Chci investovat</span></a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ SEKCE 1: Uvod (dvousloupec text + text, stat boxy, CTA) ============ -->
+<!-- ============ SEKCE 1: Uvod (dvousloupec text + vizualizace, pak stat boxy) ============ -->
 <section class="section mcb-section mfn-default-section mcb-section-dr01 default-width">
   <div class="mcb-background-overlay"></div>
   <div class="section_wrapper mfn-wrapper-for-wraps mcb-section-inner mcb-section-inner-dr01">
@@ -1041,6 +970,7 @@ div.section.section-post-header > div > div.column.one.single-photo-wrapper.imag
         <div class="column mcb-column mcb-item-dr01i1 one laptop-one tablet-one mobile-one column_column li-colors">
           <div class="mcb-column-inner mfn-module-wrapper mcb-column-inner-dr01i1 mcb-item-column-inner">
             <div class="column_attr mfn-inline-editor clearfix">
+              <h2>Fixní výnos z dluhopisu. Potenciál růstu hodnoty nemovitosti.</h2>
               <p>Dual Return Investment System propojuje předem definovaný výnos z investice do dluhopisu s možností využít potenciální zhodnocení plynoucí z růstu ceny apartmánu v projektu All Seasons Residence.</p>
               <p>Nejprve investujete do dluhopisu s výnosem 12 % nebo 14 % p.a. Při investici nad 1 000 000 Kč zároveň získáváte přednostní možnost vybrat si konkrétní apartmán za startovací cenu ještě před zahájením veřejného prodeje.</p>
               <p>Pokud hodnota apartmánu během výstavby vzroste, může vzniknout druhá investiční příležitost: rozdíl mezi cenou sjednanou v rané fázi projektu a jeho budoucí tržní hodnotou.</p>
@@ -1049,9 +979,16 @@ div.section.section-post-header > div > div.column.one.single-photo-wrapper.imag
         </div>
       </div>
     </div>
-    <div class="wrap mcb-wrap mcb-wrap-dr01w2 one-second tablet-one-second laptop-one-second mobile-one clearfix" data-desktop-col="one-second" data-laptop-col="laptop-one-second" data-tablet-col="tablet-one-second" data-mobile-col="mobile-one">
+    <div class="wrap mcb-wrap mcb-wrap-dr01w2 one-second tablet-one-second laptop-one-second mobile-one dr-imgwrap clearfix" data-desktop-col="one-second" data-laptop-col="laptop-one-second" data-tablet-col="tablet-one-second" data-mobile-col="mobile-one">
       <div class="mcb-wrap-inner mcb-wrap-inner-dr01w2 mfn-module-wrapper mfn-wrapper-for-wraps">
         <div class="mcb-wrap-background-overlay"></div>
+        <div class="column mcb-column mcb-item-dr01i2 one laptop-one tablet-one mobile-one column_image">
+          <div class="mcb-column-inner mfn-module-wrapper mcb-column-inner-dr01i2 mcb-item-image-inner">
+            <div class="image_frame image_item no_link scale-with-grid alignnone no_border">
+              <div class="image_wrapper"><img width="1200" height="675" src="https://www.allseasonsresidence.cz/wp-content/uploads/2024/03/viz-02.jpg" class="scale-with-grid" alt="All Seasons Residence - vizualizace"></div>
+            </div>
+          </div>
+        </div>
         <div class="column mcb-column mcb-item-dr01i3 one laptop-one tablet-one mobile-one column_column li-colors">
           <div class="mcb-column-inner mfn-module-wrapper mcb-column-inner-dr01i3 mcb-item-column-inner">
             <div class="column_attr mfn-inline-editor clearfix">
@@ -1116,18 +1053,6 @@ div.section.section-post-header > div > div.column.one.single-photo-wrapper.imag
   </div>
 </section>
 
-<!-- ============ SEKCE 1b: Full-bleed obrazovy pas - vizualizace rezidence ============ -->
-<section class="section mcb-section mfn-default-section mcb-section-dr01b default-width dr-band">
-  <div class="mcb-background-overlay"></div>
-  <div class="section_wrapper mfn-wrapper-for-wraps mcb-section-inner mcb-section-inner-dr01b">
-    <div class="wrap mcb-wrap mcb-wrap-dr01bw1 one tablet-one laptop-one mobile-one clearfix" data-desktop-col="one" data-laptop-col="laptop-one" data-tablet-col="tablet-one" data-mobile-col="mobile-one">
-      <div class="mcb-wrap-inner mcb-wrap-inner-dr01bw1 mfn-module-wrapper mfn-wrapper-for-wraps">
-        <div class="mcb-wrap-background-overlay"></div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ============ SEKCE 2: Dve investicni roviny v jednom systemu ============ -->
 <section class="section mcb-section mfn-default-section mcb-section-dr02 default-width">
   <div class="mcb-background-overlay"></div>
@@ -1151,9 +1076,6 @@ div.section.section-post-header > div > div.column.one.single-photo-wrapper.imag
         <div class="column mcb-column mcb-item-dr02i2 one laptop-one tablet-one mobile-one column_column dr-card dr-half">
           <div class="mcb-column-inner mfn-module-wrapper mcb-column-inner-dr02i2 mcb-item-column-inner">
             <div class="column_attr mfn-inline-editor clearfix">
-              <div class="image_frame image_item no_link scale-with-grid alignnone no_border dr-cardimg">
-                <div class="image_wrapper"><img width="1200" height="844" src="https://www.allseasonsresidence.cz/wp-content/uploads/2024/02/obr-dluhopisy.jpg" class="scale-with-grid" alt="Investiční dluhopisy"></div>
-              </div>
               <h3>1. Dluhopisová investice</h3>
               <p>Investujete do dluhopisu s předem definovanými podmínkami a výnosem podle zvolené varianty.</p>
               <p>Můžete si vybrat mezi kupónovým dluhopisem s průběžnou výplatou výnosu a zerobondem, jehož výnos je vyplacen jednorázově při splatnosti.</p>
@@ -1163,9 +1085,6 @@ div.section.section-post-header > div > div.column.one.single-photo-wrapper.imag
         <div class="column mcb-column mcb-item-dr02i3 one laptop-one tablet-one mobile-one column_column dr-card dr-half">
           <div class="mcb-column-inner mfn-module-wrapper mcb-column-inner-dr02i3 mcb-item-column-inner">
             <div class="column_attr mfn-inline-editor clearfix">
-              <div class="image_frame image_item no_link scale-with-grid alignnone no_border dr-cardimg">
-                <div class="image_wrapper"><img width="1200" height="675" src="https://www.allseasonsresidence.cz/wp-content/uploads/2024/03/viz-09.jpg" class="scale-with-grid" alt="All Seasons Residence - apartmány"></div>
-              </div>
               <h3>2. Nemovitostní příležitost</h3>
               <p>Při investici nad 1 000 000 Kč získáváte přednostní možnost vybrat si apartmán za startovacích cenových podmínek ještě před zahájením veřejného prodeje.</p>
               <p>Pokud této možnosti využijete, můžete si rezervovat konkrétní apartmán a jeho kupní cenu následně doplatit po splatnosti dluhopisu.</p>
@@ -1200,8 +1119,32 @@ div.section.section-post-header > div > div.column.one.single-photo-wrapper.imag
           <div class="mcb-column-inner mfn-module-wrapper mcb-column-inner-dr03i0 mcb-item-column-inner">
             <div class="column_attr mfn-inline-editor clearfix">
               <h2 style="text-align: center;">Jak Dual Return Investment System funguje</h2>
-              <h3 style="text-align: center;">Krok 1: Vyberete si dluhopis</h3>
-              <p style="text-align: center;">Na začátku si zvolíte variantu, která nejlépe odpovídá vaší investiční strategii.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="wrap mcb-wrap mcb-wrap-dr03w1 one-second tablet-one-second laptop-one-second mobile-one dr-imgwrap clearfix" data-desktop-col="one-second" data-laptop-col="laptop-one-second" data-tablet-col="tablet-one-second" data-mobile-col="mobile-one">
+      <div class="mcb-wrap-inner mcb-wrap-inner-dr03w1 mfn-module-wrapper mfn-wrapper-for-wraps">
+        <div class="mcb-wrap-background-overlay"></div>
+        <div class="column mcb-column mcb-item-dr03i1 one laptop-one tablet-one mobile-one column_image">
+          <div class="mcb-column-inner mfn-module-wrapper mcb-column-inner-dr03i1 mcb-item-image-inner">
+            <div class="image_frame image_item no_link scale-with-grid alignnone no_border">
+              <div class="image_wrapper"><img width="1200" height="844" src="https://www.allseasonsresidence.cz/wp-content/uploads/2024/02/obr-dluhopisy.jpg" class="scale-with-grid" alt="Investiční dluhopisy"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="wrap mcb-wrap mcb-wrap-dr03w2 one-second tablet-one-second laptop-one-second mobile-one clearfix" data-desktop-col="one-second" data-laptop-col="laptop-one-second" data-tablet-col="tablet-one-second" data-mobile-col="mobile-one">
+      <div class="mcb-wrap-inner mcb-wrap-inner-dr03w2 mfn-module-wrapper mfn-wrapper-for-wraps">
+        <div class="mcb-wrap-background-overlay"></div>
+        <div class="column mcb-column mcb-item-dr03i2 one laptop-one tablet-one mobile-one column_column">
+          <div class="mcb-column-inner mfn-module-wrapper mcb-column-inner-dr03i2 mcb-item-column-inner">
+            <div class="column_attr mfn-inline-editor clearfix">
+              <h3>Krok 1: Vyberete si dluhopis</h3>
+              <p>Na začátku si zvolíte variantu, která nejlépe odpovídá vaší investiční strategii.</p>
+              <p class="dr-note">„Konkrétní výnos a celková částka vyplacená při splatnosti se řídí emisními podmínkami příslušného dluhopisu a okamžikem investice.“</p>
             </div>
           </div>
         </div>
@@ -1242,32 +1185,8 @@ div.section.section-post-header > div > div.column.one.single-photo-wrapper.imag
         </div>
       </div>
     </div>
-    <div class="wrap mcb-wrap mcb-wrap-dr03w3b one tablet-one laptop-one mobile-one clearfix" data-desktop-col="one" data-laptop-col="laptop-one" data-tablet-col="tablet-one" data-mobile-col="mobile-one">
-      <div class="mcb-wrap-inner mcb-wrap-inner-dr03w3b mfn-module-wrapper mfn-wrapper-for-wraps">
-        <div class="mcb-wrap-background-overlay"></div>
-        <div class="column mcb-column mcb-item-dr03i2 one laptop-one tablet-one mobile-one column_column">
-          <div class="mcb-column-inner mfn-module-wrapper mcb-column-inner-dr03i2 mcb-item-column-inner">
-            <div class="column_attr mfn-inline-editor clearfix">
-              <p class="dr-note" style="text-align: center;">„Konkrétní výnos a celková částka vyplacená při splatnosti se řídí emisními podmínkami příslušného dluhopisu a okamžikem investice.“</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="wrap mcb-wrap mcb-wrap-dr03w4 one-second tablet-one-second laptop-one-second mobile-one dr-fillwrap clearfix" data-desktop-col="one-second" data-laptop-col="laptop-one-second" data-tablet-col="tablet-one-second" data-mobile-col="mobile-one">
+    <div class="wrap mcb-wrap mcb-wrap-dr03w4 one-second tablet-one-second laptop-one-second mobile-one clearfix" data-desktop-col="one-second" data-laptop-col="laptop-one-second" data-tablet-col="tablet-one-second" data-mobile-col="mobile-one">
       <div class="mcb-wrap-inner mcb-wrap-inner-dr03w4 mfn-module-wrapper mfn-wrapper-for-wraps">
-        <div class="mcb-wrap-background-overlay"></div>
-        <div class="column mcb-column mcb-item-dr03i6 one laptop-one tablet-one mobile-one column_image">
-          <div class="mcb-column-inner mfn-module-wrapper mcb-column-inner-dr03i6 mcb-item-image-inner">
-            <div class="image_frame image_item no_link scale-with-grid alignnone no_border">
-              <div class="image_wrapper"><img width="1200" height="800" src="https://www.allseasonsresidence.cz/wp-content/uploads/2024/03/viz-wn-02-day.jpg" class="scale-with-grid" alt="All Seasons Residence - interiér apartmánu"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="wrap mcb-wrap mcb-wrap-dr03w5 one-second tablet-one-second laptop-one-second mobile-one clearfix" data-desktop-col="one-second" data-laptop-col="laptop-one-second" data-tablet-col="tablet-one-second" data-mobile-col="mobile-one">
-      <div class="mcb-wrap-inner mcb-wrap-inner-dr03w5 mfn-module-wrapper mfn-wrapper-for-wraps">
         <div class="mcb-wrap-background-overlay"></div>
         <div class="column mcb-column mcb-item-dr03i5 one laptop-one tablet-one mobile-one column_column li-colors">
           <div class="mcb-column-inner mfn-module-wrapper mcb-column-inner-dr03i5 mcb-item-column-inner">
@@ -1287,14 +1206,26 @@ div.section.section-post-header > div > div.column.one.single-photo-wrapper.imag
         </div>
       </div>
     </div>
+    <div class="wrap mcb-wrap mcb-wrap-dr03w5 one-second tablet-one-second laptop-one-second mobile-one dr-imgwrap clearfix" data-desktop-col="one-second" data-laptop-col="laptop-one-second" data-tablet-col="tablet-one-second" data-mobile-col="mobile-one">
+      <div class="mcb-wrap-inner mcb-wrap-inner-dr03w5 mfn-module-wrapper mfn-wrapper-for-wraps">
+        <div class="mcb-wrap-background-overlay"></div>
+        <div class="column mcb-column mcb-item-dr03i6 one laptop-one tablet-one mobile-one column_image">
+          <div class="mcb-column-inner mfn-module-wrapper mcb-column-inner-dr03i6 mcb-item-image-inner">
+            <div class="image_frame image_item no_link scale-with-grid alignnone no_border">
+              <div class="image_wrapper"><img width="1200" height="675" src="https://www.allseasonsresidence.cz/wp-content/uploads/2024/03/viz-09.jpg" class="scale-with-grid" alt="All Seasons Residence - apartmány"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="wrap mcb-wrap mcb-wrap-dr03w6 one tablet-one laptop-one mobile-one clearfix" data-desktop-col="one" data-laptop-col="laptop-one" data-tablet-col="tablet-one" data-mobile-col="mobile-one">
       <div class="mcb-wrap-inner mcb-wrap-inner-dr03w6 mfn-module-wrapper mfn-wrapper-for-wraps">
         <div class="mcb-wrap-background-overlay"></div>
         <div class="column mcb-column mcb-item-dr03i7 one laptop-one tablet-one mobile-one column_column">
           <div class="mcb-column-inner mfn-module-wrapper mcb-column-inner-dr03i7 mcb-item-column-inner">
             <div class="column_attr mfn-inline-editor clearfix">
-              <h3 style="text-align: center;">Krok 3: Po splatnosti rozhodujete, jak bude váš kapitál pokračovat</h3>
-              <p style="text-align: center;">Po splatnosti dluhopisu v září 2028 můžete vloženou jistinu a dosažený výnos využít několika způsoby.</p>
+              <h3>Krok 3: Po splatnosti rozhodujete, jak bude váš kapitál pokračovat</h3>
+              <p>Po splatnosti dluhopisu v září 2028 můžete vloženou jistinu a dosažený výnos využít několika způsoby.</p>
             </div>
           </div>
         </div>
@@ -1357,18 +1288,6 @@ div.section.section-post-header > div > div.column.one.single-photo-wrapper.imag
   </div>
 </section>
 
-<!-- ============ SEKCE 4b: Full-bleed obrazovy pas - rezidence a Zakopane z vysky ============ -->
-<section class="section mcb-section mfn-default-section mcb-section-dr04b default-width dr-band">
-  <div class="mcb-background-overlay"></div>
-  <div class="section_wrapper mfn-wrapper-for-wraps mcb-section-inner mcb-section-inner-dr04b">
-    <div class="wrap mcb-wrap mcb-wrap-dr04bw1 one tablet-one laptop-one mobile-one clearfix" data-desktop-col="one" data-laptop-col="laptop-one" data-tablet-col="tablet-one" data-mobile-col="mobile-one">
-      <div class="mcb-wrap-inner mcb-wrap-inner-dr04bw1 mfn-module-wrapper mfn-wrapper-for-wraps">
-        <div class="mcb-wrap-background-overlay"></div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ============ SEKCE 5: Startovaci cena dnes. Trzni hodnota v budoucnu. ============ -->
 <section class="section mcb-section mfn-default-section mcb-section-dr05 default-width">
   <div class="mcb-background-overlay"></div>
@@ -1394,8 +1313,20 @@ div.section.section-post-header > div > div.column.one.single-photo-wrapper.imag
         </div>
       </div>
     </div>
-    <div class="wrap mcb-wrap mcb-wrap-dr05w2 one-second tablet-one-second laptop-one-second mobile-one clearfix" data-desktop-col="one-second" data-laptop-col="laptop-one-second" data-tablet-col="tablet-one-second" data-mobile-col="mobile-one">
+    <div class="wrap mcb-wrap mcb-wrap-dr05w2 one-second tablet-one-second laptop-one-second mobile-one dr-imgwrap clearfix" data-desktop-col="one-second" data-laptop-col="laptop-one-second" data-tablet-col="tablet-one-second" data-mobile-col="mobile-one">
       <div class="mcb-wrap-inner mcb-wrap-inner-dr05w2 mfn-module-wrapper mfn-wrapper-for-wraps">
+        <div class="mcb-wrap-background-overlay"></div>
+        <div class="column mcb-column mcb-item-dr05i2 one laptop-one tablet-one mobile-one column_image">
+          <div class="mcb-column-inner mfn-module-wrapper mcb-column-inner-dr05i2 mcb-item-image-inner">
+            <div class="image_frame image_item no_link scale-with-grid alignnone no_border">
+              <div class="image_wrapper"><img width="1200" height="675" src="https://www.allseasonsresidence.cz/wp-content/uploads/2024/02/adobestock-486584246.jpeg" class="scale-with-grid" alt="Tatry - panorama"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="wrap mcb-wrap mcb-wrap-dr05w3 one tablet-one laptop-one mobile-one dr-boxrow clearfix" data-desktop-col="one" data-laptop-col="laptop-one" data-tablet-col="tablet-one" data-mobile-col="mobile-one">
+      <div class="mcb-wrap-inner mcb-wrap-inner-dr05w3 mfn-module-wrapper mfn-wrapper-for-wraps">
         <div class="mcb-wrap-background-overlay"></div>
         <div class="column mcb-column mcb-item-dr05i3 one laptop-one tablet-one mobile-one column_column dr-cenobox">
           <div class="mcb-column-inner mfn-module-wrapper mcb-column-inner-dr05i3 mcb-item-column-inner">
@@ -1404,6 +1335,11 @@ div.section.section-post-header > div > div.column.one.single-photo-wrapper.imag
             </div>
           </div>
         </div>
+      </div>
+    </div>
+    <div class="wrap mcb-wrap mcb-wrap-dr05w4 one tablet-one laptop-one mobile-one clearfix" data-desktop-col="one" data-laptop-col="laptop-one" data-tablet-col="tablet-one" data-mobile-col="mobile-one">
+      <div class="mcb-wrap-inner mcb-wrap-inner-dr05w4 mfn-module-wrapper mfn-wrapper-for-wraps">
+        <div class="mcb-wrap-background-overlay"></div>
         <div class="column mcb-column mcb-item-dr05i4 one laptop-one tablet-one mobile-one column_column">
           <div class="mcb-column-inner mfn-module-wrapper mcb-column-inner-dr05i4 mcb-item-column-inner">
             <div class="column_attr mfn-inline-editor clearfix">
@@ -1468,7 +1404,7 @@ div.section.section-post-header > div > div.column.one.single-photo-wrapper.imag
   </div>
 </section>
 
-<!-- ============ SEKCE 7: Prijedte se podivat, do ceho investujete (tmava, foto pod overlay) ============ -->
+<!-- ============ SEKCE 7: Prijedte se podivat, do ceho investujete (tmava) ============ -->
 <section class="section mcb-section mfn-default-section mcb-section-dr07 dark default-width">
   <div class="mcb-background-overlay"></div>
   <div class="section_wrapper mfn-wrapper-for-wraps mcb-section-inner mcb-section-inner-dr07">
