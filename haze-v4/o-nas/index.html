@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>O nás | HAZE - vlastní vývoj a výroba na míru od roku 2007</title>
+<meta name="description" content="Společnost HAZE založil Petr Hanousek v roce 2007. Vlastní vývoj a výroba na míru, vlastní hala v Křični 2 500 m², 10 000+ realizací v CZ, SK a HU. Ventilace, vrata a doplňky pro moderní stáj.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://www.haze.cz/o-nas/">
+<meta property="og:title" content="O HAZE - vlastní vývoj a výroba na míru od roku 2007">
+<meta property="og:description" content="Petr Hanousek, zakladatel a jednatel. Vlastní hala v Křični 2 500 m², 10 000+ realizací v CZ, SK a HU.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="cs_CZ">
+<meta property="og:url" content="https://www.haze.cz/o-nas/">
+
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent','default',{
+    'ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied',
+    'analytics_storage':'denied','wait_for_update':500
+  });
+  gtag('js', new Date());
+  gtag('config','G-5V6W6CMFGR');
+  gtag('config','AW-11159013994');
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5V6W6CMFGR"></script>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-5KJSMWSP');</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"AboutPage",
+  "url":"https://www.haze.cz/o-nas/",
+  "name":"O HAZE",
+  "mainEntity":{
+    "@type":"Organization",
+    "name":"HAZE, s.r.o.",
+    "url":"https://www.haze.cz/",
+    "foundingDate":"2007",
+    "founder":{"@type":"Person","name":"Petr Hanousek","jobTitle":"zakladatel a jednatel"},
+    "address":{"@type":"PostalAddress","streetAddress":"Praskačka 145","addressLocality":"Praskačka","postalCode":"503 33","addressCountry":"CZ"},
+    "vatID":"CZ27509800",
+    "areaServed":["CZ","SK","HU"],
+    "telephone":"+420602488989",
+    "email":"info@haze.cz"
+  }
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon-180.png">
+<meta name="theme-color" content="#F79430">
+
+<style>
+/* ============================================================
+   O nás - page-specific components (HAZE tokens only)
+   ============================================================ */
+
+/* ---- 1. INTRO HERO: portrait + mission quote (light, leads page) ---- */
+.intro-hero{background:var(--paper);padding-top:120px;padding-bottom:72px}
+.crumbs2{font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);
+  font-weight:600;margin-bottom:44px}
+.crumbs2 a{color:var(--ink-soft);transition:color .2s}
+.crumbs2 a:hover{color:var(--haze-dark)}
+.crumbs2 span{color:var(--line);margin:0 10px}
+.intro-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:64px;align-items:center}
+.intro-figure{position:relative;border-radius:14px;overflow:hidden;
+  box-shadow:0 24px 60px rgba(21,23,28,.16)}
+.intro-figure img{width:100%;aspect-ratio:4/5;max-height:520px;object-fit:cover;object-position:63% 30%;display:block}
+.intro-figcap{position:absolute;left:0;right:0;bottom:0;padding:28px 26px 24px;
+  background:linear-gradient(to top,rgba(15,17,22,.92),rgba(15,17,22,.35) 60%,transparent)}
+.intro-figcap strong{display:block;font-family:'Manrope',sans-serif;font-weight:700;font-size:17px;color:#fff}
+.intro-figcap span{font-size:13px;letter-spacing:.04em;color:var(--haze-soft);font-weight:600}
+.intro-quote{font-family:'Manrope',sans-serif;font-weight:700;
+  font-size:clamp(1.65rem,3vw,2.65rem);line-height:1.22;letter-spacing:-.015em;color:var(--ink);
+  margin:20px 0 28px;text-wrap:pretty}
+.intro-quote .mark{color:var(--haze-dark)}
+.intro-attrib{display:flex;align-items:center;gap:14px;font-size:15px;color:var(--ink-soft)}
+.intro-attrib::before{content:'';width:34px;height:1.5px;background:var(--haze);flex:none}
+.intro-attrib strong{font-family:'Manrope',sans-serif;font-weight:700;color:var(--ink)}
+
+/* ---- 2. STORY + TIMELINE side by side (DARK - Adam 2026-06-07) ---- */
+.story-osa{background:var(--steel-900)}
+.story-osa .sec-eyebrow{color:var(--haze-soft)}
+.story-osa .sec-eyebrow::before{background:var(--haze)}
+.so-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
+.so-story h2{font-family:'Manrope',sans-serif;font-weight:700;
+  font-size:clamp(1.8rem,3.2vw,2.6rem);line-height:1.12;letter-spacing:-.015em;color:#fff;margin-bottom:24px}
+.so-story h2 em{font-style:normal;color:var(--haze-soft);font-weight:700}
+.so-story p{font-size:16px;color:rgba(255,255,255,.74);line-height:1.7;margin-bottom:16px}
+.so-story p.intro{font-size:18.5px;color:#fff;font-weight:500;line-height:1.5}
+.signature{display:flex;align-items:center;gap:16px;margin-top:32px;padding-top:26px;border-top:1px solid rgba(255,255,255,.14)}
+.signature::before{content:'';flex:none;width:30px;height:18px;background:var(--haze);
+  -webkit-mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 18' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='3 15 15 3 27 15'/></svg>") center/contain no-repeat;
+          mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 18' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='3 15 15 3 27 15'/></svg>") center/contain no-repeat;}
+.signature strong{display:block;font-family:'Manrope',sans-serif;font-weight:700;font-size:16px;color:#fff}
+.signature span{font-size:13.5px;color:rgba(255,255,255,.6)}
+.so-osa-eyebrow{font-size:11.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--haze-soft);
+  font-weight:700;margin-bottom:26px;display:flex;align-items:center;gap:12px}
+.so-osa-eyebrow::before{content:'';width:30px;height:1.5px;background:var(--haze)}
+.osa-list{margin-top:0;position:relative}
+.osa-track,.osa-fill{position:absolute;left:78px;width:2px;border-radius:2px;top:0;height:0;z-index:0;pointer-events:none}
+.osa-track{background:rgba(255,255,255,.18)}
+.osa-fill{background:var(--haze);box-shadow:0 0 12px rgba(247,148,48,.5);transition:height .12s linear}
+.osa-item{position:relative;z-index:1;display:grid;grid-template-columns:60px 1fr;gap:20px;align-items:start}
+.osa-year{font-family:'Manrope',sans-serif;font-weight:800;font-size:21px;letter-spacing:-.01em;
+  color:rgba(255,255,255,.34);text-align:right;padding-top:1px;transition:color .45s ease}
+.osa-item.active .osa-year{color:var(--haze-soft)}
+.osa-body{position:relative;padding-left:30px;padding-bottom:34px}
+.osa-item:last-child .osa-body{padding-bottom:0}
+.osa-dot{position:absolute;left:-9px;top:4px;width:16px;height:16px;border-radius:50%;
+  background:var(--steel-900);border:3px solid var(--steel-900);box-shadow:0 0 0 1px rgba(255,255,255,.28);
+  transition:background .45s ease,box-shadow .45s ease,transform .45s ease}
+.osa-item.active .osa-dot{background:var(--haze);box-shadow:0 0 0 5px rgba(247,148,48,.2),0 0 0 1px var(--haze);transform:scale(1.18)}
+.osa-body h3{font-family:'Manrope',sans-serif;font-weight:700;font-size:18px;color:#fff;margin-bottom:6px;line-height:1.25}
+.osa-body p{font-size:14.5px;color:rgba(255,255,255,.7);line-height:1.6}
+
+/* ---- 3. Service chain (LIGHT process - Adam 2026-06-07) ---- */
+.chain{background:var(--paper)}
+.chain .sec-eyebrow{color:var(--haze-dark)}
+.chain .sec-eyebrow::before{background:var(--haze)}
+.chain .sec-head h2{color:var(--ink)}
+.chain .sec-head h2 em{color:var(--haze-dark)}
+.chain .sec-head .lead{color:var(--ink-soft)}
+.chain-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:24px}
+.chain-step{padding-top:26px;border-top:2px solid var(--haze)}
+.chain-num{font-family:'Manrope',sans-serif;font-weight:700;font-size:13px;letter-spacing:.18em;
+  color:var(--haze-dark);margin-bottom:12px}
+.chain-step h3{font-family:'Manrope',sans-serif;font-weight:700;font-size:17.5px;color:var(--ink);margin-bottom:10px;line-height:1.25}
+.chain-step p{font-size:14px;color:var(--ink-soft);line-height:1.55}
+
+/* ---- 4. EU dotace (light) ---- */
+.eu{background:var(--paper-2)}
+.eu-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:8px}
+.eu-card{background:var(--paper);border:1px solid var(--line);border-top:3px solid var(--haze);
+  border-radius:4px;padding:30px 30px;display:flex;flex-direction:column;gap:13px}
+.eu-logos{display:flex;align-items:center;gap:20px;flex-wrap:wrap;padding-bottom:16px;border-bottom:1px solid var(--line);margin-bottom:2px}
+.eu-lockup,.mpo-lockup{display:flex;align-items:center;gap:11px}
+.eu-lockup img{height:40px;width:60px;flex:none;display:block;border-radius:1px}
+.mpo-lockup img{height:40px;width:40px;flex:none;display:block}
+.eu-cap{font-size:10.5px;line-height:1.32;color:var(--ink-soft);font-weight:600;max-width:190px}
+.eu-cap strong{display:block;color:var(--ink);font-weight:700;font-size:11.5px;letter-spacing:.01em;margin-bottom:1px}
+.mpo-cap{font-size:10px;line-height:1.28;color:var(--ink);font-weight:700;letter-spacing:.03em;text-transform:uppercase;max-width:118px}
+.eu-card h3{font-family:'Manrope',sans-serif;font-weight:700;font-size:18px;color:var(--ink);line-height:1.25}
+.eu-card p{font-size:14.5px;color:var(--ink-soft);line-height:1.62}
+@media (max-width:820px){.eu-grid{grid-template-columns:1fr}}
+
+/* ---- Responsive ---- */
+@media (max-width:1100px){
+  .intro-hero{padding-top:128px;padding-bottom:72px}
+  .intro-grid{grid-template-columns:1fr;gap:40px;max-width:560px}
+  .so-grid{grid-template-columns:1fr;gap:56px}
+  .chain-grid{grid-template-columns:repeat(2,1fr);gap:34px 24px}
+}
+@media (max-width:680px){
+  .intro-hero{padding-top:112px;padding-bottom:56px}
+  .crumbs2{margin-bottom:28px}
+  .chain-grid{grid-template-columns:1fr;gap:30px}
+}
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Přeskočit na obsah</a>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5KJSMWSP" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<header id="hdr" class="solid">
+  <div class="hbar">
+    <a href="../" class="logo"><img src="../assets/logo-white.svg" alt="HAZE" class="logo-img" width="118" height="55" decoding="async"></a>
+    <button class="nav-toggle" id="navToggle" type="button" aria-label="Otevrit menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <nav class="nav">
+      <ul class="nav-links">
+      <li><a href="../o-nas/" class="active">O nás</a></li>
+      <li class="has-dropdown">
+        <a href="../produkty/">Produkty <span class="caret" aria-hidden="true">▾</span></a>
+        <div class="dropdown">
+          <a href="../produkty/rolovaci-vrata/">Rolovací vrata</a>
+          <a href="../produkty/ostatni-vrata/">Ostatní vrata</a>
+          <a href="../produkty/bocni-ventilace/">Boční ventilační systémy</a>
+          <a href="../produkty/stresni-vetrani/">Střešní ventilační systémy</a>
+          <a href="../produkty/site/">Sítě</a>
+          <a href="../produkty/kari-site/">Ochranné kari sítě</a>
+          <a href="../produkty/meteostanice/">Meteostanice</a>
+          <a href="../produkty/protihlukove-steny/">Protihlukové stěny</a>
+          <a href="../produkty/sportovni-haly/">Sportovní haly</a>
+          <a href="../produkty/zastreseni-jimek/">Zastřešení jímek</a>
+          <a href="../produkty/" class="dropdown-all">Všechny produkty →</a>
+        </div>
+      </li>
+      <li><a href="../nase-projekty/">Naše projekty</a></li>
+      <li><a href="../kariera/">Kariéra</a></li>
+      <li><a href="../aktuality/">Novinky</a></li>
+      <li><a href="../kontakt/">Kontakt</a></li>
+      </ul>
+      <a href="#kontakt" class="nav-cta">Nezávazná konzultace</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- 1. INTRO HERO: portrait + mission quote -->
+<section class="intro-hero">
+  <div class="wrap">
+    <div class="crumbs2"><a href="../">Domů</a><span>›</span>O nás</div>
+    <div class="intro-grid">
+      <div class="intro-text reveal">
+        <div class="sec-eyebrow">Naše mise</div>
+        <blockquote class="intro-quote"><span class="mark">„</span>Našim společným cílem je, aby stavba splňovala všechny požadavky pro pohodu chovaných zvířat, a v důsledku tak přinášela maximální profit majiteli chovu.<span class="mark">"</span></blockquote>
+        <div class="intro-attrib"><span><strong>Petr Hanousek</strong>, zakladatel HAZE</span></div>
+      </div>
+      <figure class="intro-figure reveal">
+        <img src="../assets/petr-hanousek.jpg" alt="Petr Hanousek, zakladatel a jednatel HAZE, ve stáji s boční ventilací" decoding="async">
+        <figcaption class="intro-figcap">
+          <strong>Petr Hanousek</strong>
+          <span>zakladatel a jednatel</span>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- 2. STORY (founder voice) + TIMELINE -->
+<section class="story-osa">
+  <div class="wrap">
+    <div class="so-grid">
+      <div class="so-story reveal">
+        <div class="sec-eyebrow">Příběh HAZE</div>
+        <h2>Děláme stáje, které slouží <em>zvířatům i provozu.</em></h2>
+        <p class="intro">Společnost HAZE jsem založil v roce 2007 s jednoduchým záměrem - vyrábět vrata a ventilaci, které ve stáji opravdu fungují.</p>
+        <p>Co projektujeme, to i vyrábíme a montujeme. Díky vlastnímu vývoji a výrobě jsme schopni připravit zákazníkům řešení přesně na míru - od bočního a střešního větrání po vrata a doplňky pro celou stáj.</p>
+        <p>Našimi typickými zákazníky jsou zemědělská družstva a rodinné farmy. Jednáme přímo s ředitelem, zootechnikem nebo majitelem - a mluvíme jejich jazykem: dojivost, welfare, harmonogram dojení. Bez marketingových frází.</p>
+        <p>Dnes máme za sebou 10 000+ realizací v Česku, na Slovensku a v Maďarsku a vlastní výrobní halu v Křični na 2 500 m².</p>
+        <div class="signature">
+          <div>
+            <strong>Petr Hanousek</strong>
+            <span>zakladatel, majitel a jednatel</span>
+          </div>
+        </div>
+      </div>
+      <div class="so-osa reveal">
+        <div class="so-osa-eyebrow">Naše cesta</div>
+        <div class="osa-list">
+          <div class="osa-item">
+            <div class="osa-year">2007</div>
+            <div class="osa-body">
+              <span class="osa-dot" aria-hidden="true"></span>
+              <h3>Založení HAZE</h3>
+              <p>Začínáme s výrobou vrat a ventilace pro stáje.</p>
+            </div>
+          </div>
+          <div class="osa-item">
+            <div class="osa-year">2021</div>
+            <div class="osa-body">
+              <span class="osa-dot" aria-hidden="true"></span>
+              <h3>Nový areál v Křični</h3>
+              <p>Přesouváme celou výrobu i kanceláře do nového areálu. Vlastní hala 2 500 m² je zkolaudována, projekt je spolufinancován z EU a státních zdrojů.</p>
+            </div>
+          </div>
+          <div class="osa-item">
+            <div class="osa-year">2022</div>
+            <div class="osa-body">
+              <span class="osa-dot" aria-hidden="true"></span>
+              <h3>Digitalizace a automatizace výroby</h3>
+              <p>Zavádíme sběr a analýzu výrobních dat pro přesnější plánování i kvalitu.</p>
+            </div>
+          </div>
+          <div class="osa-item">
+            <div class="osa-year">2023</div>
+            <div class="osa-body">
+              <span class="osa-dot" aria-hidden="true"></span>
+              <h3>Zlepšení logistických procesů</h3>
+              <p>Optimalizujeme cestu od výroby v Křični až na montáž u zákazníka.</p>
+            </div>
+          </div>
+          <div class="osa-item">
+            <div class="osa-year">2025</div>
+            <div class="osa-body">
+              <span class="osa-dot" aria-hidden="true"></span>
+              <h3>Webový konfigurátor výrobků</h3>
+              <p>Spouštíme konfigurátor napojený přímo na výrobní systém.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE CHAIN -->
+<section class="chain">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-eyebrow">Jak pracujeme</div>
+      <h2>Od projektu <em>po montáž.</em></h2>
+      <p class="lead">Provedeme vás celou zakázkou - od prvního zaměření přes výrobu ve vlastní hale až po montáž a servis.</p>
+    </div>
+    <div class="chain-grid">
+      <div class="chain-step reveal">
+        <div class="chain-num">01</div>
+        <h3>Poradenství a zaměření</h3>
+        <p>Přijedeme na místo, zaměříme reálné otvory a posloucháme, co stáj potřebuje.</p>
+      </div>
+      <div class="chain-step reveal">
+        <div class="chain-num">02</div>
+        <h3>Nabídka na míru</h3>
+        <p>Navrhneme řešení přesně pro váš provoz - rozměry, materiály i rozsah.</p>
+      </div>
+      <div class="chain-step reveal">
+        <div class="chain-num">03</div>
+        <h3>Výroba ve vlastní hale</h3>
+        <p>Vyrábíme u nás v Křični na 2 500 m². Kontrola kvality zůstává v našich rukou.</p>
+      </div>
+      <div class="chain-step reveal">
+        <div class="chain-num">04</div>
+        <h3>Montáž naším týmem</h3>
+        <p>Montáž zajišťuje náš montážní tým. Po předání zaučíme obsluhu a předáme záruku.</p>
+      </div>
+      <div class="chain-step reveal">
+        <div class="chain-num">05</div>
+        <h3>Údržba a servis</h3>
+        <p>Po předání zůstáváme k dispozici - staráme se o to, co jsme postavili.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EU DOTACE A PROJEKTY -->
+<section class="eu">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-eyebrow">EU dotace a projekty</div>
+      <h2>Investujeme do <em>vlastního provozu.</em></h2>
+      <p class="lead">Část našeho rozvoje realizujeme s podporou Evropské unie a státního rozpočtu ČR.</p>
+    </div>
+    <div class="eu-grid reveal">
+      <div class="eu-card">
+        <div class="eu-logos">
+          <span class="eu-lockup"><img src="../assets/eu/eu-flag.svg" alt="Evropská unie" width="60" height="40" decoding="async"><span class="eu-cap"><strong>Financováno Evropskou unií</strong>NextGenerationEU</span></span>
+        </div>
+        <h3>Fotovoltaická elektrárna 98,4 kWp</h3>
+        <p>Vlastní střešní elektrárna bez akumulace ve výrobním areálu v Křični. Snižuje emise i provozní náklady - část energie pro výrobu i areál vyrábíme sami.</p>
+      </div>
+      <div class="eu-card">
+        <div class="eu-logos">
+          <span class="eu-lockup"><img src="../assets/eu/eu-flag.svg" alt="Evropská unie" width="60" height="40" decoding="async"><span class="eu-cap"><strong>Evropská unie</strong>Evropský fond pro regionální rozvoj</span></span>
+          <span class="mpo-lockup"><img src="../assets/eu/mpo-mark.svg" alt="Ministerstvo průmyslu a obchodu" width="40" height="40" decoding="async"><span class="mpo-cap">Ministerstvo průmyslu a obchodu</span></span>
+        </div>
+        <h3>Digitalizace a automatizace výroby</h3>
+        <p>Propojení výrobních technologií a sběr dat pro přesnější plánování i kvalitu. Spolufinancováno z OP PIK - EU a státní rozpočet ČR (MPO).</p>
+      </div>
+      <div class="eu-card">
+        <div class="eu-logos">
+          <span class="eu-lockup"><img src="../assets/eu/eu-flag.svg" alt="Evropská unie" width="60" height="40" decoding="async"><span class="eu-cap"><strong>Evropská unie</strong>Evropský fond pro regionální rozvoj</span></span>
+          <span class="mpo-lockup"><img src="../assets/eu/mpo-mark.svg" alt="Ministerstvo průmyslu a obchodu" width="40" height="40" decoding="async"><span class="mpo-cap">Ministerstvo průmyslu a obchodu</span></span>
+        </div>
+        <h3>Výstavba výrobního areálu</h3>
+        <p>Sjednocení výroby, skladů a administrativy na jednom místě v Křični. Spolufinancováno z OP PIK - EU a státní rozpočet ČR (MPO).</p>
+      </div>
+      <div class="eu-card">
+        <div class="eu-logos">
+          <span class="eu-lockup"><img src="../assets/eu/eu-flag.svg" alt="Evropská unie" width="60" height="40" decoding="async"><span class="eu-cap"><strong>Evropská unie</strong>Evropský fond pro regionální rozvoj</span></span>
+          <span class="mpo-lockup"><img src="../assets/eu/mpo-mark.svg" alt="Ministerstvo průmyslu a obchodu" width="40" height="40" decoding="async"><span class="mpo-cap">Ministerstvo průmyslu a obchodu</span></span>
+        </div>
+        <h3>Podpora elektromobility</h3>
+        <p>Dva elektromobily pro zaměření, montáže a servis - méně hluku a nižší ekologická zátěž. Spolufinancováno z OP PIK - EU a státní rozpočet ČR (MPO).</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KONTAKT FORM -->
+<section class="contact" id="kontakt" style="background:var(--paper)">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-eyebrow">Nezávazná poptávka</div>
+      <h2>Vyplňte formulář a my se vám <em>ozveme do následujícího pracovního dne.</em></h2>
+    </div>
+    <div class="contact-grid">
+      <form class="contact-form reveal" id="leadForm" action="mailto:dominik.hanousek@haze.cz" method="post" enctype="text/plain">
+        <div class="field">
+          <label for="name">Jméno</label>
+          <input type="text" id="name" name="name" required placeholder="Jan Novák">
+        </div>
+        <div class="field">
+          <label for="company">Firma</label>
+          <input type="text" id="company" name="company" placeholder="ZD Křičeň">
+        </div>
+        <div class="field">
+          <label for="phone">Telefon</label>
+          <input type="tel" id="phone" name="phone" required placeholder="+420 ...">
+        </div>
+        <div class="field">
+          <label for="msg">Co potřebujete</label>
+          <textarea id="msg" name="message" placeholder="Stáj pro 80 dojnic, plánujeme rekonstrukci větrání..."></textarea>
+        </div>
+        <div class="hp-field" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden">
+          <label for="website">Webové stránky</label>
+          <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+        </div>
+        <input type="hidden" name="page" value="O nás">
+        <label class="gdpr">
+          <input type="checkbox" required>
+          <span>Souhlasím se zpracováním osobních údajů pro účely poptávky. Údaje neposkytujeme třetím stranám.</span>
+        </label>
+        <button type="submit" class="btn-submit">Zavolejte mi zpět</button>
+      </form>
+
+      <aside class="contact-aside reveal">
+        <h3>Co se stane dál</h3>
+        <div class="timeline-item">
+          <div class="timeline-num">1</div>
+          <div class="timeline-body">
+            <h4>Do 24 hodin zavoláme</h4>
+            <p>Krátký telefonát - upřesníme rozsah a domluvíme termín zaměření.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-num">2</div>
+          <div class="timeline-body">
+            <h4>Zaměření na místě</h4>
+            <p>Přijedeme k vám, fyzicky zaměříme otvory a podíváme se na celkový kontext stáje.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-num">3</div>
+          <div class="timeline-body">
+            <h4>Konkrétní nabídka do 48 hodin</h4>
+            <p>Cena, materiály, termín. Bez skrytých položek - co podepíšete, to platí.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-num">4</div>
+          <div class="timeline-body">
+            <h4>Výroba a montáž 5-10 týdnů</h4>
+            <p>Výroba v naší hale, montáž na místě projektu. Po předání zaučíme obsluhu a předáme záruku.</p>
+          </div>
+        </div>
+        <div class="callbox">
+          <div class="callbox-eyebrow">Nechcete vyplňovat formulář?</div>
+          <div class="callbox-title">Rovnou zavolejte</div>
+          <a href="tel:+420602488989"><span class="ico"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.37 1.9.72 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0122 16.92z"/></svg></span>+420 602 488 989</a>
+          <a class="mail" href="mailto:info@haze.cz"><span class="ico"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg></span>info@haze.cz</a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo"><img src="../assets/logo-white.svg" alt="HAZE" class="logo-img" width="100" height="46" decoding="async"></div>
+        <p>Vyrábíme a montujeme vrata, boční ventilaci, protihlukové stěny a doplňky pro moderní stáj i průmysl. Od roku 2007, vlastní hala v Křični, realizace v CZ, SK a HU.</p>
+      </div>
+      <div><h5>Produkty</h5>
+        <ul>
+          <li><a href="../produkty/rolovaci-vrata/">Rolovací vrata</a></li>
+          <li><a href="../produkty/ostatni-vrata/">Ostatní vrata</a></li>
+          <li><a href="../produkty/bocni-ventilace/">Boční ventilační systémy</a></li>
+          <li><a href="../produkty/stresni-vetrani/">Střešní ventilační systémy</a></li>
+          <li><a href="../produkty/site/">Sítě</a></li>
+          <li><a href="../produkty/kari-site/">Ochranné kari sítě</a></li>
+          <li><a href="../produkty/meteostanice/">Meteostanice</a></li>
+          <li><a href="../produkty/protihlukove-steny/">Protihlukové stěny</a></li>
+          <li><a href="../produkty/sportovni-haly/">Sportovní haly</a></li>
+          <li><a href="../produkty/zastreseni-jimek/">Zastřešení jímek</a></li>
+        </ul></div>
+      <div><h5>Web</h5>
+      <ul>
+        <li><a href="../">Domů</a></li>
+        <li><a href="../produkty/">Produkty</a></li>
+        <li><a href="../nase-projekty/">Naše projekty</a></li>
+        <li><a href="../o-nas/">O nás</a></li>
+        <li><a href="../kariera/">Kariéra</a></li>
+        <li><a href="../aktuality/">Novinky</a></li>
+        <li><a href="../kontakt/">Kontakt</a></li>
+        <li><a href="../dotace/">EU dotace</a></li>
+      </ul></div>
+      <div><h5>Kontakt</h5>
+      <ul>
+        <li><a href="tel:+420602488989">+420 602 488 989</a></li>
+        <li><a href="mailto:info@haze.cz">info@haze.cz</a></li>
+        <li>Sídlo: Praskačka 145, 503 33</li>
+        <li>Vlastní hala: Křičeň 108, 533 41</li>
+        <li>HAZE, s.r.o. | IČ 275 09 800</li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <div>&copy; 2007-2026 HAZE, s.r.o. Všechna práva vyhrazena.</div>
+      <div>Společnost zapsaná v OR vedeném u KS v Hradci Králové, oddíl C, vložka 21758.</div>
+    </div>
+  </div>
+</footer>
+
+<div class="sticky-bar">
+  <a href="tel:+420602488989">Zavolat</a>
+  <a href="../kontakt/">Poptávka</a>
+</div>
+
+<div class="cookies" id="cookies">
+  <p><strong style="color:#fff">Cookies a měření</strong><br>Používáme analytické cookies (Google Analytics, Google Ads) pro měření návštěvnosti. Bez vašeho souhlasu neukládáme nic mimo nezbytné soubory.</p>
+  <div class="cookies-btns">
+    <button class="cookies-btn-decline" onclick="cookieChoice(false)">Jen nezbytné</button>
+    <button class="cookies-btn-accept" onclick="cookieChoice(true)">Souhlasím</button>
+  </div>
+</div>
+
+<script src="../assets/scripts.js"></script>
+<script>
+/* Naše cesta - scroll-linked timeline (fill line + active node) */
+(function(){
+  var list=document.querySelector('.osa-list');
+  if(!list) return;
+  var items=Array.prototype.slice.call(list.querySelectorAll('.osa-item'));
+  var dots=items.map(function(it){return it.querySelector('.osa-dot');}).filter(Boolean);
+  if(dots.length<2) return;
+  var track=document.createElement('span'); track.className='osa-track';
+  var fill=document.createElement('span'); fill.className='osa-fill';
+  list.appendChild(track); list.appendChild(fill);
+  function cy(el){var r=el.getBoundingClientRect();return r.top+r.height/2;}
+  function layout(){
+    var lr=list.getBoundingClientRect();
+    var dr=dots[0].getBoundingClientRect();
+    var cx=(dr.left+dr.width/2-lr.left);
+    var top=(cy(dots[0])-lr.top);
+    var h=(cy(dots[dots.length-1])-cy(dots[0]));
+    track.style.left=fill.style.left=(cx-1)+'px';
+    track.style.top=fill.style.top=top+'px';
+    track.style.height=h+'px';
+    update();
+  }
+  function update(){
+    var vh=window.innerHeight;
+    /* read-line low in viewport (~82%) so years light early as they scroll in and
+       2025 (last node) completes by the time the user reaches the END of the
+       Pribeh HAZE section, not after it scrolls off (Adam 2026-06-07). */
+    var line=vh*0.82;
+    var firstC=cy(dots[0]), lastC=cy(dots[dots.length-1]);
+    var front=Math.max(firstC, Math.min(line, lastC));
+    fill.style.height=(front-firstC)+'px';
+    for(var i=0;i<dots.length;i++){
+      if(cy(dots[i])<=front+1){items[i].classList.add('active');}
+      else{items[i].classList.remove('active');}
+    }
+  }
+  var ticking=false;
+  function onScroll(){if(!ticking){ticking=true;requestAnimationFrame(function(){update();ticking=false;});}}
+  window.addEventListener('scroll',onScroll,{passive:true});
+  window.addEventListener('resize',layout);
+  window.addEventListener('load',layout);
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',layout);}else{layout();}
+  setTimeout(layout,400);
+})();
+</script>
+</body>
+</html>
