@@ -3,8 +3,8 @@
    Hosting-agnostic: no framework, no build step, pure vanilla.
    ============================================================ */
 
-// Endpoint for lead form. Replace REPLACE_ME with a real Formspree (or compatible) form ID before deploy.
-const FORM_ENDPOINT = 'https://formspree.io/f/REPLACE_ME';
+// Keep empty until a real form endpoint is approved; forms fall back to mailto.
+const FORM_ENDPOINT = '';
 
 // Mark page loaded immediately
 document.addEventListener('DOMContentLoaded', () => {
@@ -115,7 +115,7 @@ if (leadForm) {
       showFormSuccess(f);
       return;
     }
-    const usingEndpoint = FORM_ENDPOINT && !FORM_ENDPOINT.includes('REPLACE_ME');
+    const usingEndpoint = Boolean(FORM_ENDPOINT);
     if (usingEndpoint) {
       try {
         const res = await fetch(FORM_ENDPOINT, {
