@@ -1,24 +1,20 @@
 <!doctype html>
 <html lang="cs">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>PERRYmix - procesní a mísicí technika vyráběná v ČR</title>
-<meta name="description" content="PERRYmix vyrábí vertikální homogenizátory HV-Series (50-3 000 L) pro chemický, farmaceutický a potravinářský průmysl. Vlastní výroba v ČR od roku 1997, servis Hradec Králové.">
-<meta name="theme-color" content="#0A1E3A">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
-
+<title>PERRYmix - Spolehlivá procesní technika vyráběná v ČR</title>
+<meta name="description" content="Vertikální homogenizátor HV-Series - 50-3000 L, 10 typových velikostí, AISI 304/316L, ATEX pohon volitelně. Česká výroba procesní a mísicí techniky od roku 1997.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="cs_CZ">
+<meta property="og:title" content="PERRYmix - Spolehlivá procesní technika vyráběná v ČR">
+<meta property="og:description" content="Vertikální homogenizátor HV-Series - 50-3000 L, 10 typových velikostí. Vlastní výroba v ČR, stroje šité na míru, lokální servis.">
 <meta property="og:site_name" content="PERRYmix">
-<meta property="og:title" content="PERRYmix - procesní a mísicí technika vyráběná v ČR">
-<meta property="og:description" content="Vertikální homogenizátory HV-Series (50-3 000 L). Vlastní výroba v ČR, stroje šité na míru, lokální servis v Hradci Králové.">
-<meta property="og:image" content="img/products/homogenizator_01.jpg">
-
+<meta name="theme-color" content="#F4F1EA">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -26,7 +22,7 @@
   "name": "Perry Machinery Czech Republic, s.r.o.",
   "alternateName": "PERRYmix",
   "url": "https://perryczech.cz/",
-  "logo": "img/brand/perrymix-logo.webp",
+  "logo": "https://perryczech.cz/img/brand/perrymix-logo.webp",
   "email": "tvenzara@perryczech.cz",
   "telephone": "+420495822770",
   "address": {
@@ -36,8 +32,9 @@
     "addressLocality": "Hradec Králové",
     "addressCountry": "CZ"
   },
+  "taxID": "25607758",
   "vatID": "CZ25607758",
-  "taxID": "25607758"
+  "foundingDate": "1997"
 }
 </script>
 <script type="application/ld+json">
@@ -45,7 +42,7 @@
   "@context": "https://schema.org",
   "@type": "Product",
   "name": "Vertikální homogenizátor HV-Series",
-  "description": "Kónický šnekový mísič (obíhající rameno s rotujícím šnekem), 50-3 000 L. Pro práškové a sypké směsi, premixy a granuláty. Samovyprazdňovací, šetrný k produktu.",
+  "description": "Kónický šnekový mísič (obíhající rameno s rotujícím šnekem) pro práškové a sypké směsi. 10 typových velikostí HV50-HV3000 (50-3 000 L). Vlastní výroba v ČR, provedení na míru.",
   "brand": {
     "@type": "Brand",
     "name": "PERRYmix"
@@ -54,653 +51,617 @@
     "@type": "Organization",
     "name": "Perry Machinery Czech Republic, s.r.o."
   },
-  "image": "img/products/homogenizator_01.jpg"
+  "category": "Průmyslová procesní technika"
 }
 </script>
-
 <style>
-/* ============ RESET + TOKENS ============ */
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
-
 :root{
-  --navy-900:#0A1E3A;
-  --navy-800:#12294A;
-  --navy-700:#1B3660;
-  --cream:#EEF2F7;
-  --cream-2:#E4EBF3;
-  --white:#FFFFFF;
-  --accent:#3B82F6;
-  --accent-soft:rgba(59,130,246,0.12);
-  --ink:#0A1E3A;
-  --ink-soft:#45536b;
-  --line-light:rgba(10,30,58,0.12);
-  --line-dark:rgba(255,255,255,0.14);
-  --font-display:'Space Grotesk',sans-serif;
-  --font-body:'Inter',sans-serif;
-  --font-mono:'JetBrains Mono',monospace;
-  --container:1200px;
-  --pad-section:clamp(5rem,10vw,9rem);
-  --pad-inline:clamp(1.25rem,5vw,3rem);
-  --radius:2px;
+  --paper:#F4F1EA;
+  --paper-2:#EAE5DA;
+  --ink:#17150F;
+  --ink-2:#2A2720;
+  --muted:#6E685A;
+  --copper:#C24A1E;
+  --copper-soft:rgba(194,74,30,0.12);
+  --line:rgba(23,21,15,0.16);
+  --line-dark:rgba(244,241,234,0.16);
+  --serif:"Fraunces",Georgia,serif;
+  --body:"Inter",-apple-system,BlinkMacSystemFont,sans-serif;
+  --mono:"Space Mono",ui-monospace,monospace;
+  --maxw:1320px;
+  --edge:clamp(20px,5vw,72px);
 }
-
-html,body{overflow-x:hidden}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 body{
-  font-family:var(--font-body);
-  font-weight:400;
+  margin:0;
+  background:var(--paper);
   color:var(--ink);
-  background:var(--white);
-  line-height:1.6;
+  font-family:var(--body);
+  font-weight:400;
+  line-height:1.55;
   -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
 }
 img{max-width:100%;display:block}
-a{color:inherit;text-decoration:none}
-button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
-ul{list-style:none}
-h1,h2,h3,h4{font-family:var(--font-display);font-weight:600;line-height:1.1;letter-spacing:-0.01em}
-.container{max-width:var(--container);margin-inline:auto;padding-inline:var(--pad-inline)}
-.section{padding-block:var(--pad-section);position:relative}
-.section--dark{background:var(--navy-900);color:var(--white)}
-.section--dark2{background:var(--navy-800);color:var(--white)}
-.section--cream{background:var(--cream);color:var(--ink)}
-.section--white{background:var(--white);color:var(--ink)}
-.section--dark .ink-soft, .section--dark2 .ink-soft{color:rgba(255,255,255,0.68)}
-.ink-soft{color:var(--ink-soft)}
+a{color:inherit}
+h1,h2,h3{font-family:var(--serif);font-weight:500;margin:0;letter-spacing:-0.01em}
+p{margin:0}
+button{font-family:inherit;cursor:pointer}
+input,textarea{font-family:inherit}
+
+:focus-visible{outline:2px solid var(--copper);outline-offset:3px}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding-inline:var(--edge)}
 
 .eyebrow{
-  font-family:var(--font-mono);
+  font-family:var(--mono);
   font-size:0.72rem;
   letter-spacing:0.14em;
   text-transform:uppercase;
-  color:var(--accent);
-  display:inline-flex;
+  color:var(--copper);
+  display:flex;
   align-items:center;
   gap:0.6em;
-  margin-bottom:1rem;
 }
-.eyebrow::before{content:"";width:1.4em;height:1px;background:var(--accent)}
-.section--dark .eyebrow, .section--dark2 .eyebrow{color:#8CB4FF}
+.eyebrow::before{content:"";width:22px;height:1px;background:var(--copper);display:inline-block}
+.section-num{
+  font-family:var(--mono);
+  font-size:0.72rem;
+  color:var(--muted);
+  letter-spacing:0.08em;
+}
+.hairline{border:none;border-top:1px solid var(--line);margin:0}
+.on-ink .hairline{border-top-color:var(--line-dark)}
 
-h2{font-size:clamp(1.9rem,3.4vw,3rem)}
-.lede{font-size:clamp(1rem,1.4vw,1.15rem);max-width:62ch;color:var(--ink-soft)}
-.section--dark .lede, .section--dark2 .lede{color:rgba(255,255,255,0.72)}
-.head-row{margin-bottom:clamp(2.5rem,5vw,4rem)}
+/* ---------- reveal ---------- */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity 0.9s cubic-bezier(.16,.8,.28,1),transform 0.9s cubic-bezier(.16,.8,.28,1)}
+.reveal.is-in{opacity:1;transform:none}
+.reveal-stagger > *{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.16,.8,.28,1),transform .7s cubic-bezier(.16,.8,.28,1)}
+.reveal-stagger.is-in > *{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  .reveal,.reveal-stagger > *{opacity:1!important;transform:none!important;transition:none!important}
+}
 
-.mono{font-family:var(--font-mono)}
-.accent{color:var(--accent)}
-.accent-bg{background:var(--accent)}
+/* ---------- top bar ---------- */
+.topbar{
+  position:sticky;top:0;z-index:80;
+  background:rgba(244,241,234,0.92);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+}
+.topbar-inner{
+  max-width:var(--maxw);margin:0 auto;padding-inline:var(--edge);
+  height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px;
+}
+.brand-logo{height:26px;width:auto}
+.brand-mark{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand-sub{font-family:var(--mono);font-size:0.65rem;letter-spacing:0.08em;color:var(--muted);text-transform:uppercase;display:none}
+@media(min-width:720px){.brand-sub{display:block}}
+.nav-links{display:none;align-items:center;gap:36px;font-size:0.92rem}
+@media(min-width:960px){.nav-links{display:flex}}
+.nav-links a{text-decoration:none;position:relative;padding-bottom:4px}
+.nav-links a::after{
+  content:"";position:absolute;left:0;bottom:0;width:100%;height:1px;background:var(--copper);
+  transform:scaleX(0);transform-origin:left;transition:transform .3s ease;
+}
+.nav-links a:hover::after,.nav-links a:focus-visible::after{transform:scaleX(1)}
+.nav-right{display:flex;align-items:center;gap:20px}
+.progress-mono{
+  font-family:var(--mono);font-size:0.68rem;color:var(--muted);letter-spacing:0.06em;
+  display:none;
+}
+@media(min-width:960px){.progress-mono{display:inline-block;min-width:52px}}
 
-/* buttons */
 .btn{
-  display:inline-flex;
-  align-items:center;
-  gap:0.6rem;
-  font-family:var(--font-mono);
-  font-size:0.82rem;
-  letter-spacing:0.04em;
-  text-transform:uppercase;
-  padding:0.95rem 1.6rem;
-  border-radius:var(--radius);
-  border:1px solid transparent;
-  position:relative;
-  overflow:hidden;
-  transition:transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease, color 0.25s ease;
+  font-family:var(--mono);font-size:0.74rem;letter-spacing:0.06em;text-transform:uppercase;
+  padding:0.85em 1.5em;border:1px solid var(--copper);background:var(--copper);color:var(--paper);
+  text-decoration:none;display:inline-flex;align-items:center;gap:0.5em;transition:background .25s ease,color .25s ease,transform .2s ease;
   white-space:nowrap;
 }
-.btn:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
-.btn-primary{background:var(--accent);color:var(--white)}
-.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 24px -8px rgba(59,130,246,0.55)}
-.btn-ghost{border-color:var(--line-dark);color:var(--white)}
-.section--white .btn-ghost,.section--cream .btn-ghost{border-color:var(--line-light);color:var(--ink)}
-.btn-ghost:hover{background:rgba(255,255,255,0.08);transform:translateY(-2px)}
-.section--white .btn-ghost:hover,.section--cream .btn-ghost:hover{background:rgba(10,30,58,0.06)}
-.btn-arrow{transition:transform 0.25s ease}
+.btn:hover{background:transparent;color:var(--copper)}
+.btn:active{transform:scale(0.97)}
+.btn-outline{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn-outline:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.on-ink .btn-outline{color:var(--paper);border-color:var(--line-dark)}
+.on-ink .btn-outline:hover{background:var(--paper);color:var(--ink)}
+.btn-arrow{display:inline-block;transition:transform .25s ease}
 .btn:hover .btn-arrow{transform:translateX(4px)}
 
-/* reveal */
-.reveal{opacity:0;transform:translateY(22px);transition:opacity 0.7s cubic-bezier(.2,.7,.3,1), transform 0.7s cubic-bezier(.2,.7,.3,1)}
-.reveal.in-view{opacity:1;transform:translateY(0)}
-.reveal-group.in-view .reveal-child:nth-child(1){transition-delay:0.02s}
-.reveal-group.in-view .reveal-child:nth-child(2){transition-delay:0.10s}
-.reveal-group.in-view .reveal-child:nth-child(3){transition-delay:0.18s}
-.reveal-group.in-view .reveal-child:nth-child(4){transition-delay:0.26s}
-.reveal-group.in-view .reveal-child:nth-child(5){transition-delay:0.34s}
-.reveal-group.in-view .reveal-child:nth-child(6){transition-delay:0.42s}
-.reveal-group.in-view .reveal-child:nth-child(7){transition-delay:0.50s}
-.reveal-group.in-view .reveal-child:nth-child(8){transition-delay:0.58s}
-@media (prefers-reduced-motion: reduce){
-  .reveal,.reveal-child{opacity:1 !important;transform:none !important;transition:none !important}
+.hamburger{
+  display:flex;flex-direction:column;justify-content:center;gap:5px;
+  width:40px;height:40px;background:none;border:1px solid var(--line);align-items:center;
 }
-
-/* blueprint grid texture */
-.grid-texture{
-  position:absolute;inset:0;
-  background-image:
-    linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
-  background-size:56px 56px;
-  pointer-events:none;
-}
-.section--white .grid-texture,.section--cream .grid-texture{
-  background-image:
-    linear-gradient(var(--line-light) 1px, transparent 1px),
-    linear-gradient(90deg, var(--line-light) 1px, transparent 1px);
-  opacity:0.5;
-}
-
-/* ============ NAV ============ */
-.nav{
-  position:fixed;top:0;left:0;right:0;z-index:100;
-  padding-block:1.4rem;
-  transition:padding 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
-}
-.nav-inner{
-  max-width:var(--container);margin-inline:auto;padding-inline:var(--pad-inline);
-  display:flex;align-items:center;justify-content:space-between;gap:1.5rem;
-}
-.nav.scrolled{background:rgba(10,30,58,0.92);backdrop-filter:blur(10px);box-shadow:0 8px 30px -12px rgba(0,0,0,0.4);padding-block:0.8rem}
-.nav-logo img{height:26px;width:auto}
-.nav-links{display:flex;align-items:center;gap:2.2rem}
-.nav-links a{
-  font-family:var(--font-mono);font-size:0.78rem;letter-spacing:0.04em;
-  color:rgba(255,255,255,0.82);position:relative;padding-block:0.3rem;
-}
-.nav-links a::after{
-  content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--accent);
-  transition:width 0.25s ease;
-}
-.nav-links a:hover::after,.nav-links a:focus-visible::after{width:100%}
-.nav-links a:hover{color:var(--white)}
-.nav-right{display:flex;align-items:center;gap:1rem}
-.nav-cta{display:inline-block}
-.hamburger{display:none;flex-direction:column;gap:5px;width:26px;padding:0.5rem;z-index:110}
-.hamburger span{display:block;width:100%;height:2px;background:var(--white);transition:transform 0.3s ease, opacity 0.3s ease}
-.hamburger[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+@media(min-width:960px){.hamburger{display:none}}
+.hamburger span{width:18px;height:1px;background:var(--ink);display:block;transition:transform .3s ease,opacity .3s ease}
+.hamburger[aria-expanded="true"] span:nth-child(1){transform:translateY(6px) rotate(45deg)}
 .hamburger[aria-expanded="true"] span:nth-child(2){opacity:0}
-.hamburger[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.hamburger[aria-expanded="true"] span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
 
-.mobile-drawer{
-  position:fixed;inset:0;background:var(--navy-900);z-index:105;
-  display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:2rem;
-  padding:2rem var(--pad-inline);
-  transform:translateX(100%);transition:transform 0.35s ease;
+.drawer{
+  position:fixed;inset:0;z-index:90;background:var(--paper);
+  transform:translateY(-100%);transition:transform .4s cubic-bezier(.16,.8,.28,1);
+  display:flex;flex-direction:column;padding:24px var(--edge) 40px;
 }
-.mobile-drawer.open{transform:translateX(0)}
-.mobile-drawer a{font-family:var(--font-display);font-size:1.7rem;color:var(--white)}
-.mobile-drawer .btn-primary{margin-top:1rem}
+.drawer.is-open{transform:translateY(0)}
+.drawer-top{display:flex;justify-content:space-between;align-items:center;height:48px}
+.drawer-links{display:flex;flex-direction:column;gap:0;margin-top:40px;border-top:1px solid var(--line)}
+.drawer-links a{
+  font-family:var(--serif);font-size:1.7rem;text-decoration:none;padding:20px 0;
+  border-bottom:1px solid var(--line);
+}
+.drawer-cta{margin-top:32px}
 
-@media (max-width:860px){
-  .nav-links,.nav-right .btn{display:none}
-  .hamburger{display:flex}
+/* ---------- hero ---------- */
+.hero{padding:56px 0 0;position:relative}
+.hero-grid{display:grid;grid-template-columns:1fr;gap:40px;align-items:end}
+@media(min-width:900px){.hero-grid{grid-template-columns:1.1fr 0.9fr;gap:56px}}
+.hero-eyebrow{margin-bottom:28px}
+.hero h1{
+  font-size:clamp(2.5rem,6.6vw,5.2rem);
+  line-height:0.98;
+  letter-spacing:-0.02em;
 }
+.hero h1 em{font-style:italic;color:var(--copper)}
+.hero-sub{
+  margin-top:28px;max-width:46ch;color:var(--muted);font-size:1.08rem;font-weight:300;
+}
+.hero-tags{display:flex;flex-wrap:wrap;gap:10px 14px;margin-top:26px}
+.hero-tag{
+  font-family:var(--mono);font-size:0.7rem;letter-spacing:0.04em;color:var(--ink);
+  border:1px solid var(--line);padding:0.5em 0.9em;
+}
+.hero-cta-row{display:flex;flex-wrap:wrap;gap:16px;margin-top:36px}
 
-/* ============ HERO ============ */
-.hero{
-  background:var(--navy-900);color:var(--white);
-  padding-top:clamp(8rem,16vw,11rem);padding-bottom:clamp(4rem,8vw,6rem);
-  position:relative;overflow:hidden;
-}
-.hero::before{
-  content:"";position:absolute;inset:-20%;
-  background:radial-gradient(circle at 20% 15%, rgba(59,130,246,0.18), transparent 45%),
-             radial-gradient(circle at 85% 70%, rgba(59,130,246,0.10), transparent 50%);
-  animation:drift 22s ease-in-out infinite alternate;
-  pointer-events:none;
-}
-@keyframes drift{
-  0%{transform:translate(0,0) scale(1)}
-  100%{transform:translate(-3%,2%) scale(1.06)}
-}
-@media (prefers-reduced-motion: reduce){.hero::before{animation:none}}
-.hero-grid{
-  position:absolute;inset:0;
-  background-image:linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px),
-                   linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px);
-  background-size:64px 64px;
-  mask-image:linear-gradient(to bottom, rgba(0,0,0,0.9), transparent 85%);
-}
-.hero-inner{
-  position:relative;z-index:1;
-  display:grid;grid-template-columns:1.05fr 0.95fr;gap:clamp(2.5rem,5vw,4rem);align-items:center;
-}
-.hero-copy h1{font-size:clamp(2.5rem,5.4vw,4.2rem);margin-bottom:1.3rem}
-.hero-copy .lede{font-size:clamp(1.02rem,1.4vw,1.2rem);max-width:52ch;margin-bottom:1.8rem;color:rgba(255,255,255,0.78)}
-.hero-tags{display:flex;flex-wrap:wrap;gap:0.6rem;margin-bottom:2.2rem}
-.tag-chip{
-  font-family:var(--font-mono);font-size:0.74rem;letter-spacing:0.03em;
-  border:1px solid var(--line-dark);border-radius:var(--radius);
-  padding:0.45rem 0.75rem;color:rgba(255,255,255,0.85);
-}
-.hero-ctas{display:flex;flex-wrap:wrap;gap:1rem}
 .hero-visual{position:relative}
-.hero-visual-frame{
-  position:relative;border:1px solid var(--line-dark);border-radius:var(--radius);
-  padding:clamp(1rem,2vw,1.6rem);background:linear-gradient(160deg, rgba(255,255,255,0.05), transparent);
+.hero-frame{
+  position:relative;border:1px solid var(--line);padding:10px;
 }
-.hero-visual-frame img{width:100%;height:auto;will-change:transform}
-.hero-visual-cap{
-  display:flex;justify-content:space-between;align-items:center;
-  margin-top:1rem;font-family:var(--font-mono);font-size:0.72rem;letter-spacing:0.04em;
-  color:rgba(255,255,255,0.6);
+.hero-frame-inner{position:relative;overflow:hidden;clip-path:inset(0 0 100% 0);transition:clip-path 1.1s cubic-bezier(.16,.8,.28,1)}
+.hero-frame-inner.is-in{clip-path:inset(0 0 0 0)}
+@media (prefers-reduced-motion:reduce){.hero-frame-inner{clip-path:inset(0 0 0 0)!important}}
+.hero-frame img{
+  width:100%;height:520px;object-fit:cover;
+  filter:sepia(0.28) saturate(1.15) contrast(1.05) brightness(0.92);
+  transform:scale(1.001);
 }
-.hero-visual-cap .dot{width:6px;height:6px;background:var(--accent);border-radius:50%;display:inline-block;margin-right:0.5rem}
+@media(max-width:640px){.hero-frame img{height:340px}}
+.hero-frame::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(155deg, rgba(194,74,30,0.18), rgba(23,21,15,0.28));
+  mix-blend-mode:multiply;pointer-events:none;
+}
+.hero-caption{
+  display:flex;justify-content:space-between;align-items:center;margin-top:10px;
+  font-family:var(--mono);font-size:0.68rem;letter-spacing:0.05em;color:var(--muted);
+  padding:0 2px;
+}
 
-/* spec ticker marquee */
 .ticker-wrap{
-  position:relative;z-index:1;margin-top:clamp(3rem,6vw,5rem);
-  border-top:1px solid var(--line-dark);border-bottom:1px solid var(--line-dark);
-  padding-block:1rem;overflow:hidden;
+  margin-top:56px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  overflow:hidden;position:relative;
 }
 .ticker-label{
-  position:absolute;left:0;top:-1.6rem;font-family:var(--font-mono);font-size:0.7rem;
-  letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.45);
+  position:absolute;left:0;top:0;bottom:0;display:flex;align-items:center;
+  background:var(--paper);padding-right:20px;
+  font-family:var(--mono);font-size:0.66rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--copper);
+  z-index:2;padding-left:var(--edge);
 }
-.ticker-track{display:flex;width:max-content;animation:ticker 32s linear infinite}
-.ticker-wrap:hover .ticker-track{animation-play-state:paused}
+.ticker-label::after{content:"";position:absolute;right:-24px;top:0;bottom:0;width:24px;background:linear-gradient(90deg,var(--paper),transparent)}
+.ticker-track{
+  display:flex;white-space:nowrap;padding:14px 0;
+  animation:ticker 34s linear infinite;
+  padding-left:calc(var(--edge) + 170px);
+}
+@media(min-width:720px){.ticker-track{padding-left:calc(var(--edge) + 210px)}}
+@media (prefers-reduced-motion:reduce){.ticker-track{animation:none;flex-wrap:wrap}}
+.ticker-track span{
+  font-family:var(--mono);font-size:0.78rem;color:var(--ink);padding:0 28px;position:relative;
+}
+.ticker-track span::after{content:"/";position:absolute;right:-2px;color:var(--copper)}
 @keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-@media (prefers-reduced-motion: reduce){.ticker-track{animation:none;flex-wrap:wrap}}
-.ticker-item{
-  font-family:var(--font-mono);font-size:0.82rem;color:rgba(255,255,255,0.75);
-  padding-inline:1.6rem;white-space:nowrap;position:relative;
-}
-.ticker-item::after{content:"//";color:var(--accent);margin-left:1.6rem}
 
-/* ============ STATS ============ */
-.stats-grid{
-  display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;
-}
-.stat-num{font-family:var(--font-display);font-size:clamp(2.4rem,5vw,3.6rem);color:var(--white);font-weight:700}
-.stat-label{font-family:var(--font-mono);font-size:0.78rem;letter-spacing:0.04em;color:rgba(255,255,255,0.6);margin-top:0.5rem}
+/* ---------- generic section ---------- */
+section{padding:96px 0}
+@media(max-width:720px){section{padding:64px 0}}
+.section-head{margin-bottom:56px}
+.section-head h2{font-size:clamp(1.9rem,3.6vw,3rem);margin-top:14px;max-width:22ch}
+.section-head .lede{margin-top:18px;max-width:56ch;color:var(--muted);font-size:1.02rem;font-weight:300}
+.head-row{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
 
-/* ============ TRUST STRIP ============ */
-.trust-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:var(--line-light);border:1px solid var(--line-light);margin-top:1rem}
-.trust-item{background:var(--cream);padding:1.8rem;transition:background-color 0.25s ease}
-.trust-item:hover{background:var(--white)}
-.trust-item .label{font-family:var(--font-display);font-size:1.05rem;font-weight:600;margin-bottom:0.5rem}
-.trust-item .cat{font-family:var(--font-mono);font-size:0.72rem;letter-spacing:0.04em;color:var(--accent);text-transform:uppercase;margin-bottom:0.75rem}
-.trust-item .scale{font-size:0.88rem;color:var(--ink-soft)}
-.footnote{margin-top:1.6rem;font-size:0.88rem;color:var(--ink-soft);font-family:var(--font-mono)}
+/* ---------- stats ---------- */
+.stats-row{
+  display:grid;grid-template-columns:repeat(2,1fr);border-top:1px solid var(--line);
+}
+@media(min-width:760px){.stats-row{grid-template-columns:repeat(4,1fr)}}
+.stat{
+  padding:34px 24px 24px 0;border-bottom:1px solid var(--line);
+}
+.stat:nth-child(odd){border-right:1px solid var(--line)}
+@media(min-width:760px){
+  .stat{border-right:1px solid var(--line) !important;padding-right:24px}
+  .stat:last-child{border-right:none !important}
+}
+.stat-num{font-family:var(--serif);font-size:clamp(2.6rem,5vw,4rem);font-weight:500;color:var(--copper);line-height:1}
+.stat-label{margin-top:12px;font-family:var(--mono);font-size:0.72rem;letter-spacing:0.05em;text-transform:uppercase;color:var(--muted)}
 
-/* ============ PRODUCT HIGHLIGHT ============ */
-.product-card{
-  display:grid;grid-template-columns:0.9fr 1.1fr;gap:clamp(2rem,4vw,3.5rem);align-items:center;
-  border:1px solid var(--line-light);border-radius:var(--radius);overflow:hidden;
+/* ---------- industry strip (dark) ---------- */
+.on-ink{background:var(--ink);color:var(--paper)}
+.on-ink .muted{color:rgba(244,241,234,0.62)}
+.on-ink .section-num{color:rgba(244,241,234,0.5)}
+.industry-list{border-top:1px solid var(--line-dark)}
+.industry-row{
+  display:grid;grid-template-columns:1fr;gap:6px 20px;padding:26px 0;
+  border-bottom:1px solid var(--line-dark);align-items:baseline;
 }
-.product-card-media{background:var(--cream-2);padding:clamp(1.5rem,3vw,2.5rem);position:relative}
-.product-card-media img{transition:transform 0.6s ease}
-.product-card:hover .product-card-media img{transform:scale(1.03)}
-.product-card-code{
-  position:absolute;top:1.2rem;left:1.2rem;font-family:var(--font-mono);font-size:0.72rem;
-  letter-spacing:0.06em;background:var(--navy-900);color:var(--white);padding:0.35rem 0.65rem;border-radius:var(--radius);
-}
-.product-card-body{padding-block:1rem;padding-right:clamp(1.5rem,3vw,2.5rem)}
-.product-card-tag{
-  display:inline-block;font-family:var(--font-mono);font-size:0.72rem;letter-spacing:0.06em;
-  text-transform:uppercase;color:var(--accent);background:var(--accent-soft);padding:0.3rem 0.6rem;border-radius:var(--radius);margin-bottom:1rem;
-}
-.product-card-body h3{font-size:clamp(1.4rem,2.4vw,2rem);margin-bottom:0.9rem}
-.product-card-body p{color:var(--ink-soft);margin-bottom:1.6rem;max-width:52ch}
+@media(min-width:760px){.industry-row{grid-template-columns:2fr 1.2fr 1.4fr;gap:20px}}
+.industry-label{font-family:var(--serif);font-size:1.3rem}
+.industry-cat{font-family:var(--mono);font-size:0.74rem;letter-spacing:0.05em;color:var(--copper);text-transform:uppercase}
+.industry-scale{font-family:var(--mono);font-size:0.78rem;color:rgba(244,241,234,0.62)}
+.footnote{margin-top:28px;font-family:var(--mono);font-size:0.76rem;color:rgba(244,241,234,0.62)}
 
-/* ============ APPLICATIONS ACCORDION ============ */
-.acc-list{border-top:1px solid var(--line-light)}
-.acc-item{border-bottom:1px solid var(--line-light)}
+/* ---------- product highlight ---------- */
+.product-grid{display:grid;grid-template-columns:1fr;gap:44px}
+@media(min-width:900px){.product-grid{grid-template-columns:1fr 1fr;gap:64px;align-items:center}}
+.product-photo{position:relative;overflow:hidden;border:1px solid var(--line)}
+.product-photo img{
+  width:100%;height:460px;object-fit:cover;
+  filter:sepia(0.3) saturate(1.1) contrast(1.05) brightness(0.94);
+  transition:transform .7s cubic-bezier(.16,.8,.28,1);
+}
+.product-photo:hover img{transform:scale(1.04)}
+.product-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(160deg,rgba(194,74,30,0.16),rgba(23,21,15,0.3));mix-blend-mode:multiply}
+.product-tag{
+  font-family:var(--mono);font-size:0.7rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--copper);
+  border:1px solid var(--copper);display:inline-block;padding:0.4em 0.8em;margin-bottom:20px;
+}
+.product-copy h3{font-size:clamp(1.7rem,3vw,2.4rem);margin-bottom:18px}
+.product-copy p{color:var(--muted);font-weight:300;font-size:1.03rem;max-width:52ch}
+.product-copy .btn{margin-top:28px}
+
+/* ---------- accordion (applications + faq) ---------- */
+.accordion{border-top:1px solid var(--line)}
+.acc-item{border-bottom:1px solid var(--line)}
 .acc-trigger{
-  width:100%;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;
-  padding-block:1.6rem;text-align:left;
+  width:100%;background:none;border:none;text-align:left;padding:26px 0;
+  display:flex;justify-content:space-between;align-items:center;gap:20px;color:inherit;
 }
-.acc-trigger:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
-.acc-trigger-left{display:flex;align-items:baseline;gap:1.2rem;flex:1}
-.acc-num{font-family:var(--font-mono);font-size:0.85rem;color:var(--accent)}
-.acc-title{font-family:var(--font-display);font-size:clamp(1.15rem,2vw,1.5rem);font-weight:600}
-.acc-desc{color:var(--ink-soft);font-size:0.92rem;display:block;margin-top:0.3rem}
-.acc-icon{
-  width:28px;height:28px;flex-shrink:0;border:1px solid var(--line-light);border-radius:50%;
-  position:relative;transition:transform 0.3s ease, border-color 0.3s ease;
+.acc-trigger:hover .acc-title{color:var(--copper)}
+.acc-title{font-family:var(--serif);font-size:1.35rem;transition:color .2s ease}
+.acc-sub{font-family:var(--body);font-weight:300;color:var(--muted);font-size:0.92rem;margin-top:6px;max-width:48ch}
+.acc-plus{
+  font-family:var(--mono);font-size:1.1rem;color:var(--copper);flex-shrink:0;width:28px;height:28px;
+  border:1px solid var(--line);display:flex;align-items:center;justify-content:center;transition:transform .3s ease;
 }
-.acc-icon::before,.acc-icon::after{content:"";position:absolute;background:var(--ink);transition:transform 0.3s ease}
-.acc-icon::before{left:8px;right:8px;top:13px;height:1px}
-.acc-icon::after{top:8px;bottom:8px;left:13px;width:1px}
-.acc-trigger[aria-expanded="true"] .acc-icon::after{transform:scaleY(0)}
-.acc-trigger[aria-expanded="true"] .acc-icon{border-color:var(--accent);transform:rotate(90deg)}
-.acc-panel{display:grid;grid-template-rows:0fr;transition:grid-template-rows 0.4s ease}
+.acc-trigger[aria-expanded="true"] .acc-plus{transform:rotate(45deg)}
+.acc-panel{
+  display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s cubic-bezier(.16,.8,.28,1);
+}
+.acc-panel[data-open="true"]{grid-template-rows:1fr}
 .acc-panel-inner{overflow:hidden}
-.acc-panel.open{grid-template-rows:1fr}
-.acc-content{padding-bottom:1.8rem;display:grid;grid-template-columns:1.3fr 1fr;gap:2rem}
-.acc-content p{color:var(--ink-soft);max-width:56ch}
-.acc-examples{list-style:none}
+.acc-body{padding:0 0 30px;max-width:60ch;color:var(--muted);font-weight:300}
+.acc-examples{list-style:none;margin:18px 0 0;padding:0;display:flex;flex-direction:column;gap:8px}
 .acc-examples li{
-  font-size:0.9rem;padding-left:1.1rem;position:relative;margin-bottom:0.55rem;color:var(--ink-soft);
+  font-family:var(--mono);font-size:0.82rem;color:var(--ink);padding-left:1.4em;position:relative;
 }
-.acc-examples li::before{content:"";position:absolute;left:0;top:0.55em;width:6px;height:1px;background:var(--accent)}
-@media (max-width:700px){.acc-content{grid-template-columns:1fr}}
+.acc-examples li::before{content:"-";position:absolute;left:0;color:var(--copper)}
+.faq-a{padding:0 0 30px;max-width:64ch;color:var(--muted);font-weight:300}
 
-/* ============ REASONS ============ */
-.reasons-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1px;background:var(--line-dark);border:1px solid var(--line-dark);margin-top:1rem}
-.reason-card{background:var(--navy-800);padding:2rem;transition:background-color 0.25s ease}
-.reason-card:hover{background:var(--navy-700)}
-.reason-num{font-family:var(--font-mono);color:var(--accent);font-size:0.8rem;margin-bottom:1rem;display:block}
-.reason-title{font-family:var(--font-display);font-size:1.05rem;font-weight:600;margin-bottom:0.6rem}
-.reason-desc{font-size:0.88rem;color:rgba(255,255,255,0.68)}
+/* ---------- reasons ---------- */
+.reasons-list{border-top:1px solid var(--line)}
+.reason-row{
+  display:grid;grid-template-columns:64px 1fr;gap:20px;padding:28px 0;border-bottom:1px solid var(--line);
+  align-items:baseline;
+}
+.reason-num{font-family:var(--serif);font-size:1.6rem;color:var(--copper)}
+.reason-text{font-size:1.08rem;max-width:56ch}
 
-/* ============ TECH SPEC ============ */
-.spec-layout{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,4vw,3.5rem);align-items:start;margin-top:1rem}
-.spec-visual{position:sticky;top:110px;border:1px solid var(--line-light);border-radius:var(--radius);padding:1.5rem;background:var(--cream)}
-.spec-pairs{border-top:1px solid var(--line-light)}
-.spec-pair{padding-block:1.1rem;border-bottom:1px solid var(--line-light);display:grid;grid-template-columns:0.8fr 1.2fr;gap:1.5rem}
-.spec-key{font-family:var(--font-mono);font-size:0.8rem;letter-spacing:0.03em;color:var(--accent)}
-.spec-val{font-size:0.94rem;color:var(--ink-soft)}
-@media (max-width:860px){
-  .spec-layout{grid-template-columns:1fr}
-  .spec-visual{position:static}
-  .spec-pair{grid-template-columns:1fr}
+/* ---------- spec ledger + table ---------- */
+.spec-grid{display:grid;grid-template-columns:1fr;gap:48px}
+@media(min-width:940px){.spec-grid{grid-template-columns:1fr 1fr;gap:64px}}
+.spec-photo{position:relative;overflow:hidden;border:1px solid var(--line);order:2}
+@media(min-width:940px){.spec-photo{order:0}}
+.spec-photo img{
+  width:100%;height:100%;min-height:420px;object-fit:cover;
+  filter:sepia(0.3) saturate(1.1) contrast(1.05) brightness(0.93);
+}
+.spec-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(160deg,rgba(194,74,30,0.16),rgba(23,21,15,0.3));mix-blend-mode:multiply}
+dl.ledger{margin:0;border-top:1px solid var(--line)}
+.ledger-row{display:grid;grid-template-columns:1fr;gap:4px;padding:20px 0;border-bottom:1px solid var(--line)}
+@media(min-width:600px){.ledger-row{grid-template-columns:0.9fr 1.4fr;gap:20px}}
+.ledger-row dt{font-family:var(--mono);font-size:0.72rem;letter-spacing:0.04em;text-transform:uppercase;color:var(--copper)}
+.ledger-row dd{margin:0;font-size:0.96rem}
+
+.table-wrap{overflow-x:auto;margin-top:64px;border:1px solid var(--line);-webkit-overflow-scrolling:touch}
+table.spec-table{border-collapse:collapse;width:100%;min-width:760px;font-family:var(--mono);font-size:0.82rem}
+table.spec-table thead th{
+  position:sticky;top:72px;background:var(--ink);color:var(--paper);text-align:left;
+  padding:14px 16px;font-weight:400;letter-spacing:0.03em;white-space:nowrap;
+  border-bottom:1px solid var(--ink);
+}
+table.spec-table tbody td{padding:13px 16px;border-bottom:1px solid var(--line);white-space:nowrap}
+table.spec-table tbody tr:hover{background:var(--copper-soft)}
+table.spec-table tbody td:first-child{color:var(--copper);font-weight:700}
+.table-note{margin-top:16px;font-family:var(--mono);font-size:0.74rem;color:var(--muted)}
+
+/* ---------- process ---------- */
+.process-list{position:relative;margin-top:20px}
+.process-rule{
+  position:absolute;left:39px;top:0;bottom:0;width:1px;background:var(--line);
+}
+@media(max-width:600px){.process-rule{left:23px}}
+.process-rule-fill{
+  position:absolute;top:0;left:0;width:1px;height:0;background:var(--copper);
+  transition:height 1.4s cubic-bezier(.16,.8,.28,1);
+}
+.process-step{position:relative;padding-left:96px;padding-bottom:56px}
+@media(max-width:600px){.process-step{padding-left:64px}}
+.process-step:last-child{padding-bottom:0}
+.process-num{
+  position:absolute;left:0;top:0;width:80px;height:80px;border:1px solid var(--line);background:var(--paper);
+  display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:1.5rem;color:var(--copper);
+  z-index:1;
+}
+@media(max-width:600px){.process-num{width:48px;height:48px;font-size:1.05rem}}
+.process-step-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap}
+.process-step h3{font-size:1.4rem}
+.process-duration{font-family:var(--mono);font-size:0.72rem;letter-spacing:0.05em;text-transform:uppercase;color:var(--copper);border:1px solid var(--copper);padding:0.3em 0.7em;white-space:nowrap}
+.process-step p{margin-top:10px;color:var(--muted);font-weight:300;max-width:52ch}
+
+/* ---------- about ---------- */
+.about-cards{display:grid;grid-template-columns:1fr;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:8px}
+@media(min-width:760px){.about-cards{grid-template-columns:1fr 1fr}}
+.about-card{background:var(--paper);padding:36px}
+.about-card h3{font-size:1.25rem;margin-bottom:14px}
+.about-card p{color:var(--muted);font-weight:300;font-size:0.98rem}
+
+/* ---------- final CTA ---------- */
+.cta-grid{display:grid;grid-template-columns:1fr;gap:56px}
+@media(min-width:960px){.cta-grid{grid-template-columns:0.9fr 1.1fr;gap:80px}}
+.cta-checklist{list-style:none;margin:32px 0 0;padding:0;display:flex;flex-direction:column;gap:16px}
+.cta-checklist li{display:flex;gap:14px;align-items:flex-start;font-size:1rem}
+.cta-check-icon{
+  flex-shrink:0;width:22px;height:22px;border:1px solid var(--copper);color:var(--copper);
+  display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:0.7rem;margin-top:2px;
 }
 
-.table-note{margin-top:0.75rem;color:var(--ink-soft);font-size:0.85rem;max-width:70ch}
-.table-scroll{overflow-x:auto;margin-top:2rem;border:1px solid var(--line-light);border-radius:var(--radius)}
-table.model-table{border-collapse:collapse;width:100%;min-width:920px;font-family:var(--font-mono);font-size:0.84rem}
-.model-table thead th{
-  position:sticky;top:0;background:var(--navy-900);color:var(--white);
-  text-align:left;padding:0.9rem 1rem;font-weight:500;letter-spacing:0.03em;white-space:nowrap;
+.form-card{border:1px solid var(--line-dark);padding:36px}
+.on-ink .form-card{border-color:var(--line-dark)}
+.form-card h3{font-size:1.3rem;margin-bottom:24px}
+.field{margin-bottom:20px}
+.field label{
+  display:block;font-family:var(--mono);font-size:0.68rem;letter-spacing:0.06em;text-transform:uppercase;
+  margin-bottom:8px;color:rgba(244,241,234,0.72);
 }
-.model-table tbody td{padding:0.85rem 1rem;border-bottom:1px solid var(--line-light);white-space:nowrap}
-.model-table tbody tr:nth-child(even){background:var(--cream)}
-.model-table tbody tr:hover{background:var(--accent-soft)}
-.model-table tbody td:first-child{font-family:var(--font-display);font-weight:600;color:var(--navy-900)}
-
-/* ============ PROCESS ============ */
-.process-list{position:relative;margin-top:1.5rem}
-.process-line{
-  position:absolute;left:19px;top:10px;bottom:10px;width:1px;background:var(--line-dark);
-  overflow:hidden;
-}
-.process-line-fill{position:absolute;left:0;top:0;width:100%;height:0%;background:var(--accent);transition:height 1.1s cubic-bezier(.2,.7,.3,1)}
-.process-line.in-view .process-line-fill{height:100%}
-.process-step{display:grid;grid-template-columns:40px 1fr;gap:1.6rem;padding-block:1.8rem}
-.process-num-dot{
-  width:40px;height:40px;border-radius:50%;border:1px solid var(--line-dark);
-  display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:0.78rem;
-  background:var(--navy-900);z-index:1;color:var(--accent);
-}
-.process-step-body{display:flex;justify-content:space-between;gap:1.5rem;flex-wrap:wrap}
-.process-step-title{font-family:var(--font-display);font-size:1.25rem;font-weight:600;margin-bottom:0.5rem}
-.process-step-desc{color:rgba(255,255,255,0.72);max-width:56ch;font-size:0.94rem}
-.process-duration{font-family:var(--font-mono);font-size:0.78rem;color:var(--accent);white-space:nowrap}
-
-/* ============ FAQ ============ */
-.faq-list{border-top:1px solid var(--line-light);margin-top:1rem}
-
-/* ============ ABOUT ============ */
-.about-lead{margin-top:1rem;max-width:70ch}
-.about-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem;margin-top:2.5rem}
-.about-card{border:1px solid var(--line-light);border-radius:var(--radius);padding:1.6rem;transition:border-color 0.25s ease, transform 0.25s ease}
-.about-card:hover{border-color:var(--accent);transform:translateY(-3px)}
-.about-card h3{font-size:1.1rem;margin-bottom:0.7rem}
-.about-card p{color:var(--ink-soft);font-size:0.92rem}
-
-/* ============ FINAL CTA + CONTACT ============ */
-.final-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2.5rem,5vw,4rem)}
-.reversal-list{margin-top:1.8rem;display:flex;flex-direction:column;gap:0.9rem}
-.reversal-item{display:flex;align-items:flex-start;gap:0.8rem;font-size:0.94rem;color:rgba(255,255,255,0.85)}
-.reversal-check{
-  flex-shrink:0;width:20px;height:20px;border:1px solid var(--accent);border-radius:50%;
-  display:flex;align-items:center;justify-content:center;margin-top:0.1rem;
-}
-.reversal-check::after{content:"";width:6px;height:10px;border-right:1.5px solid var(--accent);border-bottom:1.5px solid var(--accent);transform:rotate(45deg) translate(-1px,-1px)}
-.contact-block{margin-top:2.4rem;border-top:1px solid var(--line-dark);padding-top:1.6rem}
-.contact-block dt{font-family:var(--font-mono);font-size:0.72rem;letter-spacing:0.05em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-top:1rem}
-.contact-block dd{font-size:0.98rem;margin-top:0.2rem}
-.contact-block a:hover{color:var(--accent)}
-
-.form-card{background:var(--white);color:var(--ink);border-radius:var(--radius);padding:clamp(1.6rem,3vw,2.4rem)}
-.form-card h3{font-size:1.2rem;margin-bottom:1.4rem}
-.field{margin-bottom:1.1rem}
-.field label{display:block;font-family:var(--font-mono);font-size:0.74rem;letter-spacing:0.03em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:0.4rem}
 .field input,.field textarea{
-  width:100%;padding:0.75rem 0.9rem;border:1px solid var(--line-light);border-radius:var(--radius);
-  font-family:var(--font-body);font-size:0.95rem;background:var(--cream);color:var(--ink);
-  transition:border-color 0.2s ease, background-color 0.2s ease;
+  width:100%;background:transparent;border:none;border-bottom:1px solid var(--line-dark);
+  color:var(--paper);padding:10px 2px;font-size:0.98rem;transition:border-color .25s ease;
 }
-.field input:focus,.field textarea:focus{outline:none;border-color:var(--accent);background:var(--white)}
-.field textarea{resize:vertical;min-height:100px}
-.form-gdpr{font-size:0.78rem;color:var(--ink-soft);margin-block:1rem 1.3rem}
-.form-msg{margin-top:1rem;font-size:0.9rem;padding:0.8rem 1rem;border-radius:var(--radius);display:none}
-.form-msg.show{display:block}
-.form-msg.ok{background:var(--accent-soft);color:var(--navy-900)}
-.form-card .btn-primary{width:100%;justify-content:center}
+.field input:focus,.field textarea:focus{border-bottom-color:var(--copper);outline:none}
+.field textarea{resize:vertical;min-height:90px}
+.field input::placeholder,.field textarea::placeholder{color:rgba(244,241,234,0.32)}
+.form-submit-row{display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin-top:8px}
+.form-msg{font-family:var(--mono);font-size:0.8rem;color:var(--copper)}
+.form-msg[hidden]{display:none}
 
-/* ============ FOOTER ============ */
-.footer{background:var(--navy-900);color:rgba(255,255,255,0.7);padding-block:clamp(3rem,6vw,4.5rem) 2rem}
-.footer-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:2.5rem;padding-bottom:2.5rem;border-bottom:1px solid var(--line-dark)}
-.footer-logo img{height:24px;margin-bottom:1.2rem}
-.footer-tagline{font-size:0.9rem;max-width:38ch}
-.footer-col h4{font-family:var(--font-mono);font-size:0.75rem;letter-spacing:0.05em;text-transform:uppercase;color:var(--white);margin-bottom:1rem}
-.footer-col a,.footer-col p{display:block;font-size:0.9rem;margin-bottom:0.6rem;color:rgba(255,255,255,0.7)}
-.footer-col a:hover{color:var(--accent)}
-.footer-bottom{padding-top:1.6rem;display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;font-size:0.8rem;font-family:var(--font-mono);color:rgba(255,255,255,0.45)}
-@media (max-width:760px){.footer-grid{grid-template-columns:1fr}}
+/* ---------- footer ---------- */
+footer{background:var(--ink);color:var(--paper);padding:72px 0 32px}
+.footer-top{display:grid;grid-template-columns:1fr;gap:44px}
+@media(min-width:820px){.footer-top{grid-template-columns:1.4fr 1fr 1fr 1fr}}
+.footer-logo{height:24px;margin-bottom:18px}
+.footer-tagline{color:rgba(244,241,234,0.62);font-weight:300;font-size:0.92rem;max-width:36ch}
+.footer-col h4{
+  font-family:var(--mono);font-size:0.68rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--copper);
+  margin-bottom:16px;
+}
+.footer-col ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.footer-col a{text-decoration:none;color:rgba(244,241,234,0.78);font-size:0.94rem}
+.footer-col a:hover{color:var(--copper)}
+.footer-bottom{
+  margin-top:56px;padding-top:24px;border-top:1px solid var(--line-dark);
+  display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
+  font-family:var(--mono);font-size:0.72rem;color:rgba(244,241,234,0.5);
+}
 
-/* ============ RESPONSIVE ============ */
-@media (max-width:960px){
-  .hero-inner{grid-template-columns:1fr}
-  .hero-visual{order:-1}
-  .product-card{grid-template-columns:1fr}
-  .final-grid{grid-template-columns:1fr}
-  .stats-grid{grid-template-columns:repeat(2,1fr)}
+.skip-link{
+  position:absolute;left:-999px;top:0;background:var(--copper);color:var(--paper);padding:12px 20px;z-index:200;
+  font-family:var(--mono);font-size:0.8rem;text-decoration:none;
 }
-@media (max-width:560px){
-  .stats-grid{grid-template-columns:1fr 1fr;gap:1.5rem 1rem}
-  .acc-content{gap:1.2rem}
-}
+.skip-link:focus{left:var(--edge);top:8px}
 </style>
 </head>
 <body>
+<a class="skip-link" href="#main">Přeskočit na obsah</a>
 
-<header class="nav" id="siteNav">
-  <div class="nav-inner">
-    <a href="#hero" class="nav-logo" aria-label="PERRYmix - úvod">
-      <picture>
-        <source srcset="img/brand/perrymix-logo-white.webp" type="image/webp">
-        <img src="img/brand/perrymix-logo-white.png" alt="PERRYmix" width="2236" height="520">
-      </picture>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand-mark" href="#top" aria-label="PERRYmix - domů">
+      <img class="brand-logo" src="img/brand/perrymix-logo.webp" alt="PERRYmix" width="140" height="26">
+      <span class="brand-sub">Procesní a mísicí technika</span>
     </a>
     <nav class="nav-links" aria-label="Hlavní navigace">
-      <a href="#produkt">Produkty</a>
+      <a href="#produkt">Produkt</a>
       <a href="#aplikace">Aplikace</a>
       <a href="#proces">Proces</a>
       <a href="#o-nas">O nás</a>
       <a href="#kontakt">Kontakt</a>
     </nav>
     <div class="nav-right">
-      <a href="#kontakt" class="btn btn-primary nav-cta">Poptávka</a>
+      <span class="progress-mono" id="scrollProgress" aria-hidden="true">00 / 13</span>
+      <a class="btn" href="#kontakt">Poptávka <span class="btn-arrow" aria-hidden="true">-&gt;</span></a>
+      <button class="hamburger" id="hamburgerBtn" aria-expanded="false" aria-controls="drawer" aria-label="Otevřít menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
-    <button class="hamburger" id="hamburgerBtn" aria-expanded="false" aria-controls="mobileDrawer" aria-label="Otevřít menu">
-      <span></span><span></span><span></span>
-    </button>
   </div>
 </header>
 
-<div class="mobile-drawer" id="mobileDrawer">
-  <a href="#produkt">Produkty</a>
-  <a href="#aplikace">Aplikace</a>
-  <a href="#proces">Proces</a>
-  <a href="#o-nas">O nás</a>
-  <a href="#kontakt">Kontakt</a>
-  <a href="#kontakt" class="btn btn-primary">Poptávka</a>
+<div class="drawer" id="drawer" aria-hidden="true">
+  <div class="drawer-top">
+    <img class="brand-logo" src="img/brand/perrymix-logo.webp" alt="PERRYmix" width="140" height="26">
+    <button class="hamburger" id="drawerCloseBtn" aria-expanded="true" aria-controls="drawer" aria-label="Zavřít menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="drawer-links" aria-label="Mobilní navigace">
+    <a href="#produkt" data-drawer-link>Produkt</a>
+    <a href="#aplikace" data-drawer-link>Aplikace</a>
+    <a href="#proces" data-drawer-link>Proces</a>
+    <a href="#o-nas" data-drawer-link>O nás</a>
+    <a href="#kontakt" data-drawer-link>Kontakt</a>
+  </nav>
+  <a class="btn drawer-cta" href="#kontakt" data-drawer-link>Poptávka <span class="btn-arrow" aria-hidden="true">-&gt;</span></a>
 </div>
 
-<main id="hlavni-obsah">
+<main id="main">
 
-  <!-- ============ HERO ============ -->
-  <section class="hero" id="hero" aria-label="Úvod">
-    <div class="hero-grid" aria-hidden="true"></div>
-    <div class="container hero-inner">
-      <div class="hero-copy">
-        <p class="eyebrow reveal">Český výrobce procesní a mísicí techniky od roku 1997</p>
-        <h1 class="reveal">Spolehlivá procesní technika <span class="accent">vyráběná v ČR</span>.</h1>
-        <p class="lede reveal">Kvalitní procesní a mísicí technika pro chemický, farmaceutický a potravinářský průmysl. Vlastní výroba v ČR, stroje šité na míru, lokální servis.</p>
-        <ul class="hero-tags reveal-group" aria-label="Klíčové parametry">
-          <li class="tag-chip reveal-child">50-3 000 L</li>
-          <li class="tag-chip reveal-child">10 typových velikostí</li>
-          <li class="tag-chip reveal-child">AISI 304 / 316L</li>
-          <li class="tag-chip reveal-child">ATEX pohon volitelně</li>
-          <li class="tag-chip reveal-child">Výroba v ČR</li>
-        </ul>
-        <div class="hero-ctas reveal">
-          <a href="#kontakt" class="btn btn-primary" id="magneticCta">Poptat HV-Series <span class="btn-arrow" aria-hidden="true">&#8594;</span></a>
-          <a href="#kontakt" class="btn btn-ghost">Technická konzultace</a>
+  <!-- 01 HERO -->
+  <section class="hero" id="top">
+    <div class="wrap">
+      <p class="eyebrow hero-eyebrow reveal">01 / Úvod</p>
+      <div class="hero-grid">
+        <div>
+          <h1 class="reveal">Spolehlivá procesní technika <em>vyráběná v ČR</em>.</h1>
+          <p class="hero-sub reveal">Kvalitní procesní a mísicí technika pro chemický, farmaceutický a potravinářský průmysl. Vlastní výroba v ČR, stroje šité na míru, lokální servis.</p>
+          <div class="hero-tags reveal-stagger" id="heroTags">
+            <span class="hero-tag">50-3 000 L</span>
+            <span class="hero-tag">10 typových velikostí</span>
+            <span class="hero-tag">AISI 304 / 316L</span>
+            <span class="hero-tag">ATEX pohon volitelně</span>
+            <span class="hero-tag">Výroba v ČR</span>
+          </div>
+          <div class="hero-cta-row reveal">
+            <a class="btn" href="#kontakt">Poptat HV-Series <span class="btn-arrow" aria-hidden="true">-&gt;</span></a>
+            <a class="btn btn-outline" href="#kontakt">Technická konzultace</a>
+          </div>
         </div>
-      </div>
-      <div class="hero-visual reveal">
-        <div class="hero-visual-frame">
-          <picture id="heroImgWrap">
-            <source srcset="img/products/homogenizator_01.webp" type="image/webp">
-            <img src="img/products/homogenizator_01.jpg" alt="Vertikální homogenizátor PERRYmix HV3000" width="1280" height="1280" fetchpriority="high" id="heroImg">
-          </picture>
-          <div class="hero-visual-cap">
-            <span><span class="dot" aria-hidden="true"></span>HV3000 &middot; Referenční konfigurace</span>
+        <div class="hero-visual reveal" id="heroVisual">
+          <div class="hero-frame">
+            <div class="hero-frame-inner" id="heroFrameInner">
+              <picture>
+                <source srcset="img/products/homogenizator_01.webp" type="image/webp">
+                <img id="heroParallaxImg" src="img/products/homogenizator_01.jpg" alt="Vertikální homogenizátor HV3000 - referenční konfigurace" width="640" height="520">
+              </picture>
+            </div>
+          </div>
+          <div class="hero-caption">
+            <span>HV3000 · Referenční konfigurace</span>
+            <span>Fig. 01</span>
           </div>
         </div>
       </div>
-    </div>
 
-    <div class="container ticker-wrap reveal" role="region" aria-label="Co dodáváme">
-      <span class="ticker-label">Co dodáváme</span>
-      <div class="ticker-track" id="tickerTrack">
-        <span class="ticker-item">50-3 000 L &middot; Pracovní objem</span>
-        <span class="ticker-item">HV50 - HV3000 &middot; 10 velikostí</span>
-        <span class="ticker-item">Kónický šnekový mísič</span>
-        <span class="ticker-item">AISI 304 standard &middot; 316L na míru</span>
-        <span class="ticker-item">ATEX pohon volitelně</span>
-        <span class="ticker-item">Samovyprazdňovací efekt</span>
-        <span class="ticker-item">Výroba v ČR od roku 1997</span>
-        <span class="ticker-item">Nabídka do 48 hodin</span>
-        <span class="ticker-item">50-3 000 L &middot; Pracovní objem</span>
-        <span class="ticker-item">HV50 - HV3000 &middot; 10 velikostí</span>
-        <span class="ticker-item">Kónický šnekový mísič</span>
-        <span class="ticker-item">AISI 304 standard &middot; 316L na míru</span>
-        <span class="ticker-item">ATEX pohon volitelně</span>
-        <span class="ticker-item">Samovyprazdňovací efekt</span>
-        <span class="ticker-item">Výroba v ČR od roku 1997</span>
-        <span class="ticker-item">Nabídka do 48 hodin</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ STATS ============ -->
-  <section class="section section--dark2" aria-label="Klíčová čísla" id="statsSection">
-    <div class="container">
-      <div class="stats-grid">
-        <div class="stat reveal">
-          <div class="stat-num" data-target="1997" data-suffix="">0</div>
-          <div class="stat-label">Výroba od roku</div>
-        </div>
-        <div class="stat reveal">
-          <div class="stat-num" data-target="10" data-suffix="">0</div>
-          <div class="stat-label">Typových velikostí</div>
-        </div>
-        <div class="stat reveal">
-          <div class="stat-num" data-target="8" data-suffix="+">0</div>
-          <div class="stat-label">Zemí exportu</div>
-        </div>
-        <div class="stat reveal">
-          <div class="stat-num" data-target="48" data-suffix="h">0</div>
-          <div class="stat-label">Reakce na poptávku</div>
+      <div class="ticker-wrap reveal">
+        <div class="ticker-label">Co dodáváme</div>
+        <div class="ticker-track" id="tickerTrack">
+          <span>50-3 000 L · Pracovní objem</span>
+          <span>HV50 - HV3000 · 10 velikostí</span>
+          <span>Kónický šnekový mísič</span>
+          <span>AISI 304 standard · 316L na míru</span>
+          <span>ATEX pohon volitelně</span>
+          <span>Samovyprazdňovací efekt</span>
+          <span>Výroba v ČR od roku 1997</span>
+          <span>Nabídka do 48 hodin</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ TRUST / INDUSTRY STRIP ============ -->
-  <section class="section section--cream" aria-label="Odvětví">
-    <div class="container">
-      <div class="head-row">
-        <p class="eyebrow reveal">Odvětví, kam dodáváme</p>
+  <!-- 02 STATS -->
+  <section id="stats">
+    <div class="wrap">
+      <p class="eyebrow reveal">02 / Čísla</p>
+      <div class="stats-row reveal-stagger" id="statsRow">
+        <div class="stat"><div class="stat-num" data-count="1997" data-suffix="">0</div><div class="stat-label">Výroba od roku</div></div>
+        <div class="stat"><div class="stat-num" data-count="10" data-suffix="">0</div><div class="stat-label">Typových velikostí</div></div>
+        <div class="stat"><div class="stat-num" data-count="8" data-suffix="+">0</div><div class="stat-label">Zemí exportu</div></div>
+        <div class="stat"><div class="stat-num" data-count="48" data-suffix="h">0</div><div class="stat-label">Reakce na poptávku</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 INDUSTRY STRIP -->
+  <section class="on-ink" id="odvetvi">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow reveal">03 / Odvětví, kam dodáváme</p>
         <h2 class="reveal">Stroje běží u výrobců napříč Evropou</h2>
-        <p class="lede reveal" style="margin-top:1rem">Konkrétní reference s kontaktem rádi poskytneme pod NDA na vyžádání. Veřejně uvádíme pouze odvětvové popisy.</p>
+        <p class="lede muted reveal">Konkrétní reference s kontaktem rádi poskytneme pod NDA na vyžádání. Veřejně uvádíme pouze odvětvové popisy.</p>
       </div>
-      <div class="trust-grid reveal-group">
-        <div class="trust-item reveal-child">
-          <div class="cat">Farmacie</div>
-          <div class="label">Farmaceutická výroba</div>
-          <div class="scale">Provedení AISI 316L</div>
+      <div class="industry-list reveal-stagger" id="industryList">
+        <div class="industry-row">
+          <span class="industry-label">Farmaceutická výroba</span>
+          <span class="industry-cat">Farmacie</span>
+          <span class="industry-scale">Provedení AISI 316L</span>
         </div>
-        <div class="trust-item reveal-child">
-          <div class="cat">Potravinářství</div>
-          <div class="label">Potravinářská výroba</div>
-          <div class="scale">Potravinářské provedení</div>
+        <div class="industry-row">
+          <span class="industry-label">Potravinářská výroba</span>
+          <span class="industry-cat">Potravinářství</span>
+          <span class="industry-scale">Potravinářské provedení</span>
         </div>
-        <div class="trust-item reveal-child">
-          <div class="cat">Chemie</div>
-          <div class="label">Specialty chemie</div>
-          <div class="scale">ATEX pohon</div>
+        <div class="industry-row">
+          <span class="industry-label">Specialty chemie</span>
+          <span class="industry-cat">Chemie</span>
+          <span class="industry-scale">ATEX pohon</span>
         </div>
-        <div class="trust-item reveal-child">
-          <div class="cat">Krmiva</div>
-          <div class="label">Výroba krmiv a premixů</div>
-          <div class="scale">Velkoobjemové míchání</div>
+        <div class="industry-row">
+          <span class="industry-label">Výroba krmiv a premixů</span>
+          <span class="industry-cat">Krmiva</span>
+          <span class="industry-scale">Velkoobjemové míchání</span>
         </div>
-        <div class="trust-item reveal-child">
-          <div class="cat">Pigmenty</div>
-          <div class="label">Výroba práškových barev</div>
-          <div class="scale">Jemná homogenizace</div>
+        <div class="industry-row">
+          <span class="industry-label">Výroba práškových barev</span>
+          <span class="industry-cat">Pigmenty</span>
+          <span class="industry-scale">Jemná homogenizace</span>
         </div>
       </div>
       <p class="footnote reveal">Konkrétní reference na vyžádání - kontaktujte Tadeáše Venzaru.</p>
     </div>
   </section>
 
-  <!-- ============ PRODUCT HIGHLIGHT ============ -->
-  <section class="section section--white" id="produkt" aria-label="Produkt">
-    <div class="container">
-      <div class="head-row">
-        <p class="eyebrow reveal">Produkt</p>
-        <h2 class="reveal">Náš hlavní produkt</h2>
-        <p class="lede reveal" style="margin-top:1rem">Vertikální homogenizátor HV-Series - vlastní výroba PERRYmix, 10 typových velikostí (50-3 000 L). Pro detail klikněte na kartu; cenovou nabídku připravíme do 48 hodin.</p>
-      </div>
-      <div class="product-card reveal">
-        <div class="product-card-media">
-          <span class="product-card-code">HV-Series</span>
+  <!-- 04 PRODUCT HIGHLIGHT -->
+  <section id="produkt">
+    <div class="wrap">
+      <p class="eyebrow reveal">04 / Produkt</p>
+      <div class="product-grid" style="margin-top:32px">
+        <div class="product-photo reveal">
           <picture>
             <source srcset="img/products/homogenizator_02.webp" type="image/webp">
-            <img src="img/products/homogenizator_02.jpg" alt="Vertikální homogenizátor HV-Series - detail konstrukce" width="1280" height="1280" loading="lazy">
+            <img src="img/products/homogenizator_02.jpg" alt="Vertikální homogenizátor HV-Series - detail kónické nádoby" width="640" height="460" loading="lazy">
           </picture>
         </div>
-        <div class="product-card-body">
-          <span class="product-card-tag">Homogenizace</span>
+        <div class="product-copy reveal">
+          <span class="product-tag">Homogenizace</span>
           <h3>Vertikální homogenizátor HV-Series</h3>
           <p>Kónický šnekový mísič (obíhající rameno s rotujícím šnekem), 50-3 000 L. Pro práškové a sypké směsi, premixy a granuláty. Samovyprazdňovací, šetrný k produktu.</p>
-          <a href="#specifikace" class="btn btn-ghost" style="border-color:var(--line-light);color:var(--ink)">Technická specifikace <span class="btn-arrow" aria-hidden="true">&#8594;</span></a>
+          <p style="margin-top:14px">Náš hlavní produkt - vlastní výroba PERRYmix, 10 typových velikostí (50-3 000 L). Pro detail klikněte na kartu; cenovou nabídku připravíme do 48 hodin.</p>
+          <a class="btn" href="#specifikace">Technická specifikace <span class="btn-arrow" aria-hidden="true">-&gt;</span></a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ APPLICATIONS ============ -->
-  <section class="section section--cream2" style="background:var(--cream-2)" id="aplikace" aria-label="Aplikace">
-    <div class="container">
-      <div class="head-row">
-        <p class="eyebrow reveal">Aplikace</p>
+  <!-- 05 APPLICATIONS -->
+  <section id="aplikace">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow reveal">05 / Aplikace</p>
         <h2 class="reveal">Kde se naše homogenizátory osvědčily</h2>
-        <p class="lede reveal" style="margin-top:1rem">Co pro vaše odvětví dokáže vertikální homogenizátor HV. Klikněte na obor a rozbalí se detail.</p>
+        <p class="lede reveal">Co pro vaše odvětví dokáže vertikální homogenizátor HV. Klikněte na obor a rozbalí se detail.</p>
       </div>
+      <div class="accordion reveal" id="appsAccordion">
 
-      <div class="acc-list reveal" id="appAccordion">
         <div class="acc-item">
-          <button class="acc-trigger" aria-expanded="true" aria-controls="app-panel-1" id="app-trig-1">
-            <span class="acc-trigger-left">
-              <span class="acc-num">01</span>
-              <span>
-                <span class="acc-title">Potravinářství</span>
-                <span class="acc-desc">Pudinky, polévky, instantní nápoje, směsi čajů a koření.</span>
-              </span>
-            </span>
-            <span class="acc-icon" aria-hidden="true"></span>
-          </button>
-          <div class="acc-panel open" id="app-panel-1" role="region" aria-labelledby="app-trig-1">
+          <h3>
+            <button class="acc-trigger" aria-expanded="false" aria-controls="app-panel-1" id="app-trig-1">
+              <span><span class="acc-title">Potravinářství</span><span class="acc-sub">Pudinky, polévky, instantní nápoje, směsi čajů a koření.</span></span>
+              <span class="acc-plus" aria-hidden="true">+</span>
+            </button>
+          </h3>
+          <div class="acc-panel" id="app-panel-1" role="region" aria-labelledby="app-trig-1" data-open="false">
             <div class="acc-panel-inner">
-              <div class="acc-content">
+              <div class="acc-body">
                 <p>Ve výrobě potravin homogenizátor HV stejnoměrně rozmíchá práškové a sypké suroviny tak, aby každá šarže měla shodné složení, barvu i chuť. Šetrné míchání kónickým šnekem nepoškozuje citlivé složky a zabraňuje oddělování jemných frakcí. Dodáváme v potravinářském provedení - kontaktní části z nerezové oceli AISI 304 (na míru AISI 316L), hladce broušené svary a snadné čištění mezi šaržemi.</p>
                 <ul class="acc-examples">
                   <li>Pudinky, dezerty a instantní směsi</li>
@@ -714,19 +675,15 @@ table.model-table{border-collapse:collapse;width:100%;min-width:920px;font-famil
         </div>
 
         <div class="acc-item">
-          <button class="acc-trigger" aria-expanded="false" aria-controls="app-panel-2" id="app-trig-2">
-            <span class="acc-trigger-left">
-              <span class="acc-num">02</span>
-              <span>
-                <span class="acc-title">Farmacie</span>
-                <span class="acc-desc">Směsi pro výrobu léčiv a potravinových doplňků.</span>
-              </span>
-            </span>
-            <span class="acc-icon" aria-hidden="true"></span>
-          </button>
-          <div class="acc-panel" id="app-panel-2" role="region" aria-labelledby="app-trig-2">
+          <h3>
+            <button class="acc-trigger" aria-expanded="false" aria-controls="app-panel-2" id="app-trig-2">
+              <span><span class="acc-title">Farmacie</span><span class="acc-sub">Směsi pro výrobu léčiv a potravinových doplňků.</span></span>
+              <span class="acc-plus" aria-hidden="true">+</span>
+            </button>
+          </h3>
+          <div class="acc-panel" id="app-panel-2" role="region" aria-labelledby="app-trig-2" data-open="false">
             <div class="acc-panel-inner">
-              <div class="acc-content">
+              <div class="acc-body">
                 <p>Pro farmaceutickou výrobu zajišťuje homogenizátor vysoký a opakovatelný stupeň homogenizace - rozhodující pro rovnoměrné rozložení účinné látky v celé dávce. Samovyprazdňovací efekt a rychlá demontáž šneku usnadňují čištění a snižují riziko křížové kontaminace mezi šaržemi. Kontaktní části dodáváme v jakosti AISI 316L.</p>
                 <ul class="acc-examples">
                   <li>Směsi pro výrobu léčiv</li>
@@ -739,19 +696,15 @@ table.model-table{border-collapse:collapse;width:100%;min-width:920px;font-famil
         </div>
 
         <div class="acc-item">
-          <button class="acc-trigger" aria-expanded="false" aria-controls="app-panel-3" id="app-trig-3">
-            <span class="acc-trigger-left">
-              <span class="acc-num">03</span>
-              <span>
-                <span class="acc-title">Chemie</span>
-                <span class="acc-desc">Práškové barvy, pigmenty a chemické směsi.</span>
-              </span>
-            </span>
-            <span class="acc-icon" aria-hidden="true"></span>
-          </button>
-          <div class="acc-panel" id="app-panel-3" role="region" aria-labelledby="app-trig-3">
+          <h3>
+            <button class="acc-trigger" aria-expanded="false" aria-controls="app-panel-3" id="app-trig-3">
+              <span><span class="acc-title">Chemie</span><span class="acc-sub">Práškové barvy, pigmenty a chemické směsi.</span></span>
+              <span class="acc-plus" aria-hidden="true">+</span>
+            </button>
+          </h3>
+          <div class="acc-panel" id="app-panel-3" role="region" aria-labelledby="app-trig-3" data-open="false">
             <div class="acc-panel-inner">
-              <div class="acc-content">
+              <div class="acc-body">
                 <p>V chemické výrobě stroj rovnoměrně promíchá prášky, pigmenty a sypké chemické směsi i při rozdílné velikosti a hustotě částic. Pro prostředí s nebezpečím výbuchu dodáváme pohon a převodovku v provedení ATEX a pneumaticky ovládaný výpustní ventil.</p>
                 <ul class="acc-examples">
                   <li>Práškové barvy a nátěrové hmoty</li>
@@ -764,19 +717,15 @@ table.model-table{border-collapse:collapse;width:100%;min-width:920px;font-famil
         </div>
 
         <div class="acc-item">
-          <button class="acc-trigger" aria-expanded="false" aria-controls="app-panel-4" id="app-trig-4">
-            <span class="acc-trigger-left">
-              <span class="acc-num">04</span>
-              <span>
-                <span class="acc-title">Krmiva a agrochemie</span>
-                <span class="acc-desc">Krmné směsi a zemědělské premixy.</span>
-              </span>
-            </span>
-            <span class="acc-icon" aria-hidden="true"></span>
-          </button>
-          <div class="acc-panel" id="app-panel-4" role="region" aria-labelledby="app-trig-4">
+          <h3>
+            <button class="acc-trigger" aria-expanded="false" aria-controls="app-panel-4" id="app-trig-4">
+              <span><span class="acc-title">Krmiva a agrochemie</span><span class="acc-sub">Krmné směsi a zemědělské premixy.</span></span>
+              <span class="acc-plus" aria-hidden="true">+</span>
+            </button>
+          </h3>
+          <div class="acc-panel" id="app-panel-4" role="region" aria-labelledby="app-trig-4" data-open="false">
             <div class="acc-panel-inner">
-              <div class="acc-content">
+              <div class="acc-body">
                 <p>Při výrobě krmiv a agrochemie homogenizátor rychle a stejnoměrně zamíchá malé podíly aditiv (vitaminy, minerály, léčiva) do velkého objemu nosné směsi. Vysoký stupeň homogenizace a krátký mísicí čas zajišťují, že je účinná složka rovnoměrně rozložena v každém kilogramu produktu.</p>
                 <ul class="acc-examples">
                   <li>Krmné směsi a doplňky</li>
@@ -787,308 +736,244 @@ table.model-table{border-collapse:collapse;width:100%;min-width:920px;font-famil
             </div>
           </div>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- ============ REASONS ============ -->
-  <section class="section section--dark2" aria-label="Proč PERRYmix">
-    <div class="container">
-      <div class="head-row">
-        <p class="eyebrow reveal">Proč PERRYmix</p>
+  <!-- 06 REASONS -->
+  <section class="on-ink" id="duvody">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow reveal">06 / Proč PERRYmix</p>
         <h2 class="reveal">Proč si firmy vybírají homogenizátory PERRYmix</h2>
       </div>
-      <div class="reasons-grid reveal-group">
-        <div class="reason-card reveal-child">
-          <span class="reason-num">01</span>
-          <div class="reason-title">Vlastní výroba v ČR</div>
-          <div class="reason-desc">Stroje šité na míru, od specifikace po předání.</div>
-        </div>
-        <div class="reason-card reveal-child">
-          <span class="reason-num">02</span>
-          <div class="reason-title">Lokální servisní zázemí</div>
-          <div class="reason-desc">Dílny v Hradci Králové, originální náhradní díly.</div>
-        </div>
-        <div class="reason-card reveal-child">
-          <span class="reason-num">03</span>
-          <div class="reason-title">Inženýrské řešení na míru</div>
-          <div class="reason-desc">Úpravy provedení dle požadavků zákazníka.</div>
-        </div>
-        <div class="reason-card reveal-child">
-          <span class="reason-num">04</span>
-          <div class="reason-title">Jednoduchá a bezpečná obsluha</div>
-          <div class="reason-desc">Samovyprazdňovací efekt, rychlá demontáž šneku.</div>
-        </div>
-        <div class="reason-card reveal-child">
-          <span class="reason-num">05</span>
-          <div class="reason-title">Export do 8+ zemí EU a Asie</div>
-          <div class="reason-desc">Reference v chemii, farmacii a potravinářství.</div>
-        </div>
+      <div class="reasons-list reveal-stagger" id="reasonsList" style="border-top-color:var(--line-dark)">
+        <div class="reason-row" style="border-bottom-color:var(--line-dark)"><span class="reason-num">01</span><span class="reason-text">Vlastní výroba v ČR - stroje šité na míru, od specifikace po předání.</span></div>
+        <div class="reason-row" style="border-bottom-color:var(--line-dark)"><span class="reason-num">02</span><span class="reason-text">Lokální servisní zázemí - dílny v Hradci Králové, originální náhradní díly.</span></div>
+        <div class="reason-row" style="border-bottom-color:var(--line-dark)"><span class="reason-num">03</span><span class="reason-text">Inženýrské řešení na míru - úpravy provedení dle požadavků zákazníka.</span></div>
+        <div class="reason-row" style="border-bottom-color:var(--line-dark)"><span class="reason-num">04</span><span class="reason-text">Jednoduchá a bezpečná obsluha - samovyprazdňovací efekt, rychlá demontáž šneku.</span></div>
+        <div class="reason-row" style="border-bottom-color:var(--line-dark)"><span class="reason-num">05</span><span class="reason-text">Export do 8+ zemí EU a Asie - reference v chemii, farmacii a potravinářství.</span></div>
       </div>
     </div>
   </section>
 
-  <!-- ============ TECHNICAL SPECIFICATION ============ -->
-  <section class="section section--white" id="specifikace" aria-label="Technická specifikace">
-    <div class="container">
-      <div class="head-row">
-        <p class="eyebrow reveal">Produkt</p>
-        <h2 class="reveal">Technická specifikace</h2>
-        <p class="lede reveal" style="margin-top:1rem">Vertikální homogenizátor HV-Series - kónický šnekový mísič (obíhající rameno s rotujícím šnekem) pro práškové a sypké směsi. 10 typových velikostí HV50-HV3000 (50-3 000 L). Vlastní výroba v ČR, provedení na míru.</p>
-      </div>
+  <!-- 07 TECHNICAL SPEC -->
+  <section id="specifikace">
+    <div class="wrap">
+      <p class="eyebrow reveal">07 / Technická specifikace</p>
+      <h2 class="reveal" style="margin-top:14px;max-width:26ch">Vertikální homogenizátor HV-Series</h2>
+      <p class="lede reveal" style="margin-top:18px;max-width:60ch;color:var(--muted)">Kónický šnekový mísič (obíhající rameno s rotujícím šnekem) pro práškové a sypké směsi. 10 typových velikostí HV50-HV3000 (50-3 000 L). Vlastní výroba v ČR, provedení na míru.</p>
 
-      <div class="spec-layout">
-        <div class="spec-visual reveal">
+      <div class="spec-grid" style="margin-top:52px">
+        <div class="spec-photo reveal">
           <picture>
             <source srcset="img/products/homogenizator_03.webp" type="image/webp">
-            <img src="img/products/homogenizator_03.jpg" alt="Vertikální homogenizátor HV-Series - pohled na provedení" width="1280" height="1280" loading="lazy">
+            <img src="img/products/homogenizator_03.jpg" alt="Vertikální homogenizátor HV-Series - pohon a rameno" width="640" height="600" loading="lazy">
           </picture>
         </div>
-        <dl class="spec-pairs reveal">
-          <div class="spec-pair">
-            <dt class="spec-key">Pracovní objem</dt>
-            <dd class="spec-val">50 - 3 000 L (10 typových velikostí HV50-HV3000)</dd>
-          </div>
-          <div class="spec-pair">
-            <dt class="spec-key">Princip</dt>
-            <dd class="spec-val">Kónický šnekový mísič - obíhající rameno s rotujícím šnekem podél kuželové stěny nádoby</dd>
-          </div>
-          <div class="spec-pair">
-            <dt class="spec-key">Materiál - standard</dt>
-            <dd class="spec-val">AISI 304 (nádoba, šnek, traverza, kryty); rameno a pohon uhlíková ocel s potravinářským nátěrem</dd>
-          </div>
-          <div class="spec-pair">
-            <dt class="spec-key">Materiál - na míru</dt>
-            <dd class="spec-val">Celonerezové rameno AISI 304, kontaktní části AISI 316L</dd>
-          </div>
-          <div class="spec-pair">
-            <dt class="spec-key">Výkon</dt>
-            <dd class="spec-val">Rameno 0,25 - 1,5 kW + šnek 0,75 - 5,5 kW (dle velikosti)</dd>
-          </div>
-          <div class="spec-pair">
-            <dt class="spec-key">Provedení na míru</dt>
-            <dd class="spec-val">ATEX pohon, pneumatický výpustní ventil, rychlo-demontáž šneku, odklápěcí kryt</dd>
-          </div>
-          <div class="spec-pair">
-            <dt class="spec-key">Výhody</dt>
-            <dd class="spec-val">Vysoký stupeň homogenizace, samovyprazdňovací efekt, nízká spotřeba, krátký čas míchání</dd>
-          </div>
-          <div class="spec-pair">
-            <dt class="spec-key">Záruka a servis</dt>
-            <dd class="spec-val">Záruka výrobce, rozšířený servisní kontrakt na míru, servis Hradec Králové</dd>
-          </div>
+        <dl class="ledger reveal-stagger" id="ledgerList">
+          <div class="ledger-row"><dt>Pracovní objem</dt><dd>50 - 3 000 L (10 typových velikostí HV50-HV3000)</dd></div>
+          <div class="ledger-row"><dt>Princip</dt><dd>Kónický šnekový mísič - obíhající rameno s rotujícím šnekem podél kuželové stěny nádoby</dd></div>
+          <div class="ledger-row"><dt>Materiál - standard</dt><dd>AISI 304 (nádoba, šnek, traverza, kryty); rameno a pohon uhlíková ocel s potravinářským nátěrem</dd></div>
+          <div class="ledger-row"><dt>Materiál - na míru</dt><dd>Celonerezové rameno AISI 304, kontaktní části AISI 316L</dd></div>
+          <div class="ledger-row"><dt>Výkon</dt><dd>Rameno 0,25 - 1,5 kW + šnek 0,75 - 5,5 kW (dle velikosti)</dd></div>
+          <div class="ledger-row"><dt>Provedení na míru</dt><dd>ATEX pohon, pneumatický výpustní ventil, rychlo-demontáž šneku, odklápěcí kryt</dd></div>
+          <div class="ledger-row"><dt>Výhody</dt><dd>Vysoký stupeň homogenizace, samovyprazdňovací efekt, nízká spotřeba, krátký čas míchání</dd></div>
+          <div class="ledger-row"><dt>Záruka a servis</dt><dd>Záruka výrobce, rozšířený servisní kontrakt na míru, servis Hradec Králové</dd></div>
         </dl>
       </div>
 
-      <div class="reveal" style="margin-top:clamp(3.5rem,6vw,5rem)">
-        <h3 style="font-size:clamp(1.3rem,2vw,1.7rem)">Typové velikosti a rozměry</h3>
-        <p class="table-note">Základní provedení dle oficiálního datasheetu PERRYmix. Rozměry a hmotnosti jsou orientační, finální specifikaci doladíme podle aplikace.</p>
-        <div class="table-scroll">
-          <table class="model-table">
-            <thead>
-              <tr>
-                <th scope="col">Model</th>
-                <th scope="col">Objem [L]</th>
-                <th scope="col">Pohon ramene [kW]</th>
-                <th scope="col">Pohon šneku [kW]</th>
-                <th scope="col">&Oslash; nádoby [mm]</th>
-                <th scope="col">Výška nádoby [mm]</th>
-                <th scope="col">Celková výška [mm]</th>
-                <th scope="col">Hmotnost [kg]</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td>HV50</td><td>50</td><td>0,25</td><td>0,75</td><td>732</td><td>968</td><td>1364</td><td>250</td></tr>
-              <tr><td>HV100</td><td>100</td><td>0,25</td><td>0,75</td><td>820</td><td>1118</td><td>1515</td><td>300</td></tr>
-              <tr><td>HV200</td><td>200</td><td>0,37</td><td>1,5</td><td>1178</td><td>1565</td><td>2195</td><td>650</td></tr>
-              <tr><td>HV300</td><td>300</td><td>0,37</td><td>1,5</td><td>1300</td><td>1780</td><td>2410</td><td>700</td></tr>
-              <tr><td>HV600</td><td>600</td><td>0,37</td><td>1,5</td><td>1418</td><td>2205</td><td>2835</td><td>750</td></tr>
-              <tr><td>HV1000</td><td>1 000</td><td>0,37</td><td>2,2</td><td>1560</td><td>2434</td><td>3064</td><td>800</td></tr>
-              <tr><td>HV1200</td><td>1 200</td><td>0,37</td><td>3,0</td><td>1821</td><td>2600</td><td>3230</td><td>850</td></tr>
-              <tr><td>HV1500</td><td>1 500</td><td>1,5</td><td>4,0</td><td>1753</td><td>2750</td><td>3380</td><td>900</td></tr>
-              <tr><td>HV2000</td><td>2 000</td><td>1,5</td><td>5,5</td><td>1900</td><td>2975</td><td>3605</td><td>950</td></tr>
-              <tr><td>HV3000</td><td>3 000</td><td>1,5</td><td>5,5</td><td>2180</td><td>3450</td><td>4035</td><td>1 000</td></tr>
-            </tbody>
-          </table>
-        </div>
+      <h3 class="reveal" style="margin-top:80px;font-size:1.6rem">Typové velikosti a rozměry</h3>
+      <div class="table-wrap reveal">
+        <table class="spec-table">
+          <caption class="visually-hidden" style="position:absolute;left:-9999px">Typové velikosti a rozměry homogenizátoru HV50 až HV3000</caption>
+          <thead>
+            <tr>
+              <th scope="col">Model</th>
+              <th scope="col">Objem [L]</th>
+              <th scope="col">Pohon ramene [kW]</th>
+              <th scope="col">Pohon šneku [kW]</th>
+              <th scope="col">Ø nádoby [mm]</th>
+              <th scope="col">Výška nádoby [mm]</th>
+              <th scope="col">Celková výška [mm]</th>
+              <th scope="col">Hmotnost [kg]</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>HV50</td><td>50</td><td>0,25</td><td>0,75</td><td>732</td><td>968</td><td>1364</td><td>250</td></tr>
+            <tr><td>HV100</td><td>100</td><td>0,25</td><td>0,75</td><td>820</td><td>1118</td><td>1515</td><td>300</td></tr>
+            <tr><td>HV200</td><td>200</td><td>0,37</td><td>1,5</td><td>1178</td><td>1565</td><td>2195</td><td>650</td></tr>
+            <tr><td>HV300</td><td>300</td><td>0,37</td><td>1,5</td><td>1300</td><td>1780</td><td>2410</td><td>700</td></tr>
+            <tr><td>HV600</td><td>600</td><td>0,37</td><td>1,5</td><td>1418</td><td>2205</td><td>2835</td><td>750</td></tr>
+            <tr><td>HV1000</td><td>1 000</td><td>0,37</td><td>2,2</td><td>1560</td><td>2434</td><td>3064</td><td>800</td></tr>
+            <tr><td>HV1200</td><td>1 200</td><td>0,37</td><td>3,0</td><td>1821</td><td>2600</td><td>3230</td><td>850</td></tr>
+            <tr><td>HV1500</td><td>1 500</td><td>1,5</td><td>4,0</td><td>1753</td><td>2750</td><td>3380</td><td>900</td></tr>
+            <tr><td>HV2000</td><td>2 000</td><td>1,5</td><td>5,5</td><td>1900</td><td>2975</td><td>3605</td><td>950</td></tr>
+            <tr><td>HV3000</td><td>3 000</td><td>1,5</td><td>5,5</td><td>2180</td><td>3450</td><td>4035</td><td>1 000</td></tr>
+          </tbody>
+        </table>
       </div>
+      <p class="table-note reveal">Základní provedení dle oficiálního datasheetu PERRYmix. Rozměry a hmotnosti jsou orientační, finální specifikaci doladíme podle aplikace.</p>
     </div>
   </section>
 
-  <!-- ============ PROCESS ============ -->
-  <section class="section section--dark" id="proces" aria-label="Proces">
-    <div class="grid-texture" aria-hidden="true"></div>
-    <div class="container" style="position:relative">
-      <div class="head-row">
-        <p class="eyebrow reveal">Jak to funguje</p>
+  <!-- 08 PROCESS -->
+  <section class="on-ink" id="proces">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow reveal">08 / Jak to funguje</p>
         <h2 class="reveal">Cesta od poptávky k uvedení do provozu</h2>
-        <p class="lede reveal" style="margin-top:1rem">Transparentní 4 kroky. Žádné skryté poplatky, žádné překvapení v dodávce. Závazná cena včetně dokumentace a servisu od první nabídky.</p>
+        <p class="lede muted reveal">Transparentní 4 kroky. Žádné skryté poplatky, žádné překvapení v dodávce. Závazná cena včetně dokumentace a servisu od první nabídky.</p>
       </div>
 
-      <div class="process-list reveal">
-        <div class="process-line" id="processLine"><div class="process-line-fill"></div></div>
+      <div class="process-list reveal" id="processList">
+        <div class="process-rule"><div class="process-rule-fill" id="processFill"></div></div>
 
         <div class="process-step">
-          <div class="process-num-dot">01</div>
-          <div class="process-step-body">
-            <div>
-              <div class="process-step-title">Poptávka</div>
-              <p class="process-step-desc">Pošlete základní parametry - objem, typ směsi, aplikaci. Pošleme zpětnou vazbu do 24 hodin.</p>
-            </div>
+          <div class="process-num">01</div>
+          <div class="process-step-head">
+            <h3>Poptávka</h3>
             <span class="process-duration">1 den</span>
           </div>
+          <p>Pošlete základní parametry - objem, typ směsi, aplikaci. Pošleme zpětnou vazbu do 24 hodin.</p>
         </div>
 
         <div class="process-step">
-          <div class="process-num-dot">02</div>
-          <div class="process-step-body">
-            <div>
-              <div class="process-step-title">Technická konzultace</div>
-              <p class="process-step-desc">Online nebo na místě. Doladíme specifikaci, materiálové provedení, ATEX pohon a rozsah úprav na míru.</p>
-            </div>
+          <div class="process-num">02</div>
+          <div class="process-step-head">
+            <h3>Technická konzultace</h3>
             <span class="process-duration">3-5 dnů</span>
           </div>
+          <p>Online nebo na místě. Doladíme specifikaci, materiálové provedení, ATEX pohon a rozsah úprav na míru.</p>
         </div>
 
         <div class="process-step">
-          <div class="process-num-dot">03</div>
-          <div class="process-step-body">
-            <div>
-              <div class="process-step-title">Návrh + cena do 48 hodin</div>
-              <p class="process-step-desc">Závazná cenová nabídka, technický návrh, dodací lhůta a podmínky servisu.</p>
-            </div>
+          <div class="process-num">03</div>
+          <div class="process-step-head">
+            <h3>Návrh + cena do 48 hodin</h3>
             <span class="process-duration">48 hodin</span>
           </div>
+          <p>Závazná cenová nabídka, technický návrh, dodací lhůta a podmínky servisu.</p>
         </div>
 
         <div class="process-step">
-          <div class="process-num-dot">04</div>
-          <div class="process-step-body">
-            <div>
-              <div class="process-step-title">Výroba a předání</div>
-              <p class="process-step-desc">Výroba v ČR, kontrola, doprava a uvedení do provozu. Školení obsluhy a předání dokumentace.</p>
-            </div>
+          <div class="process-num">04</div>
+          <div class="process-step-head">
+            <h3>Výroba a předání</h3>
             <span class="process-duration">dle specifikace</span>
           </div>
+          <p>Výroba v ČR, kontrola, doprava a uvedení do provozu. Školení obsluhy a předání dokumentace.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ FAQ ============ -->
-  <section class="section section--cream" aria-label="Časté dotazy">
-    <div class="container">
-      <div class="head-row">
-        <p class="eyebrow reveal">Časté dotazy</p>
+  <!-- 09 FAQ -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow reveal">09 / Časté dotazy</p>
         <h2 class="reveal">Co se zákazníci ptají nejčastěji</h2>
-        <p class="lede reveal" style="margin-top:1rem">Nejčastější dotazy procurement, R&amp;D a QA před zahájením poptávky. Nenašli jste odpověď? Napište nám.</p>
+        <p class="lede reveal">Nejčastější dotazy procurement, R&amp;D a QA před zahájením poptávky. Nenašli jste odpověď? Napište nám.</p>
       </div>
+      <div class="accordion reveal" id="faqAccordion">
 
-      <div class="faq-list reveal" id="faqAccordion">
         <div class="acc-item">
-          <button class="acc-trigger" aria-expanded="false" aria-controls="faq-panel-1" id="faq-trig-1">
-            <span class="acc-trigger-left">
-              <span class="acc-title" style="font-size:1.05rem">Jaké velikosti homogenizátoru HV vyrábíte?</span>
-            </span>
-            <span class="acc-icon" aria-hidden="true"></span>
-          </button>
-          <div class="acc-panel" id="faq-panel-1" role="region" aria-labelledby="faq-trig-1">
+          <h3>
+            <button class="acc-trigger" aria-expanded="false" aria-controls="faq-panel-1" id="faq-trig-1">
+              <span class="acc-title">Jaké velikosti homogenizátoru HV vyrábíte?</span>
+              <span class="acc-plus" aria-hidden="true">+</span>
+            </button>
+          </h3>
+          <div class="acc-panel" id="faq-panel-1" role="region" aria-labelledby="faq-trig-1" data-open="false">
             <div class="acc-panel-inner">
-              <div style="padding-bottom:1.6rem">
-                <p style="color:var(--ink-soft);max-width:65ch">Řada HV zahrnuje 10 typových velikostí od HV50 (50 L) po HV3000 (3 000 L). Konkrétní velikost a provedení doladíme podle vaší aplikace a objemu dávky.</p>
-              </div>
+              <p class="faq-a">Řada HV zahrnuje 10 typových velikostí od HV50 (50 L) po HV3000 (3 000 L). Konkrétní velikost a provedení doladíme podle vaší aplikace a objemu dávky.</p>
             </div>
           </div>
         </div>
 
         <div class="acc-item">
-          <button class="acc-trigger" aria-expanded="false" aria-controls="faq-panel-2" id="faq-trig-2">
-            <span class="acc-trigger-left">
-              <span class="acc-title" style="font-size:1.05rem">Pro jaké materiály je vertikální homogenizátor vhodný?</span>
-            </span>
-            <span class="acc-icon" aria-hidden="true"></span>
-          </button>
-          <div class="acc-panel" id="faq-panel-2" role="region" aria-labelledby="faq-trig-2">
+          <h3>
+            <button class="acc-trigger" aria-expanded="false" aria-controls="faq-panel-2" id="faq-trig-2">
+              <span class="acc-title">Pro jaké materiály je vertikální homogenizátor vhodný?</span>
+              <span class="acc-plus" aria-hidden="true">+</span>
+            </button>
+          </h3>
+          <div class="acc-panel" id="faq-panel-2" role="region" aria-labelledby="faq-trig-2" data-open="false">
             <div class="acc-panel-inner">
-              <div style="padding-bottom:1.6rem">
-                <p style="color:var(--ink-soft);max-width:65ch">Stroj je kónický šnekový mísič - obíhající rameno s rotujícím míchacím šnekem v kónické nádobě. Hodí se zejména pro práškové a sypké směsi: potraviny, koření, léčiva, krmné premixy, práškové barvy a pigmenty.</p>
-              </div>
+              <p class="faq-a">Stroj je kónický šnekový mísič - obíhající rameno s rotujícím míchacím šnekem v kónické nádobě. Hodí se zejména pro práškové a sypké směsi: potraviny, koření, léčiva, krmné premixy, práškové barvy a pigmenty.</p>
             </div>
           </div>
         </div>
 
         <div class="acc-item">
-          <button class="acc-trigger" aria-expanded="false" aria-controls="faq-panel-3" id="faq-trig-3">
-            <span class="acc-trigger-left">
-              <span class="acc-title" style="font-size:1.05rem">Jaké je materiálové provedení?</span>
-            </span>
-            <span class="acc-icon" aria-hidden="true"></span>
-          </button>
-          <div class="acc-panel" id="faq-panel-3" role="region" aria-labelledby="faq-trig-3">
+          <h3>
+            <button class="acc-trigger" aria-expanded="false" aria-controls="faq-panel-3" id="faq-trig-3">
+              <span class="acc-title">Jaké je materiálové provedení?</span>
+              <span class="acc-plus" aria-hidden="true">+</span>
+            </button>
+          </h3>
+          <div class="acc-panel" id="faq-panel-3" role="region" aria-labelledby="faq-trig-3" data-open="false">
             <div class="acc-panel-inner">
-              <div style="padding-bottom:1.6rem">
-                <p style="color:var(--ink-soft);max-width:65ch">Základní provedení: nádoba, šnek, traverza a kryty z nerezové oceli AISI 304; rameno a pohon z uhlíkové oceli s potravinářským nátěrem. Na míru dodáváme celonerezové rameno a kontaktní části v jakosti AISI 316L.</p>
-              </div>
+              <p class="faq-a">Základní provedení: nádoba, šnek, traverza a kryty z nerezové oceli AISI 304; rameno a pohon z uhlíkové oceli s potravinářským nátěrem. Na míru dodáváme celonerezové rameno a kontaktní části v jakosti AISI 316L.</p>
             </div>
           </div>
         </div>
 
         <div class="acc-item">
-          <button class="acc-trigger" aria-expanded="false" aria-controls="faq-panel-4" id="faq-trig-4">
-            <span class="acc-trigger-left">
-              <span class="acc-title" style="font-size:1.05rem">Lze stroj dodat do prostředí s nebezpečím výbuchu (ATEX)?</span>
-            </span>
-            <span class="acc-icon" aria-hidden="true"></span>
-          </button>
-          <div class="acc-panel" id="faq-panel-4" role="region" aria-labelledby="faq-trig-4">
+          <h3>
+            <button class="acc-trigger" aria-expanded="false" aria-controls="faq-panel-4" id="faq-trig-4">
+              <span class="acc-title">Lze stroj dodat do prostředí s nebezpečím výbuchu (ATEX)?</span>
+              <span class="acc-plus" aria-hidden="true">+</span>
+            </button>
+          </h3>
+          <div class="acc-panel" id="faq-panel-4" role="region" aria-labelledby="faq-trig-4" data-open="false">
             <div class="acc-panel-inner">
-              <div style="padding-bottom:1.6rem">
-                <p style="color:var(--ink-soft);max-width:65ch">Ano. Volitelně dodáváme pohon a převodovku do prostředí s nebezpečím výbuchu, pneumaticky ovládaný výpustní ventil a další úpravy podle vašich požadavků.</p>
-              </div>
+              <p class="faq-a">Ano. Volitelně dodáváme pohon a převodovku do prostředí s nebezpečím výbuchu, pneumaticky ovládaný výpustní ventil a další úpravy podle vašich požadavků.</p>
             </div>
           </div>
         </div>
 
         <div class="acc-item">
-          <button class="acc-trigger" aria-expanded="false" aria-controls="faq-panel-5" id="faq-trig-5">
-            <span class="acc-trigger-left">
-              <span class="acc-title" style="font-size:1.05rem">Zajišťujete servis a náhradní díly?</span>
-            </span>
-            <span class="acc-icon" aria-hidden="true"></span>
-          </button>
-          <div class="acc-panel" id="faq-panel-5" role="region" aria-labelledby="faq-trig-5">
+          <h3>
+            <button class="acc-trigger" aria-expanded="false" aria-controls="faq-panel-5" id="faq-trig-5">
+              <span class="acc-title">Zajišťujete servis a náhradní díly?</span>
+              <span class="acc-plus" aria-hidden="true">+</span>
+            </button>
+          </h3>
+          <div class="acc-panel" id="faq-panel-5" role="region" aria-labelledby="faq-trig-5" data-open="false">
             <div class="acc-panel-inner">
-              <div style="padding-bottom:1.6rem">
-                <p style="color:var(--ink-soft);max-width:65ch">Ano. Jsme výrobce, servisní zázemí máme v Hradci Králové. Náhradní díly dodáváme jako výrobce, dlouhodobá dostupnost je samozřejmostí.</p>
-              </div>
+              <p class="faq-a">Ano. Jsme výrobce, servisní zázemí máme v Hradci Králové. Náhradní díly dodáváme jako výrobce, dlouhodobá dostupnost je samozřejmostí.</p>
             </div>
           </div>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- ============ ABOUT ============ -->
-  <section class="section section--white" id="o-nas" aria-label="O nás">
-    <div class="container">
-      <p class="eyebrow reveal">O společnosti</p>
-      <h2 class="reveal">Perry Machinery Czech Republic, s.r.o.</h2>
-      <p class="lede about-lead reveal">PERRYmix je výrobní divize nových strojů společnosti Perry Machinery Czech Republic, s.r.o. Vyrábíme vertikální homogenizátory, hnětače, disolvery a mlýny pro průmyslovou výrobu.</p>
+  <!-- 10 ABOUT -->
+  <section class="on-ink" id="o-nas">
+    <div class="wrap">
+      <p class="eyebrow reveal">10 / O společnosti</p>
+      <h2 class="reveal" style="margin-top:14px;font-size:clamp(2rem,4vw,3.1rem);max-width:24ch">Perry Machinery Czech Republic, s.r.o.</h2>
+      <p class="lede muted reveal" style="margin-top:18px;max-width:64ch">PERRYmix je výrobní divize nových strojů společnosti Perry Machinery Czech Republic, s.r.o. Vyrábíme vertikální homogenizátory, hnětače, disolvery a mlýny pro průmyslovou výrobu.</p>
 
-      <div class="about-grid reveal-group">
-        <div class="about-card reveal-child">
+      <div class="about-cards reveal-stagger" id="aboutCards" style="background:var(--line-dark);border-color:var(--line-dark)">
+        <div class="about-card" style="background:var(--ink-2)">
           <h3>Co děláme</h3>
-          <p>Pod značkou PERRYmix vyrábíme nová procesní zařízení - vertikální homogenizátory řady HV, hnětače typu Z, disolvery a perlové, košové a koloidní mlýny. Naši zákazníci jsou firmy v chemickém, farmaceutickém, potravinářském a krmivářském průmyslu.</p>
+          <p>Pod značkou PERRYmix vyrábíme nová procesní zařízení - vertikální homogenizátory řady HV, hnětače typu „Z", disolvery a perlové, košové a koloidní mlýny. Naši zákazníci jsou firmy v chemickém, farmaceutickém, potravinářském a krmivářském průmyslu.</p>
         </div>
-        <div class="about-card reveal-child">
+        <div class="about-card" style="background:var(--ink-2)">
           <h3>Stroje šité na míru</h3>
           <p>Uplatňujeme princip individuálního přístupu - výsledné provedení stroje splňuje specifické požadavky klienta. Opíráme se o kvalitní dílenské zázemí v Hradci Králové. Naše stroje jsme vyvezli již do více než 8 zemí EU a Asie.</p>
         </div>
-        <div class="about-card reveal-child">
+        <div class="about-card" style="background:var(--ink-2)">
           <h3>Vertikální homogenizátor HV</h3>
           <p>Naším nejúspěšnějším produktem jsou vertikální homogenizátory (kónické šnekové mísiče) HV50-HV3000. Jednoduchá konstrukce z kónické nádoby a obíhajícího ramene s rotujícím míchacím šnekem dává homogenizátoru vysoký stupeň homogenizace, samovyprazdňovací efekt a šetrné míchání.</p>
         </div>
-        <div class="about-card reveal-child">
+        <div class="about-card" style="background:var(--ink-2)">
           <h3>Servis a podpora</h3>
           <p>Jako výrobce zajišťujeme servis, náhradní díly i modernizace. Servisní zázemí máme v Hradci Králové. Klademe důraz na spokojenost zákazníka a dlouhodobé partnerství.</p>
         </div>
@@ -1096,61 +981,54 @@ table.model-table{border-collapse:collapse;width:100%;min-width:920px;font-famil
     </div>
   </section>
 
-  <!-- ============ FINAL CTA + CONTACT ============ -->
-  <section class="section section--dark2" id="kontakt" aria-label="Kontakt a poptávka">
-    <div class="grid-texture" aria-hidden="true"></div>
-    <div class="container" style="position:relative">
-      <div class="final-grid">
+  <!-- 11+12 FINAL CTA + FORM -->
+  <section id="kontakt">
+    <div class="wrap">
+      <p class="eyebrow reveal">11 / Další krok</p>
+      <div class="cta-grid" style="margin-top:24px">
         <div class="reveal">
-          <p class="eyebrow">Další krok</p>
-          <h2>Pošlete nám parametry. Nabídku máte do 48 hodin.</h2>
-          <p class="lede" style="margin-top:1rem">Když nebudeme správný partner, řekneme vám to rovnou. Lepší upřímná zpráva v týdnu 1 než ztracené 3 měsíce ve fázi specifikace.</p>
+          <h2 style="max-width:16ch">Pošlete nám parametry. Nabídku máte do 48 hodin.</h2>
+          <p style="margin-top:20px;color:var(--muted);font-weight:300;max-width:48ch">Když nebudeme správný partner, řekneme vám to rovnou. Lepší upřímná zpráva v týdnu 1 než ztracené 3 měsíce ve fázi specifikace.</p>
 
-          <div class="reversal-list">
-            <div class="reversal-item"><span class="reversal-check" aria-hidden="true"></span>Závazná cena včetně harmonogramu a podmínek servisu</div>
-            <div class="reversal-item"><span class="reversal-check" aria-hidden="true"></span>Technická dokumentace a materiálové provedení podle specifikace</div>
-            <div class="reversal-item"><span class="reversal-check" aria-hidden="true"></span>Vlastní výroba a servis v ČR - Hradec Králové</div>
-          </div>
+          <ul class="cta-checklist">
+            <li><span class="cta-check-icon" aria-hidden="true">/</span><span>Závazná cena včetně harmonogramu a podmínek servisu</span></li>
+            <li><span class="cta-check-icon" aria-hidden="true">/</span><span>Technická dokumentace a materiálové provedení podle specifikace</span></li>
+            <li><span class="cta-check-icon" aria-hidden="true">/</span><span>Vlastní výroba a servis v ČR - Hradec Králové</span></li>
+          </ul>
 
-          <dl class="contact-block">
-            <dt>Kontaktní osoba</dt>
-            <dd>Tadeáš Venzara</dd>
-            <dt>E-mail</dt>
-            <dd><a href="mailto:tvenzara@perryczech.cz">tvenzara@perryczech.cz</a></dd>
-            <dt>Telefon</dt>
-            <dd><a href="tel:+420495822770">+420 495 822 770</a></dd>
-            <dt>Adresa</dt>
-            <dd>Pražská třída 322/4, 500 04 Hradec Králové</dd>
-            <dt>Firma</dt>
-            <dd>Perry Machinery Czech Republic, s.r.o. &middot; IČO 25607758 &middot; DIČ CZ25607758</dd>
-          </dl>
+          <hr class="hairline" style="margin:40px 0">
+
+          <p class="section-num">Sídlo</p>
+          <p style="margin-top:8px;font-size:1rem">Perry Machinery Czech Republic, s.r.o.<br>Pražská třída 322/4<br>500 04 Hradec Králové<br>IČO: 25607758 - DIČ: CZ25607758</p>
+
+          <p class="section-num" style="margin-top:24px">Přímý kontakt</p>
+          <p style="margin-top:8px;font-size:1rem">Tadeáš Venzara<br><a href="mailto:tvenzara@perryczech.cz" style="color:var(--copper);text-decoration:none">tvenzara@perryczech.cz</a><br><a href="tel:+420495822770" style="color:var(--copper);text-decoration:none">+420 495 822 770</a></p>
         </div>
 
-        <div class="reveal">
-          <div class="form-card">
-            <h3>Poptávka HV-Series</h3>
-            <form id="contactForm" novalidate>
-              <div class="field">
-                <label for="f-name">Jméno a příjmení</label>
-                <input type="text" id="f-name" name="name" autocomplete="name" required>
-              </div>
-              <div class="field">
-                <label for="f-email">E-mail</label>
-                <input type="email" id="f-email" name="email" autocomplete="email" required>
-              </div>
-              <div class="field">
-                <label for="f-phone">Telefon</label>
-                <input type="tel" id="f-phone" name="phone" autocomplete="tel" required>
-              </div>
-              <div class="field">
-                <label for="f-message">Zpráva</label>
-                <textarea id="f-message" name="message" required></textarea>
-              </div>
-              <p class="form-gdpr">Odesláním souhlasíte se zpracováním osobních údajů za účelem zpracování poptávky (GDPR čl. 6 odst. 1 písm. b).</p>
-              <button type="submit" class="btn btn-primary">Poptat HV-Series</button>
-              <div class="form-msg" id="formMsg" role="status" aria-live="polite"></div>
-            </form>
-          </div>
+        <div class="on-ink form-card reveal" style="background:var(--ink)">
+          <h3>Poptávka HV-Series</h3>
+          <form id="contactForm" novalidate>
+            <div class="field">
+              <label for="f-name">Jméno a příjmení</label>
+              <input type="text" id="f-name" name="name" required autocomplete="name" placeholder="Jan Novák">
+            </div>
+            <div class="field">
+              <label for="f-email">E-mail</label>
+              <input type="email" id="f-email" name="email" required autocomplete="email" placeholder="jan.novak@firma.cz">
+            </div>
+            <div class="field">
+              <label for="f-phone">Telefon</label>
+              <input type="tel" id="f-phone" name="phone" required autocomplete="tel" placeholder="+420 xxx xxx xxx">
+            </div>
+            <div class="field">
+              <label for="f-message">Zpráva</label>
+              <textarea id="f-message" name="message" required placeholder="Objem, typ směsi, aplikace..."></textarea>
+            </div>
+            <div class="form-submit-row">
+              <button type="submit" class="btn">Poptat HV-Series <span class="btn-arrow" aria-hidden="true">-&gt;</span></button>
+              <p class="form-msg" id="formMsg" role="status" aria-live="polite" hidden></p>
+            </div>
+          </form>
         </div>
       </div>
     </div>
@@ -1158,223 +1036,223 @@ table.model-table{border-collapse:collapse;width:100%;min-width:920px;font-famil
 
 </main>
 
-<!-- ============ FOOTER ============ -->
-<footer class="footer">
-  <div class="container">
-    <div class="footer-grid">
+<!-- 13 FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
       <div>
-        <div class="footer-logo">
-          <picture>
-            <source srcset="img/brand/perrymix-logo-white.webp" type="image/webp">
-            <img src="img/brand/perrymix-logo-white.png" alt="PERRYmix" width="2236" height="520" loading="lazy">
-          </picture>
-        </div>
+        <img class="footer-logo" src="img/brand/perrymix-logo-white.webp" alt="PERRYmix" width="150" height="24">
         <p class="footer-tagline">Český výrobce vertikálních homogenizátorů, hnětačů, disolverů a mlýnů pod značkou PERRYmix. Pro chemii, farmacii, potravinářství a výrobu krmiv.</p>
       </div>
       <div class="footer-col">
-        <h4>Navigace</h4>
-        <a href="#produkt">Produkty</a>
-        <a href="#aplikace">Aplikace</a>
-        <a href="#o-nas">O nás</a>
-        <a href="#kontakt">Kontakt</a>
+        <h4>Produkty</h4>
+        <ul>
+          <li><a href="#produkt">HV-Series homogenizátor</a></li>
+          <li><a href="#specifikace">Technická specifikace</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Společnost</h4>
+        <ul>
+          <li><a href="#o-nas">O nás</a></li>
+          <li><a href="#proces">Proces</a></li>
+          <li><a href="#faq">Časté dotazy</a></li>
+        </ul>
       </div>
       <div class="footer-col">
         <h4>Kontakt</h4>
-        <a href="mailto:tvenzara@perryczech.cz">tvenzara@perryczech.cz</a>
-        <a href="tel:+420495822770">+420 495 822 770</a>
-        <p>Pražská třída 322/4, 500 04 Hradec Králové</p>
+        <ul>
+          <li><a href="mailto:tvenzara@perryczech.cz">tvenzara@perryczech.cz</a></li>
+          <li><a href="tel:+420495822770">+420 495 822 770</a></li>
+          <li><a href="#kontakt">Poptávkový formulář</a></li>
+        </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>&copy; 2026 Perry Machinery Czech Republic, s.r.o. &middot; Všechna práva vyhrazena</span>
-      <span>IČO 25607758 &middot; DIČ CZ25607758</span>
+      <span>IČO 25607758 - DIČ CZ25607758</span>
+      <span>(c) 2026 Perry Machinery Czech Republic, s.r.o. Všechna práva vyhrazena.</span>
     </div>
   </div>
 </footer>
 
 <script>
 (function(){
-  'use strict';
-  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  "use strict";
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  /* ---- Nav condense ---- */
-  var nav = document.getElementById('siteNav');
-  var onScroll = function(){
-    if (window.scrollY > 60) nav.classList.add('scrolled');
-    else nav.classList.remove('scrolled');
-  };
-  document.addEventListener('scroll', onScroll, {passive:true});
-  onScroll();
+  /* ---- mobile drawer ---- */
+  var hamburgerBtn = document.getElementById("hamburgerBtn");
+  var drawerCloseBtn = document.getElementById("drawerCloseBtn");
+  var drawer = document.getElementById("drawer");
 
-  /* ---- Mobile drawer ---- */
-  var hamburger = document.getElementById('hamburgerBtn');
-  var drawer = document.getElementById('mobileDrawer');
-  function closeDrawer(){
-    drawer.classList.remove('open');
-    hamburger.setAttribute('aria-expanded','false');
-    hamburger.setAttribute('aria-label','Otevřít menu');
+  function openDrawer(){
+    drawer.classList.add("is-open");
+    drawer.setAttribute("aria-hidden","false");
+    hamburgerBtn.setAttribute("aria-expanded","true");
+    document.body.style.overflow = "hidden";
+    drawerCloseBtn.focus();
   }
-  hamburger.addEventListener('click', function(){
-    var open = drawer.classList.toggle('open');
-    hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
-    hamburger.setAttribute('aria-label', open ? 'Zavřít menu' : 'Otevřít menu');
-    if (open) drawer.querySelector('a').focus();
+  function closeDrawer(){
+    drawer.classList.remove("is-open");
+    drawer.setAttribute("aria-hidden","true");
+    hamburgerBtn.setAttribute("aria-expanded","false");
+    document.body.style.overflow = "";
+    hamburgerBtn.focus();
+  }
+  hamburgerBtn.addEventListener("click", openDrawer);
+  drawerCloseBtn.addEventListener("click", closeDrawer);
+  document.querySelectorAll("[data-drawer-link]").forEach(function(a){
+    a.addEventListener("click", closeDrawer);
   });
-  drawer.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', closeDrawer); });
-  document.addEventListener('keydown', function(e){
-    if (e.key === 'Escape' && drawer.classList.contains('open')) { closeDrawer(); hamburger.focus(); }
+  document.addEventListener("keydown", function(e){
+    if(e.key === "Escape" && drawer.classList.contains("is-open")) closeDrawer();
   });
 
-  /* ---- Scroll reveal ---- */
-  var revealTargets = document.querySelectorAll('.reveal, .reveal-group');
-  if ('IntersectionObserver' in window && !reduceMotion){
+  /* ---- accordions (applications + faq) ---- */
+  document.querySelectorAll(".acc-trigger").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      var expanded = btn.getAttribute("aria-expanded") === "true";
+      var panel = document.getElementById(btn.getAttribute("aria-controls"));
+      btn.setAttribute("aria-expanded", String(!expanded));
+      panel.setAttribute("data-open", String(!expanded));
+    });
+  });
+
+  /* ---- scroll reveal ---- */
+  var revealEls = document.querySelectorAll(".reveal, .reveal-stagger");
+  if("IntersectionObserver" in window && !reduceMotion){
     var io = new IntersectionObserver(function(entries){
       entries.forEach(function(entry){
-        if (entry.isIntersecting){
-          entry.target.classList.add('in-view');
+        if(entry.isIntersecting){
+          entry.target.classList.add("is-in");
           io.unobserve(entry.target);
         }
       });
-    }, {threshold:0.12, rootMargin:'0px 0px -60px 0px'});
-    revealTargets.forEach(function(el){ io.observe(el); });
+    }, {threshold:0.15, rootMargin:"0px 0px -60px 0px"});
+    revealEls.forEach(function(el){ io.observe(el); });
   } else {
-    revealTargets.forEach(function(el){ el.classList.add('in-view'); });
+    revealEls.forEach(function(el){ el.classList.add("is-in"); });
   }
 
-  /* ---- Process line fill ---- */
-  var processLine = document.getElementById('processLine');
-  if (processLine){
-    if ('IntersectionObserver' in window && !reduceMotion){
-      var lineObs = new IntersectionObserver(function(entries){
+  /* ---- stat count-up ---- */
+  var statEls = document.querySelectorAll(".stat-num");
+  function animateCount(el){
+    var target = parseInt(el.getAttribute("data-count"), 10);
+    var suffix = el.getAttribute("data-suffix") || "";
+    if(reduceMotion){ el.textContent = target + suffix; return; }
+    var start = null;
+    var duration = 1400;
+    function step(ts){
+      if(start === null) start = ts;
+      var progress = Math.min((ts - start) / duration, 1);
+      var eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.round(eased * target) + suffix;
+      if(progress < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  if("IntersectionObserver" in window){
+    var statIo = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          animateCount(entry.target);
+          statIo.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.5});
+    statEls.forEach(function(el){ statIo.observe(el); });
+  } else {
+    statEls.forEach(animateCount);
+  }
+
+  /* ---- process rule draw-in ---- */
+  var processList = document.getElementById("processList");
+  var processFill = document.getElementById("processFill");
+  if(processList && processFill){
+    if("IntersectionObserver" in window && !reduceMotion){
+      var procIo = new IntersectionObserver(function(entries){
         entries.forEach(function(entry){
-          if (entry.isIntersecting){ entry.target.classList.add('in-view'); lineObs.unobserve(entry.target); }
+          if(entry.isIntersecting){
+            processFill.style.height = "100%";
+            procIo.unobserve(entry.target);
+          }
         });
       }, {threshold:0.2});
-      lineObs.observe(processLine);
+      procIo.observe(processList);
     } else {
-      processLine.classList.add('in-view');
+      processFill.style.height = "100%";
     }
   }
 
-  /* ---- Stat counters ---- */
-  var statSection = document.getElementById('statsSection');
-  var counted = false;
-  function animateCounters(){
-    if (counted) return;
-    counted = true;
-    document.querySelectorAll('.stat-num').forEach(function(el){
-      var target = parseInt(el.getAttribute('data-target'), 10);
-      var suffix = el.getAttribute('data-suffix') || '';
-      if (reduceMotion){ el.textContent = target + suffix; return; }
-      var start = null;
-      var duration = 1300;
-      function step(ts){
-        if (!start) start = ts;
-        var progress = Math.min((ts - start) / duration, 1);
-        var eased = 1 - Math.pow(1 - progress, 3);
-        var val = Math.round(target * eased);
-        el.textContent = val + suffix;
-        if (progress < 1) requestAnimationFrame(step);
-        else el.textContent = target + suffix;
-      }
-      requestAnimationFrame(step);
+  /* ---- sticky nav section-progress ---- */
+  var progressEl = document.getElementById("scrollProgress");
+  var sections = Array.prototype.slice.call(document.querySelectorAll("main > section, .hero"));
+  var totalSections = 13;
+  function updateProgress(){
+    var scrollPos = window.scrollY + window.innerHeight * 0.35;
+    var current = 1;
+    sections.forEach(function(sec, i){
+      if(sec.offsetTop <= scrollPos) current = i + 1;
+    });
+    var padded = current < 10 ? "0" + current : String(current);
+    if(progressEl) progressEl.textContent = padded + " / " + totalSections;
+  }
+  window.addEventListener("scroll", updateProgress, {passive:true});
+  updateProgress();
+
+  /* ---- gentle hero parallax (pointer:fine only) ---- */
+  var heroVisual = document.getElementById("heroVisual");
+  var heroImg = document.getElementById("heroParallaxImg");
+  if(heroVisual && heroImg && !reduceMotion && window.matchMedia("(pointer: fine)").matches){
+    heroVisual.addEventListener("mousemove", function(e){
+      var rect = heroVisual.getBoundingClientRect();
+      var relX = (e.clientX - rect.left) / rect.width - 0.5;
+      var relY = (e.clientY - rect.top) / rect.height - 0.5;
+      heroImg.style.transform = "scale(1.05) translate(" + (relX * -10) + "px," + (relY * -8) + "px)";
+    });
+    heroVisual.addEventListener("mouseleave", function(){
+      heroImg.style.transform = "";
     });
   }
-  if (statSection){
-    if ('IntersectionObserver' in window){
-      var statObs = new IntersectionObserver(function(entries){
-        entries.forEach(function(entry){
-          if (entry.isIntersecting){ animateCounters(); statObs.unobserve(entry.target); }
-        });
-      }, {threshold:0.4});
-      statObs.observe(statSection);
-    } else {
-      animateCounters();
+
+  /* ---- hero frame clip reveal on load ---- */
+  var heroFrameInner = document.getElementById("heroFrameInner");
+  if(heroFrameInner){
+    requestAnimationFrame(function(){
+      setTimeout(function(){ heroFrameInner.classList.add("is-in"); }, 120);
+    });
+  }
+
+  /* ---- contact form (mailto, no backend) ---- */
+  var form = document.getElementById("contactForm");
+  var formMsg = document.getElementById("formMsg");
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    var name = form.elements["name"].value.trim();
+    var email = form.elements["email"].value.trim();
+    var phone = form.elements["phone"].value.trim();
+    var message = form.elements["message"].value.trim();
+    var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+    if(!name || !email || !phone || !message || !emailOk){
+      formMsg.textContent = "Vyplňte prosím všechna pole správně (ověřte formát e-mailu).";
+      formMsg.hidden = false;
+      return;
     }
-  }
 
-  /* ---- Accordions (shared for applications + FAQ) ---- */
-  function initAccordion(containerId, allowMultipleOpen){
-    var container = document.getElementById(containerId);
-    if (!container) return;
-    var triggers = container.querySelectorAll('.acc-trigger');
-    triggers.forEach(function(btn){
-      btn.addEventListener('click', function(){
-        var panel = document.getElementById(btn.getAttribute('aria-controls'));
-        var isOpen = btn.getAttribute('aria-expanded') === 'true';
-        if (!allowMultipleOpen){
-          triggers.forEach(function(other){
-            if (other !== btn){
-              other.setAttribute('aria-expanded','false');
-              document.getElementById(other.getAttribute('aria-controls')).classList.remove('open');
-            }
-          });
-        }
-        btn.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
-        panel.classList.toggle('open', !isOpen);
-      });
-    });
-  }
-  initAccordion('appAccordion', false);
-  initAccordion('faqAccordion', false);
+    var subject = encodeURIComponent("Poptávka HV-Series - " + name);
+    var body = encodeURIComponent(
+      "Jméno a příjmení: " + name + "\n" +
+      "E-mail: " + email + "\n" +
+      "Telefon: " + phone + "\n\n" +
+      "Zpráva:\n" + message
+    );
+    window.location.href = "mailto:tvenzara@perryczech.cz?subject=" + subject + "&body=" + body;
 
-  /* ---- Hero parallax ---- */
-  var heroImg = document.getElementById('heroImg');
-  var heroSection = document.getElementById('hero');
-  if (heroImg && !reduceMotion && window.matchMedia('(pointer:fine)').matches){
-    heroSection.addEventListener('mousemove', function(e){
-      var rect = heroSection.getBoundingClientRect();
-      var x = (e.clientX - rect.left) / rect.width - 0.5;
-      var y = (e.clientY - rect.top) / rect.height - 0.5;
-      heroImg.style.transform = 'translate(' + (x * -10) + 'px,' + (y * -10) + 'px) scale(1.02)';
-    });
-    heroSection.addEventListener('mouseleave', function(){
-      heroImg.style.transform = 'translate(0,0) scale(1)';
-    });
-  }
-
-  /* ---- Magnetic primary CTA ---- */
-  var magneticCta = document.getElementById('magneticCta');
-  if (magneticCta && !reduceMotion && window.matchMedia('(pointer:fine)').matches){
-    magneticCta.addEventListener('mousemove', function(e){
-      var rect = magneticCta.getBoundingClientRect();
-      var x = (e.clientX - rect.left - rect.width / 2) * 0.25;
-      var y = (e.clientY - rect.top - rect.height / 2) * 0.4;
-      magneticCta.style.transform = 'translate(' + x + 'px,' + (y - 2) + 'px)';
-    });
-    magneticCta.addEventListener('mouseleave', function(){
-      magneticCta.style.transform = '';
-    });
-  }
-
-  /* ---- Contact form ---- */
-  var form = document.getElementById('contactForm');
-  var formMsg = document.getElementById('formMsg');
-  if (form){
-    form.addEventListener('submit', function(e){
-      e.preventDefault();
-      if (!form.checkValidity()){
-        form.reportValidity();
-        return;
-      }
-      var name = document.getElementById('f-name').value.trim();
-      var email = document.getElementById('f-email').value.trim();
-      var phone = document.getElementById('f-phone').value.trim();
-      var message = document.getElementById('f-message').value.trim();
-      var subject = 'Poptavka HV-Series - ' + name;
-      var body = 'Jmeno a prijmeni: ' + name + '\n' +
-                 'E-mail: ' + email + '\n' +
-                 'Telefon: ' + phone + '\n\n' +
-                 'Zprava:\n' + message;
-      var mailtoLink = 'mailto:tvenzara@perryczech.cz?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-      window.location.href = mailtoLink;
-      formMsg.textContent = 'Děkujeme - poptávku jsme přijali. Ozveme se do 48 hodin.';
-      formMsg.classList.add('show','ok');
-      form.reset();
-    });
-  }
+    formMsg.textContent = "Děkujeme - otevíráme váš e-mailový klient s připravenou poptávkou. Pokud se neotevře, napište přímo na tvenzara@perryczech.cz.";
+    formMsg.hidden = false;
+  });
 })();
 </script>
-
 </body>
 </html>
