@@ -222,7 +222,7 @@ document.querySelectorAll('a[href^="mailto:"]').forEach(a => {
   gals.forEach(function(g){
     var main=g.querySelector('.pgal-main'),ths=[].slice.call(g.querySelectorAll('.pgal-th'));
     var list=ths.length?ths.map(function(t){return t.querySelector('img').src;}):[main.src];
-    ths.forEach(function(t){t.onclick=function(){main.src=t.querySelector('img').src;ths.forEach(function(x){x.classList.remove('is-active');});t.classList.add('is-active');};});
+    ths.forEach(function(t,i){t.onclick=function(){main.src=t.querySelector('img').src;ths.forEach(function(x){x.classList.remove('is-active');});t.classList.add('is-active');open(list,i);};});
     main.onclick=function(){var ci=list.indexOf(main.src);open(list,ci<0?0:ci);};
   });
   var sx=0;lb.addEventListener('touchstart',function(e){sx=e.touches[0].clientX;},{passive:true});
