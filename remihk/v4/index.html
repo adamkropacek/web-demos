@@ -1120,6 +1120,7 @@ html.js .reveal.in{opacity:1;transform:translateY(0)}
 
     <div class="contact-grid">
       <form class="contact-form reveal" id="contactForm" novalidate>
+        <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;height:0;width:0;opacity:0">
         <div class="form-row">
           <div class="field">
             <label for="cf-name">Jméno a příjmení <span class="req">*</span></label>
@@ -1279,10 +1280,11 @@ document.querySelectorAll('#sortimentAcc .acc-item').forEach(item=>{
   window.addEventListener('resize',()=>{if(item.classList.contains('open'))body.style.maxHeight=body.scrollHeight+'px'});
 });
 
-// Contact form - mailto fallback (in production wire to CRM/webhook)
+// Contact form -> contact.php (produkce); na GH Pages demu mailto fallback
 const cf=document.getElementById('contactForm'),cfStatus=document.getElementById('cf-status');
 if(cf){
-  cf.addEventListener('submit',e=>{
+  const isDemo=location.hostname.endsWith('github.io')||location.protocol==='file:';
+  cf.addEventListener('submit',async e=>{
     e.preventDefault();
     const fd=new FormData(cf);
     const name=fd.get('name')?.toString().trim(),email=fd.get('email')?.toString().trim(),consent=fd.get('consent');
@@ -1291,20 +1293,35 @@ if(cf){
       cfStatus.style.color='#A14545';
       return;
     }
-    const lines=[
-      `Jméno: ${name}`,
-      `E-mail: ${email}`,
-      `Telefon: ${fd.get('phone')||'-'}`,
-      ``,
-      `Zpráva:`,
-      fd.get('message')||'-'
-    ].join('\n');
-    const subject=`Poptávka z webu REMI HK - ${name}`;
-    const mailto=`mailto:rsobolikova@post.cz?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines)}`;
+    if(isDemo){
+      const lines=[`Jméno: ${name}`,`E-mail: ${email}`,`Telefon: ${fd.get('phone')||'-'}`,``,`Zpráva:`,fd.get('message')||'-'].join('\n');
+      const subject=`Poptávka z webu REMI HK - ${name}`;
+      cfStatus.style.color='';
+      cfStatus.textContent='Otevírá se váš e-mailový klient s předvyplněnou zprávou...';
+      window.location.href=`mailto:rsobolikova@post.cz?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines)}`;
+      setTimeout(()=>{cfStatus.textContent='Pokud se klient neotevřel, napište přímo na rsobolikova@post.cz.';},3000);
+      return;
+    }
+    const btn=cf.querySelector('.form-submit');
+    btn.disabled=true;
     cfStatus.style.color='';
-    cfStatus.textContent='Otevírá se váš e-mailový klient s předvyplněnou zprávou...';
-    window.location.href=mailto;
-    setTimeout(()=>{cfStatus.textContent='Pokud se klient neotevřel, napište přímo na rsobolikova@post.cz.';},3000);
+    cfStatus.textContent='Odesílám...';
+    try{
+      const r=await fetch('contact.php',{method:'POST',body:fd});
+      const d=await r.json();
+      if(d.ok){
+        cfStatus.textContent='Děkujeme, poptávka byla odeslána. Ozveme se vám co nejdříve.';
+        cf.reset();
+      }else{
+        cfStatus.style.color='#A14545';
+        cfStatus.textContent=d.error||'Odeslání se nepodařilo. Napište prosím na rsobolikova@post.cz.';
+      }
+    }catch(_){
+      cfStatus.style.color='#A14545';
+      cfStatus.textContent='Odeslání se nepodařilo. Napište prosím přímo na rsobolikova@post.cz.';
+    }finally{
+      btn.disabled=false;
+    }
   });
 }
 
