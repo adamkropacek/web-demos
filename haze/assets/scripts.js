@@ -3,8 +3,8 @@
    Hosting-agnostic: no framework, no build step, pure vanilla.
    ============================================================ */
 
-// Endpoint for lead form. Replace REPLACE_ME with a real Formspree (or compatible) form ID before deploy.
-const FORM_ENDPOINT = 'https://formspree.io/f/REPLACE_ME';
+// Keep empty until a real form endpoint is approved; forms fall back to mailto.
+const FORM_ENDPOINT = '';
 
 // Mark page loaded immediately
 document.addEventListener('DOMContentLoaded', () => {
@@ -115,7 +115,7 @@ if (leadForm) {
       showFormSuccess(f);
       return;
     }
-    const usingEndpoint = FORM_ENDPOINT && !FORM_ENDPOINT.includes('REPLACE_ME');
+    const usingEndpoint = Boolean(FORM_ENDPOINT);
     if (usingEndpoint) {
       try {
         const res = await fetch(FORM_ENDPOINT, {
@@ -201,4 +201,30 @@ document.querySelectorAll('a[href^="mailto:"]').forEach(a => {
       apply();
     }
   });
+})();
+
+/* ---- product gallery lightbox (shared) ---- */
+(function(){
+  var gals=document.querySelectorAll('[data-gallery]');
+  if(!gals.length)return;
+  var lb=document.createElement('div');lb.className='plb';
+  lb.innerHTML='<button class="plb-close" aria-label="Zavřít">×</button><button class="plb-nav plb-prev" aria-label="Předchozí">‹</button><img alt=""><button class="plb-nav plb-next" aria-label="Další">›</button><div class="plb-count"></div>';
+  document.body.appendChild(lb);
+  var lbImg=lb.querySelector('img'),lbCount=lb.querySelector('.plb-count'),cur=[],idx=0;
+  function show(i){idx=(i+cur.length)%cur.length;lbImg.src=cur[idx];lbCount.textContent=(idx+1)+' / '+cur.length;}
+  function open(list,i){cur=list;lb.classList.add('open');show(i);}
+  function close(){lb.classList.remove('open');}
+  lb.querySelector('.plb-close').onclick=close;
+  lb.querySelector('.plb-prev').onclick=function(e){e.stopPropagation();show(idx-1);};
+  lb.querySelector('.plb-next').onclick=function(e){e.stopPropagation();show(idx+1);};
+  lb.addEventListener('click',function(e){if(e.target===lb)close();});
+  document.addEventListener('keydown',function(e){if(!lb.classList.contains('open'))return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')show(idx-1);if(e.key==='ArrowRight')show(idx+1);});
+  gals.forEach(function(g){
+    var main=g.querySelector('.pgal-main'),ths=[].slice.call(g.querySelectorAll('.pgal-th'));
+    var list=ths.length?ths.map(function(t){return t.querySelector('img').src;}):[main.src];
+    ths.forEach(function(t,i){t.onclick=function(){main.src=t.querySelector('img').src;ths.forEach(function(x){x.classList.remove('is-active');});t.classList.add('is-active');open(list,i);};});
+    main.onclick=function(){var ci=list.indexOf(main.src);open(list,ci<0?0:ci);};
+  });
+  var sx=0;lb.addEventListener('touchstart',function(e){sx=e.touches[0].clientX;},{passive:true});
+  lb.addEventListener('touchend',function(e){var dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>40)show(idx+(dx<0?1:-1));},{passive:true});
 })();

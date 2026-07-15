@@ -108,7 +108,7 @@ h1{
   font-size:clamp(2.2rem,4vw,3.8rem);line-height:1.05;letter-spacing:-.02em;
   margin-bottom:22px;
 }
-h1 .line{display:block;overflow:hidden;padding-bottom:.08em}
+h1 .line{display:block;overflow:visible;padding-bottom:.12em}
 h1 .line span{display:inline-block;transform:translateY(120%);
   transition:transform .9s cubic-bezier(.22,.61,.36,1);will-change:transform}
 .loaded h1 .line span{transform:translateY(0)}
@@ -536,9 +536,9 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   .nav{position:fixed;top:0;right:0;height:100vh;height:100dvh;width:min(84vw,340px);
     flex-direction:column;align-items:stretch;justify-content:flex-start;gap:0;
     padding:92px 26px 36px;background:var(--steel-900);border-left:1px solid var(--line-dark);
-    box-shadow:-16px 0 48px rgba(0,0,0,.55);transform:translateX(100%);
+    box-shadow:none;transform:translateX(100%);
     transition:transform .32s cubic-bezier(.4,0,.2,1);overflow-y:auto;z-index:95}
-  body.nav-open .nav{transform:translateX(0)}
+  body.nav-open .nav{transform:translateX(0);box-shadow:-16px 0 48px rgba(0,0,0,.55)}
   body.nav-open{overflow:hidden}
   /* overlay must sit BELOW the fixed header (z-index:80) — the slide-in drawer lives inside
      the header's stacking context, so an overlay above 80 covered the menu and ate every tap
@@ -911,3 +911,89 @@ body.prod-flip .final-cta p{color:var(--ink-soft)!important}
 /* --- Explicit TV presentation mode (zoom whole page) --- */
 html.tv-mode{zoom:1.15}
 @media (min-width:2600px){ html.tv-mode{zoom:1.35} }
+
+/* ---- product gallery (shared, pattern ze stresniho vetrani - Dominik 7.7.) ---- */
+.ptype-media.pgal{aspect-ratio:auto;border-radius:0;overflow:visible;background:none;display:flex;flex-direction:column;gap:10px}
+.pgal-main{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:12px;background:var(--paper-2);cursor:zoom-in}
+.pgal-thumbs{display:flex;gap:8px;flex-wrap:wrap}
+.pgal-th{width:74px;height:56px;border:2px solid transparent;border-radius:7px;overflow:hidden;padding:0;cursor:pointer;background:var(--paper-2);opacity:.65;transition:opacity .15s,border-color .15s}
+.pgal-th img{width:100%;height:100%;object-fit:cover}
+.pgal-th.is-active{border-color:var(--haze);opacity:1}
+.pgal-th:hover{opacity:1}
+.pgal-cap{font-family:'Manrope',sans-serif;font-size:13px;font-weight:600;letter-spacing:.02em;color:#5b5e63}
+.plb{position:fixed;inset:0;background:rgba(15,17,20,.94);display:none;align-items:center;justify-content:center;z-index:9999}
+.plb.open{display:flex}
+.plb>img{max-width:92vw;max-height:86vh;object-fit:contain;border-radius:8px}
+.plb-close,.plb-nav{position:absolute;background:rgba(255,255,255,.12);border:none;color:#fff;cursor:pointer;font-size:26px;line-height:1;width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.plb-close{top:20px;right:20px}.plb-prev{left:20px;top:50%;transform:translateY(-50%)}.plb-next{right:20px;top:50%;transform:translateY(-50%)}
+.plb-count{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);color:#fff;font-family:'Manrope',sans-serif;font-size:14px}
+.ptype-media.ptype-ph{aspect-ratio:16/10;border:1px dashed #c9c5b8;border-radius:12px;background:var(--paper-2);display:flex;align-items:center;justify-content:center;color:#8a8d92;font-family:'Manrope',sans-serif;font-weight:600;font-size:14px;letter-spacing:.04em}
+@media(max-width:700px){.pgal-th{width:62px;height:48px}.plb-prev{left:8px}.plb-next{right:8px}.plb-close{top:12px;right:12px}}
+
+/* Mobile safety overrides for product pages with page-local CSS. */
+@media(max-width:860px){
+  .intro-grid,
+  .ptype,
+  .prod-detail-grid,
+  .story-grid{
+    grid-template-columns:1fr!important;
+    gap:32px!important;
+  }
+  .ptype:nth-of-type(even) .ptype-media{
+    order:0!important;
+  }
+  .intro h1{
+    max-width:none!important;
+  }
+}
+@media(max-width:680px){
+  html,
+  body{
+    max-width:100%;
+    overflow-x:hidden;
+  }
+  .wrap,
+  .hero-content{
+    max-width:100%!important;
+    padding-left:18px!important;
+    padding-right:18px!important;
+  }
+  h1,
+  h2,
+  .intro h1,
+  .subhero h1,
+  .sec-head h2{
+    font-size:2rem!important;
+    line-height:1.12!important;
+    max-width:100%!important;
+    overflow-wrap:break-word;
+  }
+  h1 .line{
+    max-width:100%;
+    padding-bottom:0;
+  }
+  h1 .line span{
+    display:inline;
+    transform:none!important;
+    transition:none!important;
+    white-space:normal;
+  }
+  .btn-primary,
+  .hero-cta,
+  .nav-cta{
+    max-width:100%;
+    white-space:normal;
+  }
+  .intro{
+    padding-top:96px!important;
+  }
+  .intro .lead{
+    font-size:16px!important;
+  }
+  .ptype{
+    padding:46px 0!important;
+  }
+  .ptype-head{
+    align-items:flex-start!important;
+  }
+}

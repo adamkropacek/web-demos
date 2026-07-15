@@ -144,21 +144,6 @@ h2 em{font-style:normal;color:var(--haze-dark)}
 @media(max-width:680px){.choose{grid-template-columns:1fr}.wrap{padding:0 18px}}
 
 
-/* product gallery */
-.ptype-media.pgal{aspect-ratio:auto;border-radius:0;overflow:visible;background:none;display:flex;flex-direction:column;gap:10px}
-.pgal-main{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:12px;background:var(--paper-2);cursor:zoom-in}
-.pgal-thumbs{display:flex;gap:8px;flex-wrap:wrap}
-.pgal-th{width:74px;height:56px;border:2px solid transparent;border-radius:7px;overflow:hidden;padding:0;cursor:pointer;background:var(--paper-2);opacity:.65;transition:opacity .15s,border-color .15s}
-.pgal-th img{width:100%;height:100%;object-fit:cover}
-.pgal-th.is-active{border-color:var(--haze);opacity:1}
-.pgal-th:hover{opacity:1}
-.plb{position:fixed;inset:0;background:rgba(15,17,20,.94);display:none;align-items:center;justify-content:center;z-index:9999}
-.plb.open{display:flex}
-.plb>img{max-width:92vw;max-height:86vh;object-fit:contain;border-radius:8px}
-.plb-close,.plb-nav{position:absolute;background:rgba(255,255,255,.12);border:none;color:#fff;cursor:pointer;font-size:26px;line-height:1;width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center}
-.plb-close{top:20px;right:20px}.plb-prev{left:20px;top:50%;transform:translateY(-50%)}.plb-next{right:20px;top:50%;transform:translateY(-50%)}
-.plb-count{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);color:#fff;font-family:'Manrope';font-size:14px}
-@media(max-width:700px){.pgal-th{width:62px;height:48px}.plb-prev{left:8px}.plb-next{right:8px}.plb-close{top:12px;right:12px}}
 </style>
 </head>
 <body>
@@ -181,6 +166,7 @@ h2 em{font-style:normal;color:var(--haze-dark)}
           <a href="../../produkty/bocni-ventilace/">Boční ventilační systémy</a>
           <a href="../../produkty/stresni-vetrani/">Střešní ventilační systémy</a>
           <a href="../../produkty/site/">Sítě</a>
+          <a href="../../produkty/kari-site/">Ochranné kari sítě</a>
           <a href="../../produkty/meteostanice/">Meteostanice</a>
           <a href="../../produkty/protihlukove-steny/">Protihlukové stěny</a>
           <a href="../../produkty/zastreseni-jimek/">Zastřešení jímek</a>
@@ -224,7 +210,7 @@ h2 em{font-style:normal;color:var(--haze-dark)}
     <div class="sec-head reveal"><div class="eyebrow">Provedení detailně</div><h2>Každé provedení <em>popsané.</em></h2></div>
 
     <div class="ptype reveal" id="regulace">
-      <div class="ptype-media pgal" data-gallery><img class="pgal-main" src="../../assets/products/stresni-vetrani/regulace-2.jpg" alt="Hřebenová štěrbina dvoukřídlá - elektropohon HAZE" loading="lazy" decoding="async"><div class="pgal-thumbs"><button type="button" class="pgal-th is-active" aria-label="Foto 1"><img src="../../assets/products/stresni-vetrani/regulace-2.jpg" alt="" loading="lazy" decoding="async"></button><button type="button" class="pgal-th" aria-label="Foto 2"><img src="../../assets/products/stresni-vetrani/regulace.jpg" alt="" loading="lazy" decoding="async"></button><button type="button" class="pgal-th" aria-label="Foto 3"><img src="../../assets/products/stresni-vetrani/regulace-3.jpg" alt="" loading="lazy" decoding="async"></button></div></div>
+      <div class="ptype-media pgal" data-gallery><img class="pgal-main" src="../../assets/products/stresni-vetrani/2kr-el-1.jpg" alt="Hřebenová větrací štěrbina dvoukřídlá s elektropohonem - realizace HAZE" loading="lazy" decoding="async"><div class="pgal-thumbs"><button type="button" class="pgal-th is-active" aria-label="Foto 1"><img src="../../assets/products/stresni-vetrani/2kr-el-1.jpg" alt="" loading="lazy" decoding="async"></button><button type="button" class="pgal-th" aria-label="Foto 2"><img src="../../assets/products/stresni-vetrani/2kr-el-2.jpg" alt="" loading="lazy" decoding="async"></button><button type="button" class="pgal-th" aria-label="Foto 3"><img src="../../assets/products/stresni-vetrani/2kr-el-3.jpg" alt="" loading="lazy" decoding="async"></button></div><div class="pgal-cap">Realizace Podmyče</div></div>
       <div>
         <div class="ptype-head"><span class="kind">S regulací</span><h3>Hřebenová štěrbina dvoukřídlá - elektropohon</h3></div>
         <p>Hřebenová dvoukřídlá štěrbina, kterou lze plynule otevírat a zavírat. Ovládá se elektropohonem a lze ji propojit s meteostanicí HAZE i záložním napájením, takže reaguje na počasí. Šíře otevření je 1000 až 1800 mm. Výplň volíte plachtovou, nebo polykarbonátovou - polykarbonát má lepší tepelnou izolaci a vyšší propustnost světla. Plynulá regulace toku vzduchu ovlivňuje teplotu i vlhkost ve stáji. Mezi chovateli dojného skotu je toto provedení velmi oblíbené.</p>
@@ -239,13 +225,13 @@ h2 em{font-style:normal;color:var(--haze-dark)}
     </div>
 
     <div class="ptype reveal" id="sedlove">
-      <div class="ptype-media pgal" data-gallery><img class="pgal-main" src="../../assets/products/stresni-vetrani/sedlove.jpg" alt="Sedlové zakrytí hřebene HAZE" loading="lazy" decoding="async"><div class="pgal-thumbs"><button type="button" class="pgal-th is-active" aria-label="Foto 1"><img src="../../assets/products/stresni-vetrani/sedlove.jpg" alt="" loading="lazy" decoding="async"></button><button type="button" class="pgal-th" aria-label="Foto 2"><img src="../../assets/products/stresni-vetrani/sedlove-2.jpg" alt="" loading="lazy" decoding="async"></button><button type="button" class="pgal-th" aria-label="Foto 3"><img src="../../assets/products/stresni-vetrani/sedlove-3.jpg" alt="" loading="lazy" decoding="async"></button><button type="button" class="pgal-th" aria-label="Foto 4"><img src="../../assets/products/stresni-vetrani/sedlove-4.jpg" alt="" loading="lazy" decoding="async"></button><button type="button" class="pgal-th" aria-label="Foto 5"><img src="../../assets/products/stresni-vetrani/sedlove-5.jpg" alt="" loading="lazy" decoding="async"></button></div></div>
+      <div class="ptype-media pgal" data-gallery><img class="pgal-main" src="../../assets/products/stresni-vetrani/sedlove-zakryti-1.jpg" alt="Sedlové zakrytí hřebene HAZE" loading="lazy" decoding="async"><div class="pgal-thumbs"><button type="button" class="pgal-th is-active" aria-label="Foto 1"><img src="../../assets/products/stresni-vetrani/sedlove-zakryti-1.jpg" alt="" loading="lazy" decoding="async"></button><button type="button" class="pgal-th" aria-label="Foto 2"><img src="../../assets/products/stresni-vetrani/sedlove-zakryti-2.jpg" alt="" loading="lazy" decoding="async"></button><button type="button" class="pgal-th" aria-label="Foto 3"><img src="../../assets/products/stresni-vetrani/sedlove-zakryti-3.jpg" alt="" loading="lazy" decoding="async"></button></div></div>
       <div>
         <div class="ptype-head"><span class="kind">Bezúdržbové provedení</span><h3>Bez regulace - sedlové zakrytí</h3></div>
-        <p>Vrchní zakrytí hřebene ve stejném sklonu jako střecha (18 až 30°). Pokrytí je z polykarbonátu s boční kovovou deflektorem, systém je bezúdržbový. Zajišťuje přirozené větrání a prosvětlení stáje. Pro střechy se sklonem pod 16° dodáváme metalické oplechování.</p>
+        <p>Vrchní zakrytí hřebene ve stejném sklonu jako střecha (18 až 30°). Pokrytí je z polykarbonátu s bočním plechovým deflektorem, systém je bezúdržbový. Zajišťuje přirozené větrání a prosvětlení stáje. Pro střechy se sklonem pod 16° dodáváme metalické oplechování.</p>
         <table class="ptable">
           <tr><th>Sklon zakrytí</th><td>Ve sklonu střechy 18 - 30°</td></tr>
-          <tr><th>Pokrytí</th><td>Polykarbonát s boční kovovou deflektorem</td></tr>
+          <tr><th>Pokrytí</th><td>Polykarbonát s bočním plechovým deflektorem</td></tr>
           <tr><th>Údržba</th><td>Bezúdržbový systém</td></tr>
           <tr><th>Při sklonu pod 16°</th><td>Vyžaduje metalické oplechování</td></tr>
           <tr><th>Hodí se na</th><td>Přirozené větrání a osvětlení stáje</td></tr>
@@ -254,22 +240,22 @@ h2 em{font-style:normal;color:var(--haze-dark)}
     </div>
 
     <div class="ptype reveal" id="bez-regulace">
-      <div class="ptype-media pgal" data-gallery><img class="pgal-main" src="../../assets/products/stresni-vetrani/bez-regulace.jpg" alt="Bezklapkový větrací oblouk HAZE" loading="lazy" decoding="async"><div class="pgal-thumbs"><button type="button" class="pgal-th is-active" aria-label="Foto 1"><img src="../../assets/products/stresni-vetrani/bez-regulace.jpg" alt="" loading="lazy" decoding="async"></button><button type="button" class="pgal-th" aria-label="Foto 2"><img src="../../assets/products/stresni-vetrani/bez-regulace-2.jpg" alt="" loading="lazy" decoding="async"></button><button type="button" class="pgal-th" aria-label="Foto 3"><img src="../../assets/products/stresni-vetrani/bez-regulace-3.jpg" alt="" loading="lazy" decoding="async"></button></div></div>
+      <div class="ptype-media pgal" data-gallery><img class="pgal-main" src="../../assets/products/stresni-vetrani/hvs-laminat-1.jpg" alt="Hřebenová štěrbina bez klapky - laminátový oblouk, realizace HAZE" loading="lazy" decoding="async"><div class="pgal-thumbs"><button type="button" class="pgal-th is-active" aria-label="Foto 1"><img src="../../assets/products/stresni-vetrani/hvs-laminat-1.jpg" alt="" loading="lazy" decoding="async"></button><button type="button" class="pgal-th" aria-label="Foto 2"><img src="../../assets/products/stresni-vetrani/hvs-laminat-2.jpg" alt="" loading="lazy" decoding="async"></button><button type="button" class="pgal-th" aria-label="Foto 3"><img src="../../assets/products/stresni-vetrani/hvs-laminat-3.jpg" alt="" loading="lazy" decoding="async"></button></div></div>
       <div>
         <div class="ptype-head"><span class="kind">Trvalé větrání</span><h3>Hřebenová štěrbina bez regulace</h3></div>
-        <p>Větrací štěrbina bez klapky se nedá uzavřít - větrá a osvětluje stáj trvale. Rám je z žárově zinkované oceli, vrchní oblouk z laminátu nebo polykarbonátu. Vyrábíme několik variant podle šíře štěrbiny od 0,4 do 4,5 m: jednoduchý laminátový oblouk, samonosné laminátové i polykarbonátové oblouky a deskový polykarbonát. Polykarbonát lépe izoluje a brání přehřátí stáje, laminát je cenově nejvýhodnější. Při sklonu střechy pod 16° je nutné oplechování.</p>
+        <p>Větrací štěrbina bez klapky se nedá uzavřít - větrá a osvětluje stáj trvale. Rám je z žárově zinkované oceli, vrchní oblouk z laminátu nebo polykarbonátu. Vyrábíme několik variant podle šíře štěrbiny od 0,4 do 4,5 m: jednoduchý laminátový oblouk, samonosné laminátové i polykarbonátové oblouky a deskový polykarbonát. Samonosný polykarbonátový oblouk má šířku 3110 mm. Polykarbonát lépe izoluje a brání přehřátí stáje, laminát je cenově nejvýhodnější. Při sklonu střechy pod 16° je nutné oplechování.</p>
         <table class="ptable">
           <tr><th>Regulace</th><td>Bez regulace, trvale otevřené</td></tr>
           <tr><th>Konstrukce</th><td>Rám žárově zinkované oceli, oblouk laminát nebo polykarbonát</td></tr>
           <tr><th>Šíře štěrbiny</th><td>0,4 - 4,5 m (dle varianty)</td></tr>
-          <tr><th>Materiál oblouku</th><td>Laminát (cenově výhodný) nebo polykarbonát (lepší izolace)</td></tr>
+          <tr><th>Materiál oblouku</th><td>Laminát (cenově výhodný) nebo polykarbonát (lepší izolace); samonosný PC oblouk 3110 mm</td></tr>
           <tr><th>Hodí se na</th><td>Stáje skotu, koní, ovcí a koz, čekárny dojíren, sklady</td></tr>
         </table>
       </div>
     </div>
 
     <div class="ptype reveal" id="oplechovani">
-      <div class="ptype-media"><img src="../../assets/products/stresni-vetrani/oplechovani.jpg" alt="Plechování a doplňkový sortiment HAZE" loading="lazy" decoding="async"></div>
+      <div class="ptype-media pgal" data-gallery><img class="pgal-main" src="../../assets/products/stresni-vetrani/plechovani-1.jpg" alt="Plechování hřebenových štěrbin HAZE" loading="lazy" decoding="async"><div class="pgal-thumbs"><button type="button" class="pgal-th is-active" aria-label="Foto 1"><img src="../../assets/products/stresni-vetrani/plechovani-1.jpg" alt="" loading="lazy" decoding="async"></button><button type="button" class="pgal-th" aria-label="Foto 2"><img src="../../assets/products/stresni-vetrani/plechovani-2.jpg" alt="" loading="lazy" decoding="async"></button><button type="button" class="pgal-th" aria-label="Foto 3"><img src="../../assets/products/stresni-vetrani/plechovani-3.jpg" alt="" loading="lazy" decoding="async"></button></div></div>
       <div>
         <div class="ptype-head"><span class="kind">Doplněk ke štěrbinám</span><h3>Plechování a doplňkový sortiment</h3></div>
         <p>K hřebenovým štěrbinám dodáváme metalické oplechování, které brání zatékání vody. Vyžaduje se u střech se sklonem nižším než 16°. Oplechování nabízíme s těsnicím profilem i bez něj, v barvách dle vzorníku RAL.</p>
@@ -303,7 +289,7 @@ h2 em{font-style:normal;color:var(--haze-dark)}
       <li>
         <span class="tag">Bez regulace - sedlové zakrytí</span>
         <span class="ch-lead">Bezúdržbové.</span>
-        <span class="ch-desc">Vrchní zakrytí hřebene ve sklonu střechy, polykarbonát s kovovým deflektorem, bez údržby.</span>
+        <span class="ch-desc">Vrchní zakrytí hřebene ve sklonu střechy, polykarbonát s plechovým deflektorem, bez údržby.</span>
         <dl>
           <dt>Provedení</dt><dd>Zakrytí hřebene</dd>
           <dt>Parametr</dt><dd>Sklon 18 - 30°</dd>
@@ -451,6 +437,7 @@ h2 em{font-style:normal;color:var(--haze-dark)}
           <li><a href="../../produkty/bocni-ventilace/">Boční ventilační systémy</a></li>
           <li><a href="../../produkty/stresni-vetrani/">Střešní ventilační systémy</a></li>
           <li><a href="../../produkty/site/">Sítě</a></li>
+          <li><a href="../../produkty/kari-site/">Ochranné kari sítě</a></li>
           <li><a href="../../produkty/meteostanice/">Meteostanice</a></li>
           <li><a href="../../produkty/protihlukove-steny/">Protihlukové stěny</a></li>
           <li><a href="../../produkty/zastreseni-jimek/">Zastřešení jímek</a></li>
@@ -498,29 +485,5 @@ h2 em{font-style:normal;color:var(--haze-dark)}
 <script src="../../assets/scripts.js"></script>
 
 
-<script>
-(function(){
-  var lb=document.createElement('div');lb.className='plb';
-  lb.innerHTML='<button class="plb-close" aria-label="Zavřít">×</button><button class="plb-nav plb-prev" aria-label="Předchozí">‹</button><img alt=""><button class="plb-nav plb-next" aria-label="Další">›</button><div class="plb-count"></div>';
-  document.body.appendChild(lb);
-  var lbImg=lb.querySelector('img'),lbCount=lb.querySelector('.plb-count'),cur=[],idx=0;
-  function show(i){idx=(i+cur.length)%cur.length;lbImg.src=cur[idx];lbCount.textContent=(idx+1)+' / '+cur.length;}
-  function open(list,i){cur=list;lb.classList.add('open');show(i);}
-  function close(){lb.classList.remove('open');}
-  lb.querySelector('.plb-close').onclick=close;
-  lb.querySelector('.plb-prev').onclick=function(e){e.stopPropagation();show(idx-1);};
-  lb.querySelector('.plb-next').onclick=function(e){e.stopPropagation();show(idx+1);};
-  lb.addEventListener('click',function(e){if(e.target===lb)close();});
-  document.addEventListener('keydown',function(e){if(!lb.classList.contains('open'))return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')show(idx-1);if(e.key==='ArrowRight')show(idx+1);});
-  document.querySelectorAll('[data-gallery]').forEach(function(g){
-    var main=g.querySelector('.pgal-main'),ths=[].slice.call(g.querySelectorAll('.pgal-th'));
-    var list=ths.length?ths.map(function(t){return t.querySelector('img').src;}):[main.src];
-    ths.forEach(function(t){t.onclick=function(){main.src=t.querySelector('img').src;ths.forEach(function(x){x.classList.remove('is-active');});t.classList.add('is-active');};});
-    main.onclick=function(){var ci=list.indexOf(main.src);open(list,ci<0?0:ci);};
-  });
-  var sx=0;lb.addEventListener('touchstart',function(e){sx=e.touches[0].clientX;},{passive:true});
-  lb.addEventListener('touchend',function(e){var dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>40)show(idx+(dx<0?1:-1));},{passive:true});
-})();
-</script>
 </body>
 </html>
