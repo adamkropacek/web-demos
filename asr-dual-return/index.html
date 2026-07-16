@@ -52,7 +52,7 @@ form input.display-none{display:none!important}</style><style id='mfn-custom-inl
     }
     #Content {
         position: relative;
-        top: -130px;
+        top: 0;
     }
 }</style>   <link rel="https://api.w.org/" href="https://www.allseasonsresidence.cz/wp-json/" /><link rel="alternate" type="application/json" href="https://www.allseasonsresidence.cz/wp-json/wp/v2/pages/2" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.allseasonsresidence.cz/xmlrpc.php?rsd" /><meta name="generator" content="WordPress 6.4.3" /><link rel='shortlink' href='https://www.allseasonsresidence.cz/' /><link rel="alternate" type="application/json+oembed" href="https://www.allseasonsresidence.cz/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.allseasonsresidence.cz%2F" /><link rel="alternate" type="text/xml+oembed" href="https://www.allseasonsresidence.cz/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.allseasonsresidence.cz%2F&#038;format=xml" /> <meta name="google-site-verification" content="4-dJ3o0KV74JczY3R9UBAFvx_vBj4d869IgnFv-mLnI" /><style>.cmplz-hidden{display:none!important;}</style>
      <style>.no-js img. { display: none; }
@@ -1054,7 +1054,6 @@ div.section.section-post-header > div > div.column.one.single-photo-wrapper.imag
   #Subheader .title{letter-spacing:2px}
   .mcb-section.dr-sec{padding:64px 0 70px}
   .mcb-wrap .dr-half{flex:0 0 100%;max-width:100%}
-  .dr01-stats{margin-top:26px}
   .dr01-stats .mcb-wrap-inner{padding:0}
   .dr01-photo img{aspect-ratio:16/10}
   .dr-photo img{aspect-ratio:3/2}
@@ -1067,7 +1066,17 @@ div.section.section-post-header > div > div.column.one.single-photo-wrapper.imag
   .dr07-list ul{columns:1}
   .dr-bond h3{font-size:38px;line-height:46px}
   .dr-k2text .column_attr{padding-right:0}
-  .dr-btn-c{margin-top:34px}
+  /* Betheme <=767 stack rule (.section_wrapper .mcb-wrap/.column{margin:0}) zeruje margins wrapu/columnu - rytmus stranky se musi znovu prosadit vyssi specificitou */
+  .section_wrapper .mcb-wrap.dr01-photowrap{margin-top:26px}
+  .section_wrapper .mcb-wrap.dr01-stats{margin-top:26px}
+  .section_wrapper .mcb-wrap.dr-notec{margin-top:26px}
+  .section_wrapper .mcb-wrap.dr-choice{margin-top:14px}
+  .section_wrapper .mcb-wrap.dr-callout{margin-top:22px}
+  .section_wrapper .mcb-wrap.dr-steprow{margin-top:10px;margin-bottom:16px}
+  .section_wrapper .mcb-wrap.dr-ceno{margin-top:34px}
+  .section_wrapper .mcb-wrap.dr05-close{margin-top:30px}
+  .section_wrapper .mcb-wrap.dr07-list{margin-top:8px}
+  .section_wrapper .column.dr-btn-c{margin-top:34px}
 }
 @media only screen and (max-width:479px){
   .mcb-wrap .dr-stat{min-width:100%;flex:1 1 100%}
@@ -1785,4 +1794,4 @@ value="1"/>
 
 <!-- Page cached by LiteSpeed Cache 6.5.1 on 2026-07-02 04:40:50 -->
 <!-- Guest Mode -->
-<!-- QUIC.cloud UCSS in queue -->
+<!-- QUIC.cloud UCSS in queue --><style>.responsive-menu-toggle .icon-menu-fine:before{content:none}.responsive-menu-toggle .icon-menu-fine{display:inline-block;width:22px;height:15px;background:linear-gradient(currentColor,currentColor) 0 0/100% 2px no-repeat,linear-gradient(currentColor,currentColor) 0 50%/100% 2px no-repeat,linear-gradient(currentColor,currentColor) 0 100%/100% 2px no-repeat}#Top_bar #menu{background:#032817;padding:10px 0 16px}</style><script>document.addEventListener("click",function(e){var t=e.target.closest(".responsive-menu-toggle");if(!t)return;e.preventDefault();var m=document.getElementById("menu");if(!m)return;var open=m.style.display==="block";m.style.display=open?"":"block";t.classList.toggle("active",!open);});</script>
