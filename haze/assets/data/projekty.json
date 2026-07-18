@@ -132,12 +132,12 @@
     },
     {
       "id": "olbramice",
-      "name": "Farma Olbramice",
+      "name": "RenoFarma Slezan-Kravín Olbramice",
       "region": "Moravskoslezský",
       "country": "CZ",
       "lat": 49.78955,
       "lng": 18.08895,
-      "year": null,
+      "year": 2020,
       "products": [],
       "scope_1_5": null,
       "description": null,
@@ -145,8 +145,8 @@
       "hero_image": null,
       "source": "haze.cz",
       "source_match": "TOP 05",
-      "drive_folder": null,
-      "note_dominik_verify": "Pozor: Drive má folder 'Olbramovice' = jiná obec (Středočeský). Andrea ping pending.",
+      "drive_folder": "Olbramovice",
+      "note_dominik_verify": "VYRESENO mail 18.7.2026 (19f7603a708129ef): Drive folder 'Olbramovice' byl preklep, projekt = OLBRAMICE (Klimkovice, Ostrava), RenoFarma Slezan, 2020. Zadna druha obec neexistuje.",
       "_geocoded_query": "Olbramice, Moravskoslezský kraj, Czechia"
     },
     {
@@ -458,27 +458,6 @@
       "source_match": "TOP 23",
       "drive_folder": "Hloubětín Krpálek",
       "_geocoded_query": "manual: Hloubětín district Prague"
-    },
-    {
-      "id": "olbramovice-drive",
-      "name": "Stáj Olbramovice",
-      "region": "Středočeský",
-      "country": "CZ",
-      "lat": 49.67698,
-      "lng": 14.63275,
-      "year": null,
-      "products": [
-        "stajova-vrata"
-      ],
-      "scope_1_5": null,
-      "description": "Moderní stáj se zelenými vraty, dřevěná fasáda, transparentní gable.",
-      "result_metric": null,
-      "hero_image": null,
-      "source": "drive_NEW",
-      "source_match": "NEW",
-      "drive_folder": "Olbramovice",
-      "note_dominik_verify": "Drive 'Olbramovice' = jiná obec než 'Olbramice' (TOP 05). Středočeský vs Moravskoslezský. Visual confirmed via thumbnail.",
-      "_geocoded_query": "Olbramovice, Středočeský kraj, Czechia"
     },
     {
       "id": "prikazy",

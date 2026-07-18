@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Meteostanice | HAZE</title>
-<meta name="description" content="Meteostanice HAZE AG-06 pro hřebenové větrací štěrbiny. Řídí otevření HVS podle větru, srážek a teploty. Dotykový displej, senzory a automatický provoz.">
+<meta name="description" content="Meteostanice HAZE AG-06 pro plně automatické ovládání stáje. Podle větru, srážek a teploty řídí větrání celé stáje. Dotykový displej, senzory a automatický provoz.">
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="https://www.haze.cz/produkty/meteostanice/">
 <meta property="og:title" content="Meteostanice | HAZE">
-<meta property="og:description" content="Meteostanice HAZE AG-06 pro hřebenové větrací štěrbiny. Řídí otevření HVS podle větru, srážek a teploty. Dotykový displej a automatický provoz.">
+<meta property="og:description" content="Meteostanice HAZE AG-06 pro plně automatické ovládání stáje. Podle větru, srážek a teploty řídí větrání celé stáje. Dotykový displej a automatický provoz.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="cs_CZ">
 <meta property="og:url" content="https://www.haze.cz/produkty/meteostanice/">
@@ -32,11 +32,11 @@
   "@context":"https://schema.org",
   "@type":"Product",
   "name":"Meteostanice HAZE",
-  "description":"Meteostanice HAZE AG-06 pro hřebenové větrací štěrbiny. Řídí otevření HVS podle větru, srážek a teploty.",
+  "description":"Meteostanice HAZE AG-06 pro plně automatické ovládání stáje. Podle větru, srážek a teploty řídí větrání celé stáje.",
   "brand":{"@type":"Brand","name":"HAZE"},
   "category":"Řídicí systémy",
   "manufacturer":{"@type":"Organization","name":"HAZE, s.r.o.","url":"https://www.haze.cz/"},
-  "areaServed":["CZ","SK","HU"],
+  "areaServed":["CZ","SK"],
   "image":"../../assets/news/meteostanice.jpg"
 }
 </script>
@@ -94,6 +94,21 @@ h2 em{font-style:normal;color:var(--haze-dark)}
 .spec-body{max-width:880px}
 .spec-body>p{font-size:16px;color:var(--ink-soft);margin-bottom:22px}
 
+/* PTYPE - produktove bloky (shodne s rolovaci-vrata) */
+.ptype{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:center;padding:64px 0;border-bottom:1px solid var(--line);scroll-margin-top:96px}
+.ptype:last-child{border-bottom:none}
+.ptype-media{border-radius:12px;overflow:hidden;aspect-ratio:16/10;background:var(--paper-2)}
+.ptype-media img{width:100%;height:100%;object-fit:cover}
+.ptype:nth-of-type(even) .ptype-media{order:2}
+.ptype-head{margin-bottom:16px}
+.ptype-head .kind{font-family:'Manrope';font-weight:700;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--haze-dark)}
+.ptype-head h3{font-weight:800;font-size:24px;margin-top:5px}
+.ptype p{font-size:15px;color:var(--ink-soft);margin-bottom:20px}
+.ptable{width:100%;border-collapse:collapse;border-top:1px solid var(--line)}
+.ptable tr{border-bottom:1px solid var(--line-soft)}
+.ptable th{text-align:left;font-family:'Manrope';font-weight:700;font-size:13px;color:var(--ink);padding:11px 0;width:38%;vertical-align:top}
+.ptable td{font-size:14px;color:var(--ink-soft);padding:11px 0;vertical-align:top}
+
 /* SECTION ALTERNATING BG */
 .bg-2{background:var(--paper-2)}
 .sec-white{background:var(--white)}
@@ -142,14 +157,14 @@ h2 em{font-style:normal;color:var(--haze-dark)}
         <a href="../../produkty/" class="active">Produkty <span class="caret" aria-hidden="true">▾</span></a>
         <div class="dropdown">
           <a href="../../produkty/rolovaci-vrata/">Rolovací vrata</a>
-          <a href="../../produkty/ostatni-vrata/">Ostatní vrata</a>
           <a href="../../produkty/bocni-ventilace/">Boční ventilační systémy</a>
           <a href="../../produkty/stresni-vetrani/">Střešní ventilační systémy</a>
-          <a href="../../produkty/site/">Sítě</a>
-          <a href="../../produkty/kari-site/">Ochranné kari sítě</a>
+          <a href="../../produkty/ostatni-vrata/">Ostatní vrata</a>
           <a href="../../produkty/meteostanice/">Meteostanice</a>
-          <a href="../../produkty/protihlukove-steny/">Protihlukové stěny</a>
           <a href="../../produkty/zastreseni-jimek/">Zastřešení jímek</a>
+          <a href="../../produkty/kari-site/">Ochranné kari sítě</a>
+          <a href="../../produkty/protihlukove-steny/">Protihlukové stěny</a>
+          <a href="../../produkty/site/">Sítě</a>
           <a href="../../produkty/" class="dropdown-all">Všechny produkty →</a>
         </div>
       </li>
@@ -172,7 +187,7 @@ h2 em{font-style:normal;color:var(--haze-dark)}
     <div class="intro-grid">
       <div>
         <h1>Meteostanice <em>pro stáj.</em></h1>
-        <p class="lead">Meteostanice AG-06 je určená pro hřebenové větrací štěrbiny. Sleduje počasí a podle větru, srážek a teploty automaticky řídí jejich otevření. Díky tomu pomáhá udržet stabilní mikroklima bez ruční obsluhy.</p>
+        <p class="lead">Meteostanice AG-06 je určená pro plně automatické ovládání stáje. Sleduje počasí a podle větru, srážek a teploty automaticky řídí větrání celé stáje. Díky tomu pomáhá udržet stabilní mikroklima bez jakékoliv ruční obsluhy.</p>
         <div class="cta-row">
           <a class="btn-primary" href="#kontakt">Chci nabídku do 48h
             <span class="btn-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
@@ -187,71 +202,65 @@ h2 em{font-style:normal;color:var(--haze-dark)}
 <!-- PROVEDENI -->
 <section class="sec-beige">
   <div class="wrap">
-    <div class="sec-head reveal"><div class="eyebrow">Provedení</div><h2>Dvě provedení <em>podle štěrbiny.</em></h2></div>
+    <div class="sec-head reveal"><div class="eyebrow">Provedení</div><h2>Dvě provedení <em>dle potřeby zákazníka.</em></h2></div>
 
     <div class="ptype reveal" id="ag-06">
       <div class="ptype-media pgal" data-gallery><img class="pgal-main" src="../../assets/products/meteostanice/ag-06-1.jpg" alt="Meteostanice HAZE AG-06" loading="lazy" decoding="async"><div class="pgal-thumbs"><button type="button" class="pgal-th is-active" aria-label="Foto 1"><img src="../../assets/products/meteostanice/ag-06-1.jpg" alt="" loading="lazy" decoding="async"></button><button type="button" class="pgal-th" aria-label="Foto 2"><img src="../../assets/products/meteostanice/ag-06-2.jpg" alt="" loading="lazy" decoding="async"></button><button type="button" class="pgal-th" aria-label="Foto 3"><img src="../../assets/products/meteostanice/ag-06-3.jpg" alt="" loading="lazy" decoding="async"></button></div></div>
       <div>
-        <div class="ptype-head"><span class="kind">Pro hřebenové větrací štěrbiny</span><h3>Meteostanice AG-06</h3></div>
-        <p>Nejnovější model s přehledným dotykovým displejem, určený pro řízení hřebenových větracích štěrbin. Podle větru, srážek a teploty automaticky otevírá a zavírá štěrbiny - s odlišným nastavením pro návětrnou a závětrnou stranu stáje.</p>
+        <div class="ptype-head"><h3>Meteostanice AG-06</h3></div>
+        <p>Nejnovější model s přehledným dotykovým displejem, určený pro automatické řízení celé stáje. Podle větru, srážek a teploty automaticky reguluje celou stáj - s odlišným nastavením pro návětrnou a závětrnou stranu. Při požadavku zákazníka možnost napojení meteostanice na osvětlení, lopaty, případně ventilátory.</p>
         <table class="ptable">
-          <tr><th>Displej</th><td>Dotykový, přehledné ovládání</td></tr>
-          <tr><th>Senzory</th><td>Vítr (každá strana zvlášť), vyhřívaný senzor srážek, 1-3 teplotní čidla</td></tr>
-          <tr><th>Určení</th><td>Hřebenové větrací štěrbiny</td></tr>
+          <tr><th>Displej</th><td>Dotykový, individuální ovládání</td></tr>
+          <tr><th>Senzory</th><td>Vítr (každá strana zvlášť), vyhřívaný senzor srážek, 1-3 teplotní senzory</td></tr>
+          <tr><th>Funkce</th><td>Automatické ovládání celé stáje bez lidského faktoru, technologie SMART</td></tr>
         </table>
-      </div>
-    </div>
-
-    <div class="ptype reveal" id="kridlova-sterbina">
-      <div class="ptype-media pgal" data-gallery><img class="pgal-main" src="../../assets/products/meteostanice/kridlova-1.jpg" alt="Meteostanice pro křídlovou větrací štěrbinu HAZE" loading="lazy" decoding="async"></div>
-      <div>
-        <div class="ptype-head"><span class="kind">Pro křídlové štěrbiny</span><h3>Meteostanice pro křídlovou štěrbinu</h3></div>
-        <p>Meteostanice pro automatické ovládání křídlových větracích štěrbin. Technické parametry doplníme.</p>
       </div>
     </div>
 
   </div>
 </section>
 
-<!-- CO TO JE + SENZORY -->
+<!-- JAK SYSTEM RIDI STAJ -->
 <section>
   <div class="wrap">
-    <div class="sec-head reveal"><div class="eyebrow">Jak to funguje</div><h2>Větrání, které <em>řídí počasí.</em></h2></div>
-    <div class="spec-body">
-      <p>Meteostanice průběžně měří podmínky kolem stáje a podle nich přizpůsobuje větrací systémy. Reaguje na rychlost a směr větru, déšť i sníh a na teplotu uvnitř stáje. Nastavení se liší pro návětrnou a závětrnou stranu, takže každá strana stáje větrá podle aktuálních podmínek. Reakce probíhají automaticky, bez nutnosti ruční obsluhy.</p>
-      <div class="ovw reveal">
-        <table class="ovt">
-          <thead><tr><th>Parametr</th><th>Hodnota</th></tr></thead>
-          <tbody>
-            <tr><td><strong>Model</strong></td><td>AG-06 s přehledným dotykovým displejem</td></tr>
-            <tr><td><strong>Senzory větru</strong></td><td>Jeden na každou stranu stáje (návětrná a závětrná strana zvlášť)</td></tr>
-            <tr><td><strong>Deštní senzor</strong></td><td>Vyhřívaný, detekuje déšť i sněhové srážky</td></tr>
-            <tr><td><strong>Teplotní senzory</strong></td><td>Jeden až tři podle velikosti a uspořádání stáje</td></tr>
-            <tr><td><strong>Co řídí</strong></td><td>Hřebenové větrací štěrbiny HVS</td></tr>
-            <tr><td><strong>Režimy</strong></td><td>Přednastavené letní a zimní režimy, ochrana před mrazem, ruční doladění prahů</td></tr>
-          </tbody>
-        </table>
-      </div>
+    <div class="sec-head reveal"><div class="eyebrow">Jak to funguje</div><h2>Jak systém <em>řídí stáj.</em></h2></div>
+    <div class="spec-body reveal" style="max-width:840px">
+      <p style="margin-bottom:16px">Zapojený větrací systém se základním softwarem funguje na principu otevírání a zavírání stěn po jednotlivých třetinách. Ručně můžeme nastavit, jak často a do jaké hodnoty se má systém pohybovat v závislosti na aktuálních povětrnostních podmínkách. V případě zapojení pomaloběžných větráků se zadává teplota, při které se dají větráky do chodu.</p>
+      <p style="margin-bottom:16px">Dále je zde možné nastavit funkci pro zimní provoz. V zimním provozu se nastavuje teplota, která způsobí přivření plachet na jednu, nebo dvě třetiny dle nastavené hodnoty. Plachty zůstávají přivřené po celou dobu poklesu pod tuto teplotu až po funkci mráz, zároveň respektují překročení hodnot rychlosti větru a přítomnosti srážek.</p>
+      <p>Druhá úroveň zimního provozu je funkce mráz, která způsobí úplné zavření plachet. Tato funkce slouží k ochraně stáje před velkým mrazem, který by kromě zdravotních komplikací zvířat mohl způsobovat také zamrzání krmení a napáječek. Plachty zůstávají zavřené po celou dobu poklesu pod tuto mrazovou teplotu.</p>
     </div>
   </div>
 </section>
 
-<!-- CO METEOSTANICE OVLADA -->
+<!-- VYHODY AG-06 -->
 <section class="bg-2">
   <div class="wrap">
-    <div class="sec-head reveal"><div class="eyebrow">Co meteostanice řeší</div><h2>Řízení <em>hřebenové štěrbiny.</em></h2><p class="lead">AG-06 je řízení pro HVS. Pracuje s počasím, teplotou a nastavením návětrné i závětrné strany.</p></div>
+    <div class="sec-head reveal"><div class="eyebrow">Výhody</div><h2>Výhody meteostanice <em>AG-06.</em></h2></div>
     <ul class="choose reveal">
-      <li><span class="tag">Hřebenové štěrbiny</span><span class="ch-lead">Regulace podle počasí.</span><span class="ch-desc">Otevírá a zavírá hřebenové větrací štěrbiny podle proudění vzduchu, teploty a srážek.</span></li>
-      <li><span class="tag">Návětrná strana</span><span class="ch-lead">Samostatné měření.</span><span class="ch-desc">Pracuje s čidlem větru pro návětrnou stranu, aby štěrbina reagovala na aktuální podmínky.</span></li>
-      <li><span class="tag">Závětrná strana</span><span class="ch-lead">Oddělené nastavení.</span><span class="ch-desc">Druhá strana stáje může mít vlastní reakci podle směru a síly větru.</span></li>
-      <li><span class="tag">Srážky</span><span class="ch-lead">Déšť i sníh.</span><span class="ch-desc">Vyhřívaný senzor srážek hlídá déšť i sněhové srážky a podle toho upravuje otevření HVS.</span></li>
-      <li><span class="tag">Teplota stáje</span><span class="ch-lead">1 až 3 čidla.</span><span class="ch-desc">Teplotní čidla pomáhají držet vhodné mikroklima podle velikosti a uspořádání stáje.</span></li>
-      <li><span class="tag">Ruční doladění</span><span class="ch-lead">Provoz podle potřeby.</span><span class="ch-desc">Automatiku lze doladit podle konkrétního provozu a požadované reakce štěrbiny.</span></li>
+      <li><span class="tag">1. Ovládání štěrbiny</span><span class="ch-desc">Automatické otevírání a zavírání hřebenových větracích štěrbin podle aktuálního počasí.</span></li>
+      <li><span class="tag">2. Ovládání bočních systémů</span><span class="ch-desc">Automatické řízení elektricky ovládaných bočních ventilačních systémů.</span></li>
+      <li><span class="tag">3. Adekvátní osvětlení</span><span class="ch-desc">Zajištění adekvátního osvětlení ve stájích. Meteostanici je možné propojit se zdroji umělého osvětlení tak, abyste zajistili adekvátní úroveň sdruženého osvětlení v průběhu celého roku.</span></li>
+      <li><span class="tag">4. Nucená ventilace</span><span class="ch-desc">Nucená ventilace, která zabrání tepelnému stresu u skotu. Systém díky tepelným čidlům vyhodnocuje aktuální teplotu ve stáji, a v případě potřeby aktivuje nucenou ventilaci (ventilátory). Jeho výhodou je, že systém aktivace není závislý na lidském faktoru.</span></li>
+      <li><span class="tag">5. Eliminace přehřívání boxových stájí</span><span class="ch-desc">Eliminace přehřívání boxových loží u podélné obvodové stěny. Systém umí v letních měsících nastavit rozvinutí rolovacích stěn typu D tak, aby se zabránilo liniovému přehřívání boxových loží podél obvodových stěn stájí.</span></li>
+      <li><span class="tag">6. Letní a zimní provoz</span><span class="ch-desc">Základní přednastavení pro letní a zimní provoz. Naše meteostanice má přednastavené základní režimy regulace stájového mikroklimatu pro letní a zimní měsíce. Tyto parametry lze optimalizovat podle specifik farmy, lokality a podobně.</span></li>
     </ul>
     <div class="mid-cta">
       <a class="btn-primary" href="#kontakt">Chci nabídku do 48h
         <span class="btn-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       </a>
+    </div>
+  </div>
+</section>
+
+<!-- KRIDLOVA STERBINA -->
+<section class="sec-beige">
+  <div class="wrap">
+    <div class="ptype reveal" id="kridlova-sterbina" style="border-bottom:none">
+      <div class="ptype-media pgal" data-gallery><img class="pgal-main" src="../../assets/products/meteostanice/kridlova-1.jpg" alt="Meteostanice pro křídlovou větrací štěrbinu HAZE" loading="lazy" decoding="async"></div>
+      <div>
+        <div class="ptype-head"><h3>Meteostanice pro křídlovou štěrbinu</h3></div>
+        <p>Meteostanice pro automatické zavírání křídlových větracích štěrbin v případě deště. Ruší nutnost obsluhy. Funguje automaticky na základě dešťového čidla.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -319,7 +328,7 @@ h2 em{font-style:normal;color:var(--haze-dark)}
         <div class="timeline-item">
           <div class="timeline-num">4</div>
           <div class="timeline-body">
-            <h4>Výroba a montáž 5-10 týdnů</h4>
+            <h4>Výroba a montáž 4-10 týdnů</h4>
             <p>Výroba v naší hale, montáž na místě projektu. Po předání zaučíme obsluhu a předáme záruku.</p>
           </div>
         </div>
@@ -339,11 +348,11 @@ h2 em{font-style:normal;color:var(--haze-dark)}
   <div class="wrap">
     <div class="sec-head reveal"><div class="eyebrow">Časté dotazy</div><h2>Co se ptáte <em>nejčastěji.</em></h2></div>
     <div class="faq reveal">
-      <details><summary>Co všechno meteostanice ovládá?</summary><p>AG-06 je určena pro hřebenové větrací štěrbiny HVS. Podle větru, srážek a teploty řídí jejich otevření a zavření.</p></details>
+      <details><summary>Co všechno meteostanice ovládá?</summary><p>AG-06 je určena pro automatické řízení celé stáje - hřebenových větracích štěrbin i bočních ventilačních systémů. Při požadavku zákazníka ji lze napojit i na osvětlení, lopaty, případně ventilátory.</p></details>
       <details><summary>Jaké senzory meteostanice používá?</summary><p>Senzory rychlosti větru (jeden na každou stranu stáje), vyhřívaný deštní senzor, který detekuje i sníh, a jeden až tři teplotní senzory podle velikosti stáje.</p></details>
       <details><summary>Funguje automaticky, nebo se musí obsluhovat?</summary><p>Reaguje automaticky podle naměřených hodnot z čidel větru, srážek a teploty. Ruční doladění nastavení je možné podle konkrétního provozu.</p></details>
       <details><summary>Liší se větrání podle strany stáje?</summary><p>Ano. Nastavení je odlišné pro návětrnou a závětrnou stranu, takže každá strana stáje větrá podle aktuálních podmínek.</p></details>
-      <details><summary>Lze meteostanici přidat k naší ventilaci?</summary><p>U hřebenových větracích štěrbin ano, vhodné zapojení posoudíme podle konkrétního provedení HVS a elektroinstalace.</p></details>
+      <details><summary>Lze meteostanici přidat k naší ventilaci?</summary><p>Ano, vhodné zapojení posoudíme podle konkrétního provedení ventilace a elektroinstalace.</p></details>
     </div>
   </div>
 </section>
@@ -355,19 +364,19 @@ h2 em{font-style:normal;color:var(--haze-dark)}
     <div class="footer-grid">
       <div class="footer-brand">
         <div class="logo"><img src="../../assets/logo-white.svg" alt="HAZE" class="logo-img" width="100" height="46" decoding="async"></div>
-        <p>Vyrábíme a montujeme vrata, boční ventilaci, protihlukové stěny a doplňky pro moderní stáj i průmysl. Od roku 2007, vlastní hala v Křični, realizace v CZ, SK a HU.</p>
+        <p>Vyrábíme a montujeme vrata, boční ventilaci, protihlukové stěny a doplňky pro moderní stáj i průmysl. Od roku 2007, vlastní hala v Křični, realizace v CZ, SK a zahraničí.</p>
       </div>
       <div><h5>Produkty</h5>
         <ul>
           <li><a href="../../produkty/rolovaci-vrata/">Rolovací vrata</a></li>
-          <li><a href="../../produkty/ostatni-vrata/">Ostatní vrata</a></li>
           <li><a href="../../produkty/bocni-ventilace/">Boční ventilační systémy</a></li>
           <li><a href="../../produkty/stresni-vetrani/">Střešní ventilační systémy</a></li>
-          <li><a href="../../produkty/site/">Sítě</a></li>
-          <li><a href="../../produkty/kari-site/">Ochranné kari sítě</a></li>
+          <li><a href="../../produkty/ostatni-vrata/">Ostatní vrata</a></li>
           <li><a href="../../produkty/meteostanice/">Meteostanice</a></li>
-          <li><a href="../../produkty/protihlukove-steny/">Protihlukové stěny</a></li>
           <li><a href="../../produkty/zastreseni-jimek/">Zastřešení jímek</a></li>
+          <li><a href="../../produkty/kari-site/">Ochranné kari sítě</a></li>
+          <li><a href="../../produkty/protihlukove-steny/">Protihlukové stěny</a></li>
+          <li><a href="../../produkty/site/">Sítě</a></li>
         </ul></div>
       <div><h5>Web</h5>
       <ul>
@@ -384,14 +393,14 @@ h2 em{font-style:normal;color:var(--haze-dark)}
       <ul>
         <li><a href="tel:+420602488989">+420 602 488 989</a></li>
         <li><a href="mailto:info@haze.cz">info@haze.cz</a></li>
-        <li>Sídlo: Praskačka 145, 503 33</li>
-        <li>Vlastní hala: Křičeň 108, 533 41</li>
+        <li>Kanceláře a vedení: Praskačka 145, 503 33</li>
+        <li>Výrobní hala: Křičeň 108, 533 41</li>
         <li>HAZE, s.r.o. | IČ 275 09 800</li>
       </ul></div>
     </div>
     <div class="footer-bottom">
       <div>&copy; 2007-2026 HAZE, s.r.o. Všechna práva vyhrazena.</div>
-      <div>Společnost zapsaná v OR vedeném u KS v Hradci Králové, oddíl C, vložka 21758.</div>
+      <div>Firma je registrována v obchodním rejstříku vedeném Městským soudem v Praze, oddíl C, vložka 164457</div>
     </div>
   </div>
 </footer>
