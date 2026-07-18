@@ -583,6 +583,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   .contact-form{padding:28px 22px}
   .contact{padding-bottom:88px}
   .subhero{padding:96px 0 24px}
+  .problem-stat{flex-direction:column;gap:12px;padding:24px 22px}
+  .problem-stat-num{font-size:44px;min-width:0}
 }
 
 /* ========== REDUCED MOTION ========== */
