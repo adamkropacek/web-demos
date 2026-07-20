@@ -54,6 +54,9 @@
 /* Kariéra - jednoduché rozklikávací boxy pozic (scoped) */
 .kar-intro{max-width:680px;margin:-16px 0 38px;font-size:17px;color:var(--ink-soft);line-height:1.65}
 .kar-card{display:block;cursor:pointer}
+/* 2 pozice vedle sebe, sirsi kontejner (Dominik 19.7.: mene scrollovani, boky nejsou prazdne) */
+.news-grid .news-list{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:1080px}
+@media(max-width:760px){.news-grid .news-list{grid-template-columns:1fr}}
 .kar-card .news-meta time{color:var(--ink-soft)}
 .kar-more{display:inline-flex;align-items:center;gap:8px;margin-top:16px;
   font-family:'Manrope',sans-serif;font-weight:700;font-size:13.5px;letter-spacing:.02em;color:var(--haze-dark);transition:gap .2s,color .2s}
