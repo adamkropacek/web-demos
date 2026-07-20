@@ -64,10 +64,32 @@ if (!localStorage.getItem('haze-cookies')) {
   }, 1800);
 }
 
-// Lead form: real endpoint + mailto fallback, generate_lead fires both paths
+// Google Ads click id (gclid/wbraid/gbraid) -> localStorage 90 dni -> lead payload (OCI pipeline)
+try {
+  const _qs = new URLSearchParams(location.search);
+  ['gclid','wbraid','gbraid'].forEach(k => {
+    const v = _qs.get(k);
+    if (v) localStorage.setItem('haze-' + k, JSON.stringify({v: v, t: Date.now()}));
+  });
+} catch (e) {}
+function getClickId() {
+  try {
+    for (const k of ['gclid','wbraid','gbraid']) {
+      const raw = localStorage.getItem('haze-' + k);
+      if (!raw) continue;
+      const rec = JSON.parse(raw);
+      if (Date.now() - rec.t < 90 * 24 * 3600 * 1000) return k + '=' + rec.v;
+      localStorage.removeItem('haze-' + k);
+    }
+  } catch (e) {}
+  return '';
+}
+
+// Lead form: real endpoint + mailto fallback, form_submit fires both paths
+// (form_submit = GA4 Key Event, importuje se do Google Ads - nemenit nazev)
 function fireLeadEvent() {
   if (typeof gtag === 'function') {
-    gtag('event','generate_lead',{form_type:'main_contact',send_to:'G-5V6W6CMFGR'});
+    gtag('event','form_submit',{form_type:'main_contact',send_to:'G-5V6W6CMFGR'});
   }
 }
 function showFormSuccess(form) {
@@ -90,14 +112,17 @@ function showFormSuccess(form) {
   form.replaceWith(wrap);
 }
 function mailtoFallback(f) {
+  const clickId = getClickId();
   const body = [
-    `Jméno a firma: ${f.name.value}`,
+    `Jméno: ${f.name.value}`,
+    `Firma: ${f.company ? f.company.value : ''}`,
     `Telefon: ${f.phone.value}`,
     ``,
     `Zpráva:`,
     f.message.value,
     ``,
     `---`,
+    clickId ? `Google Ads click: ${clickId}` : ``,
     `Odesláno z: ${location.href}`,
     `Datum: ${new Date().toISOString()}`
   ].join('\n');
@@ -106,6 +131,14 @@ function mailtoFallback(f) {
 }
 const leadForm = document.getElementById('leadForm');
 if (leadForm) {
+  const cid = getClickId();
+  if (cid) {
+    const inp = document.createElement('input');
+    inp.type = 'hidden';
+    inp.name = 'google_ads_click';
+    inp.value = cid;
+    leadForm.appendChild(inp);
+  }
   leadForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const f = e.target;
