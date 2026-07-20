@@ -85,12 +85,132 @@ function getClickId() {
   return '';
 }
 
+// UTM last-touch (90 dni) -> lead payload; doplnuje click id pro atribuci v CRM
+try {
+  const _uq = new URLSearchParams(location.search);
+  if (_uq.get('utm_source')) {
+    const utm = {};
+    ['utm_source','utm_medium','utm_campaign','utm_term','utm_content'].forEach(k => {
+      if (_uq.get(k)) utm[k] = _uq.get(k);
+    });
+    localStorage.setItem('haze-utm', JSON.stringify({v: utm, t: Date.now()}));
+  }
+} catch (e) {}
+function getAttribution() {
+  try {
+    const raw = localStorage.getItem('haze-utm');
+    if (!raw) return '';
+    const rec = JSON.parse(raw);
+    if (Date.now() - rec.t > 90 * 24 * 3600 * 1000) { localStorage.removeItem('haze-utm'); return ''; }
+    return Object.entries(rec.v).map(([k, v]) => k + '=' + v).join('&');
+  } catch (e) { return ''; }
+}
+
+/* ============================================================
+   Measurement layer - JEDINY zdroj eventu pro GA4 (G-5V6W6CMFGR).
+   GTM-5KJSMWSP event tagy (phone/email/form) po prepnuti domeny
+   PAUZNOUT, jinak double-fire. Event nazvy = GA4 konvence + kvetnova
+   architektura importu do Ads (form_submit/phone_click/email_click).
+   ============================================================ */
+const DEBUG_KEY = 'haze-debug';
+try {
+  const _dq = new URLSearchParams(location.search);
+  if (_dq.has('debug')) sessionStorage.setItem(DEBUG_KEY, _dq.get('debug') === '0' ? '' : '1');
+} catch (e) {}
+function track(name, params) {
+  if (typeof gtag !== 'function') return;
+  const p = Object.assign({send_to: 'G-5V6W6CMFGR'}, params || {});
+  try { if (sessionStorage.getItem(DEBUG_KEY)) p.debug_mode = true; } catch (e) {}
+  gtag('event', name, p);
+}
+// Consent mode v2 doplnky (url_passthrough + ads_data_redaction) jsou
+// v inline head bloku kazde stranky - musi bezet PRED gtag config
+
+// Page-type eventy (funguji na demo prefixu i na ostre domene - matchuje se konec cesty)
+(function () {
+  const path = location.pathname;
+  let m;
+  if ((m = path.match(/\/produkty\/([^\/]+)\/?$/))) track('product_page_view', {product: m[1]});
+  else if (/\/kontakt\/?$/.test(path)) track('kontakt_page_view');
+  else if (/\/nase-projekty\/?$/.test(path)) track('reference_view');
+  else if ((m = path.match(/\/aktuality\/([^\/]+)\/?$/))) track('article_view', {article: m[1]});
+  else if (/\/kariera\/([^\/]+)\/?$/.test(path)) track('career_view', {position: path.match(/\/kariera\/([^\/]+)\//)[1]});
+})();
+
+// scroll_75 - jednou za stranku
+(function () {
+  let fired = false;
+  window.addEventListener('scroll', () => {
+    if (fired) return;
+    const d = document.documentElement;
+    const denom = d.scrollHeight - window.innerHeight;
+    if (denom > 200 && window.scrollY / denom >= 0.75) { fired = true; track('scroll_75'); }
+  }, {passive: true});
+})();
+
+// engaged_60s - 60 s viditelneho casu (taby v pozadi se nepocitaji)
+(function () {
+  let ms = 0, last = Date.now(), fired = false;
+  setInterval(() => {
+    const now = Date.now();
+    if (document.visibilityState === 'visible') ms += now - last;
+    last = now;
+    if (!fired && ms >= 60000) { fired = true; track('engaged_60s'); }
+  }, 5000);
+})();
+
+// Umisteni odkazu na strance (parametr pro phone/email/cta eventy)
+function linkLocation(el) {
+  if (el.closest('header')) return 'header';
+  if (el.closest('.sticky-bar')) return 'sticky_bar';
+  if (el.closest('footer')) return 'footer';
+  if (el.closest('.final-cta')) return 'final_cta';
+  if (el.closest('form')) return 'form';
+  return 'content';
+}
+
+// Delegovane kliky: telefon / e-mail / soubory / odchozi odkazy / CTA
+// (delegace pokryje i dynamicky vlozene odkazy, napr. telefon ve form success)
+document.addEventListener('click', (e) => {
+  const a = e.target.closest('a[href]');
+  if (!a) return;
+  const href = a.getAttribute('href') || '';
+  if (href.startsWith('tel:')) {
+    track('phone_click', {phone_number: href.slice(4), link_location: linkLocation(a)});
+  } else if (href.startsWith('mailto:')) {
+    track('email_click', {email_address: href.slice(7).split('?')[0], link_location: linkLocation(a)});
+  } else if (/\.(pdf|docx?|xlsx?|zip)(\?|#|$)/i.test(href)) {
+    track('file_download', {link_url: a.href, file_name: (href.split('/').pop() || '').split('?')[0]});
+  } else if (a.host && a.host !== location.host && /^https?:$/.test(a.protocol)) {
+    track('outbound_click', {link_url: a.href, link_domain: a.hostname});
+  } else if (a.matches('.nav-cta, .btn-primary, .btn-secondary, .sticky-bar a')) {
+    track('cta_click', {cta_text: (a.textContent || '').trim().slice(0, 60), cta_location: linkLocation(a), cta_href: href});
+  }
+});
+
+// FAQ / rozbalovaci bloky
+document.querySelectorAll('details').forEach(d => {
+  d.addEventListener('toggle', () => {
+    if (!d.open) return;
+    const s = d.querySelector('summary');
+    track('faq_open', {question: s ? (s.textContent || '').trim().slice(0, 90) : ''});
+  });
+});
+
 // Lead form: real endpoint + mailto fallback, form_submit fires both paths
 // (form_submit = GA4 Key Event, importuje se do Google Ads - nemenit nazev)
-function fireLeadEvent() {
-  if (typeof gtag === 'function') {
-    gtag('event','form_submit',{form_type:'main_contact',send_to:'G-5V6W6CMFGR'});
+function fireLeadEvent(delivery) {
+  // Enhanced conversions for leads: hash telefonu si Google udela sam z user_data
+  if (typeof gtag === 'function' && leadForm && leadForm.elements && leadForm.elements.phone) {
+    const digits = (leadForm.elements.phone.value || '').replace(/[^0-9+]/g, '');
+    const e164 = digits.startsWith('+') ? digits : (digits.length === 9 ? '+420' + digits : digits);
+    if (e164.length >= 12) gtag('set', 'user_data', {phone_number: e164});
   }
+  track('form_submit', {
+    form_type: 'main_contact',
+    delivery: delivery || 'mailto',
+    click_id_present: getClickId() ? 'yes' : 'no'
+  });
 }
 function showFormSuccess(form) {
   // Build success node with DOM API (no innerHTML, no user-controlled content)
@@ -113,6 +233,7 @@ function showFormSuccess(form) {
 }
 function mailtoFallback(f) {
   const clickId = getClickId();
+  const attribution = getAttribution();
   const body = [
     `Jméno: ${f.name.value}`,
     `Firma: ${f.company ? f.company.value : ''}`,
@@ -122,7 +243,8 @@ function mailtoFallback(f) {
     f.message.value,
     ``,
     `---`,
-    clickId ? `Google Ads click: ${clickId}` : ``,
+    ...(clickId ? [`Google Ads click: ${clickId}`] : []),
+    ...(attribution ? [`Zdroj: ${attribution}`] : []),
     `Odesláno z: ${location.href}`,
     `Datum: ${new Date().toISOString()}`
   ].join('\n');
@@ -139,6 +261,21 @@ if (leadForm) {
     inp.value = cid;
     leadForm.appendChild(inp);
   }
+  const attr = getAttribution();
+  if (attr) {
+    const ainp = document.createElement('input');
+    ainp.type = 'hidden';
+    ainp.name = 'attribution';
+    ainp.value = attr;
+    leadForm.appendChild(ainp);
+  }
+  // form_start jednou - meri drop-off form_start -> form_submit
+  let formStarted = false;
+  leadForm.addEventListener('focusin', (e) => {
+    if (formStarted || !e.target.matches('input, textarea')) return;
+    formStarted = true;
+    track('form_start', {form_type: 'main_contact'});
+  });
   leadForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const f = e.target;
@@ -157,18 +294,18 @@ if (leadForm) {
           body: new FormData(f)
         });
         if (res.ok) {
-          fireLeadEvent();
+          fireLeadEvent('endpoint');
           showFormSuccess(f);
           return;
         }
         throw new Error('endpoint_not_ok');
       } catch (err) {
-        fireLeadEvent();
+        fireLeadEvent('mailto_fallback');
         mailtoFallback(f);
         return;
       }
     }
-    fireLeadEvent();
+    fireLeadEvent('mailto');
     mailtoFallback(f);
   });
 }
@@ -207,17 +344,7 @@ if (navToggle && navEl) {
   window.addEventListener('resize', () => { if (!isMobile()) closeNav(); });
 }
 
-// Track phone + email clicks
-document.querySelectorAll('a[href^="tel:"]').forEach(a => {
-  a.addEventListener('click', () => {
-    if (typeof gtag === 'function') gtag('event','phone_click',{send_to:'G-5V6W6CMFGR'});
-  });
-});
-document.querySelectorAll('a[href^="mailto:"]').forEach(a => {
-  a.addEventListener('click', () => {
-    if (typeof gtag === 'function') gtag('event','email_click',{send_to:'G-5V6W6CMFGR'});
-  });
-});
+// Phone + email kliky resi delegovany listener v measurement layeru (vys)
 
 // TV / presentation mode — explicit, persisted across pages.
 // Enable: add ?tv (or ?tv=1) to the URL. Disable: ?tv=0. Toggle anytime: Shift+T.
@@ -245,7 +372,7 @@ document.querySelectorAll('a[href^="mailto:"]').forEach(a => {
   document.body.appendChild(lb);
   var lbImg=lb.querySelector('img'),lbCount=lb.querySelector('.plb-count'),cur=[],idx=0;
   function show(i){idx=(i+cur.length)%cur.length;lbImg.src=cur[idx];lbCount.textContent=(idx+1)+' / '+cur.length;}
-  function open(list,i){cur=list;lb.classList.add('open');show(i);}
+  function open(list,i){cur=list;lb.classList.add('open');show(i);track('gallery_open',{page_path:location.pathname,gallery_size:list.length});}
   function close(){lb.classList.remove('open');}
   lb.querySelector('.plb-close').onclick=close;
   lb.querySelector('.plb-prev').onclick=function(e){e.stopPropagation();show(idx-1);};
