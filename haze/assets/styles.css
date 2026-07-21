@@ -478,8 +478,9 @@ footer a:hover{color:var(--haze-soft)}
   background:var(--steel-900);color:#fff;padding:22px 24px;border-radius:6px;
   border:1px solid var(--line-dark);border-top:3px solid var(--haze);z-index:100;
   box-shadow:0 20px 50px rgba(0,0,0,.5);font-size:13.5px;line-height:1.5;
-  transform:translateY(20px);opacity:0;transition:transform .4s ease,opacity .4s ease}
-.cookies.show{transform:translateY(0);opacity:1}
+  transform:translateY(20px);opacity:0;visibility:hidden;pointer-events:none;
+  transition:transform .4s ease,opacity .4s ease,visibility .4s}
+.cookies.show{transform:translateY(0);opacity:1;visibility:visible;pointer-events:auto}
 .cookies p{margin-bottom:14px;color:rgba(255,255,255,.85)}
 .cookies-btns{display:flex;gap:8px}
 .cookies-btns button{flex:1;padding:10px 14px;border:none;border-radius:3px;
