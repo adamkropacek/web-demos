@@ -3,12 +3,29 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- CSP + referrer primo v HTML: staticke stranky servíruje nginx (obchazi .htaccess Apache hlavicky), meta http-equiv projde vzdy -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://*.google.com https://*.gstatic.com https://maps.googleapis.com; frame-src https://www.google.com https://maps.google.com; connect-src 'self' https://api.web3forms.com; form-action 'self' https://api.web3forms.com; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>REMI HK - Koupelnové studio Hradec Králové</title>
 <meta name="description" content="Koupelnové studio v areálu Gayerova Kasárna, Hradec Králové. Obklady a dlažby, sanita, baterie a doplňky od evropských výrobců. Renata Sobolíková, od roku 1999.">
-<meta name="robots" content="noindex">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://www.remihk.cz/">
+<meta name="theme-color" content="#1F2229">
+<meta name="author" content="Renata Sobolíková - REMI HK">
+<meta name="geo.region" content="CZ-52">
+<meta name="geo.placename" content="Hradec Králové">
+<!-- GOOGLE SEARCH CONSOLE: az Adam vytvori GSC property pro remihk.cz, vlozit verifikacni <meta name="google-site-verification" ...> presne sem -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="REMI HK">
+<meta property="og:locale" content="cs_CZ">
+<meta property="og:url" content="https://www.remihk.cz/">
 <meta property="og:title" content="REMI HK - Koupelnové studio Hradec Králové">
 <meta property="og:description" content="Obklady, sanita, baterie a doplňky od evropských výrobců. Showroom v areálu Gayerova Kasárna.">
-<meta property="og:image" content="assets/hero-renata.webp">
+<meta property="og:image" content="https://www.remihk.cz/assets/hero-renata.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="REMI HK - Koupelnové studio Hradec Králové">
+<meta name="twitter:description" content="Obklady, sanita, baterie a doplňky od evropských výrobců. Showroom v areálu Gayerova Kasárna.">
+<meta name="twitter:image" content="https://www.remihk.cz/assets/hero-renata.webp">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%231F2229'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='34' fill='%23B89968' text-anchor='middle'%3ER%3C/text%3E%3C/svg%3E">
 <link rel="preload" as="image" href="assets/hero-renata.webp" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -76,6 +93,7 @@ nav.scrolled .nav-logo img{height:42px}
 .nav-cta{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;border:1px solid var(--ink);padding:.7rem 1.4rem;font-weight:500;transition:all .25s}
 .nav-cta:hover{background:var(--ink);color:var(--bg)}
 .nav-mobile{display:none;width:28px;height:18px;position:relative;cursor:pointer}
+.nav-mobile::before{content:'';position:absolute;inset:-13px -10px}/* 44px touch target */
 .mobile-menu{display:none}
 .nav-mobile span{position:absolute;left:0;right:0;height:1px;background:var(--ink);transition:all .3s}
 .nav-mobile span:nth-child(1){top:2px}
@@ -186,6 +204,8 @@ body.loaded .hero h1 .w:nth-child(7) span{animation-delay:.76s}
   .hero-text{padding:6.5rem 1.25rem 1.5rem}
   .hero h1{font-size:clamp(2rem,9vw,2.8rem)}
   .hero-meta{padding:0 1.25rem 2rem;gap:1.2rem}
+  .hero-meta .item{flex-wrap:wrap}
+  .btn-hero{padding:1.2rem 1.2rem;font-size:.85rem;letter-spacing:.1em}/* fits one line on 360px+ */
 }
 @media(max-width:560px){
   .cta-row{flex-direction:column;width:100%;align-items:stretch}
@@ -495,6 +515,45 @@ html.js .reveal.in{opacity:1;transform:translateY(0)}
 .lb-nav svg,.lb-close svg{width:20px;height:20px;stroke:#fff;fill:none;stroke-width:1.6}
 @media(max-width:680px){.lb-prev{left:1vw}.lb-next{right:1vw}.lb-close{top:2.5vh;right:4vw}.lb img{max-width:94vw}}
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HomeGoodsStore",
+  "@id": "https://www.remihk.cz/#studio",
+  "name": "REMI HK",
+  "alternateName": "REMI HK - Koupelnové studio",
+  "description": "Koupelnové studio a showroom v areálu Gayerova Kasárna v Hradci Králové. Obklady a dlažby, sanita, baterie, sprchové kouty a doplňky od evropských výrobců.",
+  "url": "https://www.remihk.cz/",
+  "telephone": "+420602484982",
+  "email": "rsobolikova@post.cz",
+  "image": "https://www.remihk.cz/assets/hero-renata.webp",
+  "priceRange": "$$",
+  "currenciesAccepted": "CZK",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Československé armády 216",
+    "addressLocality": "Hradec Králové",
+    "postalCode": "500 03",
+    "addressCountry": "CZ"
+  },
+  "areaServed": [
+    { "@type": "City", "name": "Hradec Králové" },
+    { "@type": "AdministrativeArea", "name": "Královéhradecký kraj" }
+  ],
+  "founder": {
+    "@type": "Person",
+    "name": "Renata Sobolíková"
+  },
+  "foundingDate": "1999"
+}
+</script>
+<!-- GOOGLE ANALYTICS 4: az Adam vytvori GA4 property, nahradit G-XXXXXXXXXX skutecnym Measurement ID a odkomentovat.
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());gtag('config','G-XXXXXXXXXX');
+</script>
+-->
 </head>
 <body>
 
@@ -519,7 +578,7 @@ html.js .reveal.in{opacity:1;transform:translateY(0)}
     <a href="#formular">Kontakt</a>
   </div>
   <a href="#formular" class="nav-cta">Domluvit návštěvu</a>
-  <div class="nav-mobile" id="navMobile"><span></span><span></span><span></span></div>
+  <div class="nav-mobile" id="navMobile" role="button" tabindex="0" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></div>
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
@@ -614,7 +673,7 @@ html.js .reveal.in{opacity:1;transform:translateY(0)}
           <div class="pf-meta"><div class="t">Šemberovo divadlo</div><div class="s">Vysoké Mýto</div></div>
         </div>
         <div class="pf reveal">
-          <div class="pf-img"><img src="assets/havlickova-vila.webp" alt="Realizace - Havlíčkova vila, Břeclav" loading="lazy" decoding="async"></div>
+          <div class="pf-img"><img src="assets/havlickova-vila.webp" alt="Realizace - Havlíčkova vila, Břeclav" loading="lazy" decoding="async" width="666" height="1000"></div>
           <div class="pf-meta"><div class="t">Havlíčkova vila</div><div class="s">Břeclav</div></div>
         </div>
         <div class="pf reveal">
@@ -679,7 +738,7 @@ html.js .reveal.in{opacity:1;transform:translateY(0)}
           <div class="pf-img"><img src="assets/navrh-04.webp" alt="Grafický 3D návrh koupelny" loading="lazy" decoding="async" width="1280" height="720"></div>
         </div>
         <div class="pf reveal">
-          <div class="pf-img"><img src="assets/navrh-06.webp" alt="Grafický 3D návrh koupelny" loading="lazy" decoding="async"></div>
+          <div class="pf-img"><img src="assets/navrh-06.webp" alt="Grafický 3D návrh koupelny" loading="lazy" decoding="async" width="1400" height="788"></div>
         </div>
         <div class="pf reveal">
           <div class="pf-img"><img src="assets/navrh-07.webp" alt="Grafický 3D návrh koupelny" loading="lazy" decoding="async" width="1621" height="912"></div>
@@ -1153,7 +1212,7 @@ html.js .reveal.in{opacity:1;transform:translateY(0)}
       <aside class="contact-aside reveal reveal-d1">
         <div class="callbox" style="margin-top:0;padding-top:0;border-top:none">
           <div class="callbox-eyebrow">Nechce se vám vyplňovat formulář?</div>
-          <div class="callbox-title">Zavolejte mi rovnou</div>
+          <div class="callbox-title">Volejte</div>
           <a href="tel:+420602484982"><span class="ico"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.37 1.9.72 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0122 16.92z"/></svg></span>+420 602 484 982</a>
           <a class="mail" href="mailto:rsobolikova@post.cz"><span class="ico"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg></span>rsobolikova@post.cz</a>
         </div>
@@ -1246,8 +1305,10 @@ window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',scrollY>40
 
 // Mobile menu
 const mob=document.getElementById('navMobile'),mm=document.getElementById('mobileMenu');
-mob.addEventListener('click',()=>{nav.classList.toggle('open');mm.classList.toggle('open')});
-mm.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');mm.classList.remove('open')}));
+const toggleMenu=()=>{nav.classList.toggle('open');mm.classList.toggle('open');mob.setAttribute('aria-expanded',nav.classList.contains('open')?'true':'false')};
+mob.addEventListener('click',toggleMenu);
+mob.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();toggleMenu();}});
+mm.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');mm.classList.remove('open');mob.setAttribute('aria-expanded','false')}));
 
 // Reveal on scroll
 const io=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add('in')),{threshold:.12,rootMargin:'0px 0px -60px 0px'});
@@ -1265,19 +1326,28 @@ if(heroImgEl){
   window.addEventListener('scroll',()=>{sy=Math.min(window.scrollY,window.innerHeight)*0.16;sched();},{passive:true});
 }
 
-// Sortiment accordion
+// Sortiment accordion - px maxHeight jen behem transition; otevreny panel drzi 'none',
+// aby pozdejsi reflow (webfonty, resize) obsah neoriznul
 document.querySelectorAll('#sortimentAcc .acc-item').forEach(item=>{
   const head=item.querySelector('.acc-head');
   const body=item.querySelector('.acc-body');
-  const setH=()=>{body.style.maxHeight=item.classList.contains('open')?body.scrollHeight+'px':'0px'};
   head.addEventListener('click',()=>{
-    item.classList.toggle('open');
-    head.setAttribute('aria-expanded',item.classList.contains('open')?'true':'false');
-    setH();
+    const opening=!item.classList.contains('open');
+    if(opening){
+      item.classList.add('open');
+      body.style.maxHeight=body.scrollHeight+'px';
+    }else{
+      body.style.maxHeight=body.scrollHeight+'px';
+      body.offsetHeight; // reflow: z 'none' na px bez animace, pak animovane na 0
+      item.classList.remove('open');
+      body.style.maxHeight='0px';
+    }
+    head.setAttribute('aria-expanded',opening?'true':'false');
   });
-  setH();
-  // keep open panel sized correctly on resize / img load
-  window.addEventListener('resize',()=>{if(item.classList.contains('open'))body.style.maxHeight=body.scrollHeight+'px'});
+  body.addEventListener('transitionend',e=>{
+    if(e.target===body&&item.classList.contains('open'))body.style.maxHeight='none';
+  });
+  body.style.maxHeight=item.classList.contains('open')?'none':'0px';
 });
 
 // Contact form -> contact.php (produkce); na GH Pages demu mailto fallback
@@ -1302,19 +1372,26 @@ if(cf){
       setTimeout(()=>{cfStatus.textContent='Pokud se klient neotevřel, napište přímo na rsobolikova@post.cz.';},3000);
       return;
     }
+    // honeypot - bot vyplni skryte pole "website"
+    if(fd.get('website')){cfStatus.textContent='Děkujeme, poptávka byla odeslána.';cf.reset();return;}
     const btn=cf.querySelector('.form-submit');
     btn.disabled=true;
     cfStatus.style.color='';
     cfStatus.textContent='Odesílám...';
+    fd.delete('website');
+    fd.append('access_key','2551f917-3958-4be9-b24c-87356e456515');
+    fd.append('subject',`Nová poptávka z webu REMI HK - ${name}`);
+    fd.append('from_name','Web REMI HK');
+    fd.append('botcheck','');
     try{
-      const r=await fetch('contact.php',{method:'POST',body:fd});
+      const r=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Accept':'application/json'},body:fd});
       const d=await r.json();
-      if(d.ok){
+      if(d.success){
         cfStatus.textContent='Děkujeme, poptávka byla odeslána. Ozveme se vám co nejdříve.';
         cf.reset();
       }else{
         cfStatus.style.color='#A14545';
-        cfStatus.textContent=d.error||'Odeslání se nepodařilo. Napište prosím na rsobolikova@post.cz.';
+        cfStatus.textContent='Odeslání se nepodařilo. Napište prosím na rsobolikova@post.cz.';
       }
     }catch(_){
       cfStatus.style.color='#A14545';
@@ -1326,14 +1403,32 @@ if(cf){
 }
 
 // ===== In-page anchory - pristani na NADPISU, ne na prazdnem vrsku sekce =====
+// Lazy obrazky umi behem smooth scrollu posunout layout (cil ujede o stovky px),
+// proto po dojezdu scroll jednou az dvakrat dokorigujeme na aktualni pozici cile.
 const NAVH=()=>document.getElementById('nav').offsetHeight;
+let anchorIv=null;
 function gotoHash(hash){
+  if(anchorIv){clearInterval(anchorIv);anchorIv=null;}
   if(!hash||hash==='#'){window.scrollTo({top:0,behavior:'smooth'});return;}
   const sec=document.querySelector(hash);
   if(!sec)return;
   const head=sec.querySelector('.section-head,.about-body .eyebrow,.katalog-body .eyebrow,.showroom-text .eyebrow,.eyebrow,h2')||sec;
-  const y=window.scrollY+head.getBoundingClientRect().top-NAVH()-28;
-  window.scrollTo({top:Math.max(0,y),behavior:'smooth'});
+  const targetY=()=>Math.max(0,window.scrollY+head.getBoundingClientRect().top-NAVH()-28);
+  window.scrollTo({top:targetY(),behavior:'smooth'});
+  let last=-1,stable=0,tries=0;
+  const stop=()=>{if(anchorIv){clearInterval(anchorIv);anchorIv=null;}};
+  ['wheel','touchstart'].forEach(ev=>window.addEventListener(ev,stop,{once:true,passive:true}));
+  anchorIv=setInterval(()=>{
+    const y=window.scrollY;
+    stable=Math.abs(y-last)<2?stable+1:0;
+    last=y;
+    if(stable>=2){
+      const ty=targetY();
+      if(Math.abs(y-ty)>6&&tries++<2){window.scrollTo({top:ty,behavior:'smooth'});stable=0;}
+      else stop();
+    }
+  },140);
+  setTimeout(stop,6000);
 }
 document.querySelectorAll('a[href^="#"]').forEach(a=>{
   a.addEventListener('click',e=>{
@@ -1440,7 +1535,9 @@ if(lb&&pfImgs.length){
   }
   layout();
   window.addEventListener('load',layout);
-  document.querySelectorAll('.portfolio-grid img').forEach(im=>im.addEventListener('load',layout));
+  // vsechny img maji width/height (aspect-ratio drzi vysku pred nactenim) -> load relayouty staci sloucit do jednoho
+  let ilr=null;
+  document.querySelectorAll('.portfolio-grid img').forEach(im=>im.addEventListener('load',()=>{if(!ilr)ilr=requestAnimationFrame(()=>{ilr=null;layout();});}));
   let rt;window.addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(layout,150);});
 })();
 </script>

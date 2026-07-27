@@ -1,17 +1,45 @@
-# REMI HK - HTTPS redirect + zakladni security headers
+# REMI HK - HTTPS redirect + security headers + cache
 RewriteEngine On
 RewriteCond %{HTTPS} !=on
 RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 
+# zadny vypis adresaru
+Options -Indexes
+
 <IfModule mod_headers.c>
+  # HSTS (cert Let's Encrypt platny; bez includeSubDomains kvuli ftp/webmail subdomenam)
+  Header always set Strict-Transport-Security "max-age=31536000"
   Header set X-Content-Type-Options "nosniff"
   Header set X-Frame-Options "SAMEORIGIN"
   Header set Referrer-Policy "strict-origin-when-cross-origin"
+  Header set Permissions-Policy "geolocation=(), microphone=(), camera=(), payment=(), usb=(), interest-cohort=()"
+  # CSP - povoluje jen to, co web realne nacita: Google Fonts + Google Maps embed + vlastni assety.
+  # POZOR: az Adam zapne GA4, doplnit do script-src https://www.googletagmanager.com a do connect-src/img-src https://www.google-analytics.com https://*.analytics.google.com
+  Header set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://*.google.com https://*.gstatic.com https://maps.googleapis.com; frame-src https://www.google.com https://maps.google.com; connect-src 'self' https://api.web3forms.com; form-action 'self' https://api.web3forms.com; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; upgrade-insecure-requests"
+  Header unset X-Powered-By
+  Header always unset X-Powered-By
 </IfModule>
+
+# blokace citlivych/zdrojovych souboru (Apache 2.2 i 2.4)
+<FilesMatch "(^\.|\.(md|json|log|bak|old|sql|ini|sh|py|yml|yaml)$)">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+  </IfModule>
+</FilesMatch>
 
 # cache pro staticke assety
 <IfModule mod_expires.c>
   ExpiresActive On
   ExpiresByType image/webp "access plus 30 days"
+  ExpiresByType image/jpeg "access plus 30 days"
+  ExpiresByType image/png "access plus 30 days"
+  ExpiresByType image/svg+xml "access plus 30 days"
   ExpiresByType application/pdf "access plus 30 days"
+  ExpiresByType font/woff2 "access plus 365 days"
+  ExpiresByType text/css "access plus 7 days"
+  ExpiresByType application/javascript "access plus 7 days"
 </IfModule>
