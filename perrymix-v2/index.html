@@ -34,6 +34,9 @@ h1{font-size:clamp(2rem,4vw,3rem);font-weight:700;letter-spacing:-.03em;line-hei
 .card .tags span{font-family:"IBM Plex Mono",monospace;font-size:.68rem;border:1px solid var(--hair);padding:.25rem .55rem;color:var(--txt-3)}
 .card .go{display:flex;align-items:center;justify-content:space-between;padding:1rem 1.5rem;background:var(--paper-2);font-weight:600;font-size:.92rem}
 .card:hover .go{background:var(--blue);color:#fff}
+.card--current{border-color:var(--ink)}
+.card--current .mono{color:var(--ink)}
+.card--current .go{background:var(--ink);color:#fff}
 .note{border:1px solid var(--hair);background:var(--paper-2);padding:1.4rem 1.5rem;margin-bottom:2.5rem;font-size:.92rem;color:var(--txt-2)}
 .note b{color:var(--ink)}
 footer{border-top:1px solid var(--hair);padding:2rem 0;font-size:.85rem;color:var(--txt-3)}
@@ -45,8 +48,8 @@ footer{border-top:1px solid var(--hair);padding:2rem 0;font-size:.85rem;color:va
 
 <div class="shell intro">
   <p class="mono">Interní výběr / 2026</p>
-  <h1>Šest návrhů webu PERRYmix</h1>
-  <p>Šest samostatných směrů pro CZ homepage. Stejné logo, stejná paleta převzatá z origo webu Perry Equipment, stejný ověřený obsah z oficiálního datasheetu. Liší se jen tvar - typografie, kompozice a způsob, jak vede návštěvníka k poptávce.</p>
+  <h1>Návrhy webu PERRYmix</h1>
+  <p>Aktuální verze plus tři nové směry pro CZ homepage. Stejné logo, stejná paleta převzatá z origo webu Perry Equipment, stejný ověřený obsah z oficiálního datasheetu. Liší se jen tvar - typografie, kompozice a způsob, jak vede návštěvníka k poptávce.</p>
   <div class="pal">
     <span class="sw"><i style="background:#126BC8"></i>#126BC8</span>
     <span class="sw"><i style="background:#0A81FC"></i>#0A81FC</span>
@@ -57,68 +60,48 @@ footer{border-top:1px solid var(--hair);padding:2rem 0;font-size:.85rem;color:va
 </div>
 
 <div class="shell">
-  <div class="note"><b>Jak vybírat:</b> projděte všech šest na desktopu i na mobilu. Rozhodněte se pro jeden směr - ten pak dopracuji do plné verze (4 stránky x 3 jazyky, formuláře, SEO). Prvky z ostatních návrhů se dají přenést, ale základ by měl být jeden.</div>
+  <div class="note"><b>Jak vybírat:</b> projděte všechny na desktopu i na mobilu. Rozhodněte se pro jeden směr - ten pak dopracuji do plné verze (4 stránky x 3 jazyky, formuláře, SEO). Prvky z ostatních návrhů se dají přenést, ale základ by měl být jeden.</div>
 </div>
 
 <div class="shell grid">
+
+  <a class="card card--current" href="../perrymix/cs/">
+    <div class="top">
+      <p class="mono">Aktuální verze</p>
+      <h2>Stávající demoweb</h2>
+      <p>To, co je dnes postavené a co jste viděli při kontrole. Krémové pozadí, navy typografie, produktová karta na bílé. Kompletní - 4 stránky, 3 jazyky, formuláře, SEO.</p>
+    </div>
+    <div class="tags"><span>live</span><span>Astro</span><span>CZ / EN / DE</span><span>4 stránky</span></div>
+    <div class="go"><span>Otevřít stávající web</span><span>-&gt;</span></div>
+  </a>
 
   <a class="card" href="01-dark/">
     <div class="top">
       <p class="mono">Návrh 01</p>
       <h2>Dark engineering</h2>
-      <p>Černá je celá stránka, ne jen doplněk. Stroj svítí ze tmy, modrá je jediné světlo. Nejvýraznější kontrast vůči všemu, co konkurence v oboru dělá.</p>
+      <p>Černá je celá stránka, ne jen doplněk. Stroj svítí ze tmy, modrá je jediné světlo. Přepínač Black / White v hlavičce překlopí celý web na světlou variantu.</p>
     </div>
-    <div class="tags"><span>tmavé</span><span>Archivo</span><span>spec ticker</span><span>rozklikávací aplikace</span></div>
-    <div class="go"><span>Otevřít návrh</span><span>-&gt;</span></div>
-  </a>
-
-  <a class="card" href="02-katalog/">
-    <div class="top">
-      <p class="mono">Návrh 02</p>
-      <h2>Tištěný katalog</h2>
-      <p>Čte se jako stránka ze strojírenského katalogu. Serifové nadpisy, vlasové linky, číslované sekce, tabulka velikostí jako hlavní hrdina. Téměř bez barvy.</p>
-    </div>
-    <div class="tags"><span>editorial</span><span>Newsreader</span><span>marginálie</span><span>číslované sekce</span></div>
-    <div class="go"><span>Otevřít návrh</span><span>-&gt;</span></div>
-  </a>
-
-  <a class="card" href="03-blueprint/">
-    <div class="top">
-      <p class="mono">Návrh 03</p>
-      <h2>Výkres / CAD</h2>
-      <p>Milimetrový rastr, kótování stroje, rohové razítko jako na technickém výkrese. Sekce mají čísla revizí. Sází na inženýrskou tradici.</p>
-    </div>
-    <div class="tags"><span>rastr</span><span>IBM Plex</span><span>kóty a odkazy</span><span>rohové razítko</span></div>
+    <div class="tags"><span>black / white swap</span><span>Archivo</span><span>spec ticker</span><span>aplikace s ikonami</span></div>
     <div class="go"><span>Otevřít návrh</span><span>-&gt;</span></div>
   </a>
 
   <a class="card" href="04-foto/">
     <div class="top">
-      <p class="mono">Návrh 04</p>
+      <p class="mono">Návrh 02</p>
       <h2>Stroj jako monument</h2>
-      <p>Stroj přes celou obrazovku, text je popiska. Kondenzované verzálky, celoplošné pásy pro každé odvětví, lepivý sloupec u specifikace.</p>
+      <p>Stroj přes celou obrazovku, při scrollu se odsouvá a mizí. Sekce najíždějí zdola, specifikace má lepivý sloupec s řezem stroje.</p>
     </div>
-    <div class="tags"><span>fotografie</span><span>Barlow Condensed</span><span>sticky scroll</span><span>full-bleed pásy</span></div>
+    <div class="tags"><span>scroll efekty</span><span>Barlow Condensed</span><span>sticky řez</span><span>parallax hero</span></div>
     <div class="go"><span>Otevřít návrh</span><span>-&gt;</span></div>
   </a>
 
   <a class="card" href="05-panel/">
     <div class="top">
-      <p class="mono">Návrh 05</p>
-      <h2>Pevný panel / konfigurátor</h2>
-      <p>Vlevo pevný černý panel s navigací, telefonem a poptávkou - nikdy nezmizí. Vpravo obsah. Uvnitř konfigurátor: kliknete na velikost, uvidíte parametry.</p>
+      <p class="mono">Návrh 03</p>
+      <h2>Konfigurátor</h2>
+      <p>Klidná světlá stránka s běžnou hlavičkou. Těžiště je konfigurátor: kliknete na typovou velikost a rovnou vidíte její parametry, bez louskání tabulky.</p>
     </div>
-    <div class="tags"><span>fixní panel</span><span>Manrope</span><span>konfigurátor</span><span>scrollspy</span></div>
-    <div class="go"><span>Otevřít návrh</span><span>-&gt;</span></div>
-  </a>
-
-  <a class="card" href="06-brutal/">
-    <div class="top">
-      <p class="mono">Návrh 06</p>
-      <h2>Brutalist industrial</h2>
-      <p>Silné černé linky, kondenzované verzálky odvozené z loga, nulové zaoblení, hustá data. Vypadá jako výrobní štítek stroje. Nejhlasitější varianta.</p>
-    </div>
-    <div class="tags"><span>vysoký kontrast</span><span>Oswald</span><span>datový štítek</span><span>běžící pás</span></div>
+    <div class="tags"><span>konfigurátor</span><span>Manrope</span><span>scrollspy</span><span>10 velikostí</span></div>
     <div class="go"><span>Otevřít návrh</span><span>-&gt;</span></div>
   </a>
 

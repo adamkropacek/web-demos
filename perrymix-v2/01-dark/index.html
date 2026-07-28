@@ -14,7 +14,21 @@
   --ink:#0A0A0A; --ink-2:#141416; --ink-3:#1D1D20;
   --line:rgba(255,255,255,.13); --line-soft:rgba(255,255,255,.07);
   --txt:#FFFFFF; --txt-2:rgba(255,255,255,.66); --txt-3:rgba(255,255,255,.42);
+  --chip:rgba(20,20,22,.9);
+  --head:rgba(10,10,10,.82);
+  --glow:.22;
   --shell:min(1360px,92vw);
+  /* one indent token drives every nested body so text lines up with its heading */
+  --pad-x:2rem; --tile:2.6rem; --tile-gap:1.2rem;
+  --indent:calc(var(--pad-x) + var(--tile) + var(--tile-gap));
+}
+html[data-theme="light"]{
+  --ink:#FFFFFF; --ink-2:#F4F4F4; --ink-3:#F2F2F2;
+  --line:rgba(10,10,10,.15); --line-soft:rgba(10,10,10,.08);
+  --txt:#0A0A0A; --txt-2:#3F3F46; --txt-3:#71717A;
+  --chip:rgba(255,255,255,.94);
+  --head:rgba(255,255,255,.86);
+  --glow:.10;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -22,14 +36,23 @@ body{
   background:var(--ink); color:var(--txt);
   font:400 17px/1.65 Archivo,system-ui,sans-serif;
   -webkit-font-smoothing:antialiased; overflow-x:hidden;
+  transition:background .2s,color .2s;
 }
+.logo-dark{display:none}
+html[data-theme="light"] .logo-dark{display:block}
+html[data-theme="light"] .logo-light{display:none}
+html[data-theme="light"] .hero-vis img,
+html[data-theme="light"] .split-vis img{filter:drop-shadow(0 30px 60px rgba(10,10,10,.22))}
+.theme-swap{display:inline-flex;border:1px solid var(--line);background:transparent;padding:0}
+.theme-swap button{background:none;border:0;color:var(--txt-3);font:inherit;font-family:"IBM Plex Mono",monospace;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;padding:.5rem .75rem;cursor:pointer;transition:background .15s,color .15s}
+.theme-swap button[aria-pressed="true"]{background:var(--txt);color:var(--ink)}
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
 .shell{width:var(--shell);margin-inline:auto}
 .mono{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase}
 
 /* ---------- nav ---------- */
-header{position:sticky;top:0;z-index:50;background:rgba(10,10,10,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--line-soft)}
+header{position:sticky;top:0;z-index:50;background:var(--head);backdrop-filter:blur(14px);border-bottom:1px solid var(--line-soft);transition:background .2s}
 .nav{display:flex;align-items:center;gap:2.5rem;height:76px}
 .nav img{height:22px;width:auto}
 .nav nav{display:flex;gap:2rem;margin-left:auto;color:var(--txt-2);font-size:.95rem}
@@ -45,7 +68,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(10,10,10,.82);backdrop-f
 .hero{position:relative;padding:6rem 0 5rem;overflow:hidden}
 .hero::before{
   content:"";position:absolute;inset:-30% 0 auto 40%;height:130%;
-  background:radial-gradient(closest-side,rgba(10,129,252,.22),transparent 72%);
+  background:radial-gradient(closest-side,rgb(10 129 252 / var(--glow)),transparent 72%);
   pointer-events:none;
 }
 .hero-grid{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:4rem;align-items:center}
@@ -59,7 +82,7 @@ h1 em{font-style:normal;color:var(--blue)}
 .hero-cta{display:flex;flex-wrap:wrap;gap:.8rem}
 .hero-vis{position:relative;display:grid;place-items:center;min-height:520px}
 .hero-vis img{max-height:560px;width:auto;filter:drop-shadow(0 40px 80px rgba(0,0,0,.8))}
-.chip{position:absolute;background:rgba(20,20,22,.9);border:1px solid var(--line);padding:.7rem 1rem;backdrop-filter:blur(8px)}
+.chip{position:absolute;background:var(--chip);border:1px solid var(--line);padding:.7rem 1rem;backdrop-filter:blur(8px)}
 .chip b{display:block;font-size:1.35rem;font-weight:700;letter-spacing:-.02em}
 .chip span{color:var(--txt-3);font-family:"IBM Plex Mono",monospace;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase}
 .chip-a{top:12%;left:-2%}
@@ -92,17 +115,21 @@ h2{font-size:clamp(1.9rem,3.2vw,2.9rem);line-height:1.1;font-weight:700;letter-s
 .speclist b{color:var(--txt);font-weight:500}
 
 .apps{display:grid;gap:1px;background:var(--line-soft);border:1px solid var(--line)}
-.app{background:var(--ink);padding:0}
-.app summary{list-style:none;cursor:pointer;display:flex;align-items:baseline;gap:1.5rem;padding:1.9rem 2rem;transition:background .16s}
+.app{background:var(--ink)}
+.app summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:var(--tile) minmax(0,1fr) auto;align-items:center;gap:var(--tile-gap);padding:1.4rem var(--pad-x);transition:background .16s}
 .app summary::-webkit-details-marker{display:none}
 .app summary:hover{background:var(--ink-2)}
-.app .n{color:var(--blue);font-family:"IBM Plex Mono",monospace;font-size:.8rem}
-.app h3{font-size:1.4rem;font-weight:600;letter-spacing:-.015em}
-.app .d{color:var(--txt-3);margin-left:auto;text-align:right;font-size:.95rem}
+.app .tile{width:var(--tile);height:var(--tile);display:grid;place-items:center;background:var(--ink-2);border:1px solid var(--line);color:var(--blue);transition:background .16s,color .16s}
+.app[open] .tile{background:var(--blue);border-color:var(--blue);color:#fff}
+.app h3{font-size:1.2rem;font-weight:600;letter-spacing:-.015em}
+.app .d{display:block;color:var(--txt-3);font-size:.92rem;line-height:1.4;margin-top:.2rem}
+.app .chev{color:var(--txt-3);transition:transform .25s ease,color .16s}
+.app[open] .chev{transform:rotate(180deg);color:var(--blue)}
 .app[open] summary{background:var(--ink-2)}
-.app-body{padding:0 2rem 2.2rem 5.2rem;color:var(--txt-2);max-width:80ch}
-.app-body ul{margin-top:1.1rem;list-style:none;display:grid;gap:.45rem}
-.app-body li::before{content:"-";color:var(--blue);margin-right:.6rem}
+/* body starts exactly where the heading text starts */
+.app-body{padding:0 var(--pad-x) 2rem var(--indent);color:var(--txt-2);max-width:78ch}
+.app-body ul{margin-top:1.2rem;list-style:none;display:flex;flex-wrap:wrap;gap:.5rem}
+.app-body li{border:1px solid var(--line);padding:.35rem .8rem;font-size:.85rem;color:var(--txt-3)}
 
 .reasons{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1px;background:var(--line-soft);border:1px solid var(--line)}
 .reason{background:var(--ink);padding:2.2rem 1.9rem}
@@ -160,15 +187,15 @@ footer{background:var(--ink-2);border-top:1px solid var(--line-soft);padding:4.5
   .burger{display:block}
   .nav .btn{display:none}
   .chip-a{left:0}.chip-b{right:0}
-  .app-body{padding-left:2rem}
 }
 @media(max-width:620px){
   section{padding:4.5rem 0}
   .steps,.stats{grid-template-columns:1fr}
   .stats div{border-right:0;border-bottom:1px solid var(--line)}
   .foot{grid-template-columns:1fr}
-  .app summary{flex-wrap:wrap;gap:.6rem}
-  .app .d{margin-left:0;text-align:left;width:100%}
+  :root{--pad-x:1.2rem;--tile:2.2rem;--tile-gap:.9rem}
+  .app .chev{display:none}
+  .app summary{grid-template-columns:var(--tile) minmax(0,1fr)}
 }
 </style>
 </head>
@@ -176,13 +203,20 @@ footer{background:var(--ink-2);border-top:1px solid var(--line-soft);padding:4.5
 
 <header>
   <div class="shell nav">
-    <a href="#"><img src="../assets/perrymix-logo-white.png" alt="PERRYmix"></a>
+    <a href="#">
+      <img class="logo-light" src="../assets/perrymix-logo-white.png" alt="PERRYmix">
+      <img class="logo-dark" src="../assets/perrymix-logo.png" alt="PERRYmix">
+    </a>
     <nav>
       <a href="#produkt">Produkt</a>
       <a href="#aplikace">Aplikace</a>
       <a href="#proces">Jak to funguje</a>
       <a href="#faq">Časté dotazy</a>
     </nav>
+    <div class="theme-swap" role="group" aria-label="Motiv">
+      <button type="button" data-theme-set="dark" aria-pressed="true">Black</button>
+      <button type="button" data-theme-set="light" aria-pressed="false">White</button>
+    </div>
     <a class="tel mono" href="tel:+420495822770">+420 495 822 770</a>
     <a class="btn" href="#poptavka">Poptávka</a>
     <button class="burger" onclick="document.querySelector('.nav nav').style.display='flex'">Menu</button>
@@ -258,28 +292,44 @@ footer{background:var(--ink-2);border-top:1px solid var(--line-soft);padding:4.5
     </div>
     <div class="apps">
       <details class="app" open>
-        <summary><span class="n">01</span><h3>Potravinářství</h3><span class="d">Pudinky, polévky, instantní nápoje, směsi čajů a koření.</span></summary>
+        <summary>
+          <span class="tile"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13h16a8 8 0 0 1-16 0Z"/><path d="M3 20h18"/><path d="M12 3v3M9 5l3-2 3 2"/></svg></span>
+          <div><h3>Potravinářství</h3><span class="d">Pudinky, polévky, instantní nápoje, směsi čajů a koření.</span></div>
+          <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+        </summary>
         <div class="app-body">
           <p>Ve výrobě potravin homogenizátor HV stejnoměrně rozmíchá práškové a sypké suroviny tak, aby každá šarže měla shodné složení, barvu i chuť. Šetrné míchání kónickým šnekem nepoškozuje citlivé složky a zabraňuje oddělování jemných frakcí. Dodáváme v potravinářském provedení - kontaktní části z nerezové oceli AISI 304 (na míru AISI 316L), hladce broušené svary a snadné čištění mezi šaržemi.</p>
           <ul><li>Pudinky, dezerty a instantní směsi</li><li>Polévky, omáčky a dehydratované pokrmy</li><li>Směsi čajů, koření a ochucovadel</li><li>Instantní a nápojové prášky</li></ul>
         </div>
       </details>
       <details class="app">
-        <summary><span class="n">02</span><h3>Farmacie</h3><span class="d">Směsi pro výrobu léčiv a potravinových doplňků.</span></summary>
+        <summary>
+          <span class="tile"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="8" width="19" height="8" rx="4"/><path d="M12 8v8"/></svg></span>
+          <div><h3>Farmacie</h3><span class="d">Směsi pro výrobu léčiv a potravinových doplňků.</span></div>
+          <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+        </summary>
         <div class="app-body">
           <p>Pro farmaceutickou výrobu zajišťuje homogenizátor vysoký a opakovatelný stupeň homogenizace - rozhodující pro rovnoměrné rozložení účinné látky v celé dávce. Samovyprazdňovací efekt a rychlá demontáž šneku usnadňují čištění a snižují riziko křížové kontaminace mezi šaržemi. Kontaktní části dodáváme v jakosti AISI 316L.</p>
           <ul><li>Směsi pro výrobu léčiv</li><li>Potravinové doplňky a vitaminové premixy</li><li>Práškové směsi účinných a pomocných látek</li></ul>
         </div>
       </details>
       <details class="app">
-        <summary><span class="n">03</span><h3>Chemie</h3><span class="d">Práškové barvy, pigmenty a chemické směsi.</span></summary>
+        <summary>
+          <span class="tile"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3v6.2L4.2 18A2 2 0 0 0 6 21h12a2 2 0 0 0 1.8-3L15 9.2V3"/><path d="M8 3h8"/><path d="M6.5 15h11"/></svg></span>
+          <div><h3>Chemie</h3><span class="d">Práškové barvy, pigmenty a chemické směsi.</span></div>
+          <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+        </summary>
         <div class="app-body">
           <p>V chemické výrobě stroj rovnoměrně promíchá prášky, pigmenty a sypké chemické směsi i při rozdílné velikosti a hustotě částic. Pro prostředí s nebezpečím výbuchu dodáváme pohon a převodovku v provedení ATEX a pneumaticky ovládaný výpustní ventil.</p>
           <ul><li>Práškové barvy a nátěrové hmoty</li><li>Pigmenty a plniva</li><li>Suché chemické směsi a kompozice</li></ul>
         </div>
       </details>
       <details class="app">
-        <summary><span class="n">04</span><h3>Krmiva a agrochemie</h3><span class="d">Krmné směsi a zemědělské premixy.</span></summary>
+        <summary>
+          <span class="tile"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 18 4h3v3a7 7 0 0 1-7 7h-3v6Z"/><path d="M4 21c0-4 3-7 7-8"/></svg></span>
+          <div><h3>Krmiva a agrochemie</h3><span class="d">Krmné směsi a zemědělské premixy.</span></div>
+          <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+        </summary>
         <div class="app-body">
           <p>Při výrobě krmiv a agrochemie homogenizátor rychle a stejnoměrně zamíchá malé podíly aditiv (vitaminy, minerály, léčiva) do velkého objemu nosné směsi. Vysoký stupeň homogenizace a krátký mísicí čas zajišťují, že je účinná složka rovnoměrně rozložena v každém kilogramu produktu.</p>
           <ul><li>Krmné směsi a doplňky</li><li>Zemědělské a veterinární premixy</li><li>Mikrokomponenty (vitaminy, minerály) do nosných směsí</li></ul>
@@ -390,5 +440,20 @@ footer{background:var(--ink-2);border-top:1px solid var(--line-soft);padding:4.5
   </div>
 </footer>
 
+<script>
+// Black/white swap. Every surface is a CSS variable, so the whole page flips
+// off one data-theme attribute; the choice sticks across reloads.
+const root = document.documentElement;
+const swaps = [...document.querySelectorAll('[data-theme-set]')];
+function setTheme(t){
+  root.dataset.theme = t;
+  swaps.forEach(b => b.setAttribute('aria-pressed', b.dataset.themeSet === t));
+  try { localStorage.setItem('perrymix-theme', t) } catch {}
+}
+swaps.forEach(b => b.onclick = () => setTheme(b.dataset.themeSet));
+let saved = null;
+try { saved = localStorage.getItem('perrymix-theme') } catch {}
+setTheme(saved === 'light' ? 'light' : 'dark');
+</script>
 </body>
 </html>

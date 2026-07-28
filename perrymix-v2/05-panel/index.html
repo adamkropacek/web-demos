@@ -15,7 +15,6 @@
   --paper:#FFFFFF; --paper-2:#F4F4F4; --paper-3:#F2F2F2;
   --txt-2:#52525B; --txt-3:#8A8A93;
   --hair:#E2E2E7;
-  --panel:320px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -25,38 +24,26 @@ a{color:inherit;text-decoration:none}
 .mono{font-family:"DM Mono",ui-monospace,monospace}
 .kicker{font-family:"DM Mono",monospace;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--blue)}
 
-/* ---------- fixed control panel ---------- */
-.panel{
-  position:fixed;top:0;left:0;bottom:0;width:var(--panel);z-index:60;
-  background:var(--ink);color:#fff;display:flex;flex-direction:column;
-  padding:2.2rem 1.8rem;border-right:1px solid rgba(255,255,255,.1);
-}
-.panel img.logo{height:22px;width:auto}
-.panel .sub{color:rgba(255,255,255,.42);font-family:"DM Mono",monospace;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;margin-top:.7rem}
-.panel nav{margin-top:2.6rem;display:grid;gap:.1rem}
-.panel nav a{display:flex;align-items:baseline;gap:.9rem;padding:.62rem .7rem;color:rgba(255,255,255,.6);font-size:.95rem;border-left:2px solid transparent;transition:color .18s,border-color .18s,background .18s}
-.panel nav a .n{font-family:"DM Mono",monospace;font-size:.68rem;color:rgba(255,255,255,.3)}
-.panel nav a:hover{color:#fff;background:rgba(255,255,255,.05)}
-.panel nav a.on{color:#fff;border-left-color:var(--blue-bright);background:rgba(10,129,252,.12)}
-.panel nav a.on .n{color:var(--blue-bright)}
-.panel .foot{margin-top:auto;padding-top:2rem;border-top:1px solid rgba(255,255,255,.12)}
-.panel .foot dt{font-family:"DM Mono",monospace;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.38)}
-.panel .foot dd{margin:.25rem 0 1rem;font-size:.95rem}
-.panel .foot a:hover{color:var(--blue-bright)}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.9rem 1.5rem;background:var(--blue);color:#fff;font-weight:600;font-size:.95rem;border:0;cursor:pointer;transition:background .18s;width:100%}
+/* ---------- header ---------- */
+header{position:sticky;top:0;z-index:60;background:var(--ink);color:#fff}
+.bar{display:flex;align-items:center;gap:2rem;height:72px}
+.bar img{height:20px;width:auto}
+.bar .sub{font-family:"DM Mono",monospace;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.4);border-left:1px solid rgba(255,255,255,.2);padding-left:1rem}
+.bar nav{display:flex;gap:1.8rem;margin-left:auto;font-size:.95rem;color:rgba(255,255,255,.62)}
+.bar nav a{position:relative;padding:.3rem 0;transition:color .18s}
+.bar nav a:hover{color:#fff}
+.bar nav a.on{color:#fff}
+.bar nav a.on::after{content:"";position:absolute;left:0;right:0;bottom:-.15rem;height:2px;background:var(--blue-bright)}
+.bar .tel{font-family:"DM Mono",monospace;font-size:.85rem;color:rgba(255,255,255,.75)}
+.bar .tel:hover{color:#fff}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.85rem 1.5rem;background:var(--blue);color:#fff;font-weight:600;font-size:.95rem;border:0;cursor:pointer;transition:background .18s}
 .btn:hover{background:var(--blue-bright)}
-.btn-o{background:transparent;border:1px solid var(--hair);color:var(--ink);width:auto}
+.btn-o{background:transparent;border:1px solid var(--hair);color:var(--ink)}
 .btn-o:hover{background:var(--paper-2)}
-
-/* mobile header replaces the panel */
-.mhead{display:none;position:sticky;top:0;z-index:60;background:var(--ink);color:#fff;padding:.9rem 1.2rem;align-items:center;gap:1rem}
-.mhead img{height:19px;width:auto}
-.mhead a.call{margin-left:auto;font-family:"DM Mono",monospace;font-size:.82rem;color:rgba(255,255,255,.8)}
-.mhead a.cta{background:var(--blue);padding:.55rem 1rem;font-size:.85rem;font-weight:600}
+.burger{display:none;background:none;border:1px solid rgba(255,255,255,.25);color:#fff;padding:.5rem .8rem;font:inherit;font-size:.85rem;cursor:pointer}
 
 /* ---------- content column ---------- */
-main{margin-left:var(--panel)}
-.wrap{width:min(1080px,88%);margin-inline:auto}
+.wrap{width:min(1160px,90vw);margin-inline:auto}
 section{padding:6rem 0;border-bottom:1px solid var(--hair)}
 h1{font-size:clamp(2.5rem,4.4vw,3.9rem);line-height:1.04;font-weight:800;letter-spacing:-.035em;margin:1.3rem 0 1.3rem}
 h1 em{font-style:normal;color:var(--blue)}
@@ -89,7 +76,8 @@ h2{font-size:clamp(1.75rem,2.9vw,2.4rem);line-height:1.14;font-weight:700;letter
 .cfg-models button[aria-pressed="true"]{background:var(--blue);border-color:var(--blue);color:#fff}
 .cfg-out{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;background:var(--hair)}
 .cfg-out div{background:var(--paper);padding:1.3rem 1.2rem}
-.cfg-out dt{font-family:"DM Mono",monospace;font-size:.62rem;letter-spacing:.13em;text-transform:uppercase;color:var(--txt-3)}
+/* two-line labels (Celková výška [mm]) must not push their value out of line */
+.cfg-out dt{font-family:"DM Mono",monospace;font-size:.62rem;letter-spacing:.13em;text-transform:uppercase;color:var(--txt-3);line-height:1.35;min-height:2.7em}
 .cfg-out dd{font-size:1.35rem;font-weight:700;letter-spacing:-.02em;margin-top:.3rem;font-variant-numeric:tabular-nums}
 .cfg-note{padding:1rem 1.6rem;font-size:.83rem;color:var(--txt-3);background:var(--paper)}
 
@@ -100,18 +88,21 @@ h2{font-size:clamp(1.75rem,2.9vw,2.4rem);line-height:1.14;font-weight:700;letter
 .plain li::before{content:"+";color:var(--blue);font-weight:700}
 h3.mini{font-size:1.05rem;font-weight:700;margin-bottom:.9rem}
 
+/* one indent token so the body always starts under the heading text */
+:root{--pad-x:1.4rem; --tile:1.9rem; --tile-gap:1rem;
+      --indent:calc(var(--pad-x) + var(--tile) + var(--tile-gap))}
 .apps{display:grid;gap:.5rem}
 .app{border:1px solid var(--hair)}
-.app summary{list-style:none;cursor:pointer;display:flex;gap:1rem;align-items:baseline;padding:1.2rem 1.4rem}
+.app summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:var(--tile) minmax(0,1fr) auto;gap:var(--tile-gap);align-items:center;padding:1.15rem var(--pad-x)}
 .app summary::-webkit-details-marker{display:none}
 .app summary:hover{background:var(--paper-2)}
-.app .n{font-family:"DM Mono",monospace;font-size:.7rem;color:var(--blue)}
+.app .n{font-family:"DM Mono",monospace;font-size:.72rem;color:var(--blue)}
 .app h3{font-size:1.1rem;font-weight:700}
-.app .d{color:var(--txt-3);font-size:.88rem;margin-left:auto;text-align:right}
-.app summary::after{content:"+";color:var(--blue);font-weight:700;margin-left:.6rem}
-.app[open] summary::after{content:"-"}
+.app .d{display:block;color:var(--txt-3);font-size:.88rem;margin-top:.15rem;line-height:1.4}
+.app .chev{color:var(--txt-3);transition:transform .25s ease,color .18s}
+.app[open] .chev{transform:rotate(180deg);color:var(--blue)}
 .app[open]{border-color:var(--blue)}
-.app-body{padding:0 1.4rem 1.6rem 3.4rem;color:var(--txt-2);font-size:.96rem}
+.app-body{padding:0 var(--pad-x) 1.6rem var(--indent);color:var(--txt-2);font-size:.96rem}
 .app-body ul{list-style:none;margin-top:1rem;display:flex;flex-wrap:wrap;gap:.4rem}
 .app-body li{font-family:"DM Mono",monospace;font-size:.75rem;border:1px solid var(--hair);padding:.32rem .7rem}
 
@@ -148,9 +139,8 @@ footer{padding:3rem 0;font-size:.9rem;color:var(--txt-3)}
 footer a:hover{color:var(--blue)}
 
 @media(max-width:1100px){
-  .panel{display:none}
-  .mhead{display:flex}
-  main{margin-left:0}
+  .bar nav,.bar .sub,.bar .tel{display:none}
+  .burger{display:block;margin-left:auto}
   .intro,.two,.inq-in{grid-template-columns:1fr;gap:2.2rem}
   .kpis{grid-template-columns:1fr 1fr}
 }
@@ -161,39 +151,27 @@ footer a:hover{color:var(--blue)}
   .stp .dur{grid-column:2}
   .app summary{flex-wrap:wrap}
   .app .d{width:100%;margin-left:0;text-align:left}
-  .app-body{padding-left:1.4rem}
 }
 </style>
 </head>
 <body>
 
-<aside class="panel">
-  <a href="#uvod"><img class="logo" src="../assets/perrymix-logo-white.png" alt="PERRYmix"></a>
-  <div class="sub">Procesní a mísicí technika</div>
-  <nav id="spy">
-    <a href="#uvod"><span class="n">01</span>Úvod</a>
-    <a href="#produkt"><span class="n">02</span>Produkt HV-Series</a>
-    <a href="#velikosti"><span class="n">03</span>Typové velikosti</a>
-    <a href="#aplikace"><span class="n">04</span>Aplikace</a>
-    <a href="#proc"><span class="n">05</span>Proč PERRYmix</a>
-    <a href="#proces"><span class="n">06</span>Průběh zakázky</a>
-    <a href="#faq"><span class="n">07</span>Časté dotazy</a>
-    <a href="#poptavka"><span class="n">08</span>Poptávka</a>
-  </nav>
-  <div class="foot">
-    <dl>
-      <dt>Telefon</dt><dd><a href="tel:+420495822770">+420 495 822 770</a></dd>
-      <dt>E-mail</dt><dd><a href="mailto:tvenzara@perryczech.cz">tvenzara@perryczech.cz</a></dd>
-    </dl>
-    <a class="btn" href="#poptavka">Poptávka do 48 hodin</a>
+<header>
+  <div class="wrap bar">
+    <a href="#uvod"><img src="../assets/perrymix-logo-white.png" alt="PERRYmix"></a>
+    <span class="sub">Procesní a mísicí technika</span>
+    <nav id="spy">
+      <a href="#produkt">Produkt</a>
+      <a href="#velikosti">Velikosti</a>
+      <a href="#aplikace">Aplikace</a>
+      <a href="#proces">Postup</a>
+      <a href="#faq">Dotazy</a>
+    </nav>
+    <a class="tel" href="tel:+420495822770">+420 495 822 770</a>
+    <a class="btn" href="#poptavka">Poptávka</a>
+    <button class="burger" onclick="document.querySelector('.bar nav').style.display='flex'">Menu</button>
   </div>
-</aside>
-
-<div class="mhead">
-  <img src="../assets/perrymix-logo-white.png" alt="PERRYmix">
-  <a class="call" href="tel:+420495822770">+420 495 822 770</a>
-  <a class="cta" href="#poptavka">Poptávka</a>
-</div>
+</header>
 
 <main>
 
@@ -286,28 +264,44 @@ footer a:hover{color:var(--blue)}
     </div>
     <div class="apps">
       <details class="app" open>
-        <summary><span class="n">01</span><h3>Potravinářství</h3><span class="d">Pudinky, polévky, instantní nápoje, směsi čajů a koření.</span></summary>
+        <summary>
+          <span class="n">01</span>
+          <div><h3>Potravinářství</h3><span class="d">Pudinky, polévky, instantní nápoje, směsi čajů a koření.</span></div>
+          <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+        </summary>
         <div class="app-body">
           <p>Ve výrobě potravin homogenizátor HV stejnoměrně rozmíchá práškové a sypké suroviny tak, aby každá šarže měla shodné složení, barvu i chuť. Šetrné míchání kónickým šnekem nepoškozuje citlivé složky a zabraňuje oddělování jemných frakcí. Dodáváme v potravinářském provedení - kontaktní části z nerezové oceli AISI 304 (na míru AISI 316L), hladce broušené svary a snadné čištění mezi šaržemi.</p>
           <ul><li>Pudinky, dezerty a instantní směsi</li><li>Polévky, omáčky a dehydratované pokrmy</li><li>Směsi čajů, koření a ochucovadel</li><li>Instantní a nápojové prášky</li></ul>
         </div>
       </details>
       <details class="app">
-        <summary><span class="n">02</span><h3>Farmacie</h3><span class="d">Směsi pro výrobu léčiv a potravinových doplňků.</span></summary>
+        <summary>
+          <span class="n">02</span>
+          <div><h3>Farmacie</h3><span class="d">Směsi pro výrobu léčiv a potravinových doplňků.</span></div>
+          <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+        </summary>
         <div class="app-body">
           <p>Pro farmaceutickou výrobu zajišťuje homogenizátor vysoký a opakovatelný stupeň homogenizace - rozhodující pro rovnoměrné rozložení účinné látky v celé dávce. Samovyprazdňovací efekt a rychlá demontáž šneku usnadňují čištění a snižují riziko křížové kontaminace mezi šaržemi. Kontaktní části dodáváme v jakosti AISI 316L.</p>
           <ul><li>Směsi pro výrobu léčiv</li><li>Potravinové doplňky a vitaminové premixy</li><li>Práškové směsi účinných a pomocných látek</li></ul>
         </div>
       </details>
       <details class="app">
-        <summary><span class="n">03</span><h3>Chemie</h3><span class="d">Práškové barvy, pigmenty a chemické směsi.</span></summary>
+        <summary>
+          <span class="n">03</span>
+          <div><h3>Chemie</h3><span class="d">Práškové barvy, pigmenty a chemické směsi.</span></div>
+          <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+        </summary>
         <div class="app-body">
           <p>V chemické výrobě stroj rovnoměrně promíchá prášky, pigmenty a sypké chemické směsi i při rozdílné velikosti a hustotě částic. Pro prostředí s nebezpečím výbuchu dodáváme pohon a převodovku v provedení ATEX a pneumaticky ovládaný výpustní ventil.</p>
           <ul><li>Práškové barvy a nátěrové hmoty</li><li>Pigmenty a plniva</li><li>Suché chemické směsi a kompozice</li></ul>
         </div>
       </details>
       <details class="app">
-        <summary><span class="n">04</span><h3>Krmiva a agrochemie</h3><span class="d">Krmné směsi a zemědělské premixy.</span></summary>
+        <summary>
+          <span class="n">04</span>
+          <div><h3>Krmiva a agrochemie</h3><span class="d">Krmné směsi a zemědělské premixy.</span></div>
+          <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+        </summary>
         <div class="app-body">
           <p>Při výrobě krmiv a agrochemie homogenizátor rychle a stejnoměrně zamíchá malé podíly aditiv (vitaminy, minerály, léčiva) do velkého objemu nosné směsi. Vysoký stupeň homogenizace a krátký mísicí čas zajišťují, že je účinná složka rovnoměrně rozložena v každém kilogramu produktu.</p>
           <ul><li>Krmné směsi a doplňky</li><li>Zemědělské a veterinární premixy</li><li>Mikrokomponenty (vitaminy, minerály) do nosných směsí</li></ul>
@@ -438,7 +432,7 @@ MODELS.forEach((m,i) => {
 });
 show(5); // HV1000 - mid of the range, the most representative default
 
-// --- scrollspy for the fixed panel ---
+// --- scrollspy underlines the header link for the section in view ---
 const links = [...document.querySelectorAll('#spy a')];
 const spy = new IntersectionObserver(es => es.forEach(e => {
   if (e.isIntersecting) links.forEach(a => a.classList.toggle('on', a.hash === '#' + e.target.id));
