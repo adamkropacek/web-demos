@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PERRYmix - 6 návrhů webu k výběru</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--blue:#126BC8;--blue-bright:#0A81FC;--ink:#0A0A0A;--txt-2:#52525B;--txt-3:#8A8A93;--hair:#E2E2E7;--paper-2:#F4F4F4}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#fff;color:var(--ink);font:400 16.5px/1.6 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.shell{width:min(1180px,90vw);margin-inline:auto}
+.mono{font-family:"IBM Plex Mono",monospace;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--blue)}
+header{border-bottom:1px solid var(--hair);padding:2rem 0}
+header img{height:24px;width:auto}
+.intro{padding:4rem 0 2.5rem}
+h1{font-size:clamp(2rem,4vw,3rem);font-weight:700;letter-spacing:-.03em;line-height:1.08;margin:1rem 0}
+.intro p{color:var(--txt-2);max-width:62ch}
+.pal{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:2rem}
+.sw{display:flex;align-items:center;gap:.55rem;border:1px solid var(--hair);padding:.45rem .8rem;font-family:"IBM Plex Mono",monospace;font-size:.78rem}
+.sw i{width:16px;height:16px;display:block;border:1px solid rgba(0,0,0,.15)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:1.4rem;padding-bottom:5rem}
+.card{border:1px solid var(--hair);display:flex;flex-direction:column;transition:border-color .18s,transform .18s}
+.card:hover{border-color:var(--blue);transform:translateY(-2px)}
+.card .top{padding:1.6rem 1.5rem 1.3rem;border-bottom:1px solid var(--hair)}
+.card h2{font-size:1.35rem;font-weight:700;letter-spacing:-.02em;margin:.6rem 0 .5rem}
+.card p{color:var(--txt-2);font-size:.94rem}
+.card .tags{display:flex;flex-wrap:wrap;gap:.35rem;padding:1rem 1.5rem;margin-top:auto}
+.card .tags span{font-family:"IBM Plex Mono",monospace;font-size:.68rem;border:1px solid var(--hair);padding:.25rem .55rem;color:var(--txt-3)}
+.card .go{display:flex;align-items:center;justify-content:space-between;padding:1rem 1.5rem;background:var(--paper-2);font-weight:600;font-size:.92rem}
+.card:hover .go{background:var(--blue);color:#fff}
+.note{border:1px solid var(--hair);background:var(--paper-2);padding:1.4rem 1.5rem;margin-bottom:2.5rem;font-size:.92rem;color:var(--txt-2)}
+.note b{color:var(--ink)}
+footer{border-top:1px solid var(--hair);padding:2rem 0;font-size:.85rem;color:var(--txt-3)}
+</style>
+</head>
+<body>
+
+<header><div class="shell"><img src="assets/perrymix-logo.png" alt="PERRYmix"></div></header>
+
+<div class="shell intro">
+  <p class="mono">Interní výběr / 2026</p>
+  <h1>Šest návrhů webu PERRYmix</h1>
+  <p>Šest samostatných směrů pro CZ homepage. Stejné logo, stejná paleta převzatá z origo webu Perry Equipment, stejný ověřený obsah z oficiálního datasheetu. Liší se jen tvar - typografie, kompozice a způsob, jak vede návštěvníka k poptávce.</p>
+  <div class="pal">
+    <span class="sw"><i style="background:#126BC8"></i>#126BC8</span>
+    <span class="sw"><i style="background:#0A81FC"></i>#0A81FC</span>
+    <span class="sw"><i style="background:#0A0A0A"></i>#0A0A0A</span>
+    <span class="sw"><i style="background:#F2F2F2"></i>#F2F2F2</span>
+    <span class="sw"><i style="background:#FFFFFF"></i>#FFFFFF</span>
+  </div>
+</div>
+
+<div class="shell">
+  <div class="note"><b>Jak vybírat:</b> projděte všech šest na desktopu i na mobilu. Rozhodněte se pro jeden směr - ten pak dopracuji do plné verze (4 stránky x 3 jazyky, formuláře, SEO). Prvky z ostatních návrhů se dají přenést, ale základ by měl být jeden.</div>
+</div>
+
+<div class="shell grid">
+
+  <a class="card" href="01-dark/">
+    <div class="top">
+      <p class="mono">Návrh 01</p>
+      <h2>Dark engineering</h2>
+      <p>Černá je celá stránka, ne jen doplněk. Stroj svítí ze tmy, modrá je jediné světlo. Nejvýraznější kontrast vůči všemu, co konkurence v oboru dělá.</p>
+    </div>
+    <div class="tags"><span>tmavé</span><span>Archivo</span><span>spec ticker</span><span>rozklikávací aplikace</span></div>
+    <div class="go"><span>Otevřít návrh</span><span>-&gt;</span></div>
+  </a>
+
+  <a class="card" href="02-katalog/">
+    <div class="top">
+      <p class="mono">Návrh 02</p>
+      <h2>Tištěný katalog</h2>
+      <p>Čte se jako stránka ze strojírenského katalogu. Serifové nadpisy, vlasové linky, číslované sekce, tabulka velikostí jako hlavní hrdina. Téměř bez barvy.</p>
+    </div>
+    <div class="tags"><span>editorial</span><span>Newsreader</span><span>marginálie</span><span>číslované sekce</span></div>
+    <div class="go"><span>Otevřít návrh</span><span>-&gt;</span></div>
+  </a>
+
+  <a class="card" href="03-blueprint/">
+    <div class="top">
+      <p class="mono">Návrh 03</p>
+      <h2>Výkres / CAD</h2>
+      <p>Milimetrový rastr, kótování stroje, rohové razítko jako na technickém výkrese. Sekce mají čísla revizí. Sází na inženýrskou tradici.</p>
+    </div>
+    <div class="tags"><span>rastr</span><span>IBM Plex</span><span>kóty a odkazy</span><span>rohové razítko</span></div>
+    <div class="go"><span>Otevřít návrh</span><span>-&gt;</span></div>
+  </a>
+
+  <a class="card" href="04-foto/">
+    <div class="top">
+      <p class="mono">Návrh 04</p>
+      <h2>Stroj jako monument</h2>
+      <p>Stroj přes celou obrazovku, text je popiska. Kondenzované verzálky, celoplošné pásy pro každé odvětví, lepivý sloupec u specifikace.</p>
+    </div>
+    <div class="tags"><span>fotografie</span><span>Barlow Condensed</span><span>sticky scroll</span><span>full-bleed pásy</span></div>
+    <div class="go"><span>Otevřít návrh</span><span>-&gt;</span></div>
+  </a>
+
+  <a class="card" href="05-panel/">
+    <div class="top">
+      <p class="mono">Návrh 05</p>
+      <h2>Pevný panel / konfigurátor</h2>
+      <p>Vlevo pevný černý panel s navigací, telefonem a poptávkou - nikdy nezmizí. Vpravo obsah. Uvnitř konfigurátor: kliknete na velikost, uvidíte parametry.</p>
+    </div>
+    <div class="tags"><span>fixní panel</span><span>Manrope</span><span>konfigurátor</span><span>scrollspy</span></div>
+    <div class="go"><span>Otevřít návrh</span><span>-&gt;</span></div>
+  </a>
+
+  <a class="card" href="06-brutal/">
+    <div class="top">
+      <p class="mono">Návrh 06</p>
+      <h2>Brutalist industrial</h2>
+      <p>Silné černé linky, kondenzované verzálky odvozené z loga, nulové zaoblení, hustá data. Vypadá jako výrobní štítek stroje. Nejhlasitější varianta.</p>
+    </div>
+    <div class="tags"><span>vysoký kontrast</span><span>Oswald</span><span>datový štítek</span><span>běžící pás</span></div>
+    <div class="go"><span>Otevřít návrh</span><span>-&gt;</span></div>
+  </a>
+
+</div>
+
+<footer><div class="shell">Perry Machinery Czech Republic, s.r.o. · Interní podklad pro výběr designu · 2026</div></footer>
+
+</body>
+</html>

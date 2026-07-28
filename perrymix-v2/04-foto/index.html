@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PERRYmix - Vertikální homogenizátory HV50-HV3000 | Výroba v ČR</title>
+<meta name="description" content="Český výrobce vertikálních homogenizátorů, hnětačů, disolverů a mlýnů. 10 typových velikostí 50-3 000 L, AISI 304 / 316L, ATEX volitelně. Nabídka do 48 hodin.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --blue:#0A81FC; --blue-deep:#126BC8;
+  --ink:#0A0A0A; --ink-2:#141416;
+  --paper:#FFFFFF; --paper-2:#F2F2F2;
+  --shell:min(1400px,90vw);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font:400 17px/1.65 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.shell{width:var(--shell);margin-inline:auto}
+.cond{font-family:"Barlow Condensed",sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:.01em;line-height:.92}
+.kicker{font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;font-weight:600;color:var(--blue)}
+
+/* ---------- nav over hero ---------- */
+header{position:fixed;top:0;left:0;right:0;z-index:60;transition:background .25s,border-color .25s;border-bottom:1px solid transparent}
+header.solid{background:rgba(10,10,10,.9);backdrop-filter:blur(12px);border-bottom-color:rgba(255,255,255,.12)}
+.bar{display:flex;align-items:center;gap:2rem;height:74px}
+.bar img{height:20px;width:auto}
+.bar nav{display:flex;gap:2rem;margin-left:auto;font-family:"Barlow Condensed",sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:.08em;font-size:1rem;color:rgba(255,255,255,.75)}
+.bar nav a:hover{color:#fff}
+.bar .tel{color:rgba(255,255,255,.75);font-size:.9rem;font-variant-numeric:tabular-nums}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.6rem;background:var(--blue);color:#fff;font-family:"Barlow Condensed",sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:.08em;font-size:1.05rem;border:0;cursor:pointer;transition:background .18s}
+.btn:hover{background:var(--blue-deep)}
+.btn-o{background:transparent;border:1px solid rgba(255,255,255,.45);color:#fff}
+.btn-o:hover{background:rgba(255,255,255,.12)}
+
+/* ---------- monument hero ---------- */
+/* Column layout, not an overlay: the machine gets its own band so the cutout
+   never sits behind the headline and stays legible on the near-black. */
+.hero{position:relative;min-height:100svh;background:var(--ink);color:#fff;display:flex;flex-direction:column;overflow:hidden;padding-bottom:3rem}
+.hero-img{position:relative;flex:1;min-height:0;display:grid;place-items:center;padding:5.5rem 1rem 1rem}
+.hero-img::before{content:"";position:absolute;inset:8% 22% 4%;background:radial-gradient(ellipse at center,rgba(10,129,252,.20),transparent 68%)}
+/* svh cap, not height:100% - the flex parent has no definite height, so a
+   percentage would resolve to the render's natural 1400px and blow the fold. */
+.hero-img img{position:relative;height:auto;max-height:58svh;width:auto;max-width:92%;object-fit:contain;filter:drop-shadow(0 40px 90px rgba(0,0,0,.85))}
+.hero-txt{position:relative;z-index:2;flex:0 0 auto}
+h1{font-family:"Barlow Condensed",sans-serif;font-weight:700;text-transform:uppercase;font-size:clamp(2.8rem,7.6vw,6.8rem);line-height:.88;letter-spacing:-.01em}
+h1 em{font-style:normal;color:var(--blue)}
+.hero-sub{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:3rem;align-items:end;margin-top:2rem;border-top:1px solid rgba(255,255,255,.22);padding-top:1.6rem}
+.hero-sub p{color:rgba(255,255,255,.72);max-width:52ch}
+.hero-cta{display:flex;gap:.8rem;flex-wrap:wrap}
+.scroll-hint{position:relative;z-index:2;margin-top:1.2rem;font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.45);text-align:right}
+
+/* ---------- number band ---------- */
+.band{background:var(--ink-2);color:#fff;padding:0}
+.band-in{display:grid;grid-template-columns:repeat(4,1fr)}
+.band div{padding:3rem 2rem;border-right:1px solid rgba(255,255,255,.12)}
+.band div:last-child{border-right:0}
+.band b{font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:clamp(3rem,5.5vw,4.6rem);line-height:.9;display:block}
+.band span{color:rgba(255,255,255,.5);font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;margin-top:.8rem;display:block}
+
+/* ---------- sticky product ---------- */
+.sticky-wrap{display:grid;grid-template-columns:1fr 1fr;background:var(--paper-2)}
+.sticky-vis{position:sticky;top:0;height:100svh;display:grid;place-items:center;padding:5rem 2rem}
+.sticky-vis img{max-height:78%;width:auto}
+.sticky-txt{padding:8rem 4rem}
+.sticky-txt h2{margin-bottom:1.2rem}
+.blk{padding:3.5rem 0;border-bottom:1px solid rgba(10,10,10,.14)}
+.blk:last-child{border-bottom:0}
+.blk h3{font-family:"Barlow Condensed",sans-serif;font-weight:600;text-transform:uppercase;font-size:1.7rem;letter-spacing:.01em;margin-bottom:.8rem}
+.blk p{color:#3F3F46}
+.blk ul{list-style:none;margin-top:1rem;font-size:.95rem}
+.blk li{padding:.5rem 0;border-bottom:1px solid rgba(10,10,10,.1);color:#3F3F46;display:flex;gap:1rem}
+.blk li::before{content:"-";color:var(--blue);font-weight:700}
+
+h2{font-family:"Barlow Condensed",sans-serif;font-weight:700;text-transform:uppercase;font-size:clamp(2.2rem,5vw,4rem);line-height:.94}
+.sec-head{max-width:66ch;margin-bottom:3rem}
+.sec-head p{color:#52525B;margin-top:1rem}
+section{padding:7rem 0}
+
+/* ---------- full-bleed application strips ---------- */
+.strip{position:relative;min-height:78svh;display:grid;align-items:end;background:var(--ink);color:#fff;overflow:hidden}
+.strip-img{position:absolute;inset:0;display:grid;place-items:center;opacity:.5}
+.strip-img img{height:92%;width:auto;max-width:none}
+.strip::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(10,10,10,.95) 12%,transparent 62%)}
+.strip-in{position:relative;z-index:2;padding-block:3.5rem}
+.strip h3{font-family:"Barlow Condensed",sans-serif;font-weight:700;text-transform:uppercase;font-size:clamp(2.4rem,6vw,5rem);line-height:.92}
+.strip p{color:rgba(255,255,255,.74);max-width:58ch;margin-top:1rem}
+.strip ul{list-style:none;display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.6rem}
+.strip li{border:1px solid rgba(255,255,255,.3);padding:.4rem .9rem;font-size:.85rem;color:rgba(255,255,255,.85)}
+
+/* ---------- table ---------- */
+table{width:100%;border-collapse:collapse;font-size:.92rem;font-variant-numeric:tabular-nums}
+thead th{font-family:"Barlow Condensed",sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:.08em;font-size:.9rem;color:#71717A;text-align:right;padding:0 .8rem .8rem;border-bottom:2px solid var(--ink)}
+thead th:first-child{text-align:left;padding-left:0}
+tbody td{text-align:right;padding:.85rem .8rem;border-bottom:1px solid rgba(10,10,10,.12)}
+tbody td:first-child{text-align:left;padding-left:0;font-family:"Barlow Condensed",sans-serif;font-weight:600;font-size:1.15rem;text-transform:uppercase}
+tbody tr:hover{background:var(--paper-2)}
+.tnote{margin-top:1.2rem;font-size:.85rem;color:#71717A;max-width:74ch}
+
+/* ---------- process ---------- */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:2.5rem}
+.step .n{font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:4rem;line-height:.8;color:rgba(10,10,10,.13);display:block}
+.step h3{font-family:"Barlow Condensed",sans-serif;font-weight:600;text-transform:uppercase;font-size:1.5rem;margin:.6rem 0 .5rem}
+.step p{color:#52525B;font-size:.97rem}
+.step .dur{display:block;margin-top:1rem;font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);font-weight:600}
+
+.faq details{border-bottom:1px solid rgba(10,10,10,.14)}
+.faq summary{list-style:none;cursor:pointer;padding:1.6rem 0;font-family:"Barlow Condensed",sans-serif;font-weight:600;text-transform:uppercase;font-size:1.45rem;display:flex;gap:1.5rem}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";margin-left:auto;color:var(--blue)}
+.faq details[open] summary::after{content:"-"}
+.faq p{color:#52525B;padding-bottom:1.6rem;max-width:76ch}
+
+/* ---------- final ---------- */
+.final{position:relative;background:var(--ink);color:#fff;overflow:hidden;padding:7rem 0}
+.final-img{position:absolute;right:-6%;top:50%;transform:translateY(-50%);opacity:.32}
+.final-img img{height:120vh;width:auto;max-width:none}
+.final-in{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;gap:4rem;align-items:start}
+.final ul{list-style:none;margin-top:1.8rem;border-top:1px solid rgba(255,255,255,.2)}
+.final li{padding:.9rem 0;border-bottom:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.8);font-size:.96rem}
+form{display:grid;gap:.9rem;background:rgba(255,255,255,.06);padding:2.2rem;border:1px solid rgba(255,255,255,.16);backdrop-filter:blur(6px)}
+form label{display:grid;gap:.35rem;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.6);font-weight:600}
+input,textarea{background:rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.22);color:#fff;padding:.8rem .9rem;font:inherit;font-size:.95rem}
+input:focus,textarea:focus{outline:2px solid var(--blue);outline-offset:-1px}
+form small{color:rgba(255,255,255,.55);font-size:.76rem;line-height:1.5}
+
+footer{background:var(--ink-2);color:#fff;padding:4rem 0 2.2rem}
+.foot{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:3rem}
+.foot img{height:19px;width:auto;margin-bottom:1rem}
+.foot p,.foot li{color:rgba(255,255,255,.5);font-size:.92rem}
+.foot h4{font-family:"Barlow Condensed",sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:.1em;font-size:1rem;color:#fff;margin-bottom:.9rem}
+.foot ul{list-style:none;display:grid;gap:.4rem}
+.foot a:hover{color:#fff}
+.copy{margin-top:3rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.4);font-size:.82rem}
+
+@media(max-width:1000px){
+  .sticky-wrap,.final-in{grid-template-columns:1fr}
+  .sticky-vis{position:relative;height:auto;padding:3rem 2rem}
+  .sticky-vis img{max-height:52svh}
+  .sticky-txt{padding:3rem 2rem}
+  .band-in{grid-template-columns:1fr 1fr}
+  .band div:nth-child(2){border-right:0}
+  .band div:nth-child(-n+2){border-bottom:1px solid rgba(255,255,255,.12)}
+  .steps{grid-template-columns:1fr 1fr}
+  .hero-sub{grid-template-columns:1fr}
+  .bar nav,.bar .tel{display:none}
+  .foot{grid-template-columns:1fr 1fr}
+  .final-img{right:-40%;opacity:.18}
+  .hero-img{padding-top:4.5rem}
+}
+@media(max-width:620px){
+  section{padding:4rem 0}
+  .band-in,.steps,.foot{grid-template-columns:1fr}
+  .band div{border-right:0;border-bottom:1px solid rgba(255,255,255,.12)}
+  table{font-size:.76rem}
+  thead th{font-size:.72rem;padding:0 .35rem .6rem}
+  tbody td{padding:.6rem .35rem}
+  .hero-img{padding:4.5rem .5rem .5rem}
+  .hero-img::before{inset:12% 8% 6%}
+  .hero-img img{max-height:38svh}
+}
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <div class="shell bar">
+    <a href="#"><img src="../assets/perrymix-logo-white.png" alt="PERRYmix"></a>
+    <nav>
+      <a href="#produkt">Produkt</a>
+      <a href="#aplikace">Aplikace</a>
+      <a href="#velikosti">Velikosti</a>
+      <a href="#proces">Postup</a>
+      <a href="#faq">Dotazy</a>
+    </nav>
+    <a class="tel" href="tel:+420495822770">+420 495 822 770</a>
+    <a class="btn" href="#poptavka">Poptávka</a>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="hero-img"><img src="../assets/machine_02.png" alt="Vertikální homogenizátor PERRYmix HV-Series"></div>
+  <div class="shell hero-txt">
+    <p class="kicker">Český výrobce procesní a mísicí techniky od roku 1997</p>
+    <h1 style="margin-top:1.2rem">Procesní technika<br><em>vyráběná v ČR</em></h1>
+    <div class="hero-sub">
+      <p>Kvalitní procesní a mísicí technika pro chemický, farmaceutický a potravinářský průmysl. Vlastní výroba v ČR, stroje šité na míru, lokální servis.</p>
+      <div class="hero-cta">
+        <a class="btn" href="#poptavka">Poptat HV-Series</a>
+        <a class="btn btn-o" href="#poptavka">Technická konzultace</a>
+      </div>
+    </div>
+  </div>
+  <div class="shell scroll-hint">Posunout dolů</div>
+</div>
+
+<div class="band">
+  <div class="shell band-in">
+    <div><b>1997</b><span>Výroba od roku</span></div>
+    <div><b>10</b><span>Typových velikostí</span></div>
+    <div><b>8+</b><span>Zemí exportu</span></div>
+    <div><b>48h</b><span>Reakce na poptávku</span></div>
+  </div>
+</div>
+
+<div class="sticky-wrap" id="produkt">
+  <div class="sticky-vis"><img src="../assets/machine_03.jpg" alt="Řez homogenizátorem - princip míchání"></div>
+  <div class="sticky-txt">
+    <p class="kicker">Produkt</p>
+    <h2 style="margin-top:1rem">Vertikální homogenizátor HV-Series</h2>
+    <p style="color:#3F3F46">Kónický šnekový mísič - obíhající rameno s rotujícím šnekem podél kuželové stěny nádoby. Pro práškové a sypké směsi, premixy a granuláty. Samovyprazdňovací, šetrný k produktu.</p>
+    <div class="blk">
+      <h3>Princip míchání</h3>
+      <p>Rychlá a účinná homogenizace probíhá pohybem ramene a míchacího šneku. Míchaný materiál je rotací šneku nabírán ode dna nádoby vzhůru. Šnek se přitom otáčí podél vnitřní kuželové stěny nádoby a posouvá a promíchává produkt. Produkt poté vlivem gravitace klesá zpět ke dnu nádoby.</p>
+    </div>
+    <div class="blk">
+      <h3>Základní provedení</h3>
+      <ul>
+        <li>Nádoba, míchací šnek, upínací traverza, výpust a půlkruhové kryty z nerezové oceli AISI 304.</li>
+        <li>Obíhající rameno, pohon a převodovka z uhlíkové oceli s potravinářským nátěrem.</li>
+        <li>Části nádoby ve styku s produktem včetně svarů broušeny do hladka.</li>
+        <li>Tloušťka stěny nádoby před opracováním 2,5 mm.</li>
+      </ul>
+    </div>
+    <div class="blk">
+      <h3>Provedení na míru</h3>
+      <ul>
+        <li>Celonerezové rameno v jakosti AISI 304.</li>
+        <li>Části ve styku s produktem v jakosti AISI 316L.</li>
+        <li>Rychlá demontáž šneku pro snadnější montáž a demontáž.</li>
+        <li>Odklápěcí půlkruhový horní kryt s aretací.</li>
+        <li>Pohony a převodovky do prostředí s nebezpečím výbuchu (ATEX).</li>
+        <li>Pneumaticky ovládaný výpustní ventil.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div id="aplikace">
+  <div class="strip">
+    <div class="strip-img"><img src="../assets/machine_02.png" alt=""></div>
+    <div class="shell strip-in">
+      <p class="kicker">Aplikace 01</p>
+      <h3>Potravinářství</h3>
+      <p>Ve výrobě potravin homogenizátor HV stejnoměrně rozmíchá práškové a sypké suroviny tak, aby každá šarže měla shodné složení, barvu i chuť. Šetrné míchání kónickým šnekem nepoškozuje citlivé složky a zabraňuje oddělování jemných frakcí. Dodáváme v potravinářském provedení - kontaktní části z nerezové oceli AISI 304 (na míru AISI 316L), hladce broušené svary a snadné čištění mezi šaržemi.</p>
+      <ul><li>Pudinky, dezerty a instantní směsi</li><li>Polévky, omáčky a dehydratované pokrmy</li><li>Směsi čajů, koření a ochucovadel</li><li>Instantní a nápojové prášky</li></ul>
+    </div>
+  </div>
+  <div class="strip">
+    <div class="strip-img"><img src="../assets/machine_03.png" alt=""></div>
+    <div class="shell strip-in">
+      <p class="kicker">Aplikace 02</p>
+      <h3>Farmacie</h3>
+      <p>Pro farmaceutickou výrobu zajišťuje homogenizátor vysoký a opakovatelný stupeň homogenizace - rozhodující pro rovnoměrné rozložení účinné látky v celé dávce. Samovyprazdňovací efekt a rychlá demontáž šneku usnadňují čištění a snižují riziko křížové kontaminace mezi šaržemi. Kontaktní části dodáváme v jakosti AISI 316L.</p>
+      <ul><li>Směsi pro výrobu léčiv</li><li>Potravinové doplňky a vitaminové premixy</li><li>Práškové směsi účinných a pomocných látek</li></ul>
+    </div>
+  </div>
+  <div class="strip">
+    <div class="strip-img"><img src="../assets/machine_01.png" alt=""></div>
+    <div class="shell strip-in">
+      <p class="kicker">Aplikace 03</p>
+      <h3>Chemie</h3>
+      <p>V chemické výrobě stroj rovnoměrně promíchá prášky, pigmenty a sypké chemické směsi i při rozdílné velikosti a hustotě částic. Pro prostředí s nebezpečím výbuchu dodáváme pohon a převodovku v provedení ATEX a pneumaticky ovládaný výpustní ventil.</p>
+      <ul><li>Práškové barvy a nátěrové hmoty</li><li>Pigmenty a plniva</li><li>Suché chemické směsi a kompozice</li></ul>
+    </div>
+  </div>
+  <div class="strip">
+    <div class="strip-img"><img src="../assets/machine_02.png" alt=""></div>
+    <div class="shell strip-in">
+      <p class="kicker">Aplikace 04</p>
+      <h3>Krmiva a agrochemie</h3>
+      <p>Při výrobě krmiv a agrochemie homogenizátor rychle a stejnoměrně zamíchá malé podíly aditiv (vitaminy, minerály, léčiva) do velkého objemu nosné směsi. Vysoký stupeň homogenizace a krátký mísicí čas zajišťují, že je účinná složka rovnoměrně rozložena v každém kilogramu produktu.</p>
+      <ul><li>Krmné směsi a doplňky</li><li>Zemědělské a veterinární premixy</li><li>Mikrokomponenty (vitaminy, minerály) do nosných směsí</li></ul>
+    </div>
+  </div>
+</div>
+
+<section id="velikosti">
+  <div class="shell">
+    <div class="sec-head">
+      <p class="kicker">Typové velikosti</p>
+      <h2 style="margin-top:1rem">Deset velikostí, od 50 do 3 000 litrů</h2>
+      <p>Základní provedení dle oficiálního datasheetu PERRYmix. Rozměry a hmotnosti jsou orientační, finální specifikaci doladíme podle aplikace.</p>
+    </div>
+    <div style="overflow-x:auto">
+      <table>
+        <thead><tr><th>Model</th><th>Objem [L]</th><th>Rameno [kW]</th><th>Šnek [kW]</th><th>Ø nádoby [mm]</th><th>Výška nádoby [mm]</th><th>Celková výška [mm]</th><th>Hmotnost [kg]</th></tr></thead>
+        <tbody>
+          <tr><td>HV50</td><td>50</td><td>0,25</td><td>0,75</td><td>732</td><td>968</td><td>1364</td><td>250</td></tr>
+          <tr><td>HV100</td><td>100</td><td>0,25</td><td>0,75</td><td>820</td><td>1118</td><td>1515</td><td>300</td></tr>
+          <tr><td>HV200</td><td>200</td><td>0,37</td><td>1,5</td><td>1178</td><td>1565</td><td>2195</td><td>650</td></tr>
+          <tr><td>HV300</td><td>300</td><td>0,37</td><td>1,5</td><td>1300</td><td>1780</td><td>2410</td><td>700</td></tr>
+          <tr><td>HV600</td><td>600</td><td>0,37</td><td>1,5</td><td>1418</td><td>2205</td><td>2835</td><td>750</td></tr>
+          <tr><td>HV1000</td><td>1 000</td><td>0,37</td><td>2,2</td><td>1560</td><td>2434</td><td>3064</td><td>800</td></tr>
+          <tr><td>HV1200</td><td>1 200</td><td>0,37</td><td>3,0</td><td>1821</td><td>2600</td><td>3230</td><td>850</td></tr>
+          <tr><td>HV1500</td><td>1 500</td><td>1,5</td><td>4,0</td><td>1753</td><td>2750</td><td>3380</td><td>900</td></tr>
+          <tr><td>HV2000</td><td>2 000</td><td>1,5</td><td>5,5</td><td>1900</td><td>2975</td><td>3605</td><td>950</td></tr>
+          <tr><td>HV3000</td><td>3 000</td><td>1,5</td><td>5,5</td><td>2180</td><td>3450</td><td>4035</td><td>1 000</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="tnote">Uvedené hodnoty odpovídají základnímu provedení. Provedení na míru hmotnost i rozměry mění - konkrétní parametry potvrdíme v cenové nabídce.</p>
+  </div>
+</section>
+
+<section style="background:var(--paper-2)">
+  <div class="shell">
+    <div class="sec-head">
+      <p class="kicker">Proč PERRYmix</p>
+      <h2 style="margin-top:1rem">Proč si firmy vybírají homogenizátory PERRYmix</h2>
+    </div>
+    <div class="steps" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:2rem">
+      <div class="step"><span class="n">01</span><p>Vlastní výroba v ČR - stroje šité na míru, od specifikace po předání.</p></div>
+      <div class="step"><span class="n">02</span><p>Lokální servisní zázemí - dílny v Hradci Králové, originální náhradní díly.</p></div>
+      <div class="step"><span class="n">03</span><p>Inženýrské řešení na míru - úpravy provedení dle požadavků zákazníka.</p></div>
+      <div class="step"><span class="n">04</span><p>Jednoduchá a bezpečná obsluha - samovyprazdňovací efekt, rychlá demontáž šneku.</p></div>
+      <div class="step"><span class="n">05</span><p>Export do 8+ zemí EU a Asie - reference v chemii, farmacii a potravinářství.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="proces">
+  <div class="shell">
+    <div class="sec-head">
+      <p class="kicker">Jak to funguje</p>
+      <h2 style="margin-top:1rem">Cesta od poptávky k uvedení do provozu</h2>
+      <p>Transparentní 4 kroky. Žádné skryté poplatky, žádné překvapení v dodávce. Závazná cena včetně dokumentace a servisu od první nabídky.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><span class="n">01</span><h3>Poptávka</h3><p>Pošlete základní parametry - objem, typ směsi, aplikaci. Pošleme zpětnou vazbu do 24 hodin.</p><span class="dur">1 den</span></div>
+      <div class="step"><span class="n">02</span><h3>Konzultace</h3><p>Online nebo na místě. Doladíme specifikaci, materiálové provedení, ATEX pohon a rozsah úprav na míru.</p><span class="dur">3-5 dnů</span></div>
+      <div class="step"><span class="n">03</span><h3>Návrh a cena</h3><p>Závazná cenová nabídka, technický návrh, dodací lhůta a podmínky servisu.</p><span class="dur">48 hodin</span></div>
+      <div class="step"><span class="n">04</span><h3>Výroba a předání</h3><p>Výroba v ČR, kontrola, doprava a uvedení do provozu. Školení obsluhy a předání dokumentace.</p><span class="dur">dle specifikace</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="faq" style="background:var(--paper-2)">
+  <div class="shell">
+    <div class="sec-head">
+      <p class="kicker">Časté dotazy</p>
+      <h2 style="margin-top:1rem">Co se zákazníci ptají nejčastěji</h2>
+      <p>Nejčastější dotazy procurement, R&amp;D a QA před zahájením poptávky.</p>
+    </div>
+    <div class="faq" style="border-top:2px solid var(--ink)">
+      <details open><summary>Jaké velikosti homogenizátoru HV vyrábíte?</summary><p>Řada HV zahrnuje 10 typových velikostí od HV50 (50 L) po HV3000 (3 000 L). Konkrétní velikost a provedení doladíme podle vaší aplikace a objemu dávky.</p></details>
+      <details><summary>Pro jaké materiály je vertikální homogenizátor vhodný?</summary><p>Stroj je kónický šnekový mísič - obíhající rameno s rotujícím míchacím šnekem v kónické nádobě. Hodí se zejména pro práškové a sypké směsi: potraviny, koření, léčiva, krmné premixy, práškové barvy a pigmenty.</p></details>
+      <details><summary>Jaké je materiálové provedení?</summary><p>Základní provedení: nádoba, šnek, traverza a kryty z nerezové oceli AISI 304; rameno a pohon z uhlíkové oceli s potravinářským nátěrem. Na míru dodáváme celonerezové rameno a kontaktní části v jakosti AISI 316L.</p></details>
+      <details><summary>Lze stroj dodat do prostředí s nebezpečím výbuchu (ATEX)?</summary><p>Ano. Volitelně dodáváme pohon a převodovku do prostředí s nebezpečím výbuchu, pneumaticky ovládaný výpustní ventil a další úpravy podle vašich požadavků.</p></details>
+      <details><summary>Zajišťujete servis a náhradní díly?</summary><p>Ano. Jsme výrobce, servisní zázemí máme v Hradci Králové. Náhradní díly dodáváme jako výrobce, dlouhodobá dostupnost je samozřejmostí.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="final" id="poptavka">
+  <div class="final-img"><img src="../assets/machine_02.png" alt=""></div>
+  <div class="shell final-in">
+    <div>
+      <p class="kicker">Další krok</p>
+      <h2 style="margin-top:1rem">Pošlete nám parametry.<br>Nabídku máte do 48 hodin.</h2>
+      <p style="color:rgba(255,255,255,.72);margin-top:1rem">Když nebudeme správný partner, řekneme vám to rovnou. Lepší upřímná zpráva v týdnu 1 než ztracené 3 měsíce ve fázi specifikace.</p>
+      <ul>
+        <li>Závazná cena včetně harmonogramu a podmínek servisu</li>
+        <li>Technická dokumentace a materiálové provedení podle specifikace</li>
+        <li>Vlastní výroba a servis v ČR - Hradec Králové</li>
+      </ul>
+    </div>
+    <form onsubmit="event.preventDefault();this.innerHTML='<p style=&quot;font-size:1.1rem&quot;>Děkujeme - poptávku jsme přijali. Ozveme se do 48 hodin.</p>'">
+      <label>Jméno a příjmení *<input required></label>
+      <label>Společnost (nepovinné)<input></label>
+      <label>E-mail *<input type="email" required></label>
+      <label>Telefon *<input type="tel" required></label>
+      <label>Doplňující informace<textarea rows="3"></textarea></label>
+      <small>Odesláním souhlasíte se zpracováním osobních údajů za účelem zpracování poptávky (GDPR čl. 6 odst. 1 písm. b).</small>
+      <button class="btn" type="submit">Odeslat poptávku</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="shell">
+    <div class="foot">
+      <div>
+        <img src="../assets/perrymix-logo-white.png" alt="PERRYmix">
+        <p>Český výrobce vertikálních homogenizátorů, hnětačů, disolverů a mlýnů pod značkou PERRYmix. Pro chemii, farmacii, potravinářství a výrobu krmiv.</p>
+      </div>
+      <div>
+        <h4>Společnost</h4>
+        <ul>
+          <li>Perry Machinery Czech Republic, s.r.o.</li>
+          <li>Pražská třída 322/4</li>
+          <li>500 04 Hradec Králové</li>
+          <li>IČO: 25607758 · DIČ: CZ25607758</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Kontakt</h4>
+        <ul>
+          <li><a href="mailto:tvenzara@perryczech.cz">tvenzara@perryczech.cz</a></li>
+          <li><a href="tel:+420495822770">+420 495 822 770</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copy">© 2026 Perry Machinery Czech Republic, s.r.o. · Všechna práva vyhrazena</div>
+  </div>
+</footer>
+
+<script>
+// Nav only gets a solid backdrop once the hero has scrolled past, so the
+// monument shot stays uninterrupted at the top.
+const hdr = document.getElementById('hdr');
+addEventListener('scroll', () => hdr.classList.toggle('solid', scrollY > innerHeight * .82), {passive:true});
+</script>
+</body>
+</html>
