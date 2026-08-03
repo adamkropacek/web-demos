@@ -1,9 +1,106 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://www.remihk.cz/</loc>
-    <lastmod>2026-07-15</lastmod>
+    <lastmod>2026-08-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://www.remihk.cz/assets/og-remihk.jpg</image:loc>
+      <image:caption>Realizace REMI HK - koupelna s klenutým stropem, kulatá zrcadla a volně stojící vana</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.remihk.cz/assets/hero-renata.webp</image:loc>
+      <image:caption>Realizace REMI HK - koupelna s klenutým stropem, kulatá zrcadla a volně stojící vana</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.remihk.cz/assets/renata.webp</image:loc>
+      <image:caption>Renata Sobolíková ve svém showroomu - koupelnové studio Hradec Králové</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.remihk.cz/assets/real-r1.webp</image:loc>
+      <image:caption>Realizace koupelny - Hotel Černý medvěd, Prachatice</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.remihk.cz/assets/real-r2.webp</image:loc>
+      <image:caption>Realizace koupelny - Hotel Černý medvěd, Prachatice</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.remihk.cz/assets/real-arch.webp</image:loc>
+      <image:caption>Realizace koupelny - Hotel Černý medvěd, Prachatice</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.remihk.cz/assets/real-r4.webp</image:loc>
+      <image:caption>Realizace koupelny - Šemberovo divadlo, Vysoké Mýto</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.remihk.cz/assets/real-r5.webp</image:loc>
+      <image:caption>Realizace koupelny - Šemberovo divadlo, Vysoké Mýto</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.remihk.cz/assets/havlickova-vila.webp</image:loc>
+      <image:caption>Realizace koupelny - Havlíčkova vila, Břeclav</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.remihk.cz/assets/real-r6.webp</image:loc>
+      <image:caption>Realizace koupelny - Vinný sklípek, Velké Bílovice</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.remihk.cz/assets/real-r7.webp</image:loc>
+      <image:caption>Realizace koupelny - Vinný sklípek, Velké Bílovice</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.remihk.cz/assets/real-r8.webp</image:loc>
+      <image:caption>Realizace koupelny - Vinný sklípek, Velké Bílovice</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.remihk.cz/assets/real-spa-vanity.webp</image:loc>
+      <image:caption>Realizace koupelny - Zámek Ratměřice, Hotel &amp; Resort</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.remihk.cz/assets/real-warm-tub.webp</image:loc>
+      <image:caption>Realizace koupelny - Zámek Ratměřice, Hotel &amp; Resort</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.remihk.cz/assets/real-hotel-room.webp</image:loc>
+      <image:caption>Realizace koupelny - Zámek Ratměřice, Hotel &amp; Resort</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.remihk.cz/assets/real-beige.webp</image:loc>
+      <image:caption>Realizace koupelny - Rodinný dům, Nový Hradec Králové</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.remihk.cz/assets/real-terasa.webp</image:loc>
+      <image:caption>Realizace terasy - Rodinný dům, Krkonoše</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.remihk.cz/assets/navrh-01.webp</image:loc>
+      <image:caption>Grafický 3D návrh koupelny - REMI HK</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.remihk.cz/assets/navrh-02.webp</image:loc>
+      <image:caption>Grafický 3D návrh koupelny - REMI HK</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.remihk.cz/assets/navrh-03.webp</image:loc>
+      <image:caption>Grafický 3D návrh koupelny - REMI HK</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.remihk.cz/assets/navrh-04.webp</image:loc>
+      <image:caption>Grafický 3D návrh koupelny - REMI HK</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.remihk.cz/assets/navrh-06.webp</image:loc>
+      <image:caption>Grafický 3D návrh koupelny - REMI HK</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.remihk.cz/assets/navrh-07.webp</image:loc>
+      <image:caption>Grafický 3D návrh koupelny - REMI HK</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.remihk.cz/assets/katalog-cover.webp</image:loc>
+      <image:caption>Katalog BOOK Design 2025/2026 - koupelnové trendy</image:caption>
+    </image:image>
   </url>
 </urlset>
