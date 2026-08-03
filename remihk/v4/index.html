@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- CSP + referrer primo v HTML: staticke stranky servíruje nginx (obchazi .htaccess Apache hlavicky), meta http-equiv projde vzdy -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://*.google.com https://*.gstatic.com https://maps.googleapis.com; frame-src https://www.google.com https://maps.google.com; connect-src 'self' https://api.web3forms.com; form-action 'self' https://api.web3forms.com; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://*.google.com https://*.gstatic.com https://maps.googleapis.com https://*.google-analytics.com https://*.googletagmanager.com; frame-src https://www.google.com https://maps.google.com; connect-src 'self' https://api.web3forms.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; form-action 'self' https://api.web3forms.com; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>REMI HK - Koupelnové studio Hradec Králové</title>
 <meta name="description" content="Koupelnové studio v areálu Gayerova Kasárna, Hradec Králové. Obklady a dlažby, sanita, baterie a doplňky od evropských výrobců. Renata Sobolíková, od roku 1999.">
@@ -14,7 +14,7 @@
 <meta name="author" content="Renata Sobolíková - REMI HK">
 <meta name="geo.region" content="CZ-52">
 <meta name="geo.placename" content="Hradec Králové">
-<!-- GOOGLE SEARCH CONSOLE: az Adam vytvori GSC property pro remihk.cz, vlozit verifikacni <meta name="google-site-verification" ...> presne sem -->
+<meta name="google-site-verification" content="kVGlryGlW_LKZvJxyGrShMcJxXruKFoVNLlaq1Pzwys">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="REMI HK">
 <meta property="og:locale" content="cs_CZ">
@@ -518,6 +518,15 @@ html.js .reveal.in{opacity:1;transform:translateY(0)}
 .lb-cap .s{display:block;font-family:'Inter',sans-serif;font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent-soft);margin-top:.45rem;font-weight:500}
 .lb-close,.lb-nav{position:absolute;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.25);color:#fff;width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .25s,border-color .25s}
 .lb-close:hover,.lb-nav:hover{background:var(--accent);border-color:var(--accent)}
+/* COOKIE LISTA - zobrazi se jen dokud navstevnik nerozhodne (localStorage remihk_consent) */
+#cc{position:fixed;left:1.25rem;right:1.25rem;bottom:1.25rem;z-index:200;max-width:640px;margin:0 auto;background:var(--paper);border:1px solid var(--line);box-shadow:0 12px 40px rgba(31,34,41,.16);padding:1.5rem 1.6rem;display:none;gap:1.2rem;align-items:center;flex-wrap:wrap}
+#cc.show{display:flex}
+#cc p{font-size:.85rem;line-height:1.6;color:var(--muted);flex:1 1 260px;margin:0}
+#cc .cc-btns{display:flex;gap:.7rem;flex:0 0 auto}
+#cc button{font-family:inherit;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;padding:.75rem 1.3rem;border:1px solid var(--ink);background:none;color:var(--ink);cursor:pointer;transition:all .25s;font-weight:500}
+#cc button.ok{background:var(--ink);color:var(--paper)}
+#cc button:hover{background:var(--accent);border-color:var(--accent);color:var(--paper)}
+@media(max-width:560px){#cc{padding:1.2rem}#cc .cc-btns{flex:1 1 100%}#cc .cc-btns button{flex:1}}
 .lb-close{top:4vh;right:4vw}.lb-prev{left:3vw;top:50%;transform:translateY(-50%)}.lb-next{right:3vw;top:50%;transform:translateY(-50%)}
 .lb-nav svg,.lb-close svg{width:20px;height:20px;stroke:#fff;fill:none;stroke-width:1.6}
 @media(max-width:680px){.lb-prev{left:1vw}.lb-next{right:1vw}.lb-close{top:2.5vh;right:4vw}.lb img{max-width:94vw}}
@@ -563,13 +572,14 @@ html.js .reveal.in{opacity:1;transform:translateY(0)}
   "foundingDate": "1999"
 }
 </script>
-<!-- GOOGLE ANALYTICS 4: az Adam vytvori GA4 property, nahradit G-XXXXXXXXXX skutecnym Measurement ID a odkomentovat.
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<!-- GA4 + Consent Mode v2: analytics_storage je denied dokud navstevnik neklikne Souhlasim (CZ zakon 127/2005 par. 89 = opt-in) -->
 <script>
 window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
-gtag('js',new Date());gtag('config','G-XXXXXXXXXX');
+gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied',functionality_storage:'granted',security_storage:'granted'});
+if(localStorage.getItem('remihk_consent')==='granted')gtag('consent','update',{analytics_storage:'granted'});
+gtag('js',new Date());gtag('config','G-FMVZ31MLE7');
 </script>
--->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FMVZ31MLE7"></script>
 </head>
 <body>
 
@@ -1555,6 +1565,26 @@ if(lb&&pfImgs.length){
   let ilr=null;
   document.querySelectorAll('.portfolio-grid img').forEach(im=>im.addEventListener('load',()=>{if(!ilr)ilr=requestAnimationFrame(()=>{ilr=null;layout();});}));
   let rt;window.addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(layout,150);});
+})();
+</script>
+
+<div id="cc" role="dialog" aria-label="Souhlas s měřením návštěvnosti">
+  <p>Ráda bych věděla, jak lidé web používají. Měření návštěvnosti (Google Analytics) spustím jen s vaším souhlasem. Bez něj se nic neukládá.</p>
+  <div class="cc-btns">
+    <button type="button" id="ccNo">Odmítnout</button>
+    <button type="button" class="ok" id="ccYes">Souhlasím</button>
+  </div>
+</div>
+<script>
+(function(){
+  var box=document.getElementById('cc');
+  function set(v){try{localStorage.setItem('remihk_consent',v);}catch(e){}
+    if(v==='granted'&&window.gtag)gtag('consent','update',{analytics_storage:'granted'});
+    box.classList.remove('show');}
+  var saved=null;try{saved=localStorage.getItem('remihk_consent');}catch(e){}
+  if(!saved)box.classList.add('show');
+  document.getElementById('ccYes').addEventListener('click',function(){set('granted');});
+  document.getElementById('ccNo').addEventListener('click',function(){set('denied');});
 })();
 </script>
 
