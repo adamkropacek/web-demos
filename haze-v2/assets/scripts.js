@@ -3,8 +3,10 @@
    Hosting-agnostic: no framework, no build step, pure vanilla.
    ============================================================ */
 
-// Keep empty until a real form endpoint is approved; forms fall back to mailto.
-const FORM_ENDPOINT = '';
+// Na hostingu Active24 leží /form.php a poptávka jde přes něj.
+// Na GitHub Pages soubor není, fetch dostane 404, res.ok je false a spadne to
+// na mailto fallback níž - jedna verze webu tak funguje na obou místech.
+const FORM_ENDPOINT = '/form.php';
 
 // Mark page loaded immediately
 document.addEventListener('DOMContentLoaded', () => {

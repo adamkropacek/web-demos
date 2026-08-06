@@ -27,6 +27,9 @@
     'analytics_storage':'denied','wait_for_update':500
   });
   gtag('set','ads_data_redaction',true);
+  // Návrat po přijetí cookies: souhlas uděluje až scripts.js na konci body,
+  // takže bez tohohle řádku je každý další pohled měřen jako denied.
+  try{if(localStorage.getItem('haze-cookies')==='accepted')gtag('consent','update',{'ad_storage':'granted','ad_user_data':'granted','ad_personalization':'granted','analytics_storage':'granted'});}catch(e){}
   gtag('js', new Date());
   gtag('config','G-5V6W6CMFGR');
   gtag('config','AW-11159013994');
