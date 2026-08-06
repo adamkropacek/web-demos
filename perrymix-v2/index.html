@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>PERRYmix - 6 návrhů webu k výběru</title>
+<title>PERRYmix - návrhy webu</title>
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,15 +27,11 @@ h1{font-size:clamp(2rem,4vw,3rem);font-weight:700;letter-spacing:-.03em;line-hei
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:1.4rem;padding-bottom:5rem}
 .card{border:1px solid var(--hair);display:flex;flex-direction:column;transition:border-color .18s,transform .18s}
 .card:hover{border-color:var(--blue);transform:translateY(-2px)}
-.card .top{padding:1.6rem 1.5rem 1.3rem;border-bottom:1px solid var(--hair)}
-.card h2{font-size:1.35rem;font-weight:700;letter-spacing:-.02em;margin:.6rem 0 .5rem}
-.card p{color:var(--txt-2);font-size:.94rem}
-.card .tags{display:flex;flex-wrap:wrap;gap:.35rem;padding:1rem 1.5rem;margin-top:auto}
-.card .tags span{font-family:"IBM Plex Mono",monospace;font-size:.68rem;border:1px solid var(--hair);padding:.25rem .55rem;color:var(--txt-3)}
-.card .go{display:flex;align-items:center;justify-content:space-between;padding:1rem 1.5rem;background:var(--paper-2);font-weight:600;font-size:.92rem}
+.card .top{padding:2.2rem 1.5rem;border-bottom:1px solid var(--hair)}
+.card h2{font-size:1.35rem;font-weight:700;letter-spacing:-.02em}
+.card .go{display:flex;align-items:center;justify-content:space-between;padding:1rem 1.5rem;margin-top:auto;background:var(--paper-2);font-weight:600;font-size:.92rem}
 .card:hover .go{background:var(--blue);color:#fff}
 .card--current{border-color:var(--ink)}
-.card--current .mono{color:var(--ink)}
 .card--current .go{background:var(--ink);color:#fff}
 footer{border-top:1px solid var(--hair);padding:2rem 0;font-size:.85rem;color:var(--txt-3)}
 </style>
@@ -59,43 +55,23 @@ footer{border-top:1px solid var(--hair);padding:2rem 0;font-size:.85rem;color:va
 <div class="shell grid">
 
   <a class="card card--current" href="../perrymix/cs/">
-    <div class="top">
-      <p class="mono">Aktuální verze</p>
-      <h2>Stávající demoweb</h2>
-      <p>To, co je dnes postavené a co jste viděli při kontrole. Krémové pozadí, navy typografie, produktová karta na bílé. Kompletní - 4 stránky, 3 jazyky, formuláře, SEO.</p>
-    </div>
-    <div class="tags"><span>live</span><span>Astro</span><span>CZ / EN / DE</span><span>4 stránky</span></div>
-    <div class="go"><span>Otevřít stávající web</span><span>-&gt;</span></div>
+    <div class="top"><h2>Stávající demoweb</h2></div>
+    <div class="go"><span>Otevřít</span><span>-&gt;</span></div>
   </a>
 
   <a class="card" href="01-dark/">
-    <div class="top">
-      <p class="mono">Návrh 01</p>
-      <h2>Dark engineering</h2>
-      <p>Černá je celá stránka, ne jen doplněk. Stroj svítí ze tmy, modrá je jediné světlo. Přepínač Black / White v hlavičce překlopí celý web na světlou variantu.</p>
-    </div>
-    <div class="tags"><span>black / white swap</span><span>Archivo</span><span>spec ticker</span><span>aplikace s ikonami</span></div>
-    <div class="go"><span>Otevřít návrh</span><span>-&gt;</span></div>
+    <div class="top"><h2>Návrh 1</h2></div>
+    <div class="go"><span>Otevřít</span><span>-&gt;</span></div>
   </a>
 
   <a class="card" href="04-foto/">
-    <div class="top">
-      <p class="mono">Návrh 02</p>
-      <h2>Stroj jako monument</h2>
-      <p>Stroj přes celou obrazovku, při scrollu se odsouvá a mizí. Sekce najíždějí zdola, specifikace má lepivý sloupec s řezem stroje.</p>
-    </div>
-    <div class="tags"><span>scroll efekty</span><span>Barlow Condensed</span><span>sticky řez</span><span>parallax hero</span></div>
-    <div class="go"><span>Otevřít návrh</span><span>-&gt;</span></div>
+    <div class="top"><h2>Návrh 2</h2></div>
+    <div class="go"><span>Otevřít</span><span>-&gt;</span></div>
   </a>
 
   <a class="card" href="05-panel/">
-    <div class="top">
-      <p class="mono">Návrh 03</p>
-      <h2>Konfigurátor</h2>
-      <p>Klidná světlá stránka s běžnou hlavičkou. Těžiště je konfigurátor: kliknete na typovou velikost a rovnou vidíte její parametry, bez louskání tabulky.</p>
-    </div>
-    <div class="tags"><span>konfigurátor</span><span>Manrope</span><span>scrollspy</span><span>10 velikostí</span></div>
-    <div class="go"><span>Otevřít návrh</span><span>-&gt;</span></div>
+    <div class="top"><h2>Návrh 3</h2></div>
+    <div class="go"><span>Otevřít</span><span>-&gt;</span></div>
   </a>
 
 </div>
