@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hostesky a modelky pro firemní akce | Daniela Models Hradec Králové</title>
+<meta name="description" content="Produkční a modelingová agentura Daniela Models zajišťuje hostesky na veletrhy a firemní akce, modelky, módní přehlídky a produkci společenských akcí po celé ČR. Na poptávky odpovídáme do 24 hodin.">
+<link rel="icon" href="https://www.danielamodels.cz/wp-content/uploads/2026/04/daniela-models-favikona-512-300x300.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Daniela Models",
+  "legalName": "Daniela Brázdová",
+  "description": "Produkční a modelingová agentura. Hostesky na veletrhy a firemní akce, modelky, módní přehlídky a produkce společenských akcí po celé České republice.",
+  "url": "https://www.danielamodels.cz/",
+  "telephone": "+420602420408",
+  "email": "daniela.models@seznam.cz",
+  "vatID": "CZ7053043041",
+  "identifier": "48635154",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Urxova 2021/7",
+    "addressLocality": "Hradec Králové",
+    "postalCode": "500 06",
+    "addressCountry": "CZ"
+  },
+  "areaServed": "Česká republika",
+  "sameAs": [
+    "https://www.instagram.com/danielamodels_official_ig/",
+    "https://www.facebook.com/profile.php?id=100063705664132"
+  ]
+}
+</script>
+<style>
+:root{
+  --ivory:#f5efe4;
+  --paper:#fdfaf3;
+  --sand:#ece2cf;
+  --ink:#1c1418;
+  --ink-soft:#4c4046;
+  --taupe:#7d7066;
+  --wine:#77203c;
+  --wine-deep:#5a1229;
+  --line:rgba(28,20,24,.16);
+  --line-strong:rgba(28,20,24,.34);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Archivo',system-ui,sans-serif;
+  background:var(--ivory);
+  color:var(--ink);
+  line-height:1.65;
+  font-size:16px;
+  overflow-x:clip;
+}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+section{scroll-margin-top:84px}
+
+/* ---------- typography helpers ---------- */
+.eyebrow{
+  font-size:.68rem;font-weight:600;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--wine);margin-bottom:1.1rem;
+}
+.display{font-family:'Bodoni Moda',serif;font-weight:400;line-height:1.08;letter-spacing:.005em}
+h2.display{font-size:clamp(1.9rem,4.4vw,3rem);margin-bottom:.9rem}
+.lede{color:var(--ink-soft);max-width:56ch}
+em.acc{font-style:italic}
+
+/* ---------- buttons ---------- */
+.btn{
+  display:inline-block;border:1px solid var(--wine);background:var(--wine);color:var(--ivory);
+  font-size:.8rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  padding:.95rem 1.7rem;text-decoration:none;transition:background .2s,border-color .2s,color .2s;
+  border-radius:2px;cursor:pointer;text-align:center;
+}
+.btn:hover{background:var(--wine-deep);border-color:var(--wine-deep)}
+.btn-ghost{
+  display:inline-block;border:1px solid var(--line-strong);background:transparent;color:var(--ink);
+  font-size:.8rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  padding:.95rem 1.7rem;text-decoration:none;transition:border-color .2s,color .2s;border-radius:2px;text-align:center;
+}
+.btn-ghost:hover{border-color:var(--wine);color:var(--wine)}
+.textlink{
+  font-size:.8rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--wine);
+  text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:.2rem;
+}
+.textlink:hover{color:var(--wine-deep)}
+
+/* ---------- header ---------- */
+header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(245,239,228,.92);backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.85rem 20px;max-width:1180px;margin:0 auto}
+.brand{font-family:'Bodoni Moda',serif;font-size:1.28rem;text-decoration:none;line-height:1;white-space:nowrap}
+.brand em{font-style:italic}
+.brand span{letter-spacing:.2em;text-transform:uppercase;font-size:.86rem;margin-left:.35rem}
+nav.desk{display:none}
+nav.desk a{
+  text-decoration:none;font-size:.78rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink-soft);margin:0 .85rem;transition:color .2s;
+}
+nav.desk a:hover{color:var(--wine)}
+.bar-cta{display:none}
+.bar-tel{display:none;text-decoration:none;font-weight:600;font-size:.9rem;color:var(--ink)}
+.bar-tel:hover{color:var(--wine)}
+.bar .btn{padding:.65rem 1.1rem;font-size:.72rem}
+
+details.mnav{position:relative}
+details.mnav summary{list-style:none;cursor:pointer;display:flex;flex-direction:column;gap:5px;padding:.5rem}
+details.mnav summary::-webkit-details-marker{display:none}
+details.mnav summary span{display:block;width:22px;height:2px;background:var(--ink);transition:transform .2s,opacity .2s}
+details.mnav[open] summary span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+details.mnav[open] summary span:nth-child(2){opacity:0}
+details.mnav[open] summary span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mnav-panel{
+  position:fixed;left:0;right:0;top:57px;background:var(--ivory);
+  border-bottom:1px solid var(--line);padding:1rem 20px 1.4rem;display:flex;flex-direction:column;
+}
+.mnav-panel a{
+  text-decoration:none;font-size:.95rem;font-weight:500;letter-spacing:.06em;
+  padding:.8rem 0;border-bottom:1px solid var(--line);color:var(--ink);
+}
+.mnav-panel a:last-child{border-bottom:none}
+.mnav-panel a.mn-cta{color:var(--wine);font-weight:600}
+
+/* ---------- hero ---------- */
+.hero{padding:3.2rem 0 4rem;border-bottom:1px solid var(--line)}
+.hero-grid{display:grid;gap:3rem;align-items:center}
+.hero h1{font-size:clamp(2.5rem,7.2vw,4.3rem);margin-bottom:1.4rem}
+.hero h1 .ital{display:block;font-style:italic}
+.hero .lede{margin-bottom:2rem}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:.8rem;margin-bottom:1.2rem}
+.hero-note{font-size:.82rem;color:var(--taupe)}
+.hero-note strong{color:var(--wine);font-weight:600}
+.hero-photo{position:relative;justify-self:center;width:min(100%,420px)}
+.hero-photo::before{
+  content:"";position:absolute;inset:0;transform:translate(14px,14px);
+  border:1px solid var(--wine);z-index:0;pointer-events:none;
+}
+.hero-photo img{position:relative;z-index:1;width:100%;height:auto;aspect-ratio:668/1000;object-fit:cover}
+.hero-cap{font-size:.74rem;color:var(--taupe);letter-spacing:.08em;margin-top:1.3rem;text-transform:uppercase}
+
+/* ---------- stats ---------- */
+.stats{background:var(--sand);border-bottom:1px solid var(--line)}
+.stats-grid{display:grid;grid-template-columns:1fr 1fr;max-width:1180px;margin:0 auto}
+.stat{padding:1.6rem 1.2rem;border-right:1px solid var(--line);border-bottom:1px solid var(--line);text-align:center}
+.stat:nth-child(2n){border-right:none}
+.stat b{font-family:'Bodoni Moda',serif;font-weight:500;font-size:clamp(1.9rem,4vw,2.7rem);display:block;line-height:1.1}
+.stat span{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft)}
+
+/* ---------- logos ---------- */
+.logos{padding:3.4rem 0;border-bottom:1px solid var(--line)}
+.logos .eyebrow{text-align:center;margin-bottom:1.8rem}
+.logo-row{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:1.6rem 2.4rem}
+.logo-row img{height:30px;width:auto;filter:grayscale(1);opacity:.8;mix-blend-mode:multiply}
+
+/* ---------- sections ---------- */
+.sec{padding:4.6rem 0}
+.sec-head{margin-bottom:2.6rem}
+
+/* services */
+.cards{display:grid;gap:2.6rem}
+.card{border-top:1px solid var(--line-strong);padding-top:1.4rem}
+.card .ph{overflow:hidden;margin-bottom:1.3rem}
+.card .ph img{aspect-ratio:3/2;object-fit:cover;width:100%;transition:transform .5s ease}
+.card:hover .ph img{transform:scale(1.03)}
+.card .num{font-family:'Bodoni Moda',serif;font-style:italic;color:var(--wine);font-size:1rem;margin-bottom:.4rem}
+.card h3{font-family:'Bodoni Moda',serif;font-weight:500;font-size:1.5rem;line-height:1.2;margin-bottom:.7rem}
+.card p{color:var(--ink-soft);font-size:.95rem;margin-bottom:1.2rem}
+.services-extra{margin-top:2.4rem;padding-top:1.4rem;border-top:1px solid var(--line);color:var(--taupe);font-size:.9rem;max-width:62ch}
+
+/* steps */
+.steps-band{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.steps{display:grid;gap:2.2rem}
+.step .n{font-family:'Bodoni Moda',serif;font-style:italic;font-size:2.6rem;color:var(--wine);line-height:1;margin-bottom:.6rem}
+.step h3{font-family:'Bodoni Moda',serif;font-weight:500;font-size:1.3rem;margin-bottom:.45rem}
+.step p{color:var(--ink-soft);font-size:.94rem;max-width:34ch}
+
+/* form */
+.form-grid{display:grid;gap:2.6rem;align-items:start}
+.form-card{background:var(--paper);border:1px solid var(--line);padding:1.6rem}
+.f-row{display:grid;gap:1.1rem}
+.field{display:flex;flex-direction:column;gap:.35rem}
+.field label{font-size:.68rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft)}
+.field input,.field select,.field textarea{
+  font-family:inherit;font-size:.95rem;color:var(--ink);
+  background:transparent;border:1px solid var(--line-strong);border-radius:2px;
+  padding:.75rem .8rem;width:100%;
+}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--wine)}
+.field textarea{min-height:96px;resize:vertical}
+.form-card .btn{width:100%;margin-top:1.3rem}
+.form-note{font-size:.78rem;color:var(--taupe);margin-top:.9rem}
+.form-note a{color:var(--wine);font-weight:600;text-decoration:none}
+.form-aside p{color:var(--ink-soft);margin-bottom:1.3rem}
+.form-aside .sig{font-family:'Bodoni Moda',serif;font-style:italic;font-size:1.15rem;color:var(--ink)}
+
+/* about band */
+.about-band{background:var(--sand);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.about-grid{display:grid;gap:2.6rem;align-items:center}
+.about-photo{position:relative;justify-self:center;width:min(100%,360px)}
+.about-photo::before{content:"";position:absolute;inset:0;transform:translate(-14px,14px);border:1px solid var(--wine);pointer-events:none}
+.about-photo img{position:relative;aspect-ratio:668/1000;object-fit:cover;width:100%}
+.about-txt p{color:var(--ink-soft);margin-bottom:1.1rem;max-width:56ch}
+.about-txt p strong{color:var(--ink)}
+
+/* gallery */
+.gal-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.gal-grid figure{overflow:hidden;margin:0}
+.gal-grid img{aspect-ratio:3/2;object-fit:cover;width:100%;transition:transform .5s ease}
+.gal-grid figure:hover img{transform:scale(1.04)}
+.gal-foot{margin-top:2rem;text-align:center}
+
+/* join */
+.join{border-top:1px solid var(--line);background:var(--paper)}
+.join-inner{display:flex;flex-direction:column;gap:1.2rem;align-items:flex-start;padding:2.6rem 0}
+.join h3{font-family:'Bodoni Moda',serif;font-weight:500;font-size:1.45rem}
+.join p{color:var(--ink-soft);font-size:.93rem;max-width:56ch}
+
+/* faq */
+.faq details{border-top:1px solid var(--line)}
+.faq details:last-child{border-bottom:1px solid var(--line)}
+.faq summary{
+  list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1rem;
+  font-family:'Bodoni Moda',serif;font-weight:500;font-size:1.12rem;padding:1.15rem 0;
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:'Archivo',sans-serif;color:var(--wine);font-size:1.3rem;font-weight:400;transition:transform .2s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq .a{padding:0 0 1.2rem;color:var(--ink-soft);font-size:.94rem;max-width:64ch}
+
+/* contact */
+.contact{background:var(--ink);color:var(--ivory);padding:4.6rem 0}
+.contact .eyebrow{color:var(--sand)}
+.contact h2{color:var(--ivory)}
+.contact-grid{display:grid;gap:2.6rem;margin-top:2.2rem}
+.c-phone{font-family:'Bodoni Moda',serif;font-size:clamp(1.7rem,4.6vw,2.6rem);text-decoration:none;color:var(--ivory);display:inline-block;line-height:1.2}
+.c-phone:hover{color:var(--sand)}
+.c-mail{color:var(--sand);text-decoration:none;font-size:1.05rem}
+.c-mail:hover{text-decoration:underline}
+.c-label{font-size:.66rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,239,228,.55);margin-bottom:.45rem;margin-top:1.6rem}
+.c-label:first-child{margin-top:0}
+.contact address{font-style:normal;color:rgba(245,239,228,.85);font-size:.95rem}
+.c-firm{font-size:.85rem;color:rgba(245,239,228,.6);line-height:1.8}
+.c-social a{color:var(--sand);text-decoration:none;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;margin-right:1.4rem}
+.c-social a:hover{text-decoration:underline}
+.contact .btn{background:var(--ivory);border-color:var(--ivory);color:var(--ink);margin-top:1.8rem}
+.contact .btn:hover{background:var(--sand);border-color:var(--sand)}
+
+/* footer */
+footer{background:var(--ink);color:rgba(245,239,228,.45);border-top:1px solid rgba(245,239,228,.14);padding:1.6rem 0;font-size:.76rem}
+footer .wrap{display:flex;flex-wrap:wrap;gap:.5rem 2rem;justify-content:space-between}
+
+/* ---------- desktop ---------- */
+@media(min-width:760px){
+  .stats-grid{grid-template-columns:repeat(4,1fr)}
+  .stat{border-bottom:none}
+  .stat:nth-child(2n){border-right:1px solid var(--line)}
+  .stat:last-child{border-right:none}
+  .cards{grid-template-columns:repeat(3,1fr);gap:2rem}
+  .steps{grid-template-columns:repeat(3,1fr)}
+  .f-row{grid-template-columns:1fr 1fr}
+  .f-row .full{grid-column:1/-1}
+  .gal-grid{grid-template-columns:repeat(4,1fr)}
+  .contact-grid{grid-template-columns:1.2fr 1fr}
+  .join-inner{flex-direction:row;justify-content:space-between;align-items:center}
+}
+@media(min-width:1000px){
+  nav.desk{display:block}
+  details.mnav{display:none}
+  .bar-cta{display:inline-block}
+  .bar-tel{display:inline-block;margin-right:1rem}
+  .bar{padding:.95rem 20px}
+  .hero{padding:4.5rem 0 5.5rem}
+  .hero-grid{grid-template-columns:1.1fr .9fr;gap:4rem}
+  .hero-photo{justify-self:end}
+  .form-grid{grid-template-columns:.85fr 1.15fr}
+  .about-grid{grid-template-columns:.8fr 1.2fr;gap:4rem}
+  .logo-row img{height:34px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="bar">
+    <a class="brand" href="#uvod"><em>Daniela</em><span>Models</span></a>
+    <nav class="desk" aria-label="Hlavní navigace">
+      <a href="#sluzby">Služby</a>
+      <a href="#prubeh">Jak to probíhá</a>
+      <a href="#agentura">Agentura</a>
+      <a href="#galerie">Galerie</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+    <div>
+      <a class="bar-tel" href="tel:+420602420408">602 420 408</a>
+      <a class="btn bar-cta" href="#poptavka">Poptat akci</a>
+      <details class="mnav" id="mnav">
+        <summary aria-label="Otevřít menu"><span></span><span></span><span></span></summary>
+        <div class="mnav-panel">
+          <a href="#sluzby">Služby</a>
+          <a href="#prubeh">Jak to probíhá</a>
+          <a href="#agentura">Agentura</a>
+          <a href="#galerie">Galerie</a>
+          <a href="#kontakt">Kontakt</a>
+          <a class="mn-cta" href="#poptavka">Poptat akci</a>
+          <a class="mn-cta" href="tel:+420602420408">Volat 602 420 408</a>
+        </div>
+      </details>
+    </div>
+  </div>
+</header>
+
+<main id="uvod">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">Produkční a modelingová agentura</div>
+        <h1 class="display">Hostesky a modelky <span class="ital">pro váš veletrh, event i přehlídku.</span></h1>
+        <p class="lede">Jsme agentura Daniela Models z Hradce Králové. Od roku 1995 zajišťujeme hostesky na firemní akce, módní přehlídky s vlastním týmem modelek a produkci společenských událostí po celé České republice.</p>
+        <div class="hero-ctas">
+          <a class="btn" href="#poptavka">Nezávazně poptat termín</a>
+          <a class="btn-ghost" href="tel:+420602420408">+420 602 420 408</a>
+        </div>
+        <p class="hero-note">Na poptávky odpovídáme <strong>do 24 hodin</strong> s konkrétním návrhem.</p>
+      </div>
+      <div>
+        <div class="hero-photo">
+          <img src="https://www.danielamodels.cz/wp-content/uploads/2025/12/DSC_9579.jpg" width="668" height="1000" alt="Modelky agentury Daniela Models ve společenských šatech v zámeckém sále" fetchpriority="high">
+        </div>
+        <p class="hero-cap">Z produkce agentury Daniela Models</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats" aria-label="Agentura v číslech">
+    <div class="stats-grid">
+      <div class="stat"><b>120+</b><span>modelek a hostesek</span></div>
+      <div class="stat"><b>2 180+</b><span>spokojených klientů</span></div>
+      <div class="stat"><b>1995</b><span>na trhu od roku</span></div>
+      <div class="stat"><b>Celá ČR</b><span>působnost</span></div>
+    </div>
+  </div>
+
+  <!-- LOGOS -->
+  <section class="logos">
+    <div class="wrap">
+      <div class="eyebrow">S kým spolupracujeme</div>
+      <div class="logo-row">
+        <img src="https://www.danielamodels.cz/wp-content/uploads/2025/12/logo-skupina-cez.jpg" alt="Logo Skupina ČEZ" loading="lazy">
+        <img src="https://www.danielamodels.cz/wp-content/uploads/2025/12/logo-petrof.jpg" alt="Logo Petrof" loading="lazy">
+        <img src="https://www.danielamodels.cz/wp-content/uploads/2025/12/logo-iveco.jpg" alt="Logo IVECO" loading="lazy">
+        <img src="https://www.danielamodels.cz/wp-content/uploads/2025/12/logo-hc-mountfield.jpg" alt="Logo HC Mountfield" loading="lazy">
+        <img src="https://www.danielamodels.cz/wp-content/uploads/2025/12/logo-fomei.jpg" alt="Logo Fomei" loading="lazy">
+        <img src="https://www.danielamodels.cz/wp-content/uploads/2025/12/logo-vces.jpg" alt="Logo VCES" loading="lazy">
+        <img src="https://www.danielamodels.cz/wp-content/uploads/2025/12/logo-evona.jpg" alt="Logo Evona" loading="lazy">
+        <img src="https://www.danielamodels.cz/wp-content/uploads/2025/12/logo-olfin-car.jpg" alt="Logo Olfin Car" loading="lazy">
+        <img src="https://www.danielamodels.cz/wp-content/uploads/2025/12/logo-radio-cerna-hora.jpg" alt="Logo Rádio Černá Hora" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="sec" id="sluzby">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">01 &middot; Služby</div>
+        <h2 class="display">Co pro vás zajistíme</h2>
+        <p class="lede">Vyberte, co potřebujete, a pošlete nám termín. O zbytek se postaráme.</p>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <div class="ph"><img src="https://www.danielamodels.cz/wp-content/uploads/2025/12/daniela-models-galerie-10.jpg" width="1500" height="1000" alt="Tým hostesek v šatech s logem Daniela Models před firemní akcí" loading="lazy"></div>
+          <div class="num">I.</div>
+          <h3>Hostesky na veletrhy a firemní akce</h3>
+          <p>Reprezentativní hostesky na veletrhy, kongresy, promo akce i firemní večírky. Tým vybereme podle charakteru akce, připravíme ho a pohlídáme průběh na místě.</p>
+          <a class="textlink" href="#poptavka">Poptat hostesky</a>
+        </article>
+        <article class="card">
+          <div class="ph"><img src="https://www.danielamodels.cz/wp-content/uploads/2025/12/daniela-models-galerie-17.jpg" width="1500" height="1000" alt="Modelka v šatech na módní přehlídce na venkovním pódiu" loading="lazy"></div>
+          <div class="num">II.</div>
+          <h3>Modelky a módní přehlídky</h3>
+          <p>Vlastní tým modelek, které slaví úspěchy v soutěžích MISS. Přehlídky organizujeme kompletně, od návrhu konceptu po finální realizaci. Modelky dodáme i pro reklamní a produktové focení.</p>
+          <a class="textlink" href="#poptavka">Poptat přehlídku</a>
+        </article>
+        <article class="card">
+          <div class="ph"><img src="https://www.danielamodels.cz/wp-content/uploads/2025/12/daniela-models-galerie-2.jpg" width="1500" height="1000" alt="Závěr módní přehlídky s kyticemi na pódiu" loading="lazy"></div>
+          <div class="num">III.</div>
+          <h3>Produkce společenských akcí</h3>
+          <p>Firemní event nebo společenská událost na klíč. Připravíme koncept, zajistíme program i tým a pohlídáme hladký průběh v den akce.</p>
+          <a class="textlink" href="#poptavka">Poptat produkci</a>
+        </article>
+      </div>
+      <p class="services-extra">K akcím dodáme také profesionální vizážistiku, kreativní styling a fotografování pro reklamní kampaně.</p>
+    </div>
+  </section>
+
+  <!-- STEPS -->
+  <section class="steps-band sec" id="prubeh">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">02 &middot; Jak to probíhá</div>
+        <h2 class="display">Od poptávky k akci ve třech krocích</h2>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="n">1</div>
+          <h3>Pošlete poptávku</h3>
+          <p>Typ akce, termín, město a počet lidí. Vyplnění zabere minutu.</p>
+        </div>
+        <div class="step">
+          <div class="n">2</div>
+          <h3>Do 24 hodin máte návrh</h3>
+          <p>Ozveme se s návrhem obsazení a kalkulací na míru vaší akci.</p>
+        </div>
+        <div class="step">
+          <div class="n">3</div>
+          <h3>My zajistíme zbytek</h3>
+          <p>Výběr a příprava týmu, domluva detailů a koordinace v den akce.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORM -->
+  <section class="sec" id="poptavka">
+    <div class="wrap form-grid">
+      <div class="form-aside">
+        <div class="eyebrow">03 &middot; Poptávka</div>
+        <h2 class="display">Řekněte nám, co chystáte</h2>
+        <p>Napište nám základní obrysy akce. Do 24 hodin se vám ozveme s konkrétním návrhem obsazení a cenou. Poptávka vás k ničemu nezavazuje.</p>
+        <p class="sig">Daniela Brázdová, Daniela Models</p>
+      </div>
+      <form class="form-card" id="poptavka-form" novalidate>
+        <div class="f-row">
+          <div class="field">
+            <label for="f-typ">Typ akce</label>
+            <select id="f-typ" name="typ" required>
+              <option value="" selected disabled>Vyberte</option>
+              <option>Veletrh nebo výstava</option>
+              <option>Firemní akce nebo večírek</option>
+              <option>Promo akce</option>
+              <option>Módní přehlídka</option>
+              <option>Focení nebo kampaň</option>
+              <option>Jiná akce</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="f-termin">Termín akce</label>
+            <input type="date" id="f-termin" name="termin">
+          </div>
+          <div class="field">
+            <label for="f-mesto">Město konání</label>
+            <input type="text" id="f-mesto" name="mesto" required autocomplete="address-level2" placeholder="Např. Brno">
+          </div>
+          <div class="field">
+            <label for="f-pocet">Počet hostesek / modelek</label>
+            <input type="number" id="f-pocet" name="pocet" min="1" placeholder="Např. 4">
+          </div>
+          <div class="field">
+            <label for="f-jmeno">Jméno a firma</label>
+            <input type="text" id="f-jmeno" name="jmeno" required autocomplete="name">
+          </div>
+          <div class="field">
+            <label for="f-tel">Telefon</label>
+            <input type="tel" id="f-tel" name="tel" autocomplete="tel">
+          </div>
+          <div class="field full">
+            <label for="f-email">E-mail</label>
+            <input type="email" id="f-email" name="email" required autocomplete="email">
+          </div>
+          <div class="field full">
+            <label for="f-zprava">Poznámka</label>
+            <textarea id="f-zprava" name="zprava" placeholder="Cokoli, co bychom měli vědět předem"></textarea>
+          </div>
+        </div>
+        <button class="btn" type="submit">Odeslat poptávku</button>
+        <p class="form-note">Tlačítko otevře váš e-mail s předvyplněnou poptávkou pro daniela.models@seznam.cz, nic se neodesílá automaticky. Spěcháte? Volejte <a href="tel:+420602420408">602 420 408</a>.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about-band sec" id="agentura">
+    <div class="wrap about-grid">
+      <div class="about-photo">
+        <img src="https://www.danielamodels.cz/wp-content/uploads/2025/12/6.jpg" width="668" height="1000" alt="Modelka v červených šatech při profesionálním focení na zámku" loading="lazy">
+      </div>
+      <div class="about-txt">
+        <div class="eyebrow">04 &middot; Agentura</div>
+        <h2 class="display">Agentura, která módu sama dělá</h2>
+        <p>Daniela Models vede <strong>Daniela Brázdová</strong> z Hradce Králové. Agentura působí po celé České republice, organizuje a produkčně zajišťuje módní přehlídky s vlastním týmem modelek a zajišťuje hostesky na kulturní i společenské události, výstavy a veletrhy.</p>
+        <p><strong>Dlouhodobě podporujeme charitu.</strong> Již od roku 1995 jsme podpořili FN HK, Člověka v tísni i Běh proti násilí.</p>
+        <a class="textlink" href="#poptavka">Domluvit spolupráci</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="sec" id="galerie">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">05 &middot; Galerie</div>
+        <h2 class="display">Z našich akcí</h2>
+      </div>
+      <div class="gal-grid">
+        <figure><img src="https://www.danielamodels.cz/wp-content/uploads/2025/12/daniela-models-galerie-8-768x512.jpg" width="768" height="512" alt="Modelky ve večerních šatech na společenské akci" loading="lazy"></figure>
+        <figure><img src="https://www.danielamodels.cz/wp-content/uploads/2025/12/daniela-models-galerie-9-768x512.jpg" width="768" height="512" alt="Hostesky v bílých šatech na schodišti sálu" loading="lazy"></figure>
+        <figure><img src="https://www.danielamodels.cz/wp-content/uploads/2025/12/daniela-models-galerie-3-768x512.jpg" width="768" height="512" alt="Modelky v bílém u stánku agentury Daniela Models" loading="lazy"></figure>
+        <figure><img src="https://www.danielamodels.cz/wp-content/uploads/2025/12/daniela-models-galerie-13-768x512.jpg" width="768" height="512" alt="Promo tým v jednotném oblečení na motoristické akci" loading="lazy"></figure>
+        <figure><img src="https://www.danielamodels.cz/wp-content/uploads/2025/12/daniela-models-galerie-16-768x512.jpg" width="768" height="512" alt="Hostesky na terase při venkovní společenské akci" loading="lazy"></figure>
+        <figure><img src="https://www.danielamodels.cz/wp-content/uploads/2025/12/daniela-models-galerie-18-768x512.jpg" width="768" height="512" alt="Modelky na promo akci před obrazovkou" loading="lazy"></figure>
+        <figure><img src="https://www.danielamodels.cz/wp-content/uploads/2025/12/daniela-models-galerie-20-768x512.jpg" width="768" height="512" alt="Skupina modelek s kyticí na společenském večeru" loading="lazy"></figure>
+        <figure><img src="https://www.danielamodels.cz/wp-content/uploads/2025/12/daniela-models-galerie-11-768x512.jpg" width="768" height="512" alt="Hostesky na večerní akci Muž roku" loading="lazy"></figure>
+      </div>
+      <div class="gal-foot">
+        <a class="textlink" href="https://www.instagram.com/danielamodels_official_ig/" target="_blank" rel="noopener">Více fotek na Instagramu</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- JOIN -->
+  <section class="join">
+    <div class="wrap join-inner">
+      <div>
+        <h3>Chcete pracovat jako modelka nebo hosteska?</h3>
+        <p>Napište nám a přiložte aktuální fotografie, 1x postava a 1x portrét. Ozveme se vám.</p>
+      </div>
+      <a class="btn-ghost" href="mailto:daniela.models@seznam.cz?subject=Z%C3%A1jem%20o%20pr%C3%A1ci%20-%20modelka%20%2F%20hosteska">Napsat agentuře</a>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="sec faq" id="faq">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">06 &middot; Časté dotazy</div>
+        <h2 class="display">Na co se ptáte nejčastěji</h2>
+      </div>
+      <details>
+        <summary>Kolik stojí hosteska nebo modelka?</summary>
+        <div class="a">Cena závisí na typu akce, její délce, městě a požadavcích na tým. Konkrétní kalkulaci vám pošleme v prvním návrhu do 24 hodin od poptávky.</div>
+      </details>
+      <details>
+        <summary>Působíte i mimo Hradec Králové?</summary>
+        <div class="a">Ano. Akce zajišťujeme po celé České republice, od veletrhů v Praze a Brně po regionální firemní akce.</div>
+      </details>
+      <details>
+        <summary>Co když potřebuji hostesky narychlo?</summary>
+        <div class="a">Napište nebo rovnou zavolejte na 602 420 408. Podle termínu a města vám hned řekneme, co jsme schopni zajistit.</div>
+      </details>
+      <details>
+        <summary>Co si hostesky na akci obléknou?</summary>
+        <div class="a">Podle charakteru akce a vašich požadavků, od společenských šatů po jednotné týmové oblečení. Konkrétní podobu domluvíme předem.</div>
+      </details>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="kontakt">
+    <div class="wrap">
+      <div class="eyebrow">07 &middot; Kontakt</div>
+      <h2 class="display">Domluvme se na vaší akci</h2>
+      <div class="contact-grid">
+        <div>
+          <div class="c-label">Telefon</div>
+          <a class="c-phone" href="tel:+420602420408">+420 602 420 408</a>
+          <div class="c-label">E-mail</div>
+          <a class="c-mail" href="mailto:daniela.models@seznam.cz">daniela.models@seznam.cz</a>
+          <div class="c-label">Sledujte nás</div>
+          <div class="c-social">
+            <a href="https://www.instagram.com/danielamodels_official_ig/" target="_blank" rel="noopener">Instagram</a>
+            <a href="https://www.facebook.com/profile.php?id=100063705664132" target="_blank" rel="noopener">Facebook</a>
+          </div>
+          <a class="btn" href="#poptavka">Poptat akci</a>
+        </div>
+        <div>
+          <div class="c-label">Sídlo agentury</div>
+          <address>Urxova 2021/7<br>500 06 Hradec Králové</address>
+          <div class="c-label">Firemní údaje</div>
+          <p class="c-firm">Daniela Brázdová<br>Agentura Daniela Models<br>IČO: 48635154<br>DIČ: CZ7053043041</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Daniela Models &middot; produkční a modelingová agentura &middot; Hradec Králové</span>
+    <span>Ukázkový návrh nového webu. Fotografie pocházejí z webu danielamodels.cz.</span>
+  </div>
+</footer>
+
+<script>
+// zavrit mobilni menu po kliku na odkaz
+var mnav = document.getElementById('mnav');
+document.querySelectorAll('.mnav-panel a').forEach(function (a) {
+  a.addEventListener('click', function () { mnav.removeAttribute('open'); });
+});
+
+// poptavka -> predvyplneny e-mail (demo bez backendu)
+function dmMailto() {
+  var v = function (id) { return document.getElementById(id).value.trim(); };
+  var subject = 'Poptávka: ' + v('f-typ') + ' - ' + v('f-mesto') + (v('f-termin') ? ' - ' + v('f-termin') : '');
+  var body = 'Dobrý den,\n\nmáme zájem o vaše služby.\n\n'
+    + 'Typ akce: ' + v('f-typ') + '\n'
+    + 'Termín: ' + (v('f-termin') || 'upřesníme') + '\n'
+    + 'Město: ' + v('f-mesto') + '\n'
+    + 'Počet hostesek / modelek: ' + (v('f-pocet') || 'upřesníme') + '\n'
+    + 'Jméno a firma: ' + v('f-jmeno') + '\n'
+    + 'Telefon: ' + (v('f-tel') || '-') + '\n'
+    + 'E-mail: ' + v('f-email') + '\n'
+    + (v('f-zprava') ? '\nPoznámka: ' + v('f-zprava') + '\n' : '')
+    + '\nDěkuji.';
+  return 'mailto:daniela.models@seznam.cz?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+}
+document.getElementById('poptavka-form').addEventListener('submit', function (e) {
+  e.preventDefault();
+  if (!e.target.reportValidity()) return;
+  window.location.href = dmMailto();
+});
+</script>
+
+</body>
+</html>
