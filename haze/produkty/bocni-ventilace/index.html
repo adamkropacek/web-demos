@@ -47,6 +47,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://www.googletagmanager.com">
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../assets/styles.css">
 <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png">
@@ -407,8 +408,8 @@ h2 em{font-style:normal;color:var(--haze-dark)}
           <input type="tel" id="phone" name="phone" required placeholder="+420 ...">
         </div>
         <div class="field">
-          <label for="msg">Vaše zpráva</label>
-          <textarea id="msg" name="message" placeholder="Stáj pro 80 dojnic, plánujeme rekonstrukci větrání... Nebo se zeptejte, co umíme dodat."></textarea>
+
+          <textarea id="msg" name="message" aria-label="Vaše zpráva" placeholder="Stáj pro 80 dojnic, plánujeme rekonstrukci větrání... Nebo se zeptejte, co umíme dodat."></textarea>
         </div>
         <div class="hp-field" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden">
           <label for="website">Webové stránky</label>
