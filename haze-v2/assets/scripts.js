@@ -27,9 +27,9 @@ if (hdr) {
 // Reveal on scroll
 const io = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
-}, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+}, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-setTimeout(() => document.querySelectorAll('.reveal').forEach(el => el.classList.add('in')), 4000);
+setTimeout(() => document.querySelectorAll('.reveal').forEach(el => el.classList.add('in')), 1500);
 
 // Hero parallax (homepage only, skipped on reduced motion)
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -238,7 +238,7 @@ function mailtoFallback(f) {
   const attribution = getAttribution();
   const body = [
     `Jméno: ${f.name.value}`,
-    `Firma: ${f.company ? f.company.value : ''}`,
+    `E-mail: ${f.email ? f.email.value : ''}`,
     `Telefon: ${f.phone.value}`,
     ``,
     `Zpráva:`,
