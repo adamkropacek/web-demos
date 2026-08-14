@@ -56,7 +56,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://www.googletagmanager.com">
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/styles.css">
+<link rel="stylesheet" href="../assets/styles.css?v=20260814">
 <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon-180.png">
 <meta name="theme-color" content="#F79430">
@@ -403,7 +403,7 @@
         </div>
         <div class="field">
 
-          <textarea id="msg" name="message" aria-label="Vaše zpráva" placeholder="Stáj pro 80 dojnic, plánujeme rekonstrukci větrání... Nebo se zeptejte, co umíme dodat."></textarea>
+          <textarea id="msg" name="message" aria-label="Vaše zpráva"></textarea>
         </div>
         <div class="hp-field" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden">
           <label for="website">Webové stránky</label>
@@ -545,10 +545,10 @@
   }
   function update(){
     var vh=window.innerHeight;
-    /* read-line low in viewport (~82%) so years light early as they scroll in and
-       2025 (last node) completes by the time the user reaches the END of the
-       Pribeh HAZE section, not after it scrolls off (Adam 2026-06-07). */
-    var line=vh*0.82;
+    /* read-line v ~58 % viewportu - Adam 14.8.2026: efekt zpomalit, at pri
+       plne viditelne sekci sedi progress mezi 2022 a 2023 (driv 0.82 = tecky
+       nabihaly moc brzy a 2025 svitila hned). Nahrazuje ladeni z 7.6. */
+    var line=vh*0.58;
     var firstC=cy(dots[0]), lastC=cy(dots[dots.length-1]);
     var front=Math.max(firstC, Math.min(line, lastC));
     fill.style.height=(front-firstC)+'px';

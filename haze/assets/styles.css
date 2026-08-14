@@ -396,6 +396,7 @@ section.tight{padding:72px 0}
   font-size:24px;color:var(--ink);margin-bottom:24px}
 .timeline-item{display:flex;gap:18px;padding-bottom:24px;position:relative}
 .timeline-item:not(:last-child)::before{content:'';position:absolute;left:13px;top:32px;bottom:-2px;width:2px;background:var(--line)}
+.timeline-item:not(:has(~ .timeline-item))::before{display:none}
 .timeline-num{flex:none;width:28px;height:28px;background:var(--haze);color:#fff;
   border-radius:50%;display:flex;align-items:center;justify-content:center;
   font-family:'Manrope',sans-serif;font-weight:700;font-size:13px;position:relative;z-index:1}
