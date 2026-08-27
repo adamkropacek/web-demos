@@ -253,6 +253,27 @@ function mailtoFallback(f) {
   const subject = 'Poptávka HAZE';
   window.location.href = `mailto:info@haze.cz?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 }
+// Token proti robotům. Vyžádá se až při prvním kliknutí do formuláře - robot,
+// který posílá POST rovnou na /form.php a nespouští JavaScript, ho nikdy nezíská.
+// Drží se jako promise, aby rychlé odeslání počkalo na rozdělaný požadavek
+// místo aby ho zahodilo.
+let formTokenPromise = null;
+let formTokenAt = 0;
+function requestFormToken() {
+  if (formTokenPromise) return formTokenPromise;
+  formTokenPromise = fetch(FORM_ENDPOINT + '?nonce=1', { headers: { 'Accept': 'application/json' } })
+    .then((r) => (r.ok ? r.json() : null))
+    .then((d) => {
+      if (d && d.token) {
+        formTokenAt = Date.now();
+        return d.token;
+      }
+      return null;
+    })
+    .catch(() => null);
+  return formTokenPromise;
+}
+
 const leadForm = document.getElementById('leadForm');
 if (leadForm) {
   const cid = getClickId();
@@ -276,6 +297,7 @@ if (leadForm) {
   leadForm.addEventListener('focusin', (e) => {
     if (formStarted || !e.target.matches('input, textarea')) return;
     formStarted = true;
+    requestFormToken();
     track('form_start', {form_type: 'main_contact'});
   });
   leadForm.addEventListener('submit', async (e) => {
@@ -289,11 +311,36 @@ if (leadForm) {
     }
     const usingEndpoint = Boolean(FORM_ENDPOINT);
     if (usingEndpoint) {
+      // Odesílání může chvíli počkat (viz časová past níž), tak ať tlačítko
+      // nevypadá jako by se nic nedělo a nejde zmáčknout dvakrát.
+      const btn = f.querySelector('button[type="submit"]');
+      const btnText = btn ? btn.textContent : '';
+      if (btn) {
+        btn.disabled = true;
+        btn.textContent = 'Odesílám…';
+      }
+      const restoreBtn = () => {
+        if (btn) {
+          btn.disabled = false;
+          btn.textContent = btnText;
+        }
+      };
       try {
+        const fd = new FormData(f);
+        const token = await requestFormToken();
+        if (token) {
+          // Server token neuzná dřív než po 5 s - to je past na roboty.
+          // Člověk, který stihne odeslat dřív (třeba přes automatické
+          // vyplnění), by jinak dostal odmítnutí, tak si ten zbytek počkáme
+          // za něj. Robot se sem nedostane, ten JavaScript nespouští.
+          const wait = 6000 - (Date.now() - formTokenAt);
+          if (wait > 0) await new Promise((r) => setTimeout(r, wait));
+          fd.append('token', token);
+        }
         const res = await fetch(FORM_ENDPOINT, {
           method: 'POST',
           headers: { 'Accept': 'application/json' },
-          body: new FormData(f)
+          body: fd
         });
         if (res.ok) {
           fireLeadEvent('endpoint');
@@ -302,6 +349,9 @@ if (leadForm) {
         }
         throw new Error('endpoint_not_ok');
       } catch (err) {
+        // Sem spadne i poptávka odmítnutá kvůli tokenu. Když se přes ochranu
+        // omylem nedostane skutečný člověk, pořád má cestu ven a neztratí se.
+        restoreBtn();
         fireLeadEvent('mailto_fallback');
         mailtoFallback(f);
         return;
