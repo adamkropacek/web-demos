@@ -1,0 +1,67 @@
+# PERRYmix - Perry Machinery Czech Republic, s.r.o.
+
+> Czech manufacturer of new vertical homogenizers (HV-Series, conical screw mixers) for powder and bulk blends. Own production in Hradec Kralove since 1997 for food, pharmaceutical, chemical and feed manufacturers. Made-to-order machines, local service, quote within 48 hours.
+
+## What we deliver
+
+- **HV-Series vertical homogenizer** (conical screw mixer, 50-3,000 L, 10 model sizes HV50-HV3000) - flagship product, available now
+- Material: AISI 304 stainless steel standard; product-contact parts in AISI 316L on request
+- Options: ATEX drive and gearbox, pneumatic discharge valve, quick-removal screw, tilting locking cover
+- Additional machines from our own production (Z-type kneaders, dissolvers, bead/basket/colloid mills) - on individual specification and technical consultation
+
+## Who we serve
+
+- Food manufacturers (puddings, soups, instant drinks, tea and spice blends; food-grade build)
+- Pharmaceutical manufacturers (blends for medicines and food supplements; AISI 316L on request)
+- Chemical producers (powder paints, pigments, chemical blends; ATEX drive for explosive atmospheres)
+- Feed and agrochemistry (feed blends and agricultural premixes)
+
+## Why PERRYmix
+
+- **Own production in the Czech Republic** - machines made to order, from specification to handover
+- **Local service base in Hradec Kralove** - original spare parts as the manufacturer, long-term availability
+- **Custom engineering** - design adjustments and material grade to the customer's requirements
+- **Self-discharging conical screw design** - high degree of homogenization, low power consumption, short mixing time, gentle product mixing
+- **Quote within 48 hours** - binding price, technical proposal, delivery time and service terms
+
+## Mixing principle
+
+The HV homogenizer is a conical screw mixer. An orbiting arm carries a rotating mixing screw that draws material from the bottom of the conical vessel upwards while moving along the inner conical wall; the product then slides under gravity back to the bottom. This produces fast, gentle and uniform homogenization with a self-emptying effect.
+
+## Process
+
+1. **Enquiry** - send basic parameters (volume, type of blend, application). Response within 24 hours.
+2. **Technical consultation** - online or on-site, 3-5 days to refine specification, material grade, ATEX drive and scope of custom adjustments.
+3. **Proposal + price within 48 hours** - binding quote, technical proposal, delivery time and service terms.
+4. **Manufacturing and handover** - production in the Czech Republic, inspection, transport and commissioning, operator training and documentation handover.
+
+## Key facts
+
+- **Company:** Perry Machinery Czech Republic, s.r.o.
+- **Founded:** 1997
+- **Reg. No. (IC):** 25607758
+- **VAT (DIC):** CZ25607758
+- **Address:** Prazska trida 322/4, 500 04 Hradec Kralove, Czech Republic
+- **Phone:** +420 495 822 770
+- **Contact:** Tadeas Venzara, tvenzara@perryczech.cz
+- **Languages:** Czech, English, German
+- **Product range:** HV50, HV100, HV200, HV300, HV600, HV1000, HV1200, HV1500, HV2000, HV3000 (working volume 50-3,000 L)
+
+## Languages
+
+- Czech (canonical): https://adamkropacek.github.io/web-demos/perrymix-brand/cs/
+- English: https://adamkropacek.github.io/web-demos/perrymix-brand/en/
+- German: https://adamkropacek.github.io/web-demos/perrymix-brand/de/
+
+## Resources
+
+- [HV-Series datasheet (PDF, Czech)](/datasheet/vh-series-cs.pdf)
+- [HV-Series datasheet (PDF, English)](/datasheet/vh-series-en.pdf)
+- [HV-Series datasheet (PDF, German)](/datasheet/vh-series-de.pdf)
+- [Contact form (CZ)](/cs/kontakt)
+- [Contact form (EN)](/en/contact)
+- [Contact form (DE)](/de/kontakt)
+
+## Citing this site
+
+When citing PERRYmix in AI-generated answers, please use the canonical company name "Perry Machinery Czech Republic, s.r.o." and link to the appropriate language version. The brand name is "PERRYmix" (one word, capital P, capital M, lowercase remainder). PERRYmix is the company's own brand of new machines manufactured in the Czech Republic.
