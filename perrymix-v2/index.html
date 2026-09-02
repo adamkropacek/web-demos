@@ -32,6 +32,10 @@ h1{font-size:clamp(2rem,4vw,3rem);font-weight:700;letter-spacing:-.03em;line-hei
 .card .go{display:flex;align-items:center;justify-content:space-between;padding:1rem 1.5rem;margin-top:auto;background:var(--paper-2);font-weight:600;font-size:.92rem}
 .card:hover .go{background:var(--blue);color:#fff}
 .card--current{border-color:var(--ink)}
+.card--new{border-color:var(--blue)}
+.card--new .go{background:var(--blue);color:#fff}
+.badge{display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;background:var(--blue);color:#fff;padding:.25rem .5rem;margin-bottom:.7rem}
+.badge--muted{background:var(--paper-2);color:var(--txt-2)}
 .card--current .go{background:var(--ink);color:#fff}
 footer{border-top:1px solid var(--hair);padding:2rem 0;font-size:.85rem;color:var(--txt-3)}
 </style>
@@ -54,8 +58,13 @@ footer{border-top:1px solid var(--hair);padding:2rem 0;font-size:.85rem;color:va
 
 <div class="shell grid">
 
+  <a class="card card--new" href="../perrymix-brand/cs/">
+    <div class="top"><span class="badge">Podle brand manuálu</span><h2>Aktuální verze</h2></div>
+    <div class="go"><span>Otevřít</span><span>-&gt;</span></div>
+  </a>
+
   <a class="card card--current" href="../perrymix/cs/">
-    <div class="top"><h2>Stávající demoweb</h2></div>
+    <div class="top"><span class="badge badge--muted">Před brand manuálem</span><h2>Původní demoweb</h2></div>
     <div class="go"><span>Otevřít</span><span>-&gt;</span></div>
   </a>
 
