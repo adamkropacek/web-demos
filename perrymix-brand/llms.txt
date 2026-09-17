@@ -55,12 +55,12 @@ The HV homogenizer is a conical screw mixer. An orbiting arm carries a rotating 
 
 ## Resources
 
-- [HV-Series datasheet (PDF, Czech)](/datasheet/vh-series-cs.pdf)
-- [HV-Series datasheet (PDF, English)](/datasheet/vh-series-en.pdf)
-- [HV-Series datasheet (PDF, German)](/datasheet/vh-series-de.pdf)
-- [Contact form (CZ)](/cs/kontakt)
-- [Contact form (EN)](/en/contact)
-- [Contact form (DE)](/de/kontakt)
+- [HV-Series datasheet (PDF, Czech)](https://adamkropacek.github.io/web-demos/perrymix-brand/datasheet/hv-series-cs.pdf)
+- [HV-Series datasheet (PDF, English)](https://adamkropacek.github.io/web-demos/perrymix-brand/datasheet/hv-series-en.pdf)
+- [HV-Series datasheet (PDF, German)](https://adamkropacek.github.io/web-demos/perrymix-brand/datasheet/hv-series-de.pdf)
+- [Contact form (CZ)](https://adamkropacek.github.io/web-demos/perrymix-brand/cs/kontakt)
+- [Contact form (EN)](https://adamkropacek.github.io/web-demos/perrymix-brand/en/contact)
+- [Contact form (DE)](https://adamkropacek.github.io/web-demos/perrymix-brand/de/kontakt)
 
 ## Citing this site
 
