@@ -4,7 +4,7 @@
   addEventListener('scroll',onScroll,{passive:true});onScroll();
   var burger=document.getElementById('burger'),mnav=document.getElementById('mnav');
   if(burger){burger.addEventListener('click',function(){var o=!mnav.classList.contains('open');burger.classList.toggle('open',o);mnav.classList.toggle('open',o);document.body.classList.toggle('menu-open',o);burger.setAttribute('aria-expanded',o)});
-    mnav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){burger.classList.remove('open');mnav.classList.remove('open');document.body.classList.remove('menu-open')})})}
+    mnav.querySelectorAll('a:not([data-demo-lang])').forEach(function(a){a.addEventListener('click',function(){burger.classList.remove('open');mnav.classList.remove('open');document.body.classList.remove('menu-open')})})}
   if(!('IntersectionObserver' in window)){document.querySelectorAll('.rv').forEach(function(e){e.classList.add('in')})}
   var io=('IntersectionObserver' in window)&&new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px',threshold:.08});
   if(io)document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
@@ -25,5 +25,10 @@
   var ph=document.querySelector('.phero .hero-media img');
   if(ph&&('translate' in ph.style)&&!matchMedia('(prefers-reduced-motion:reduce)').matches){addEventListener('scroll',function(){var y=scrollY;if(y<innerHeight)ph.style.translate='0 '+(y*.25)+'px'},{passive:true})}
   document.querySelectorAll('.map-btn').forEach(function(b){b.addEventListener('click',function(){var f=document.createElement('iframe');f.className='map';f.src=b.dataset.src;f.title='Map: Royal Aesthetics Clinic, Tbilisi';f.setAttribute('allowfullscreen','');f.referrerPolicy='no-referrer-when-downgrade';b.parentNode.replaceChild(f,b)})});
+  var LN={ka:'Georgian (ქართული)',ar:'Arabic (العربية)',he:'Hebrew (עברית)'},toast,tt;
+  document.querySelectorAll('[data-demo-lang]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();
+    if(!toast){toast=document.createElement('div');toast.className='demo-toast';toast.setAttribute('role','status');toast.setAttribute('aria-live','polite');toast.innerHTML='<b></b><span></span><button type="button" aria-label="Close">&times;</button>';document.body.appendChild(toast);toast.querySelector('button').addEventListener('click',function(){toast.classList.remove('show')})}
+    toast.querySelector('b').textContent=LN[a.dataset.demoLang]+' is not available yet';toast.querySelector('span').textContent='This demo version does not include translations. It is available in English only.';
+    toast.classList.add('show');clearTimeout(tt);tt=setTimeout(function(){toast.classList.remove('show')},5000)})});
   var y=document.getElementById('yr');if(y)y.textContent=new Date().getFullYear();
 })();

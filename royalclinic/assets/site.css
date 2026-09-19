@@ -190,3 +190,7 @@ body.light.menu-open .top{color:#fff}body.light.menu-open .top .logo .lk-dark{di
 .mnav .langs a{border-bottom:0;animation:none}
 
 @media(max-width:1080px){.top-cta .langs{display:none}}
+.demo-toast{position:fixed;left:50%;top:92px;z-index:90;width:min(440px,calc(100% - 32px));transform:translate(-50%,-12px);opacity:0;pointer-events:none;background:var(--esp);color:var(--ivory);border:1px solid rgba(201,162,74,.55);border-radius:6px;padding:16px 44px 16px 18px;box-shadow:0 18px 40px rgba(20,17,13,.35);font:400 15px/1.5 var(--sans);transition:opacity .3s,transform .3s var(--ease)}
+.demo-toast.show{opacity:1;transform:translate(-50%,0);pointer-events:auto}.demo-toast b{display:block;color:var(--gold2);font-weight:500;margin-bottom:2px}
+.demo-toast button{position:absolute;top:8px;right:8px;width:30px;height:30px;border:0;background:none;color:var(--ivory);font-size:22px;line-height:1;cursor:pointer;opacity:.7}.demo-toast button:hover{opacity:1}
+@media(prefers-reduced-motion:reduce){.demo-toast{transition:none}}
