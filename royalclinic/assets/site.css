@@ -182,3 +182,9 @@ body.menu-open{overflow:hidden}body.menu-open .top{color:#fff;background:transpa
 .phero.light h1{position:relative;padding-bottom:22px}.phero.light h1::after{content:"";position:absolute;left:0;bottom:0;width:72px;height:1px;background:var(--gold)}
 body.light .top{color:var(--ink)}body.light .top .logo .lk-light{display:none}body.light .top .logo .lk-dark{display:block}
 body.light.menu-open .top{color:#fff}body.light.menu-open .top .logo .lk-dark{display:none}body.light.menu-open .top .logo .lk-light{display:block}
+
+/* language flags */
+.langs{display:flex;align-items:center;gap:8px}.langs a{display:block;line-height:0;border-radius:3px;padding:2px;opacity:.72;transition:opacity .25s,box-shadow .25s}.langs a img{width:22px;height:16px;object-fit:cover;border-radius:2px;display:block}
+.langs a:hover,.langs a.on{opacity:1}.langs a.on{box-shadow:0 0 0 1.5px var(--gold)}
+.langs.m{margin-top:22px;gap:14px}.langs.m a{padding:4px}.langs.m a img{width:30px;height:22px}
+.mnav .langs a{border-bottom:0;animation:none}
