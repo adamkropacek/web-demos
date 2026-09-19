@@ -188,3 +188,5 @@ body.light.menu-open .top{color:#fff}body.light.menu-open .top .logo .lk-dark{di
 .langs a:hover,.langs a.on{opacity:1}.langs a.on{box-shadow:0 0 0 1.5px var(--gold)}
 .langs.m{margin-top:22px;gap:14px}.langs.m a{padding:4px}.langs.m a img{width:30px;height:22px}
 .mnav .langs a{border-bottom:0;animation:none}
+
+@media(max-width:1080px){.top-cta .langs{display:none}}
