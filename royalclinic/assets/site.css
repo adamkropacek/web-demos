@@ -175,3 +175,10 @@ body.menu-open{overflow:hidden}body.menu-open .top{color:#fff;background:transpa
 @media(max-width:380px){h1{font-size:clamp(36px,12vw,44px)}.hero .wrap{padding-top:104px}.top .wrap{gap:10px}.top .logo img{height:34px}.lang select{font-size:13px;padding-right:16px}.btn{padding:14px 18px;font-size:14px}.rating{min-width:0;width:100%}.stats{grid-template-columns:1fr;gap:14px}.stats b{font-size:32px}.marquee-in{font-size:17px}.stick .btn{padding:14px 8px;font-size:14px}.card .in{padding:20px}.rev{flex-basis:86vw}}
 @media(min-width:1800px){:root{--max:1440px}body{font-size:18px}.hero .wrap{padding-bottom:120px}}
 @media(hover:none){.card img{transform:none!important}.card .in{transform:none}}
+
+/* light text hero (no photo) */
+.phero.light{min-height:0;color:var(--ink);background:var(--cream);overflow:visible}.phero.light::after{display:none}
+.phero.light .wrap{padding-top:clamp(140px,16vw,190px);padding-bottom:clamp(36px,4vw,56px)}.phero.light .crumb{color:var(--mute)}.phero.light .crumb a{border-bottom-color:rgba(20,17,13,.3)}.phero.light .lead{color:var(--text)}
+.phero.light h1{position:relative;padding-bottom:22px}.phero.light h1::after{content:"";position:absolute;left:0;bottom:0;width:72px;height:1px;background:var(--gold)}
+body.light .top{color:var(--ink)}body.light .top .logo .lk-light{display:none}body.light .top .logo .lk-dark{display:block}
+body.light.menu-open .top{color:#fff}body.light.menu-open .top .logo .lk-dark{display:none}body.light.menu-open .top .logo .lk-light{display:block}
